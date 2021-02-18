@@ -1,7 +1,4 @@
 
-
-
-
 foo('Configurations', function (Restangular, MotorRestangular, $q) {
     var getConfigurations = function () {
         var origPromise = Promise.resolve(1);

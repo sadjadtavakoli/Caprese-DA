@@ -3,6 +3,7 @@
 
 (function (sandbox) {
     function Analyser() {
+        let functionsIDs = new Map();
 
         // class Graph {
         //     constructor() {
@@ -22,42 +23,26 @@
         // }
 
         this.invokeFunPre = function (iid, f, base, args, isConstructor, isMethod) {
-            console.log("function invoke")
-            console.log(J$.iidToLocation(iid))
-            console.log(iid)
-            console.log("--")
+            console.log("function invoke => " + f.name +" with id " + iid +  " at => " + J$.iidToLocation(iid))
 
         };
 
         this.invokeFun = function (iid, f, base, args, result, isConstructor, isMethod) {
-            console.log("function BBnvoke")
-            console.log(J$.iidToLocation(iid))
-            console.log(iid)
-            console.log("--")
+            console.log("function Revoke => " + f.name +" with id " + iid +  " at => " + J$.iidToLocation(iid))
         };
 
         this.functionEnter = function (iid, func, receiver, args) {
-            console.log("function enter")
-            // console.log(J$.iidToLocation(iid).split(':'))
-            console.log(J$.iidToLocation(iid))
-            console.log(iid)
-            // console.log(func.name)
-            // if(func.caller != undefined){
-            //     console.log(func.caller.name)
-            // console.log(J$.iidToLocation(func.caller))
-            // }
-            console.log("--")
+            console.log("function Enter => " + func.name +" with id " + iid +  " at => " + J$.iidToLocation(iid))
+            functionsIDs.set(iid, func.name)
         };
 
 
         this.functionExit = function (iid, returnVal, wrappedExceptionVal) {
-            console.log("functionExit")
-            console.log(J$.iidToLocation(iid))
-            console.log(iid)
-            console.log("--")
+            console.log("function Exit => " + functionsIDs.get(iid) + " with id " + iid +  " at => " + J$.iidToLocation(iid))
         }
 
         this.endExecution = function () {
+            console.log("----------------------------------------------")
         };
     }
 
