@@ -34,3 +34,4 @@ function sixthOne(input6){
 
 firstOne(106016, 1020315)
 
+exports.firstOne = firstOne

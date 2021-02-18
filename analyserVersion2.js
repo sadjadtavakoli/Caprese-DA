@@ -7,12 +7,14 @@
 
         this.invokeFunPre = function (iid, f, base, args, isConstructor, isMethod, functionIid, functionSid) {
             console.log("function invoke => " + f.name +" in " + base +  " at => " + J$.iidToLocation(iid))
+            console.log(iid)
             console.log("function invoke variables => ", args)
             return {f: f, base: base, args: args, skip: false};
         };
         this.invokeFun = function (iid, f, base, args, result, isConstructor, isMethod, functionIid, functionSid) {
             console.log("function revoke => " + f.name +" in " + base +  " at => " + J$.iidToLocation(iid))
             console.log("function revoke variables => ", args)
+            console.log(iid)
             return {result: result};
         };
 
@@ -27,12 +29,14 @@
         this.getFieldPre = function (iid, base, offset, isComputed, isOpAssign, isMethodCall) {
             console.log("getFieldPre => " + iid +" with base " + base +  " at => " + J$.iidToLocation(iid))
             console.log(offset)
+            console.log(isMethodCall)
             return {base: base, offset: offset, skip: false};
         };
         this.getField = function (iid, base, offset, val, isComputed, isOpAssign, isMethodCall) {
             console.log("getField => " + iid +" with base " + base +  " at => " + J$.iidToLocation(iid))
             console.log(offset)
             console.log(val)
+            console.log(isMethodCall)
             return {result: val};
         };
 
