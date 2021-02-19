@@ -23,12 +23,12 @@
         // }
 
         this.invokeFunPre = function (iid, f, base, args, isConstructor, isMethod) {
-            console.log("function invoke => " + f.name +" with id " + iid +  " at => " + J$.iidToLocation(iid))
+            console.log("function pre invoke => " + f.name +" with id " + iid +  " at => " + J$.iidToLocation(iid))
 
         };
 
         this.invokeFun = function (iid, f, base, args, result, isConstructor, isMethod) {
-            console.log("function Revoke => " + f.name +" with id " + iid +  " at => " + J$.iidToLocation(iid))
+            console.log("function invoke => " + f.name +" with id " + iid +  " at => " + J$.iidToLocation(iid))
         };
 
         this.functionEnter = function (iid, func, receiver, args) {

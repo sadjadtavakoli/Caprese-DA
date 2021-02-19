@@ -6,14 +6,15 @@
         let functionsIDs = new Map();
 
         this.invokeFunPre = function (iid, f, base, args, isConstructor, isMethod, functionIid, functionSid) {
-            console.log("function invoke => " + f.name +" in " + base +  " at => " + J$.iidToLocation(iid))
+            console.log("function pre invoke => " + f.name +" in " + base +  " at => " + J$.iidToLocation(iid))
             console.log(iid)
-            console.log("function invoke variables => ", args)
+            // console.log(base)
+            console.log("function pre invoke variables => ", args)
             return {f: f, base: base, args: args, skip: false};
         };
         this.invokeFun = function (iid, f, base, args, result, isConstructor, isMethod, functionIid, functionSid) {
-            console.log("function revoke => " + f.name +" in " + base +  " at => " + J$.iidToLocation(iid))
-            console.log("function revoke variables => ", args)
+            console.log("function invoke => " + f.name +" in " + base +  " at => " + J$.iidToLocation(iid))
+            console.log("function invoke variables => ", args)
             console.log(iid)
             return {result: result};
         };
@@ -29,14 +30,12 @@
         this.getFieldPre = function (iid, base, offset, isComputed, isOpAssign, isMethodCall) {
             console.log("getFieldPre => " + iid +" with base " + base +  " at => " + J$.iidToLocation(iid))
             console.log(offset)
-            console.log(isMethodCall)
             return {base: base, offset: offset, skip: false};
         };
         this.getField = function (iid, base, offset, val, isComputed, isOpAssign, isMethodCall) {
             console.log("getField => " + iid +" with base " + base +  " at => " + J$.iidToLocation(iid))
             console.log(offset)
             console.log(val)
-            console.log(isMethodCall)
             return {result: val};
         };
 
@@ -53,18 +52,18 @@
             return {result: val};
         };
 
-        // this.read = function (iid, name, val, isGlobal, isScriptLocal) {
-        //     if(name!=="console"){
-        //     console.log("read => " + iid +" with base " + name +  " at => " + J$.iidToLocation(iid))
-        //     console.log(val)
-        //     return {result: val};
-        //     }
-        // };
-        // this.write = function (iid, name, val, lhs, isGlobal, isScriptLocal) {
-        //     console.log("write => " + iid +" with base " + name +  " at => " + J$.iidToLocation(iid))
-        //     console.log(val)
-        //     return {result: val};
-        // };
+        this.read = function (iid, name, val, isGlobal, isScriptLocal) {
+            if(name!=="console"){
+            console.log("read => " + iid +" with base " + name +  " at => " + J$.iidToLocation(iid))
+            console.log("******* " + val)
+            return {result: val};
+            }
+        };
+        this.write = function (iid, name, val, lhs, isGlobal, isScriptLocal) {
+            console.log("write => " + iid +" with base " + name +  " at => " + J$.iidToLocation(iid))
+            console.log("******* " + val)
+            return {result: val};
+        };
 
         this.functionEnter = function (iid, f, dis, args) {
             console.log("function Enter => " + f.name +" with id " + iid +  " at => " + J$.iidToLocation(iid))
@@ -76,37 +75,43 @@
         };
 
         // this.builtinEnter = function (name, f, dis, args) {
-        //         console.log("builtinEnter Enter => " + name +" with name " + f.name)
-        //
+        //     console.log("builtinEnter Enter => " + name +" with name " + f.name)
         // };
         // this.builtinExit = function (name, f, dis, args, returnVal, exceptionVal) {
-        //     console.log("builtinExit Exit => " + name +" with name " + f.name)
+        //     // console.log("builtinExit Exit => " + name +" with name " + f.name)
         //     return {returnVal: returnVal};
         // };
 
-        this.binaryPre = function (iid, op, left, right) {
-            return {op: op, left: left, right: right, skip: false};
-        };
-        this.binary = function (iid, op, left, right, result) {
-            return {result: result};
-        };
-
-        this.unaryPre = function (iid, op, left) {
-            return {op: op, left: left, skip: false};
-        };
-        this.unary = function (iid, op, left, result) {
-            return {result: result};
-        };
+        // this.binaryPre = function (iid, op, left, right) {
+        //     console.log("binaryPre")
+        //     return {op: op, left: left, right: right, skip: false};
+        // };
+        // this.binary = function (iid, op, left, right, result) {
+        //     console.log("binary")
+        //     return {result: result};
+        // };
+        //
+        // this.unaryPre = function (iid, op, left) {
+        //     console.log("unaryPre")
+        //     return {op: op, left: left, skip: false};
+        // };
+        // this.unary = function (iid, op, left, result) {
+        //     console.log("unary")
+        //     return {result: result};
+        // };
 
         this.conditional = function (iid, result) {
+            console.log("conditional")
             return {result: result};
         };
 
-        this.startExpression = function (iid, type) {
-        };
-
-        this.endExpression = function (iid, type, result) {
-        };
+        // this.startExpression = function (iid, type) {
+        //     console.log("startExpression " + type)
+        // };
+        //
+        // this.endExpression = function (iid, type, result) {
+        //     console.log("endExpression " +  type)
+        // };
 
         this.endExecution = function () {
             console.log("end Execution")

@@ -18,7 +18,6 @@ fs.readdir('./inputs', function (err, files) {
                     })
                 }
             })
-            // return
             console.log('----------------------------------------')
         })
     }

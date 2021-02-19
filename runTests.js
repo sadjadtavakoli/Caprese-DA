@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const exec = require('child_process').exec
 
 const directoryPath = path.join(__dirname, 'inputs');
 
@@ -11,14 +12,10 @@ fs.readdir(directoryPath, function (err, files) {
 
     files.forEach(function (file) {
         execute('$GRAAL_HOME/bin/node --jvm --experimental-options --vm.Dtruffle.class.path.append=$NODEPROF_HOME/nodeprof.jar --nodeprof $NODEPROF_HOME/jalangi.js --analysis analyser.js inputs/' + file);
-        console.log("here")
-        // child();
     });
 });
 
 function execute(command) {
-  const exec = require('child_process').exec
-
   exec(command, (err, stdout, stderr) => {
     process.stdout.write(stdout)
   })
