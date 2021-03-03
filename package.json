@@ -1,0 +1,29 @@
+{
+  "name": "berke",
+  "version": "1.0.0",
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.0.",
+  "main": "analyser.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "install": "^0.13.0"
+  },
+  "devDependencies": {
+    "mocha": "^8.3.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sadjad-tavakoli/Berke.git"
+  },
+  "author": "sadjad-tavakoli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sadjad-tavakoli/Berke/issues"
+  },
+  "homepage": "https://github.com/sadjad-tavakoli/Berke#readme",
+  "keywords": []
+}
