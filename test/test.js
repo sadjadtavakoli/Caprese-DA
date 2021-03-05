@@ -18,19 +18,24 @@ var assert = require('assert');
 
 describe('Test simpleTrace.js', () => runTest('simpleTrace.js'))
 
+const nodeprofCommand = '$GRAAL_HOME/bin/node --jvm --experimental-options --vm.Dtruffle.class.path.append=$NODEPROF_HOME/nodeprof.jar --nodeprof $NODEPROF_HOME/jalangi.js --analysis analyser.js test/inputs/'
+
 function runTest(item) {
-  const nodeprofCommand = '$GRAAL_HOME/bin/node --jvm --experimental-options --vm.Dtruffle.class.path.append=$NODEPROF_HOME/nodeprof.jar --nodeprof $NODEPROF_HOME/jalangi.js --analysis analyser.js inputs/'
   it('Run nodeprof', function (done) {
-    execute(nodeprofCommand + item)
-    done();
+    this.timeout(10000);
+    execute(nodeprofCommand + item, done)
   });
   it('Compare resutl', function (done) {
-    compairResult(item)
+    let diffs = compairResult(item);
+    if(diffs.length > 0){
+      assert.fail(JSON.stringify(diffs,null,'\t'));
+    }
     done();
   });
 }
-function execute(command) {
+function execute(command, done) {
   exec(command, (err, stdout, stderr) => {
+    done();
     process.stdout.write(stdout)
   })
 }
@@ -45,13 +50,18 @@ function compairResult(fileName) {
     min_content = analyzerOutput
     max_content = 'analyzer result'
   }
-
+  let diffs = []
   for (let i in min_content) {
-    assert.deepStrictEqual(expectedOutput[i], analyzerOutput[i], 'a difference in line ' + i)
-    if (analyzerOutput.length !== expectedOutput.length) {
-      assert.fail(max_content + ' has some extra lines!')
-
+    if(expectedOutput[i] !== analyzerOutput[i]){
+      diffs.push({
+        'line_number' : i,
+        'expected' : expectedOutput[i],
+        'actual' : analyzerOutput[i]
+      })
     }
-
   }
+  if (analyzerOutput.length !== expectedOutput.length) {
+    diffs.push(max_content + ' has some extra lines!')
+  }
+return diffs
 }

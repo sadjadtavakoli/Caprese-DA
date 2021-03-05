@@ -1,63 +1,29 @@
 let fs = require('fs')
 
 fs.readdir('./inputs', function (err, files) {
-    if (!returnTrue()) {
+    if (err) {
         console.log('Error finding files: ' + err)
     } else {
         let filename = "simpleTrace.js"
-        console.log(filename)
         fs.readFile('./inputs/' + filename, 'utf8', (err, data) => {
             if (err) {
                 console.error(err)
                 return
             } else {
-                console.log(filename)
-                let items = [1, 2, 3, 4, 5, 56]
+                let items = [1]
                 items.forEach(function (item) {
-                    console.log(item)
+                    // Do nothing
                 })
             }
-        })
-        // return
-        console.log('----------------------------------------')
+        });
 
-        filename = "simpleCallback.js"
-        console.log(filename)
+        filename = "simpleCallback.js";
         fs.readFile('./inputs/' + filename, 'utf8', (err, data) => {
             if (err) {
-                console.error(err)
-                return
+                throw error
             } else {
-                console.log(filename)
-                let items = [1, 2, 3, 4, 5, 56]
-                items.forEach(function (item) {
-                    console.log(item)
-                })
+                    // Do nothing
             }
-        })
-        // return
-        console.log('----------------------------------------')
-
-
-        filename = "simpleFileAccess.js"
-        console.log(filename)
-        fs.readFile('./inputs/' + filename, 'utf8', (err, data) => {
-            if (err) {
-                console.error(err)
-                return
-            } else {
-                console.log(filename)
-                let items = [1, 2, 3, 4, 5, 56]
-                items.forEach(function (item) {
-                    console.log(item)
-                })
-            }
-        })
-        // return
-        console.log('----------------------------------------')
+        });
     }
-})
-
-function returnTrue() {
-    return true
-}
+});

@@ -5,20 +5,16 @@ fs.readdir('./inputs', function (err, files) {
         console.log('Error finding files: ' + err)
     } else {
         files.forEach(function (filename, fileIndex) {
-            console.log(filename)
             fs.readFile('./inputs/' + filename, 'utf8', (err, data) => {
                 if (err) {
-                    console.error(err)
-                    return
+                    return;
                 } else {
-                    console.log(filename)
-                    let items = [1, 2, 3, 4, 5, 56]
+                    let items = [1, 2]
                     items.forEach(function (item){
                         console.log(item)
                     })
                 }
             })
-            console.log('----------------------------------------')
         })
     }
 })
