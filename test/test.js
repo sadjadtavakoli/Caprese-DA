@@ -16,7 +16,8 @@ var assert = require('assert');
 //   });
 // }
 
-describe('Test simpleTrace.js', () => runTest('simpleTrace.js'))
+// describe('Test simpleTrace.js', () => runTest('simpleTrace.js'))
+describe('Test callbackChainDifferentCalls.js', () => runTest('callbackChainDifferentCalls.js'))
 
 const nodeprofCommand = '$GRAAL_HOME/bin/node --jvm --experimental-options --vm.Dtruffle.class.path.append=$NODEPROF_HOME/nodeprof.jar --nodeprof $NODEPROF_HOME/jalangi.js --analysis analyser.js test/inputs/'
 
