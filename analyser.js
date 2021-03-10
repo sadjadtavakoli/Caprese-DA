@@ -8,8 +8,8 @@ let testName = "";
 let functionsIDs = new Map();
 let functionEnterStack = [];
 // var regExp = /\(([^)]*)\)/;
-var timeoutsList = new Map();
-var functionsCallStack = [];
+var timeoutsQueueMap = new Map();
+// var functionsCallStack = [];
 
 (function (sandbox) {
     function Analyser() {
@@ -19,10 +19,10 @@ var functionsCallStack = [];
                 fName = 'unknown' + getLine(iid)
             }
             if (isTimeOut(f)) {
-                timeoutsList.set(args[0], getLine(iid)) // line number, args, caller
-
+                addToTimeoutMap(args[0] + args[1], getLine(iid)) // line number, args, caller
+                fName+=getLine(iid)
             }
-            functionsCallStack.push(f)
+            // functionsCallStack.push(f)
 
             log(getLine(iid) + " function " + fName + " is called with variables " + 'args' + " by " + functionEnterStack[functionEnterStack.length - 1].name)
             // log( Object.getOwnPropertyNames(f)
@@ -68,21 +68,27 @@ var functionsCallStack = [];
         this.functionEnter = function (iid, f, dis, args) {
             let fName = f.name;
             if (isMainFile(iid)) {
-                testName = fName = J$.iidToLocation(iid).split(':')[0].split('/')[2]
+                testName = fName = getTestName(iid)
             } else {
-                if (functionsCallStack[functionsCallStack.length - 1] != f) {
-                    functionEnterStack.push({'name': 'setTimeOut' + timeoutsList.get(f), 'isTimeout': true})
-                    timeoutsList.delete(f)
-                } else {
-                    functionsCallStack.pop()
-                }
+                if (dis._idleTimeout !== undefined) {
+                    // log('****')
+                    // log(JSON.stringify(dis))
+                    // log(dis._idleTimeout)
+                    // log(String(dis))
+                    // log('****')
+                    functionEnterStack.push({ 'name': 'setTimeOut' + popFromTimeoutMap(f + dis._idleTimeout), 'isTimeout': true })
+                } 
+                // else {
+                    // log(dis._idleTimeout)
+                    // functionsCallStack.pop()
+                // }
 
                 if (fName == "") {
                     fName = 'unknown' + getLine(iid)
                 }
-                log(getLine(iid) + " function " + fName + " entered with variables " + 'args from ' + functionEnterStack[functionEnterStack.length -1].name)
+                log(getLine(iid) + " function " + fName + " entered with variables " + 'args from ' + functionEnterStack[functionEnterStack.length - 1].name)
             }
-            functionEnterStack.push({'name': fName, 'isTimeout': false})
+            functionEnterStack.push({ 'name': fName, 'isTimeout': false })
             functionsIDs.set(iid, fName)
 
         };
@@ -93,7 +99,7 @@ var functionsCallStack = [];
                 let caller = 'NaN'
                 if (functionEnterStack.length > 0) {
                     caller = functionEnterStack[functionEnterStack.length - 1]
-                    if(caller.isTimeOut){
+                    if (caller.isTimeOut) {
                         functionEnterStack.pop()
                     }
                 }
@@ -157,6 +163,10 @@ var functionsCallStack = [];
 
     }
 
+    function getTestName(iid) {
+        return J$.iidToLocation(iid).split(':')[0].split('/')[2];
+    }
+
     function getLine(iid) {
         return J$.iidToLocation(iid).split(':')[1]
     }
@@ -172,5 +182,21 @@ var functionsCallStack = [];
     function isTimeOut(func) {
         return func.name == 'setTimeout'
     }
+
+    function addToTimeoutMap(key, value) {
+
+        if (timeoutsQueueMap.has(key)) {
+            timeoutsQueueMap.get(key).push(value) // line number, args, caller
+        } else {
+            timeoutsQueueMap.set(key, [value]) // line number, args, caller
+        }
+    }
+    
+    function popFromTimeoutMap(key) {
+        if (timeoutsQueueMap.has(key)) {
+            return timeoutsQueueMap.get(key).shift() // line number, args, caller
+        }
+    }
+
     sandbox.analysis = new Analyser();
 })(J$);

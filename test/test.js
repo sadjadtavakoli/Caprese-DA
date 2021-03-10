@@ -3,7 +3,7 @@ const fs = require('fs');
 const exec = require('child_process').exec;
 var assert = require('assert');
 
-// const directoryPath = path.join(__dirname, 'inputs');
+// const directoryPath = path.join(__dirname, 'unit_tests');
 // var myArgs = process.argv.slice(2)
 
 // let files = []
@@ -18,17 +18,20 @@ var assert = require('assert');
 
 // describe('Test simpleTrace.js', () => runTest('simpleTrace.js'))
 // describe('Test callbackChainDifferentCalls.js', () => runTest('callbackChainDifferentCalls.js'))
-describe('Test callbackKnownFunction.js', () => runTest('callbackKnownFunction.js'))
-describe('Test timeoutKnownFunction.js', () => runTest('timeoutKnownFunction.js'))
-describe('Test faketimeoutKnownFunction.js', () => runTest('faketimeoutKnownFunction.js'))
+// describe('Test callbackKnownFunction.js', () => runTest('callbackKnownFunction.js'))
+// describe('Test timeoutKnownFunction.js', () => runTest('timeoutKnownFunction.js'))
+// describe('Test faketimeoutKnownFunction.js', () => runTest('faketimeoutKnownFunction.js'))
+// describe('Test callChain.js', () => runTest('callChain.js'))
+// describe('Test multipleTimeouts.js', () => runTest('multipleTimeouts.js'))
+describe('Test multipleNestedTimeouts.js', () => runTest('multipleNestedTimeouts.js'))
 
-const nodeprofCommand = '$GRAAL_HOME/bin/node --jvm --experimental-options --vm.Dtruffle.class.path.append=$NODEPROF_HOME/nodeprof.jar --nodeprof $NODEPROF_HOME/jalangi.js --analysis analyser.js test/inputs/'
+const nodeprofCommand = '$GRAAL_HOME/bin/node --jvm --experimental-options --vm.Dtruffle.class.path.append=$NODEPROF_HOME/nodeprof.jar --nodeprof $NODEPROF_HOME/jalangi.js --analysis analyser.js test/unit_tests/'
 
 function runTest(item) {
   it('Run nodeprof', function (done) {
     this.timeout(10000);
-    execute(nodeprofCommand + item)
-    done()
+    execute(nodeprofCommand + item, done)
+    // done()
   });
   it('Compare resutl', function (done) {
     let diffs = compairResult(item);
@@ -38,9 +41,10 @@ function runTest(item) {
     done();
   });
 }
-function execute(command) {
+function execute(command, done) {
   exec(command, (err, stdout, stderr) => {
     process.stdout.write(stdout)
+    done()
   })
 }
 
