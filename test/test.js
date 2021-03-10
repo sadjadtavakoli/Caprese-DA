@@ -17,14 +17,18 @@ var assert = require('assert');
 // }
 
 // describe('Test simpleTrace.js', () => runTest('simpleTrace.js'))
-describe('Test callbackChainDifferentCalls.js', () => runTest('callbackChainDifferentCalls.js'))
+// describe('Test callbackChainDifferentCalls.js', () => runTest('callbackChainDifferentCalls.js'))
+describe('Test callbackKnownFunction.js', () => runTest('callbackKnownFunction.js'))
+describe('Test timeoutKnownFunction.js', () => runTest('timeoutKnownFunction.js'))
+describe('Test faketimeoutKnownFunction.js', () => runTest('faketimeoutKnownFunction.js'))
 
 const nodeprofCommand = '$GRAAL_HOME/bin/node --jvm --experimental-options --vm.Dtruffle.class.path.append=$NODEPROF_HOME/nodeprof.jar --nodeprof $NODEPROF_HOME/jalangi.js --analysis analyser.js test/inputs/'
 
 function runTest(item) {
   it('Run nodeprof', function (done) {
     this.timeout(10000);
-    execute(nodeprofCommand + item, done)
+    execute(nodeprofCommand + item)
+    done()
   });
   it('Compare resutl', function (done) {
     let diffs = compairResult(item);
@@ -34,9 +38,8 @@ function runTest(item) {
     done();
   });
 }
-function execute(command, done) {
+function execute(command) {
   exec(command, (err, stdout, stderr) => {
-    done();
     process.stdout.write(stdout)
   })
 }

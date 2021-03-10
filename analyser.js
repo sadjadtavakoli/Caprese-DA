@@ -6,10 +6,10 @@ const fs = require('fs');
 let logger = "";
 let testName = "";
 let functionsIDs = new Map();
-let functionCallStack = [];
-let variableReads = new Map();
-let functionsVariables = new Map();
-var regExp = /\(([^)]*)\)/;
+let functionEnterStack = [];
+// var regExp = /\(([^)]*)\)/;
+var timeoutsList = new Map();
+var functionsCallStack = [];
 
 (function (sandbox) {
     function Analyser() {
@@ -18,57 +18,50 @@ var regExp = /\(([^)]*)\)/;
             if (fName == "") {
                 fName = 'unknown' + getLine(iid)
             }
-            logger += "\n#" + getLine(iid) + " function " + fName + " is called with variables " + 'args' + " by " + functionCallStack[functionCallStack.length - 1]
-            // logger += "\n#" + Object.getOwnPropertyNames(f)
+            if (isTimeOut(f)) {
+                timeoutsList.set(args[0], getLine(iid)) // line number, args, caller
+
+            }
+            functionsCallStack.push(f)
+
+            log(getLine(iid) + " function " + fName + " is called with variables " + 'args' + " by " + functionEnterStack[functionEnterStack.length - 1].name)
+            // log( Object.getOwnPropertyNames(f)
             // var regExp = /\(([^)]*)\)/;
             // var matches = regExp.exec(String(f).split('{')[0]);
             // console.log(matches[1].split(','))
             return { f: f, base: base, args: args, skip: false };
         };
 
-        function getLine(iid) {
-            return J$.iidToLocation(iid).split(':')[1]
-        }
-
-        function isMainFile(iid){
-            return (getLine(iid) == 1 && testName == "") || (functionsIDs.has(iid) && testName == functionsIDs.get(iid)) 
-        }
-
         this.invokeFun = function (iid, f, base, args, result, isConstructor, isMethod, functionIid, functionSid) {
-            return {result: result};
+            return { result: result };
         };
 
         this.literal = function (iid, val, /* hasGetterSetter should be computed lazily */ fakeHasGetterSetter, literalType) {
-            return {result: val};
+            return { result: val };
         };
 
         this.literal.types = ["ObjectLiteral", "ArrayLiteral", "FunctionLiteral", "NumericLiteral", "BooleanLiteral", "StringLiteral",
             "NullLiteral", "UndefinedLiteral", "RegExpLiteral"];
 
         this.getFieldPre = function (iid, base, offset, isComputed, isOpAssign, isMethodCall) {
-            return {base: base, offset: offset, skip: false};
+            return { base: base, offset: offset, skip: false };
         };
         this.getField = function (iid, base, offset, val, isComputed, isOpAssign, isMethodCall) {
-            return {result: val};
+            return { result: val };
         };
 
         this.putFieldPre = function (iid, base, offset, val, isComputed, isOpAssign) {
-            return {base: base, offset: offset, val: val, skip: false};
+            return { base: base, offset: offset, val: val, skip: false };
         };
         this.putField = function (iid, base, offset, val, isComputed, isOpAssign) {
-            return {result: val};
+            return { result: val };
         };
 
         this.read = function (iid, name, val, isGlobal, isScriptLocal) {
-            // logger += "\n#" + getLine(iid) + ' variable ' + name + ' read by function ' + functionCallStack[functionCallStack.length - 1].name;
-            // if(variableReads.has(getLine(iid))){
-            //     variableReads.get(getLine(iid)).push(name)
-            // }else{
-            //     variableReads.set(getLine(iid), [name])
-            // }
+            // log( getLine(iid) + ' variable ' + name + ' read by function ' + functionCallStack[functionCallStack.length - 1].name);
         };
         this.write = function (iid, name, val, lhs, isGlobal, isScriptLocal) {
-            // logger += "\n#" + getLine(iid) + ' variable ' + name + ' write ' + 'WHICH VARIABLE?' + ' by function ' + functionCallStack[functionCallStack.length - 1].name;
+            // log( getLine(iid) + ' variable ' + name + ' write ' + 'WHICH VARIABLE?' + ' by function ' + functionCallStack[functionCallStack.length - 1].name);
             return { result: val };
         };
 
@@ -77,73 +70,83 @@ var regExp = /\(([^)]*)\)/;
             if (isMainFile(iid)) {
                 testName = fName = J$.iidToLocation(iid).split(':')[0].split('/')[2]
             } else {
+                if (functionsCallStack[functionsCallStack.length - 1] != f) {
+                    functionEnterStack.push({'name': 'setTimeOut' + timeoutsList.get(f), 'isTimeout': true})
+                    timeoutsList.delete(f)
+                } else {
+                    functionsCallStack.pop()
+                }
+
                 if (fName == "") {
                     fName = 'unknown' + getLine(iid)
                 }
-                logger += "\n#" + getLine(iid) + " function " + fName + " entered with variables " + 'args'
+                log(getLine(iid) + " function " + fName + " entered with variables " + 'args from ' + functionEnterStack[functionEnterStack.length -1].name)
             }
-            functionCallStack.push(fName)
+            functionEnterStack.push({'name': fName, 'isTimeout': false})
             functionsIDs.set(iid, fName)
-    
+
         };
 
         this.functionExit = function (iid, returnVal, wrappedExceptionVal) {
             if (!isMainFile(iid)) {
-                functionCallStack.pop()
+                functionEnterStack.pop()
                 let caller = 'NaN'
-                if (functionCallStack.length > 0) {
-                    caller = functionCallStack[functionCallStack.length - 1]
+                if (functionEnterStack.length > 0) {
+                    caller = functionEnterStack[functionEnterStack.length - 1]
+                    if(caller.isTimeOut){
+                        functionEnterStack.pop()
+                    }
                 }
-                logger += "\n#" + getLine(iid) + " function " + functionsIDs.get(iid) + " exited with return values " + returnVal + " to function " + caller;
+                log(getLine(iid) + " function " + functionsIDs.get(iid) + " exited with return values " + returnVal + " to function " + caller.name);
             }
             return { returnVal: returnVal, wrappedExceptionVal: wrappedExceptionVal, isBacktrack: false };
         };
 
         this.builtinEnter = function (name, f, dis, args) {
-        //     logger += "\n" + "builtinEnter Enter => " + name +" with name " + f.name
+            //     log("builtinEnter Enter => " + name +" with name " + f.name)
         };
-        
+
         this.builtinExit = function (name, f, dis, args, returnVal, exceptionVal) {
-        //     logger += "\n" + "builtinExit Exit => " + name +" with name " + f.name
-            return {returnVal: returnVal};
+            //     log("builtinExit Exit => " + name +" with name " + f.name)
+            return { returnVal: returnVal };
         };
 
         this.binaryPre = function (iid, op, left, right) {
-        //     logger += "\n" + "binaryPre")
-            return {op: op, left: left, right: right, skip: false};
+            //     log("binaryPre")
+            return { op: op, left: left, right: right, skip: false };
         };
-        
+
         this.binary = function (iid, op, left, right, result) {
-        //     logger += "\n" + "binary")
-            return {result: result};
+            //     log("binary")
+            return { result: result };
         };
         //
         this.unaryPre = function (iid, op, left) {
-        //     logger += "\n" + "unaryPre")
-            return {op: op, left: left, skip: false};
+            //     log("unaryPre")
+            return { op: op, left: left, skip: false };
         };
-        
+
         this.unary = function (iid, op, left, result) {
-        //     logger += "\n" + "unary")
-            return {result: result};
+            //     log("unary")
+            return { result: result };
         };
 
         this.conditional = function (iid, result) {
-        //     logger += "\n" + "conditional"
-            return {result: result};
+            //     log("conditional")
+            return { result: result };
         };
 
         this.startExpression = function (iid, type) {
-        //     logger += "\n expression"
-        //     logger += "\n" + "startExpression " + type
+            //     logger += "\n expression"
+            //     log("startExpression " + type)
         };
         //
         this.endExpression = function (iid, type, result) {
-        //     logger += "\n" + "endExpression " +  type)
+            //     log("endExpression " +  type)
         };
 
         this.endExecution = function () {
-            logger += "\n" + "end Execution";
+            log("end Execution");
             fs.writeFileSync(path.join(__dirname, 'test/analyzerOutputs' + path.sep + testName), logger, function (err) {
                 if (err) {
                     return console.log(err);
@@ -154,5 +157,20 @@ var regExp = /\(([^)]*)\)/;
 
     }
 
+    function getLine(iid) {
+        return J$.iidToLocation(iid).split(':')[1]
+    }
+
+    function isMainFile(iid) {
+        return (getLine(iid) == 1 && testName == "") || (functionsIDs.has(iid) && testName == functionsIDs.get(iid))
+    }
+
+    function log(log_value) {
+        logger += "\n#" + log_value
+    }
+
+    function isTimeOut(func) {
+        return func.name == 'setTimeout'
+    }
     sandbox.analysis = new Analyser();
 })(J$);
