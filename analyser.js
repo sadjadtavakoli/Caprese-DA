@@ -9,22 +9,22 @@ let functionsIDs = new Map();
 let functionEnterStack = [];
 // var regExp = /\(([^)]*)\)/;
 var timeoutsQueueMap = new Map();
-// var functionsCallStack = [];
+var unKnownFunctionsCallStack = [];
 
 (function (sandbox) {
     function Analyser() {
         this.invokeFunPre = function (iid, f, base, args, isConstructor, isMethod, functionIid, functionSid) {
             let fName = f.name;
-            if (fName == "") {
-                fName = 'unknown' + getLine(iid)
-            }
             if (isTimeOut(f)) {
                 addToTimeoutMap(args[0] + args[1], getLine(iid)) // line number, args, caller
-                fName+=getLine(iid)
+                fName += getLine(iid)
             }
-            // functionsCallStack.push(f)
-
+            if (fName == "") {
+                fName = 'unknown' + getLine(iid) + getPositionInLine(iid)
+                unKnownFunctionsCallStack.push(fName)
+            }
             log(getLine(iid) + " function " + fName + " is called with variables " + 'args' + " by " + functionEnterStack[functionEnterStack.length - 1].name)
+
             // log( Object.getOwnPropertyNames(f)
             // var regExp = /\(([^)]*)\)/;
             // var matches = regExp.exec(String(f).split('{')[0]);
@@ -71,26 +71,19 @@ var timeoutsQueueMap = new Map();
                 testName = fName = getTestName(iid)
             } else {
                 if (dis._idleTimeout !== undefined) {
-                    // log('****')
-                    // log(JSON.stringify(dis))
-                    // log(dis._idleTimeout)
-                    // log(String(dis))
-                    // log('****')
                     functionEnterStack.push({ 'name': 'setTimeOut' + popFromTimeoutMap(f + dis._idleTimeout), 'isTimeout': true })
-                } 
-                // else {
-                    // log(dis._idleTimeout)
-                    // functionsCallStack.pop()
-                // }
-
+                    if (fName == "") {
+                        fName = 'unknown' + getLine(iid)
+                    }
+                        
+                }
                 if (fName == "") {
-                    fName = 'unknown' + getLine(iid)
+                    fName = unKnownFunctionsCallStack.pop()
                 }
                 log(getLine(iid) + " function " + fName + " entered with variables " + 'args from ' + functionEnterStack[functionEnterStack.length - 1].name)
             }
             functionEnterStack.push({ 'name': fName, 'isTimeout': false })
             functionsIDs.set(iid, fName)
-
         };
 
         this.functionExit = function (iid, returnVal, wrappedExceptionVal) {
@@ -171,6 +164,10 @@ var timeoutsQueueMap = new Map();
         return J$.iidToLocation(iid).split(':')[1]
     }
 
+    function getPositionInLine(iid) {
+        return J$.iidToLocation(iid).split(':')[2]
+    }
+    
     function isMainFile(iid) {
         return (getLine(iid) == 1 && testName == "") || (functionsIDs.has(iid) && testName == functionsIDs.get(iid))
     }
@@ -180,7 +177,7 @@ var timeoutsQueueMap = new Map();
     }
 
     function isTimeOut(func) {
-        return func.name == 'setTimeout'
+        return func == setTimeout
     }
 
     function addToTimeoutMap(key, value) {
@@ -191,7 +188,7 @@ var timeoutsQueueMap = new Map();
             timeoutsQueueMap.set(key, [value]) // line number, args, caller
         }
     }
-    
+
     function popFromTimeoutMap(key) {
         if (timeoutsQueueMap.has(key)) {
             return timeoutsQueueMap.get(key).shift() // line number, args, caller

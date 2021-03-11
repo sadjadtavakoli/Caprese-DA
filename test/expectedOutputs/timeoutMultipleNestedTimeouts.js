@@ -1,6 +1,6 @@
 
-#2 function setTimeout2 is called with variables args by multipleNestedTimeouts.js
-#4 function setTimeout4 is called with variables args by multipleNestedTimeouts.js
+#2 function setTimeout2 is called with variables args by timeoutMultipleNestedTimeouts.js
+#4 function setTimeout4 is called with variables args by timeoutMultipleNestedTimeouts.js
 #4 function unknown4 entered with variables args from setTimeOut4
 #5 function myFunction is called with variables args by unknown4
 #11 function myFunction entered with variables args from unknown4
