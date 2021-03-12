@@ -7,28 +7,26 @@ let logger = "";
 let testName = "";
 let functionsIDs = new Map();
 let functionEnterStack = [];
-// var regExp = /\(([^)]*)\)/;
 var timeoutsQueueMap = new Map();
-var unKnownFunctionsCallStack = [];
 
 (function (sandbox) {
     function Analyser() {
         this.invokeFunPre = function (iid, f, base, args, isConstructor, isMethod, functionIid, functionSid) {
             let fName = f.name;
-            if (isTimeOut(f)) {
-                addToTimeoutMap(args[0] + args[1], getLine(iid)) // line number, args, caller
-                fName += getLine(iid)
+            if (isConstructor) {
+                f.isConstructor = true
+                log(getLine(iid) + " class " + fName + "'s constructor is called with variables " + 'args' + " by " + functionEnterStack[functionEnterStack.length - 1].name)
+            } else {
+                if (isTimeOut(f)) {
+                    addToTimeoutMap(args[0] + args[1], getLine(iid)) // line number, args, caller
+                    fName += getLine(iid)
+                } else if (fName == "") {
+                    fName = 'unknown' + getLine(iid) + getPositionInLine(iid)
+                    f.unknown_name = fName
+                }
+                log(getLine(iid) + " function " + fName + " is called with variables " + 'args' + " by " + functionEnterStack[functionEnterStack.length - 1].name)
             }
-            if (fName == "") {
-                fName = 'unknown' + getLine(iid) + getPositionInLine(iid)
-                unKnownFunctionsCallStack.push(fName)
-            }
-            log(getLine(iid) + " function " + fName + " is called with variables " + 'args' + " by " + functionEnterStack[functionEnterStack.length - 1].name)
 
-            // log( Object.getOwnPropertyNames(f)
-            // var regExp = /\(([^)]*)\)/;
-            // var matches = regExp.exec(String(f).split('{')[0]);
-            // console.log(matches[1].split(','))
             return { f: f, base: base, args: args, skip: false };
         };
 
@@ -70,33 +68,45 @@ var unKnownFunctionsCallStack = [];
             if (isMainFile(iid)) {
                 testName = fName = getTestName(iid)
             } else {
-                if (dis._idleTimeout !== undefined) {
-                    functionEnterStack.push({ 'name': 'setTimeOut' + popFromTimeoutMap(f + dis._idleTimeout), 'isTimeout': true })
-                    if (fName == "") {
-                        fName = 'unknown' + getLine(iid)
+                if (f.isConstructor) {
+                    log(getLine(iid) + " class " + fName + "'s constructor entered with variables " + 'args from ' + functionEnterStack[functionEnterStack.length - 1].name)
+                } else {
+                    if (dis._idleTimeout !== undefined) {
+                        functionEnterStack.push({ 'name': 'setTimeOut' + popFromTimeoutMap(f + dis._idleTimeout), 'isTimeout': true })
+                        if (fName == "") {
+                            fName = 'unknown' + getLine(iid)
+                        }
                     }
-                        
+                    if (fName == "") {
+                        fName = f.unknown_name
+                    }
+                    log(getLine(iid) + " function " + fName + " entered with variables " + 'args from ' + functionEnterStack[functionEnterStack.length - 1].name)
                 }
-                if (fName == "") {
-                    fName = unKnownFunctionsCallStack.pop()
-                }
-                log(getLine(iid) + " function " + fName + " entered with variables " + 'args from ' + functionEnterStack[functionEnterStack.length - 1].name)
             }
-            functionEnterStack.push({ 'name': fName, 'isTimeout': false })
-            functionsIDs.set(iid, fName)
+            let fInfo = { 'name': fName }
+            functionEnterStack.push(fInfo)
+            if (f.isConstructor) {
+                fInfo['isConstructor'] = true
+            }
+            functionsIDs.set(iid, fInfo)
         };
 
         this.functionExit = function (iid, returnVal, wrappedExceptionVal) {
             if (!isMainFile(iid)) {
                 functionEnterStack.pop()
-                let caller = 'NaN'
+                let caller = 'undefined'
                 if (functionEnterStack.length > 0) {
                     caller = functionEnterStack[functionEnterStack.length - 1]
                     if (caller.isTimeOut) {
                         functionEnterStack.pop()
                     }
                 }
-                log(getLine(iid) + " function " + functionsIDs.get(iid) + " exited with return values " + returnVal + " to function " + caller.name);
+                let f = functionsIDs.get(iid)
+                if (f.isConstructor) {
+                    log(getLine(iid) + " class " + f.name + "'s constructor exited with return values " + returnVal + " to function " + caller.name);
+                } else {
+                    log(getLine(iid) + " function " + f.name + " exited with return values " + returnVal + " to function " + caller.name);
+                }
             }
             return { returnVal: returnVal, wrappedExceptionVal: wrappedExceptionVal, isBacktrack: false };
         };
@@ -167,9 +177,9 @@ var unKnownFunctionsCallStack = [];
     function getPositionInLine(iid) {
         return J$.iidToLocation(iid).split(':')[2]
     }
-    
+
     function isMainFile(iid) {
-        return (getLine(iid) == 1 && testName == "") || (functionsIDs.has(iid) && testName == functionsIDs.get(iid))
+        return (getLine(iid) == 1 && testName == "") || (functionsIDs.has(iid) && testName == functionsIDs.get(iid).name)
     }
 
     function log(log_value) {

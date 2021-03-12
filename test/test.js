@@ -3,15 +3,19 @@ const fs = require('fs');
 const exec = require('child_process').exec;
 var assert = require('assert');
 
-describe('Test callChain.js', () => runTest('callChain.js'));
-describe('Test callbackSingleKnownFunction.js', () => runTest('callbackSingleKnownFunction.js'));
-describe('Test callbackSingleUnknownFunction.js', () => runTest('callbackSingleUnknownFunction.js'));
-describe('Test callbackUnknownChain.js', () => runTest('callbackUnknownChain.js'));
-describe('Test timeoutFakeKnownFunction.js', () => runTest('timeoutFakeKnownFunction.js'));
-describe('Test timeoutMultipleNestedTimeouts.js', () => runTest('timeoutMultipleNestedTimeouts.js'));
-describe('Test timeoutMultipleTimeouts.js', () => runTest('timeoutMultipleTimeouts.js'));
-describe('Test timeoutSingleKnownFunction.js', () => runTest('timeoutSingleKnownFunction.js'));
-describe('Test timeoutSingleUnknownFunction.js', () => runTest('timeoutSingleUnknownFunction.js'));
+// describe('Test callChain.js', () => runTest('callChain.js'));
+// describe('Test callbackSingleKnownFunction.js', () => runTest('callbackSingleKnownFunction.js'));
+// describe('Test callbackSingleUnknownFunction.js', () => runTest('callbackSingleUnknownFunction.js'));
+// describe('Test callbackUnknownChain.js', () => runTest('callbackUnknownChain.js'));
+// describe('Test functionCall_1.js', () => runTest('functionCall_1.js'));
+// describe('Test functionCall_2.js', () => runTest('functionCall_2.js'));
+// describe('Test functionCall_3.js', () => runTest('functionCall_3.js'));
+describe('Test functionCall_4.js', () => runTest('functionCall_4.js'));
+// describe('Test timeoutFakeKnownFunction.js', () => runTest('timeoutFakeKnownFunction.js'));
+// describe('Test timeoutMultipleNestedTimeouts.js', () => runTest('timeoutMultipleNestedTimeouts.js'));
+// describe('Test timeoutMultipleTimeouts.js', () => runTest('timeoutMultipleTimeouts.js'));
+// describe('Test timeoutSingleKnownFunction.js', () => runTest('timeoutSingleKnownFunction.js'));
+// describe('Test timeoutSingleUnknownFunction.js', () => runTest('timeoutSingleUnknownFunction.js'));
 
 
 const nodeprofCommand = '$GRAAL_HOME/bin/node --jvm --experimental-options --vm.Dtruffle.class.path.append=$NODEPROF_HOME/nodeprof.jar --nodeprof $NODEPROF_HOME/jalangi.js --analysis analyser.js test/unit_tests/'
