@@ -1,6 +1,7 @@
 // do not remove the following comment
 // JALANGI DO NOT INSTRUMENT
 const fs = require('fs');
+const { setgroups } = require('process');
 
 
 let logger = "";
@@ -19,11 +20,14 @@ let accessedFiles = [];
                 log(getLine(iid) + " class " + fName + "'s constructor is called with variables " + 'args' + " by " + functionEnterStack[functionEnterStack.length - 1].name)
             } else {
                 if (isTimeOut(f)) {
-                    addToTimeoutMap(args[0] + args[1], getLine(iid)) // line number, args, caller
+                    addToTimeoutMap('t_' + args[0] + Math.max(args[1], 1), getLine(iid)) // line number, args, caller
+                    fName += getLine(iid)
+                } else if (isImmediate(f)) {
+                    addToTimeoutMap('i_' + args[0], getLine(iid)) // line number, args, caller
                     fName += getLine(iid)
                 } else if (fName == "") {
-                    fName = 'unknown' + getLine(iid) + getPositionInLine(iid)
-                    f.unknown_name = fName
+                    fName = 'anonymous' + getLine(iid) + getPositionInLine(iid)
+                    f.anonymous_name = fName
                 }
                 log(getLine(iid) + " function " + fName + " is called with variables " + 'args' + " by " + functionEnterStack[functionEnterStack.length - 1].name)
             }
@@ -32,11 +36,12 @@ let accessedFiles = [];
         };
 
         this.functionEnter = function (iid, f, dis, args) {
+            // TODO it's not readable => remove these ugly if elses 
             let fName = f.name;
 
-            if (entringAnotherFile(iid)) {
+            if (isImportingNewModule(iid)) {
                 accessedFiles.push(getFilePath(iid))
-                functionsIDs.set(iid, {'name': getFilePath(iid)})
+                functionsIDs.set(iid, { 'name': getFilePath(iid) })
             } else {
                 if (isMainFile(iid)) {
                     testName = fName = getFileName(iid)
@@ -44,14 +49,18 @@ let accessedFiles = [];
                     if (f.isConstructor) {
                         log(getLine(iid) + " class " + fName + "'s constructor entered with variables " + 'args from ' + functionEnterStack[functionEnterStack.length - 1].name)
                     } else {
-                        if (dis._idleTimeout !== undefined) {
-                            functionEnterStack.push({ 'name': 'setTimeOut' + popFromTimeoutMap(f + dis._idleTimeout), 'isTimeout': true })
+                        if (dis._onTimeout) {
+                            functionEnterStack.push({ 'name': 'setTimeOut' + popFromTimeoutMap('t_' + f + dis._idleTimeout), 'isTimer': true })
                             if (fName == "") {
-                                fName = 'unknown' + getLine(iid)
+                                fName = 'anonymous' + getLine(iid)
                             }
-                        }
-                        if (fName == "") {
-                            fName = f.unknown_name
+                        }else if(dis._onImmediate){
+                            functionEnterStack.push({ 'name': 'setImmediate' + popFromTimeoutMap('i_' + f), 'isTimer': true })
+                            if (fName == "") {
+                                fName = 'anonymous' + getLine(iid)
+                            }
+                        }else if (fName == "") {
+                            fName = f.anonymous_name
                         }
                         log(getLine(iid) + " function " + fName + " entered with variables " + 'args from ' + functionEnterStack[functionEnterStack.length - 1].name)
                     }
@@ -67,12 +76,12 @@ let accessedFiles = [];
         };
 
         this.functionExit = function (iid, returnVal, wrappedExceptionVal) {
-            if (!(entringAnotherFile(iid) || isMainFile(iid))) {
+            if (!(isImportingNewModule(iid) || isMainFile(iid))) {
                 functionEnterStack.pop()
                 let caller = 'undefined'
                 if (functionEnterStack.length > 0) {
                     caller = functionEnterStack[functionEnterStack.length - 1]
-                    if (caller.isTimeOut) {
+                    if (caller.isTimer) {
                         functionEnterStack.pop()
                     }
                 }
@@ -88,7 +97,6 @@ let accessedFiles = [];
 
         this.endExecution = function () {
             log("end Execution");
-            console.log(accessedFiles)
             fs.writeFileSync(path.join(__dirname, 'test/analyzerOutputs' + path.sep + testName), logger, function (err) {
                 if (err) {
                     return console.log(err);
@@ -118,7 +126,7 @@ let accessedFiles = [];
         return (getLine(iid) == 1 && testName == "") || (functionsIDs.has(iid) && testName == functionsIDs.get(iid).name)
     }
 
-    function entringAnotherFile(iid) {
+    function isImportingNewModule(iid) {
         return (testName != "" && testName != getFileName(iid) && getLine(iid) == 1 && !accessedFiles.includes(getFilePath(iid)) || (functionsIDs.has(iid) && getFilePath(iid) == functionsIDs.get(iid).name))
 
     }
@@ -128,6 +136,10 @@ let accessedFiles = [];
 
     function isTimeOut(func) {
         return func == setTimeout
+    }
+
+    function isImmediate(func) {
+        return func == setImmediate
     }
 
     function addToTimeoutMap(key, value) {
