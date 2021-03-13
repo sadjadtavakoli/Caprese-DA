@@ -7,7 +7,8 @@ let logger = "";
 let testName = "";
 let functionsIDs = new Map();
 let functionEnterStack = [];
-var timeoutsQueueMap = new Map();
+let timeoutsQueueMap = new Map();
+let accessedFiles = [];
 
 (function (sandbox) {
     function Analyser() {
@@ -30,69 +31,43 @@ var timeoutsQueueMap = new Map();
             return { f: f, base: base, args: args, skip: false };
         };
 
-        this.invokeFun = function (iid, f, base, args, result, isConstructor, isMethod, functionIid, functionSid) {
-            return { result: result };
-        };
-
-        this.literal = function (iid, val, /* hasGetterSetter should be computed lazily */ fakeHasGetterSetter, literalType) {
-            return { result: val };
-        };
-
-        this.literal.types = ["ObjectLiteral", "ArrayLiteral", "FunctionLiteral", "NumericLiteral", "BooleanLiteral", "StringLiteral",
-            "NullLiteral", "UndefinedLiteral", "RegExpLiteral"];
-
-        this.getFieldPre = function (iid, base, offset, isComputed, isOpAssign, isMethodCall) {
-            return { base: base, offset: offset, skip: false };
-        };
-        this.getField = function (iid, base, offset, val, isComputed, isOpAssign, isMethodCall) {
-            return { result: val };
-        };
-
-        this.putFieldPre = function (iid, base, offset, val, isComputed, isOpAssign) {
-            return { base: base, offset: offset, val: val, skip: false };
-        };
-        this.putField = function (iid, base, offset, val, isComputed, isOpAssign) {
-            return { result: val };
-        };
-
-        this.read = function (iid, name, val, isGlobal, isScriptLocal) {
-            // log( getLine(iid) + ' variable ' + name + ' read by function ' + functionCallStack[functionCallStack.length - 1].name);
-        };
-        this.write = function (iid, name, val, lhs, isGlobal, isScriptLocal) {
-            // log( getLine(iid) + ' variable ' + name + ' write ' + 'WHICH VARIABLE?' + ' by function ' + functionCallStack[functionCallStack.length - 1].name);
-            return { result: val };
-        };
-
         this.functionEnter = function (iid, f, dis, args) {
             let fName = f.name;
-            if (isMainFile(iid)) {
-                testName = fName = getTestName(iid)
+
+            if (entringAnotherFile(iid)) {
+                accessedFiles.push(getFilePath(iid))
+                functionsIDs.set(iid, {'name': getFilePath(iid)})
             } else {
-                if (f.isConstructor) {
-                    log(getLine(iid) + " class " + fName + "'s constructor entered with variables " + 'args from ' + functionEnterStack[functionEnterStack.length - 1].name)
+                if (isMainFile(iid)) {
+                    testName = fName = getFileName(iid)
                 } else {
-                    if (dis._idleTimeout !== undefined) {
-                        functionEnterStack.push({ 'name': 'setTimeOut' + popFromTimeoutMap(f + dis._idleTimeout), 'isTimeout': true })
-                        if (fName == "") {
-                            fName = 'unknown' + getLine(iid)
+                    if (f.isConstructor) {
+                        log(getLine(iid) + " class " + fName + "'s constructor entered with variables " + 'args from ' + functionEnterStack[functionEnterStack.length - 1].name)
+                    } else {
+                        if (dis._idleTimeout !== undefined) {
+                            functionEnterStack.push({ 'name': 'setTimeOut' + popFromTimeoutMap(f + dis._idleTimeout), 'isTimeout': true })
+                            if (fName == "") {
+                                fName = 'unknown' + getLine(iid)
+                            }
                         }
+                        if (fName == "") {
+                            fName = f.unknown_name
+                        }
+                        log(getLine(iid) + " function " + fName + " entered with variables " + 'args from ' + functionEnterStack[functionEnterStack.length - 1].name)
                     }
-                    if (fName == "") {
-                        fName = f.unknown_name
-                    }
-                    log(getLine(iid) + " function " + fName + " entered with variables " + 'args from ' + functionEnterStack[functionEnterStack.length - 1].name)
                 }
+
+                let fInfo = { 'name': fName }
+                functionEnterStack.push(fInfo)
+                if (f.isConstructor) {
+                    fInfo['isConstructor'] = true
+                }
+                functionsIDs.set(iid, fInfo)
             }
-            let fInfo = { 'name': fName }
-            functionEnterStack.push(fInfo)
-            if (f.isConstructor) {
-                fInfo['isConstructor'] = true
-            }
-            functionsIDs.set(iid, fInfo)
         };
 
         this.functionExit = function (iid, returnVal, wrappedExceptionVal) {
-            if (!isMainFile(iid)) {
+            if (!(entringAnotherFile(iid) || isMainFile(iid))) {
                 functionEnterStack.pop()
                 let caller = 'undefined'
                 if (functionEnterStack.length > 0) {
@@ -111,51 +86,9 @@ var timeoutsQueueMap = new Map();
             return { returnVal: returnVal, wrappedExceptionVal: wrappedExceptionVal, isBacktrack: false };
         };
 
-        this.builtinEnter = function (name, f, dis, args) {
-            //     log("builtinEnter Enter => " + name +" with name " + f.name)
-        };
-
-        this.builtinExit = function (name, f, dis, args, returnVal, exceptionVal) {
-            //     log("builtinExit Exit => " + name +" with name " + f.name)
-            return { returnVal: returnVal };
-        };
-
-        this.binaryPre = function (iid, op, left, right) {
-            //     log("binaryPre")
-            return { op: op, left: left, right: right, skip: false };
-        };
-
-        this.binary = function (iid, op, left, right, result) {
-            //     log("binary")
-            return { result: result };
-        };
-        //
-        this.unaryPre = function (iid, op, left) {
-            //     log("unaryPre")
-            return { op: op, left: left, skip: false };
-        };
-
-        this.unary = function (iid, op, left, result) {
-            //     log("unary")
-            return { result: result };
-        };
-
-        this.conditional = function (iid, result) {
-            //     log("conditional")
-            return { result: result };
-        };
-
-        this.startExpression = function (iid, type) {
-            //     logger += "\n expression"
-            //     log("startExpression " + type)
-        };
-        //
-        this.endExpression = function (iid, type, result) {
-            //     log("endExpression " +  type)
-        };
-
         this.endExecution = function () {
             log("end Execution");
+            console.log(accessedFiles)
             fs.writeFileSync(path.join(__dirname, 'test/analyzerOutputs' + path.sep + testName), logger, function (err) {
                 if (err) {
                     return console.log(err);
@@ -166,10 +99,13 @@ var timeoutsQueueMap = new Map();
 
     }
 
-    function getTestName(iid) {
-        return J$.iidToLocation(iid).split(':')[0].split('/')[2];
+    function getFileName(iid) {
+        return getFilePath(iid).split('/')[2];
     }
 
+    function getFilePath(iid) {
+        return J$.iidToLocation(iid).split(':')[0];
+    }
     function getLine(iid) {
         return J$.iidToLocation(iid).split(':')[1]
     }
@@ -182,6 +118,10 @@ var timeoutsQueueMap = new Map();
         return (getLine(iid) == 1 && testName == "") || (functionsIDs.has(iid) && testName == functionsIDs.get(iid).name)
     }
 
+    function entringAnotherFile(iid) {
+        return (testName != "" && testName != getFileName(iid) && getLine(iid) == 1 && !accessedFiles.includes(getFilePath(iid)) || (functionsIDs.has(iid) && getFilePath(iid) == functionsIDs.get(iid).name))
+
+    }
     function log(log_value) {
         logger += "\n#" + log_value
     }
