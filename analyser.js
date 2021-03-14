@@ -20,10 +20,13 @@ let accessedFiles = [];
                 log(getLine(iid) + " class " + fName + "'s constructor is called with variables " + 'args' + " by " + functionEnterStack[functionEnterStack.length - 1].name)
             } else {
                 if (isTimeOut(f)) {
-                    addToTimeoutMap('t_' + args[0] + Math.max(args[1], 1), getLine(iid)) // line number, args, caller
+                    addToTimeoutMap('t_' + args[0] + Math.max(args[1], 1), getLine(iid))
                     fName += getLine(iid)
                 } else if (isImmediate(f)) {
-                    addToTimeoutMap('i_' + args[0], getLine(iid)) // line number, args, caller
+                    addToTimeoutMap('i_' + args[0], getLine(iid)) 
+                    fName += getLine(iid)
+                } else if (isInterval(f)) {
+                    addToTimeoutMap('v_' + args[0] + args[1], getLine(iid)) 
                     fName += getLine(iid)
                 } else if (fName == "") {
                     fName = 'anonymous' + getLine(iid) + getPositionInLine(iid)
@@ -50,16 +53,20 @@ let accessedFiles = [];
                         log(getLine(iid) + " class " + fName + "'s constructor entered with variables " + 'args from ' + functionEnterStack[functionEnterStack.length - 1].name)
                     } else {
                         if (dis._onTimeout) {
-                            functionEnterStack.push({ 'name': 'setTimeOut' + popFromTimeoutMap('t_' + f + dis._idleTimeout), 'isTimer': true })
+                            if(dis._repeat){
+                                functionEnterStack.push({ 'name': 'setInterval' + getFromTimeoutMap('v_' + f + dis._idleTimeout), 'isTimer': true })
+                            }else{
+                                functionEnterStack.push({ 'name': 'setTimeOut' + popFromTimeoutMap('t_' + f + dis._idleTimeout), 'isTimer': true })
+                            }
                             if (fName == "") {
                                 fName = 'anonymous' + getLine(iid)
                             }
-                        }else if(dis._onImmediate){
+                        } else if (dis._onImmediate) {
                             functionEnterStack.push({ 'name': 'setImmediate' + popFromTimeoutMap('i_' + f), 'isTimer': true })
                             if (fName == "") {
                                 fName = 'anonymous' + getLine(iid)
                             }
-                        }else if (fName == "") {
+                        } else if (fName == "") {
                             fName = f.anonymous_name
                         }
                         log(getLine(iid) + " function " + fName + " entered with variables " + 'args from ' + functionEnterStack[functionEnterStack.length - 1].name)
@@ -142,6 +149,10 @@ let accessedFiles = [];
         return func == setImmediate
     }
 
+    function isInterval(func) {
+        return func == setInterval
+    }
+
     function addToTimeoutMap(key, value) {
 
         if (timeoutsQueueMap.has(key)) {
@@ -154,6 +165,12 @@ let accessedFiles = [];
     function popFromTimeoutMap(key) {
         if (timeoutsQueueMap.has(key)) {
             return timeoutsQueueMap.get(key).shift() // line number, args, caller
+        }
+    }
+
+    function getFromTimeoutMap(key) {
+        if (timeoutsQueueMap.has(key)) {
+            return timeoutsQueueMap.get(key)[0] // line number, args, caller
         }
     }
 
