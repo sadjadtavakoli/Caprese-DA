@@ -6,12 +6,12 @@ const events = require('events')
 
 let logger = "";
 let testName = "";
-let functionsIDs = new Map();
+let functionsIDs = new Map(); // it seems redundant.
 let functionEnterStack = [];
 let timeoutsQueueMap = new Map();
 let accessedFiles = [];
 let EventEmmiter = events.EventEmitter.prototype;
-let addedEvents = new Map();
+let addedListeners = new Map();
 let emittedEvents = new Map();
 
 (function (sandbox) {
@@ -22,11 +22,10 @@ let emittedEvents = new Map();
             if (isConstructor) {
                 f.isConstructor = true
                 log(getLine(iid) + " class " + fName + "'s constructor is called with variables " + 'args' + " by " + functionEnterStack[functionEnterStack.length - 1].name)
-
             } else if (isAddEventlistener(f)) {
                 addToAddedListener(base, args[0], args[1])
             } else if (isEmitEvent(f)) {
-                addToEmittedEvents(base, { 'event': args[0], 'listeners': getAddedListeners(base, args[0]).slice() })
+                addToEmittedEvents(base, { 'event': args[0], 'listeners': getAddedListeners(base, args[0]).slice(), 'callerFunction': functionEnterStack[functionEnterStack.length - 1] })
                 log(getLine(iid) + " function " + functionEnterStack[functionEnterStack.length - 1].name + " emitted event " + args[0] + " of " + base.constructor.name)
 
             } else {
@@ -61,27 +60,16 @@ let emittedEvents = new Map();
                     testName = fName = getFileName(iid)
                 } else if (f.isConstructor) {
                     log(getLine(iid) + " class " + fName + "'s constructor entered with variables " + 'args from ' + functionEnterStack[functionEnterStack.length - 1].name)
-
-                } else if (dis.constructor.prototype == EventEmmiter) {
-                    let disEmittedEvents = getEmittedEvents(dis)
-                    let event = ""
-                    for (let index in disEmittedEvents) {
-                        let listeners = disEmittedEvents[index]['listeners']
-                        let indexOf = listeners.indexOf(f)
-                        if (indexOf != -1) {
-
-                            event = disEmittedEvents[index]['event']
-                            listeners.splice(indexOf, 1)
-                            if (!listeners.length) {
-                                disEmittedEvents.splice(index, 1);
-                            }
-                            break;
-                        }
+                } else if (isCalledByEvents(dis)) {
+                    let event = getRelatedEvent(dis, f)
+                    if (fName == "") {
+                        fName = 'anonymous' + getLine(iid)
                     }
-                    log(getLine(iid) + " function " + fName + " is called with variables " + 'args' + " by event " + event + ' in function ' + functionEnterStack[functionEnterStack.length - 1].name)
+                    f.calledByEvent = true;
+                    log(getLine(iid) + " function " + fName + " entered with variables " + 'args' + " throught event " + event.event + " emitted by function " + event.callerFunction.name)
                 } else {
-                    if (dis._onTimeout) {
-                        if (dis._repeat) {
+                    if (isCalledByTimer(dis)) {
+                        if (isCalledByInterval(dis)) {
                             functionEnterStack.push({ 'name': 'setInterval' + getTimeoutMap('v_' + f + dis._idleTimeout)[0], 'isTimer': true })
                         } else {
                             functionEnterStack.push({ 'name': 'setTimeOut' + popFromTimeoutMap('t_' + f + dis._idleTimeout), 'isTimer': true })
@@ -89,7 +77,7 @@ let emittedEvents = new Map();
                         if (fName == "") {
                             fName = 'anonymous' + getLine(iid)
                         }
-                    } else if (dis._onImmediate) {
+                    } else if (isCalledByImmediate(dis)) {
                         functionEnterStack.push({ 'name': 'setImmediate' + popFromTimeoutMap('i_' + f), 'isTimer': true })
                         if (fName == "") {
                             fName = 'anonymous' + getLine(iid)
@@ -100,11 +88,8 @@ let emittedEvents = new Map();
                     log(getLine(iid) + " function " + fName + " entered with variables " + 'args from ' + functionEnterStack[functionEnterStack.length - 1].name)
                 }
 
-                let fInfo = { 'name': fName }
+                let fInfo = { 'name': fName, 'object': f }
                 functionEnterStack.push(fInfo)
-                if (f.isConstructor) {
-                    fInfo['isConstructor'] = true
-                }
                 functionsIDs.set(iid, fInfo)
             }
         };
@@ -171,28 +156,27 @@ let emittedEvents = new Map();
         }
         this.functionExit = function (iid, returnVal, wrappedExceptionVal) {
             if (!(isImportingNewModule(iid) || isMainFile(iid))) {
-                functionEnterStack.pop()
-                let caller = 'undefined'
-                if (functionEnterStack.length > 0) {
-                    caller = functionEnterStack[functionEnterStack.length - 1]
-                    if (caller.isTimer) {
-                        functionEnterStack.pop()
-                    }
+                let f = functionEnterStack.pop()
+                let caller = functionEnterStack[functionEnterStack.length - 1]
+                if (caller.isTimer) {
+                    functionEnterStack.pop()
                 }
-                let f = functionsIDs.get(iid)
-                if (f.isConstructor) {
+
+                if (f.object.isConstructor) {
                     log(getLine(iid) + " class " + f.name + "'s constructor exited with return values " + returnVal + " to function " + caller.name);
+                } else if (f.object.calledByEvent) {
+                    log(getLine(iid) + " function " + f.name + " exited");
                 } else {
                     log(getLine(iid) + " function " + f.name + " exited with return values " + returnVal + " to function " + caller.name);
                 }
             }
+
+
             return { returnVal: returnVal, wrappedExceptionVal: wrappedExceptionVal, isBacktrack: false };
         };
 
         this.endExecution = function () {
             log("end Execution");
-            // console.log(emittedEvents)
-            // console.log(addedEvents)
             fs.writeFileSync(path.join(__dirname, 'test/analyzerOutputs' + path.sep + testName), logger, function (err) {
                 if (err) {
                     return console.log(err);
@@ -201,6 +185,24 @@ let emittedEvents = new Map();
             });
         };
 
+        function getRelatedEvent(base, func) {
+            let baseEmittedEvents = getEmittedEvents(base)
+            let eventInfo = {}
+            for (let index in baseEmittedEvents) {
+                let listeners = baseEmittedEvents[index]['listeners']
+                let indexOf = listeners.indexOf(func)
+                if (indexOf != -1) {
+
+                    eventInfo = baseEmittedEvents[index]
+                    listeners.splice(indexOf, 1)
+                    if (!listeners.length) {
+                        baseEmittedEvents.splice(index, 1);
+                    }
+                    break;
+                }
+            }
+            return eventInfo
+        }
     }
 
     {
@@ -250,6 +252,22 @@ let emittedEvents = new Map();
             return func == EventEmmiter.addListener
         }
 
+        function isCalledByImmediate(base) {
+            return base._onImmediate
+        }
+
+        function isCalledByTimer(base) {
+            return base._onTimeout
+        }
+
+        function isCalledByEvents(base) {
+            return base.constructor.prototype == EventEmmiter
+        }
+
+        function isCalledByInterval(base) {
+            return base._repeat
+        }
+
         function addToMapList(map, key, value) {
             if (map.has(key)) {
                 map.get(key).push(value) // line number, args, caller
@@ -279,9 +297,9 @@ let emittedEvents = new Map();
         }
 
         function addToAddedListener(base, event, listener) {
-            let baseEvents = addedEvents.get(base)
+            let baseEvents = addedListeners.get(base)
             if (!baseEvents) {
-                addedEvents.set(base, new Map().set(event, [listener])) // line number, args, caller
+                addedListeners.set(base, new Map().set(event, [listener])) // line number, args, caller
             } else if (!baseEvents.has(event)) {
                 baseEvents.set(event, [listener]) // line number, args, caller
             } else {
@@ -290,27 +308,18 @@ let emittedEvents = new Map();
         }
 
         function getAddedListeners(base, event) {
-            // console.log("   ")
-            // console.log("   ")
-            // console.log(base)
-            // console.log(event)
-            // console.log(addedEvents)
-            // console.log("   ")
-            // console.log("   ")
-            let baseEvents = addedEvents.get(base)
+            let baseEvents = addedListeners.get(base)
             if (baseEvents && baseEvents.has(event)) {
                 return baseEvents.get(event) // line number, args, caller
             }
+            return []
         }
 
         function getEmittedEvents(key) {
             if (emittedEvents.has(key)) {
                 return emittedEvents.get(key) // line number, args, caller
             }
-        }
-
-        function updateEmittedEvent(base, events) {
-            addedEvents.set(base, events) // line number, args, caller
+            return []
         }
     }
     sandbox.analysis = new Analyser();

@@ -3,8 +3,8 @@ let bar = function() {
     // do nothing
 }
 
-let interval  = setInterval(bar, 1000)
+let interval  = setInterval(bar, 250)
 
 setTimeout(()=>{
     clearInterval(interval)
-}, 4000)
+}, 1000)
