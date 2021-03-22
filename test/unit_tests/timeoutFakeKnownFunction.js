@@ -9,5 +9,5 @@ function foo(){
 }
 
 function setTimeout(callback, time){
-    console.log("slm!")
+    // do nothing
 }

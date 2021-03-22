@@ -5,11 +5,10 @@ const events = require('events')
 
 
 let logger = "";
-let testName = "";
-let functionsIDs = new Map(); // it seems redundant.
+let mainFileName = "";
 let functionEnterStack = [];
 let timeoutsQueueMap = new Map();
-let accessedFiles = [];
+let accessedFiles = new Map();
 let EventEmmiter = events.EventEmitter.prototype;
 let addedListeners = new Map();
 let emittedEvents = new Map();
@@ -19,30 +18,37 @@ let emittedEvents = new Map();
     function Analyser() {
         this.invokeFunPre = function (iid, f, base, args, isConstructor, isMethod, functionIid, functionSid) {
             let fName = f.name;
+            let lineNumber = getLine(iid)
+
             if (isConstructor) {
                 f.isConstructor = true
-                log(getLine(iid) + " class " + fName + "'s constructor is called with variables " + 'args' + " by " + functionEnterStack[functionEnterStack.length - 1].name)
+                log(lineNumber + " class " + fName + "'s constructor is called with variables " + 'args' + " by " + functionEnterStack[functionEnterStack.length - 1].name)
+
             } else if (isAddEventlistener(f)) {
                 addToAddedListener(base, args[0], args[1])
-            } else if (isEmitEvent(f)) {
-                addToEmittedEvents(base, { 'event': args[0], 'listeners': getAddedListeners(base, args[0]).slice(), 'callerFunction': functionEnterStack[functionEnterStack.length - 1] })
-                log(getLine(iid) + " function " + functionEnterStack[functionEnterStack.length - 1].name + " emitted event " + args[0] + " of " + base.constructor.name)
 
+            } else if (isEmitEvent(f)) {
+                let callerFunction = functionEnterStack[functionEnterStack.length - 1]
+                addToEmittedEvents(base, { 'event': args[0], 'listeners': getAddedListeners(base, args[0]).slice(), 'callerFunction': callerFunction })
+                log(lineNumber + " function " + callerFunction.name + " emitted event " + args[0] + " of " + base.constructor.name)
             } else {
                 if (isTimeOut(f)) {
-                    addToTimeoutMap('t_' + args[0] + Math.max(args[1], 1), getLine(iid))
-                    fName += getLine(iid)
+                    addToTimeoutMap('t_' + args[0] + Math.max(args[1], 1), lineNumber)
+                    fName += lineNumber + getPositionInLine(iid)
+
                 } else if (isImmediate(f)) {
-                    addToTimeoutMap('i_' + args[0], getLine(iid))
-                    fName += getLine(iid)
+                    addToTimeoutMap('i_' + args[0], lineNumber)
+                    fName += lineNumber + getPositionInLine(iid)
+
                 } else if (isInterval(f)) {
-                    addToTimeoutMap('v_' + args[0] + args[1], getLine(iid))
-                    fName += getLine(iid)
-                } else if (fName == "") {
-                    fName = 'anonymous' + getLine(iid) + getPositionInLine(iid)
+                    addToTimeoutMap('v_' + args[0] + args[1], lineNumber)
+                    fName += lineNumber + getPositionInLine(iid)
+
+                } else if (isAnonymousFunction(f)) {
+                    fName = 'anonymous' + lineNumber + getPositionInLine(iid)
                     f.anonymous_name = fName
                 }
-                log(getLine(iid) + " function " + fName + " is called with variables " + 'args' + " by " + functionEnterStack[functionEnterStack.length - 1].name)
+                log(lineNumber + " function " + fName + " is called with variables " + 'args' + " by " + functionEnterStack[functionEnterStack.length - 1].name)
             }
 
             return { f: f, base: base, args: args, skip: false };
@@ -50,47 +56,47 @@ let emittedEvents = new Map();
 
         this.functionEnter = function (iid, f, dis, args) {
             // TODO it's not readable => remove these ugly if elses 
-            let fName = f.name;
-
             if (isImportingNewModule(iid)) {
-                accessedFiles.push(getFilePath(iid))
-                functionsIDs.set(iid, { 'name': getFilePath(iid) })
+                accessedFiles.set(getFilePath(iid), iid)
             } else {
+                let fName = f.name;
+
                 if (isMainFile(iid)) {
-                    testName = fName = getFileName(iid)
+                    mainFileName = fName = getFileName(iid)
+                    accessedFiles.set(fName, iid)
+                    functionEnterStack.push({ 'name': fName })
                 } else if (f.isConstructor) {
                     log(getLine(iid) + " class " + fName + "'s constructor entered with variables " + 'args from ' + functionEnterStack[functionEnterStack.length - 1].name)
+
                 } else if (isCalledByEvents(dis)) {
                     let event = getRelatedEvent(dis, f)
-                    if (fName == "") {
-                        fName = 'anonymous' + getLine(iid)
-                    }
+                    if (fName == "") fName = 'anonymous' + getLine(iid)
                     f.calledByEvent = true;
                     log(getLine(iid) + " function " + fName + " entered with variables " + 'args' + " throught event " + event.event + " emitted by function " + event.callerFunction.name)
+
                 } else {
-                    if (isCalledByTimer(dis)) {
+
+                    if (isCalledByTimeoutOrInterval(dis)) {
+                        if (fName == "") fName = 'anonymous' + getLine(iid)
+
                         if (isCalledByInterval(dis)) {
                             functionEnterStack.push({ 'name': 'setInterval' + getTimeoutMap('v_' + f + dis._idleTimeout)[0], 'isTimer': true })
-                        } else {
+
+                        } else { // if called by timeout
                             functionEnterStack.push({ 'name': 'setTimeOut' + popFromTimeoutMap('t_' + f + dis._idleTimeout), 'isTimer': true })
                         }
-                        if (fName == "") {
-                            fName = 'anonymous' + getLine(iid)
-                        }
+
                     } else if (isCalledByImmediate(dis)) {
                         functionEnterStack.push({ 'name': 'setImmediate' + popFromTimeoutMap('i_' + f), 'isTimer': true })
-                        if (fName == "") {
-                            fName = 'anonymous' + getLine(iid)
-                        }
+                        if (fName == "") fName = 'anonymous' + getLine(iid)
+
                     } else if (fName == "") {
                         fName = f.anonymous_name
                     }
                     log(getLine(iid) + " function " + fName + " entered with variables " + 'args from ' + functionEnterStack[functionEnterStack.length - 1].name)
                 }
 
-                let fInfo = { 'name': fName, 'object': f }
-                functionEnterStack.push(fInfo)
-                functionsIDs.set(iid, fInfo)
+                functionEnterStack.push({ 'name': fName, 'object': f })
             }
         };
         {
@@ -177,7 +183,7 @@ let emittedEvents = new Map();
 
         this.endExecution = function () {
             log("end Execution");
-            fs.writeFileSync(path.join(__dirname, 'test/analyzerOutputs' + path.sep + testName), logger, function (err) {
+            fs.writeFileSync(path.join(__dirname, 'test/analyzerOutputs' + path.sep + mainFileName), logger, function (err) {
                 if (err) {
                     return console.log(err);
                 }
@@ -222,11 +228,11 @@ let emittedEvents = new Map();
         }
 
         function isMainFile(iid) {
-            return (getLine(iid) == 1 && testName == "") || (functionsIDs.has(iid) && testName == functionsIDs.get(iid).name)
+            return (getLine(iid) == 1 && mainFileName == "") || accessedFiles.get(mainFileName) == iid
         }
 
         function isImportingNewModule(iid) {
-            return (testName != "" && testName != getFileName(iid) && getLine(iid) == 1 && !accessedFiles.includes(getFilePath(iid)) || (functionsIDs.has(iid) && getFilePath(iid) == functionsIDs.get(iid).name))
+            return (mainFileName != "" && mainFileName != getFileName(iid) && !accessedFiles.has(getFilePath(iid))) || accessedFiles.get(getFilePath(iid)) == iid
 
         }
         function log(log_value) {
@@ -248,15 +254,20 @@ let emittedEvents = new Map();
         function isEmitEvent(func) {
             return func == EventEmmiter.emit
         }
+
         function isAddEventlistener(func) {
-            return func == EventEmmiter.addListener
+            return [EventEmmiter.addListener, EventEmmiter.once, EventEmmiter.prependListener, EventEmmiter.prependOnceListener].includes(func)
+        }
+
+        function isAnonymousFunction(func) {
+            return func.name == "";
         }
 
         function isCalledByImmediate(base) {
             return base._onImmediate
         }
 
-        function isCalledByTimer(base) {
+        function isCalledByTimeoutOrInterval(base) {
             return base._onTimeout
         }
 
@@ -270,12 +281,11 @@ let emittedEvents = new Map();
 
         function addToMapList(map, key, value) {
             if (map.has(key)) {
-                map.get(key).push(value) // line number, args, caller
+                map.get(key).push(value)
             } else {
-                map.set(key, [value]) // line number, args, caller
+                map.set(key, [value])
             }
         }
-
 
         function addToTimeoutMap(key, value) {
             addToMapList(timeoutsQueueMap, key, value)
@@ -284,43 +294,45 @@ let emittedEvents = new Map();
         function addToEmittedEvents(key, value) {
             addToMapList(emittedEvents, key, value)
         }
+
+        function addToAddedListener(base, event, listener) {
+            let baseEvents = addedListeners.get(base)
+            if (!baseEvents) {
+                addedListeners.set(base, new Map().set(event, [listener]))
+            } else {
+                addToMapList(baseEvents, event, listener)
+            }
+        }
+
         function popFromTimeoutMap(key) {
             if (timeoutsQueueMap.has(key)) {
-                return timeoutsQueueMap.get(key).shift() // line number, args, caller
+                return timeoutsQueueMap.get(key).shift()
             }
         }
 
         function getTimeoutMap(key) {
             if (timeoutsQueueMap.has(key)) {
-                return timeoutsQueueMap.get(key) // line number, args, caller
-            }
-        }
-
-        function addToAddedListener(base, event, listener) {
-            let baseEvents = addedListeners.get(base)
-            if (!baseEvents) {
-                addedListeners.set(base, new Map().set(event, [listener])) // line number, args, caller
-            } else if (!baseEvents.has(event)) {
-                baseEvents.set(event, [listener]) // line number, args, caller
-            } else {
-                baseEvents.get(event).push(listener) // line number, args, caller
-            }
-        }
-
-        function getAddedListeners(base, event) {
-            let baseEvents = addedListeners.get(base)
-            if (baseEvents && baseEvents.has(event)) {
-                return baseEvents.get(event) // line number, args, caller
+                return timeoutsQueueMap.get(key)
             }
             return []
         }
 
         function getEmittedEvents(key) {
             if (emittedEvents.has(key)) {
-                return emittedEvents.get(key) // line number, args, caller
+                return emittedEvents.get(key)
             }
             return []
         }
+
+        function getAddedListeners(base, event) {
+            let baseEvents = addedListeners.get(base)
+            if (baseEvents && baseEvents.has(event)) {
+                return baseEvents.get(event)
+            }
+            return []
+        }
+
+
     }
     sandbox.analysis = new Analyser();
 })(J$);
