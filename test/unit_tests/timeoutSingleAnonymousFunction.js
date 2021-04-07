@@ -1,7 +1,3 @@
-foo()
-
-function foo() {
-    setTimeout(() => {
-        console.log("Done!");
-    }, 1000)
-}
+setTimeout(() => {
+    // do nothing
+}, 1000)
