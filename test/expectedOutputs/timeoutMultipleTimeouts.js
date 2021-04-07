@@ -1,8 +1,8 @@
 
-#2 function setTimeout2 is called with variables args by timeoutMultipleTimeouts.js
-#4 function setTimeout4 is called with variables args by timeoutMultipleTimeouts.js
-#6 function setTimeout6 is called with variables args by timeoutMultipleTimeouts.js
-#8 function setTimeout8 is called with variables args by timeoutMultipleTimeouts.js
+#2 function setTimeout21 is called with variables args by timeoutMultipleTimeouts.js
+#4 function setTimeout41 is called with variables args by timeoutMultipleTimeouts.js
+#6 function setTimeout61 is called with variables args by timeoutMultipleTimeouts.js
+#8 function setTimeout81 is called with variables args by timeoutMultipleTimeouts.js
 #10 function myFunction entered with variables args from setTimeOut6
 #10 function myFunction exited with return values undefined to function setTimeOut6
 #10 function myFunction entered with variables args from setTimeOut8

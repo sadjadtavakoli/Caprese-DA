@@ -1,6 +1,6 @@
 
-#6 function setInterval6 is called with variables args by intervalSingleKnownFunction.js
-#8 function setTimeout8 is called with variables args by intervalSingleKnownFunction.js
+#6 function setInterval617 is called with variables args by intervalSingleKnownFunction.js
+#8 function setTimeout81 is called with variables args by intervalSingleKnownFunction.js
 #2 function bar entered with variables args from setInterval6
 #2 function bar exited with return values undefined to function setInterval6
 #2 function bar entered with variables args from setInterval6

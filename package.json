@@ -7,7 +7,10 @@
     "test": "test"
   },
   "dependencies": {
-    "install": "^0.13.0"
+    "express": "^4.17.1",
+    "install": "^0.13.0",
+    "request": "^2.88.2",
+    "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
     "mocha": "^8.3.0"

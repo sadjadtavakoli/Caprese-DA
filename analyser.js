@@ -12,13 +12,19 @@ let accessedFiles = new Map();
 let EventEmmiter = events.EventEmitter.prototype;
 let addedListeners = new Map();
 let emittedEvents = new Map();
+const trackExternals = false;
 
 (function (sandbox) {
     sandbox.Config.LOG_ALL_READS_AND_BRANCHES = true
+    sandbox.functionIDs = new Map();
     function Analyser() {
         this.invokeFunPre = function (iid, f, base, args, isConstructor, isMethod, functionIid, functionSid) {
             let fName = f.name;
             let lineNumber = getLine(iid)
+
+            if (isImportingNewModule(iid)) {
+                return { f: f, base: base, args: args, skip: false };
+            }
 
             if (isConstructor) {
                 f.isConstructor = true
@@ -232,7 +238,7 @@ let emittedEvents = new Map();
         }
 
         function isImportingNewModule(iid) {
-            return (mainFileName != "" && mainFileName != getFileName(iid) && !accessedFiles.has(getFilePath(iid))) || accessedFiles.get(getFilePath(iid)) == iid
+            return (mainFileName != "" && mainFileName != getFileName(iid) && !(accessedFiles.has(getFilePath(iid)) && trackExternals)) || accessedFiles.get(getFilePath(iid)) == iid
 
         }
         function log(log_value) {
