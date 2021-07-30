@@ -1,0 +1,49 @@
+plugins {
+    id 'java-library'
+    id 'eclipse'
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+dependencies {
+    api 'org.eclipse.jgit:org.eclipse.jgit:4.7.0.201704051617-r'
+    implementation 'org.slf4j:slf4j-simple:1.7.30'
+    
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.8.9'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.8.9'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.8.9'
+    implementation 'com.ibm.icu:icu4j:61.1'
+    
+    testImplementation 'junit:junit:4.11'
+}
+
+task testJar(type: Jar) {
+    classifier = 'tests'
+    from sourceSets.test.output
+}
+
+configurations {
+    testArtifacts
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+    testArtifacts testJar
+}
+
+publishing {
+    publications {
+        refdiffCore(MavenPublication) {
+            artifactId = project.name
+            from components.java
+            pom pomConfig('RefDiff', 'An automated tool to detect refactorings in version histories')
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.refdiffCore
+}
