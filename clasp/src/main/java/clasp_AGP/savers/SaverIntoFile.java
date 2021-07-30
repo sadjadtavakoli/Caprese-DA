@@ -3,6 +3,8 @@ package clasp_AGP.savers;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -81,5 +83,9 @@ public class SaverIntoFile implements Saver {
     @Override
     public String print() {
         return "Content at file " + path;
+    }
+
+    public List<String> getList(){
+        return Arrays.asList("Content at file " + path);
     }
 }

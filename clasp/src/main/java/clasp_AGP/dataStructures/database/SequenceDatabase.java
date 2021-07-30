@@ -149,14 +149,13 @@ public class SequenceDatabase {
      * @param minSupport Minimum absolute support
      * @throws IOException
      */
-    public double loadString(String input, double minSupport) throws IOException {
+    public double loadList(String[] input, double minSupport) throws IOException {
         String thisLine;
         try {
-            String[] inputLines = input.split("\n");
             // For each line
-            for(int i=0; i<inputLines.length; i++){
+            for(int i=0; i<input.length; i++){
                 // If the line is not a comment line
-                thisLine = inputLines[i];
+                thisLine = input[i];
                 if (thisLine.charAt(0) != '#' && thisLine.charAt(0) != '%' && thisLine.charAt(0) != '@') {
                     // we add a new sequence to the sequenceDatabase
                     addSequence(thisLine.split(" "));

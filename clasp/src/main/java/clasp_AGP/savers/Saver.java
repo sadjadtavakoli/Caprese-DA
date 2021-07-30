@@ -1,5 +1,7 @@
 package clasp_AGP.savers;
 
+import java.util.List;
+
 import clasp_AGP.dataStructures.patterns.Pattern;
 
 /**
@@ -35,4 +37,7 @@ public interface Saver {
     public void clear();
 
     public String print();
+
+    public List<String> getList();
+    
 }
