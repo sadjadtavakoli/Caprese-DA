@@ -18,7 +18,7 @@ describe('Test functionCall_4.js', () => runTest('functionCall_4.js'));
 // describe('Test timeoutSingleUnknownFunction.js', () => runTest('timeoutSingleUnknownFunction.js'));
 
 
-const nodeprofCommand = '$GRAAL_HOME/bin/node --jvm --experimental-options --vm.Dtruffle.class.path.append=$NODEPROF_HOME/nodeprof.jar --nodeprof $NODEPROF_HOME/jalangi.js --analysis analyser.js test/unit_tests/'
+const nodeprofCommand = '$GRAAL_HOME/bin/node --jvm --experimental-options --vm.Dtruffle.class.path.append=$NODEPROF_HOME/nodeprof.jar --nodeprof $NODEPROF_HOME/jalangi.js --analysis utils.js --analysis analyser.js test/unit_tests/'
 
 function runTest(item) {
   it('Run nodeprof', function (done) {
@@ -28,8 +28,8 @@ function runTest(item) {
   });
   it('Compare resutl', function (done) {
     let diffs = compairResult(item);
-    if(diffs.length > 0){
-      assert.fail(JSON.stringify(diffs,null,'\t'));
+    if (diffs.length > 0) {
+      assert.fail(JSON.stringify(diffs, null, '\t'));
     }
     done();
   });
@@ -53,16 +53,16 @@ function compairResult(fileName) {
   }
   let diffs = []
   for (let i in min_content) {
-    if(expectedOutput[i] !== analyzerOutput[i]){
+    if (expectedOutput[i] !== analyzerOutput[i]) {
       diffs.push({
-        'line_number' : i,
-        'expected' : expectedOutput[i],
-        'actual' : analyzerOutput[i]
+        'line_number': i,
+        'expected': expectedOutput[i],
+        'actual': analyzerOutput[i]
       })
     }
   }
   if (analyzerOutput.length !== expectedOutput.length) {
     diffs.push(max_content + ' has some extra lines!')
   }
-return diffs
+  return diffs
 }
