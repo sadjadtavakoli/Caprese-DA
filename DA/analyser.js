@@ -26,11 +26,12 @@ let tempIDsMap = new Map();
                 return { f: f, base: base, args: args, skip: false };
             }
 
-            if (isConstructor) {
-                f.isConstructor = true
-                log(lineNumber + " class " + fName + "'s constructor is called with variables " + 'args' + " by " + functionEnterStack[functionEnterStack.length - 1].name)
+            // if (isConstructor) {
+            //     f.isConstructor = true
+            //     // log(lineNumber + " class " + fName + "'s constructor is called with variables " + 'args' + " by " + functionEnterStack[functionEnterStack.length - 1].name)
 
-            } else if (utils.isAddEventlistener(f)) {
+            // } else 
+            if (utils.isAddEventlistener(f)) {
 
                 addToAddedListener(base, args[0], getID(args[1], iid))
 
@@ -38,12 +39,13 @@ let tempIDsMap = new Map();
 
                 let callerFunction = functionEnterStack[functionEnterStack.length - 1]
                 addToEmittedEvents(base, { 'event': args[0], 'listeners': getAddedListeners(base, args[0]).slice(), 'callerFunction': callerFunction })
-                log(lineNumber + " function " + utils.getLine(callerFunction.id) + " emitted event " + args[0] + " of " + base.constructor.name)
+                // log(lineNumber + " function " + utils.getLine(callerFunction.id) + " emitted event " + args[0] + " of " + base.constructor.name)
   
             } else {
+                
                 let callerFunction = functionEnterStack[functionEnterStack.length - 1]
+
                 if (utils.isTimeOut(f)) {
-                    
                     let argID = getID(args[0], iid)
                     addToTimeoutMap('t_' + argID + Math.max(args[1], 1), callerFunction)
 
@@ -54,9 +56,11 @@ let tempIDsMap = new Map();
                 } else if (utils.isInterval(f)) {
                     let argID = getID(args[0], iid)
                     addToTimeoutMap('v_' + argID + args[1], callerFunction)
+                }else{
+                    getID(f, iid)
                 }
                 
-                log(lineNumber + " function called by " + utils.getLine(callerFunction.id))
+                // log(lineNumber + " function called by " + utils.getLine(callerFunction.id))
             }
 
             return { f: f, base: base, args: args, skip: false };
@@ -64,49 +68,48 @@ let tempIDsMap = new Map();
 
         this.functionEnter = function (iid, f, dis, args) {
             // TODO it's not readable => remove these ugly if elses 
-            console.log(iid)
             if (isImportingNewModule(iid)) {
                 accessedFiles.set(utils.getFilePath(iid), iid)
             } else {
                 if (isMainFile(iid)) {
                     mainFileName = utils.getFileName(iid)
                     accessedFiles.set(mainFileName, iid)
-                    functionEnterStack.push({'id': iid})
+                    getID(f, iid)
         
-                } else if (f.isConstructor) {
-                    log(utils.getLine(iid) + " class " + f.name + "'s constructor entered from" + utils.getLine(functionEnterStack[functionEnterStack.length - 1].id))
+                // } else if (f.isConstructor) {
+                //     log(utils.getLine(iid) + " class " + f.name + "'s constructor entered from" + utils.getLine(functionEnterStack[functionEnterStack.length - 1].id))
 
                 } else if (utils.isCalledByEvents(dis)) {
                     let fID = getID(f)
-                    let event = getRelatedEvent(dis, f)
+                    let event = getRelatedEvent(dis, fID)
                     tempIDsMap.set(fID, iid)
-                    log(utils.getLine(iid) + " function  " + utils.getLine(iid) + " entered throught event " + event.event + " emitted by function " + utils.getLine(event.callerFunction.name))
+                    log(utils.getLine(iid) + " function  " + utils.getLine(iid) + " entered throught event " + event.event + " emitted by function " + event.callerFunction.lineNumber)
 
                 } else {
 
                     if (utils.isCalledByTimeoutOrInterval(dis) || utils.isCalledByImmediate(dis)) {
                         let fID = getID(f)
-                        let caller;
+                        let callerFunction;
                         tempIDsMap.set(fID, iid)
 
                         if (utils.isCalledByInterval(dis)) {
-                            caller = getTimeoutMap('v_' + fID + dis._idleTimeout)[0]
+                            callerFunction = getTimeoutMap('v_' + fID + dis._idleTimeout)[0]
 
-                        } else if (utils.isCalledByImmediate(dis)){ // if called by timeout
-                            caller = popFromTimeoutMap('i_' + fID)
-                        }else { 
-                            caller = popFromTimeoutMap('t_' + fID + dis._idleTimeout)
+                        } else if (utils.isCalledByImmediate(dis)){ 
+                            callerFunction = popFromTimeoutMap('i_' + fID)
+                        }else { // if called by timeout
+                            callerFunction = popFromTimeoutMap('t_' + fID + dis._idleTimeout)
                         }
 
-                        caller['isTimer'] = true
-                        functionEnterStack.push(caller)
+                        callerFunction['isTimer'] = true
+                        functionEnterStack.push(callerFunction)
 
                     }
-
-                    log(utils.getLine(iid) + " function " + utils.getLine(iid) + " entered from " + utils.getLine(functionEnterStack[functionEnterStack.length - 1].id))
+                    log(utils.getLine(iid) + " function " + utils.getLine(iid) + " entered from " + functionEnterStack[functionEnterStack.length - 1].lineNumber)
                 }
 
-                functionEnterStack.push({'id': iid})
+                functionEnterStack.push({ 'lineNumber': utils.getLine(iid), 'object': f})
+
             }
         };
 
@@ -118,7 +121,7 @@ let tempIDsMap = new Map();
                     functionEnterStack.pop()
                 }
 
-                log(utils.getLine(iid) + " function " + utils.getLine(f.id) + " exited to function " + utils.getLine(caller.id));
+                log(utils.getLine(iid) + " function " + f.lineNumber + " exited to function " + caller.lineNumber);
 
             }
 
@@ -133,6 +136,16 @@ let tempIDsMap = new Map();
                 }
                 console.log("The file was saved!");
             });
+            console.log("slm")
+            console.log(functionIDs)
+
+            for(let item in functionIDs){
+                console.log(functionIDs[item])
+            }
+            for(let item in IDsFunction){
+                console.log(IDsFunction.get(item))
+            }
+            
         };
 
         function getRelatedEvent(base, func) {
