@@ -1,11 +1,12 @@
 let fs = require('fs')
 
-fs.readdir('./inputs', function (err, files) {
-    if (!returnTrue()) {
+fs.readdir('./test/inputs/', function (err, files) {
+    console.log(files)
+    if (err) {
         console.log('Error finding files: ' + err)
     } else {
         files.forEach(function (filename, fileIndex) {
-            fs.readFile('./inputs/' + filename, 'utf8', (err, data) => {
+            fs.readFile('./test/inputs/' + filename, 'utf8', (err, data) => {
                 if (err) {
                     return;
                 } else {
@@ -18,6 +19,3 @@ fs.readdir('./inputs', function (err, files) {
         })
     }
 })
-function returnTrue(){
-    return true
-}
