@@ -1,12 +1,8 @@
 
-#13 function foo is called with variables args by callbackSingleKnownFunction.js
-#9 function foo entered with variables args from callbackSingleKnownFunction.js
-#10 function caller is called with variables args by foo
-#5 function caller entered with variables args from foo
-#6 function bar is called with variables args by caller
-#1 function bar entered with variables args from caller
-#2 function bound log is called with variables args by bar
-#1 function bar exited with return values undefined to function caller
-#5 function caller exited with return values undefined to function foo
-#9 function foo exited with return values undefined to function callbackSingleKnownFunction.js
+#9 function 9 entered from 1
+#5 function 5 entered from 9
+#1 function 1 entered from 5
+#1 function 1 exited to function 5
+#5 function 5 exited to function 9
+#9 function 9 exited to function 1
 #end Execution

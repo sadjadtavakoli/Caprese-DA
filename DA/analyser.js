@@ -1,7 +1,6 @@
 // do not remove the following comment
 // JALANGI DO NOT INSTRUMENT
 const fs = require('fs');
-const { type } = require('os');
 
 
 let logger = "";
@@ -10,8 +9,7 @@ let mainFileName = "";
 let functionEnterStack = [];
 let timeoutsQueueMap = new Map();
 let callbackMap = new Map();
-let callbackMapValidator = new Map();
-let calledFunctions = [];
+let functionsFuncInput = new Map();
 let accessedFiles = new Map();
 let addedListeners = new Map();
 let emittedEvents = new Map();
@@ -24,18 +22,11 @@ let tempIDsMap = new Map();
     sandbox.functionIDs = new Map();
     function Analyser() {
         this.invokeFunPre = function (iid, f, base, args, isConstructor, isMethod, functionIid, functionSid) {
-            // let fName = f.name;
-            // let lineNumber = utils.getLine(iid)
 
             if (isImportingNewModule(iid)) {
                 return { f: f, base: base, args: args, skip: false };
             }
 
-            // if (isConstructor) {
-            //     f.isConstructor = true
-            //     // log(lineNumber + " class " + fName + "'s constructor is called with variables " + 'args' + " by " + functionEnterStack[functionEnterStack.length - 1].name)
-
-            // } else 
             if (utils.isAddEventlistener(f)) {
 
                 addToAddedListener(base, args[0], getID(args[1], iid))
@@ -44,7 +35,6 @@ let tempIDsMap = new Map();
 
                 let callerFunction = functionEnterStack[functionEnterStack.length - 1]
                 addToEmittedEvents(base, { 'event': args[0], 'listeners': getAddedListeners(base, args[0]).slice(), 'callerFunction': callerFunction })
-                // log(lineNumber + " function " + utils.getLine(callerFunction.id) + " emitted event " + args[0] + " of " + base.constructor.name)
 
             } else {
 
@@ -66,30 +56,28 @@ let tempIDsMap = new Map();
                     addToForloopMap(argID, callerFunction, base.length)
                 } else {
                     let fID = getID(f, iid)
-                    // validateCallBackMap(fID, callerFunction)
-                    // calledFunctions.push(fID)
+                    let funcArgs = []
+
                     for (let i = 0; i < args.length; i = i + 1) {
                         if (typeof args[i] == "function") {
                             let argID = getID(args[i], iid + `${i}`)
-                            // console.log(" - - - - - --call time-- - - - - - - - ")
-                            // console.log(argID)
-                            // console.log(callerFunction)
+                            funcArgs.push(argID)
                             addToCallbackMap(argID, fID, callerFunction)
                         }
                     }
 
-                    // console.log("function call "  + f + " " + utils.getLine(iid))
-
+                    if (funcArgs.length) {
+                        addToFunctionsFuncInputs(fID, funcArgs)
+                    }
                 }
-
-                // log(" function called by " + callerFunction.lineNumber)
             }
 
             return { f: f, base: base, args: args, skip: false };
         };
 
         this.functionEnter = function (iid, f, dis, args) {
-            // TODO it's not readable => remove these ugly if elses 
+            // TODO it's not understandable => remove these ugly if elses
+
             if (isImportingNewModule(iid)) {
                 accessedFiles.set(utils.getFilePath(iid), iid)
             } else {
@@ -98,15 +86,11 @@ let tempIDsMap = new Map();
                 if (isMainFile(iid)) {
                     mainFileName = utils.getFileName(iid)
                     accessedFiles.set(mainFileName, iid)
-                    // } else if (f.isConstructor) {
-                    //     log(utils.getLine(iid) + " class " + f.name + "'s constructor entered from" + utils.getLine(functionEnterStack[functionEnterStack.length - 1].id))
-
                 } else if (utils.isCalledByEvents(dis)) {
                     let event = getRelatedEvent(dis, fID)
                     log(utils.getLine(iid) + " function  " + utils.getLine(iid) + " entered throught event " + event.event + " emitted by function " + event.callerFunction.lineNumber)
-                    updateTrace(fID) // can be replaced by iid without any unnecassary complixity 
+                    updateTrace(fID)
                 } else {
-                    console.log("entetr function " + utils.getLine(iid))
                     let callerFunction;
                     if (utils.isCalledByInterval(dis)) {
                         callerFunction = getTimeoutMap('v_' + fID + dis._idleTimeout)[0]
@@ -114,33 +98,24 @@ let tempIDsMap = new Map();
                         callerFunction = popFromTimeoutMap('i_' + fID)
                     } else if (utils.isCalledByTimeout(dis)) {
                         callerFunction = popFromTimeoutMap('t_' + fID + dis._idleTimeout)
-                    } else 
-                    // if(!checkBeingCalled(fID)) 
-                    { // simple function or callback
+                    } else { // simple function or callback
+                        validateCallBackMap(fID)
                         let argCheck = popFromCallbackMap(fID)
                         if (argCheck) {
-                            callerFunction = argCheck
+                            callerFunction = argCheck[1]
                         }
                     }
-
                     if (callerFunction) {
                         callerFunction['isTemp'] = true
                         functionEnterStack.push(callerFunction)
-                        console.log("* * * * ** * * * enter has parent * * * * * * * **")
-                        console.log(callerFunction)
                     } else {
-                        console.log("* * * * ** * *  bi pedar madar * * * * * * * **")
                         callerFunction = functionEnterStack[functionEnterStack.length - 1]
-                        console.log(callerFunction)
                     }
                     log(utils.getLine(iid) + " function " + utils.getLine(iid) + " entered from " + callerFunction.lineNumber)
                     updateTrace(fID)
                 }
 
-
-                console.log(" /* */ ** /* * * */* /*/ *")
                 functionEnterStack.push({ 'lineNumber': utils.getLine(iid), 'fID': fID })
-                console.log(functionEnterStack)
 
             }
         };
@@ -152,9 +127,7 @@ let tempIDsMap = new Map();
                 if (caller.isTemp) {
                     functionEnterStack.pop()
                 }
-
                 log(utils.getLine(iid) + " function " + f.lineNumber + " exited to function " + caller.lineNumber);
-
             }
 
             return { returnVal: returnVal, wrappedExceptionVal: wrappedExceptionVal, isBacktrack: false };
@@ -162,19 +135,26 @@ let tempIDsMap = new Map();
 
         this.endExecution = function () {
             log("end Execution");
-            fs.writeFileSync(path.join(__dirname, 'test/analyzerOutputs' + path.sep + mainFileName), logger, function (err) {
+            fs.writeFileSync(path.join(__dirname, 'test' + path.sep + 'analyzerOutputs' + path.sep + mainFileName), logger, function (err) {
                 if (err) {
                     return console.log(err);
                 }
                 console.log("The file was saved!");
             });
-            console.log("**************end execution************")
+            // console.log("**************end execution************")
             for (const [key, value] of tempIDsMap.entries()) {
                 trace = trace.replace(new RegExp(key, 'g'), utils.getIddKey(value))
-                console.log(key + " : " + utils.getLine(value))
-                // console.log(utils.getLine(value))
+                //     console.log(key + " : " + utils.getLine(value))
+                //     // console.log(utils.getLine(value))
             }
-            console.log(trace)
+
+
+            fs.writeFileSync(path.join(__dirname, 'test' + path.sep + 'analyzerOutputs' + path.sep + 'traces' + path.sep + mainFileName), trace, function (err) {
+                if (err) {
+                    return console.log(err);
+                }
+                console.log("The file was saved!");
+            });
 
         };
 
@@ -207,10 +187,6 @@ let tempIDsMap = new Map();
 
     }
 
-    function isRequire(f) {
-        return f.name == require.name && f.constructor == require.constructor
-    }
-
     function log(log_value) {
         logger += "\n#" + log_value
     }
@@ -234,8 +210,15 @@ let tempIDsMap = new Map();
      * @param caller mainFunction's caller function
      */
     function addToCallbackMap(key, mainFunction, caller) {
-        utils.addToMapList(callbackMap, key, caller)
-        // utils.addToMapList(callbackMapValidator, key, mainFunction, true)
+        utils.addToMapList(callbackMap, key, [mainFunction, caller])
+    }
+
+    function addToFunctionsFuncInputs(key, list) {
+        if (functionsFuncInput.has(key)) {
+            functionsFuncInput.get(key).concat(list)
+        } else {
+            functionsFuncInput.set(key, list)
+        }
     }
 
     function addToForloopMap(key, value, count) { // should edit
@@ -266,39 +249,24 @@ let tempIDsMap = new Map();
         return []
     }
 
-    function getCallbackMap(key) {
-        if (callbackMap.has(key)) {
-            return callbackMap.get(key)
-        }
-        return []
-    }
-    /**
-     * in this method we want to check whether our current caller is the one which used function key as input? 
-     * if so, we will remove functon key from callbacks' list
-     * @param key The function's iD
-     * @param caller Our function's caller
-     * @returns 
-     */
-    function validateCallBackMap(key, caller) {
-        if (callbackMapValidator.has(key)) {
-            let callerIndex = callbackMapValidator.get(key).indexOf(caller)
-            if (callerIndex != -1) {
-                callbackMapValidator.get(key).splice(callerIndex, callerIndex)
+    function validateCallBackMap(enteredFunction) {
+        if (functionsFuncInput.has(enteredFunction)) {
+            let argsList = functionsFuncInput.get(enteredFunction)
+            for (let item of argsList) {
+                callbackMap.set(item, callbackMap.get(item).filter(function (ele) {
+                    return ele[0] != enteredFunction;
+                }))
             }
-        }
-    }
-
-    function checkBeingCalled(key){
-        let index = calledFunctions.indexOf(key)
-        if(index != -1){
-            return calledFunctions.splice(index, index)
+            functionsFuncInput.delete(enteredFunction)
         }
     }
 
     function popFromCallbackMap(key) {
         if (callbackMap.has(key)) {
-            // callbackMapValidator.get(key).shift()
-            return callbackMap.get(key).shift()
+            let res = callbackMap.get(key).shift()
+            if (!callbackMap.get(key).length)
+                callbackMap.delete(key)
+            return res
         }
     }
 

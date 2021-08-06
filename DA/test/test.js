@@ -3,12 +3,13 @@ const fs = require('fs');
 const exec = require('child_process').exec;
 var assert = require('assert');
 
+describe('Test callbackChainForLoop.js', () => runTest('callbackChainForLoop.js'));
+describe('Test callbackChainDifferentCalls.js', () => runTest('callbackChainDifferentCalls.js'));
 describe('Test callChain.js', () => runTest('callChain.js'));
 describe('Test callbackAnonymousChain.js', () => runTest('callbackAnonymousChain.js'));
 describe('Test callbackNonBlockingFunctions.js', () => runTest('callbackNonBlockingFunctions.js'));
 describe('Test callbackSingleAnonymousFunction.js', () => runTest('callbackSingleAnonymousFunction.js'));
 describe('Test callbackSingleKnownFunction.js', () => runTest('callbackSingleKnownFunction.js'));
-describe('Test evaltest.js', () => runTest('evaltest.js'));
 describe('Test eventsAnonymousListener.js', () => runTest('eventsAnonymousListener.js'));
 describe('Test eventsDifferentEmitters.js', () => runTest('eventsDifferentEmitters.js'));
 describe('Test eventsMultipleListeners.js', () => runTest('eventsMultipleListeners.js'));

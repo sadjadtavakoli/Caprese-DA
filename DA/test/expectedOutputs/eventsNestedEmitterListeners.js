@@ -1,14 +1,10 @@
 
-#1 function require is called with variables args by eventsNestedEmitterListeners.js
-#2 class EventEmitter's constructor is called with variables args by eventsNestedEmitterListeners.js
-#18 function eventsNestedEmitterListeners.js emitted event connection1 of EventEmitter
-#11 function anonymous11 entered with variables args throught event connection1 emitted by function eventsNestedEmitterListeners.js
-#12 function anonymous11 emitted event connection2 of EventEmitter
-#7 function listner2 entered with variables args throught event connection2 emitted by function anonymous11
-#7 function listner2 exited
-#4 function listner1 entered with variables args throught event connection1 emitted by function eventsNestedEmitterListeners.js
-#4 function listner1 exited
-#11 function anonymous11 exited
-#4 function listner1 entered with variables args throught event connection2 emitted by function anonymous11
-#4 function listner1 exited
+#11 function  11 entered throught event connection1 emitted by function 1
+#7 function  7 entered throught event connection2 emitted by function 11
+#7 function 7 exited to function 11
+#4 function  4 entered throught event connection1 emitted by function 1
+#4 function 4 exited to function 11
+#11 function 11 exited to function 1
+#4 function  4 entered throught event connection2 emitted by function 11
+#4 function 4 exited to function 1
 #end Execution
