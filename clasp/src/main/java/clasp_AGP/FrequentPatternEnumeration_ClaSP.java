@@ -618,85 +618,8 @@ public class FrequentPatternEnumeration_ClaSP {
                     if (!p2.contains(itemConstraint)) {
                         lista.remove(j);
                         j--;
+                        continue;
                     }
-                    // If the patterns has the same support:
-                    /*
-                     * Tin modifies:
-                     */
-                    if (p1.getAppearingIn().cardinality() == p2.getAppearingIn().cardinality()) {
-                        // if (p1.getAppearingIn().size() == p2.getAppearingIn().size()) {
-                        if (p1.size() != p2.size()) {
-                            /*
-                             * And one is subpattern of the other, we remove the shorter pattern and keep
-                             * the longer one
-                             */
-                            if (p1.size() < p2.size()) {
-                                if (p1.isSubpattern(abstractionCreator, p2)) {
-                                    lista.remove(i);
-                                    i--;
-                                    break;
-                                }
-                            } else {
-                                if (p2.isSubpattern(abstractionCreator, p1)) {
-                                    lista.remove(j);
-                                    j--;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        /*
-         * We calcule the number of frequent patterns and we store in the chosen output
-         * if the flag is activated
-         */
-        for (List<Pattern> list : totalPatterns.values()) {
-            /*
-             * Tin modifies:
-             */
-            numberOfFrequentClosedPatterns += list.size();
-            if (keepPatterns) {
-                for (Pattern p : list) {
-                    saver.savePattern(p);
-                }
-            }
-        }
-
-    }
-
-    void removeNonItemConstraintPatterns(List<Entry<Pattern, Trie>> frequentPatterns, boolean keepPatterns) {
-        System.err.println("Before removing NonClosed patterns there are " + numberOfFrequentPatterns + " patterns");
-        /*
-         * Tin modifies:
-         */
-        numberOfFrequentClosedPatterns = 0;
-
-        /*
-         * We make a map to match group of patterns linked by their addition of sequence
-         * identifiers
-         */
-        Map<Integer, List<Pattern>> totalPatterns = new HashMap<Integer, List<Pattern>>();
-        // and we classify the patterns there by their sumIdSequences number
-        for (Entry<Pattern, Trie> entrada : frequentPatterns) {
-            Pattern p = entrada.getKey();
-            Trie t = entrada.getValue();
-            p.setAppearingIn(t.getAppearingIn());
-            List<Pattern> listaPatrones = totalPatterns.get(t.getSumIdSequences());
-            if (listaPatrones == null) {
-                listaPatrones = new LinkedList<Pattern>();
-                totalPatterns.put(t.getSumIdSequences(), listaPatrones);
-            }
-            listaPatrones.add(p);
-        }
-
-        // For all the list associated with de different sumSequencesIDs values
-        for (List<Pattern> lista : totalPatterns.values()) {
-            // For all their patterns
-            for (int i = 0; i < lista.size(); i++) {
-                for (int j = i + 1; j < lista.size(); j++) {
-                    Pattern p1 = lista.get(i);
-                    Pattern p2 = lista.get(j);
                     // If the patterns has the same support:
                     /*
                      * Tin modifies:

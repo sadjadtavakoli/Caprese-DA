@@ -190,9 +190,9 @@ public class AlgoCM_ClaSP {
                 for (int j = 0; j < itemsetA.size(); j++) {
                     sequenceLengthTracker += 1;
                     Integer itemA = (Integer) itemsetA.get(j).getId();
-                    if (sequenceLengthTracker > seq.getlastOccurance()) {
-                        break loopseq;
-                    }
+                    // if (sequenceLengthTracker > seq.getlastOccurance()) {
+                    //     break loopseq;
+                    // } // @sadjad CoOccurance Computation before lastOccurance of our itemset
                     boolean alreadyDoneForItemA = false;
                     Set equalSet = alreadySeenB_equals.get(itemA);
                     if (equalSet == null) {
@@ -400,6 +400,10 @@ public class AlgoCM_ClaSP {
         r.append(saver.print());
         r.append("\n===================================================\n");
         return r.toString();
+    }
+
+    public List<String> getResutl(){
+        return saver.getList();
     }
 
     public int getNumberOfFrequentPatterns() {

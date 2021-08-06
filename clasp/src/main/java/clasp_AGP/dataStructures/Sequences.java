@@ -77,6 +77,17 @@ public class Sequences {
         return r.toString();
     }
 
+    public List<String> toList(boolean outputSequenceIdentifiers){
+        List<String> r = new ArrayList<>();
+        if (levels != null) {
+            for (List<Pattern> level : levels) {
+                for (Pattern sequence : level) {
+                    r.add(sequence.toStringToFile(outputSequenceIdentifiers));
+                }
+            }
+        }
+        return r;
+    }
     public void addSequence(Pattern sequence, int k) {
         while (levels.size() <= k) {
             levels.add(new ArrayList<Pattern>());

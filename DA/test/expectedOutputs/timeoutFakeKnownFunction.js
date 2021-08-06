@@ -1,8 +1,6 @@
 
-#5 function foo is called with variables args by timeoutFakeKnownFunction.js
-#7 function foo entered with variables args from timeoutFakeKnownFunction.js
-#8 function setTimeout is called with variables args by foo
-#11 function setTimeout entered with variables args from foo
-#11 function setTimeout exited with return values undefined to function foo
-#7 function foo exited with return values undefined to function timeoutFakeKnownFunction.js
+#7 function 7 entered from 1
+#11 function 11 entered from 7
+#11 function 11 exited to function 7
+#7 function 7 exited to function 1
 #end Execution

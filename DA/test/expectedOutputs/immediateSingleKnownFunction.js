@@ -1,5 +1,4 @@
 
-#5 function setImmediate51 is called with variables args by immediateSingleKnownFunction.js
-#1 function foo entered with variables args from setImmediate5
-#1 function foo exited with return values undefined to function setImmediate5
+#1 function 1 entered from 1
+#1 function 1 exited to function 1
 #end Execution

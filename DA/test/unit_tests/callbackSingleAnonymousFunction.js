@@ -6,4 +6,3 @@ function caller(callback){
 caller(()=>{
     //  do nothing
 })
-

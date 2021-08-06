@@ -1,5 +1,7 @@
 package clasp_AGP.savers;
 
+import java.util.List;
+
 import clasp_AGP.dataStructures.Sequences;
 import clasp_AGP.dataStructures.patterns.Pattern;
 
@@ -64,5 +66,9 @@ public class SaverIntoMemory implements Saver {
     public String print() {
         return patterns.toStringToFile(outputSequenceIdentifiers);
     }
+
+    public List<String> getList(){
+        return patterns.toList(outputSequenceIdentifiers);
+    };
 
 }

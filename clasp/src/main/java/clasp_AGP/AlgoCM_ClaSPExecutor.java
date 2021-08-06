@@ -67,7 +67,7 @@ public class AlgoCM_ClaSPExecutor {
 
     }
 
-    public static void runString(List<String> itemConstraint, double support, String sequences, String outputPath)
+    public static List<String> runList(List<String> itemConstraint, double support, String[] sequences, String outputPath)
             throws IOException {
 
         // Load a sequence database
@@ -87,19 +87,20 @@ public class AlgoCM_ClaSPExecutor {
 
         SequenceDatabase sequenceDatabase = new SequenceDatabase(abstractionCreator, idListCreator, itemConstraint);
 
-        double relativeSupport = sequenceDatabase.loadString(sequences, support);
+        double relativeSupport = sequenceDatabase.loadList(sequences, support);
 
         AlgoCM_ClaSP algorithm = new AlgoCM_ClaSP(relativeSupport, abstractionCreator, findClosedPatterns,
                 executePruningMethods, itemConstraint);
 
         // System.out.println(sequenceDatabase.toString());
         algorithm.runAlgorithm(sequenceDatabase, keepPatterns, verbose, outputPath, outputSequenceIdentifiers);
-        System.out.println("Minsup (relative) : " + support);
-        System.out.println(algorithm.getNumberOfFrequentPatterns() + " patterns found.");
+        return algorithm.getResutl();
+        // System.out.println("Minsup (relative) : " + support);
+        // System.out.println(algorithm.getNumberOfFrequentPatterns() + " patterns found.");
 
-        if (verbose && keepPatterns) {
-            System.out.println(algorithm.printStatistics());
-        }
+        // if (verbose && keepPatterns) {
+        //     System.out.println(algorithm.printStatistics());
+        // }
 
         // uncomment if we want to see the Trie graphically
         // ShowTrie.showTree(algorithm.getFrequentAtomsTrie());

@@ -1,6 +1,4 @@
 
-#1 function require is called with variables args by functionCallRequireModule.js
-#4 function callee is called with variables args by functionCallRequireModule.js
-#1 function callee entered with variables args from functionCallRequireModule.js
-#1 function callee exited with return values undefined to function functionCallRequireModule.js
+#1 function 1 entered from 1
+#1 function 1 exited to function 1
 #end Execution

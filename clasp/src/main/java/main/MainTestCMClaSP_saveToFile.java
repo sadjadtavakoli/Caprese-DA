@@ -19,7 +19,13 @@ public class MainTestCMClaSP_saveToFile {
     public static void main(String[] args) throws IOException {
         double support = 0.5;
         List<String> itemConstraint = Arrays.asList("1");
+        String[] sequences = {
+            "1 -1 6 -1 3 -1 4 -1 4 -1 -2", 
+            "1 -1 6 -1 3 -1 4 -1 4 -1 -2", 
+            "1 -1 6 -1 3 -1 4 -1 4 -1 -2", 
+            "1 -1 6 -1 3 -1 4 -1 4 -1 -2"};
 
-        AlgoCM_ClaSPExecutor.runFile(itemConstraint, support, "contextPrefixSpan.txt", null);
+        // AlgoCM_ClaSPExecutor.runFile(itemConstraint, support, "contextPrefixSpan.txt", null);
+        System.out.println(AlgoCM_ClaSPExecutor.runList(itemConstraint, support, sequences, null).toString());
     }
 }
