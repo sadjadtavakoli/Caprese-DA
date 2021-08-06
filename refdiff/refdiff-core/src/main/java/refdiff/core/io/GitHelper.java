@@ -155,7 +155,7 @@ public class GitHelper {
 			new GitSourceTree(repository, commitBefore.getId(), filesBefore),
 			new GitSourceTree(repository, commitAfter.getId(), filesAfter));
 	}
-	
+
 	public static PairBeforeAfter<SourceFileSet> getSourcesBeforeAndAfterCommit(Repository repository, String commitId, FilePathFilter fileExtensions) {
 		try (RevWalk rw = new RevWalk(repository)) {
 			RevCommit commitAfter = rw.parseCommit(repository.resolve(commitId));
@@ -168,7 +168,21 @@ public class GitHelper {
 			throw new RuntimeException(e);
 		}
 	}
-	
+	public static RevCommit getSourceOnCommit(Repository repository, RevCommit commit){
+		try (RevWalk rw = new RevWalk(repository)) {
+			return rw.parseCommit(commit);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	public static RevCommit getSourceOnCommit(Repository repository, String commitId){
+		try (RevWalk rw = new RevWalk(repository)) {
+			return rw.parseCommit(repository.resolve(commitId));
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+
 	public static PairBeforeAfter<SourceFileSet> getSourcesBeforeAndAfterCommit(Repository repository, String commitIdBefore, String commitIdAfter, FilePathFilter fileExtensions) {
 		try (RevWalk rw = new RevWalk(repository)) {
 			RevCommit commitBefore = rw.parseCommit(repository.resolve(commitIdBefore));
@@ -178,7 +192,7 @@ public class GitHelper {
 			throw new RuntimeException(e);
 		}
 	}
-	
+
 	public int countCommits(Repository repository, String branch) throws Exception {
 		RevWalk walk = new RevWalk(repository);
 		try {

@@ -58,6 +58,23 @@ public class RefDiff {
 	}
 	
 	/**
+	 * @param gitRepository
+	 * @param commitSha1
+	 * @return
+	 */
+	public RevCommit getCommit(File gitRepository, String commitSha1){
+		try (Repository repo = GitHelper.openRepository(gitRepository)) {
+			return GitHelper.getSourceOnCommit(repo, commitSha1);
+		}
+	}
+
+	public RevCommit getCommit(File gitRepository, RevCommit commit){
+		try (Repository repo = GitHelper.openRepository(gitRepository)) {
+			return GitHelper.getSourceOnCommit(repo, commit);
+		}
+	}
+
+	/**
 	 * Compute a CST diff between a commit and its parent commit (previous revision).
 	 * This method will throw an exception if the given commit has more than one parent (e.g., merge commits).
 	 * 
@@ -72,9 +89,26 @@ public class RefDiff {
 			return comparator.compare(beforeAndAfter, monitor);
 		}
 	}
-	
+
 	/**
-	 * Compute a CST diff between a commit and its parent commit (previous revision).
+	 * Compute a CST diff between two commits.
+	 * This method will throw an exception if the given commit has more than one parent (e.g., merge commits).
+	 * 
+	 * @param gitRepository The folder of the git repository (you should pass the .git folder if the repository is not on bare mode).
+	 * @param commit1 first commit that identifies the commit.
+	 * @param commit2 second commit that identifies the previous commit.
+	 * @param monitor CstComparatorMonitor object that can be used to inspect CST relationships discarded along the process.
+	 * @return The computed CST diff.
+	 */
+	public CstDiff computeDiffForCommit(File gitRepository, RevCommit commit1, RevCommit commit2) {
+		try (Repository repo = GitHelper.openRepository(gitRepository)) {
+			PairBeforeAfter<SourceFileSet> beforeAndAfter = GitHelper.getSourcesBeforeAndAfterCommit(repo, commit1, commit2, fileFilter);
+			return comparator.compare(beforeAndAfter, new CstComparatorMonitor() {});
+		}
+	}
+
+	/**
+	 * Compute a CST diff between two commits.
 	 * This method will throw an exception if the given commit has more than one parent (e.g., merge commits).
 	 * 
 	 * @param gitRepository The folder of the git repository (you should pass the .git folder if the repository is not on bare mode).
