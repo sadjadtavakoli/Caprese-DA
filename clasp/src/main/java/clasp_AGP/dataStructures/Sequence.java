@@ -43,11 +43,6 @@ public class Sequence {
     private int id;
 
     /**
-     * last occurance of our specified items as the item constraints.
-     */
-    private int lastOccurance;
-
-    /**
      * Standard constructor for a sequence
      * 
      * @param id The sequence identifier
@@ -145,14 +140,6 @@ public class Sequence {
         return id;
     }
 
-    /**
-     * It returns the last occurance of the items in our item contraints item-set
-     * 
-     * @return the sequence id of this sequence
-     */
-    public int getlastOccurance() {
-        return lastOccurance;
-    }
 
     /**
      * It gets the list of itemsets in this sequence
@@ -210,14 +197,6 @@ public class Sequence {
         this.id = id;
     }
 
-    /**
-     * Set last occurance
-     * 
-     * @param lastOccurance the sequence id
-     */
-    public void setLastOccurance(int lastOccurance) {
-        this.lastOccurance = lastOccurance;
-    }
 
     /*
      * public int elementosExistentesAPartirDePosicion(int indexItemset, int

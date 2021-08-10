@@ -185,14 +185,11 @@ public class AlgoCM_ClaSP {
             Map<Integer, Set<Integer>> alreadySeenB_equals = new HashMap<>();
             int sequenceLengthTracker = 0;
             // for each item
-            loopseq: for (int i = 0; i < seq.getItemsets().size(); i++) {
+            for (int i = 0; i < seq.getItemsets().size(); i++) {
                 Itemset itemsetA = seq.get(i);
                 for (int j = 0; j < itemsetA.size(); j++) {
                     sequenceLengthTracker += 1;
                     Integer itemA = (Integer) itemsetA.get(j).getId();
-                    // if (sequenceLengthTracker > seq.getlastOccurance()) {
-                    //     break loopseq;
-                    // } // @sadjad CoOccurance Computation before lastOccurance of our itemset
                     boolean alreadyDoneForItemA = false;
                     Set equalSet = alreadySeenB_equals.get(itemA);
                     if (equalSet == null) {

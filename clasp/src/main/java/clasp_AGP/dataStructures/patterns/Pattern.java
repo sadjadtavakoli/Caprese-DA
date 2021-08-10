@@ -86,9 +86,9 @@ public class Pattern implements Comparable<Pattern> {
             result.append("\t(");
             result.append(appearingIn.size()).append(')');
             result.append("\t[");
-            for (int i = 0; i < appearingIn.size(); i++) {
-                result.append(getSupport()).append(", ");
-            }
+            // for (int i = 0; i < appearingIn.size(); i++) {
+            //     result.append(getSupport()).append(", ");
+            // }
             result.deleteCharAt(result.length() - 1);
             result.deleteCharAt(result.length() - 1);
             result.append("]");

@@ -607,25 +607,22 @@ public class FrequentPatternEnumeration_ClaSP {
         for (List<Pattern> lista : totalPatterns.values()) {
             // For all their patterns
             for (int i = 0; i < lista.size(); i++) {
+                Pattern p1 = lista.get(i);
+                if (!p1.contains(itemConstraint)) {
+                    lista.remove(i);
+                    i--;
+                    continue;
+                }
                 for (int j = i + 1; j < lista.size(); j++) {
-                    Pattern p1 = lista.get(i);
                     Pattern p2 = lista.get(j);
-                    if (!p1.contains(itemConstraint)) {
-                        lista.remove(i);
-                        i--;
-                        break;
-                    }
                     if (!p2.contains(itemConstraint)) {
                         lista.remove(j);
                         j--;
                         continue;
                     }
                     // If the patterns has the same support:
-                    /*
-                     * Tin modifies:
-                     */
                     if (p1.getAppearingIn().cardinality() == p2.getAppearingIn().cardinality()) {
-                        // if (p1.getAppearingIn().size() == p2.getAppearingIn().size()) {
+
                         if (p1.size() != p2.size()) {
                             /*
                              * And one is subpattern of the other, we remove the shorter pattern and keep

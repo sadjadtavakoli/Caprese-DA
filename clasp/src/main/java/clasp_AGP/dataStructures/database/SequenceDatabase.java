@@ -141,7 +141,6 @@ public class SequenceDatabase {
 
     }
 
-
     /**
      * Method that load a database from a path file given as parameter
      *
@@ -153,7 +152,7 @@ public class SequenceDatabase {
         String thisLine;
         try {
             // For each line
-            for(int i=0; i<input.length; i++){
+            for (int i = 0; i < input.length; i++) {
                 // If the line is not a comment line
                 thisLine = input[i];
                 if (thisLine.charAt(0) != '#' && thisLine.charAt(0) != '%' && thisLine.charAt(0) != '@') {
@@ -192,6 +191,7 @@ public class SequenceDatabase {
         return -1;
 
     }
+
     /**
      * Method that adds a sequence from a array of string
      *
@@ -208,10 +208,14 @@ public class SequenceDatabase {
         Sequence sequence = new Sequence(sequences.size());
         Itemset itemset = new Itemset();
         sequence.setID(nSequences);
-        int lastOccurance = -1;
         int beginning = 0;
-
         List<Integer> sizeItemsetsList = new ArrayList<Integer>();
+        List<String> copy = new ArrayList<>(itemConstraint);
+        copy.retainAll(Arrays.asList(integers));
+
+        if (copy.isEmpty()) {
+            return;
+        }
 
         for (int i = beginning; i < integers.length; i++) {
             if (integers[i].codePointAt(0) == '<') { // Timestamp
@@ -226,12 +230,8 @@ public class SequenceDatabase {
                 itemset.setTimestamp(timestamp);
                 sizeItemsetsList.add(sequence.length());
 
-            } else if (integers[i].equals("-2") && lastOccurance > -1) { // End of a sequence
-                sequence.setLastOccurance(lastOccurance);
+            } else if (integers[i].equals("-2")) { // End of a sequence
                 sequences.add(sequence);
-                // System.out.println("sequences and last occurance");
-                // System.out.println(sequence.toString());
-                // System.out.println(lastOccurance);
                 nSequences++;
                 sequencesLengths.put(sequence.getId(), sequence.length());
                 sequenceItemsetSize.put(sequence.getId(), sizeItemsetsList);
@@ -256,9 +256,6 @@ public class SequenceDatabase {
                     }
                     itemset.addItem(item);
 
-                    if (this.itemConstraint.contains(integers[i])) {
-                        lastOccurance = sequence.length() + itemset.size();
-                    }
                     idListCreator.addAppearance(idlist, sequence.getId(), (int) timestamp,
                             sequence.length() + itemset.size());
                     idListCreator.updateProjectionDistance(projectingDistance, item, sequence.getId(), sequence.size(),
