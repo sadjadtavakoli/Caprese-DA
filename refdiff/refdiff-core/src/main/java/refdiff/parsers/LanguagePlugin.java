@@ -2,6 +2,9 @@ package refdiff.parsers;
 
 import refdiff.core.io.FilePathFilter;
 import refdiff.core.io.SourceFileSet;
+
+import java.util.Set;
+
 import refdiff.core.cst.CstRoot;
 
 /**
@@ -21,7 +24,7 @@ public interface LanguagePlugin {
 	 * @return The CST.
 	 * @throws Exception when unable to parse the files.
 	 */
-	CstRoot parse(SourceFileSet sources) throws Exception;
+	CstRoot parse(SourceFileSet sources, Set<String> nonJsChangedfiles) throws Exception;
 	
 	/**
 	 * @return A {@code FilePathFilter} object, which contains a list of file extensions supported by this

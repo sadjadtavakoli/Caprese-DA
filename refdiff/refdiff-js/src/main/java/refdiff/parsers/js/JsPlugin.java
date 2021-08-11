@@ -71,23 +71,22 @@ public class JsPlugin implements LanguagePlugin, Closeable {
 	}
 
 	@Override
-	public CstRoot parse(SourceFileSet sources) throws Exception {
+	public CstRoot parse(SourceFileSet sources, Set<String> nonJsChangedfiles) throws Exception {
 		CstRoot root = new CstRoot();
 		this.nodeCounter = 0;
 		for (SourceFile sourceFile : sources.getSourceFiles()) {
 			String content = sources.readContent(sourceFile);
 			try {
-				getCst(root, sourceFile, content, sources);
+				getCst(root, sourceFile, content, sources, nonJsChangedfiles);
 			} catch (Exception e) {
-				continue; // TODO @sadjad in this case should keep the name of this changed file
-				// throw new RuntimeException(e);
+				throw new RuntimeException(e);
 			}
 
 		}
 		return root;
 	}
 
-	private void getCst(CstRoot root, SourceFile sourceFile, String content, SourceFileSet sources) throws Exception {
+	private void getCst(CstRoot root, SourceFile sourceFile, String content, SourceFileSet sources, Set<String> nonJsChangedfiles) throws Exception {
 		try {
 			V8Object babelAst = (V8Object) this.nodeJs.getRuntime().executeJSFunction("parse", content);
 
@@ -116,8 +115,7 @@ public class JsPlugin implements LanguagePlugin, Closeable {
 			}
 
 		} catch (Exception e) {
-
-			// TODO @sadjad should keep non js changed files name
+			nonJsChangedfiles.add(sourceFile.getPath());
 			// throw new RuntimeException(
 			// String.format("Error parsing %s: %s", sources.describeLocation(sourceFile),
 			// e.getMessage()), e);

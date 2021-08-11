@@ -21,6 +21,7 @@ public class CstDiff {
 	private final Set<Relationship> relationships = new HashSet<>();
 	private Set<CstNode> changedEntities;	
 	private Set<CstNode> addedEntities;	
+	private Set<String> nonJsChangedFiles;
 	public CstDiff(CstRoot before, CstRoot after) {
 		this.before = before;
 		this.after = after;
@@ -65,6 +66,10 @@ public class CstDiff {
 		this.addedEntities = added;
 	}
 	
+	public void setNonJaChangedFiles(Set<String> added){
+		this.nonJsChangedFiles = added;
+	}
+
 	public Set<CstNode> getChangedEntities(){
 		return this.changedEntities;
 	}
@@ -76,6 +81,10 @@ public class CstDiff {
 
 	public Set<CstNode> getAddedEntities(){
 		return this.addedEntities;
+	}
+
+	public Set<String> getNonJsChangedFiles(){
+		return this.nonJsChangedFiles;
 	}
 
 	public Set<CstNode> getAddedEntities(String type){

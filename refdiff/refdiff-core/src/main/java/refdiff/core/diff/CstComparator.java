@@ -85,12 +85,14 @@ public class CstComparator {
 		DiffBuilder(SourceRepresentationBuilder<T> srb, SourceFileSet sourcesBefore, SourceFileSet sourcesAfter,
 				CstComparatorMonitor monitor) throws Exception {
 			this.srb = srb;
-			CstRoot cstRootBefore = languagePlugin.parse(sourcesBefore);
-			CstRoot cstRootAfter = languagePlugin.parse(sourcesAfter);
+			Set<String> nonJsChangedfiles = new HashSet<>();
+			CstRoot cstRootBefore = languagePlugin.parse(sourcesBefore, nonJsChangedfiles);
+			CstRoot cstRootAfter = languagePlugin.parse(sourcesAfter, cstRootBefore.getNonJaChangedFiles());
 			this.diff = new CstDiff(cstRootBefore, cstRootAfter);
 			this.before = new CstRootHelper<>(this.diff.getBefore(), sourcesBefore, srb, true);
 			this.after = new CstRootHelper<>(this.diff.getAfter(), sourcesAfter, srb, false);
 			this.changed = new HashSet<>();
+			this.diff.setNonJaChangedFiles(nonJsChangedfiles); 
 			this.monitor = monitor;
 
 			Map<String, String> fileMapBefore = new HashMap<>();
@@ -350,7 +352,7 @@ public class CstComparator {
 			if (!tempFile.createNewFile()) {
 				try (FileReader reader = new FileReader("mappings.json")) {
 					mappings = jsonParser.parse(reader).getAsJsonObject();
-					System.out.println(mappings);
+					// System.out.println(mappings);
 					reader.close();
 				} catch (FileNotFoundException e) {
 					e.printStackTrace();
