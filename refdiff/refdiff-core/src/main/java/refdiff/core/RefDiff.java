@@ -103,7 +103,7 @@ public class RefDiff {
 	public CstDiff computeDiffForCommit(File gitRepository, RevCommit commit1, RevCommit commit2) {
 		try (Repository repo = GitHelper.openRepository(gitRepository)) {
 			PairBeforeAfter<SourceFileSet> beforeAndAfter = GitHelper.getSourcesBeforeAndAfterCommit(repo, commit1, commit2, fileFilter);
-			return comparator.compare(beforeAndAfter, new CstComparatorMonitor() {});
+			return comparator.compare(beforeAndAfter.getBefore(), beforeAndAfter.getAfter(), new CstComparatorMonitor() {});
 		}
 	}
 
