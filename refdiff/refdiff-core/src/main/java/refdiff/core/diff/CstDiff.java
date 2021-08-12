@@ -22,6 +22,7 @@ public class CstDiff {
 	private Set<CstNode> changedEntities;	
 	private Set<CstNode> addedEntities;	
 	private Set<String> nonValidChangedFiles;
+	private Set<String> changedEntitiesKeys;
 	public CstDiff(CstRoot before, CstRoot after) {
 		this.before = before;
 		this.after = after;
@@ -61,7 +62,11 @@ public class CstDiff {
 	public void setChangedEntities(Set<CstNode> changed){
 		this.changedEntities = changed;
 	}
-	
+
+	public void setChangedEntitiesKeys(Set<String> changed){
+		this.changedEntitiesKeys = changed;
+	}
+
 	public void setAddedEntities(Set<CstNode> added){
 		this.addedEntities = added;
 	}
@@ -72,6 +77,10 @@ public class CstDiff {
 
 	public Set<CstNode> getChangedEntities(){
 		return this.changedEntities;
+	}
+
+	public Set<String> getChangedEntitiesKeys(){
+		return this.changedEntitiesKeys;
 	}
 
 	public Set<CstNode> getChangedEntities(String type){
@@ -100,7 +109,6 @@ public class CstDiff {
 			.filter(Relationship::isRefactoring)
 			.collect(Collectors.toSet());
 	}
-
 
 	public String toJsonString(){
 

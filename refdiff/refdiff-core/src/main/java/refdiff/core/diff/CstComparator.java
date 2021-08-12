@@ -76,6 +76,7 @@ public class CstComparator {
 		private CstRootHelper<T> after;
 		private Set<CstNode> changed;
 		private Set<CstNode> added;
+		private Set<String> changedEntitiesKeys;
 		private ThresholdsProvider threshold = new ThresholdsProvider();
 		private CstComparatorMonitor monitor;
 
@@ -92,6 +93,7 @@ public class CstComparator {
 			this.before = new CstRootHelper<>(this.diff.getBefore(), sourcesBefore, srb, true);
 			this.after = new CstRootHelper<>(this.diff.getAfter(), sourcesAfter, srb, false);
 			this.changed = new HashSet<>();
+			this.changedEntitiesKeys = new HashSet<>();
 			this.diff.setNonValidChangedFiles(nonValidChangedFiles); 
 			this.monitor = monitor;
 
@@ -127,7 +129,7 @@ public class CstComparator {
 			findMatchesByChildren();
 			updateMapping();
 			findChangedEntities();
-			diff.setChangedEntities(this.changed);
+			diff.setChangedEntitiesKeys(this.changedEntitiesKeys);
 			diff.setAddedEntities(this.added);
 			return diff;
 		}
@@ -337,7 +339,7 @@ public class CstComparator {
 				if (score < 1) {
 					after.removeFromParents(n2);
 					before.removeFromParents(n1);
-					this.changed.add(n2);
+					this.changedEntitiesKeys.add(n2.toString());
 				}
 			}
 		}
