@@ -75,30 +75,29 @@ public class JsPlugin implements LanguagePlugin, Closeable {
 		CstRoot root = new CstRoot();
 		this.nodeCounter = 0;
 		for (SourceFile sourceFile : sources.getSourceFiles()) {
-			String content = sources.readContent(sourceFile);
-			try {
-				getCst(root, sourceFile, content, sources, nonJsChangedfiles);
-			} catch (Exception e) {
-				throw new RuntimeException(e);
+			if (getAllowedFilesFilter().isAllowed(sourceFile.getPath())) {
+				String content = sources.readContent(sourceFile);
+				try {
+					getCst(root, sourceFile, content, sources, nonJsChangedfiles);
+				} catch (Exception e) {
+					throw new RuntimeException(e);
+				}
+			} else {
+				if (nonJsChangedfiles != null)
+					nonJsChangedfiles.add(sourceFile.getPath());
 			}
 
 		}
 		return root;
 	}
 
-	private void getCst(CstRoot root, SourceFile sourceFile, String content, SourceFileSet sources, Set<String> nonJsChangedfiles) throws Exception {
+	private void getCst(CstRoot root, SourceFile sourceFile, String content, SourceFileSet sources,
+			Set<String> nonJsChangedfiles) throws Exception {
 		try {
 			V8Object babelAst = (V8Object) this.nodeJs.getRuntime().executeJSFunction("parse", content);
-
-			// System.out.print(String.format("Parsing %s ... ", sources.describeLocation(sourceFile)));
-			// long timestamp = System.currentTimeMillis();
 			try (JsValueV8 astRoot = new JsValueV8(babelAst, this::toJson)) {
-
 				TokenizedSource tokenizedSource = buildTokenizedSourceFromAst(sourceFile, astRoot);
 				root.addTokenizedFile(tokenizedSource);
-
-				// System.out.println(String.format("Done in %d ms", System.currentTimeMillis()
-				// - timestamp));
 				Map<String, Set<CstNode>> callerMap = new HashMap<>();
 				getCst(0, root, sourceFile, content, astRoot, callerMap);
 
@@ -115,7 +114,9 @@ public class JsPlugin implements LanguagePlugin, Closeable {
 			}
 
 		} catch (Exception e) {
-			nonJsChangedfiles.add(sourceFile.getPath());
+			if (nonJsChangedfiles != null) {
+				nonJsChangedfiles.add(sourceFile.getPath());
+			}
 			// throw new RuntimeException(
 			// String.format("Error parsing %s: %s", sources.describeLocation(sourceFile),
 			// e.getMessage()), e);
@@ -238,6 +239,10 @@ public class JsPlugin implements LanguagePlugin, Closeable {
 
 	@Override
 	public FilePathFilter getAllowedFilesFilter() {
+		// TODO sadjad JsPlugin reads all of these files and tries to tokenize them. To
+		// prevent redundant reading of non js files, we could have another
+		// filter working in parallel just for suppoerted formats for
+		// changes.
 		return new FilePathFilter(Arrays.asList(".js", ".jsx"), Arrays.asList(".min.js"));
 	}
 

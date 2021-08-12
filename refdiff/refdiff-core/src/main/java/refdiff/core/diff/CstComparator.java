@@ -87,7 +87,7 @@ public class CstComparator {
 			this.srb = srb;
 			Set<String> nonJsChangedfiles = new HashSet<>();
 			CstRoot cstRootBefore = languagePlugin.parse(sourcesBefore, nonJsChangedfiles);
-			CstRoot cstRootAfter = languagePlugin.parse(sourcesAfter, cstRootBefore.getNonJaChangedFiles());
+			CstRoot cstRootAfter = languagePlugin.parse(sourcesAfter, nonJsChangedfiles);
 			this.diff = new CstDiff(cstRootBefore, cstRootAfter);
 			this.before = new CstRootHelper<>(this.diff.getBefore(), sourcesBefore, srb, true);
 			this.after = new CstRootHelper<>(this.diff.getAfter(), sourcesAfter, srb, false);

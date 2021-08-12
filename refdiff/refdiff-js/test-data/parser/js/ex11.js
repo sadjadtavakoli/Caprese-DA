@@ -1,0 +1,1 @@
+non js information in a js file to confuse parser

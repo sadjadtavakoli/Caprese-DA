@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -29,10 +30,13 @@ public class TestJsParser {
 	public void shouldParseSimpleFile() throws Exception {
 		Path basePath = Paths.get("test-data/parser/js/");
 		SourceFolder sources = SourceFolder.from(basePath, Paths.get("ex1.js"));
-		CstRoot root = parser.parse(sources);
+		Set<String> nonValidChangedFiles = new HashSet<>();
+		CstRoot root = parser.parse(sources, nonValidChangedFiles);
 		
 		assertThat(root.getNodes().size(), is(1));
 		
+		assertThat(nonValidChangedFiles.size(), is(0));
+
 		CstNode nodeScriptEx1 = root.getNodes().get(0);
 		assertThat(nodeScriptEx1.getType(), is("File"));
 		assertThat(nodeScriptEx1.getNamespace(), is(""));
@@ -57,10 +61,13 @@ public class TestJsParser {
 	public void shouldParseFunctionCall() throws Exception {
 		Path basePath = Paths.get("test-data/parser/js/");
 		SourceFolder sources = SourceFolder.from(basePath, Paths.get("ex2.js"));
-		CstRoot root = parser.parse(sources);
+		Set<String> nonValidChangedFiles = new HashSet<>();
+		CstRoot root = parser.parse(sources, nonValidChangedFiles);
 		
 		assertThat(root.getNodes().size(), is(1));
 		
+		assertThat(nonValidChangedFiles.size(), is(0));
+
 		CstNode nodeScriptEx2 = root.getNodes().get(0);
 		assertThat(nodeScriptEx2.getType(), is("File"));
 		
@@ -83,10 +90,13 @@ public class TestJsParser {
 	public void shouldParseClassDeclaration() throws Exception {
 		Path basePath = Paths.get("test-data/parser/js/");
 		SourceFolder sources = SourceFolder.from(basePath, Paths.get("ex3.js"));
-		CstRoot root = parser.parse(sources);
+		Set<String> nonValidChangedFiles = new HashSet<>();
+		CstRoot root = parser.parse(sources, nonValidChangedFiles);
 		
 		assertThat(root.getNodes().size(), is(1));
 		
+		assertThat(nonValidChangedFiles.size(), is(0));
+
 		CstNode nodeScriptEx3 = root.getNodes().get(0);
 		assertThat(nodeScriptEx3.getType(), is("File"));
 		
@@ -119,11 +129,14 @@ public class TestJsParser {
 	public void shouldParseFunctionVar() throws Exception {
 		Path basePath = Paths.get("test-data/parser/js/");
 		SourceFolder sources = SourceFolder.from(basePath, Paths.get("ex4.js"));
-		CstRoot root = parser.parse(sources);
+		Set<String> nonValidChangedFiles = new HashSet<>();
+		CstRoot root = parser.parse(sources, nonValidChangedFiles);
 		
 		assertThat(root.getNodes().size(), is(1));
 		CstNode script = root.getNodes().get(0);
 		assertThat(script.getType(), is("File"));
+
+		assertThat(nonValidChangedFiles.size(), is(0));
 		
 		CstNode f1 = script.getNodes().get(0);
 		assertThat(f1.getLocalName(), is("f1"));
@@ -154,11 +167,14 @@ public class TestJsParser {
 	public void shouldParseObjectLiteralFunctionProperty() throws Exception {
 		Path basePath = Paths.get("test-data/parser/js/");
 		SourceFolder sources = SourceFolder.from(basePath, Paths.get("ex5.js"));
-		CstRoot root = parser.parse(sources);
+		Set<String> nonValidChangedFiles = new HashSet<>();
+		CstRoot root = parser.parse(sources, nonValidChangedFiles);
 		
 		assertThat(root.getNodes().size(), is(1));
 		CstNode script = root.getNodes().get(0);
 		assertThat(script.getType(), is("File"));
+
+		assertThat(nonValidChangedFiles.size(), is(0));
 		
 		CstNode f1 = script.getNodes().get(0);
 		assertThat(f1.getLocalName(), is("f1"));
@@ -182,12 +198,15 @@ public class TestJsParser {
 	public void shouldParseAssignmentOfFunctionExpression() throws Exception {
 		Path basePath = Paths.get("test-data/parser/js/");
 		SourceFolder sources = SourceFolder.from(basePath, Paths.get("ex6.js"));
-		CstRoot root = parser.parse(sources);
+		Set<String> nonValidChangedFiles = new HashSet<>();
+		CstRoot root = parser.parse(sources, nonValidChangedFiles);
 		
 		assertThat(root.getNodes().size(), is(1));
 		CstNode script = root.getNodes().get(0);
 		assertThat(script.getType(), is("File"));
 		
+		assertThat(nonValidChangedFiles.size(), is(0));
+
 		CstNode f1 = script.getNodes().get(0);
 		assertThat(f1.getLocalName(), is("f1"));
 		assertThat(f1.getType(), is("Function"));
@@ -210,12 +229,15 @@ public class TestJsParser {
 	public void shouldNotHandleAnonymousFunctionsAsCstNodes() throws Exception {
 		Path basePath = Paths.get("test-data/parser/js/");
 		SourceFolder sources = SourceFolder.from(basePath, Paths.get("ex7.js"));
-		CstRoot root = parser.parse(sources);
+		Set<String> nonValidChangedFiles = new HashSet<>();
+		CstRoot root = parser.parse(sources, nonValidChangedFiles);
 		
 		assertThat(root.getNodes().size(), is(1));
 		CstNode script = root.getNodes().get(0);
 		assertThat(script.getType(), is("File"));
 		
+		assertThat(nonValidChangedFiles.size(), is(0));
+
 		CstNode bar = script.getNodes().get(0);
 		assertThat(bar.getLocalName(), is("bar"));
 		assertThat(bar.getType(), is("Function"));
@@ -228,9 +250,13 @@ public class TestJsParser {
 	public void shouldParseSubfolder() throws Exception {
 		Path basePath = Paths.get("test-data/parser/js/");
 		SourceFolder sources = SourceFolder.from(basePath, Paths.get("dir1/ex5.js"));
-		CstRoot root = parser.parse(sources);
+		Set<String> nonValidChangedFiles = new HashSet<>();
+		CstRoot root = parser.parse(sources, nonValidChangedFiles);
 		
 		assertThat(root.getNodes().size(), is(1));
+
+		assertThat(nonValidChangedFiles.size(), is(0));
+
 		CstNode script = root.getNodes().get(0);
 		assertThat(script.getType(), is("File"));
 		assertThat(script.getNamespace(), is("dir1/"));
@@ -240,10 +266,43 @@ public class TestJsParser {
 	}
 	
 	@Test
+	public void shouldKeepNonJsFiles() throws Exception {
+		Path basePath = Paths.get("test-data/parser/js/");
+		SourceFolder sources = SourceFolder.from(basePath, Paths.get("ex8.md"));
+		Set<String> nonValidChangedFiles = new HashSet<>();
+		CstRoot root = parser.parse(sources, nonValidChangedFiles);
+		assertThat(root.getNodes().size(), is(0));
+		assertThat(nonValidChangedFiles.size(), is(1));	
+	}
+	
+	@Test
+	public void shouldKeepNonJsFilesNonEmpty() throws Exception {
+		Path basePath = Paths.get("test-data/parser/js/");
+		SourceFolder sources = SourceFolder.from(basePath, Paths.get("ex9.md"));
+		Set<String> nonValidChangedFiles = new HashSet<>();
+		CstRoot root = parser.parse(sources, nonValidChangedFiles);
+		assertThat(root.getNodes().size(), is(0));
+		assertThat(nonValidChangedFiles.size(), is(1));
+	
+	}
+
+
+	@Test
+	public void shouldReportErroneousAllowdExtensions() throws Exception {
+		Path basePath = Paths.get("test-data/parser/js/");
+		SourceFolder sources = SourceFolder.from(basePath, Paths.get("ex11.js"));
+		Set<String> nonValidChangedFiles = new HashSet<>();
+		CstRoot root = parser.parse(sources, nonValidChangedFiles);
+		assertThat(root.getNodes().size(), is(0));
+		assertThat(nonValidChangedFiles.size(), is(1));
+	}
+
+	@Test
 	public void shouldParseLargeFile() throws Exception {
 		Path basePath = Paths.get("test-data/parser/js/");
 		SourceFolder sources = SourceFolder.from(basePath, Paths.get("input.js"));
-		CstRoot root = parser.parse(sources);
+		Set<String> nonValidChangedFiles = new HashSet<>();
+		CstRoot root = parser.parse(sources, nonValidChangedFiles);
 		
 		assertThat(root.getNodes().size(), is(1));
 	}
@@ -252,7 +311,7 @@ public class TestJsParser {
 	public void shouldTokenizeLargeFile() throws Exception {
 		Path basePath = Paths.get("test-data/parser/js/");
 		SourceFolder sources = SourceFolder.from(basePath, Paths.get("input.js"));
-		parser.parse(sources);
+		parser.parse(sources, null);
 	}
 	
 	@Test
@@ -260,7 +319,7 @@ public class TestJsParser {
 		Path basePath = Paths.get("test-data/parser/js/");
 		SourceFolder sources = SourceFolder.from(basePath, Paths.get("ex1.js"));
 		
-		CstRoot cstRoot = parser.parse(sources);
+		CstRoot cstRoot = parser.parse(sources, null);
 		CstNode fileNode = cstRoot.getNodes().get(0);
 		String sourceCode = sources.readContent(sources.getSourceFiles().get(0));
 		
