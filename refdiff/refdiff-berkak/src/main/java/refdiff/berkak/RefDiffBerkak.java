@@ -17,7 +17,7 @@ public class RefDiffBerkak {
 		// String previousCommit = args[2];
 
 		String repoLink = "https://github.com/sadjad-tavakoli/SE-Project-BerkO.git";
-		String commitSha = "9b58437d75421edbbca333a1b2bc10484789d77c";
+		String commitSha = "84f63807289c95cf0f0bd3849f5d25849164de61";
 		
 		new File("data");
 		File commitFolder = new File("data/" + commitSha);
@@ -42,8 +42,8 @@ public class RefDiffBerkak {
 		// }else{
 		RevCommit commitPr = refDiffJs.getCommit(repo, commit.getParent(0));
 		CstDiff diffForCommit = refDiffJs.computeDiffForCommit(repo, commit, commitPr);
-		String result = diffForCommit.toJsonString();
-		System.out.println(result);
+		// String result = diffForCommit.toJsonString();
+		System.out.println(diffForCommit.getNonValidChangedFiles());
 		// minRepo(refDiffJs, repo, commitPr);
 		// }
 		// try (FileWriter file = new FileWriter(commitFolder + "/changes.json")) {

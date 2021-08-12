@@ -50,26 +50,26 @@ public class SequenceDatabase {
 
     private AbstractionCreator abstractionCreator;
     private IdListCreator idListCreator;
-    private Map<Item, TrieNode> frequentItems = new HashMap<Item, TrieNode>();
-    private List<Sequence> sequences = new ArrayList<Sequence>();
-    private ItemFactory<Integer> itemFactory = new ItemFactory<Integer>();
+    private Map<Item, TrieNode> frequentItems = new HashMap<>();
+    private List<Sequence> sequences = new ArrayList<>();
+    private ItemFactory<String> itemFactory = new ItemFactory<>();
     private List<String> itemConstraint;
     private int nSequences = 1;
     /**
      * Map where we keep the original length for all the sequences
      */
-    private Map<Integer, Integer> sequencesLengths = new HashMap<Integer, Integer>();
+    private Map<Integer, Integer> sequencesLengths = new HashMap<>();
     /**
      * Map where, for each sequence, we have a list of integers corresponding to all
      * the sizes of all the itemsets that the sequence has
      */
-    private Map<Integer, List<Integer>> sequenceItemsetSize = new HashMap<Integer, List<Integer>>();
+    private Map<Integer, List<Integer>> sequenceItemsetSize = new HashMap<>();
     /**
      * For each item, we match it with a map of entries <sequence id, number of
      * elements after item>. We will use this map in order to maintain the values
      * necessaries for making the pruning methods.
      */
-    private Map<Item, Map<Integer, List<Integer>>> projectingDistance = new HashMap<Item, Map<Integer, List<Integer>>>();
+    private Map<Item, Map<Integer, List<Integer>>> projectingDistance = new HashMap<>();
 
     /**
      * Standard constructor
@@ -107,7 +107,7 @@ public class SequenceDatabase {
             }
             double support = (int) Math.ceil(minSupport * sequences.size());
             Set<Item> frequentItemsSet = frequentItems.keySet();
-            Set<Item> itemsToRemove = new HashSet<Item>();
+            Set<Item> itemsToRemove = new HashSet<>();
             // We remove those items that are not frequent
             for (Item frequentItem : frequentItemsSet) {
                 // From the item set of frequent items
@@ -162,7 +162,7 @@ public class SequenceDatabase {
             }
             double support = (int) Math.ceil(minSupport * sequences.size());
             Set<Item> frequentItemsSet = frequentItems.keySet();
-            Set<Item> itemsToRemove = new HashSet<Item>();
+            Set<Item> itemsToRemove = new HashSet<>();
             // We remove those items that are not frequent
             for (Item frequentItem : frequentItemsSet) {
                 // From the item set of frequent items
@@ -209,16 +209,16 @@ public class SequenceDatabase {
         Itemset itemset = new Itemset();
         sequence.setID(nSequences);
         int beginning = 0;
-        List<Integer> sizeItemsetsList = new ArrayList<Integer>();
-        List<String> copy = new ArrayList<>(itemConstraint);
-        copy.retainAll(Arrays.asList(integers));
-
-        if (copy.isEmpty()) {
+        List<Integer> sizeItemsetsList = new ArrayList<>();
+        List<String> itemConstraintCopy = new ArrayList<>(itemConstraint);
+        itemConstraintCopy.retainAll(Arrays.asList(integers));
+        if (itemConstraintCopy.isEmpty()) {
             return;
-        }
+        }   
 
         for (int i = beginning; i < integers.length; i++) {
             if (integers[i].codePointAt(0) == '<') { // Timestamp
+                System.out.println(2);
                 String value = integers[i].substring(1, integers[i].length() - 1);
                 timestamp = Long.parseLong(value);
                 itemset.setTimestamp(timestamp);
@@ -237,10 +237,9 @@ public class SequenceDatabase {
                 sequenceItemsetSize.put(sequence.getId(), sizeItemsetsList);
             } else { // an item with the format : id(value) ou: id
                 int indexParentheseGauche = integers[i].indexOf("(");
-                if (indexParentheseGauche != -1) {
-                } else {
+                if (indexParentheseGauche == -1){
                     // extract the value for an item
-                    Item item = itemFactory.getItem(Integer.parseInt(integers[i]));
+                    Item item = itemFactory.getItem(integers[i]);
                     TrieNode node = frequentItems.get(item);
                     if (node == null) {
                         IDList idlist = idListCreator.create();
@@ -302,7 +301,7 @@ public class SequenceDatabase {
      */
     public Trie frequentItems() {
         Trie result = new Trie();
-        List<TrieNode> frequentItemsNodes = new ArrayList<TrieNode>(frequentItems.values());
+        List<TrieNode> frequentItemsNodes = new ArrayList<>(frequentItems.values());
         result.setNodes(frequentItemsNodes);
         result.sort();
         return result;

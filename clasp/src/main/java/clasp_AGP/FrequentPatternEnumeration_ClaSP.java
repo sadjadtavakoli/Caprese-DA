@@ -121,8 +121,8 @@ public class FrequentPatternEnumeration_ClaSP {
      * @param
      */
 
-    public void dfsPruning(Pattern patron, Trie trie, boolean verbose, Map<Integer, Map<Integer, Integer>> coocMapAfter,
-            Map<Integer, Map<Integer, Integer>> coocMapEquals) {
+    public void dfsPruning(Pattern patron, Trie trie, boolean verbose, Map<String, Map<String, Integer>> coocMapAfter,
+            Map<String, Map<String, Integer>> coocMapEquals) {
         int tam = trie.levelSize();
         /*
          * Tin inserts
@@ -146,8 +146,8 @@ public class FrequentPatternEnumeration_ClaSP {
     }
 
     private void exploreChildren(Pattern pattern, TrieNode currentNode, List<TrieNode> sequenceExtensions,
-            List<TrieNode> itemsetsExtensions, int beginning, Map<Integer, Map<Integer, Integer>> coocMapAfter,
-            Map<Integer, Map<Integer, Integer>> coocMapEquals, Item lastAppendedItem) {
+            List<TrieNode> itemsetsExtensions, int beginning, Map<String, Map<String, Integer>> coocMapAfter,
+            Map<String, Map<String, Integer>> coocMapEquals, Item lastAppendedItem) {
 
         // We get the curretn trie
         Trie currentTrie = currentNode.getChild();
@@ -169,10 +169,10 @@ public class FrequentPatternEnumeration_ClaSP {
         numberOfFrequentPatterns++;
 
         // Initialization of new sets
-        List<TrieNode> new_sequenceExtension = new ArrayList<TrieNode>();
-        List<TrieNode> new_itemsetExtension = new ArrayList<TrieNode>();
-        List<Pattern> newPatterns = new ArrayList<Pattern>();
-        List<TrieNode> newNodesToExtends = new ArrayList<TrieNode>();
+        List<TrieNode> new_sequenceExtension = new ArrayList<>();
+        List<TrieNode> new_itemsetExtension = new ArrayList<>();
+        List<Pattern> newPatterns = new ArrayList<>();
+        List<TrieNode> newNodesToExtends = new ArrayList<>();
 
         // Clone for the current pattern
         Pattern clone = pattern.clonePatron();
@@ -187,7 +187,7 @@ public class FrequentPatternEnumeration_ClaSP {
                 // ====== PFV 2013 =========================
 
                 if (coocMapAfter != null) {
-                    Map<Integer, Integer> map = coocMapAfter.get(lastAppendedItem.getId());
+                    Map<String, Integer> map = coocMapAfter.get(lastAppendedItem.getId());
                     if (map != null) {
                         Integer coocurenceCount = map.get(node.getPair().getItem().getId());
                         if (coocurenceCount == null || coocurenceCount < minSupAbsolute) {
@@ -269,7 +269,7 @@ public class FrequentPatternEnumeration_ClaSP {
 
             // ====== PFV 2013 =========================
             if (coocMapEquals != null) {
-                Map<Integer, Integer> map = coocMapEquals.get(lastAppendedItem.getId());
+                Map<String, Integer> map = coocMapEquals.get(lastAppendedItem.getId());
                 if (map != null) {
                     Integer coocurenceCount = map.get(eq.getPair().getItem().getId());
                     if (coocurenceCount == null || coocurenceCount < minSupAbsolute) {

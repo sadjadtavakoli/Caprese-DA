@@ -3,7 +3,6 @@ import org.junit.jupiter.api.Test;
 import clasp_AGP.AlgoCM_ClaSPExecutor;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
 import java.util.Arrays;

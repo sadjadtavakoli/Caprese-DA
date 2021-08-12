@@ -176,24 +176,22 @@ public class AlgoCM_ClaSP {
         // NEW-CODE-PFV 2013
         // Map: key: item value: another item that followed the first item + support
         // (could be replaced with a triangular matrix...)
-        Map<Integer, Map<Integer, Integer>> coocMapAfter = new HashMap<Integer, Map<Integer, Integer>>(1000);
-        Map<Integer, Map<Integer, Integer>> coocMapEquals = new HashMap<Integer, Map<Integer, Integer>>(1000);
+        Map<String, Map<String, Integer>> coocMapAfter = new HashMap<String, Map<String, Integer>>(1000);
+        Map<String, Map<String, Integer>> coocMapEquals = new HashMap<String, Map<String, Integer>>(1000);
 
         // update COOC map
         for (Sequence seq : database.getSequences()) {
-            HashSet<Integer> alreadySeenA = new HashSet<Integer>();
-            Map<Integer, Set<Integer>> alreadySeenB_equals = new HashMap<>();
-            int sequenceLengthTracker = 0;
+            HashSet<String> alreadySeenA = new HashSet<>();
+            Map<String, Set<String>> alreadySeenB_equals = new HashMap<>();
             // for each item
             for (int i = 0; i < seq.getItemsets().size(); i++) {
                 Itemset itemsetA = seq.get(i);
                 for (int j = 0; j < itemsetA.size(); j++) {
-                    sequenceLengthTracker += 1;
-                    Integer itemA = (Integer) itemsetA.get(j).getId();
+                    String itemA = (String) itemsetA.get(j).getId();
                     boolean alreadyDoneForItemA = false;
-                    Set equalSet = alreadySeenB_equals.get(itemA);
+                    Set<String> equalSet = alreadySeenB_equals.get(itemA);
                     if (equalSet == null) {
-                        equalSet = new HashSet();
+                        equalSet = new HashSet<>();
                         alreadySeenB_equals.put(itemA, equalSet);
                     }
 
@@ -202,9 +200,9 @@ public class AlgoCM_ClaSP {
                     }
 
                     // create the map if not existing already
-                    Map<Integer, Integer> mapCoocItemEquals = coocMapEquals.get(itemA);
+                    Map<String, Integer> mapCoocItemEquals = coocMapEquals.get(itemA);
                     // create the map if not existing already
-                    Map<Integer, Integer> mapCoocItemAfter = null;
+                    Map<String, Integer> mapCoocItemAfter = null;
                     if (!alreadyDoneForItemA) {
                         mapCoocItemAfter = coocMapAfter.get(itemA);
                     }
@@ -217,10 +215,10 @@ public class AlgoCM_ClaSP {
                      */
                     // For each item after itemA in the same itemset
                     for (int k = j + 1; k < itemsetA.size(); k++) {
-                        Integer itemB = (Integer) itemsetA.get(k).getId();
+                        String itemB = (String) itemsetA.get(k).getId();
                         if (!equalSet.contains(itemB)) {
                             if (mapCoocItemEquals == null) {
-                                mapCoocItemEquals = new HashMap<Integer, Integer>();
+                                mapCoocItemEquals = new HashMap<>();
                                 coocMapEquals.put(itemA, mapCoocItemEquals);
                             }
                             Integer frequency = mapCoocItemEquals.get(itemB);
@@ -241,19 +239,19 @@ public class AlgoCM_ClaSP {
                      *       change-set items. So the first iteration is not to the sequence length,
                      *       it's just to the last apearance position
                      */
-                    HashSet<Integer> alreadySeenB_after = new HashSet<Integer>();
+                    HashSet<String> alreadySeenB_after = new HashSet<>();
                     // for each item after
                     if (!alreadyDoneForItemA) {
                         for (int k = i + 1; k < seq.getItemsets().size(); k++) {
                             Itemset itemsetB = seq.get(k);
                             for (int m = 0; m < itemsetB.size(); m++) {
-                                Integer itemB = (Integer) itemsetB.get(m).getId();
+                                String itemB = (String) itemsetB.get(m).getId();
                                 if (alreadySeenB_after.contains(itemB)) {
                                     continue;
                                 }
 
                                 if (mapCoocItemAfter == null) {
-                                    mapCoocItemAfter = new HashMap<Integer, Integer>();
+                                    mapCoocItemAfter = new HashMap<>();
                                     coocMapAfter.put(itemA, mapCoocItemAfter);
                                 }
                                 Integer frequency = mapCoocItemAfter.get(itemB);
@@ -276,42 +274,6 @@ public class AlgoCM_ClaSP {
 
         database.clear();
         database = null;
-
-        // DEBUGING PFV
-        // Calculate the size of CMAP (hashmaps)
-        //
-        // int pairCount = 0;
-        // double maxMemory = getObjectSize(coocMapAfter);
-        // for(Entry<Integer, Map<Integer, Integer>> entry : coocMapAfter.entrySet()) {
-        // maxMemory += getObjectSize(entry.getKey());
-        // for(Entry<Integer, Integer> entry2 :entry.getValue().entrySet()) {
-        // pairCount++;
-        // maxMemory += getObjectSize(entry2.getKey()) +
-        // getObjectSize(entry2.getValue());
-        // }
-        // }
-        // System.out.println("CMAP size " + maxMemory + " MB");
-        // System.out.println("PAIR COUNT " + pairCount);
-
-        // // Calculate the size of CMAP (matrix) INTEGERS
-        // 2990, 9025, 13905, 267, 20, 497, 10094
-        // int size = 2990;
-
-        // System.exit(0);
-
-        // Calculate the size of CMAP (matrix) BITSETS
-        // BMS, KOSARAK, LEV, SNAKE, SIGN, FIFA
-        // int [] sizes = new int[] {497, 10094, 9025, 20, 267, 2990};
-        // for(int size : sizes) {
-        // int[][] array2 = new int[size][size];
-        // System.out.println(" INT MATRIX :" + getObjectSize(array2) + "MB");
-        //
-        // BitSet array = new BitSet(size);
-        // System.out.println("BITSET : " + getObjectSize(array)*((double)size) + "
-        // MB");
-        // }
-        // System.exit(0);
-        // END-OF-NEW-CODE
 
         // Inizialitation of the class that is in charge of find the frequent patterns
         FrequentPatternEnumeration_ClaSP frequentPatternEnumeration = new FrequentPatternEnumeration_ClaSP(

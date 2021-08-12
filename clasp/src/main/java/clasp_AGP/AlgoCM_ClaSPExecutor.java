@@ -10,7 +10,7 @@ import clasp_AGP.dataStructures.creators.AbstractionCreator_Qualitative;
 import clasp_AGP.dataStructures.database.SequenceDatabase;
 import clasp_AGP.idlists.creators.IdListCreator;
 import clasp_AGP.idlists.creators.IdListCreatorStandard_Map;
-import main.MainTestCMClaSP_saveToFile;
+import example.MainTestCMClaSP_saveToFile;
 
 /**
  * Example of how to use the algorithm ClaSP, saving the results in the main
@@ -92,15 +92,9 @@ public class AlgoCM_ClaSPExecutor {
         AlgoCM_ClaSP algorithm = new AlgoCM_ClaSP(relativeSupport, abstractionCreator, findClosedPatterns,
                 executePruningMethods, itemConstraint);
 
-        // System.out.println(sequenceDatabase.toString());
         algorithm.runAlgorithm(sequenceDatabase, keepPatterns, verbose, outputPath, outputSequenceIdentifiers);
         return algorithm.getResutl();
-        // System.out.println("Minsup (relative) : " + support);
-        // System.out.println(algorithm.getNumberOfFrequentPatterns() + " patterns found.");
 
-        // if (verbose && keepPatterns) {
-        //     System.out.println(algorithm.printStatistics());
-        // }
 
         // uncomment if we want to see the Trie graphically
         // ShowTrie.showTree(algorithm.getFrequentAtomsTrie());
