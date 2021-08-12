@@ -66,7 +66,7 @@ public class CstDiff {
 		this.addedEntities = added;
 	}
 	
-	public void setNonJaChangedFiles(Set<String> added){
+	public void setNonValidChangedFiles(Set<String> added){
 		this.nonValidChangedFiles = added;
 	}
 

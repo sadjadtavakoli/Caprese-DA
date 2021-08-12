@@ -24,7 +24,7 @@ public interface LanguagePlugin {
 	 * @return The CST.
 	 * @throws Exception when unable to parse the files.
 	 */
-	CstRoot parse(SourceFileSet sources, Set<String> nonJsChangedfiles) throws Exception;
+	CstRoot parse(SourceFileSet sources, Set<String> nonValidChangedFiles) throws Exception;
 	
 	/**
 	 * @return A {@code FilePathFilter} object, which contains a list of file extensions supported by this

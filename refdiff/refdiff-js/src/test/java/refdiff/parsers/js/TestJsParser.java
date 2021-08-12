@@ -286,7 +286,6 @@ public class TestJsParser {
 	
 	}
 
-
 	@Test
 	public void shouldReportErroneousAllowdExtensions() throws Exception {
 		Path basePath = Paths.get("test-data/parser/js/");

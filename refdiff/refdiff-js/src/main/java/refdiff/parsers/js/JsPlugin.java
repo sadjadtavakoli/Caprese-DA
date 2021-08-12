@@ -71,28 +71,28 @@ public class JsPlugin implements LanguagePlugin, Closeable {
 	}
 
 	@Override
-	public CstRoot parse(SourceFileSet sources, Set<String> nonJsChangedfiles) throws Exception {
+	public CstRoot parse(SourceFileSet sources, Set<String> nonValidChangedFiles) throws Exception {
 		CstRoot root = new CstRoot();
 		this.nodeCounter = 0;
 		for (SourceFile sourceFile : sources.getSourceFiles()) {
-			if (getAllowedFilesFilter().isAllowed(sourceFile.getPath())) {
+			if (getAllowedFilesFilter().isAllowedToBeTokenized(sourceFile.getPath())) {
 				String content = sources.readContent(sourceFile);
 				try {
-					getCst(root, sourceFile, content, sources, nonJsChangedfiles);
+					getCst(root, sourceFile, content, sources, nonValidChangedFiles);
 				} catch (Exception e) {
 					throw new RuntimeException(e);
 				}
 			} else {
-				if (nonJsChangedfiles != null)
-					nonJsChangedfiles.add(sourceFile.getPath());
-			}
+				if (nonValidChangedFiles != null)
+					nonValidChangedFiles.add(sourceFile.getPath());
+				}
 
 		}
 		return root;
 	}
 
 	private void getCst(CstRoot root, SourceFile sourceFile, String content, SourceFileSet sources,
-			Set<String> nonJsChangedfiles) throws Exception {
+			Set<String> nonValidChangedFiles) throws Exception {
 		try {
 			V8Object babelAst = (V8Object) this.nodeJs.getRuntime().executeJSFunction("parse", content);
 			try (JsValueV8 astRoot = new JsValueV8(babelAst, this::toJson)) {
@@ -114,8 +114,8 @@ public class JsPlugin implements LanguagePlugin, Closeable {
 			}
 
 		} catch (Exception e) {
-			if (nonJsChangedfiles != null) {
-				nonJsChangedfiles.add(sourceFile.getPath());
+			if (nonValidChangedFiles != null) {
+				nonValidChangedFiles.add(sourceFile.getPath());
 			}
 			// throw new RuntimeException(
 			// String.format("Error parsing %s: %s", sources.describeLocation(sourceFile),
@@ -243,7 +243,7 @@ public class JsPlugin implements LanguagePlugin, Closeable {
 		// prevent redundant reading of non js files, we could have another
 		// filter working in parallel just for suppoerted formats for
 		// changes.
-		return new FilePathFilter(Arrays.asList(".js", ".jsx"), Arrays.asList(".min.js"));
+		return new FilePathFilter(Arrays.asList(".js", ".jsx", ".md", ".json"), Arrays.asList(".js", ".jsx"), Arrays.asList(".min.js"));
 	}
 
 	@Override

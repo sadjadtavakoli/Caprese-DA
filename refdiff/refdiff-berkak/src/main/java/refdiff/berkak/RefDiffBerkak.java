@@ -44,6 +44,7 @@ public class RefDiffBerkak {
 		CstDiff diffForCommit = refDiffJs.computeDiffForCommit(repo, commit, commitPr);
 		// String result = diffForCommit.toJsonString();
 		System.out.println(diffForCommit.getNonValidChangedFiles());
+		System.out.println(diffForCommit.toJsonString());
 		// minRepo(refDiffJs, repo, commitPr);
 		// }
 		// try (FileWriter file = new FileWriter(commitFolder + "/changes.json")) {

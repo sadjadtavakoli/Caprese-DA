@@ -85,14 +85,14 @@ public class CstComparator {
 		DiffBuilder(SourceRepresentationBuilder<T> srb, SourceFileSet sourcesBefore, SourceFileSet sourcesAfter,
 				CstComparatorMonitor monitor) throws Exception {
 			this.srb = srb;
-			Set<String> nonJsChangedfiles = new HashSet<>();
-			CstRoot cstRootBefore = languagePlugin.parse(sourcesBefore, nonJsChangedfiles);
-			CstRoot cstRootAfter = languagePlugin.parse(sourcesAfter, nonJsChangedfiles);
+			Set<String> nonValidChangedFiles = new HashSet<>();
+			CstRoot cstRootBefore = languagePlugin.parse(sourcesBefore, nonValidChangedFiles);
+			CstRoot cstRootAfter = languagePlugin.parse(sourcesAfter, nonValidChangedFiles);
 			this.diff = new CstDiff(cstRootBefore, cstRootAfter);
 			this.before = new CstRootHelper<>(this.diff.getBefore(), sourcesBefore, srb, true);
 			this.after = new CstRootHelper<>(this.diff.getAfter(), sourcesAfter, srb, false);
 			this.changed = new HashSet<>();
-			this.diff.setNonJaChangedFiles(nonJsChangedfiles); 
+			this.diff.setNonValidChangedFiles(nonValidChangedFiles); 
 			this.monitor = monitor;
 
 			Map<String, String> fileMapBefore = new HashMap<>();
