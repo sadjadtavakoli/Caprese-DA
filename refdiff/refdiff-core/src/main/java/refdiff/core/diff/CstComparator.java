@@ -94,7 +94,7 @@ public class CstComparator {
 			this.after = new CstRootHelper<>(this.diff.getAfter(), sourcesAfter, srb, false);
 			this.changed = new HashSet<>();
 			this.changedEntitiesKeys = new HashSet<>();
-			this.diff.setNonValidChangedFiles(nonValidChangedFiles); 
+			this.diff.setNonValidChangedFiles(nonValidChangedFiles);
 			this.monitor = monitor;
 
 			Map<String, String> fileMapBefore = new HashMap<>();
@@ -127,7 +127,6 @@ public class CstComparator {
 			findMatchesBySimilarity(true);
 			findMatchesBySimilarity(false);
 			findMatchesByChildren();
-			updateMapping();
 			findChangedEntities();
 			diff.setChangedEntitiesKeys(this.changedEntitiesKeys);
 			diff.setAddedEntities(this.added);
@@ -327,62 +326,59 @@ public class CstComparator {
 			}
 		}
 
-		private void findChangedEntities() {
+		private void findChangedEntities() throws IOException {
 			Map<CstNode, CstNode> treeMap = new TreeMap<>(new CstNodeTypeComprator());
 			treeMap.putAll(mapBeforeToAfter);
+			JsonObject mappings = getMappings();
+
 			for (Entry<CstNode, CstNode> entry : treeMap.entrySet()) {
 				CstNode n1 = entry.getKey();
 				CstNode n2 = entry.getValue();
+				String n1Key = n1.toString();
+				String n2Key = n2.toString();
+
+				if (mappings.has(n1Key)) {
+					JsonElement value = mappings.get(n1Key);
+					mappings.remove(n1Key);
+					mappings.add(n2Key, value);
+					n1Key = value.toString();
+				} else {
+					mappings.addProperty(n2Key, n1Key);
+				}
 
 				double score = computeHardSimilarityScore(n1, n2);
 
 				if (score < 1) {
 					after.removeFromParents(n2);
 					before.removeFromParents(n1);
-					this.changedEntitiesKeys.add(n2.toString());
+					this.changedEntitiesKeys.add(n1Key);
 				}
 			}
+
+			setMappings(mappings);
 		}
 
-		private void updateMapping() throws IOException {
-
-			// System.out.println(mapBeforeToAfter.toString().contains("getEndLine-utils.js-54-56"));
+		private JsonObject getMappings() throws IOException {
 			JsonParser jsonParser = new JsonParser();
-
-			File tempFile = new File("mappings.json");
+			String filePath = "mappings.json";
+			File tempFile = new File(filePath);
 			JsonObject mappings = new JsonObject();
 			if (!tempFile.createNewFile()) {
-				try (FileReader reader = new FileReader("mappings.json")) {
+				try (FileReader reader = new FileReader(filePath)) {
 					mappings = jsonParser.parse(reader).getAsJsonObject();
-					// System.out.println(mappings);
-					reader.close();
-				} catch (FileNotFoundException e) {
-					e.printStackTrace();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 			}
-			for (Entry<CstNode, CstNode> entry : mapBeforeToAfter.entrySet()) {
-				CstNode n1 = entry.getKey();
-				CstNode n2 = entry.getValue();
-				if (mappings.has(n1.toString())) {
-					JsonElement value = mappings.get(n1.toString());
-					mappings.remove(n1.toString());
-					mappings.add(n2.toString(), value);
-				} else {
-					mappings.addProperty(n2.toString(), n1.toString());
-				}
-			}
+			return mappings;
+		}
 
-			try {
-				FileWriter myWriter = new FileWriter("mappings.json");
+		private void setMappings(JsonObject mappings) throws IOException {
+			try (FileWriter myWriter = new FileWriter("mappings.json")) {
 				myWriter.write(mappings.toString());
-				myWriter.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-
-			// System.out.println(mappings);
 		}
 
 		public Optional<CstNode> matchingNodeBefore(CstNode n2) {
