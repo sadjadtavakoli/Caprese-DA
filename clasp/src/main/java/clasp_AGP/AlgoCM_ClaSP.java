@@ -206,13 +206,7 @@ public class AlgoCM_ClaSP {
                     if (!alreadyDoneForItemA) {
                         mapCoocItemAfter = coocMapAfter.get(itemA);
                     }
-                    /**
-                     * 
-                     * @TODO @sadjad here is where we should apply our changes one of these change
-                     *       can be just considering items before the last appearance of our
-                     *       change-set items. So the first iteration is not to the sequence length,
-                     *       it's just to the last apearance position
-                     */
+
                     // For each item after itemA in the same itemset
                     for (int k = j + 1; k < itemsetA.size(); k++) {
                         String itemB = (String) itemsetA.get(k).getId();
@@ -232,13 +226,6 @@ public class AlgoCM_ClaSP {
                             equalSet.add(itemB);
                         }
                     }
-                    /**
-                     * 
-                     * @TODO @sadjad here is where we should apply our changes one of these change
-                     *       can be just considering items before the last appearance of our
-                     *       change-set items. So the first iteration is not to the sequence length,
-                     *       it's just to the last apearance position
-                     */
                     HashSet<String> alreadySeenB_after = new HashSet<>();
                     // for each item after
                     if (!alreadyDoneForItemA) {

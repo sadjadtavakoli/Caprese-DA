@@ -24,9 +24,8 @@ class FirstTest {
 
         String[] expectedOutput = { "f -1 c -1 #SUP: 3", "f -1 b -1 c -1 #SUP: 2", "f -1 c -1 b -1 #SUP: 2",
                 "f -1 c -1 c -1 #SUP: 2", "f -1 a -1 d -1 c -1 #SUP: 2" };
-`
+
         List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, 0.5, sequences, null);
-        System.out.println(result);
         assertArrayEquals(expectedOutput, result.toArray());
     }
 
@@ -39,7 +38,6 @@ class FirstTest {
         String[] expectedOutput = { "a -1 f -1 c -1 d -1 d -1 #SUP: 4" };
 
         List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, 0.5, sequences, null);
-        System.out.println(result.toString());
         assertArrayEquals(expectedOutput, result.toArray());
     }
 
@@ -52,12 +50,18 @@ class FirstTest {
         String[] expectedOutput = { "a d -1 f -1 c d -1 d -1 #SUP: 4" };
 
         List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, 0.5, sequences, null);
-        System.out.println(result.toString());
         assertArrayEquals(expectedOutput, result.toArray());
     }
 
     @Test
-    void testOverlappedPatternItemset() throws IOException {
+    void testReptitivePatternsInAndbetweenItemset() throws IOException {
+        String[] sequences = {
+            "a d -1 f -1 c d -1 d -1 -2", 
+            "a d -1 f -1 c d -1 d -1 -2", 
+            "a d -1 f -1 c d -1 d -1 -2",
+            "a d -1 f -1 c d -1 d -1 -2" 
+        };
+
     }
 
 }

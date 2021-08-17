@@ -218,7 +218,6 @@ public class SequenceDatabase {
 
         for (int i = beginning; i < integers.length; i++) {
             if (integers[i].codePointAt(0) == '<') { // Timestamp
-                System.out.println(2);
                 String value = integers[i].substring(1, integers[i].length() - 1);
                 timestamp = Long.parseLong(value);
                 itemset.setTimestamp(timestamp);
