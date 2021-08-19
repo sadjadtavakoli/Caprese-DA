@@ -3,7 +3,6 @@ package refdiff.core.diff;
 import static refdiff.core.diff.CstRootHelper.*;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -114,6 +113,7 @@ public class CstComparator {
 				this.added.add(node);
 			});
 			monitor.beforeCompare(before, after);
+
 		}
 
 		public CstDiff getDiff() {
@@ -151,7 +151,7 @@ public class CstComparator {
 					if (n2WithSameName.size() == 1) {
 						CstNode n2 = n2WithSameName.get(0);
 						if (added(n2) && sameType(n1, n2)) {
-							// System.out.println(" findMatchesByUniqueName ");
+							// (" findMatchesByUniqueName ");
 							Optional<RelationshipType> optRelationshipType = findRelationshipForCandidate(n1, n2);
 							if (optRelationshipType.isPresent()) {
 								double score = computeHardSimilarityScore(n1, n2);
@@ -179,24 +179,14 @@ public class CstComparator {
 					if (sameType(n1, n2) && !anonymous(n1) && !anonymous(n2)) {
 						boolean safePair = sameName(n1, n2) || sameLocation(n1, n2);
 
-						// System.out.println(" * * * * * * * ");
-						// System.out.println(sameName(n1, n2));
-						// System.out.println(sameLocation(n1, n2));
-						// System.out.println(n1.toString());
-						// System.out.println(n2.toString());
-						// System.out.println(" * * * * * * * ");
 						double thresholdValue = safePair ? threshold.getMinimum() : threshold.getIdeal();
 						if (!onlySafe || safePair) {
-							// System.out.println(" findMatchesBySimilarity ");
 							Optional<RelationshipType> optRelationshipType = findRelationshipForCandidate(n1, n2);
 							if (optRelationshipType.isPresent()) {
 								RelationshipType type = optRelationshipType.get();
 								double score = computeHardSimilarityScore(n1, n2);
 								// double scoreLight = computeLightSimilarityScore(n1, n2);
 								double rankScore = srb.rawSimilarity(before.sourceRep(n1), after.sourceRep(n2)) * score;
-								// System.out.println(score);
-								// System.out.println(scoreLight);
-								// System.out.println(rankScore);
 								if (type.isById() || score > thresholdValue) {
 									PotentialMatch candidate = new PotentialMatch(n1, n2,
 											Math.max(before.depth(n1), after.depth(n2)), rankScore);
@@ -227,7 +217,6 @@ public class CstComparator {
 						// n1.getNodes().size();
 
 						if (nameScore > 0.5) {
-							// System.out.println(" findMatchesByChildren ");
 							Optional<RelationshipType> optRelationshipType = findRelationshipForCandidate(n1, n2);
 
 							if (optRelationshipType.isPresent()) {
@@ -330,28 +319,25 @@ public class CstComparator {
 			Map<CstNode, CstNode> treeMap = new TreeMap<>(new CstNodeTypeComprator());
 			treeMap.putAll(mapBeforeToAfter);
 			JsonObject mappings = getMappings();
-
 			for (Entry<CstNode, CstNode> entry : treeMap.entrySet()) {
 				CstNode n1 = entry.getKey();
 				CstNode n2 = entry.getValue();
 				String n1Key = n1.toString();
 				String n2Key = n2.toString();
-
-				if (mappings.has(n1Key)) {
-					JsonElement value = mappings.get(n1Key);
-					mappings.remove(n1Key);
-					mappings.add(n2Key, value);
-					n1Key = value.toString();
+				if (mappings.has(n2Key)) {
+					JsonElement value = mappings.get(n2Key);
+					mappings.remove(n2Key);
+					mappings.add(n1Key, value);
+					n2Key = value.toString();
 				} else {
-					mappings.addProperty(n2Key, n1Key);
+					mappings.addProperty(n1Key, n2Key);
 				}
-
 				double score = computeHardSimilarityScore(n1, n2);
 
 				if (score < 1) {
 					after.removeFromParents(n2);
 					before.removeFromParents(n1);
-					this.changedEntitiesKeys.add(n1Key);
+					this.changedEntitiesKeys.add(n2Key);
 				}
 			}
 
@@ -429,7 +415,7 @@ public class CstComparator {
 		}
 
 		public int countMatchingChild(CstNode n1, CstNode n2) {
-			if (n1.getNodes().size() == 0 || n2.getNodes().size() == 0) {
+			if (n1.getNodes().isEmpty()|| n2.getNodes().isEmpty()){
 				return 0;
 			}
 			int count = 0;

@@ -54,7 +54,6 @@ private static void run(String repoLink, String commit, String previousCommit) t
 
 			CstDiff diffForCommit = refDiffJs.computeDiffForCommit(repo, commit);
 			String result = diffForCommit.toJsonString();
-			System.out.println(result);
 			try (FileWriter file = new FileWriter(commitFolder + "/changes.json")) {
 				file.write(result);
 				file.flush();	 
@@ -81,7 +80,6 @@ private static void run(String repoLink, String commit, String previousCommit) t
 
 			CstDiff diffForCommit = refDiffJs.computeDiffForCommit(repo, previousCommit, commit);
 			String result = diffForCommit.toJsonString();
-			System.out.println(result);
 			try (FileWriter file = new FileWriter(commitFolder + "/changes.json")) {
 				file.write(result);
 				file.flush();	 
