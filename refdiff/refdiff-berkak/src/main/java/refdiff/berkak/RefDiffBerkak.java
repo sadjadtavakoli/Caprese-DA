@@ -7,6 +7,8 @@ import refdiff.core.diff.CstDiff;
 import refdiff.parsers.js.JsPlugin;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Files;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,18 +16,19 @@ import java.util.Set;
 import org.eclipse.jgit.revwalk.RevCommit;
 
 public class RefDiffBerkak {
+	private static String changesPath = "data/changes/";
 
 	public static void main(String[] args) throws Exception {
-		// String repo = args[0];
-		// String commit = args[1];
-		// String previousCommit = args[2];
+		String repoLink = args[0];
+		String commitSha = args[1];
+		String dataPath = args[2];
 		int counter = 0;
-
-		String repoLink = "https://github.com/vuejs/vuex.git";
-		String commitSha = "8029c3951af788eb0e704222ff1b0a21918546c1";
+		// String repoLink = "https://github.com/vuejs/vuex.git";
+		// String commitSha = "8029c3951af788eb0e704222ff1b0a21918546c1";
 
 		new File("data").mkdir();
-		new File("data/changes").mkdir();
+		new File(changesPath).mkdir();
+		new File(dataPath);
 		File commitFolder = new File("data/" + commitSha);
 
 		try (JsPlugin jsPlugin = new JsPlugin()) {
@@ -35,6 +38,9 @@ public class RefDiffBerkak {
 			File repo = refDiffJs.cloneGitRepository(commitFolder, repoLink);
 			RevCommit commit = refDiffJs.getCommit(repo, commitSha);
 			minRepo(refDiffJs, repo, commit, counter);
+			System.out.println("done");
+			fileMerge(dataPath);
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -66,13 +72,30 @@ public class RefDiffBerkak {
 		}
 		if (!sequence.trim().isEmpty()) {
 			sequence = sequence.replaceAll("[\\[\\],\"]", "") + " -1 ";
-			try (FileWriter file = new FileWriter("data/changes/" + fileName + ".txt", true)) {
+			try (FileWriter file = new FileWriter(changesPath + fileName + ".txt", true)) {
 				file.write(sequence);
 				file.flush();
-			}	
-		}
-		if (counter < 100) {
-				minRepo(refDiffJs, repo, commitPr, counter);
 			}
+		}
+		if (counter < 10) {
+			minRepo(refDiffJs, repo, commitPr, counter);
+		}
+	}
+
+	public static void fileMerge(String dataPath) throws IOException {
+
+		PrintWriter pw = new PrintWriter(dataPath);
+		File folder = new File(changesPath);
+		File[] listOfFiles = folder.listFiles();
+
+		for (File file : listOfFiles) {
+			if (file.isFile()) {
+				String content = Files.readString(file.toPath());
+				file.delete();
+				pw.println(content + " -2");
+			}
+		}
+		pw.flush();
+		pw.close();
 	}
 }
