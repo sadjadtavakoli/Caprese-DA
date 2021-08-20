@@ -4,7 +4,7 @@ plugins {
     id 'application'
 }
 
-mainClassName = 'refdiff.berkak.RefDiffExample'
+mainClassName = 'refdiff.berkak.RefDiffBerkak'
 
 dependencies {
     //implementation 'com.github.aserg-ufmg:refdiff-js:2.0.0'
