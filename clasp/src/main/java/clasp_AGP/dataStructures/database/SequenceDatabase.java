@@ -94,8 +94,7 @@ public class SequenceDatabase {
     public double loadFile(String path, double minSupport) throws IOException {
         String thisLine;
         BufferedReader myInput = null;
-        try {
-            FileInputStream fin = new FileInputStream(new File(path));
+        try (FileInputStream fin = new FileInputStream(new File(path))) {
             myInput = new BufferedReader(new InputStreamReader(fin));
             // For each line
             while ((thisLine = myInput.readLine()) != null) {
@@ -136,57 +135,6 @@ public class SequenceDatabase {
             if (myInput != null) {
                 myInput.close();
             }
-        }
-        return -1;
-
-    }
-
-    /**
-     * Method that load a database from a path file given as parameter
-     *
-     * @param input      Sequences db as a string
-     * @param minSupport Minimum absolute support
-     * @throws IOException
-     */
-    public double loadList(String[] input, double minSupport) throws IOException {
-        String thisLine;
-        try {
-            // For each line
-            for (int i = 0; i < input.length; i++) {
-                // If the line is not a comment line
-                thisLine = input[i];
-                if (thisLine.charAt(0) != '#' && thisLine.charAt(0) != '%' && thisLine.charAt(0) != '@') {
-                    // we add a new sequence to the sequenceDatabase
-                    addSequence(thisLine.split(" "));
-                }
-            }
-            double support = (int) Math.ceil(minSupport * sequences.size());
-            Set<Item> frequentItemsSet = frequentItems.keySet();
-            Set<Item> itemsToRemove = new HashSet<>();
-            // We remove those items that are not frequent
-            for (Item frequentItem : frequentItemsSet) {
-                // From the item set of frequent items
-                TrieNode nodo = frequentItems.get(frequentItem);
-                if (nodo.getChild().getIdList().getSupport() < support) {
-                    itemsToRemove.add(frequentItem);
-                } else {
-                    nodo.getChild().getIdList().setAppearingIn(nodo.getChild());
-                }
-            }
-
-            for (Item item : itemsToRemove) {
-                frequentItems.remove(item);
-            }
-            // And from the original database
-            reduceDatabase(frequentItems.keySet());
-
-            /*
-             * We initialize all the maps
-             */
-            idListCreator.initializeMaps(frequentItems, projectingDistance, sequencesLengths,
-                    sequenceItemsetSize/* , itemsetTimestampMatching */);
-            return support;
-        } catch (Exception e) {
         }
         return -1;
 
