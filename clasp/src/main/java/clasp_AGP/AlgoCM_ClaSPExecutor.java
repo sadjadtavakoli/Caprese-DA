@@ -1,9 +1,13 @@
 package clasp_AGP;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
 
@@ -50,12 +54,11 @@ public class AlgoCM_ClaSPExecutor {
 
         SequenceDatabase sequenceDatabase = new SequenceDatabase(abstractionCreator, idListCreator, itemConstraint);
 
-        double relativeSupport = sequenceDatabase.loadFile(fileToPath(filePath), support);
+        double relativeSupport = sequenceDatabase.loadFile(filePath, support);
 
         AlgoCM_ClaSP algorithm = new AlgoCM_ClaSP(relativeSupport, abstractionCreator, findClosedPatterns,
                 executePruningMethods, itemConstraint);
 
-        // System.out.println(sequenceDatabase.toString());
         algorithm.runAlgorithm(sequenceDatabase, keepPatterns, verbose, outputPath, outputSequenceIdentifiers);
         System.out.println("Minsup (relative) : " + support);
         System.out.println(algorithm.getNumberOfFrequentPatterns() + " patterns found.");
@@ -70,12 +73,12 @@ public class AlgoCM_ClaSPExecutor {
 
     }
 
-    public static List<String> runList(List<String> itemConstraint, double support, String[] sequences, String outputPath)
-            throws IOException {
+    public static List<String> runList(List<String> itemConstraint, double support, String[] sequences,
+            String outputPath) throws IOException {
 
         String filePath = "input.txt";
         StringBuilder sequencesString = new StringBuilder();
-        try (FileWriter myWriter = new FileWriter(fileToPath(filePath), false)) {
+        try (FileWriter myWriter = new FileWriter(filePath, false)) {
             for (int i = 0; i < sequences.length; i++) {
                 // If the line is not a comment line
                 sequencesString.append(sequences[i]).append("\n");
