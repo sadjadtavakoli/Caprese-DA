@@ -328,7 +328,7 @@ public class CstComparator {
 					JsonElement value = mappings.get(n2Key);
 					mappings.remove(n2Key);
 					mappings.add(n1Key, value);
-					n2Key = value.toString();
+					n2Key = value.getAsString();
 				} else {
 					mappings.addProperty(n1Key, n2Key);
 				}

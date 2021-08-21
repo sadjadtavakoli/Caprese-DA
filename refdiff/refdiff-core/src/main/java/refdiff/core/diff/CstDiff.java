@@ -92,6 +92,10 @@ public class CstDiff {
 		return this.addedEntities;
 	}
 
+	public Set<String> getAddedEntitiesKeys() {
+		return this.addedEntities.stream().map(x -> x.toString()).collect(Collectors.toSet());
+	}
+
 	public Set<String> getNonValidChangedFiles(){
 		return this.nonValidChangedFiles;
 	}
