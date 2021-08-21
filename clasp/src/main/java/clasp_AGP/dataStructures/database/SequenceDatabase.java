@@ -158,12 +158,14 @@ public class SequenceDatabase {
         sequence.setID(nSequences);
         int beginning = 0;
         List<Integer> sizeItemsetsList = new ArrayList<>();
-        List<String> itemConstraintCopy = new ArrayList<>(itemConstraint);
-        itemConstraintCopy.retainAll(Arrays.asList(integers));
-        if (itemConstraintCopy.isEmpty()) {
-            return;
-        }   
 
+        if (!itemConstraint.isEmpty()) {
+            List<String> itemConstraintCopy = new ArrayList<>(itemConstraint);
+            itemConstraintCopy.retainAll(Arrays.asList(integers));
+            if (itemConstraintCopy.isEmpty()) {
+                return;
+            }
+        }
         for (int i = beginning; i < integers.length; i++) {
             if (integers[i].codePointAt(0) == '<') { // Timestamp
                 String value = integers[i].substring(1, integers[i].length() - 1);

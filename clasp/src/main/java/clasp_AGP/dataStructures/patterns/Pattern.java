@@ -87,7 +87,7 @@ public class Pattern implements Comparable<Pattern> {
             result.append(appearingIn.size()).append(')');
             result.append("\t[");
             // for (int i = 0; i < appearingIn.size(); i++) {
-            //     result.append(getSupport()).append(", ");
+            // result.append(getSupport()).append(", ");
             // }
             result.deleteCharAt(result.length() - 1);
             result.deleteCharAt(result.length() - 1);
@@ -329,6 +329,10 @@ public class Pattern implements Comparable<Pattern> {
 
     public boolean contains(List<String> itemset) { // @sadjad TODO REFACTOR => our itemset should be a list of items
                                                     // just like elements
+        if (itemset.isEmpty()) {
+            return true;
+        }
+        
         for (int i = 0; i < elements.size(); i++) {
             if (itemset.contains(elements.get(i).getItem().toString())) {
                 return true;
