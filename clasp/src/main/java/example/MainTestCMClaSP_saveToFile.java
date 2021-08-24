@@ -18,12 +18,13 @@ public class MainTestCMClaSP_saveToFile {
      */
     public static void main(String[] args) throws IOException {
         double support = 0.5;
-        List<String> itemConstraint = Arrays.asList("usernameGenerator", "random", "checkUniqueness", "usernameValidator", "errorhandler", "checkEmailUniqueness", "emailValidator");
+        List<String> itemConstraint = Arrays.asList();
         String[] sequences = { 
-            "usernameGenerator -1 random usernameGenerator -1 checkUniqueness usernameValidator -1 -2",
-            "usernameValidator -1 emailValidator usernameValidator -1 errorhandler -1 -2",
-            "usernameGenerator usernameValidator -1 checkUniqueness -1 checkEmailUniqueness emailValidator -1 -2",
-            "checkUniqueness random -1 checkEmailUniqueness emailValidator usernameValidator -1 -2"
+            "usernameGenerator usernameValidator -1 usernameValidator emailValidator -1 -2"
+            ,"usernameGenerator checkUniquness -1 usernameValidator -1 emailValidator checkEmailUniqueness -1 -2"
+           ,"emailValidator checkEmailUniquness usernameValidator -1 errorHandler -2 "
+           ,"randomGenerator usernameGenerator -1 usernameGenerator usernameValidator emailValidator -1 -2" 
+       
              };
             //  "checkUniqueness usernameValidator -1 #SUP: 1, 
             //  emailValidator usernameValidator -1 #SUP: 2, 

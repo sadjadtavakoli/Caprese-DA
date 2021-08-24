@@ -1,14 +1,9 @@
 package clasp_AGP;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.Arrays;
 import java.util.List;
 
 import clasp_AGP.dataStructures.creators.AbstractionCreator;

@@ -84,6 +84,8 @@ public class FrequentPatternEnumeration_ClaSP {
     private boolean executePruningMethods;
 
     private List<String> itemConstraint;
+    private Map<String, Map<String, Integer>> coocMapAfter;
+    private Map<String, Map<String, Integer>> coocMapEquals;
     /**
      * Tin inserts:
      */
@@ -100,7 +102,8 @@ public class FrequentPatternEnumeration_ClaSP {
      *                           finding the closed sequences
      */
     public FrequentPatternEnumeration_ClaSP(AbstractionCreator abstractionCreator, double minSupAbsolute, Saver saver,
-            boolean findClosedPatterns, boolean executePruningMethods, List<String> itemConstraint) {
+            boolean findClosedPatterns, boolean executePruningMethods, List<String> itemConstraint,
+            Map<String, Map<String, Integer>> coocMapAfter, Map<String, Map<String, Integer>> coocMapEquals) {
         this.abstractionCreator = abstractionCreator;
         this.minSupAbsolute = minSupAbsolute;
         this.saver = saver;
@@ -108,6 +111,8 @@ public class FrequentPatternEnumeration_ClaSP {
         this.findClosedPatterns = findClosedPatterns;
         this.executePruningMethods = executePruningMethods;
         this.itemConstraint = itemConstraint;
+        this.coocMapAfter = coocMapAfter;
+        this.coocMapEquals = coocMapEquals;
     }
 
     /**
@@ -121,8 +126,7 @@ public class FrequentPatternEnumeration_ClaSP {
      * @param
      */
 
-    public void dfsPruning(Pattern patron, Trie trie, boolean verbose, Map<String, Map<String, Integer>> coocMapAfter,
-            Map<String, Map<String, Integer>> coocMapEquals) {
+    public void dfsPruning(Pattern patron, Trie trie, boolean verbose) {
         int tam = trie.levelSize();
         /*
          * Tin inserts
@@ -136,7 +140,7 @@ public class FrequentPatternEnumeration_ClaSP {
              * frequent item
              */
             exploreChildren(new Pattern(eq.getPair()), eq, firstSequenceExtensions, firstSequenceExtensions, i + 1,
-                    coocMapAfter, coocMapEquals, eq.getPair().getItem());
+                    eq.getPair().getItem());
 
             /**
              * In the code above, why don't use just co-occured items as i-extension and
@@ -146,8 +150,7 @@ public class FrequentPatternEnumeration_ClaSP {
     }
 
     private void exploreChildren(Pattern pattern, TrieNode currentNode, List<TrieNode> sequenceExtensions,
-            List<TrieNode> itemsetsExtensions, int beginning, Map<String, Map<String, Integer>> coocMapAfter,
-            Map<String, Map<String, Integer>> coocMapEquals, Item lastAppendedItem) {
+            List<TrieNode> itemsetsExtensions, int beginning, Item lastAppendedItem) {
 
         // We get the curretn trie
         Trie currentTrie = currentNode.getChild();
@@ -179,30 +182,28 @@ public class FrequentPatternEnumeration_ClaSP {
          */
         if (!isAvoidable) {
             // For all the nodes of sequenceExtensions
-            sequenceExtensionRecursive(sequenceExtensions, coocMapAfter, coocMapEquals, lastAppendedItem, currentTrie,
-                    new_sequenceExtension, clone);
+            sequenceExtensionRecursive(sequenceExtensions, lastAppendedItem, currentTrie, new_sequenceExtension, clone);
         }
 
         /*
          * From the beginning index to the last equivalence class appearing in the
          * itemset extension set
          */
-        itemsetExtensionRecursive(itemsetsExtensions, beginning, coocMapAfter, coocMapEquals, lastAppendedItem,
-                currentTrie, isAvoidable, new_sequenceExtension, new_itemsetExtension, clone);
+        itemsetExtensionRecursive(itemsetsExtensions, beginning, lastAppendedItem, currentTrie, isAvoidable,
+                new_sequenceExtension, new_itemsetExtension, clone);
 
     }
 
-    private void sequenceExtensionRecursive(List<TrieNode> sequenceExtensions,
-            Map<String, Map<String, Integer>> coocMapAfter, Map<String, Map<String, Integer>> coocMapEquals,
-            Item lastAppendedItem, Trie currentTrie, List<TrieNode> newSequenceExtension, Pattern clone) {
+    private void sequenceExtensionRecursive(List<TrieNode> sequenceExtensions, Item lastAppendedItem, Trie currentTrie,
+            List<TrieNode> newSequenceExtension, Pattern clone) {
 
         List<Pattern> newPatterns = new ArrayList<>();
         List<TrieNode> newNodesToExtends = new ArrayList<>();
 
         for (TrieNode node : sequenceExtensions) {
 
-            if (coocMapAfter != null) {
-                Map<String, Integer> map = coocMapAfter.get(lastAppendedItem.getId());
+            if (this.coocMapAfter != null) {
+                Map<String, Integer> map = this.coocMapAfter.get(lastAppendedItem.getId());
                 if (map != null) {
                     Integer coocurenceCount = map.get(node.getPair().getItem().getId());
                     if (coocurenceCount == null || coocurenceCount < minSupAbsolute) {
@@ -225,12 +226,14 @@ public class FrequentPatternEnumeration_ClaSP {
              */
             joinCount++;
             IDList newIdList = currentTrie.getIdList().join(node.getChild().getIdList(), false, (int) minSupAbsolute);
-            // IDList newIdListIS = currentTrie.getIdList().join(node.getChild().getIdList(), true, (int) minSupAbsolute);
+            // IDList newIdListIS =
+            // currentTrie.getIdList().join(node.getChild().getIdList(), true, (int)
+            // minSupAbsolute);
 
             // If the new pattern is frequent
             // if (newIdList.getSupport() != 0) {
             // if (newIdList.getSupport() + newIdListIS.getSupport() >= minSupAbsolute) {
-                if (newIdList.getSupport() >= minSupAbsolute) {
+            if (newIdList.getSupport() >= minSupAbsolute) {
                 // We create a new trie for it
                 Trie newTrie = new Trie(null, newIdList);
                 // abd we insert it its appearances
@@ -265,49 +268,51 @@ public class FrequentPatternEnumeration_ClaSP {
              * Besides we establish the same set as the set which we will make the
              * i-extensions, but beginning from the (i+1)-th element
              */
-            exploreChildren(newPattern, nodeToExtend, newSequenceExtension, newSequenceExtension, i + 1, coocMapAfter,
-                    coocMapEquals, last);
+            exploreChildren(newPattern, nodeToExtend, newSequenceExtension, newSequenceExtension, i + 1, last);
         }
     }
 
-    private void itemsetExtensionRecursive(List<TrieNode> itemsetsExtensions, int beginning,
-            Map<String, Map<String, Integer>> coocMapAfter, Map<String, Map<String, Integer>> coocMapEquals,
-            Item lastAppendedItem, Trie currentTrie, boolean isAvoidable, List<TrieNode> newSequenceExtension,
+    private void itemsetExtensionRecursive(List<TrieNode> itemsetsExtensions, int beginning, Item lastAppendedItem,
+            Trie currentTrie, boolean isAvoidable, List<TrieNode> newSequenceExtension,
             List<TrieNode> newItemsetExtension, Pattern clone) {
 
         List<Pattern> newPatterns = new ArrayList<>();
         List<TrieNode> newNodesToExtends = new ArrayList<>();
         for (int k = beginning; k < itemsetsExtensions.size(); k++) {
-
+            System.out.println(itemsetsExtensions);
             TrieNode eq = itemsetsExtensions.get(k);
 
             // ====== PFV 2013 =========================
 
             // if (coocMapEquals != null) {
-            //     Map<String, Integer> map = coocMapEquals.get(lastAppendedItem.getId());
-            //     Map<String, Integer> mapBackward = coocMapEquals.get(eq.getPair().getItem().getId());
-            //     if (map == null && mapBackward == null) {
-            //         continue;
-            //     }
-
-            //     if (map != null) {
-            //         Integer coocurenceCount = map.get(eq.getPair().getItem().getId());
-            //         if ((coocurenceCount == null || coocurenceCount < minSupAbsolute) && mapBackward != null) {
-            //             Integer coocurenceCountBackward = mapBackward.get(lastAppendedItem.getId());
-            //             if (coocurenceCountBackward == null || coocurenceCountBackward < minSupAbsolute) {
-            //                 continue;
-            //             }
-            //         }
-            //     } else if (mapBackward != null) {
-            //         Integer coocurenceCountBackward = mapBackward.get(lastAppendedItem.getId());
-            //         if (coocurenceCountBackward == null || coocurenceCountBackward < minSupAbsolute) {
-            //             continue;
-            //         }
-            //     }
+            // Map<String, Integer> map = coocMapEquals.get(lastAppendedItem.getId());
+            // Map<String, Integer> mapBackward =
+            // coocMapEquals.get(eq.getPair().getItem().getId());
+            // if (map == null && mapBackward == null) {
+            // continue;
             // }
 
-            if (coocMapEquals != null) {
-                Map<String, Integer> map = coocMapEquals.get(lastAppendedItem.getId());
+            // if (map != null) {
+            // Integer coocurenceCount = map.get(eq.getPair().getItem().getId());
+            // if ((coocurenceCount == null || coocurenceCount < minSupAbsolute) &&
+            // mapBackward != null) {
+            // Integer coocurenceCountBackward = mapBackward.get(lastAppendedItem.getId());
+            // if (coocurenceCountBackward == null || coocurenceCountBackward <
+            // minSupAbsolute) {
+            // continue;
+            // }
+            // }
+            // } else if (mapBackward != null) {
+            // Integer coocurenceCountBackward = mapBackward.get(lastAppendedItem.getId());
+            // if (coocurenceCountBackward == null || coocurenceCountBackward <
+            // minSupAbsolute) {
+            // continue;
+            // }
+            // }
+            // }
+
+            if (this.coocMapEquals != null) {
+                Map<String, Integer> map = this.coocMapEquals.get(lastAppendedItem.getId());
                 if (map != null) {
                     Integer coocurenceCount = map.get(eq.getPair().getItem().getId());
                     if (coocurenceCount == null || coocurenceCount < minSupAbsolute) {
@@ -335,16 +340,15 @@ public class FrequentPatternEnumeration_ClaSP {
             joinCount++;
             // System.out.println(currentTrie.getIdList());
             IDList newIdList = currentTrie.getIdList().join(eq.getChild().getIdList(), true, (int) minSupAbsolute);
-            // IDList newIdListSeq = currentTrie.getIdList().join(eq.getChild().getIdList(), false, (int) minSupAbsolute);
+            // IDList newIdListSeq = currentTrie.getIdList().join(eq.getChild().getIdList(),
+            // false, (int) minSupAbsolute);
 
             // System.out.println(newIdList);
             // System.out.println("=-=-====-==-=");
-            
 
             // If the new pattern is frequent
             // if (newIdList.getSupport() + newIdListSeq.getSupport() >= minSupAbsolute) {
-                if (newIdList.getSupport()>= minSupAbsolute) {
-                // if (newIdList.getSupport() != 0) {
+            if (newIdList.getSupport() >= minSupAbsolute) {
                 // We create a new trie for it
                 Trie newTrie = new Trie(null, newIdList);
                 // And we insert it its appearances
@@ -355,7 +359,21 @@ public class FrequentPatternEnumeration_ClaSP {
                 /*
                  * Tin inserts:
                  */
+                // if (currentTrie.getNodes() != null) {
+                //     System.out.println("currentTrie");
+                //     System.out.println(currentTrie);
+                //     System.out.println("new Trie");
+                //     System.out.println(newTrieNode);
+                // }
+
                 currentTrie.mergeWithTrie_i(newTrieNode);
+                // if (currentTrie.getNodes() != null) {
+
+                //     System.out.println("currentTrie 2");
+                //     System.out.println(currentTrie.getNodes());
+                //     System.out.println(currentTrie);
+                // }
+
                 // currentTrie.mergeWithTrie(newTrieNode);
 
                 /*
@@ -388,8 +406,7 @@ public class FrequentPatternEnumeration_ClaSP {
             if (isAvoidable)
                 newSequenceExtension = firstSequenceExtensions;
 
-            exploreChildren(newPattern, nodeToExtend, newSequenceExtension, newItemsetExtension, i + 1, coocMapAfter,
-                    coocMapEquals, last);
+            exploreChildren(newPattern, nodeToExtend, newSequenceExtension, newItemsetExtension, i + 1, last);
             nodeToExtend.getChild().setIdList(null);
 
             /*

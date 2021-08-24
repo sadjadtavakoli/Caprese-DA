@@ -22,11 +22,13 @@ public class RefDiffBerkak {
 		String repoLink = args[0];
 		String commitSha = args[1];
 		String dataPath = args[2];
-		int counter = 0;
+		int counter = Integer.parseInt(args[3]);
 		
-		// repoLink = "https://github.com/vuejs/vuex.git";
-		// commitSha = "8029c3951af788eb0e704222ff1b0a21918546c1";
-		// dataPath = "sequences.txt";
+		// String repoLink = "https://github.com/vuejs/vuex.git";
+		// String commitSha = "8029c3951af788eb0e704222ff1b0a21918546c1";
+		// String dataPath = "sequences.txt";
+		// int counter = 200;
+
 
 		new File("data").mkdir();
 		new File(changesPath).mkdir();
@@ -51,7 +53,7 @@ public class RefDiffBerkak {
 		if (commit.getParentCount() != 1) {
 			System.out.println("two parents" + commit.getName());
 		}
-		counter++;
+		counter--;
 		RevCommit commitPr = refDiffJs.getCommit(repo, commit.getParent(0));
 		Date date = commit.getCommitterIdent().getWhen();
 		String fileName = String.format("%s-%s-%s-%s", date.getYear(), date.getMonth(), date.getDate(),
@@ -62,7 +64,7 @@ public class RefDiffBerkak {
 		changes.addAll(diffForCommit.getChangedEntitiesKeys());
 		changes.addAll(diffForCommit.getAddedEntitiesKeys());
 
-		if (!changes.isEmpty()) {
+		if (!changes.isEmpty() && changes.size() < 21) {
 			Collections.sort(changes);
 			String sequence = changes.toString().replaceAll("[\\[\\],\"]", "") + " -1 ";
 			try (FileWriter file = new FileWriter(changesPath + fileName + ".txt", true)) {
@@ -72,7 +74,7 @@ public class RefDiffBerkak {
 		}else{
 			System.out.println("no changes detected " + commit.getName());
 		}
-		if (counter < 100) {
+		if (counter > 0) {
 			minRepo(refDiffJs, repo, commitPr, counter);
 		}
 	}

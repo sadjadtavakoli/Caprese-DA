@@ -264,11 +264,11 @@ public class AlgoCM_ClaSP {
 
         // Inizialitation of the class that is in charge of find the frequent patterns
         FrequentPatternEnumeration_ClaSP frequentPatternEnumeration = new FrequentPatternEnumeration_ClaSP(
-                abstractionCreator, minSupAbsolute, saver, findClosedPatterns, executePruningMethods, itemConstraint);
+                abstractionCreator, minSupAbsolute, saver, findClosedPatterns, executePruningMethods, itemConstraint, coocMapAfter, coocMapEquals);
 
         this.mainMethodStart = System.currentTimeMillis();
         // We dfsPruning the search
-        frequentPatternEnumeration.dfsPruning(new Pattern(), FrequentAtomsTrie, verbose, coocMapAfter, coocMapEquals);
+        frequentPatternEnumeration.dfsPruning(new Pattern(), FrequentAtomsTrie, verbose);
         this.mainMethodEnd = System.currentTimeMillis();
         // Once we had finished, we keep the number of frequent patterns that we found
         numberOfFrequentPatterns = frequentPatternEnumeration.getFrequentPatterns();

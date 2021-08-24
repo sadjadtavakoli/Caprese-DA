@@ -131,6 +131,7 @@ public class SequenceDatabase {
                     sequenceItemsetSize/* , itemsetTimestampMatching */);
             return support;
         } catch (Exception e) {
+            System.out.println(e.getMessage());
         } finally {
             if (myInput != null) {
                 myInput.close();
