@@ -193,6 +193,8 @@ let tempIDsMap = new Map();
 
     function updateTrace(fID) {
         trace += fID + " -1 "
+        //we are using updateTrace at the entrance of each function. Thus, we cal 
+        //fill trace with their location and name instead of IDs.
     }
 
     function addToTimeoutMap(key, value) {
@@ -285,10 +287,6 @@ let tempIDsMap = new Map();
         return []
     }
 
-    function setID(func, iid) {
-        functionIDs.set(func, iid)
-        IDsFunction.set(id, func)
-    }
     function getID(func, iid) {
         if (functionIDs.has(func)) {
             return functionIDs.get(func)
