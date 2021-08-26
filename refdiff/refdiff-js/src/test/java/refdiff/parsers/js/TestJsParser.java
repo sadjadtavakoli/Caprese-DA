@@ -226,7 +226,7 @@ public class TestJsParser {
 	}
 	
 	@Test
-	public void shouldNotHandleAnonymousFunctionsAsCstNodes() throws Exception {
+	public void shouldHandleAnonymousFunctionsAsCstNodes() throws Exception {
 		Path basePath = Paths.get("test-data/parser/js/");
 		SourceFolder sources = SourceFolder.from(basePath, Paths.get("ex7.js"));
 		Set<String> nonValidChangedFiles = new HashSet<>();
@@ -238,7 +238,13 @@ public class TestJsParser {
 		
 		assertThat(nonValidChangedFiles.size(), is(0));
 
-		CstNode bar = script.getNodes().get(0);
+		CstNode arrowFunction = script.getNodes().get(0);
+		assertThat(arrowFunction.getLocalName(), is("arrowFunction"));
+		assertThat(arrowFunction.getType(), is("Function"));
+		assertThat(arrowFunction.getParameters().size(), is(0));
+
+
+		CstNode bar = arrowFunction.getNodes().get(0);
 		assertThat(bar.getLocalName(), is("bar"));
 		assertThat(bar.getType(), is("Function"));
 		assertThat(bar.getParameters().size(), is(2));
