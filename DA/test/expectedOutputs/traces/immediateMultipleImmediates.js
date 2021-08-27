@@ -1,1 +1,1 @@
-test/unit_tests/immediateMultipleImmediates.js-1-195 -1 test/unit_tests/immediateMultipleImmediates.js-3-5 -1 test/unit_tests/immediateMultipleImmediates.js-13-15 -1 test/unit_tests/immediateMultipleImmediates.js-9-11 -1 
+myFunction2-test/unit_tests/immediateMultipleImmediates.js-17-19 -1 arrowFunction-test/unit_tests/immediateMultipleImmediates.js-3-5 -1 myFunction1-test/unit_tests/immediateMultipleImmediates.js-13-15 -1 arrowFunction-test/unit_tests/immediateMultipleImmediates.js-9-11 -1 

@@ -22,7 +22,7 @@ let EventEmmiter = events.EventEmitter.prototype;
         return J$.iidToLocation(iid).split(':')[1]
     }
 
-    function getEndLine(iid) {
+    Utils.getEndLine = function(iid) {
         return J$.iidToLocation(iid).split(':')[3]
     }    
 
@@ -30,12 +30,12 @@ let EventEmmiter = events.EventEmitter.prototype;
         return J$.iidToLocation(iid).split(':')[2]
     }
 
-    Utils.getIddKey = function(iid){
+    Utils.getIIDKey = function(functionName, iid){
         let locationList = J$.iidToLocation(iid).split(':')
         let filePath = locationList[0].substring(1)
         let line = locationList[1]
         let Endline = locationList[3]
-        return `${filePath}-${line}-${Endline}`
+        return `${functionName}-${filePath}-${line}-${Endline}`
     }
 
     Utils.isTimeOut = function(func) {
@@ -96,5 +96,8 @@ let EventEmmiter = events.EventEmitter.prototype;
         }
     }
 
+    Utils.isTestFunction = function(){
+        return false
+    }
 })(J$);
 

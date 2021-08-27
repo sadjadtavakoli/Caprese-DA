@@ -1,1 +1,1 @@
-test/unit_tests/immediateSingleAnonymousFunction.js-1-3 -1 
+arrowFunction-test/unit_tests/immediateSingleAnonymousFunction.js-1-3 -1 

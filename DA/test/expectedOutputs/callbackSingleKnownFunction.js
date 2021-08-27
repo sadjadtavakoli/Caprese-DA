@@ -1,8 +1,8 @@
 
-#9 function 9 entered from 1
-#5 function 5 entered from 9
-#1 function 1 entered from 5
-#1 function 1 exited to function 5
-#5 function 5 exited to function 9
-#9 function 9 exited to function 1
+#9 function foo-test/unit_tests/callbackSingleKnownFunction.js-9-11 entered from arrowFunction-test/unit_tests/callbackSingleKnownFunction.js-1-13
+#5 function caller-test/unit_tests/callbackSingleKnownFunction.js-5-7 entered from foo-test/unit_tests/callbackSingleKnownFunction.js-9-11
+#1 function bar-test/unit_tests/callbackSingleKnownFunction.js-1-3 entered from caller-test/unit_tests/callbackSingleKnownFunction.js-5-7
+#1 function bar-test/unit_tests/callbackSingleKnownFunction.js-1-3 exited to function caller-test/unit_tests/callbackSingleKnownFunction.js-5-7
+#5 function caller-test/unit_tests/callbackSingleKnownFunction.js-5-7 exited to function foo-test/unit_tests/callbackSingleKnownFunction.js-9-11
+#9 function foo-test/unit_tests/callbackSingleKnownFunction.js-9-11 exited to function arrowFunction-test/unit_tests/callbackSingleKnownFunction.js-1-13
 #end Execution

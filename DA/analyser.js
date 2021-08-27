@@ -15,6 +15,7 @@ let addedListeners = new Map();
 let emittedEvents = new Map();
 let functionIDs = new Map();
 let IDsFunction = new Map();
+let functionsDependency = {}
 let tempIDsMap = new Map();
 
 (function (sandbox) {
@@ -22,7 +23,6 @@ let tempIDsMap = new Map();
     sandbox.functionIDs = new Map();
     function Analyser() {
         this.invokeFunPre = function (iid, f, base, args, isConstructor, isMethod, functionIid, functionSid) {
-
             if (isImportingNewModule(iid)) {
                 return { f: f, base: base, args: args, skip: false };
             }
@@ -77,19 +77,25 @@ let tempIDsMap = new Map();
 
         this.functionEnter = function (iid, f, dis, args) {
             // TODO it's not understandable => remove these ugly if elses
-
             if (isImportingNewModule(iid)) {
                 accessedFiles.set(utils.getFilePath(iid), iid)
             } else {
                 let fID = getID(f, iid)
                 tempIDsMap.set(fID, iid)
+                let functionName = f.name
+                if (!functionName) functionName = "arrowFunction"
+
                 if (isMainFile(iid)) {
                     mainFileName = utils.getFileName(iid)
                     accessedFiles.set(mainFileName, iid)
+
                 } else if (utils.isCalledByEvents(dis)) {
                     let event = getRelatedEvent(dis, fID)
-                    log(utils.getLine(iid) + " function  " + utils.getLine(iid) + " entered throught event " + event.event + " emitted by function " + event.callerFunction.lineNumber)
-                    updateTrace(fID)
+
+                    let callerFunctionName = getFunctionName(event.callerFunction)
+                    log(utils.getLine(iid) + " function  " + utils.getIIDKey(functionName, iid) + " entered throught event " + event.event + " emitted by function " + utils.getIIDKey(callerFunctionName, event.callerFunction.iid))
+                    addDependency(fID, event.callerFunction.fID)
+                    updateTrace(utils.getIIDKey(functionName, iid))
                 } else {
                     let callerFunction;
                     if (utils.isCalledByInterval(dis)) {
@@ -98,7 +104,7 @@ let tempIDsMap = new Map();
                         callerFunction = popFromTimeoutMap('i_' + fID)
                     } else if (utils.isCalledByTimeout(dis)) {
                         callerFunction = popFromTimeoutMap('t_' + fID + dis._idleTimeout)
-                    } else { // simple function or callback
+                    } else { // callback
                         validateCallBackMap(fID)
                         let argCheck = popFromCallbackMap(fID)
                         if (argCheck) {
@@ -111,11 +117,13 @@ let tempIDsMap = new Map();
                     } else {
                         callerFunction = functionEnterStack[functionEnterStack.length - 1]
                     }
-                    log(utils.getLine(iid) + " function " + utils.getLine(iid) + " entered from " + callerFunction.lineNumber)
-                    updateTrace(fID)
+                    let callerFunctionName = getFunctionName(callerFunction)
+                    log(utils.getLine(iid) + " function " + utils.getIIDKey(functionName, iid) + " entered from " + utils.getIIDKey(callerFunctionName, callerFunction.iid))
+                    addDependency(fID, callerFunction.fID)
+                    updateTrace(utils.getIIDKey(functionName, iid))
                 }
 
-                functionEnterStack.push({ 'lineNumber': utils.getLine(iid), 'fID': fID })
+                functionEnterStack.push({ 'iid': iid, 'fID': fID })
 
             }
         };
@@ -123,11 +131,13 @@ let tempIDsMap = new Map();
         this.functionExit = function (iid, returnVal, wrappedExceptionVal) {
             if (!(isImportingNewModule(iid) || isMainFile(iid))) {
                 let f = functionEnterStack.pop()
-                let caller = functionEnterStack[functionEnterStack.length - 1]
-                if (caller.isTemp) {
+                let fName = getFunctionName(f)
+                let callerFunction = functionEnterStack[functionEnterStack.length - 1]
+                if (callerFunction.isTemp) {
                     functionEnterStack.pop()
                 }
-                log(utils.getLine(iid) + " function " + f.lineNumber + " exited to function " + caller.lineNumber);
+                let callerFunctionName = getFunctionName(callerFunction)
+                log(utils.getLine(iid) + " function " + utils.getIIDKey(fName, f.iid) + " exited to function " + utils.getIIDKey(callerFunctionName, callerFunction.iid))
             }
 
             return { returnVal: returnVal, wrappedExceptionVal: wrappedExceptionVal, isBacktrack: false };
@@ -137,21 +147,19 @@ let tempIDsMap = new Map();
             log("end Execution");
             fs.writeFileSync(path.join(__dirname, 'test' + path.sep + 'analyzerOutputs' + path.sep + mainFileName), logger, function (err) {
                 if (err) {
-                    return console.log(err);
+                    console.log(err);
                 }
                 console.log("The file was saved!");
             });
-            // console.log("**************end execution************")
-            for (const [key, value] of tempIDsMap.entries()) {
-                trace = trace.replace(new RegExp(key, 'g'), utils.getIddKey(value))
-                //     console.log(key + " : " + utils.getLine(value))
-                //     // console.log(utils.getLine(value))
-            }
 
+            for (const item in functionsDependency) {
+                console.log(item);
+                console.log(functionsDependency[item]);
+            }
 
             fs.writeFileSync(path.join(__dirname, 'test' + path.sep + 'analyzerOutputs' + path.sep + 'traces' + path.sep + mainFileName), trace, function (err) {
                 if (err) {
-                    return console.log(err);
+                    console.log(err);
                 }
                 console.log("The file was saved!");
             });
@@ -184,17 +192,14 @@ let tempIDsMap = new Map();
 
     function isImportingNewModule(iid) {
         return (mainFileName != "" && mainFileName != utils.getFileName(iid) && !(accessedFiles.has(utils.getFilePath(iid)) && utils.trackExternals)) || accessedFiles.get(utils.getFilePath(iid)) == iid
-
     }
 
     function log(log_value) {
         logger += "\n#" + log_value
     }
 
-    function updateTrace(fID) {
-        trace += fID + " -1 "
-        //we are using updateTrace at the entrance of each function. Thus, we cal 
-        //fill trace with their location and name instead of IDs.
+    function updateTrace(key) {
+        trace += key + " -1 "
     }
 
     function addToTimeoutMap(key, value) {
@@ -235,6 +240,18 @@ let tempIDsMap = new Map();
             addedListeners.set(base, new Map().set(event, [listener]))
         } else {
             utils.addToMapList(baseEvents, event, listener)
+        }
+    }
+    function addDependency(callee, caller) {
+        if (!utils.isTestFunction(caller)) {
+            if (!functionsDependency[callee]) {
+                functionsDependency[callee] = { 'tests': [], 'callers': [] }
+            }
+            if (utils.isTestFunction(caller)) {
+                if(functionsDependency[callee]['tests'].indexOf(caller) == -1) functionsDependency[callee]['tests'].push(caller)
+            } else {
+                if(functionsDependency[callee]['callers'].indexOf(caller) == -1) functionsDependency[callee]['callers'].push(caller)
+            }
         }
     }
 
@@ -295,6 +312,12 @@ let tempIDsMap = new Map();
         functionIDs.set(func, id)
         IDsFunction.set(id, func)
         return id
+    }
+
+    function getFunctionName(fDic) {
+        let functionName = IDsFunction.get(fDic.fID).name
+        if (!functionName) functionName = "arrowFunction"
+        return functionName
     }
     sandbox.analysis = new Analyser();
 })(J$);

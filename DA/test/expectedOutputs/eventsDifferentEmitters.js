@@ -1,6 +1,6 @@
 
-#12 function  12 entered throught event connection2 emitted by function 1
-#12 function 12 exited to function 1
-#4 function  4 entered throught event connection emitted by function 1
-#4 function 4 exited to function 1
+#12 function  listner3-test/unit_tests/eventsDifferentEmitters.js-12-14 entered throught event connection2 emitted by function arrowFunction-test/unit_tests/eventsDifferentEmitters.js-1-24
+#12 function listner3-test/unit_tests/eventsDifferentEmitters.js-12-14 exited to function arrowFunction-test/unit_tests/eventsDifferentEmitters.js-1-24
+#4 function  listner1-test/unit_tests/eventsDifferentEmitters.js-4-6 entered throught event connection emitted by function arrowFunction-test/unit_tests/eventsDifferentEmitters.js-1-24
+#4 function listner1-test/unit_tests/eventsDifferentEmitters.js-4-6 exited to function arrowFunction-test/unit_tests/eventsDifferentEmitters.js-1-24
 #end Execution

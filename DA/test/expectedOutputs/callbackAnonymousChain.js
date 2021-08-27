@@ -1,10 +1,10 @@
 
-#5 function 5 entered from 1
-#11 function 11 entered from 5
-#13 function 13 entered from 11
-#13 function 13 exited to function 11
-#11 function 11 exited to function 5
-#9 function 9 entered from 5
-#9 function 9 exited to function 5
-#5 function 5 exited to function 1
+#5 function caller-test/unit_tests/callbackAnonymousChain.js-5-7 entered from arrowFunction-test/unit_tests/callbackAnonymousChain.js-1-13
+#11 function arrowFunction-test/unit_tests/callbackAnonymousChain.js-11-13 entered from caller-test/unit_tests/callbackAnonymousChain.js-5-7
+#13 function arrowFunction-test/unit_tests/callbackAnonymousChain.js-13-13 entered from arrowFunction-test/unit_tests/callbackAnonymousChain.js-11-13
+#13 function arrowFunction-test/unit_tests/callbackAnonymousChain.js-13-13 exited to function arrowFunction-test/unit_tests/callbackAnonymousChain.js-11-13
+#11 function arrowFunction-test/unit_tests/callbackAnonymousChain.js-11-13 exited to function caller-test/unit_tests/callbackAnonymousChain.js-5-7
+#9 function arrowFunction-test/unit_tests/callbackAnonymousChain.js-9-11 entered from caller-test/unit_tests/callbackAnonymousChain.js-5-7
+#9 function arrowFunction-test/unit_tests/callbackAnonymousChain.js-9-11 exited to function caller-test/unit_tests/callbackAnonymousChain.js-5-7
+#5 function caller-test/unit_tests/callbackAnonymousChain.js-5-7 exited to function arrowFunction-test/unit_tests/callbackAnonymousChain.js-1-13
 #end Execution

@@ -36,7 +36,7 @@ describe('Test timeoutSingleKnownFunction.js', () => runTest('timeoutSingleKnown
 describe('Test timeoutZero.js', () => runTest('timeoutZero.js'));
 
 
-const nodeprofCommand = '$GRAAL_HOME/bin/node --jvm --experimental-options --vm.Dtruffle.class.path.append=$NODEPROF_HOME/nodeprof.jar --nodeprof $NODEPROF_HOME/jalangi.js --analysis utils --analysis analyser.js test/unit_tests/'
+const nodeprofCommand = '$GRAAL_HOME/bin/node --jvm --experimental-options --vm.Dtruffle.class.path.append=$NODEPROF_HOME/nodeprof.jar --nodeprof $NODEPROF_HOME/jalangi.js --analysis utils.js --analysis analyser.js test/unit_tests/'
 
 function runTest(item) {
   it('Run nodeprof', function (done) {
@@ -51,7 +51,6 @@ function runTest(item) {
     }
     done();
   });
-
   it('Compare traces', function (done) {
     compairTraces(item);
     done();

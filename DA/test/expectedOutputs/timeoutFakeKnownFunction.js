@@ -1,6 +1,6 @@
 
-#7 function 7 entered from 1
-#11 function 11 entered from 7
-#11 function 11 exited to function 7
-#7 function 7 exited to function 1
+#7 function foo-test/unit_tests/timeoutFakeKnownFunction.js-7-9 entered from arrowFunction-test/unit_tests/timeoutFakeKnownFunction.js-1-13
+#11 function setTimeout-test/unit_tests/timeoutFakeKnownFunction.js-11-13 entered from foo-test/unit_tests/timeoutFakeKnownFunction.js-7-9
+#11 function setTimeout-test/unit_tests/timeoutFakeKnownFunction.js-11-13 exited to function foo-test/unit_tests/timeoutFakeKnownFunction.js-7-9
+#7 function foo-test/unit_tests/timeoutFakeKnownFunction.js-7-9 exited to function arrowFunction-test/unit_tests/timeoutFakeKnownFunction.js-1-13
 #end Execution
