@@ -1,5 +1,6 @@
 const path = require('path');
 const events = require('events');
+const { REPO_PATH } = require('../constants');
 let EventEmmiter = events.EventEmitter.prototype;
 
 (function (sandbox) {
@@ -11,84 +12,84 @@ let EventEmmiter = events.EventEmitter.prototype;
 
     Utils.trackExternals = true;
 
-    Utils.getFileName = function(iid) {
+    Utils.getFileName = function (iid) {
         return Utils.getFilePath(iid).split('/')[2];
     }
 
-    Utils.getFilePath = function(iid) {
+    Utils.getFilePath = function (iid) {
         return J$.iidToLocation(iid).split(':')[0].substring(1);
     }
-    Utils.getLine = function(iid) {
+    Utils.getLine = function (iid) {
         return J$.iidToLocation(iid).split(':')[1]
     }
 
-    Utils.getEndLine = function(iid) {
+    Utils.getEndLine = function (iid) {
         return J$.iidToLocation(iid).split(':')[3]
-    }    
+    }
 
-    Utils.getPositionInLine = function(iid) {
+    Utils.getPositionInLine = function (iid) {
         return J$.iidToLocation(iid).split(':')[2]
     }
 
-    Utils.getIIDKey = function(functionName, iid){
+    Utils.getIIDKey = function (functionName, iid) {
         let locationList = J$.iidToLocation(iid).split(':')
-        let filePath = locationList[0].substring(1)
+        let filePath = locationList[0].substring(1).replace(REPO_PATH + path.sep, '') // should get rid of path from the root of the system!
         let line = locationList[1]
         let Endline = locationList[3]
         return `${functionName}-${filePath}-${line}-${Endline}`
     }
 
-    Utils.isTimeOut = function(func) {
+    Utils.isTimeOut = function (func) {
         return func == setTimeout
     }
 
-    Utils.isImmediate = function(func) {
+    Utils.isImmediate = function (func) {
         return func == setImmediate
     }
 
-    Utils.isInterval = function(func) {
+    Utils.isInterval = function (func) {
         return func == setInterval
     }
 
-    Utils.isEmitEvent = function(func) {
+    Utils.isEmitEvent = function (func) {
         return func == EventEmmiter.emit
     }
 
-    Utils.isAddEventlistener = function(func) {
+    Utils.isAddEventlistener = function (func) {
         return [EventEmmiter.addListener, EventEmmiter.once, EventEmmiter.prependListener, EventEmmiter.prependOnceListener].includes(func)
     }
 
-    Utils.isForEach = function(func){
+    Utils.isForEach = function (func) {
         return func == Array.prototype.forEach
     }
-    Utils.isAnonymousFunction = function(func) {
+    Utils.isAnonymousFunction = function (func) {
         return func.name == "";
     }
 
-    Utils.isCalledByImmediate = function(base) {
+    Utils.isCalledByImmediate = function (base) {
         return base._onImmediate
     }
 
-    Utils.isCalledByTimeoutOrInterval = function(base) {
+    Utils.isCalledByTimeoutOrInterval = function (base) {
         return base._onTimeout
     }
 
-    Utils.isCalledByEvents = function(base) {
+    Utils.isCalledByEvents = function (base) {
         return base.constructor.prototype == EventEmmiter
     }
 
-    Utils.isCalledByInterval = function(base) {
+    Utils.isCalledByInterval = function (base) {
         return base._repeat
     }
 
-    Utils.isCalledByTimeout = function(base) {
+    Utils.isCalledByTimeout = function (base) {
         return base._onTimeout && !base._repeat
     }
 
-    Utils.addToMapList = function(map, key, value, distinct) {
+    Utils.addToMapList = function (map, key, value, distinct) {
         if (map.has(key)) {
             map.get(key).push(value)
-            if(distinct){
+            if (distinct) {
                 map.set(key, [...new Set(map.get(key))])
             }
         } else {
@@ -96,7 +97,7 @@ let EventEmmiter = events.EventEmitter.prototype;
         }
     }
 
-    Utils.isTestFunction = function(){
+    Utils.isTestFunction = function () {
         return false
     }
 })(J$);

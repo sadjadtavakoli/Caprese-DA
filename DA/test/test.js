@@ -41,7 +41,7 @@ const nodeprofCommand = '$GRAAL_HOME/bin/node --jvm --experimental-options --vm.
 function runTest(item) {
   it('Run nodeprof', function (done) {
     this.timeout(10000);
-    execute(nodeprofCommand + item, done)
+    execute(nodeprofCommand + item + " testMode", done)
     // done()
   });
   it('Compare result', function (done) {

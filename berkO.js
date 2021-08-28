@@ -1,7 +1,8 @@
 const path = require('path');
+const fs = require('fs');
 const exec = require('child_process').exec;
 const constants = require('./constants.js')
-let INITIALIZED_REPO = constants.REPO_URL
+
 let INITIALIZED_COMMIT = constants.SEED_COMMIT;
 
 
@@ -10,33 +11,50 @@ function run() {
 
     console.log(" * * * * * * * * * * * \n * * * *  Srart! * * * \n * * * * * * * * * * * \n")
     console.log(constants.DA_COMMAND)
-    runDynamicAnalysis("").then(()=>{
-        console.log("DONE!")
-    })
-    
-    // if (INITIALIZED_COMMIT && !argRepo) {
-    //     pullAndCheckoutProject(INITIALIZED_COMMIT)
-    //         .then(runDynamicAnalysis)
-    //         .then(runRefDiff)
-    //         .then(runClasp)
-    //         .catch((err) => {
-    //             console.log(err)
-    //         })
-    // } else {
-    //     getHeadCommit()
-    //         .then(pullAndCheckoutProject)
-    //         .then(runDynamicAnalysis)
-    //         .then(runRefDiff)
-    //         .then(runClasp)
-    //         .catch((err) => {
-    //             console.log(err)
-    //         })
-    // }
+
+
+    if (!fs.existsSync(constants.DATA_PATH)) {
+        fs.mkdirSync(constants.DATA_PATH, {
+            recursive: true
+        });
+    }
+
+    // runDynamicAnalysis("")
+
+    if (INITIALIZED_COMMIT) {
+        console.log("yes")
+        cloneProject()
+            .then(() => {
+                return checkoutProject(INITIALIZED_COMMIT)
+            })
+            .then(runDynamicAnalysis)
+            // .then(runRefDiff)
+            // .then(runClasp)
+            .then(() => {
+                console.log("INITIALIZED DONE!")
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    } else {
+        console.log("no")
+        cloneProject()
+            .then(getHeadCommit)
+            .then(runDynamicAnalysis)
+            // .then(runRefDiff)
+            // .then(runClasp)
+            .then(() => {
+                console.log("DONE!")
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+
+    }
 }
 
 function getHeadCommit() {
-    const getHeadCommand = "cd " + constants.REPO_PATH + ' ; git rev-parse HEAD'
-
+    const getHeadCommand = "cd " + constants.REPO_PATH + ' ; git checkout '+ constants.REPO_MAIN_BRANCH +' ; git pull ; git rev-parse HEAD'
     return new Promise(function (resolve, reject) {
         exec(getHeadCommand, (err, stdout, stderr) => {
             if (!err) {
@@ -48,11 +66,19 @@ function getHeadCommit() {
     })
 }
 
-function pullAndCheckoutProject(commit) {
-    const projectCloneCommand = "cd " + constants.PROJECTS_PATH + " ; git clone " + constants.REPO_URL
-    const pullAndCheckoutCommand = projectCloneCommand + " ; cd " + constants.PROJECT_NAME + " ; git fetch -a ; git checkout " + commit
+function cloneProject() {
+    const projectCloneCommand = "cd " + constants.DATA_PATH + " ; git clone " + constants.REPO_URL
     return new Promise(function (resolve, reject) {
-        exec(pullAndCheckoutCommand, (err, stdout, stderr) => {
+        exec(projectCloneCommand, (err, stdout, stderr) => {
+            resolve()
+        })
+    })
+}
+
+function checkoutProject(commit) {
+    const checkoutCommand = "cd " + constants.REPO_PATH + " ; git fetch origin ; git checkout " + commit
+    return new Promise(function (resolve, reject) {
+        exec(checkoutCommand, (err, stdout, stderr) => {
             if (!err) {
                 resolve(commit)
             } else {

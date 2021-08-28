@@ -1,7 +1,7 @@
 // do not remove the following comment
 // JALANGI DO NOT INSTRUMENT
 const fs = require('fs');
-
+const { DA_DEPENDENCIES_PATH, DA_CALL_SEQUENCE_PATH, KEEP_READABLE_TRACE_LOG } = require('../constants')
 
 let logger = "";
 let trace = "";
@@ -16,11 +16,10 @@ let emittedEvents = new Map();
 let functionIDs = new Map();
 let IDsFunction = new Map();
 let functionsDependency = {}
-let tempIDsMap = new Map();
+let tempIDsMap = {};
 
 (function (sandbox) {
     let utils = sandbox.Utils;
-    sandbox.functionIDs = new Map();
     function Analyser() {
         this.invokeFunPre = function (iid, f, base, args, isConstructor, isMethod, functionIid, functionSid) {
             if (isImportingNewModule(iid)) {
@@ -28,7 +27,7 @@ let tempIDsMap = new Map();
             }
 
             if (utils.isAddEventlistener(f)) {
-
+                //  we should keep these ones as well
                 addToAddedListener(base, args[0], getID(args[1], iid))
 
             } else if (utils.isEmitEvent(f)) {
@@ -81,9 +80,9 @@ let tempIDsMap = new Map();
                 accessedFiles.set(utils.getFilePath(iid), iid)
             } else {
                 let fID = getID(f, iid)
-                tempIDsMap.set(fID, iid)
-                let functionName = f.name
-                if (!functionName) functionName = "arrowFunction"
+                let functionName = getFunctionName(f)
+
+                tempIDsMap[fID] = utils.getIIDKey(functionName, iid)
 
                 if (isMainFile(iid)) {
                     mainFileName = utils.getFileName(iid)
@@ -92,7 +91,7 @@ let tempIDsMap = new Map();
                 } else if (utils.isCalledByEvents(dis)) {
                     let event = getRelatedEvent(dis, fID)
 
-                    let callerFunctionName = getFunctionName(event.callerFunction)
+                    let callerFunctionName = getFunctionNameFID(event.callerFunction.fID)
                     log(utils.getLine(iid) + " function  " + utils.getIIDKey(functionName, iid) + " entered throught event " + event.event + " emitted by function " + utils.getIIDKey(callerFunctionName, event.callerFunction.iid))
                     addDependency(fID, event.callerFunction.fID)
                     updateTrace(utils.getIIDKey(functionName, iid))
@@ -117,7 +116,7 @@ let tempIDsMap = new Map();
                     } else {
                         callerFunction = functionEnterStack[functionEnterStack.length - 1]
                     }
-                    let callerFunctionName = getFunctionName(callerFunction)
+                    let callerFunctionName = getFunctionNameFID(callerFunction.fID)
                     log(utils.getLine(iid) + " function " + utils.getIIDKey(functionName, iid) + " entered from " + utils.getIIDKey(callerFunctionName, callerFunction.iid))
                     addDependency(fID, callerFunction.fID)
                     updateTrace(utils.getIIDKey(functionName, iid))
@@ -131,12 +130,12 @@ let tempIDsMap = new Map();
         this.functionExit = function (iid, returnVal, wrappedExceptionVal) {
             if (!(isImportingNewModule(iid) || isMainFile(iid))) {
                 let f = functionEnterStack.pop()
-                let fName = getFunctionName(f)
+                let fName = getFunctionNameFID(f.fID)
                 let callerFunction = functionEnterStack[functionEnterStack.length - 1]
                 if (callerFunction.isTemp) {
                     functionEnterStack.pop()
                 }
-                let callerFunctionName = getFunctionName(callerFunction)
+                let callerFunctionName = getFunctionNameFID(callerFunction.fID)
                 log(utils.getLine(iid) + " function " + utils.getIIDKey(fName, f.iid) + " exited to function " + utils.getIIDKey(callerFunctionName, callerFunction.iid))
             }
 
@@ -145,24 +144,39 @@ let tempIDsMap = new Map();
 
         this.endExecution = function () {
             log("end Execution");
-            fs.writeFileSync(path.join(__dirname, 'test' + path.sep + 'analyzerOutputs' + path.sep + mainFileName), logger, function (err) {
-                if (err) {
-                    console.log(err);
-                }
-                console.log("The file was saved!");
-            });
-
-            for (const item in functionsDependency) {
-                console.log(item);
-                console.log(functionsDependency[item]);
+            if (KEEP_READABLE_TRACE_LOG || process.argv[2]) {
+                fs.writeFileSync(path.join(__dirname, 'test' + path.sep + 'analyzerOutputs' + path.sep + mainFileName), logger, function (err) {
+                    if (err) {
+                        console.log(err);
+                    }
+                    console.log("The file was saved!");
+                });
             }
 
-            fs.writeFileSync(path.join(__dirname, 'test' + path.sep + 'analyzerOutputs' + path.sep + 'traces' + path.sep + mainFileName), trace, function (err) {
-                if (err) {
-                    console.log(err);
-                }
-                console.log("The file was saved!");
-            });
+            if (!process.argv[2]) {
+                fs.writeFileSync(DA_CALL_SEQUENCE_PATH, trace, function (err) {
+                    if (err) {
+                        console.log(err);
+                    }
+                    console.log("Traces file was saved!");
+                });
+                functionsDependency['keyMap'] = tempIDsMap
+                fs.writeFileSync(DA_DEPENDENCIES_PATH, JSON.stringify(functionsDependency), function (err) {
+                    if (err) {
+                        console.log(err);
+                    }
+                    console.log("Dependencies file was saved!");
+                });
+                
+            }else{
+                console.log("inja umad")
+                fs.writeFileSync(path.join(__dirname, 'test' + path.sep + 'analyzerOutputs' + path.sep + 'traces' + path.sep + mainFileName), trace, function (err) {
+                    if (err) {
+                        return console.log(err);
+                    }
+                    console.log("The file was saved!");
+                });
+            }
 
         };
 
@@ -195,7 +209,8 @@ let tempIDsMap = new Map();
     }
 
     function log(log_value) {
-        logger += "\n#" + log_value
+        if (KEEP_READABLE_TRACE_LOG)
+            logger += "\n#" + log_value
     }
 
     function updateTrace(key) {
@@ -248,9 +263,9 @@ let tempIDsMap = new Map();
                 functionsDependency[callee] = { 'tests': [], 'callers': [] }
             }
             if (utils.isTestFunction(caller)) {
-                if(functionsDependency[callee]['tests'].indexOf(caller) == -1) functionsDependency[callee]['tests'].push(caller)
+                if (functionsDependency[callee]['tests'].indexOf(caller) == -1) functionsDependency[callee]['tests'].push(caller)
             } else {
-                if(functionsDependency[callee]['callers'].indexOf(caller) == -1) functionsDependency[callee]['callers'].push(caller)
+                if (functionsDependency[callee]['callers'].indexOf(caller) == -1) functionsDependency[callee]['callers'].push(caller)
             }
         }
     }
@@ -314,10 +329,16 @@ let tempIDsMap = new Map();
         return id
     }
 
-    function getFunctionName(fDic) {
-        let functionName = IDsFunction.get(fDic.fID).name
+    function getFunctionName(f) {
+        let functionName = f.name
         if (!functionName) functionName = "arrowFunction"
         return functionName
     }
+
+    function getFunctionNameFID(fID) {
+        let f = IDsFunction.get(fID)
+        return getFunctionName(f)
+    }
+
     sandbox.analysis = new Analyser();
 })(J$);
