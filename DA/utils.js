@@ -1,6 +1,6 @@
 const path = require('path');
 const events = require('events');
-const { REPO_PATH } = require('../constants');
+const { REPO_PATH, REPO_TEST_RELATIVE_DIR } = require('../constants');
 let EventEmmiter = events.EventEmitter.prototype;
 
 (function (sandbox) {
@@ -33,7 +33,7 @@ let EventEmmiter = events.EventEmitter.prototype;
 
     Utils.getIIDKey = function (functionName, iid) {
         let locationList = J$.iidToLocation(iid).split(':')
-        let filePath = locationList[0].substring(1).replace(REPO_PATH + path.sep, '') // should get rid of path from the root of the system!
+        let filePath = locationList[0].substring(1).replace(REPO_PATH + path.sep, '').toLowerCase() // should get rid of path from the root of the system!
         let line = locationList[1]
         let Endline = locationList[3]
         return `${functionName}-${filePath}-${line}-${Endline}`
@@ -97,8 +97,9 @@ let EventEmmiter = events.EventEmitter.prototype;
         }
     }
 
-    Utils.isTestFunction = function () {
-        return false
+    Utils.isTestFunction = function (iid) {
+        let filePath = Utils.getFilePath(iid)
+        return filePath.includes(REPO_TEST_RELATIVE_DIR)
     }
 })(J$);
 

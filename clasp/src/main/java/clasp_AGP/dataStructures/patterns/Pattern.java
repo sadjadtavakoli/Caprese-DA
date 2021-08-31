@@ -132,6 +132,33 @@ public class Pattern implements Comparable<Pattern> {
         return result.toString();
     }
 
+    /**
+     * Get the string representation of this pattern. Adjusted to SPMF format.
+     * 
+     * @return the string representation
+     */
+    public String toStringToFileSimple() {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < elements.size(); i++) {
+            if (i == elements.size() - 1) {
+                if (i != 0)
+                    result.append(elements.get(i).toStringToFile());
+                else
+                    result.append(elements.get(i).getItem());
+                result.append(" -1");
+            } else if (i == 0) {
+                result.append(elements.get(i).getItem());
+            } else {
+                result.append(elements.get(i).toStringToFile());
+            }
+
+        }
+
+        result.append(":");
+        result.append(getSupport());
+        return result.toString();
+    }
+
     public int getSupport() {
         return appearingIn.cardinality();
     }

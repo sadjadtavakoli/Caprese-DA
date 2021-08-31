@@ -93,7 +93,7 @@ let tempIDsMap = {};
 
                     let callerFunctionName = getFunctionNameFID(event.callerFunction.fID)
                     log(utils.getLine(iid) + " function  " + utils.getIIDKey(functionName, iid) + " entered throught event " + event.event + " emitted by function " + utils.getIIDKey(callerFunctionName, event.callerFunction.iid))
-                    addDependency(fID, event.callerFunction.fID)
+                    addDependency(fID, event.callerFunction)
                     updateTrace(utils.getIIDKey(functionName, iid))
                 } else {
                     let callerFunction;
@@ -118,7 +118,7 @@ let tempIDsMap = {};
                     }
                     let callerFunctionName = getFunctionNameFID(callerFunction.fID)
                     log(utils.getLine(iid) + " function " + utils.getIIDKey(functionName, iid) + " entered from " + utils.getIIDKey(callerFunctionName, callerFunction.iid))
-                    addDependency(fID, callerFunction.fID)
+                    addDependency(fID, callerFunction)
                     updateTrace(utils.getIIDKey(functionName, iid))
                 }
 
@@ -160,8 +160,17 @@ let tempIDsMap = {};
                     }
                     console.log("Traces file was saved!");
                 });
-                functionsDependency['keyMap'] = tempIDsMap
-                fs.writeFileSync(DA_DEPENDENCIES_PATH, JSON.stringify(functionsDependency), function (err) {
+
+                let functionDependenciesByKeys = {}
+                for(const item in functionsDependency){
+                   let key = tempIDsMap[item]
+                   functionDependenciesByKeys[key] = functionsDependency[item]
+                   delete functionsDependency[item]
+                }
+
+                functionDependenciesByKeys['keyMap'] = tempIDsMap
+
+                fs.writeFileSync(DA_DEPENDENCIES_PATH, JSON.stringify(functionDependenciesByKeys), function (err) {
                     if (err) {
                         console.log(err);
                     }
@@ -257,16 +266,16 @@ let tempIDsMap = {};
             utils.addToMapList(baseEvents, event, listener)
         }
     }
-    function addDependency(callee, caller) {
-        if (!utils.isTestFunction(caller)) {
-            if (!functionsDependency[callee]) {
-                functionsDependency[callee] = { 'tests': [], 'callers': [] }
-            }
-            if (utils.isTestFunction(caller)) {
-                if (functionsDependency[callee]['tests'].indexOf(caller) == -1) functionsDependency[callee]['tests'].push(caller)
-            } else {
-                if (functionsDependency[callee]['callers'].indexOf(caller) == -1) functionsDependency[callee]['callers'].push(caller)
-            }
+    function addDependency(calleeFID, caller) {
+        if (!functionsDependency[calleeFID]) {
+            functionsDependency[calleeFID] = { 'tests': [], 'callers': [] }
+        }
+        let callerFID = caller.fID
+        let callerIID = caller.iid
+        if (utils.isTestFunction(callerIID)) {
+            if (functionsDependency[calleeFID]['tests'].indexOf(callerFID) == -1) functionsDependency[calleeFID]['tests'].push(callerFID)
+        } else {
+            if (functionsDependency[calleeFID]['callers'].indexOf(callerFID) == -1) functionsDependency[calleeFID]['callers'].push(callerFID)
         }
     }
 

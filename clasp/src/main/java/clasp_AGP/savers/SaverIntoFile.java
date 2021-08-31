@@ -52,12 +52,11 @@ public class SaverIntoFile implements Saver {
             // create a StringBuilder
             StringBuilder r = new StringBuilder("");
             // for each itemset in this sequential pattern
-            r.append(p.toStringToFile(outputSequenceIdentifiers));
+            r.append(p.toStringToFileSimple());
             try {
                 // write the string to the file
-                writer.write(r.toString());
+                writer.write(r.toString()+",");
                 // start a new line
-                writer.newLine();
             } catch (IOException ex) {
                 Logger.getLogger(SaverIntoFile.class.getName()).log(Level.SEVERE, null, ex);
             }

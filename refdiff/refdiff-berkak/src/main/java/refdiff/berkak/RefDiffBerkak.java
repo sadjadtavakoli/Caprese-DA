@@ -23,12 +23,11 @@ public class RefDiffBerkak {
 		String commitSha = args[1];
 		String dataPath = args[2];
 		int counter = Integer.parseInt(args[3]);
-		
-		// String repoLink = "https://github.com/vuejs/vuex.git";
-		// String commitSha = "8029c3951af788eb0e704222ff1b0a21918546c1";
+
+		// String repoLink = "https://github.com/sadjad-tavakoli/sample_project.git";
+		// String commitSha = "a5deb46558ebde4d57e4d2620c503604dd2ef7fc";
 		// String dataPath = "sequences.txt";
 		// int counter = 200;
-
 
 		new File("data").mkdir();
 		new File(changesPath).mkdir();
@@ -54,28 +53,31 @@ public class RefDiffBerkak {
 			System.out.println("two parents" + commit.getName());
 		}
 		counter--;
-		RevCommit commitPr = refDiffJs.getCommit(repo, commit.getParent(0));
-		Date date = commit.getCommitterIdent().getWhen();
-		String fileName = String.format("%s-%s-%s-%s", date.getYear(), date.getMonth(), date.getDate(),
-				commit.getAuthorIdent().getEmailAddress());
-		CstDiff diffForCommit = refDiffJs.computeDiffForCommit(repo, commitPr, commit);
-		List<String> changes = new ArrayList<>();
-		changes.addAll(diffForCommit.getNonValidChangedFiles());
-		changes.addAll(diffForCommit.getChangedEntitiesKeys());
-		changes.addAll(diffForCommit.getAddedEntitiesKeys());
+		if (commit.getParentCount() > 0) {
 
-		if (!changes.isEmpty() && changes.size() < 21) {
-			Collections.sort(changes);
-			String sequence = changes.toString().replaceAll("[\\[\\],\"]", "") + " -1 ";
-			try (FileWriter file = new FileWriter(changesPath + fileName + ".txt", true)) {
-				file.write(sequence);
-				file.flush();
+			RevCommit commitPr = refDiffJs.getCommit(repo, commit.getParent(0));
+			Date date = commit.getCommitterIdent().getWhen();
+			String fileName = String.format("%s-%s-%s-%s", date.getYear(), date.getMonth(), date.getDate(),
+					commit.getAuthorIdent().getEmailAddress());
+			CstDiff diffForCommit = refDiffJs.computeDiffForCommit(repo, commitPr, commit);
+			List<String> changes = new ArrayList<>();
+			changes.addAll(diffForCommit.getNonValidChangedFiles());
+			changes.addAll(diffForCommit.getChangedEntitiesKeys());
+			changes.addAll(diffForCommit.getAddedEntitiesKeys());
+
+			if (!changes.isEmpty() && changes.size() < 21) {
+				Collections.sort(changes);
+				String sequence = changes.toString().replaceAll("[\\[\\],\"]", "") + " -1 ";
+				try (FileWriter file = new FileWriter(changesPath + fileName + ".txt", true)) {
+					file.write(sequence);
+					file.flush();
+				}
+			} else {
+				System.out.println("no changes detected " + commit.getName());
 			}
-		}else{
-			System.out.println("no changes detected " + commit.getName());
-		}
-		if (counter > 0) {
-			minRepo(refDiffJs, repo, commitPr, counter);
+			if (counter > 0) {
+				minRepo(refDiffJs, repo, commitPr, counter);
+			}
 		}
 	}
 
