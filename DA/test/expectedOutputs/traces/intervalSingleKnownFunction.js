@@ -1,1 +1,1 @@
-bar-test/unit_tests/intervalSingleKnownFunction.js-2-4 -1 bar-test/unit_tests/intervalSingleKnownFunction.js-2-4 -1 bar-test/unit_tests/intervalSingleKnownFunction.js-2-4 -1 arrowFunction-test/unit_tests/intervalSingleKnownFunction.js-8-10 -1 
+bar-test/unit_tests/intervalsingleknownfunction.js-2-4 -1 bar-test/unit_tests/intervalsingleknownfunction.js-2-4 -1 bar-test/unit_tests/intervalsingleknownfunction.js-2-4 -1 arrowFunction-test/unit_tests/intervalsingleknownfunction.js-8-10 -1 

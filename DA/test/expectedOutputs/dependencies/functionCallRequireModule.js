@@ -1,0 +1,1 @@
+{"callee-test/inputs/simplemodule.js-1-5":{"callers":["t_1"],"tests":[]},"keyMap":{"t_1":"arrowFunction-test/unit_tests/functioncallrequiremodule.js-1-5","t_37":"callee-test/inputs/simplemodule.js-1-5"}}

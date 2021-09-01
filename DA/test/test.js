@@ -17,7 +17,11 @@ describe('Test eventsNestedEmitterListeners.js', () => runTest('eventsNestedEmit
 describe('Test eventsOnceListener.js', () => runTest('eventsOnceListener.js'));
 describe('Test eventsPrependListener.js', () => runTest('eventsPrependListener.js'));
 describe('Test eventsPrependOnceListener.js', () => runTest('eventsPrependOnceListener.js'));
-describe('Test eventsSingleListener.js', () => runTest('eventsSingleListener.js'));
+describe('Test eventsPrependOnceListener.js', () => runTest('eventsPrependOnceListener.js'));
+describe('Test eventsAddAnonymousListenerDependency.js', () => runTest('eventsAddAnonymousListenerDependency.js'));
+describe('Test eventsAddKnownListenerDependency.js', () => runTest('eventsAddKnownListenerDependency.js'));
+describe('Test eventsAddListenerThenEmitDependency.js', () => runTest('eventsAddListenerThenEmitDependency.js'));
+describe('Test eventsCallThenAddListenerDependency.js', () => runTest('eventsCallThenAddListenerDependency.js'));
 describe('Test functionCallRequireModule.js', () => runTest('functionCallRequireModule.js'));
 describe('Test functionCall_1.js', () => runTest('functionCall_1.js'));
 describe('Test functionCall_2.js', () => runTest('functionCall_2.js'));
@@ -53,6 +57,10 @@ function runTest(item) {
   });
   it('Compare traces', function (done) {
     compairTraces(item);
+    done();
+  });
+  it('Compare dependencies', function (done) {
+    compairDependencies(item);
     done();
   });
 
@@ -97,3 +105,10 @@ function compairTraces(fileName) {
   let analyzerOutput = fs.readFileSync(path.join(__dirname, 'analyzerOutputs' + path.sep + 'traces' + path.sep + fileName), { encoding: 'utf8' }).split('\n')
   assert.deepEqual(expectedOutput, analyzerOutput)
 }
+
+function compairDependencies(fileName) {
+  let expectedOutput = JSON.parse(fs.readFileSync(path.join(__dirname, 'expectedOutputs' + path.sep + 'dependencies' + path.sep + fileName), { encoding: 'utf8' }))
+  let analyzerOutput = JSON.parse(fs.readFileSync(path.join(__dirname, 'analyzerOutputs' + path.sep + 'dependencies' + path.sep + fileName), { encoding: 'utf8' }))
+  assert.deepEqual(expectedOutput, analyzerOutput)
+}
+
