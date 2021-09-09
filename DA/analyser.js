@@ -32,7 +32,7 @@ let tempIDsMap = {};
                 let listenerID = getID(args[1], iid)
                 addToAddedListener(getID(base, "b" + iid), args[0], listenerID)
                 addDependency(listenerID, callerFunction)
-                if(!tempIDsMap[listenerID]) tempIDsMap[listenerID] = utils.getIIDKey(getFunctionName(args[1]), iid)
+                if (!tempIDsMap[listenerID]) tempIDsMap[listenerID] = utils.getIIDKey(getFunctionName(args[1], iid), iid)
 
             } else if (utils.isEmitEvent(f)) {
 
@@ -85,7 +85,7 @@ let tempIDsMap = {};
                 accessedFiles.set(utils.getFilePath(iid), iid)
             } else {
                 let fID = getID(f, iid)
-                let functionName = getFunctionName(f)
+                let functionName = getFunctionName(f, iid)
                 tempIDsMap[fID] = utils.getIIDKey(functionName, iid)
 
                 if (isMainFile(iid)) {
@@ -95,7 +95,7 @@ let tempIDsMap = {};
                 } else if (utils.isCalledByEvents(dis)) {
                     let event = getRelatedEvent(getID(dis), fID)
 
-                    let callerFunctionName = getFunctionNameFID(event.callerFunction.fID)
+                    let callerFunctionName = getFunctionNameFID(event.callerFunction.fID, event.callerFunction.iid)
                     log(utils.getLine(iid) + " function  " + utils.getIIDKey(functionName, iid) + " entered throught event " + event.event + " emitted by function " + utils.getIIDKey(callerFunctionName, event.callerFunction.iid))
                     addDependency(fID, event.callerFunction)
                     updateTrace(utils.getIIDKey(functionName, iid))
@@ -120,7 +120,7 @@ let tempIDsMap = {};
                     } else {
                         callerFunction = functionEnterStack[functionEnterStack.length - 1]
                     }
-                    let callerFunctionName = getFunctionNameFID(callerFunction.fID)
+                    let callerFunctionName = getFunctionNameFID(callerFunction.fID, callerFunction.iid)
                     log(utils.getLine(iid) + " function " + utils.getIIDKey(functionName, iid) + " entered from " + utils.getIIDKey(callerFunctionName, callerFunction.iid))
                     addDependency(fID, callerFunction)
                     updateTrace(utils.getIIDKey(functionName, iid))
@@ -346,15 +346,22 @@ let tempIDsMap = {};
         return id
     }
 
-    function getFunctionName(f) {
+    function getFunctionName(f, iid) {
         let functionName = f.name
-        if (!functionName) functionName = "arrowFunction"
+        if (!functionName) {
+            if (isMainFile(iid)) {
+                functionName = mainFileName
+            } else {
+                functionName = "arrowFunction"
+            }
+
+        }
         return functionName
     }
 
-    function getFunctionNameFID(fID) {
+    function getFunctionNameFID(fID, iid) {
         let f = IDsFunction.get(fID)
-        return getFunctionName(f)
+        return getFunctionName(f, iid)
     }
 
     sandbox.analysis = new Analyser();
