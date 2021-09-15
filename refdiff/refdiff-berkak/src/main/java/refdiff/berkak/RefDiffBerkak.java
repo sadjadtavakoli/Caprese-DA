@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -23,7 +24,7 @@ public class RefDiffBerkak {
 		String commitSha = args[1];
 		String dataPath = args[2];
 		int counter = Integer.parseInt(args[3]);
-
+		boolean currentVersion = counter == 0;
 		// String repoLink = "https://github.com/sadjad-tavakoli/sample_project.git";
 		// String commitSha = "a5deb46558ebde4d57e4d2620c503604dd2ef7fc";
 		// String dataPath = "sequences.txt";
@@ -40,15 +41,17 @@ public class RefDiffBerkak {
 
 			File repo = refDiffJs.cloneGitRepository(commitFolder, repoLink);
 			RevCommit commit = refDiffJs.getCommit(repo, commitSha);
-			minRepo(refDiffJs, repo, commit, counter);
-			fileMerge(dataPath);
+			minRepo(refDiffJs, repo, commit, counter, currentVersion, dataPath);
+			if (!currentVersion)
+				fileMerge(dataPath);
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	private static void minRepo(RefDiff refDiffJs, File repo, RevCommit commit, int counter) throws Exception {
+	private static void minRepo(RefDiff refDiffJs, File repo, RevCommit commit, int counter, boolean currentVersion,
+			String dataPath) throws Exception {
 		if (commit.getParentCount() != 1) {
 			System.out.println("two parents" + commit.getName());
 		}
@@ -65,24 +68,36 @@ public class RefDiffBerkak {
 			changes.addAll(diffForCommit.getChangedEntitiesKeys());
 			changes.addAll(diffForCommit.getAddedEntitiesKeys());
 
+			if(changes.contains("caller2-callbackanonymouschain.js-5-7") || changes.contains("caller2-callbackanonymouschain.js-5-8")){
+				System.out.println(changes);
+			}
+
 			if (!changes.isEmpty() && changes.size() < 21) {
-				Collections.sort(changes);
-				String sequence = changes.toString().replaceAll("[\\[\\],\"]", "") + " -1 ";
-				try (FileWriter file = new FileWriter(changesPath + fileName + ".txt", true)) {
-					file.write(sequence);
-					file.flush();
+				String changesString = changes.toString().replaceAll("[\\[\\],\"]", "");
+				if (!currentVersion) {
+					Collections.sort(changes);
+					try (FileWriter file = new FileWriter(changesPath + fileName + ".txt", true)) {
+						file.write(changesString + " -1 ");
+						file.flush();
+					}
+				} else {
+					try (FileWriter file = new FileWriter(dataPath, false)) {
+						file.write(changesString);
+						file.flush();
+					}
 				}
 			} else {
 				System.out.println("no changes detected " + commit.getName());
 			}
 			if (counter > 0) {
-				minRepo(refDiffJs, repo, commitPr, counter);
+				minRepo(refDiffJs, repo, commitPr, counter, currentVersion, dataPath);
 			}
 		}
 	}
 
 	public static void fileMerge(String dataPath) throws IOException {
 
+		Files.deleteIfExists(Paths.get(dataPath));
 		PrintWriter pw = new PrintWriter(dataPath);
 		File folder = new File(changesPath);
 		File[] listOfFiles = folder.listFiles();

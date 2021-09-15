@@ -76,6 +76,7 @@ public class CstComparator {
 		private Set<CstNode> changed;
 		private Set<CstNode> added;
 		private Set<String> changedEntitiesKeys;
+		private Set<String> addedEntitiesKeys;
 		private ThresholdsProvider threshold = new ThresholdsProvider();
 		private CstComparatorMonitor monitor;
 
@@ -93,6 +94,7 @@ public class CstComparator {
 			this.after = new CstRootHelper<>(this.diff.getAfter(), sourcesAfter, srb, false);
 			this.changed = new HashSet<>();
 			this.changedEntitiesKeys = new HashSet<>();
+			this.addedEntitiesKeys= new HashSet<>();
 			this.diff.setNonValidChangedFiles(nonValidChangedFiles);
 			this.monitor = monitor;
 
@@ -128,8 +130,9 @@ public class CstComparator {
 			findMatchesBySimilarity(false);
 			findMatchesByChildren();
 			findChangedEntities();
+			findAddedEntities();
 			diff.setChangedEntitiesKeys(this.changedEntitiesKeys);
-			diff.setAddedEntities(this.added);
+			diff.setAddedEntitiesKeys(this.addedEntitiesKeys);
 			return diff;
 		}
 
@@ -344,6 +347,22 @@ public class CstComparator {
 			setMappings(mappings);
 		}
 
+		private void findAddedEntities() throws IOException {
+			JsonObject mappings = getMappings();
+			for (CstNode entry : this.added) {
+				String entryKey = entry.toString();
+				if (!mappings.has(entryKey)) {
+					mappings.addProperty(entryKey, entryKey);
+					this.addedEntitiesKeys.add(entryKey);
+				}else{
+					this.addedEntitiesKeys.add(mappings.get(entryKey).getAsString());
+
+				}
+			}
+
+			setMappings(mappings);
+		}
+
 		private JsonObject getMappings() throws IOException {
 			JsonParser jsonParser = new JsonParser();
 			String filePath = "mappings.json";
@@ -415,7 +434,7 @@ public class CstComparator {
 		}
 
 		public int countMatchingChild(CstNode n1, CstNode n2) {
-			if (n1.getNodes().isEmpty()|| n2.getNodes().isEmpty()){
+			if (n1.getNodes().isEmpty() || n2.getNodes().isEmpty()) {
 				return 0;
 			}
 			int count = 0;

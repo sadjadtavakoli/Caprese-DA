@@ -5,13 +5,12 @@ const constants = require('./constants.js')
 
 let INITIALIZED_COMMIT = constants.SEED_COMMIT;
 
-let changes = ["functionA1-simpleprojecttest/src/filea.js-3-5"]
+let changes = []
 
 // --nodeprof.ExcludeSource=keyword1,keyword2
 function run() {
 
     console.log(" * * * * * * * * * * * \n * * * *  Srart! * * * \n * * * * * * * * * * * \n")
-    console.log(constants.DA_COMMAND)
 
 
     if (!fs.existsSync(constants.DATA_PATH)) {
@@ -19,49 +18,47 @@ function run() {
             recursive: true
         });
     }
-    runBerke()
+    // runBerke()
 
-    // runDynamicAnalysis("")
+    cloneProject()
+        .then(() => {
+            if (INITIALIZED_COMMIT) return computeCurrentChanges(INITIALIZED_COMMIT)
+            return getCurrentCommit().then((commit) => {
+                return computeCurrentChanges(commit)
+            })
+        })
+        .then(() => {
+            if (INITIALIZED_COMMIT) return getParentCommit(INITIALIZED_COMMIT)
+            return getParentCommit('origin')
 
-    // if (INITIALIZED_COMMIT) {
-    //     console.log("yes")
-    //     cloneProject()
-    //         .then(() => {
-    //             return checkoutProject(INITIALIZED_COMMIT)
-    //         })
-    //         .then(runDynamicAnalysis)
-    //         .then(runRefDiff)
-    //         .then(runClasp)
-    //         .then(() => {
-    //             console.log("INITIALIZED DONE!")
-    //         })
-    //         .catch((err) => {
-    //             console.log(err)
-    //         })
-    // } else {
-    //     console.log("no")
-    // cloneProject()
-        // .then(getOriginParentCommit)
-        // .then(checkoutProject)
-        // .then(runDynamicAnalysis)
-        // .then(runRefDiff)
-        // .then(runClasp)
-        // .then(()=>{
-        //     console.log("done")
-        //     runBerke()
-        // })
-    // .then((commit) => {
-    //     console.log("DONE!")
-    //     console.log(commit)
-    // })
-    // .catch((err) => {
-        // console.log(err)
-    // })
-    // }
+        })
+        .then(checkoutProject)
+        .then(runDynamicAnalysis)
+        .then(runRefDiff)
+        .then(runClasp)
+        .then(() => {
+            console.log("INITIALIZED DONE!")
+        })
+        .catch((err) => {
+            console.log(err)
+        })
 }
 
-function getOriginParentCommit() {
-    const getOriginCommand = "cd " + constants.REPO_PATH + ' ; git rev-parse origin^'
+function getParentCommit(commit) {
+    const getOriginCommand = "cd " + constants.REPO_PATH + ` ; git rev-parse ${commit}^`
+    return new Promise(function (resolve, reject) {
+        exec(getOriginCommand, (err, stdout, stderr) => {
+            if (!err) {
+                resolve(stdout.trimEnd())
+            } else {
+                reject(err)
+            }
+        })
+    })
+}
+
+function getCurrentCommit() {
+    const getOriginCommand = "cd " + constants.REPO_PATH + ` ; git rev-parse origin`
     return new Promise(function (resolve, reject) {
         exec(getOriginCommand, (err, stdout, stderr) => {
             if (!err) {
@@ -114,6 +111,22 @@ function runRefDiff(commit) {
         exec(constants.REFDIFF_COMMAND + `"${constants.REPO_URL} ${commit} ${constants.SEQUENCES_PATH} ${constants.REPO_DIGGING_DEPTH}"`, (err, stdout, stderr) => {
             if (!err) {
                 console.log(stdout)
+                resolve(commit)
+            }
+            else {
+                console.log(stderr)
+                reject(err)
+            }
+        })
+    })
+
+}
+
+function computeCurrentChanges(commit) {
+    return new Promise(function (resolve, reject) {
+        exec(constants.REFDIFF_COMMAND + `"${constants.REPO_URL} ${commit} ${constants.CURRENT_CHANGES_PATH} 0"`, (err, stdout, stderr) => {
+            if (!err) {
+                changes = fs.readFileSync(constants.CURRENT_CHANGES_PATH).toString().split(" ")
                 resolve(commit)
             }
             else {
