@@ -279,7 +279,6 @@ public class FrequentPatternEnumeration_ClaSP {
         List<Pattern> newPatterns = new ArrayList<>();
         List<TrieNode> newNodesToExtends = new ArrayList<>();
         for (int k = beginning; k < itemsetsExtensions.size(); k++) {
-            System.out.println(itemsetsExtensions);
             TrieNode eq = itemsetsExtensions.get(k);
 
             // ====== PFV 2013 =========================

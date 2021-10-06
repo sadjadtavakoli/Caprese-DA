@@ -1,7 +1,7 @@
 // do not remove the following comment
 // JALANGI DO NOT INSTRUMENT
 const fs = require('fs');
-const { DA_DEPENDENCIES_PATH, DA_CALL_SEQUENCE_PATH, KEEP_READABLE_TRACE_LOG } = require('../constants')
+const { DA_DEPENDENCIES_PATH, DA_CALL_SEQUENCE_PATH, KEEP_READABLE_TRACE_LOG, MAPPINGS_PATH } = require('../constants')
 
 let logger = "";
 let trace = "";
@@ -39,6 +39,7 @@ let tempIDsMap = {};
                 let callerFunction = functionEnterStack[functionEnterStack.length - 1]
                 let baseID = getID(base, "b" + iid)
                 addToEmittedEvents(baseID, { 'event': args[0], 'listeners': getAddedListeners(baseID, args[0]).slice(), 'callerFunction': callerFunction })
+                // console.log("called" + utils.getLine(iid) + " function " + utils.getIIDKey(callerFunction.fID, callerFunction.iid) + " emitted event " + args[0] + " of " + base.constructor.name + "\n\n")
 
             } else {
 
@@ -58,6 +59,8 @@ let tempIDsMap = {};
                 } else if (utils.isForEach(f)) {
                     let argID = getID(args[0], iid)
                     addToForloopMap(argID, callerFunction, base.length)
+                    // } else if (f == undefined) {
+                    // console.log(`function is undefined (!) at ${J$.iidToLocation(iid)}`)
                 } else {
                     let fID = getID(f, iid)
                     let funcArgs = []
@@ -73,6 +76,7 @@ let tempIDsMap = {};
                     if (funcArgs.length) {
                         addToFunctionsFuncInputs(fID, funcArgs)
                     }
+                    // console.log("called" + utils.getLine(iid) + " function " + getFunctionNameFID(fID, 40) + " is called with variables " + 'args' + " by " + utils.getIIDKey(functionEnterStack[functionEnterStack.length - 1].fID, functionEnterStack[functionEnterStack.length - 1].iid) + "\n\n")
                 }
             }
 
@@ -82,7 +86,10 @@ let tempIDsMap = {};
         this.functionEnter = function (iid, f, dis, args) {
             // TODO it's not understandable => remove these ugly if elses
             if (isImportingNewModule(iid)) {
+                // let fID = getID(f, iid)
+                // console.log("we are here! " + utils.getFilePath(iid))
                 accessedFiles.set(utils.getFilePath(iid), iid)
+                functionEnterStack.push({ 'iid': iid, 'fID': fID, 'isImportedFile': true })
             } else {
                 let fID = getID(f, iid)
                 let functionName = getFunctionName(f, iid)
@@ -92,11 +99,14 @@ let tempIDsMap = {};
                     mainFileName = utils.getFileName(iid)
                     accessedFiles.set(mainFileName, iid)
 
+                // } else if (dis == undefined) {
+                //     console.log(`dis is undefined! ${J$.iidToLocation(iid)}`)
                 } else if (utils.isCalledByEvents(dis)) {
                     let event = getRelatedEvent(getID(dis), fID)
 
                     let callerFunctionName = getFunctionNameFID(event.callerFunction.fID, event.callerFunction.iid)
                     log(utils.getLine(iid) + " function  " + utils.getIIDKey(functionName, iid) + " entered throught event " + event.event + " emitted by function " + utils.getIIDKey(callerFunctionName, event.callerFunction.iid))
+                    // console.log(utils.getLine(iid) + " function  " + utils.getIIDKey(functionName, iid) + " entered throught event " + event.event + " emitted by function " + utils.getIIDKey(callerFunctionName, event.callerFunction.iid) + "\n\n")
                     addDependency(fID, event.callerFunction)
                     updateTrace(utils.getIIDKey(functionName, iid))
                 } else {
@@ -122,6 +132,7 @@ let tempIDsMap = {};
                     }
                     let callerFunctionName = getFunctionNameFID(callerFunction.fID, callerFunction.iid)
                     log(utils.getLine(iid) + " function " + utils.getIIDKey(functionName, iid) + " entered from " + utils.getIIDKey(callerFunctionName, callerFunction.iid))
+                    // console.log(utils.getLine(iid) + " function " + utils.getIIDKey(functionName, iid) + " entered from " + utils.getIIDKey(callerFunctionName, callerFunction.iid) + "\n\n")
                     addDependency(fID, callerFunction)
                     updateTrace(utils.getIIDKey(functionName, iid))
                 }
@@ -135,8 +146,17 @@ let tempIDsMap = {};
             if (!(isImportingNewModule(iid) || isMainFile(iid))) {
                 functionEnterStack.pop()
                 let callerFunction = functionEnterStack[functionEnterStack.length - 1]
+                // console.log(functionEnterStack)
+                // let functionName = getFunctionNameFID(func.fID, func.iid)
+                // let callerFunctionName = getFunctionNameFID(callerFunction.fID, callerFunction.iid)
+                // console.log(utils.getLine(iid) + " function " + utils.getIIDKey(functionName, func.iid) + " exited to function " + utils.getIIDKey(callerFunctionName, callerFunction.iid) + "\n\n")
                 if (callerFunction.isTemp) {
                     functionEnterStack.pop()
+                    callerFunction = functionEnterStack[functionEnterStack.length - 1]
+                    if (callerFunction && callerFunction.isImportedFile) {
+                        functionEnterStack.pop()
+                        functionEnterStack.pop()
+                    }
                 }
             }
 
@@ -177,11 +197,13 @@ let tempIDsMap = {};
                 }
                 console.log("Traces file was saved!");
             });
-
+            let mappings = readMappings()
             let functionDependenciesByKeys = {}
             for (const item in functionsDependency) {
                 let key = tempIDsMap[item]
-                functionDependenciesByKeys[key] = { 'callers': [...functionsDependency[item]['callers']], 'tests': [...functionsDependency[item]['tests']] }
+                let mappedKey = mappings[key]
+                if (mappedKey == undefined) mappedKey = key
+                functionDependenciesByKeys[mappedKey] = { 'callers': [...functionsDependency[item]['callers']], 'tests': [...functionsDependency[item]['tests']] }
                 delete functionsDependency[item]
             }
             functionDependenciesByKeys['keyMap'] = tempIDsMap
@@ -364,5 +386,8 @@ let tempIDsMap = {};
         return getFunctionName(f, iid)
     }
 
+    function readMappings() {
+        return JSON.parse(fs.readFileSync(MAPPINGS_PATH))
+    }
     sandbox.analysis = new Analyser();
 })(J$);

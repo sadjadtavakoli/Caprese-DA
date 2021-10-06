@@ -44,24 +44,24 @@ public class CstComparator {
 		this.languagePlugin = parser;
 	}
 
-	public CstDiff compare(PairBeforeAfter<SourceFileSet> beforeAndAfter) {
+	public CstDiff compare(PairBeforeAfter<SourceFileSet> beforeAndAfter, String mappingsPath) {
 		return compare(beforeAndAfter.getBefore(), beforeAndAfter.getAfter(), new CstComparatorMonitor() {
-		});
+		}, mappingsPath);
 	}
 
-	public CstDiff compare(PairBeforeAfter<SourceFileSet> beforeAndAfter, CstComparatorMonitor monitor) {
-		return compare(beforeAndAfter.getBefore(), beforeAndAfter.getAfter(), monitor);
+	public CstDiff compare(PairBeforeAfter<SourceFileSet> beforeAndAfter, CstComparatorMonitor monitor, String mappingsPath) {
+		return compare(beforeAndAfter.getBefore(), beforeAndAfter.getAfter(), monitor, mappingsPath);
 	}
 
-	public CstDiff compare(SourceFileSet sourcesBefore, SourceFileSet sourcesAfter) {
+	public CstDiff compare(SourceFileSet sourcesBefore, SourceFileSet sourcesAfter, String mappingsPath) {
 		return compare(sourcesBefore, sourcesAfter, new CstComparatorMonitor() {
-		});
+		}, mappingsPath);
 	}
 
-	public CstDiff compare(SourceFileSet sourcesBefore, SourceFileSet sourcesAfter, CstComparatorMonitor monitor) {
+	public CstDiff compare(SourceFileSet sourcesBefore, SourceFileSet sourcesAfter, CstComparatorMonitor monitor, String mappingsPath) {
 		try {
 			DiffBuilder<?> diffBuilder = new DiffBuilder<>(new TfIdfSourceRepresentationBuilder(), sourcesBefore,
-					sourcesAfter, monitor);
+					sourcesAfter, monitor, mappingsPath);
 			return diffBuilder.computeDiff();
 		} catch (Exception e) {
 			throw new RuntimeException(e);
@@ -77,6 +77,7 @@ public class CstComparator {
 		private Set<CstNode> added;
 		private Set<String> changedEntitiesKeys;
 		private Set<String> addedEntitiesKeys;
+		private String mappingsPath; 
 		private ThresholdsProvider threshold = new ThresholdsProvider();
 		private CstComparatorMonitor monitor;
 
@@ -84,7 +85,7 @@ public class CstComparator {
 		private final Map<CstNode, CstNode> mapAfterToBefore = new HashMap<>();
 
 		DiffBuilder(SourceRepresentationBuilder<T> srb, SourceFileSet sourcesBefore, SourceFileSet sourcesAfter,
-				CstComparatorMonitor monitor) throws Exception {
+				CstComparatorMonitor monitor, String mappingsPath) throws Exception {
 			this.srb = srb;
 			Set<String> nonValidChangedFiles = new HashSet<>();
 			CstRoot cstRootBefore = languagePlugin.parse(sourcesBefore, nonValidChangedFiles);
@@ -95,6 +96,7 @@ public class CstComparator {
 			this.changed = new HashSet<>();
 			this.changedEntitiesKeys = new HashSet<>();
 			this.addedEntitiesKeys= new HashSet<>();
+			this.mappingsPath = mappingsPath;
 			this.diff.setNonValidChangedFiles(nonValidChangedFiles);
 			this.monitor = monitor;
 
@@ -365,7 +367,7 @@ public class CstComparator {
 
 		private JsonObject getMappings() throws IOException {
 			JsonParser jsonParser = new JsonParser();
-			String filePath = "mappings.json";
+			String filePath = this.mappingsPath;
 			File tempFile = new File(filePath);
 			JsonObject mappings = new JsonObject();
 			if (!tempFile.createNewFile()) {
@@ -379,7 +381,7 @@ public class CstComparator {
 		}
 
 		private void setMappings(JsonObject mappings) throws IOException {
-			try (FileWriter myWriter = new FileWriter("mappings.json")) {
+			try (FileWriter myWriter = new FileWriter(this.mappingsPath)) {
 				myWriter.write(mappings.toString());
 			} catch (IOException e) {
 				e.printStackTrace();

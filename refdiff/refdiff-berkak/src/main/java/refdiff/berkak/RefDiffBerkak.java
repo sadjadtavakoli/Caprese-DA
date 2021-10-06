@@ -23,7 +23,8 @@ public class RefDiffBerkak {
 		String repoLink = args[0];
 		String commitSha = args[1];
 		String dataPath = args[2];
-		int counter = Integer.parseInt(args[3]);
+		String mappingsPath = args[3];
+		int counter = Integer.parseInt(args[4]);
 		boolean currentVersion = counter == 0;
 		// String repoLink = "https://github.com/sadjad-tavakoli/sample_project.git";
 		// String commitSha = "a5deb46558ebde4d57e4d2620c503604dd2ef7fc";
@@ -41,7 +42,7 @@ public class RefDiffBerkak {
 
 			File repo = refDiffJs.cloneGitRepository(commitFolder, repoLink);
 			RevCommit commit = refDiffJs.getCommit(repo, commitSha);
-			minRepo(refDiffJs, repo, commit, counter, currentVersion, dataPath);
+			minRepo(refDiffJs, repo, commit, counter, currentVersion, dataPath, mappingsPath);
 			if (!currentVersion)
 				fileMerge(dataPath);
 
@@ -51,7 +52,7 @@ public class RefDiffBerkak {
 	}
 
 	private static void minRepo(RefDiff refDiffJs, File repo, RevCommit commit, int counter, boolean currentVersion,
-			String dataPath) throws Exception {
+			String dataPath, String mappingsPath) throws Exception {
 		if (commit.getParentCount() != 1) {
 			System.out.println("two parents" + commit.getName());
 		}
@@ -62,15 +63,11 @@ public class RefDiffBerkak {
 			Date date = commit.getCommitterIdent().getWhen();
 			String fileName = String.format("%s-%s-%s-%s", date.getYear(), date.getMonth(), date.getDate(),
 					commit.getAuthorIdent().getEmailAddress());
-			CstDiff diffForCommit = refDiffJs.computeDiffForCommit(repo, commitPr, commit);
+			CstDiff diffForCommit = refDiffJs.computeDiffForCommit(repo, commitPr, commit, mappingsPath);
 			List<String> changes = new ArrayList<>();
 			changes.addAll(diffForCommit.getNonValidChangedFiles());
 			changes.addAll(diffForCommit.getChangedEntitiesKeys());
 			changes.addAll(diffForCommit.getAddedEntitiesKeys());
-
-			if(changes.contains("caller2-callbackanonymouschain.js-5-7") || changes.contains("caller2-callbackanonymouschain.js-5-8")){
-				System.out.println(changes);
-			}
 
 			if (!changes.isEmpty() && changes.size() < 21) {
 				String changesString = changes.toString().replaceAll("[\\[\\],\"]", "");
@@ -90,7 +87,7 @@ public class RefDiffBerkak {
 				System.out.println("no changes detected " + commit.getName());
 			}
 			if (counter > 0) {
-				minRepo(refDiffJs, repo, commitPr, counter, currentVersion, dataPath);
+				minRepo(refDiffJs, repo, commitPr, counter, currentVersion, dataPath, mappingsPath);
 			}
 		}
 	}

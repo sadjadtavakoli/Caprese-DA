@@ -53,8 +53,8 @@ public class RefDiff {
 	 * @param commitSha1 SHA1 (or git object reference) that identifies the commit.
 	 * @return The computed CST diff.
 	 */
-	public CstDiff computeDiffForCommit(File gitRepository, String commitSha1) {
-		return computeDiffForCommit(gitRepository, commitSha1, new CstComparatorMonitor() {});
+	public CstDiff computeDiffForCommit(File gitRepository, String commitSha1, String mappingsPath) {
+		return computeDiffForCommit(gitRepository, commitSha1, new CstComparatorMonitor() {}, mappingsPath);
 	}
 	
 	/**
@@ -83,10 +83,10 @@ public class RefDiff {
 	 * @param monitor CstComparatorMonitor object that can be used to inspect CST relationships discarded along the process.
 	 * @return The computed CST diff.
 	 */
-	public CstDiff computeDiffForCommit(File gitRepository, String commitSha1, CstComparatorMonitor monitor) {
+	public CstDiff computeDiffForCommit(File gitRepository, String commitSha1, CstComparatorMonitor monitor, String mappingsPath) {
 		try (Repository repo = GitHelper.openRepository(gitRepository)) {
 			PairBeforeAfter<SourceFileSet> beforeAndAfter = GitHelper.getSourcesBeforeAndAfterCommit(repo, commitSha1, fileFilter);
-			return comparator.compare(beforeAndAfter, monitor);
+			return comparator.compare(beforeAndAfter, monitor, mappingsPath);
 		}
 	}
 
@@ -100,10 +100,10 @@ public class RefDiff {
 	 * @param monitor CstComparatorMonitor object that can be used to inspect CST relationships discarded along the process.
 	 * @return The computed CST diff.
 	 */
-	public CstDiff computeDiffForCommit(File gitRepository, RevCommit commit1, RevCommit commit2) {
+	public CstDiff computeDiffForCommit(File gitRepository, RevCommit commit1, RevCommit commit2, String mappingsPath) {
 		try (Repository repo = GitHelper.openRepository(gitRepository)) {
 			PairBeforeAfter<SourceFileSet> beforeAndAfter = GitHelper.getSourcesBeforeAndAfterCommit(repo, commit1, commit2, fileFilter);
-			return comparator.compare(beforeAndAfter.getBefore(), beforeAndAfter.getAfter(), new CstComparatorMonitor() {});
+			return comparator.compare(beforeAndAfter.getBefore(), beforeAndAfter.getAfter(), new CstComparatorMonitor() {}, mappingsPath);
 		}
 	}
 
@@ -117,10 +117,10 @@ public class RefDiff {
 	 * @param monitor CstComparatorMonitor object that can be used to inspect CST relationships discarded along the process.
 	 * @return The computed CST diff.
 	 */
-	public CstDiff computeDiffForCommit(File gitRepository, String commitSha1, String commitSha2) {
+	public CstDiff computeDiffForCommit(File gitRepository, String commitSha1, String commitSha2, String mappingsPath) {
 		try (Repository repo = GitHelper.openRepository(gitRepository)) {
 			PairBeforeAfter<SourceFileSet> beforeAndAfter = GitHelper.getSourcesBeforeAndAfterCommit(repo, commitSha1, commitSha2, fileFilter);
-			return comparator.compare(beforeAndAfter, new CstComparatorMonitor() {});
+			return comparator.compare(beforeAndAfter, new CstComparatorMonitor() {}, mappingsPath);
 		}
 	}
 	
@@ -131,8 +131,8 @@ public class RefDiff {
 	 * @param maxDepth Number of commits that will be navigated backwards at maximum.
 	 * @param diffConsumer Consumer function that will be called for each computed CST diff.
 	 */
-	public void computeDiffForCommitHistory(File gitRepository, int maxDepth, BiConsumer<RevCommit, CstDiff> diffConsumer) {
-		computeDiffForCommitHistory(gitRepository, "HEAD", maxDepth, diffConsumer);
+	public void computeDiffForCommitHistory(File gitRepository, int maxDepth, BiConsumer<RevCommit, CstDiff> diffConsumer, String mappingsPath) {
+		computeDiffForCommitHistory(gitRepository, "HEAD", maxDepth, diffConsumer, mappingsPath);
 	}
 	
 	/**
@@ -143,11 +143,11 @@ public class RefDiff {
 	 * @param maxDepth Number of commits that will be navigated backwards at maximum.
 	 * @param diffConsumer Consumer function that will be called for each computed CST diff.
 	 */
-	public void computeDiffForCommitHistory(File gitRepository, String startAt, int maxDepth, BiConsumer<RevCommit, CstDiff> diffConsumer) {
+	public void computeDiffForCommitHistory(File gitRepository, String startAt, int maxDepth, BiConsumer<RevCommit, CstDiff> diffConsumer, String mappingsPath) {
 		try (Repository repo = GitHelper.openRepository(gitRepository)) {
 			GitHelper.forEachNonMergeCommit(repo, startAt, maxDepth, (revBefore, revAfter) -> {
 				PairBeforeAfter<SourceFileSet> beforeAndAfter = GitHelper.getSourcesBeforeAndAfterCommit(repo, revBefore, revAfter, fileFilter);
-				CstDiff diff = comparator.compare(beforeAndAfter);
+				CstDiff diff = comparator.compare(beforeAndAfter, mappingsPath);
 				diffConsumer.accept(revAfter, diff);
 			});
 		}
@@ -164,9 +164,9 @@ public class RefDiff {
 	 * @param revAfter The jgit commit object after the change.
 	 * @return The computed CST diff between revisions.
 	 */
-	public CstDiff computeDiffBetweenRevisions(Repository repo, RevCommit revBefore, RevCommit revAfter) {
+	public CstDiff computeDiffBetweenRevisions(Repository repo, RevCommit revBefore, RevCommit revAfter, String mappingsPath) {
 		PairBeforeAfter<SourceFileSet> beforeAndAfter = GitHelper.getSourcesBeforeAndAfterCommit(repo, revBefore, revAfter, fileFilter);
-		return comparator.compare(beforeAndAfter);
+		return comparator.compare(beforeAndAfter, mappingsPath);
 	}
 	
 }
