@@ -117,7 +117,7 @@ let tempIDsMap = {};
                         callerFunction = popFromTimeoutMap('i_' + fID)
                     } else if (utils.isCalledByTimeout(dis)) {
                         callerFunction = popFromTimeoutMap('t_' + fID + dis._idleTimeout)
-                    } else { // callback
+                    } else { // callbacks and function calls 
                         validateCallBackMap(fID)
                         let argCheck = popFromCallbackMap(fID)
                         if (argCheck) {

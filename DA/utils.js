@@ -67,23 +67,23 @@ let EventEmmiter = events.EventEmitter.prototype;
     }
 
     Utils.isCalledByImmediate = function (base) {
-        return base._onImmediate
+        return base!=undefined && base._onImmediate
     }
 
     Utils.isCalledByTimeoutOrInterval = function (base) {
-        return base._onTimeout
+        return base!=undefined && base._onTimeout
     }
 
     Utils.isCalledByEvents = function (base) {
-        return base.constructor.prototype == EventEmmiter
+        return base!=undefined && base.constructor.prototype == EventEmmiter
     }
 
     Utils.isCalledByInterval = function (base) {
-        return base._repeat
+        return base!=undefined && base._repeat
     }
 
     Utils.isCalledByTimeout = function (base) {
-        return base._onTimeout && !base._repeat
+        return base!=undefined && base._onTimeout && !base._repeat
     }
 
     Utils.addToMapList = function (map, key, value, distinct) {
