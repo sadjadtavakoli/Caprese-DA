@@ -86,7 +86,7 @@ let tempIDsMap = {};
         this.functionEnter = function (iid, f, dis, args) {
             // TODO it's not understandable => remove these ugly if elses
             if (isImportingNewModule(iid)) {
-                // let fID = getID(f, iid)
+                let fID = getID(f, iid)
                 // console.log("we are here! " + utils.getFilePath(iid))
                 accessedFiles.set(utils.getFilePath(iid), iid)
                 functionEnterStack.push({ 'iid': iid, 'fID': fID, 'isImportedFile': true })

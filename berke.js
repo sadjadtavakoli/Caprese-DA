@@ -154,25 +154,37 @@ function runClasp(commit) {
 function runBerke() {
     let impactSet = new Map()
 
+    /* 
+    Read and organize Dynamic analysis recorded dependencies as ImpactSet 
+    */
     let dependenciesData = JSON.parse(fs.readFileSync(constants.DA_DEPENDENCIES_PATH))
     let mappings = JSON.parse(fs.readFileSync(constants.MAPPINGS_PATH))
     let keyMap = dependenciesData['keyMap']
-    // begin with our changes
+
+    /* 
+    Callers and tests of our current changes as potential impactSet items 
+    */
     for (const change of changes) {
         let dependencies = dependenciesData[change]
         if (dependencies != undefined) {
             for (const dependency of dependencies['callers']) {
                 let key = mappings[keyMap[dependency]]
                 if (key == undefined) key = keyMap[dependency]
-                impactSet.set(key, ['DA'])
+                addImpactSet(key, 'DA', 1)
             }
             for (const test of dependencies['tests']) {
+
                 let key = mappings[keyMap[test]]
                 if (key == undefined) key = keyMap[test]
-                impactSet.set(key, ['DA - Test'])
+
+                addImpactSet(key, 'DA-test', 1)
+
             }
         }
     }
+
+    /* Read and organize Frequent patterns as ImpactSet */
+
     let patterns = fs.readFileSync(constants.PATTERNS_PATH).toString()
     patterns = patterns.split(",")
     // console.log("* * * * * * * * * * patterns * * * * * * * * * *")
@@ -194,6 +206,12 @@ function runBerke() {
 
             // console.log(" = = = = = = = single itemSet = = = = = = = = ")
             // console.log(itemSet)
+            
+            /* 
+            finds itemsets including our change set items, then will keep that particular itemset and itemsets right to that.
+            Also, reports the number of changes included in that particular itemset as the score of that matched pattern
+             */
+
             const filteredChanges = changes.filter(value => itemSet.includes(value));
             // console.log(" - - - - - - - Filtered Changes - - - - - - - -")
             // console.log(filteredChanges)
@@ -213,27 +231,36 @@ function runBerke() {
     // impactSetBySequences = new Set(impactSetBySequences)
     // console.log("* * * * * * * * * impactSetBySequences * * * * * * * * * *")
     // console.log(impactSetBySequences)
+
+    /*
+        Computes total score for each reported itemfrom frequent pattern detection.  
+    */
     for (let itemSet of impactSetBySequences) {
         let items = itemSet['itemset'].trim().split(" ")
         items.pop()
         items = items.filter(item => changes.indexOf(item) == -1)
         for (let item of items) {
-            if (impactSet.has(item)) {
-                if (impactSet.get(item)['FP'])
-                    impactSet.get(item)['FP'] += itemSet['score']
-                else {
-                    impactSet.get(item)['FP'] = itemSet['score']
-                }
-            }
-            else {
-                impactSet.set(item, { 'FP': itemSet['score'] })
-            }
-
+            addImpactSet(item, 'FP', itemSet['score'])
         }
     }
 
     console.log("* * * * * * * * * impactSet * * * * * * * * * ")
     console.log(impactSet)
+
+    function addImpactSet(item, value, score) {
+        if (impactSet.has(item)) {
+            if (impactSet.get(item)[value])
+                impactSet.get(item)[value] += score
+            else {
+                impactSet.get(item)[value] = score
+            }
+        }
+        else {
+            let valueScore = {}
+            valueScore[value] = score
+            impactSet.set(item, valueScore)
+        }
+    }
 }
 
 function getItemConstraints() {
