@@ -68,8 +68,7 @@ public class RefDiffBerkak {
 			changes.addAll(diffForCommit.getNonValidChangedFiles());
 			changes.addAll(diffForCommit.getChangedEntitiesKeys());
 			changes.addAll(diffForCommit.getAddedEntitiesKeys());
-
-			if (!changes.isEmpty() && changes.size() < 21) {
+			if (!changes.isEmpty() && changes.size() < 30) { // 30 is set based on Rose paper
 				String changesString = changes.toString().replaceAll("[\\[\\],\"]", "");
 				if (!currentVersion) {
 					Collections.sort(changes);
