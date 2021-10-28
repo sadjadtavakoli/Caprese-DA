@@ -89,7 +89,9 @@ let tempIDsMap = {};
                 let fID = getID(f, iid)
                 // console.log("we are here! " + utils.getFilePath(iid))
                 accessedFiles.set(utils.getFilePath(iid), iid)
-                functionEnterStack.push({ 'iid': iid, 'fID': fID, 'isImportedFile': true })
+                if (functionEnterStack[functionEnterStack.length - 1] && functionEnterStack[functionEnterStack.length - 1].iid != iid) {
+                    functionEnterStack.push({ 'iid': iid, 'fID': fID, 'isImportedFile': true })
+                }
             } else {
                 let fID = getID(f, iid)
                 let functionName = getFunctionName(f, iid)
@@ -125,8 +127,9 @@ let tempIDsMap = {};
                         }
                     }
                     if (callerFunction) {
-                        callerFunction['isTemp'] = true
-                        functionEnterStack.push(callerFunction)
+                        let callerFunctionClone = Object.assign({}, callerFunction)
+                        callerFunctionClone['isTemp'] = true
+                        functionEnterStack.push(callerFunctionClone)
                     } else {
                         callerFunction = functionEnterStack[functionEnterStack.length - 1]
                     }
@@ -152,9 +155,8 @@ let tempIDsMap = {};
                 // console.log(utils.getLine(iid) + " function " + utils.getIIDKey(functionName, func.iid) + " exited to function " + utils.getIIDKey(callerFunctionName, callerFunction.iid) + "\n\n")
                 if (callerFunction.isTemp) {
                     functionEnterStack.pop()
-                    callerFunction = functionEnterStack[functionEnterStack.length - 1]
-                    if (callerFunction && callerFunction.isImportedFile) {
-                        functionEnterStack.pop()
+                    let callerCallerFunction = functionEnterStack[functionEnterStack.length - 1]
+                    if (callerCallerFunction && callerCallerFunction.isImportedFile) {
                         functionEnterStack.pop()
                     }
                 }
@@ -307,10 +309,12 @@ let tempIDsMap = {};
         if (functionsFuncInput.has(enteredFunction)) {
             let argsList = functionsFuncInput.get(enteredFunction)
             for (let item of argsList) {
-                callbackMap.set(item, callbackMap.get(item).filter(function (ele) {
-                    return ele[0] != enteredFunction;
-                }))
-            }
+                if(callbackMap.get(item)){
+                    callbackMap.set(item, callbackMap.get(item).filter(ele => {
+                        return ele[0] != enteredFunction;
+                    }))    
+                }
+           }
             functionsFuncInput.delete(enteredFunction)
         }
     }

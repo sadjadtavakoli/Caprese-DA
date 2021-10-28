@@ -31,6 +31,7 @@ class Reporter {
         })
         .once(EVENT_RUN_END, () => {
             console.log('Overall stats', stats)
+            process.exit()
         });
     }
   }
