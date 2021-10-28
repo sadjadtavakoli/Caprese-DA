@@ -6,12 +6,8 @@ import refdiff.core.diff.CstDiff;
 import refdiff.parsers.js.JsPlugin;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 import org.eclipse.jgit.revwalk.RevCommit;
@@ -43,9 +39,6 @@ public class RefDiffBerkak {
 			File repo = refDiffJs.cloneGitRepository(commitFolder, repoLink);
 			RevCommit commit = refDiffJs.getCommit(repo, commitSha);
 			minRepo(refDiffJs, repo, commit, counter, currentVersion, dataPath, mappingsPath);
-			if (!currentVersion)
-				fileMerge(dataPath);
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -60,27 +53,19 @@ public class RefDiffBerkak {
 		if (commit.getParentCount() > 0) {
 
 			RevCommit commitPr = refDiffJs.getCommit(repo, commit.getParent(0));
-			Date date = commit.getCommitterIdent().getWhen();
-			String fileName = String.format("%s-%s-%s-%s", date.getYear(), date.getMonth(), date.getDate(),
-					commit.getAuthorIdent().getEmailAddress());
 			CstDiff diffForCommit = refDiffJs.computeDiffForCommit(repo, commitPr, commit, mappingsPath);
 			List<String> changes = new ArrayList<>();
 			changes.addAll(diffForCommit.getNonValidChangedFiles());
 			changes.addAll(diffForCommit.getChangedEntitiesKeys());
 			changes.addAll(diffForCommit.getAddedEntitiesKeys());
-			if (!changes.isEmpty() && changes.size() < 30) { // 30 is set based on Rose paper
+			System.out.println(changes.size());
+			if (!changes.isEmpty() && changes.size() < 100) { // 30 is set based on Rose paper
 				String changesString = changes.toString().replaceAll("[\\[\\],\"]", "");
-				if (!currentVersion) {
-					Collections.sort(changes);
-					try (FileWriter file = new FileWriter(changesPath + fileName + ".txt", true)) {
-						file.write(changesString + " -1 ");
-						file.flush();
-					}
-				} else {
-					try (FileWriter file = new FileWriter(dataPath, false)) {
-						file.write(changesString);
-						file.flush();
-					}
+				Collections.sort(changes);
+				try (FileWriter file = new FileWriter(dataPath, !currentVersion)) {
+					System.out.println("here!!");
+					file.write(changesString + "\n");
+					file.flush();
 				}
 			} else {
 				System.out.println("no changes detected " + commit.getName());
@@ -89,23 +74,5 @@ public class RefDiffBerkak {
 				minRepo(refDiffJs, repo, commitPr, counter, currentVersion, dataPath, mappingsPath);
 			}
 		}
-	}
-
-	public static void fileMerge(String dataPath) throws IOException {
-
-		Files.deleteIfExists(Paths.get(dataPath));
-		PrintWriter pw = new PrintWriter(dataPath);
-		File folder = new File(changesPath);
-		File[] listOfFiles = folder.listFiles();
-
-		for (File file : listOfFiles) {
-			if (file.isFile()) {
-				String content = Files.readString(file.toPath());
-				file.delete();
-				pw.println(content + "-2");
-			}
-		}
-		pw.flush();
-		pw.close();
 	}
 }
