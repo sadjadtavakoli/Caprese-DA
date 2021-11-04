@@ -34,12 +34,18 @@ public class Item<T extends Comparable> implements Comparable<Item> {
     private T id;
 
     /**
+     * Total number of occurace 
+     */
+    private int quantity;
+
+    /**
      * General constructor.
      * 
      * @param id Content of the item.
      */
     public Item(T id) {
         this.id = id;
+        this.quantity = 0;
     }
 
     /**
@@ -51,6 +57,29 @@ public class Item<T extends Comparable> implements Comparable<Item> {
         return id;
     }
 
+    /**
+     * 
+     * @return the value of quantity
+     */
+    public Integer getQuantity(){
+        return this.quantity;
+    }
+
+    /**
+     * increases the number of occurance 
+     */
+    public void increaseQuantity(){
+        this.quantity++;
+    }
+
+    /**
+     * set quantity
+     */
+    public void setQuantity(int quantity){
+        this.quantity = quantity;
+    }
+
+    
     /**
      * Get the string representation of this item
      * 

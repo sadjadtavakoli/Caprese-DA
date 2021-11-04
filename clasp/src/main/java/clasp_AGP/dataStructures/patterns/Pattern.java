@@ -6,6 +6,9 @@ import java.util.List;
 
 import clasp_AGP.dataStructures.abstracciones.ItemAbstractionPair;
 import clasp_AGP.dataStructures.creators.AbstractionCreator;
+import clasp_AGP.idlists.IDList;
+import clasp_AGP.idlists.creators.IdListCreatorStandard_Map;
+import clasp_AGP.tries.TrieNode;
 
 /**
  * Implementation of pattern structure. We define it as a list of pairs
@@ -41,6 +44,11 @@ public class Pattern implements Comparable<Pattern> {
      * Set of sequence IDs indicating where the pattern appears
      */
     private BitSet appearingIn;
+
+    /**
+     * the conditional probability of this pattern wrt to item constraints
+     */
+    private double probability;
 
     /**
      * Standard constructor
@@ -120,7 +128,7 @@ public class Pattern implements Comparable<Pattern> {
 
         }
         result.append(" #SUP: ");
-        result.append(getSupport());
+        result.append(getProbability());
         // if the user wants the sequence IDs, we will show them
         if (outputSequenceIdentifiers) {
             result.append(" #SID: ");
@@ -155,7 +163,7 @@ public class Pattern implements Comparable<Pattern> {
         }
 
         result.append(":");
-        result.append(getSupport());
+        result.append(getProbability());
         return result.toString();
     }
 
@@ -253,6 +261,33 @@ public class Pattern implements Comparable<Pattern> {
         return getIthElement(size() - 1).compareTo(o.getIthElement(o.size() - 1));
     }
 
+    /**
+     * get a list of TrieNode and computes the this trie and that list's
+     * intersection IDlist
+     * 
+     * @param itemConstraints
+     * @return IDList of this trie intersection with provided itemConstraints
+     */
+    public IDList getIntersections(List<TrieNode> itemConstraints) {
+        boolean initiated = false;
+        IDList result = IdListCreatorStandard_Map.getInstance().create();
+        for (ItemAbstractionPair pair : elements) {
+            for (TrieNode node : itemConstraints) {
+                if (pair.getItem().getId() == node.getPair().getItem().getId()) {
+                    IDList nodeIdlist = node.getChild().getIdList();
+                    if (!initiated) {
+                        nodeIdlist.clone(result);
+                        initiated = true;
+                    } else {
+                        result = result.join(nodeIdlist, true);
+                    }
+                    break;
+                }
+            }
+        }
+        return result;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o instanceof Pattern) {
@@ -306,6 +341,18 @@ public class Pattern implements Comparable<Pattern> {
         this.appearingIn = appearingIn;
     }
 
+    /**
+     * set the conditional probability of this pattern wrt to item constraints
+     * @param probability
+     */
+    public void setProbability(double probability){
+        this.probability = probability;
+    }
+
+    public double getProbability(){
+        return this.probability;
+    }
+
     public void clear() {
         elements.clear();
         appearingIn.clear();
@@ -354,14 +401,13 @@ public class Pattern implements Comparable<Pattern> {
         return abstractionCreator.isSubpattern(this, p, 0, positions);
     }
 
-    public boolean contains(List<String> itemset) { // @sadjad TODO REFACTOR => our itemset should be a list of items
+    public boolean contains(List<TrieNode> itemset) { // @sadjad TODO REFACTOR => our itemset should be a list of items
                                                     // just like elements
         if (itemset.isEmpty()) {
             return true;
         }
-        
-        for (int i = 0; i < elements.size(); i++) {
-            if (itemset.contains(elements.get(i).getItem().toString())) {
+        for (int i = 0; i < itemset.size(); i++) {
+            if (elements.contains(itemset.get(i).getPair())) {
                 return true;
             }
         }

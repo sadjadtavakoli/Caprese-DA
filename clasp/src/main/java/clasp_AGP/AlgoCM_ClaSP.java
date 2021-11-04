@@ -19,6 +19,7 @@ import clasp_AGP.savers.Saver;
 import clasp_AGP.savers.SaverIntoFile;
 import clasp_AGP.savers.SaverIntoMemory;
 import clasp_AGP.tries.Trie;
+import clasp_AGP.tries.TrieNode;
 import clasp_AGP.tools.MemoryLogger;
 
 /**
@@ -53,7 +54,7 @@ public class AlgoCM_ClaSP {
      * The absolute minimum support threshold, i.e. the minimum number of sequences
      * where the patterns have to be
      */
-    protected double minSupAbsolute;
+    protected double minSupRelative;
     /**
      * Saver variable to decide where the user want to save the results, if it the
      * case
@@ -97,7 +98,8 @@ public class AlgoCM_ClaSP {
      */
     private boolean executePruningMethods;
 
-    private List<String> itemConstraint;
+    protected List<TrieNode> itemConstraint;
+
     public long joinCount; // PFV 2013
 
     /**
@@ -108,12 +110,11 @@ public class AlgoCM_ClaSP {
      * @param findClosedPatterns flag to indicate if we are interesting in only
      */
     public AlgoCM_ClaSP(double support, AbstractionCreator abstractionCreator, boolean findClosedPatterns,
-            boolean executePruningMethods, List<String> itemConstraint) {
-        this.minSupAbsolute = support;
+            boolean executePruningMethods) {
+        this.minSupRelative = support;
         this.abstractionCreator = abstractionCreator;
         this.findClosedPatterns = findClosedPatterns;
         this.executePruningMethods = executePruningMethods;
-        this.itemConstraint = itemConstraint;
     }
 
     /**
@@ -138,7 +139,7 @@ public class AlgoCM_ClaSP {
     public void runAlgorithm(SequenceDatabase database, boolean keepPatterns, boolean verbose, String outputFilePath,
             boolean outputSequenceIdentifiers) throws IOException {
         // If we do no have any file path
-        if (outputFilePath == null) {
+        if (outputFilePath == null || outputFilePath.equals("-")) {
             // The user wants to save the results in memory
             saver = new SaverIntoMemory(outputSequenceIdentifiers);
         } else {
@@ -150,7 +151,7 @@ public class AlgoCM_ClaSP {
         // keeping the starting time
         overallStart = System.currentTimeMillis();
         // Starting ClaSP algorithm
-        claSP(database, (long) minSupAbsolute, keepPatterns, verbose, findClosedPatterns, executePruningMethods);
+        claSP(database, minSupRelative, keepPatterns, verbose, findClosedPatterns, executePruningMethods);
         // keeping the ending time
         overallEnd = System.currentTimeMillis();
         // Search for frequent patterns: Finished
@@ -161,53 +162,45 @@ public class AlgoCM_ClaSP {
      * The actual method for extracting frequent sequences.
      *
      * @param database       The original database
-     * @param minSupAbsolute the absolute minimum support
+     * @param minSupRelative the absolute minimum support
      * @param keepPatterns   flag indicating if we are interested in keeping the
      *                       output of the algorithm
      * @param verbose        Flag for debugging purposes
      * @param
      * @throws IOException
      */
-    protected void claSP(SequenceDatabase database, long minSupAbsolute, boolean keepPatterns, boolean verbose,
+    protected void claSP(SequenceDatabase database, double minSupRelative, boolean keepPatterns, boolean verbose,
             boolean findClosedPatterns, boolean executePruningMethods) throws IOException {
         // We get the initial trie whose children are the frequent 1-patterns
         FrequentAtomsTrie = database.frequentItems();
+        itemConstraint = database.itemConstraints();
 
         // NEW-CODE-PFV 2013
         // Map: key: item value: another item that followed the first item + support
         // (could be replaced with a triangular matrix...)
-        Map<String, Map<String, Integer>> coocMapAfter = new HashMap<String, Map<String, Integer>>(1000);
         Map<String, Map<String, Integer>> coocMapEquals = new HashMap<String, Map<String, Integer>>(1000);
 
+        System.out.println(database.getSequences());
         // update COOC map
         for (Sequence seq : database.getSequences()) {
-            HashSet<String> alreadySeenA = new HashSet<>();
             Map<String, Set<String>> alreadySeenB_equals = new HashMap<>();
             // for each item
+
             for (int i = 0; i < seq.getItemsets().size(); i++) {
                 Itemset itemsetA = seq.get(i);
                 for (int j = 0; j < itemsetA.size(); j++) {
                     String itemA = (String) itemsetA.get(j).getId();
-                    boolean alreadyDoneForItemA = false;
                     Set<String> equalSet = alreadySeenB_equals.get(itemA);
                     if (equalSet == null) {
                         equalSet = new HashSet<>();
                         alreadySeenB_equals.put(itemA, equalSet);
                     }
 
-                    if (alreadySeenA.contains(itemA)) {
-                        alreadyDoneForItemA = true;
-                    }
-
                     // create the map if not existing already
                     Map<String, Integer> mapCoocItemEquals = coocMapEquals.get(itemA);
-                    // create the map if not existing already
-                    Map<String, Integer> mapCoocItemAfter = null;
-                    if (!alreadyDoneForItemA) {
-                        mapCoocItemAfter = coocMapAfter.get(itemA);
-                    }
 
-                    // For each item after itemA in the same itemset
+                    // For each item after itemA in the same itemset // @SADJADRE It's enough to
+                    // count items occured after each item since the items are sorted.
                     for (int k = j + 1; k < itemsetA.size(); k++) {
                         String itemB = (String) itemsetA.get(k).getId();
                         if (!equalSet.contains(itemB)) {
@@ -226,37 +219,10 @@ public class AlgoCM_ClaSP {
                             equalSet.add(itemB);
                         }
                     }
-                    HashSet<String> alreadySeenB_after = new HashSet<>();
-                    // for each item after
-                    if (!alreadyDoneForItemA) {
-                        for (int k = i + 1; k < seq.getItemsets().size(); k++) {
-                            Itemset itemsetB = seq.get(k);
-                            for (int m = 0; m < itemsetB.size(); m++) {
-                                String itemB = (String) itemsetB.get(m).getId();
-                                if (alreadySeenB_after.contains(itemB)) {
-                                    continue;
-                                }
-
-                                if (mapCoocItemAfter == null) {
-                                    mapCoocItemAfter = new HashMap<>();
-                                    coocMapAfter.put(itemA, mapCoocItemAfter);
-                                }
-                                Integer frequency = mapCoocItemAfter.get(itemB);
-                                if (frequency == null) {
-                                    mapCoocItemAfter.put(itemB, 1);
-                                } else {
-                                    mapCoocItemAfter.put(itemB, frequency + 1);
-                                }
-                                alreadySeenB_after.add(itemB);
-                            }
-                        }
-                        alreadySeenA.add(itemA);
-                    }
                 }
             }
         }
-        // System.out.println("cooc map");
-        // System.out.println(coocMapAfter);
+        // System.out.println("************ cooc map ************");
         // System.out.println(coocMapEquals);
 
         database.clear();
@@ -264,11 +230,11 @@ public class AlgoCM_ClaSP {
 
         // Inizialitation of the class that is in charge of find the frequent patterns
         FrequentPatternEnumeration_ClaSP frequentPatternEnumeration = new FrequentPatternEnumeration_ClaSP(
-                abstractionCreator, minSupAbsolute, saver, findClosedPatterns, executePruningMethods, itemConstraint, coocMapAfter, coocMapEquals);
+                abstractionCreator, minSupRelative, saver, itemConstraint, coocMapEquals);
 
         this.mainMethodStart = System.currentTimeMillis();
         // We dfsPruning the search
-        frequentPatternEnumeration.dfsPruning(new Pattern(), FrequentAtomsTrie, verbose);
+        frequentPatternEnumeration.dfsPruning(FrequentAtomsTrie);
         this.mainMethodEnd = System.currentTimeMillis();
         // Once we had finished, we keep the number of frequent patterns that we found
         numberOfFrequentPatterns = frequentPatternEnumeration.getFrequentPatterns();
@@ -283,6 +249,8 @@ public class AlgoCM_ClaSP {
         // If the we are interested in closed patterns, we dfsPruning the
         // post-processing step
         if (findClosedPatterns) {
+            // @TODO @SADJADRE should refactor this sections. This whole code is implemented
+            // for seqeunce detection not just simply cooccurance probability detection
             List<Entry<Pattern, Trie>> outputPatternsFromMainMethod = FrequentAtomsTrie.preorderTraversal(null);
             // System.out.println("patterns before non-closed elimination");
             // System.out.println(outputPatternsFromMainMethod.toString());
@@ -315,15 +283,6 @@ public class AlgoCM_ClaSP {
         joinCount = frequentPatternEnumeration.joinCount;
     }
 
-    private double getObjectSize(Object object) throws IOException {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(baos);
-        oos.writeObject(object);
-        oos.close();
-        double maxMemory = baos.size() / 1024d / 1024d;
-        return maxMemory;
-    }
-
     /**
      * Method to show the outlined information about the search for frequent
      * sequences by means of ClaSP algorithm
@@ -348,7 +307,7 @@ public class AlgoCM_ClaSP {
         return r.toString();
     }
 
-    public List<String> getResutl(){
+    public List<String> getResutl() {
         return saver.getList();
     }
 

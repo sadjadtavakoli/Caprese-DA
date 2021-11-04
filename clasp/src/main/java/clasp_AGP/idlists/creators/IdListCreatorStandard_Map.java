@@ -77,6 +77,16 @@ public class IdListCreatorStandard_Map implements IdListCreator {
     }
 
     /**
+     * It creates a non-empty IdList of entries of arraylists.
+     * 
+     * @return the idlist
+     */
+    public IDList create(Map<Integer, List<Position>> sequencePositionsEntries) {
+        return new IDListStandard_Map(sequencePositionsEntries);
+    }
+
+    
+    /**
      * It adds to an Idlist of entries of arraylists an appearance <sid,<tid,item
      * position>>
      */
