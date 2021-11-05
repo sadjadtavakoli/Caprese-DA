@@ -84,11 +84,10 @@ public class IDListStandard_Map implements IDList {
      * @param idList     IdList with which we join the current IdList.
      * @param equals     Flag indicating if we want a intersection for equal
      *                   relation, or, if it is false, an after relation.
-     * @param minSupport Minimum relative support.
      * @return the intersection
      */
     @Override
-    public IDList join(IDList idList, boolean equals, int minSupport) {
+    public IDList join(IDList idList, boolean equals) {
         // We create the result map of entries of list of item positions
         /*
          * Tin modifies:
@@ -151,6 +150,21 @@ public class IDListStandard_Map implements IDList {
      */
     public Map<Integer, List<Position>> getSequencePositionsEntries() {
         return sequencePositionsEntries;
+    }
+
+    
+    /**
+     * set sequences, used just for clones
+     */
+    public void setSequences(BitSet sequences){
+        this.sequences = sequences;
+    }
+
+    /**
+     * set sequencePositionsEntries
+     */
+    public void setSequencePositionsEntries(Map<Integer, List<Position>> sequencePositionsEntries){
+        this.sequencePositionsEntries = sequencePositionsEntries;
     }
 
     /**
@@ -307,6 +321,16 @@ public class IDListStandard_Map implements IDList {
             return null;
         }
         return result;
+    }
+
+    /**
+     * clones this idList to idList
+     */
+    public void clone(IDList idList){
+        ((IDListStandard_Map) idList).setSequencePositionsEntries(this.sequencePositionsEntries);
+        ((IDListStandard_Map) idList).setSequences(this.sequences);
+        idList.SetOriginalSequenceLengths(originalSizeOfSequences);
+        idList.setTotalElementsAfterPrefixes(this.totalElementsAfterPrefixes);
     }
 
     @Override

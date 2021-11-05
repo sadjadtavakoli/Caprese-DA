@@ -8,7 +8,6 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -53,7 +52,8 @@ public class SequenceDatabase {
     private Map<Item, TrieNode> frequentItems = new HashMap<>();
     private List<Sequence> sequences = new ArrayList<>();
     private ItemFactory<String> itemFactory = new ItemFactory<>();
-    private List<String> itemConstraint;
+    private List<String> itemConstraintStrings;
+    private List<TrieNode> itemConstraints = new ArrayList<>();
     private int nSequences = 1;
     /**
      * Map where we keep the original length for all the sequences
@@ -78,10 +78,10 @@ public class SequenceDatabase {
      * @param IdListCreator
      */
     public SequenceDatabase(AbstractionCreator abstractionCreator, IdListCreator IdListCreator,
-            List<String> itemConstraint) {
+            List<String> itemConstraintStrings) {
         this.abstractionCreator = abstractionCreator;
         this.idListCreator = IdListCreator;
-        this.itemConstraint = itemConstraint;
+        this.itemConstraintStrings = itemConstraintStrings;
     }
 
     /**
@@ -91,7 +91,7 @@ public class SequenceDatabase {
      * @param minSupport Minimum absolute support
      * @throws IOException
      */
-    public double loadFile(String path, double minSupport) throws IOException {
+    public void loadFile(String path) throws IOException {
         String thisLine;
         BufferedReader myInput = null;
         try (FileInputStream fin = new FileInputStream(new File(path))) {
@@ -104,23 +104,15 @@ public class SequenceDatabase {
                     addSequence(thisLine.split(" "));
                 }
             }
-            double support = (int) Math.ceil(minSupport * sequences.size());
             Set<Item> frequentItemsSet = frequentItems.keySet();
-            Set<Item> itemsToRemove = new HashSet<>();
-            // We remove those items that are not frequent
             for (Item frequentItem : frequentItemsSet) {
                 // From the item set of frequent items
                 TrieNode nodo = frequentItems.get(frequentItem);
-                if (nodo.getChild().getIdList().getSupport() < support) {
-                    itemsToRemove.add(frequentItem);
-                } else {
-                    nodo.getChild().getIdList().setAppearingIn(nodo.getChild());
-                }
-            }
+                frequentItem.setQuantity(nodo.getChild().getIdList().getSupport());
 
-            for (Item item : itemsToRemove) {
-                frequentItems.remove(item);
-            }
+                // @SADJADRE
+                nodo.getChild().getIdList().setAppearingIn(nodo.getChild());
+                }
             // And from the original database
             reduceDatabase(frequentItems.keySet());
 
@@ -129,7 +121,6 @@ public class SequenceDatabase {
              */
             idListCreator.initializeMaps(frequentItems, projectingDistance, sequencesLengths,
                     sequenceItemsetSize/* , itemsetTimestampMatching */);
-            return support;
         } catch (Exception e) {
             System.out.println(e.getMessage());
         } finally {
@@ -137,7 +128,6 @@ public class SequenceDatabase {
                 myInput.close();
             }
         }
-        return -1;
 
     }
 
@@ -160,8 +150,8 @@ public class SequenceDatabase {
         int beginning = 0;
         List<Integer> sizeItemsetsList = new ArrayList<>();
 
-        if (!itemConstraint.isEmpty()) {
-            List<String> itemConstraintCopy = new ArrayList<>(itemConstraint);
+        if (!itemConstraintStrings.isEmpty()) {
+            List<String> itemConstraintCopy = new ArrayList<>(itemConstraintStrings);
             itemConstraintCopy.retainAll(Arrays.asList(integers));
             if (itemConstraintCopy.isEmpty()) {
                 return;
@@ -189,7 +179,7 @@ public class SequenceDatabase {
                 int indexParentheseGauche = integers[i].indexOf("(");
                 if (indexParentheseGauche == -1){
                     // extract the value for an item
-                    Item item = itemFactory.getItem(integers[i]);
+                    Item item = itemFactory.getItem(integers[i]); // @SADJADRE from this line to line 220, we can keep node and Item of our item containts list items in a separete list. 
                     TrieNode node = frequentItems.get(item);
                     if (node == null) {
                         IDList idlist = idListCreator.create();
@@ -197,6 +187,10 @@ public class SequenceDatabase {
                                 pairCreator.getItemAbstractionPair(item, abstractionCreator.createDefaultAbstraction()),
                                 new Trie(null, idlist));
                         frequentItems.put(item, node);
+
+                        if(itemConstraintStrings.contains(integers[i])){
+                            itemConstraints.add(node);
+                        }
                     }
                     IDList idlist = node.getChild().getIdList();
                     if (timestamp < 0) {
@@ -241,6 +235,16 @@ public class SequenceDatabase {
 
     public List<Sequence> getSequences() {
         return sequences;
+    }
+
+    /**
+     * Get the equivalence classes associated with the frequent items that we have
+     * found.
+     * 
+     * @return the trie
+     */
+    public List<TrieNode> itemConstraints() {
+        return itemConstraints;
     }
 
     /**
@@ -305,7 +309,7 @@ public class SequenceDatabase {
         }
         frequentItems = null;
         itemFactory = null;
-
+        itemConstraintStrings = null;
         projectingDistance = null;
         sequenceItemsetSize = null;
         sequencesLengths = null;

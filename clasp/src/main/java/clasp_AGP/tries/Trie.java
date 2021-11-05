@@ -183,6 +183,16 @@ public class Trie implements Comparable<Trie> {
     }
 
     /**
+     * It gets the whole nodeis
+     * 
+     * @return the whole nodei list
+     */
+    public List<TrieNode> getNodeis() {
+        return nodei;
+    }
+
+
+    /**
      * It updates the list of nodes associated with the Trie
      * 
      * @param nodes

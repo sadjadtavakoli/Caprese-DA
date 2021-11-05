@@ -49,10 +49,10 @@ public class AlgoCM_ClaSPExecutor {
 
         SequenceDatabase sequenceDatabase = new SequenceDatabase(abstractionCreator, idListCreator, itemConstraint);
 
-        double relativeSupport = sequenceDatabase.loadFile(filePath, support);
+        sequenceDatabase.loadFile(filePath);
 
-        AlgoCM_ClaSP algorithm = new AlgoCM_ClaSP(relativeSupport, abstractionCreator, findClosedPatterns,
-                executePruningMethods, itemConstraint);
+        AlgoCM_ClaSP algorithm = new AlgoCM_ClaSP(support, abstractionCreator, findClosedPatterns,
+                executePruningMethods);
 
         algorithm.runAlgorithm(sequenceDatabase, keepPatterns, verbose, outputPath, outputSequenceIdentifiers);
         System.out.println("Minsup (relative) : " + support);

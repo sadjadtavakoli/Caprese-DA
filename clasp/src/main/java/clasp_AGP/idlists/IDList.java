@@ -39,10 +39,9 @@ public interface IDList {
      * @param idList     IdList with which we join the current IdList.
      * @param equals     Flag indicating if we want a intersection for equal
      *                   relation, or, if it is false, an after relation.
-     * @param minSupport Minimum relative support.
      * @return the intersection
      */
-    public IDList join(IDList idList, boolean equals, int minSupport);
+    public IDList join(IDList idList, boolean equals);
 
     /**
      * Get the minimum relative support outlined by the IdList, i.e. the number of
@@ -78,6 +77,12 @@ public interface IDList {
      * It clears the IdList.
      */
     public void clear();
+
+    /**
+     * clones this idList to idList varua
+     * @param idList
+     */
+    public void clone(IDList idList);
 
     /**
      * It gets a map with a match between the sequences where the pattern associated
