@@ -58,13 +58,11 @@ public class RefDiffBerkak {
 			changes.addAll(diffForCommit.getNonValidChangedFiles());
 			changes.addAll(diffForCommit.getChangedEntitiesKeys());
 			changes.addAll(diffForCommit.getAddedEntitiesKeys());
-			System.out.println(changes.size());
 			if (!changes.isEmpty() && changes.size() < 100) { // 30 is set based on Rose paper
 				String changesString = changes.toString().replaceAll("[\\[\\],\"]", "");
 				Collections.sort(changes);
 				try (FileWriter file = new FileWriter(dataPath, !currentVersion)) {
-					System.out.println("here!!");
-					file.write(changesString + "\n");
+					file.write(changesString + " -1 -2 \n");
 					file.flush();
 				}
 			} else {

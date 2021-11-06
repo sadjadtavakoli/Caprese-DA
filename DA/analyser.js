@@ -98,7 +98,7 @@ let tempIDsMap = {};
                 tempIDsMap[fID] = utils.getIIDKey(functionName, iid)
 
                 if (isMainFile(iid)) {
-                    mainFileName = utils.getFileName(iid)
+                    mainFileName = utils.getFilePath(iid)
                     accessedFiles.set(mainFileName, iid)
 
                 // } else if (dis == undefined) {
@@ -149,10 +149,6 @@ let tempIDsMap = {};
             if (!(isImportingNewModule(iid) || isMainFile(iid))) {
                 functionEnterStack.pop()
                 let callerFunction = functionEnterStack[functionEnterStack.length - 1]
-                // console.log(functionEnterStack)
-                // let functionName = getFunctionNameFID(func.fID, func.iid)
-                // let callerFunctionName = getFunctionNameFID(callerFunction.fID, callerFunction.iid)
-                // console.log(utils.getLine(iid) + " function " + utils.getIIDKey(functionName, func.iid) + " exited to function " + utils.getIIDKey(callerFunctionName, callerFunction.iid) + "\n\n")
                 if (callerFunction.isTemp) {
                     functionEnterStack.pop()
                     let callerCallerFunction = functionEnterStack[functionEnterStack.length - 1]
@@ -224,7 +220,7 @@ let tempIDsMap = {};
     }
 
     function isImportingNewModule(iid) {
-        return (mainFileName != "" && mainFileName != utils.getFileName(iid) && !(accessedFiles.has(utils.getFilePath(iid)) && utils.trackExternals)) || accessedFiles.get(utils.getFilePath(iid)) == iid
+        return (mainFileName != "" && mainFileName != utils.getFilePath(iid) && !(accessedFiles.has(utils.getFilePath(iid)) && utils.trackExternals)) || accessedFiles.get(utils.getFilePath(iid)) == iid
     }
 
     function log(log_value) {

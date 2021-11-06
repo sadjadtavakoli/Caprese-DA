@@ -372,7 +372,7 @@ public class CstComparator {
 			JsonObject mappings = new JsonObject();
 			if (!tempFile.createNewFile()) {
 				try (FileReader reader = new FileReader(filePath)) {
-					mappings = jsonParser.parse(reader).getAsJsonObject();
+					mappings = jsonParser.parse(reader).getAsJsonObject();// Should check the content of this file before parsing to prevent excepction 
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

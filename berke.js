@@ -7,7 +7,6 @@ let INITIALIZED_COMMIT = constants.SEED_COMMIT;
 
 let changes = []
 
-// --nodeprof.ExcludeSource=keyword1,keyword2
 function run() {
 
     console.log(" * * * * * * * * * * * \n * * * *  Srart! * * * \n * * * * * * * * * * * \n")
@@ -18,7 +17,6 @@ function run() {
             recursive: true
         });
     }
-
     cloneProject()
         .then(() => {
             if (INITIALIZED_COMMIT) return computeCommitChanges(INITIALIZED_COMMIT)
@@ -93,6 +91,7 @@ function checkoutProject(commit) {
 }
 
 function runDynamicAnalysis(commit) {
+    console.log(constants.DA_COMMAND)
     return new Promise(function (resolve, reject) {
         exec(constants.DA_COMMAND, (err, stdout, stderr) => {
             if (!err) {
@@ -108,11 +107,9 @@ function runRefDiff(commit) {
     return new Promise(function (resolve, reject) {
         exec(constants.REFDIFF_COMMAND + `"${constants.REPO_URL} ${commit} ${constants.SEQUENCES_PATH} ${constants.MAPPINGS_PATH} ${constants.REPO_DIGGING_DEPTH}"`, (err, stdout, stderr) => {
             if (!err) {
-                console.log(stdout)
                 resolve(commit)
             }
             else {
-                console.log(stderr)
                 reject(err)
             }
         })
@@ -124,7 +121,7 @@ function computeCommitChanges(commit) {
     return new Promise(function (resolve, reject) {
         exec(constants.REFDIFF_COMMAND + `"${constants.REPO_URL} ${commit} ${constants.CURRENT_CHANGES_PATH} ${constants.MAPPINGS_PATH} 0"`, (err, stdout, stderr) => {
             if (!err) {
-                changes = fs.readFileSync(constants.CURRENT_CHANGES_PATH).toString().split(" ")
+                changes = fs.readFileSync(constants.CURRENT_CHANGES_PATH).toString().trim().split(" ")
                 resolve(commit)
             }
             else {
@@ -140,7 +137,6 @@ function runClasp(commit) {
     return new Promise(function (resolve, reject) {
         exec(constants.CLASP_COMMAND + `"${constants.SEQUENCES_PATH} ${constants.PATTERNS_PATH} ${getItemConstraints()}"`, (err, stdout, stderr) => {
             if (!err) {
-                // console.log(stdout)
                 resolve(commit)
             }
             else {
@@ -164,7 +160,7 @@ function runBerke() {
     /* 
     Callers and tests of our current changes as potential impactSet items 
     */
-    for (const change of changes) {
+    for (const change of getItemConstraints()) {
         let dependencies = dependenciesData[change]
         if (dependencies != undefined) {
             for (const dependency of dependencies['callers']) {
@@ -183,64 +179,17 @@ function runBerke() {
         }
     }
 
-    /* Read and organize Frequent patterns as ImpactSet */
-
-    let patterns = fs.readFileSync(constants.PATTERNS_PATH).toString()
-    patterns = patterns.split(",")
-    // console.log("* * * * * * * * * * patterns * * * * * * * * * *")
-    // console.log(patterns)
-
-    // console.log("* * * * * * * * * * changes * * * * * * * * * *")
-    // console.log(changes)
-
-    let impactSetBySequences = []
-
-    for (let pattern of patterns) {
-        let sequence = pattern.split(":")[0]
-        let itemSets = sequence.split(" -1 ")
-        let alreadyFound = false
-        // console.log("* * * * * * * * * * itemSets * * * * * * * * * *")
-        // console.log(itemSets)
-
-        for (let itemSet of itemSets) {
-
-            // console.log(" = = = = = = = single itemSet = = = = = = = = ")
-            // console.log(itemSet)
-            
-            /* 
-            finds itemsets including our change set items, then will keep that particular itemset and itemsets right to that.
-            Also, reports the number of changes included in that particular itemset as the score of that matched pattern
-             */
-
-            const filteredChanges = changes.filter(value => itemSet.includes(value));
-            // console.log(" - - - - - - - Filtered Changes - - - - - - - -")
-            // console.log(filteredChanges)
-
-            if (alreadyFound || filteredChanges.length) {
-                // console.log("√ Added")
-                impactSetBySequences.push({ 'itemset': itemSet, 'score': filteredChanges.length })
-                // console.log(changes)
-                // console.log("injaee alan besmelah")
-                // console.log(filteredChanges)
-                alreadyFound = true
-            }
-
-        }
-    }
-
-    // impactSetBySequences = new Set(impactSetBySequences)
-    // console.log("* * * * * * * * * impactSetBySequences * * * * * * * * * *")
-    // console.log(impactSetBySequences)
+    let impactSetBySequences = getCoChangesData();
 
     /*
         Computes total score for each reported itemfrom frequent pattern detection.  
     */
-    for (let itemSet of impactSetBySequences) {
-        let items = itemSet['itemset'].trim().split(" ")
-        items.pop()
-        items = items.filter(item => changes.indexOf(item) == -1)
-        for (let item of items) {
-            addImpactSet(item, 'FP', itemSet['score'])
+    for (let impactedItem of impactSetBySequences) {
+        let transactions = impactedItem['sequence'].trim().split(" ")
+        for (let transaction of transactions) {
+            if (changes.indexOf(transaction) == -1) {
+                addImpactSet(transaction, 'FP', parseFloat(impactedItem['probability'])) // @TODO we are ignoring number of items included in this change-sets in our result ordering
+            }
         }
     }
 
@@ -263,9 +212,32 @@ function runBerke() {
     }
 }
 
+/**
+ *Read and organize Frequent patterns as ImpactSet 
+ */
+function getCoChangesData() {
+    let patterns = fs.readFileSync(constants.PATTERNS_PATH).toString();
+    patterns = patterns.split(",");
+
+    let impactSetBySequences = [];
+
+    for (let pattern of patterns) {
+        let sequence = pattern.split(" -1:")[0];
+        let probability = pattern.split(" -1:")[1];
+        /*
+        Keep the number of change-set items included in that particular itemset
+        */
+        const filteredChangesCount = changes.filter(value => sequence.includes(value)).length;
+
+        if (filteredChangesCount) {
+            impactSetBySequences.push({ 'sequence': sequence, 'items-included': filteredChangesCount, 'probability': probability });
+        }
+    }
+    return impactSetBySequences;
+}
+
 function getItemConstraints() {
-    // console.log("* * * * * * * * * changes * * * * * * * * * ")
-    // console.log(changes)
+    changes = fs.readFileSync(constants.CURRENT_CHANGES_PATH).toString().trim().split(" ")
     return changes
 }
 
