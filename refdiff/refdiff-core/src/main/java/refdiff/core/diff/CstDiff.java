@@ -22,6 +22,7 @@ public class CstDiff {
 	private Set<String> addedEntitiesKeys;	
 	private Set<String> nonValidChangedFiles;
 	private Set<String> changedEntitiesKeys;
+	private Set<String> removedEntitiesKeys;
 	public CstDiff(CstRoot before, CstRoot after) {
 		this.before = before;
 		this.after = after;
@@ -66,6 +67,10 @@ public class CstDiff {
 		this.addedEntitiesKeys = added;
 	}
 	
+	public void setRemovedEntitiesKeys(Set<String> removed){
+		this.removedEntitiesKeys = removed;
+	}
+	
 	public void setNonValidChangedFiles(Set<String> added){
 		this.nonValidChangedFiles = added;
 	}
@@ -76,6 +81,10 @@ public class CstDiff {
 
 	public Set<String> getAddedEntitiesKeys() {
 		return this.addedEntitiesKeys;
+	}
+
+	public Set<String> getRemovedEntitiesKeys() {
+		return this.removedEntitiesKeys;
 	}
 
 	public Set<String> getNonValidChangedFiles(){

@@ -7,11 +7,15 @@ const path = require('path');
 // const REPO_URL = "git@github.com:thenativeweb/node-cqrs-eventdenormalizer.git"
 // const REPO_URL = "git@github.com:bpampuch/pdfmake.git"
 // const REPO_URL = "git@github.com:pmandadapu9/Jhipster.git"
-const REPO_URL = "git@github.com:devleague/curry-house-styel07.git"
+// const REPO_URL = "git@github.com:devleague/curry-house-styel07.git"
+// const REPO_URL = "git@github.com:RomanSaveljev/jenkins-job-builder-js.git"
+// const REPO_URL = "git@github.com:dtex/j5e.git"
+const REPO_URL = "git@github.com:antirek/ding-dong.git"
+
 const REPO_MAIN_BRANCH = "master"
 const PROJECT_NAME = [...REPO_URL.matchAll("[\\w\\.-]+(?=.git)")].pop();
 const REPO_TEST_RELATIVE_DIR = "test/";
-const SEED_COMMIT = "";
+const SEED_COMMIT = "6962e9c5ff7b2a5f39ace7f39b523e6f40733e0e";
 const CHANGES_BATCH_CHECKING = true
 const DATA_PATH = __dirname + path.sep + 'data'
 
@@ -22,6 +26,7 @@ const CLASP_PATH = __dirname + path.sep + "clasp";
 const DA_PATH = __dirname + path.sep + "DA";
 
 const SEQUENCES_PATH = DATA_PATH + path.sep + "sequences.txt";
+const REMOVED_PATH = DATA_PATH + path.sep + "removed.txt";
 const CURRENT_CHANGES_PATH = DATA_PATH + path.sep + "currentVersionChanges.txt";
 const PATTERNS_PATH = DATA_PATH + path.sep + "patterns.json";
 const DA_DEPENDENCIES_PATH = DATA_PATH + path.sep + "dependencies.json";
@@ -37,5 +42,5 @@ const DA_COMMAND = "cd " + DA_PATH + " ; $GRAAL_HOME/bin/node --nodeprof.Scope=a
 module.exports = {
     REPO_URL, PROJECT_NAME, REPO_TEST_RELATIVE_DIR, SEED_COMMIT, REPO_PATH, REFDIFF_PATH, REPO_MAIN_BRANCH, MAPPINGS_PATH,
     CLASP_PATH, DA_PATH, SEQUENCES_PATH, PATTERNS_PATH, DATA_PATH, REPO_DIGGING_DEPTH, REFDIFF_COMMAND, CHANGES_BATCH_CHECKING,
-    CLASP_COMMAND, DA_COMMAND, DA_DEPENDENCIES_PATH, DA_CALL_SEQUENCE_PATH, KEEP_READABLE_TRACE_LOG, CURRENT_CHANGES_PATH
+    CLASP_COMMAND, DA_COMMAND, DA_DEPENDENCIES_PATH, DA_CALL_SEQUENCE_PATH, KEEP_READABLE_TRACE_LOG, CURRENT_CHANGES_PATH, REMOVED_PATH
 }

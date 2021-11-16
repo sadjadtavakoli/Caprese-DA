@@ -49,7 +49,8 @@ public class CstComparator {
 		}, mappingsPath);
 	}
 
-	public CstDiff compare(PairBeforeAfter<SourceFileSet> beforeAndAfter, CstComparatorMonitor monitor, String mappingsPath) {
+	public CstDiff compare(PairBeforeAfter<SourceFileSet> beforeAndAfter, CstComparatorMonitor monitor,
+			String mappingsPath) {
 		return compare(beforeAndAfter.getBefore(), beforeAndAfter.getAfter(), monitor, mappingsPath);
 	}
 
@@ -58,11 +59,27 @@ public class CstComparator {
 		}, mappingsPath);
 	}
 
-	public CstDiff compare(SourceFileSet sourcesBefore, SourceFileSet sourcesAfter, CstComparatorMonitor monitor, String mappingsPath) {
+	public CstDiff compare(SourceFileSet sourcesBefore, SourceFileSet sourcesAfter) {
+		return compare(sourcesBefore, sourcesAfter, new CstComparatorMonitor() {
+		});
+	}
+
+	public CstDiff compare(SourceFileSet sourcesBefore, SourceFileSet sourcesAfter, CstComparatorMonitor monitor,
+			String mappingsPath) {
 		try {
 			DiffBuilder<?> diffBuilder = new DiffBuilder<>(new TfIdfSourceRepresentationBuilder(), sourcesBefore,
 					sourcesAfter, monitor, mappingsPath);
 			return diffBuilder.computeDiff();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	public CstDiff compare(SourceFileSet sourcesBefore, SourceFileSet sourcesAfter, CstComparatorMonitor monitor) {
+		try {
+			DiffBuilder<?> diffBuilder = new DiffBuilder<>(new TfIdfSourceRepresentationBuilder(), sourcesBefore,
+					sourcesAfter, monitor, "");
+			return diffBuilder.computeDiffNoMapping();
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
@@ -77,7 +94,8 @@ public class CstComparator {
 		private Set<CstNode> added;
 		private Set<String> changedEntitiesKeys;
 		private Set<String> addedEntitiesKeys;
-		private String mappingsPath; 
+		private Set<String> removedEntitiesKeys;
+		private String mappingsPath;
 		private ThresholdsProvider threshold = new ThresholdsProvider();
 		private CstComparatorMonitor monitor;
 
@@ -95,7 +113,8 @@ public class CstComparator {
 			this.after = new CstRootHelper<>(this.diff.getAfter(), sourcesAfter, srb, false);
 			this.changed = new HashSet<>();
 			this.changedEntitiesKeys = new HashSet<>();
-			this.addedEntitiesKeys= new HashSet<>();
+			this.addedEntitiesKeys = new HashSet<>();
+			this.removedEntitiesKeys = new HashSet<>();
 			this.mappingsPath = mappingsPath;
 			this.diff.setNonValidChangedFiles(nonValidChangedFiles);
 			this.monitor = monitor;
@@ -133,8 +152,26 @@ public class CstComparator {
 			findMatchesByChildren();
 			findChangedEntities();
 			findAddedEntities();
+			findRemovedEntities();
 			diff.setChangedEntitiesKeys(this.changedEntitiesKeys);
 			diff.setAddedEntitiesKeys(this.addedEntitiesKeys);
+			diff.setRemovedEntitiesKeys(this.removedEntitiesKeys);
+			return diff;
+		}
+
+		CstDiff computeDiffNoMapping(){
+			computeSourceRepresentationForRemovedAndAdded();
+			findMatchesById();
+			findMatchesByUniqueName(0.75);
+			findMatchesBySimilarity(true);
+			findMatchesBySimilarity(false);
+			findMatchesByChildren();
+			findChangedEntitiesNoMapping();
+			findAddedEntitiesNoMapping();
+			findRemovedEntitiesNoMapping();
+			diff.setChangedEntitiesKeys(this.changedEntitiesKeys);
+			diff.setAddedEntitiesKeys(this.addedEntitiesKeys);
+			diff.setRemovedEntitiesKeys(this.removedEntitiesKeys);
 			return diff;
 		}
 
@@ -156,7 +193,6 @@ public class CstComparator {
 					if (n2WithSameName.size() == 1) {
 						CstNode n2 = n2WithSameName.get(0);
 						if (added(n2) && sameType(n1, n2)) {
-							// (" findMatchesByUniqueName ");
 							Optional<RelationshipType> optRelationshipType = findRelationshipForCandidate(n1, n2);
 							if (optRelationshipType.isPresent()) {
 								double score = computeHardSimilarityScore(n1, n2);
@@ -320,6 +356,37 @@ public class CstComparator {
 			}
 		}
 
+		private void findChangedEntitiesNoMapping() {
+			Map<CstNode, CstNode> treeMap = new TreeMap<>(new CstNodeTypeComprator());
+			treeMap.putAll(mapBeforeToAfter);
+			for (Entry<CstNode, CstNode> entry : treeMap.entrySet()) {
+				CstNode n1 = entry.getKey();
+				CstNode n2 = entry.getValue();
+				String n2Key = n2.toString();
+				double score = computeHardSimilarityScore(n1, n2);
+
+				if (score < 1) {
+					after.removeFromParents(n2);
+					before.removeFromParents(n1);
+					this.changedEntitiesKeys.add(n2Key);
+				}
+			}
+		}
+
+		private void findAddedEntitiesNoMapping() {
+			for (CstNode entry : this.added) {
+				String entryKey = entry.toString();
+				this.addedEntitiesKeys.add(entryKey);
+			}
+		}
+
+		private void findRemovedEntitiesNoMapping() {
+			for (CstNode entry : this.changed) {
+				String entryKey = entry.toString();
+				this.removedEntitiesKeys.add(entryKey);
+			}
+		}
+
 		private void findChangedEntities() throws IOException {
 			Map<CstNode, CstNode> treeMap = new TreeMap<>(new CstNodeTypeComprator());
 			treeMap.putAll(mapBeforeToAfter);
@@ -356,10 +423,21 @@ public class CstComparator {
 				if (!mappings.has(entryKey)) {
 					mappings.addProperty(entryKey, entryKey);
 					this.addedEntitiesKeys.add(entryKey);
-				}else{
+				} else {
 					this.addedEntitiesKeys.add(mappings.get(entryKey).getAsString());
 
 				}
+			}
+
+			setMappings(mappings);
+		}
+
+		private void findRemovedEntities() throws IOException {
+			JsonObject mappings = getMappings();
+			for (CstNode entry : this.changed) {
+				String entryKey = entry.toString();
+				mappings.addProperty(entryKey, entryKey);
+				this.removedEntitiesKeys.add(entryKey);
 			}
 
 			setMappings(mappings);
@@ -372,7 +450,8 @@ public class CstComparator {
 			JsonObject mappings = new JsonObject();
 			if (!tempFile.createNewFile()) {
 				try (FileReader reader = new FileReader(filePath)) {
-					mappings = jsonParser.parse(reader).getAsJsonObject();// Should check the content of this file before parsing to prevent excepction 
+					mappings = jsonParser.parse(reader).getAsJsonObject();// Should check the content of this file
+																			// before parsing to prevent excepction
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

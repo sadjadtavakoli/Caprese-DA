@@ -91,7 +91,6 @@ function checkoutProject(commit) {
 }
 
 function runDynamicAnalysis(commit) {
-    console.log(constants.DA_COMMAND)
     return new Promise(function (resolve, reject) {
         exec(constants.DA_COMMAND, (err, stdout, stderr) => {
             if (!err) {
@@ -105,7 +104,7 @@ function runDynamicAnalysis(commit) {
 }
 function runRefDiff(commit) {
     return new Promise(function (resolve, reject) {
-        exec(constants.REFDIFF_COMMAND + `"${constants.REPO_URL} ${commit} ${constants.SEQUENCES_PATH} ${constants.MAPPINGS_PATH} ${constants.REPO_DIGGING_DEPTH}"`, (err, stdout, stderr) => {
+        exec(constants.REFDIFF_COMMAND + `"${constants.REPO_URL} ${commit} ${constants.SEQUENCES_PATH} ${constants.MAPPINGS_PATH} ${constants.REMOVED_PATH} ${constants.REPO_DIGGING_DEPTH}"`, (err, stdout, stderr) => {
             if (!err) {
                 resolve(commit)
             }
@@ -119,9 +118,8 @@ function runRefDiff(commit) {
 
 function computeCommitChanges(commit) {
     return new Promise(function (resolve, reject) {
-        exec(constants.REFDIFF_COMMAND + `"${constants.REPO_URL} ${commit} ${constants.CURRENT_CHANGES_PATH} ${constants.MAPPINGS_PATH} 0"`, (err, stdout, stderr) => {
+        exec(constants.REFDIFF_COMMAND + `"${constants.REPO_URL} ${commit} ${constants.CURRENT_CHANGES_PATH} ${constants.MAPPINGS_PATH} ${constants.REMOVED_PATH} 0"`, (err, stdout, stderr) => {
             if (!err) {
-                changes = fs.readFileSync(constants.CURRENT_CHANGES_PATH).toString().trim().split(" ")
                 resolve(commit)
             }
             else {
@@ -156,6 +154,7 @@ function runBerke() {
     let dependenciesData = JSON.parse(fs.readFileSync(constants.DA_DEPENDENCIES_PATH))
     let mappings = JSON.parse(fs.readFileSync(constants.MAPPINGS_PATH))
     let keyMap = dependenciesData['keyMap']
+    let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(", ");
 
     /* 
     Callers and tests of our current changes as potential impactSet items 
@@ -187,8 +186,10 @@ function runBerke() {
     for (let impactedItem of impactSetBySequences) {
         let transactions = impactedItem['sequence'].trim().split(" ")
         for (let transaction of transactions) {
-            if (changes.indexOf(transaction) == -1) {
-                addImpactSet(transaction, 'FP', parseFloat(impactedItem['probability'])) // @TODO we are ignoring number of items included in this change-sets in our result ordering
+            if (changes.indexOf(transaction) == -1 && removed.indexOf(transaction) == -1) {
+                let power = 0.5 
+                if(impactedItem['items-included'] > 1) power = impactedItem['items-included']
+                addImpactSet(transaction, 'FP', parseFloat(impactedItem['probability']) * power) // @TODO we are ignoring number of items included in this change-sets in our result ordering
             }
         }
     }
