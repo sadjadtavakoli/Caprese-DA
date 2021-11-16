@@ -1,8 +1,6 @@
 package clasp_AGP;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -180,7 +178,6 @@ public class AlgoCM_ClaSP {
         // (could be replaced with a triangular matrix...)
         Map<String, Map<String, Integer>> coocMapEquals = new HashMap<String, Map<String, Integer>>(1000);
 
-        System.out.println(database.getSequences());
         // update COOC map
         for (Sequence seq : database.getSequences()) {
             Map<String, Set<String>> alreadySeenB_equals = new HashMap<>();

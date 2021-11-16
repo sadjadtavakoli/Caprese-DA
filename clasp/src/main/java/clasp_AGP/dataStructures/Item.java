@@ -66,13 +66,6 @@ public class Item<T extends Comparable> implements Comparable<Item> {
     }
 
     /**
-     * increases the number of occurance 
-     */
-    public void increaseQuantity(){
-        this.quantity++;
-    }
-
-    /**
      * set quantity
      */
     public void setQuantity(int quantity){

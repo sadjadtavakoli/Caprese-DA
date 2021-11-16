@@ -13,7 +13,8 @@ let EventEmmiter = events.EventEmitter.prototype;
     Utils.trackExternals = true;
 
     Utils.getFileName = function (iid) {
-        return Utils.getFilePath(iid).split('/')[2];
+        let pathSections = Utils.getFilePath(iid).split('/')
+        return pathSections[pathSections.length-1].toLowerCase();
     }
 
     Utils.getFilePath = function (iid) {

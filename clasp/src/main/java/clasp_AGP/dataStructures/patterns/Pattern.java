@@ -406,9 +406,11 @@ public class Pattern implements Comparable<Pattern> {
         if (itemset.isEmpty()) {
             return true;
         }
-        for (int i = 0; i < itemset.size(); i++) {
-            if (elements.contains(itemset.get(i).getPair())) {
-                return true;
+        for (int j = 0; j < elements.size(); j++) {
+            for (int i = 0; i < itemset.size(); i++) {
+                if (elements.get(j).getItem().getId() == itemset.get(i).getPair().getItem().getId()) {
+                    return true;
+                }
             }
         }
         return false;
