@@ -1,5 +1,6 @@
 package clasp_AGP;
 
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -137,6 +138,10 @@ public class FrequentPatternEnumeration_ClaSP {
         // We start increasing the number of frequent patterns
         numberOfFrequentPatterns++;
 
+        if (isAvoidable(pattern, currentTrie)) {
+            return;
+        }
+
         // Initialization of new sets
         List<TrieNode> newItemsetExtension = new ArrayList<>();
 
@@ -179,9 +184,13 @@ public class FrequentPatternEnumeration_ClaSP {
             // sequence and item-constaints, then compute
             // newIdList.getSupport()/intersection.getSupport()
             IDList newIdList = currentTrie.getIdList().join(eq.getChild().getIdList(), true);
-
-            IDList intersection = extension.getIntersections(itemConstraint);
-            double newPatternScore = (double) newIdList.getSupport() / intersection.getSupport();
+            double newPatternScore;
+            if (itemConstraint.isEmpty()) { // @SADJAD for test
+                newPatternScore = newIdList.getSupport();
+            } else {
+                IDList intersection = extension.getIntersections(itemConstraint);
+                newPatternScore = (double) newIdList.getSupport() / intersection.getSupport();
+            }
             if (newPatternScore >= minSupRelative) { // SADJADRE the probablities computed above are the
                                                      // contributing factors here
                 // We create a new trie for it
@@ -238,6 +247,174 @@ public class FrequentPatternEnumeration_ClaSP {
 
     public void setPatronesFrecuentes(int patronesFrecuentes) {
         this.numberOfFrequentPatterns = patronesFrecuentes;
+    }
+
+    /**
+     * Method that checks if the prefix given as parameter can be skipped by means
+     * of prune methods backward subpattern or backward superpattern. The method
+     * uses a map where the different patterns are kept in order to check both
+     * pruning methods. The hash keys used can vary, and we give some aproaches by
+     * the methods:
+     *
+     * keyStandardAndSupport()
+     *
+     * @param prefix Current pattern which is going to be checked
+     * @param trie   Trie associated with prefix
+     * @return
+     */
+    private boolean isAvoidable(Pattern prefix, Trie trie) {
+        // We get the support of the pattern
+        int support = trie.getSupport();
+        // We get the IdList of the pattern
+        IDList idList = trie.getIdList();
+        /*
+         * We get as a first key the sum of all sequences identifiers where the current
+         * prefix appear
+         */
+        int key1 = trie.getSumIdSequences();
+        int prefixSize = prefix.size();
+
+        /*
+         * Different approaches for the key2 can be used
+         */
+        int key2 = key2(idList, trie);
+
+        /*
+         * We make a new entry associating the current prefix with its corresponding
+         * prefixTrie
+         */
+        Entry<Pattern, Trie> newEntry = new AbstractMap.SimpleEntry<>(prefix, trie);
+
+        /*
+         * Map where there appear all the patterns with the same key1 of the current
+         * prefix, that makes a correspondence between a value given by key2 and all the
+         * patterns that have it
+         */
+        Map<Integer, List<Entry<Pattern, Trie>>> associatedMap = matchingMap.get(key1);
+        /*
+         * If there is not any pattern with the same key2 value, we add the current
+         * prefix as a new entry, and we also insert it in the matching map
+         */
+        if (associatedMap == null) {
+            associatedMap = new HashMap<>();
+            /*
+             * Tin modifies:
+             */
+            List<Entry<Pattern, Trie>> entryList = new ArrayList<>();
+            entryList.add(newEntry);
+            associatedMap.put(key2, entryList);
+            matchingMap.put(key1, associatedMap);
+        } else {
+            /*
+             * If, conversely, there are some patterns with the same key2 value (and
+             * extensively with the same key1 value) we check if we can apply backward
+             * subpattern or backward superpattern pruning
+             */
+
+            // We get the list of entries
+            List<Entry<Pattern, Trie>> associatedList = associatedMap.get(key2);
+            // If is still empty, we create one
+            if (associatedList == null) {
+                associatedList = new ArrayList<>();
+                associatedList.add(newEntry);
+                associatedMap.put(key2, associatedList);
+            } else {
+                int i = 0;
+                int superPattern = 0;
+                for (i = 0; i < associatedList.size(); i++) {
+                    // For all the elements of the associated list
+                    Entry<Pattern, Trie> storedEntry = associatedList.get(i);
+                    // We get both pattern and trie from the entry
+                    Pattern p = storedEntry.getKey();
+                    Trie t = storedEntry.getValue();
+                    // If the support of the current prefix and the p pattern are equal
+                    if (support == t.getSupport()) {
+                        // We keep the size of the pattern
+                        int pSize = p.size();
+                        if (pSize != prefixSize) {
+                            // if the prefix size is less than the size of p
+                            if (prefixSize < pSize) {
+                                // and prefix is a subpattern of p
+                                if (prefix.isSubpattern(abstractionCreator, p)) {
+                                    /*
+                                     * We dfsPruning backward subpattern pruning and establish as new nodes the
+                                     * nodes of the trie of p
+                                     */
+                                    trie.setNodes(t.getNodes());
+                                    /*
+                                     * We end the method since we have already done the prune
+                                     */
+                                    return true;
+                                }
+                            } else if (p.isSubpattern(abstractionCreator, prefix)) {
+                                /*
+                                 * if, conversely, the prefix size is greater than the size of p and prefix is a
+                                 * superpattern of p
+                                 */
+
+                                // we update a counter of superpatterns
+                                superPattern++;
+                                /*
+                                 * and we make the prefix trie point to the nodes of the trie of p
+                                 */
+                                trie.setNodes(t.getNodes());
+                                /*
+                                 * and we make null the nodes of t since p is included in prefix
+                                 */
+                                // t.setNodes(null);
+                                // And we remove the entry of the list
+                                associatedList.remove(i);
+                                i--;
+                            }
+                        }
+                    }
+                }
+                // In this point we add the new entry of the current prefix
+                associatedList.add(newEntry);
+                // If we found any superPattern
+                if (superPattern > 0) {
+                    /*
+                     * if (superPattern > 1) {
+                     * System.out.println("We removed more than one pattern!!"); }
+                     */
+                    // We return the correspondent output
+                    return true;
+                }
+            }
+        }
+        /*
+         * We did not find any subpattern or supperpattern in order to skip the
+         * generation of the current prefix
+         */
+        return false;
+    }
+
+    /**
+     * Method used to obtain the value for the second key of matchingMap.
+     *
+     * @param idlist
+     * @param t
+     * @return
+     */
+    private int key2(IDList idlist, Trie t) {
+        /*
+         * If you are interested in changing the method, just comment the line of below
+         * and uncomment one of the others
+         */
+        return FrequentPatternEnumeration_ClaSP.keyStandardAndSupport(idlist, t);
+    }
+
+    /**
+     * One of the methods used by key2 in the method isAvoidable that return the
+     * addition of the number of elements that appear in the projected database and
+     * the support of the related prefix
+     *
+     * @param idList IdList of the prefix to consider
+     * @param trie   Trie of the pattern to consider
+     * @return
+     */
+    private static int keyStandardAndSupport(IDList projection, Trie trie) {
+        return projection.getTotalElementsAfterPrefixes() + trie.getSupport();
     }
 
     /**
@@ -324,8 +501,11 @@ public class FrequentPatternEnumeration_ClaSP {
             numberOfFrequentClosedPatterns += list.size();
             if (keepPatterns) {
                 for (Pattern p : list) {
-                    p.getIntersections(itemConstraint);
-                    p.setProbability((double) p.getSupport() / p.getIntersections(itemConstraint).getSupport());
+                    if (itemConstraint.isEmpty()) { // @SADJAD for test
+                        p.setProbability(p.getSupport());
+                    } else {
+                        p.setProbability((double) p.getSupport() / p.getIntersections(itemConstraint).getSupport());
+                    }
                     saver.savePattern(p);
                 }
             }
