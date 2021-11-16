@@ -87,6 +87,7 @@ let tempIDsMap = {};
             // TODO it's not understandable => remove these ugly if elses
             if (isImportingNewModule(iid)) {
                 let fID = getID(f, iid)
+                tempIDsMap[fID] = utils.getIIDKey(utils.getFileName(iid), iid)
                 // console.log("we are here! " + utils.getFilePath(iid))
                 accessedFiles.set(utils.getFilePath(iid), iid)
                 if (functionEnterStack[functionEnterStack.length - 1] && functionEnterStack[functionEnterStack.length - 1].iid != iid) {
@@ -195,12 +196,12 @@ let tempIDsMap = {};
                 }
                 console.log("Traces file was saved!");
             });
-            let mappings = readMappings()
+            // let mappings = readMappings()
             let functionDependenciesByKeys = {}
             for (const item in functionsDependency) {
-                let key = tempIDsMap[item]
-                let mappedKey = mappings[key]
-                if (mappedKey == undefined) mappedKey = key
+                let mappedKey = tempIDsMap[item]
+                // let mappedKey = mappings[key]
+                // if (mappedKey == undefined) mappedKey = key
                 functionDependenciesByKeys[mappedKey] = { 'callers': [...functionsDependency[item]['callers']], 'tests': [...functionsDependency[item]['tests']] }
                 delete functionsDependency[item]
             }
@@ -229,7 +230,7 @@ let tempIDsMap = {};
     }
 
     function updateTrace(key) {
-        trace += key + " -1 "
+        // trace += key + " -1 "
     }
 
     function addToTimeoutMap(key, value) {
