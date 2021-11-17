@@ -19,6 +19,7 @@ function run() {
     }
     cloneProject()
         .then(() => {
+            console.log(" = = = Compute Current Changes = = = ")
             if (INITIALIZED_COMMIT) return computeCommitChanges(INITIALIZED_COMMIT)
             return getCurrentCommit().then((commit) => {
                 return computeCommitChanges(commit)
@@ -42,6 +43,7 @@ function run() {
 }
 
 function getParentCommit(commit) {
+    console.log(" = = = Get Parent Commit = = = ")
     const getOriginCommand = "cd " + constants.REPO_PATH + ` ; git rev-parse ${commit}^`
     return new Promise(function (resolve, reject) {
         exec(getOriginCommand, (err, stdout, stderr) => {
@@ -55,6 +57,7 @@ function getParentCommit(commit) {
 }
 
 function getCurrentCommit() {
+    console.log(" = = = Get Current Commit = = = ")
     const getOriginCommand = "cd " + constants.REPO_PATH + ` ; git rev-parse origin`
     return new Promise(function (resolve, reject) {
         exec(getOriginCommand, (err, stdout, stderr) => {
@@ -77,6 +80,7 @@ function cloneProject() {
 }
 
 function checkoutProject(commit) {
+    console.log(" = = = Checkout Project = = = ")
     const checkoutCommand = "cd " + constants.REPO_PATH + " ; git checkout " + commit
     return new Promise(function (resolve, reject) {
         exec(checkoutCommand, (err, stdout, stderr) => {
@@ -91,6 +95,7 @@ function checkoutProject(commit) {
 }
 
 function runDynamicAnalysis(commit) {
+    console.log(" = = = Run Dynamic Anlaysis = = = ")
     return new Promise(function (resolve, reject) {
         exec(constants.DA_COMMAND, (err, stdout, stderr) => {
             if (!err) {
@@ -103,6 +108,7 @@ function runDynamicAnalysis(commit) {
     })
 }
 function runRefDiff(commit) {
+    console.log(" = = = Run RefDiff = = = ")
     return new Promise(function (resolve, reject) {
         exec(constants.REFDIFF_COMMAND + `"${constants.REPO_URL} ${commit} ${constants.SEQUENCES_PATH} ${constants.MAPPINGS_PATH} ${constants.REMOVED_PATH} ${constants.REPO_DIGGING_DEPTH}"`, (err, stdout, stderr) => {
             if (!err) {
@@ -132,6 +138,7 @@ function computeCommitChanges(commit) {
 }
 
 function runClasp(commit) {
+    console.log(" = = = Run Clasp = = = ")
     return new Promise(function (resolve, reject) {
         exec(constants.CLASP_COMMAND + `"${constants.SEQUENCES_PATH} ${constants.PATTERNS_PATH} ${getItemConstraints()}"`, (err, stdout, stderr) => {
             if (!err) {
@@ -146,6 +153,7 @@ function runClasp(commit) {
 
 // Not Completed
 function runBerke() {
+    console.log(" = = = Final Report = = = ")
     let impactSet = new Map()
 
     /* 

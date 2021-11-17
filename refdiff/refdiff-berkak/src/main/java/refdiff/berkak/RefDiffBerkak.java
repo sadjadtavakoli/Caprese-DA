@@ -30,7 +30,6 @@ public class RefDiffBerkak {
 
 		new File("data").mkdir();
 		new File(changesPath).mkdir();
-		new File(dataPath);
 		File commitFolder = new File("data/" + commitSha);
 
 		try (JsPlugin jsPlugin = new JsPlugin()) {
