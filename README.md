@@ -1,11 +1,13 @@
 # Berke
-Berke is a function-level change impact analysis tool using Dynamic Analysis and co-occurace. Follow the instruction below to run berke. 
+Berke is a function-level change impact analysis tool using Dynamic Analysis and co-occurace. Follow the instruction below to run berke.
+
 ------------------------------------------------------------
 
 # NodeProf 
 Berke uses NodeProf for its dynamic analysis phase. NodeProf is an efficient instrumentation and profiling framework for [Graal.js](https://github.com/graalvm/graaljs).
 
 ## Getting started
+
 To install nodeProf, You can follow [this instruction](https://github.com/Haiyang-Sun/nodeprof.js.git). 
 
 NodeProf is available under the following license:
