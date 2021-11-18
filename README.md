@@ -3,8 +3,8 @@ Berke is a function-level change impact analysis tool using Dynamic Analysis and
 
 1- Install NodeProf ([check here](#NodeProf)) \
 2- Install RefDiff ([check here](#RefDiff))\
-3- Set the needed constants ([check here](#needed))\
-4- It's ready to go! ([check here](#ready)) 
+3- Initialize the required constants ([check here](#needed a bit coding action))\
+4- It's ready to go! ([check here](#ready to go)) 
 
 ------------------------------------------------------------
 
