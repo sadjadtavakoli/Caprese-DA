@@ -1,3 +1,5 @@
-node_modules/
-test/analyzerOutputs/
-.idea/
+node_modules
+test/analyzerOutputs
+.idea
+package-lock.json
+
