@@ -1,6 +1,11 @@
 # Berke
 Berke is a function-level change impact analysis tool using Dynamic Analysis and co-occurace. Follow the instruction below to run berke.
 
+1- Install NodeProf ([check here](#NodeProf)) \
+2- Install RefDiff ([check here](#RefDiff))\
+3- Set the needed constants ([check here](#needed))\
+4- It's ready to go! ([check here](#ready)) 
+
 ------------------------------------------------------------
 
 # NodeProf 
@@ -31,7 +36,13 @@ Go to berke/refdiff directory, then use gradlew to install Refdiff.
 ------------------------------------------------------------
 # Berke
 
-After installing NodeProf and RefDiff, you should initialize the required constants in Berke/constants.js, Then run the following command:
+## needed a bit coding action
+
+After installing NodeProf and RefDiff, you should initialize the required constants in Berke/constants.js.
+
+## ready to go
+
+Run the following command to run berke:
 ```
 node berke.js
 ```
