@@ -2,7 +2,9 @@ const path = require('path');
 const fs = require('fs');
 const constants = require('./constants.js');
 function cleanup() {
+    
     fs.unlinkSync(constants.SEQUENCES_PATH)
+    fs.unlinkSync(constants.SEQUENCES_PATH+"details.txt")
     fs.unlinkSync(constants.REMOVED_PATH)
     fs.unlinkSync(constants.PATTERNS_PATH)
     fs.unlinkSync(constants.MAPPINGS_PATH)
@@ -11,6 +13,7 @@ function cleanup() {
     fs.unlinkSync(constants.CURRENT_CHANGES_PATH)
 
     fs.writeFileSync(constants.SEQUENCES_PATH, "")
+    fs.writeFileSync(constants.SEQUENCES_PATH+"details.txt", "")
     fs.writeFileSync(constants.REMOVED_PATH, "")
     fs.writeFileSync(constants.PATTERNS_PATH, "")
     fs.writeFileSync(constants.MAPPINGS_PATH, "{}")

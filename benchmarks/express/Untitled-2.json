@@ -1,0 +1,251 @@
+{
+    "process_params-lib/router/index.js-333-417": {
+        "next-lib/router/index.js-176-286": {
+            "DA": 1
+        },
+        "Layer-lib/router/layer.js-33-50": {
+            "FP": 1.125
+        },
+        "all-lib/router/route.js-170-190": {
+            "FP": 1.125
+        },
+        "handle-lib/router/index.js-136-326": {
+            "FP": 7.25
+        }, dependent by dynamic alanysis but not tested, can we call it undetectable? 
+        "index.js-lib/router/index.js-1-669": {
+            "FP": 9.25
+        },
+        "method-lib/router/route.js-193-215": {
+            "FP": 1.125
+        },
+        "route-lib/router/index.js-497-510": {
+            "FP": 3.5
+        },
+        "use-lib/router/index.js-434-482": {
+            "FP": 3.5
+        },
+        "exports-lib/router/index.js-43-61": {
+            "FP": 1.125
+        },
+        "layer.js-lib/router/layer.js-1-182": {
+            "FP": 1.125
+        },
+        "route.js-lib/router/route.js-1-217": {
+            "FP": 1.125
+        },
+        "History.md": {
+            "FP": 2
+        },
+        "dispatch-lib/router/route.js-98-140": {
+            "FP": 0.25
+        },
+        "param-lib/router/index.js-354-391": {
+            "FP": 0.875
+        },
+        "paramCallback-lib/router/index.js-394-414": {
+            "FP": 0.25
+        },
+        "Router.js-test/router.js-1-561": {
+            "FP": 1.875
+        },
+        "match-lib/router/layer.js-110-156": {
+            "FP": 0.875
+        },
+        "method-lib/router/index.js-514-518": {
+            "FP": 0.25
+        },
+        "express.js-lib/express.js-1-117": {
+            "FP": 0.25
+        },
+        "Route-lib/router/route.js-43-51": {
+            "FP": 0.25
+        },
+        "Route.js-test/route.js-1-243": {
+            "FP": 0.25
+        }
+    },
+    "defaultConfiguration-lib/application.js-70-127": {
+        "init-lib/application.js-57-63": {
+            "DA": 1
+        },
+        "History.md": {
+            "FP": 3.0000000000000004
+        },
+        "application.js-lib/application.js-1-645": {
+            "FP": 4.545454545454545
+        },
+        "utils.js-lib/utils.js-1-303": {
+            "FP": 1.0909090909090908
+        },
+        "use-lib/application.js-187-242": {
+            "FP": 0.2727272727272727
+        },
+        "init-lib/middleware/init.js-28-42": {
+            "FP": 0.2727272727272727
+        },
+        "lazyrouter-lib/application.js-137-147": {
+            "FP": 0.2727272727272727
+        },
+        "package.json": {
+            "FP": 0.6363636363636364
+        },
+        "set-lib/application.js-352-384": {
+            "FP": 1.0909090909090908
+        }
+    },
+    "acceptsCharsets-lib/request.js-162-165": // these function are detectable using DA, but there isn"t any test to detect their dependancy by DA. 
+    {
+        "History.md": {
+            "FP": 1
+        },
+        "accepts-lib/request.js-132-135": {
+            "FP": 1
+        },
+        "acceptsEncodings-lib/request.js-145-148": {
+            "FP": 1
+        },
+        "acceptsLanguages-lib/request.js-179-182": {
+            "FP": 1
+        },
+        "is-lib/request.js-278-290": {
+            "FP": 1
+        },
+        "package.json": {
+            "FP": 1
+        },
+        "req.accepts.js-test/req.accepts.js-1-125": {
+            "FP": 1
+        },
+        "req.acceptsCharset.js-test/req.acceptscharset.js-1-50": {
+            "FP": 1
+        },
+        "req.is.js-test/req.is.js-1-169": {
+            "FP": 1
+        },
+        "request.js-lib/request.js-1-526": {
+            "FP": 1
+        },
+        "utils.js-lib/utils.js-1-303": {
+            "FP": 1
+        },
+        "utils.js-test/utils.js-1-96": {
+            "FP": 1
+        }
+    },
+    "request.js-lib/request.js-1-526": {
+        "utils.js-lib/utils.js-1-303": {
+            "FP": 0.2222222222222222
+        },
+        "History.md": {
+            "FP": 1.074074074074074
+        },
+        "package.json": {
+            "FP": 0.6666666666666666
+        }
+    },
+    "handle-lib/router/index.js-136-326": {
+        "router-lib/router/index.js-46-48" => { DA: 1
+        },
+        "handle-lib/application.js-158-175" => { DA: 1
+        },
+        "arrowFunction-test/router.js-18-28" => {
+            "DA-test": 1
+        },
+        "arrowFunction-test/router.js-30-41" => {
+            "DA-test": 1
+        },
+        "arrowFunction-test/router.js-43-51" => {
+            "DA-test": 1
+        },
+        "arrowFunction-test/router.js-53-61" => {
+            "DA-test": 1
+        },
+        "arrowFunction-test/router.js-63-76" => {
+            "DA-test": 1
+        },
+        "arrowFunction-test/router.js-79-93" => {
+            "DA-test": 1
+        },
+        "arrowFunction-test/router.js-125-146" => {
+            "DA-test": 1
+        },
+        "arrowFunction-test/router.js-148-165" => {
+            "DA-test": 1
+        },
+        "arrowFunction-test/router.js-167-187" => {
+            "DA-test": 1
+        },
+        "arrowFunction-test/router.js-189-206" => {
+            "DA-test": 1
+        },
+        "arrowFunction-test/router.js-210-225" => {
+            "DA-test": 1
+        },
+        "arrowFunction-test/router.js-227-242" => {
+            "DA-test": 1
+        },
+        "arrowFunction-test/router.js-244-259" => {
+            "DA-test": 1
+        },
+        "arrowFunction-test/router.js-261-276" => {
+            "DA-test": 1
+        },
+        "arrowFunction-test/router.js-278-299" => {
+            "DA-test": 1
+        },
+        "arrowFunction-test/router.js-301-328" => {
+            "DA-test": 1
+        },
+        "testMethod-test/router.js-340-342" => {
+            "DA-test": 1
+        },
+        "arrowFunction-test/router.js-348-364" => {
+            "DA-test": 1
+        },
+        "arrowFunction-test/router.js-393-409" => {
+            "DA-test": 1
+        },
+        "arrowFunction-test/router.js-411-431" => {
+            "DA-test": 1
+        },
+        "arrowFunction-test/router.js-435-449" => {
+            "DA-test": 1
+        },
+        "arrowFunction-test/router.js-451-466" => {
+            "DA-test": 1
+        },
+        "arrowFunction-test/router.js-468-493" => {
+            "DA-test": 1
+        },
+        "arrowFunction-test/router.js-495-520" => {
+            "DA-test": 1
+        },
+        "arrowFunction-test/router.js-524-558" => {
+            "DA-test": 1
+        },
+        "History.md" => { FP: 3.833333333333334
+        },
+        "index.js-lib/router/index.js-1-669" => { FP: 4.416666666666666
+        },
+        "Router.js-test/router.js-1-561" => { FP: 1.2083333333333333
+        },
+        "trim_prefix-lib/router/index.js-288-325" => { FP: 1.2916666666666667 //called bu handle's children
+        },
+        "route.js-lib/router/route.js-1-217" => { FP: 0.45833333333333337
+        },
+        "app.router.js-test/app.router.js-1-1108" => { FP: 0.25
+        },
+        "Layer-lib/router/layer.js-33-50" => { FP: 0.20833333333333334
+        },
+        "next-lib/router/index.js-176-286" => { FP: 1.0416666666666667 //handle's inner function
+        },
+        "all-lib/router/route.js-170-190" => { FP: 0.20833333333333334
+        },
+        "use-lib/router/index.js-434-482" => { FP: 0.20833333333333334
+        },
+        "exports-lib/router/index.js-43-61" => { FP: 0.20833333333333334
+        },
+        "process_params-lib/router/index.js-333-417" => { FP: 0.25
+        }
+    }
+}

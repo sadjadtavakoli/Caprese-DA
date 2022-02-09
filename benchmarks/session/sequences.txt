@@ -1,0 +1,97 @@
+.github/workflows/ci.yml .travis.yml README.md package.json -1 -2 
+session.js-test/session.js-1-2472 set-test/session.js-1163-1165 set-test/session.js-2443-2458 shouldSetSessionInStore-test/session.js-2439-2463 -1 -2 
+HISTORY.md respond-test/session.js-1418-1427 session.js-test/session.js-1-2472 writetop-index.js-270-305 -1 -2 
+HISTORY.md reload-index.js-398-401 reload-test/session.js-1684-1696 rewrapmethods-index.js-383-391 session-index.js-87-509 session.js-test/session.js-1-2472 -1 -2 
+HISTORY.md SmartStore-test/support/smart-store.js-13-16 createSession-session/store.js-86-102 destroy-test/support/smart-store.js-20-23 get-test/support/smart-store.js-25-49 session.js-test/session.js-1-2472 set-test/support/smart-store.js-51-54 smart-store.js-test/support/smart-store.js-1-55 store.js-session/store.js-1-103 -1 -2 
+README.md expect-scripts/lint-readme.js-89-93 lint-readme.js-scripts/lint-readme.js-1-94 package.json -1 -2  
+HISTORY.md getSession-session/memory.js-164-187 inflate-index.js-371-381 memory.js-session/memory.js-1-188 session-index.js-87-509 session.js-test/session.js-1-2472 -1 -2 
+HISTORY.md cookie.js-test/cookie.js-1-119 exports-session/cookie.js-25-45 -1 -2 
+getLocaleDate-scripts/version-history.js-37-43 package.json repeat-scripts/version-history.js-45-53 version-history.js-scripts/version-history.js-1-64 zeroPad-scripts/version-history.js-55-63 -1 -2 
+.eslintrc.yml cookie.js-session/cookie.js-1-151 createSession-session/store.js-86-102 exports-session/cookie.js-25-45 session-index.js-87-509 shouldSetCookie-index.js-464-473 store.js-session/store.js-1-103 -1 -2 
+SyncStore-test/support/sync-store.js-8-11 destroy-test/support/sync-store.js-15-18 end-test/support/utils.js-30-33 expires-test/session.js-2337-2340 get-test/support/sync-store.js-20-22 parseSetCookie-test/support/utils.js-6-23 respond-test/session.js-1392-1397 session.js-test/session.js-1-2472 set-test/support/sync-store.js-24-27 setup-test/session.js-1376-1378 shouldSetCookie-test/session.js-2371-2378 shouldSetCookieToExpireIn-test/session.js-2386-2396 shouldSetCookieToValue-test/session.js-2398-2406 shouldSetCookieWithAttribute-test/session.js-2408-2416 shouldSetCookieWithAttributeAndValue-test/session.js-2418-2427 shouldSetCookieWithoutAttribute-test/session.js-2429-2437 sid-test/session.js-2465-2471 sync-store.js-test/support/sync-store.js-1-28 utils.js-test/support/utils.js-1-43 write-test/support/utils.js-35-41 writePatch-test/support/utils.js-25-42 -1 -2 
+HISTORY.md cookie.js-session/cookie.js-1-151 -1 -2 
+HISTORY.md cookie.js-session/cookie.js-1-151 exports-session/cookie.js-25-45 package.json -1 -2 
+HISTORY.md cookie.js-session/cookie.js-1-151 cookie.js-test/cookie.js-1-119 maxAge-test/cookie.js-106-106 -1 -2 
+HISTORY.md hash-index.js-596-612 index.js-index.js-1-686 package.json session.js-test/session.js-1-2472 -1 -2 
+check-test/session.js-150-157 cookie.js-test/cookie.js-1-119 session.js-test/session.js-1-2472 shouldSetCookie-test/session.js-2371-2378 shouldSetCookieToDifferentSessionId-test/session.js-2380-2384 shouldSetCookieToExpireIn-test/session.js-2386-2396 shouldSetCookieToValue-test/session.js-2398-2406 shouldSetCookieWithAttribute-test/session.js-2408-2416 shouldSetCookieWithAttributeAndValue-test/session.js-2418-2427 shouldSetCookieWithoutAttribute-test/session.js-2429-2437 -1 -2 
+HISTORY.md setcookie-index.js-655-665 -1 -2 
+session.js-test/session.js-1-2472 shouldSetCookieToDifferentSessionId-test/session.js-2380-2384 sid-test/session.js-2465-2471 -1 -2 
+cookie.js-test/cookie.js-1-119 exports-session/cookie.js-25-45 -1 -2 
+cookie.js-test/cookie.js-1-119 env.js-test/support/env.js-1-3 package.json session.js-test/session.js-1-2472 -1 -2 
+HISTORY.md index.js-index.js-1-686 package.json writetop-index.js-270-305 -1 -2 
+cookie.js-session/cookie.js-1-151 createSession-session/store.js-86-102 index.js-index.js-1-686 session.js-session/session.js-1-144 session.js-test/session.js-1-2472 -1 -2   
+HISTORY.md session-index.js-87-509 session.js-test/session.js-1-2472 setup-test/session.js-1376-1378 setup-test/session.js-169-171 setup-test/session.js-656-660 setup-test/session.js-775-777 -1 -2 
+mountAt-test/session.js-2342-2349 session.js-test/session.js-1-2472 -1 -2     
+createServer-test/session.js-2279-2293 respond-test/session.js-1380-1384 respond-test/session.js-1392-1397 respond-test/session.js-629-631 respond-test/session.js-662-664 respond-test/session.js-779-781 session.js-test/session.js-1-2472 setup-test/session.js-169-171 setup-test/session.js-27-29 setup-test/session.js-44-46 setup-test/session.js-623-627 setup-test/session.js-656-660 setup-test/session.js-775-777 writePatch-test/support/utils.js-25-42 -1 -2   
+session.js-test/session.js-1-2472 shouldSetCookieToExpireIn-test/session.js-2386-2396 -1 -2 
+session.js-test/session.js-1-2472 shouldSetCookieWithAttribute-test/session.js-2408-2416 shouldSetCookieWithAttributeAndValue-test/session.js-2418-2427 shouldSetCookieWithoutAttribute-test/session.js-2429-2437 -1 -2 
+expires-test/session.js-2337-2340 parseSetCookie-test/support/utils.js-6-23 session.js-test/session.js-1-2472 shouldSetCookie-test/session.js-2371-2378 shouldSetCookieToValue-test/session.js-2398-2406 shouldSetCookieWithAttribute-test/session.js-2408-2416 shouldSetCookieWithoutAttribute-test/session.js-2429-2437 -1 -2 
+session.js-test/session.js-1-2472 set-test/support/sync-store.js-24-27 -1 -2 
+session.js-test/session.js-1-2472 set-test/session.js-2361-2364 set-test/session.js-2443-2458 shouldNotSetSessionInStore-test/session.js-2357-2369 shouldSetSessionInStore-test/session.js-2439-2463 -1 -2 
+HISTORY.md hash-index.js-596-612 save-test/session.js-1057-1060 save-test/session.js-1180-1183 session.js-test/session.js-1-2472 -1 -2   
+HISTORY.md setcookie-index.js-655-665 -1 
+HISTORY.md reload-index.js-398-401 session.js-test/session.js-1-2472 set-test/session.js-1636-1639 set-test/session.js-2318-2321 wrapmethods-index.js-394-422 -1 -2   
+HISTORY.md end-index.js-250-360 session-index.js-87-509 session.js-test/session.js-1-2472 -1 -2 
+HISTORY.md cookie.js-session/cookie.js-1-151 -1 -2  
+HISTORY.md load-session/store.js-67-75 session-index.js-87-509 store.js-session/store.js-1-103 -1 -2 
+session-index.js-87-509 session.js-test/session.js-1-2472 -1 -2 
+HISTORY.md Store-session/store.js-32-34 SyncStore-test/support/sync-store.js-8-11 session.js-test/session.js-1-2472 store.js-session/store.js-1-103 -1 -2 
+HISTORY.md end-index.js-250-360 session-index.js-87-509 session.js-test/session.js-1-2472 -1 -2 
+HISTORY.md defineMethod-session/session.js-136-143 session.js-session/session.js-1-144 session.js-test/session.js-1-2472 -1 -2 
+HISTORY.md cookie.js-session/cookie.js-1-151 index.js-index.js-1-686 memory.js-session/memory.js-1-188 session.js-session/session.js-1-144 store.js-session/store.js-1-103 -1 -2  
+HISTORY.md README.md -1 -2 
+README.md save-test/session.js-1115-1118 save-test/session.js-1136-1139 save-test/session.js-1157-1160 session.js-test/session.js-1-2472 shouldSetCookie-index.js-464-473 -1 -2   
+HISTORY.md README.md generate-index.js-158-166 index.js-index.js-1-686 session-index.js-87-509 session.js-test/session.js-1-2472 shouldSetCookieWithAttribute-test/session.js-2408-2416 shouldSetCookieWithoutAttribute-test/session.js-2429-2437 -1 -2      
+HISTORY.md session-index.js-87-509 -1 -2  
+HISTORY.md README.md getcookie-index.js-529-586 index.js-index.js-1-686 session-index.js-87-509 session.js-test/session.js-1-2472 unsigncookie-index.js-675-685 -1 -2      
+MemoryStore-session/memory.js-40-43 all-session/memory.js-58-72 clear-session/memory.js-81-84 destroy-session/memory.js-93-96 get-session/memory.js-106-108 getSession-session/memory.js-164-187 length-session/memory.js-131-136 memory.js-session/memory.js-1-188 set-session/memory.js-119-122 touch-session/memory.js-147-157 -1 -2 
+HISTORY.md README.md end-index.js-250-360 index.js-index.js-1-686 memory.js-session/memory.js-1-188 session-index.js-87-509 session.js-test/session.js-1-2472 shouldTouch-index.js-453-461 touch-session/memory.js-147-157 touch-test/session.js-1084-1086 touch-test/session.js-1185-1187 -1 -2 
+check-test/session.js-150-157 package.json session.js-test/session.js-1-2472 shouldNotHaveHeader-test/session.js-2351-2355 shouldSetCookie-test/session.js-2371-2378 shouldSetCookieToValue-test/session.js-2398-2406 -1 -2  
+HISTORY.md session-index.js-87-509 session.js-test/session.js-1-2472 sessionID-test/session.js-246-246 shouldSave-index.js-440-450 shouldSetCookie-index.js-464-473 -1 -2 
+createConnection-test/session.js-1997-2000 createRequestListener-test/session.js-2295-2317 createServer-test/session.js-2279-2293 session.js-test/session.js-1-2472 shouldNotHaveHeader-test/session.js-2351-2355 -1 -2  
+HISTORY.md end-index.js-250-360 writetop-index.js-270-305 -1 -2   
+HISTORY.md hash-index.js-596-612 index.js-index.js-1-686 package.json -1 -2  
+HISTORY.md session.js-test/session.js-1-2472 wrapmethods-index.js-394-422 -1 -2 
+HISTORY.md Session-session/session.js-24-36 session.js-session/session.js-1-144 session.js-test/session.js-1-2472 -1 -2 
+HISTORY.md end-index.js-250-360 generate-index.js-363-368 index.js-index.js-1-686 isModified-index.js-425-427 isSaved-index.js-430-432 save-index.js-403-407 session-index.js-87-509 session.js-test/session.js-1-2472 set-test/session.js-1636-1639 set-test/support/sync-store.js-24-27 shouldSave-index.js-440-450 wrapmethods-index.js-394-422 -1 -2  
+HISTORY.md History.md -1 -2 
+History.md end-index.js-250-360 session.js-test/session.js-1-2472 -1 -2 
+History.md index.js-index.js-1-686 package.json session-index.js-87-509 -1 -2  
+History.md end-index.js-250-360 session.js-test/session.js-1-2472 set-test/session.js-1212-1214 set-test/session.js-264-271 set-test/session.js-329-336 set-test/session.js-358-365 set-test/session.js-386-393 set-test/support/sync-store.js-24-27 writeend-index.js-260-268 writetop-index.js-270-305 -1 -2 
+History.md createServer-test/session.js-2279-2293 createSession-test/session.js-2319-2331 end-index.js-250-360 end-test/support/utils.js-30-33 index.js-index.js-1-686 session-index.js-87-509 session.js-test/session.js-1-2472 write-test/support/utils.js-35-41 writePatch-test/support/utils.js-25-42 -1 -2   
+History.md createServer-test/session.js-2279-2293 destroy-test/session.js-1358-1360 destroy-test/support/sync-store.js-15-18 end-index.js-250-360 get-test/session.js-122-126 get-test/session.js-98-100 get-test/support/sync-store.js-20-22 index.js-index.js-1-686 session.js-test/session.js-1-2472 set-test/session.js-329-336 set-test/session.js-358-365 -1 -2   
+createServer-test/session.js-2279-2293 session-index.js-87-509 -1 -2 
+History.md session-index.js-87-509 -1 -2 
+History.md SyncStore-test/support/sync-store.js-8-11 destroy-test/session.js-1358-1360 end-index.js-250-360 get-test/session.js-98-100 index.js-index.js-1-686 session-index.js-87-509 session.js-test/session.js-1-2472 set-test/session.js-329-336 -1 -2 
+History.md session-index.js-87-509 -1 -2 
+History.md session-index.js-87-509 -1 -2 
+History.md session-index.js-87-509 -1 -2 
+History.md genid-test/session.js-664-664 genid-test/session.js-836-836 genid-test/session.js-849-849 getcookie-index.js-529-586 index.js-index.js-1-686 session.js-test/session.js-1-2472 sid-test/session.js-2465-2471 -1 -2 
+MemoryStore-session/memory.js-40-43 all-session/memory.js-58-72 check-test/session.js-150-157 createServer-test/session.js-2279-2293 end-test/session.js-2333-2335 package.json session.js-test/session.js-1-2472 -1 -2 
+History.md session-index.js-87-509 -1 -2 
+History.md session-index.js-87-509 -1 -2 
+History.md end-index.js-250-360 session-index.js-87-509 session.js-test/session.js-1-2472 -1 -2  
+History.md session-index.js-87-509 -1 -2 
+History.md index.js-index.js-1-686 session-index.js-87-509 session.js-test/session.js-1-2472 setcookie-index.js-655-665 -1 -2 
+History.md getcookie-index.js-529-586 -1 -2 
+History.md index.js-index.js-1-686 package.json session-index.js-87-509 session.js-test/session.js-1-2472 -1 -2 
+History.md README.md getcookie-index.js-529-586 index.js-index.js-1-686 session-index.js-87-509 session.js-test/session.js-1-2472 shouldSave-index.js-440-450 shouldSetCookie-index.js-464-473 -1 -2 
+History.md index.js-index.js-1-686 package.json -1 -2 
+History.md index.js-index.js-1-686 package.json session.js-test/session.js-1-2472 -1 -2 
+.travis.yml README.md -1 -2 
+History.md README.md generate-index.js-158-166 generateSessionId-index.js-518-520 genid-test/session.js-204-204 genid-test/session.js-664-664 genid-test/session.js-849-849 index.js-index.js-1-686 session-index.js-87-509 session.js-test/session.js-1-2472 -1 -2 
+all-session/memory.js-58-72 clear-session/memory.js-81-84 destroy-session/memory.js-93-96 get-session/memory.js-106-108 length-session/memory.js-131-136 memory.js-session/memory.js-1-188 set-session/memory.js-119-122 -1 -2 
+History.md README.md end-index.js-250-360 session-index.js-87-509 session.js-test/session.js-1-2472 shouldDestroy-index.js-435-437 -1 -2 
+History.md README.md end-index.js-250-360 generate-index.js-363-368 save-test/session.js-1027-1030 save-test/session.js-1057-1060 save-test/session.js-844-847 save-test/session.js-998-1001 session-index.js-87-509 session.js-test/session.js-1-2472 shouldSave-index.js-440-450 shouldSetCookie-index.js-464-473 -1 -2  
+History.md README.md index.js-index.js-1-686 issecure-index.js-623-647 session-index.js-87-509 session.js-test/session.js-1-2472 -1 -2 
+cookie-test/session.js-2274-2277 expires-test/session.js-2337-2340 package.json session.js-test/session.js-1-2472 sid-test/session.js-2465-2471 -1 -2  
+History.md save-test/session.js-970-973 session-index.js-87-509 session.js-test/session.js-1-2472 -1 -2 
+History.md README.md end-index.js-250-360 isModified-index.js-425-427 save-test/session.js-874-877 save-test/session.js-895-898 save-test/session.js-918-921 session-index.js-87-509 session.js-test/session.js-1-2472 -1 -2 
+index.js-index.js-1-686 package.json session-index.js-87-509 -1 -2 
+.travis.yml History.md destroy-session/memory.js-93-96 get-session/memory.js-106-108 memory.js-session/memory.js-1-188 package.json set-session/memory.js-119-122 -1 -2 
+README.md session-index.js-87-509 writeHead-index.js-129-171 -1 -2 
+.travis.yml destroy-session/memory.js-93-96 get-session/memory.js-106-108 package.json set-session/memory.js-119-122 -1 -2 
+.travis.yml destroy-session/memory.js-93-96 get-session/memory.js-106-108 package.json set-session/memory.js-119-122 -1 -2 
+README.md index.js-index.js-1-686 -1 -2 
+getPreviousCookie-test/session.js-1484-1488 session.js-test/session.js-1-2472 -1 -2 
+package.json session.js-test/session.js-1-2472 -1 -2 

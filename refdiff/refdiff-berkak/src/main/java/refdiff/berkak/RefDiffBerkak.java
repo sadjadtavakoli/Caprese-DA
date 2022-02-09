@@ -14,6 +14,9 @@ import org.eclipse.jgit.revwalk.RevCommit;
 
 public class RefDiffBerkak {
 	private static String changesPath = "data/changes/";
+	private static int oneLengthCommitsCount = 0;
+	private static int moreThanLimitationLengthCommitsCount = 0;
+	private static int zeroLenghCommitsCount = 0;
 
 	public static void main(String[] args) throws Exception {
 		String repoLink = args[0];
@@ -42,6 +45,9 @@ public class RefDiffBerkak {
 				findCurrentVersionChanges(refDiffJs, repo, commit, dataPath, removedPath);
 			} else {
 				minRepo(refDiffJs, repo, commit, counter, dataPath, mappingsPath, removedPath);
+				System.out.println(oneLengthCommitsCount);
+				System.out.println(moreThanLimitationLengthCommitsCount);
+				System.out.println(zeroLenghCommitsCount);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -96,7 +102,7 @@ public class RefDiffBerkak {
 			RevCommit commitPr = refDiffJs.getCommit(repo, commit.getParent(0));
 			CstDiff diffForCommit = refDiffJs.computeDiffForCommit(repo, commitPr, commit, mappingsPath);
 			List<String> changes = new ArrayList<>();
-			changes.addAll(diffForCommit.getNonValidChangedFiles());
+			changes.addAll(diffForCommit.getNonValidChangedFiles()); // @Sadjad TODO these three should be all in one
 			changes.addAll(diffForCommit.getChangedEntitiesKeys());
 			changes.addAll(diffForCommit.getAddedEntitiesKeys());
 			if (!changes.isEmpty() && changes.size() < 100 && changes.size() > 1) { // 30 is set based on Rose paper //
@@ -106,9 +112,25 @@ public class RefDiffBerkak {
 				try (FileWriter file = new FileWriter(dataPath, true)) {
 					file.write(changesString + " -1 -2 \n");
 					file.flush();
+				}				
+				try (FileWriter file = new FileWriter(dataPath+"details.txt", true)) {
+					file.write(commit.getName()+ " : " + changesString + " -1 -2 \n");
+					file.flush();
 				}
 			} else {
-				System.out.println("no changes detected " + commit.getName());
+				if (changes.size() == 1) {
+					oneLengthCommitsCount++;
+					System.out.println("one change detected " + commit.getName());
+
+				} else if (changes.size() >= 100) {
+					moreThanLimitationLengthCommitsCount++;
+					System.out.println("more than 100 changes detected " + commit.getName());
+
+				} else {
+					zeroLenghCommitsCount++;
+					System.out.println("no changes detected " + commit.getName());
+
+				}
 			}
 
 			List<String> removed = new ArrayList<>();

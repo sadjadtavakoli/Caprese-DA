@@ -4,7 +4,6 @@ const path = require('path');
 // const REPO_URL = "git@github.com:http-party/http-server.git";
 // const REPO_URL = "git@github.com:Automattic/mongoose.git";
 // const REPO_URL = "git@github.com:node-fetch/node-fetch.git";
-// const REPO_URL = "git@github.com:thenativeweb/node-cqrs-eventdenormalizer.git"
 // const REPO_URL = "git@github.com:bpampuch/pdfmake.git"
 // const REPO_URL = "git@github.com:pmandadapu9/Jhipster.git"
 // const REPO_URL = "git@github.com:devleague/curry-house-styel07.git"
@@ -13,23 +12,42 @@ const path = require('path');
 // const REPO_URL = "git@github.com:antirek/ding-dong.git"
 // const REPO_URL = "git@github.com:andornaut/statezero.git"
 
+// const REPO_URL = "git@github.com:graphile/postgraphile.git" //used jest not mocha
+// const REPO_URL = "git@github.com:mysqljs/mysql.git" // TypeError: {} is not a constructor
+// const REPO_URL = "git@github.com:npm/cli.git" //  had errors
+// const REPO_URL = "git@github.com:SheetJS/sheetjs.git" // huge execution load, I had to shut it down.
+// const REPO_URL = "git@github.com:axios/axios.git" // used jest not mocha
+
+
+// with result:
+// const REPO_URL = "git@github.com:jhipster/jhipster-uml.git"
+// const REPO_URL = "git@github.com:expressjs/express.git"
+// const REPO_URL = "git@github.com:expressjs/session.git"
+
+
 
 /*
- ********  !  ******  !  ******  !  ******  !  ******  !  *********
+ ****** ! ** ! ** ! ** ! ** ! ** ! ** ! ** ! ** ! ** ! ** ! *******
  ****                                                        ******
  ***    Fill the following constants before running berke     *****
- ****                                                        ******    
- ****************************************************************** 
+ ****                                                        ******
+ ******************************************************************
  */
 
 /**
  * your repository address
  */
-const REPO_URL = "git@github.com:jhipster/jhipster-uml.git"
+
+// const REPO_URL = "git@github.com:thenativeweb/node-cqrs-eventdenormalizer.git"
+// const REPO_URL = "git@github.com:kazupon/vue-i18n.git"
+// const REPO_URL = "git@github.com:EFForg/https-everywhere.git" // not mocha test
+// const REPO_URL = "git@github.com:videojs/http-streaming.git" // import and export 
+const REPO_URL = "git@github.com:ipfs-inactive/js-ipfs-http-client.git"
 
 /**
  *  the main branch of your repository; it is usually master or main.
  */
+// const REPO_MAIN_BRANCH = "v8.x"
 const REPO_MAIN_BRANCH = "master"
 
 /**
@@ -38,7 +56,7 @@ const REPO_MAIN_BRANCH = "master"
  *     Assume your project's test directory is GreatProject/subdir/tests/
  *     you should set REPO_TEST_RELATIVE_DIR="subdir/tests/"
  */
-const REPO_TEST_RELATIVE_DIR = "test/";
+const REPO_TEST_RELATIVE_DIR = "test";
 
 
 /**

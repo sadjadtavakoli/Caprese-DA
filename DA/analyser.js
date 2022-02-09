@@ -106,11 +106,19 @@ let tempIDsMap = {};
                 //     console.log(`dis is undefined! ${J$.iidToLocation(iid)}`)
                 } else if (utils.isCalledByEvents(dis)) {
                     let event = getRelatedEvent(getID(dis), fID)
+                    let callerFunctionName = ""
+                    let callerFunction;
+                    if (!event) {
+                        callerFunction = functionEnterStack[functionEnterStack.length - 1]
+                        log(utils.getLine(iid) + " function " + utils.getIIDKey(functionName, iid) + " entered from " + utils.getIIDKey(callerFunctionName, callerFunction.iid))
 
-                    let callerFunctionName = getFunctionNameFID(event.callerFunction.fID, event.callerFunction.iid)
-                    log(utils.getLine(iid) + " function  " + utils.getIIDKey(functionName, iid) + " entered throught event " + event.event + " emitted by function " + utils.getIIDKey(callerFunctionName, event.callerFunction.iid))
+                    } else {
+                        callerFunction = event.callerFunction
+                        callerFunctionName = getFunctionNameFID(callerFunction.fID, callerFunction.iid)
+                        log(utils.getLine(iid) + " function  " + utils.getIIDKey(functionName, iid) + " entered throught event " + event.event + " emitted by function " + utils.getIIDKey(callerFunctionName, event.callerFunction.iid))
+                    }
                     // console.log(utils.getLine(iid) + " function  " + utils.getIIDKey(functionName, iid) + " entered throught event " + event.event + " emitted by function " + utils.getIIDKey(callerFunctionName, event.callerFunction.iid) + "\n\n")
-                    addDependency(fID, event.callerFunction)
+                    addDependency(fID, callerFunction)
                     updateTrace(utils.getIIDKey(functionName, iid))
                 } else {
                     let callerFunction;
@@ -334,7 +342,7 @@ let tempIDsMap = {};
 
     function getRelatedEvent(baseID, func) {
         let baseEmittedEvents = getEmittedEvents(baseID)
-        let eventInfo = {}
+        let eventInfo = undefined
         for (let index in baseEmittedEvents) {
             let listeners = baseEmittedEvents[index]['listeners']
             let indexOf = listeners.indexOf(func)

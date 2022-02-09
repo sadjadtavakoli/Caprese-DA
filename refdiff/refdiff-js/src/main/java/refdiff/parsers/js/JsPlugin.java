@@ -243,7 +243,7 @@ public class JsPlugin implements LanguagePlugin, Closeable {
 		// prevent redundant reading of non js files, we could have another
 		// filter working in parallel just for suppoerted formats for
 		// changes.
-		return new FilePathFilter(Arrays.asList(".js", ".jsx", ".md", ".json", ".yml", ".lock", ".ts"), Arrays.asList(".js", ".jsx"), Arrays.asList(".min.js"));
+		return new FilePathFilter(Arrays.asList(".js", ".jsx", ".md", ".json", ".yml", ".lock", ".ts", ".html", ".sql", ".txt"), Arrays.asList(".js", ".jsx"), Arrays.asList(".min.js"));
 	}
 
 	@Override
