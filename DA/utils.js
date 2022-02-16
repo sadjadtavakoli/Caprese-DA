@@ -12,11 +12,15 @@ let EventEmmiter = events.EventEmitter.prototype;
 
     Utils.trackExternals = true;
 
-    Utils.getFileName = function (iid) {
-        let pathSections = Utils.getFilePath(iid).split('/')
+    Utils.filePathToFileName = function (filePath) {
+        let pathSections = filePath.split('/')
         return pathSections[pathSections.length-1].toLowerCase();
     }
-
+    
+    Utils.getIIDFileName = function (iid) {
+        return Utils.filePathToFileName(Utils.getFilePath(iid))
+    }
+    
     Utils.getFilePath = function (iid) {
         return J$.iidToLocation(iid).split(':')[0].substring(1);
     }

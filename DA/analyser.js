@@ -5,7 +5,7 @@ const { DA_DEPENDENCIES_PATH, DA_CALL_SEQUENCE_PATH, KEEP_READABLE_TRACE_LOG, MA
 
 let logger = "";
 let trace = "";
-let mainFileName = "";
+let mainFilePath = "";
 let functionEnterStack = [];
 let timeoutsQueueMap = new Map();
 let callbackMap = new Map();
@@ -87,7 +87,7 @@ let tempIDsMap = {};
             // TODO it's not understandable => remove these ugly if elses
             if (isImportingNewModule(iid)) {
                 let fID = getID(f, iid)
-                tempIDsMap[fID] = utils.getIIDKey(utils.getFileName(iid), iid)
+                tempIDsMap[fID] = utils.getIIDKey(utils.getIIDFileName(iid), iid)
                 // console.log("we are here! " + utils.getFilePath(iid))
                 accessedFiles.set(utils.getFilePath(iid), iid)
                 if (functionEnterStack[functionEnterStack.length - 1] && functionEnterStack[functionEnterStack.length - 1].iid != iid) {
@@ -99,8 +99,8 @@ let tempIDsMap = {};
                 tempIDsMap[fID] = utils.getIIDKey(functionName, iid)
 
                 if (isMainFile(iid)) {
-                    mainFileName = utils.getFilePath(iid)
-                    accessedFiles.set(mainFileName, iid)
+                    mainFilePath = utils.getFilePath(iid)
+                    accessedFiles.set(mainFilePath, iid)
 
                 // } else if (dis == undefined) {
                 //     console.log(`dis is undefined! ${J$.iidToLocation(iid)}`)
@@ -172,6 +172,7 @@ let tempIDsMap = {};
 
         this.endExecution = function () {
             log("end Execution");
+            const mainFileName = utils.filePathToFileName(mainFilePath);
             if (KEEP_READABLE_TRACE_LOG || process.argv[2]) {
                 fs.writeFileSync(path.join(__dirname, 'test' + path.sep + 'analyzerOutputs' + path.sep + mainFileName), logger, function (err) {
                     if (err) {
@@ -225,11 +226,11 @@ let tempIDsMap = {};
     }
 
     function isMainFile(iid) {
-        return (utils.getLine(iid) == 1 && mainFileName == "") || accessedFiles.get(mainFileName) == iid
+        return (utils.getLine(iid) == 1 && mainFilePath == "") || accessedFiles.get(mainFilePath) == iid
     }
 
     function isImportingNewModule(iid) {
-        return (mainFileName != "" && mainFileName != utils.getFilePath(iid) && !(accessedFiles.has(utils.getFilePath(iid)) && utils.trackExternals)) || accessedFiles.get(utils.getFilePath(iid)) == iid
+        return (mainFilePath != "" && mainFilePath != utils.getFilePath(iid) && !(accessedFiles.has(utils.getFilePath(iid)) && utils.trackExternals)) || accessedFiles.get(utils.getFilePath(iid)) == iid
     }
 
     function log(log_value) {
@@ -381,7 +382,7 @@ let tempIDsMap = {};
         let functionName = f.name
         if (!functionName) {
             if (isMainFile(iid)) {
-                functionName = mainFileName
+                functionName = mainFilePath
             } else {
                 functionName = "arrowFunction"
             }
