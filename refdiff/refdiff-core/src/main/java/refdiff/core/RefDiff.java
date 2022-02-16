@@ -91,20 +91,23 @@ public class RefDiff {
 	}
 
 	/**
-	 * Compute a CST diff between two commits.
-	 * This method will throw an exception if the given commit has more than one parent (e.g., merge commits).
-	 * 
 	 * @param gitRepository The folder of the git repository (you should pass the .git folder if the repository is not on bare mode).
 	 * @param commit1 first commit that identifies the commit.
 	 * @param commit2 second commit that identifies the previous commit.
-	 * @param monitor CstComparatorMonitor object that can be used to inspect CST relationships discarded along the process.
-	 * @return The computed CST diff.
+	 * @return SourceFileSet of commit1 and commit2
 	 */
-	public CstDiff computeDiffForCommit(File gitRepository, RevCommit commit1, RevCommit commit2, String mappingsPath) {
+	public PairBeforeAfter<SourceFileSet> getResources(File gitRepository, RevCommit commit1, RevCommit commit2){
 		try (Repository repo = GitHelper.openRepository(gitRepository)) {
-			PairBeforeAfter<SourceFileSet> beforeAndAfter = GitHelper.getSourcesBeforeAndAfterCommit(repo, commit1, commit2, fileFilter);
-			return comparator.compare(beforeAndAfter.getBefore(), beforeAndAfter.getAfter(), new CstComparatorMonitor() {}, mappingsPath);
+			return GitHelper.getSourcesBeforeAndAfterCommit(repo, commit1, commit2, fileFilter);
 		}
+	}
+	/**
+	 * @param beforeAndAfter 
+	 * @param mappingsPath 
+	 * @return
+	 */
+	public CstDiff computeDiffForCommit(PairBeforeAfter<SourceFileSet> beforeAndAfter, String mappingsPath) {
+		return comparator.compare(beforeAndAfter.getBefore(), beforeAndAfter.getAfter(), new CstComparatorMonitor() {}, mappingsPath);
 	}
 
 	/**

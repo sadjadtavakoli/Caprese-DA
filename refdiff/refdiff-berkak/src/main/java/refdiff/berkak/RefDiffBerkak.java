@@ -3,6 +3,8 @@ package refdiff.berkak;
 import java.io.File;
 import refdiff.core.RefDiff;
 import refdiff.core.diff.CstDiff;
+import refdiff.core.io.SourceFileSet;
+import refdiff.core.util.PairBeforeAfter;
 import refdiff.parsers.js.JsPlugin;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -98,52 +100,55 @@ public class RefDiffBerkak {
 		}
 		counter--;
 		if (commit.getParentCount() > 0) {
-
 			RevCommit commitPr = refDiffJs.getCommit(repo, commit.getParent(0));
-			CstDiff diffForCommit = refDiffJs.computeDiffForCommit(repo, commitPr, commit, mappingsPath);
-			List<String> changes = new ArrayList<>();
-			changes.addAll(diffForCommit.getNonValidChangedFiles()); // @Sadjad TODO these three should be all in one
-			changes.addAll(diffForCommit.getChangedEntitiesKeys());
-			changes.addAll(diffForCommit.getAddedEntitiesKeys());
-			if (!changes.isEmpty() && changes.size() < 100 && changes.size() > 1) { // 30 is set based on Rose paper //
-																					// elimate sequences of length 1
-				Collections.sort(changes);
-				String changesString = changes.toString().replaceAll("[\\[\\],\"]", "");
-				try (FileWriter file = new FileWriter(dataPath, true)) {
-					file.write(changesString + " -1 -2 \n");
-					file.flush();
-				}				
-				try (FileWriter file = new FileWriter(dataPath+"details.txt", true)) {
-					file.write(commit.getName()+ " : " + changesString + " -1 -2 \n");
-					file.flush();
-				}
-			} else {
-				if (changes.size() == 1) {
-					oneLengthCommitsCount++;
-					System.out.println("one change detected " + commit.getName());
-
-				} else if (changes.size() >= 100) {
-					moreThanLimitationLengthCommitsCount++;
-					System.out.println("more than 100 changes detected " + commit.getName());
-
+			PairBeforeAfter<SourceFileSet> beforeAndAfter = refDiffJs.getResources(repo, commitPr, commit);
+			if (beforeAndAfter.getAfter().getSourceFiles().size() < 30) {
+				CstDiff diffForCommit = refDiffJs.computeDiffForCommit(beforeAndAfter, mappingsPath);
+				List<String> changes = new ArrayList<>();
+				 // @Sadjad TODO these three should be all in one
+				changes.addAll(diffForCommit.getNonValidChangedFiles());
+				changes.addAll(diffForCommit.getChangedEntitiesKeys());
+				changes.addAll(diffForCommit.getAddedEntitiesKeys());
+				if (!changes.isEmpty() && changes.size() > 1) {
+					Collections.sort(changes);
+					String changesString = changes.toString().replaceAll("[\\[\\],\"]", "");
+					try (FileWriter file = new FileWriter(dataPath, true)) {
+						file.write(changesString + " -1 -2 \n");
+						file.flush();
+					}
+					try (FileWriter file = new FileWriter(dataPath + "details.txt", true)) {
+						file.write(commit.getName() + " : " + changesString + " -1 -2 \n");
+						file.flush();
+					}
 				} else {
-					zeroLenghCommitsCount++;
-					System.out.println("no changes detected " + commit.getName());
+					if (changes.size() == 1) {
+						oneLengthCommitsCount++;
+						System.out.println("one change detected " + commit.getName());
 
+					} else if (changes.size() >= 100) {
+						moreThanLimitationLengthCommitsCount++;
+						System.out.println("more than 100 changes detected " + commit.getName());
+
+					} else {
+						zeroLenghCommitsCount++;
+						System.out.println("no changes detected " + commit.getName());
+
+					}
 				}
-			}
 
-			List<String> removed = new ArrayList<>();
-			removed.addAll(diffForCommit.getRemovedEntitiesKeys());
+				List<String> removed = new ArrayList<>();
+				removed.addAll(diffForCommit.getRemovedEntitiesKeys());
 
-			if (!removed.isEmpty()) {
-				String removedString = removed.toString().replaceAll("[\\[\\]\"]", "");
-				try (FileWriter file = new FileWriter(removedPath, true)) {
-					file.write(removedString + ", ");
-					file.flush();
+				if (!removed.isEmpty()) {
+					String removedString = removed.toString().replaceAll("[\\[\\]\"]", "");
+					try (FileWriter file = new FileWriter(removedPath, true)) {
+						file.write(removedString + ", ");
+						file.flush();
+					}
 				}
+			}else{
+				System.out.println("YEAH! IT WAS GREATER! ");
 			}
-
 			if (counter > 0) {
 				minRepo(refDiffJs, repo, commitPr, counter, dataPath, mappingsPath, removedPath);
 			}
