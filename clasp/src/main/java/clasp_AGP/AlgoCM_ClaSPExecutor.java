@@ -22,14 +22,15 @@ import example.MainTestCMClaSP_saveToFile;
 public class AlgoCM_ClaSPExecutor {
 
     /**
-     * @param itemConstraint a list of strings/items as our item constraint
-     * @param support        min support
-     * @param filePath       sequences where is sequences as a string or sequences
-     *                       file path where they are stored.
-     * @param outputPath     file path to store the result. null if want to store in
-     *                       memory
+     * @param itemConstraint     a list of strings/items as our item constraint
+     * @param support            min support
+     * @param filePath           sequences where is sequences as a string or sequences
+     *                           file path where they are stored.
+     * @param outputPath         file path to store the result. null if want to store in
+     *                           memory
+     * @param itemsFrequenciesPath the path in which each items frequency should be stored 
      */
-    public static List<String> runFile(List<String> itemConstraint, double support, String filePath, String outputPath)
+    public static List<String> runFile(List<String> itemConstraint, double support, String filePath, String outputPath, String itemsFrequenciesPath)
             throws IOException {
 
         // Load a sequence database
@@ -54,7 +55,7 @@ public class AlgoCM_ClaSPExecutor {
         AlgoCM_ClaSP algorithm = new AlgoCM_ClaSP(support, abstractionCreator, findClosedPatterns,
                 executePruningMethods);
 
-        algorithm.runAlgorithm(sequenceDatabase, keepPatterns, verbose, outputPath, outputSequenceIdentifiers);
+        algorithm.runAlgorithm(sequenceDatabase, keepPatterns, verbose, outputPath, outputSequenceIdentifiers, itemsFrequenciesPath);
         System.out.println("Minsup (relative) : " + support);
         System.out.println(algorithm.getNumberOfFrequentPatterns() + " patterns found.");
 
@@ -69,7 +70,7 @@ public class AlgoCM_ClaSPExecutor {
     }
 
     public static List<String> runList(List<String> itemConstraint, double support, String[] sequences,
-            String outputPath) throws IOException {
+            String outputPath, String itemsFrequenciesPath) throws IOException {
 
         String filePath = "input.txt";
         StringBuilder sequencesString = new StringBuilder();
@@ -82,7 +83,7 @@ public class AlgoCM_ClaSPExecutor {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return runFile(itemConstraint, support, filePath, outputPath);
+        return runFile(itemConstraint, support, filePath, outputPath, itemsFrequenciesPath);
     }
 
     public static String fileToPath(String filename) throws UnsupportedEncodingException {

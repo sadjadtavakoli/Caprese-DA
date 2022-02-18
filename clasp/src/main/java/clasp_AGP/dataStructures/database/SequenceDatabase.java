@@ -3,6 +3,7 @@ package clasp_AGP.dataStructures.database;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -112,7 +113,7 @@ public class SequenceDatabase {
 
                 // @SADJADRE
                 nodo.getChild().getIdList().setAppearingIn(nodo.getChild());
-                }
+            }
             // And from the original database
             reduceDatabase(frequentItems.keySet());
 
@@ -177,9 +178,11 @@ public class SequenceDatabase {
                 sequenceItemsetSize.put(sequence.getId(), sizeItemsetsList);
             } else { // an item with the format : id(value) ou: id
                 int indexParentheseGauche = integers[i].indexOf("(");
-                if (indexParentheseGauche == -1){
+                if (indexParentheseGauche == -1) {
                     // extract the value for an item
-                    Item item = itemFactory.getItem(integers[i]); // @SADJADRE from this line to line 220, we can keep node and Item of our item containts list items in a separete list. 
+                    Item item = itemFactory.getItem(integers[i]); // @SADJADRE from this line to line 220, we can keep
+                                                                  // node and Item of our item containts list items in a
+                                                                  // separete list.
                     TrieNode node = frequentItems.get(item);
                     if (node == null) {
                         IDList idlist = idListCreator.create();
@@ -188,7 +191,7 @@ public class SequenceDatabase {
                                 new Trie(null, idlist));
                         frequentItems.put(item, node);
 
-                        if(itemConstraintStrings.contains(integers[i])){
+                        if (itemConstraintStrings.contains(integers[i])) {
                             itemConstraints.add(node);
                         }
                     }
@@ -296,6 +299,34 @@ public class SequenceDatabase {
                 sequences.remove(k);
                 k--;
             }
+        }
+    }
+
+    public void writeItemsFrequency(String targetFilePath) {
+        Set<Item> frequentItemsSet = frequentItems.keySet();
+        StringBuffer sb = new StringBuffer();
+        boolean first = true;
+        sb.append('{');
+        for (Item frequentItem : frequentItemsSet) {
+            if (first)
+                first = false;
+            else
+                sb.append(',');
+            sb.append("\"").append(frequentItem).append("\":").append(frequentItem.getQuantity());
+        }
+        sb.append('}');
+
+        if (targetFilePath != null) {
+
+            try (FileWriter file = new FileWriter(targetFilePath)) {
+                // We can write any JSONArray or JSONObject instance to the file
+                file.write(sb.toString());
+                file.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println(sb.toString());
         }
     }
 

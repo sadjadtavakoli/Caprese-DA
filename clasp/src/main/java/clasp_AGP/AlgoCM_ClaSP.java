@@ -132,10 +132,11 @@ public class AlgoCM_ClaSP {
      *                                  just when keepPatterns is activated.
      * @param outputSequenceIdentifiers indicates if sequence ids should be output
      *                                  with each pattern found.
+     * @param itemsFrequenciesPath        the path in which each items frequency should be stored 
      * @throws IOException
      */
     public void runAlgorithm(SequenceDatabase database, boolean keepPatterns, boolean verbose, String outputFilePath,
-            boolean outputSequenceIdentifiers) throws IOException {
+            boolean outputSequenceIdentifiers, String itemsFrequenciesPath) throws IOException {
         // If we do no have any file path
         if (outputFilePath == null || outputFilePath.equals("-")) {
             // The user wants to save the results in memory
@@ -149,7 +150,7 @@ public class AlgoCM_ClaSP {
         // keeping the starting time
         overallStart = System.currentTimeMillis();
         // Starting ClaSP algorithm
-        claSP(database, minSupRelative, keepPatterns, verbose, findClosedPatterns, executePruningMethods);
+        claSP(database, minSupRelative, keepPatterns, verbose, findClosedPatterns, itemsFrequenciesPath);
         // keeping the ending time
         overallEnd = System.currentTimeMillis();
         // Search for frequent patterns: Finished
@@ -164,11 +165,9 @@ public class AlgoCM_ClaSP {
      * @param keepPatterns   flag indicating if we are interested in keeping the
      *                       output of the algorithm
      * @param verbose        Flag for debugging purposes
-     * @param
-     * @throws IOException
      */
     protected void claSP(SequenceDatabase database, double minSupRelative, boolean keepPatterns, boolean verbose,
-            boolean findClosedPatterns, boolean executePruningMethods) throws IOException {
+            boolean findClosedPatterns, String itemsFrequenciesPath) {
         // We get the initial trie whose children are the frequent 1-patterns
         FrequentAtomsTrie = database.frequentItems();
         itemConstraint = database.itemConstraints();
@@ -221,7 +220,7 @@ public class AlgoCM_ClaSP {
         }
         // System.out.println("************ cooc map ************");
         // System.out.println(coocMapEquals);
-
+        database.writeItemsFrequency(itemsFrequenciesPath);
         database.clear();
         database = null;
 
