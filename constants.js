@@ -21,6 +21,7 @@ const path = require('path');
 
 // with result:
 // const REPO_URL = "git@github.com:jhipster/jhipster-uml.git"
+const REPO_URL = "git@github.com:sadjadtavakoli/jhipster-uml.git"
 // const REPO_URL = "git@github.com:expressjs/express.git"
 // const REPO_URL = "git@github.com:expressjs/session.git"
 
@@ -42,7 +43,7 @@ const path = require('path');
 // const REPO_URL = "git@github.com:kazupon/vue-i18n.git"
 // const REPO_URL = "git@github.com:EFForg/https-everywhere.git" // not mocha test
 // const REPO_URL = "git@github.com:videojs/http-streaming.git" // import and export 
-const REPO_URL = "git@github.com:ipfs-inactive/js-ipfs-http-client.git"
+// const REPO_URL = "git@github.com:ipfs-inactive/js-ipfs-http-client.git"
 
 /**
  *  the main branch of your repository; it is usually master or main.
@@ -103,6 +104,7 @@ const SEQUENCES_PATH = DATA_PATH + path.sep + "sequences.txt"; // changes extrac
 const REMOVED_PATH = DATA_PATH + path.sep + "removed.txt"; // removed functions/files extracted from commnits 
 const CURRENT_CHANGES_PATH = DATA_PATH + path.sep + "currentVersionChanges.txt"; // latest version's changes 
 const PATTERNS_PATH = DATA_PATH + path.sep + "patterns.json"; // detected co-change patterns mined based on extracted changes 
+const ITEMS_FREQUENCIES_PATH = DATA_PATH + path.sep + "itemsFrequencies.json"
 const DA_DEPENDENCIES_PATH = DATA_PATH + path.sep + "dependencies.json"; // recorded dependencies by dynamic analysis
 const DA_CALL_SEQUENCE_PATH = DATA_PATH + path.sep + "call_sequences.txt"; // call sequences recorded by dynamic analysis 
 const MAPPINGS_PATH = DATA_PATH + path.sep + "mappings.json" // unigue key mappings for functions in different revisions
@@ -117,7 +119,7 @@ const CLASP_COMMAND = "cd " + CLASP_PATH + " ; mvn exec:java -Dexec.mainClass='c
 const DA_COMMAND = "cd " + DA_PATH + " ; $GRAAL_HOME/bin/node --nodeprof.Scope=app --jvm --experimental-options --vm.Dtruffle.class.path.append=$NODEPROF_HOME/nodeprof.jar --nodeprof $NODEPROF_HOME/jalangi.js --analysis utils.js --analysis analyser.js runner.js";
 
 module.exports = {
-    REPO_URL, PROJECT_NAME, REPO_TEST_RELATIVE_DIR, SEED_COMMIT, REPO_PATH, REFDIFF_PATH, REPO_MAIN_BRANCH, MAPPINGS_PATH,
-    CLASP_PATH, DA_PATH, SEQUENCES_PATH, PATTERNS_PATH, DATA_PATH, REPO_DIGGING_DEPTH, REFDIFF_COMMAND, REMOVED_PATH,
+    REPO_URL, PROJECT_NAME, REPO_TEST_RELATIVE_DIR, SEED_COMMIT, REPO_PATH, REFDIFF_PATH, REPO_MAIN_BRANCH, ITEMS_FREQUENCIES_PATH,
+    CLASP_PATH, DA_PATH, SEQUENCES_PATH, PATTERNS_PATH, DATA_PATH, REPO_DIGGING_DEPTH, REFDIFF_COMMAND, REMOVED_PATH, MAPPINGS_PATH,
     CLASP_COMMAND, DA_COMMAND, DA_DEPENDENCIES_PATH, DA_CALL_SEQUENCE_PATH, KEEP_READABLE_TRACE_LOG, CURRENT_CHANGES_PATH
 }

@@ -115,7 +115,7 @@ public class SequenceDatabase {
                 nodo.getChild().getIdList().setAppearingIn(nodo.getChild());
             }
             // And from the original database
-            reduceDatabase(frequentItems.keySet());
+            // reduceDatabase(frequentItems.keySet()); //@SADJAD we removed this step as well
 
             /*
              * We initialize all the maps

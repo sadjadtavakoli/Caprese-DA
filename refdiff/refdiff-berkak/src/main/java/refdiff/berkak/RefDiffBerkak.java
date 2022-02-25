@@ -24,9 +24,8 @@ public class RefDiffBerkak {
 		String repoLink = args[0];
 		String commitSha = args[1];
 		String dataPath = args[2];
-		String mappingsPath = args[3];
-		String removedPath = args[4];
-		int counter = Integer.parseInt(args[5]);
+		String removedPath = args[3];
+		int counter = Integer.parseInt(args[4]);
 		boolean currentVersion = counter == 0;
 		// String repoLink = "https://github.com/sadjad-tavakoli/sample_project.git";
 		// String commitSha = "a5deb46558ebde4d57e4d2620c503604dd2ef7fc";
@@ -38,7 +37,6 @@ public class RefDiffBerkak {
 		File commitFolder = new File("data/" + commitSha);
 
 		try (JsPlugin jsPlugin = new JsPlugin()) {
-			// TODO sadjad it should be able from where it ended in its previous execution
 			RefDiff refDiffJs = new RefDiff(jsPlugin);
 
 			File repo = refDiffJs.cloneGitRepository(commitFolder, repoLink);
@@ -46,6 +44,7 @@ public class RefDiffBerkak {
 			if (currentVersion) {
 				findCurrentVersionChanges(refDiffJs, repo, commit, dataPath, removedPath);
 			} else {
+				String mappingsPath = args[5];
 				minRepo(refDiffJs, repo, commit, counter, dataPath, mappingsPath, removedPath);
 				System.out.println(oneLengthCommitsCount);
 				System.out.println(moreThanLimitationLengthCommitsCount);
@@ -58,17 +57,15 @@ public class RefDiffBerkak {
 
 	private static void findCurrentVersionChanges(RefDiff refDiffJs, File repo, RevCommit commit, String dataPath,
 			String removedPath) throws Exception {
-		if (commit.getParentCount() != 1) {
-			System.out.println("two parents" + commit.getName());
-		}
 		if (commit.getParentCount() > 0) {
 			RevCommit commitPr = refDiffJs.getCommit(repo, commit.getParent(0));
-			CstDiff diffForCommit = refDiffJs.computeDiffForCommit(repo, commitPr, commit);
+			CstDiff diffForCommit = refDiffJs.computeDiffForCommitNoMapping(repo, commitPr, commit);
 			List<String> changes = new ArrayList<>();
 
 			changes.addAll(diffForCommit.getNonValidChangedFiles());
 			changes.addAll(diffForCommit.getChangedEntitiesKeys());
 			changes.addAll(diffForCommit.getAddedEntitiesKeys());
+			changes.addAll(diffForCommit.getRemovedEntitiesKeys());
 
 			if (!changes.isEmpty()) {
 				String changesString = changes.toString().replaceAll("[\\[\\],\"]", "");
@@ -102,52 +99,45 @@ public class RefDiffBerkak {
 		if (commit.getParentCount() > 0) {
 			RevCommit commitPr = refDiffJs.getCommit(repo, commit.getParent(0));
 			PairBeforeAfter<SourceFileSet> beforeAndAfter = refDiffJs.getResources(repo, commitPr, commit);
-			if (beforeAndAfter.getAfter().getSourceFiles().size() < 30) {
-				CstDiff diffForCommit = refDiffJs.computeDiffForCommit(beforeAndAfter, mappingsPath);
-				List<String> changes = new ArrayList<>();
-				 // @Sadjad TODO these three should be all in one
-				changes.addAll(diffForCommit.getNonValidChangedFiles());
-				changes.addAll(diffForCommit.getChangedEntitiesKeys());
-				changes.addAll(diffForCommit.getAddedEntitiesKeys());
-				if (!changes.isEmpty() && changes.size() > 1) {
-					Collections.sort(changes);
-					String changesString = changes.toString().replaceAll("[\\[\\],\"]", "");
-					try (FileWriter file = new FileWriter(dataPath, true)) {
-						file.write(changesString + " -1 -2 \n");
-						file.flush();
-					}
-					try (FileWriter file = new FileWriter(dataPath + "details.txt", true)) {
-						file.write(commit.getName() + " : " + changesString + " -1 -2 \n");
-						file.flush();
-					}
+			CstDiff diffForCommit = refDiffJs.computeDiffForCommit(beforeAndAfter, mappingsPath);
+			List<String> changes = new ArrayList<>();
+			changes.addAll(diffForCommit.getNonValidChangedFiles());// @Sadjad TODO these three should be all in one
+			changes.addAll(diffForCommit.getChangedEntitiesKeys());
+			changes.addAll(diffForCommit.getAddedEntitiesKeys());
+
+			if (beforeAndAfter.getAfter().getSourceFiles().size() < 30 && !changes.isEmpty() && changes.size() > 1) {
+				Collections.sort(changes);
+				String changesString = changes.toString().replaceAll("[\\[\\],\"]", "");
+				try (FileWriter file = new FileWriter(dataPath, true)) {
+					file.write(changesString + " -1 -2 \n");
+					file.flush();
+				}
+				try (FileWriter file = new FileWriter(dataPath + "details.txt", true)) {
+					file.write(commit.getName() + " : " + changesString + " -1 -2 \n");
+					file.flush();
+				}
+			} else {
+				if (beforeAndAfter.getAfter().getSourceFiles().size() >= 30) {
+					System.out.println("BIG ONE! " + commit.getName());
+				} else if (changes.size() == 1) {
+					oneLengthCommitsCount++;
+					// System.out.println("one change detected " + commit.getName());
 				} else {
-					if (changes.size() == 1) {
-						oneLengthCommitsCount++;
-						System.out.println("one change detected " + commit.getName());
+					zeroLenghCommitsCount++;
+					// System.out.println("no changes detected " + commit.getName());
 
-					} else if (changes.size() >= 100) {
-						moreThanLimitationLengthCommitsCount++;
-						System.out.println("more than 100 changes detected " + commit.getName());
-
-					} else {
-						zeroLenghCommitsCount++;
-						System.out.println("no changes detected " + commit.getName());
-
-					}
 				}
+			}
 
-				List<String> removed = new ArrayList<>();
-				removed.addAll(diffForCommit.getRemovedEntitiesKeys());
+			List<String> removed = new ArrayList<>();
+			removed.addAll(diffForCommit.getRemovedEntitiesKeys());
 
-				if (!removed.isEmpty()) {
-					String removedString = removed.toString().replaceAll("[\\[\\]\"]", "");
-					try (FileWriter file = new FileWriter(removedPath, true)) {
-						file.write(removedString + ", ");
-						file.flush();
-					}
+			if (!removed.isEmpty()) {
+				String removedString = removed.toString().replaceAll("[\\[\\]\"]", "");
+				try (FileWriter file = new FileWriter(removedPath, true)) {
+					file.write(removedString + ", ");
+					file.flush();
 				}
-			}else{
-				System.out.println("YEAH! IT WAS GREATER! ");
 			}
 			if (counter > 0) {
 				minRepo(refDiffJs, repo, commitPr, counter, dataPath, mappingsPath, removedPath);

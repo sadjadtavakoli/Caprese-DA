@@ -36,6 +36,6 @@ public class MainTestCMClaSP_saveToFile {
             //  checkUniqueness -1 checkEmailUniqueness emailValidator -1 #SUP: 2"
         // AlgoCM_ClaSPExecutor.runFile(itemConstraint, support,
         // "contextPrefixSpan.txt", null);
-        System.out.println(AlgoCM_ClaSPExecutor.runList(itemConstraint, support, sequences, null));
+        System.out.println(AlgoCM_ClaSPExecutor.runList(itemConstraint, support, sequences, null, null));
     }
 }
