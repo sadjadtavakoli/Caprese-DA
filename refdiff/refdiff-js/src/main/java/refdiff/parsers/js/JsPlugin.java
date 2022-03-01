@@ -18,6 +18,8 @@ import java.util.Set;
 import com.eclipsesource.v8.NodeJS;
 import com.eclipsesource.v8.V8Object;
 
+import org.eclipse.jgit.errors.LargeObjectException;
+
 import refdiff.core.io.FilePathFilter;
 import refdiff.core.io.SourceFile;
 import refdiff.core.io.SourceFileSet;
@@ -76,7 +78,15 @@ public class JsPlugin implements LanguagePlugin, Closeable {
 		this.nodeCounter = 0;
 		for (SourceFile sourceFile : sources.getSourceFiles()) {
 			if (getAllowedFilesFilter().isAllowedToBeTokenized(sourceFile.getPath())) {
-				String content = sources.readContent(sourceFile);
+				String content = "";
+				try {
+					content = sources.readContent(sourceFile);
+				}
+				catch (LargeObjectException e) {
+					if (nonValidChangedFiles != null)
+						nonValidChangedFiles.add(sourceFile.getPath());
+					continue;
+				}
 				try {
 					getCst(root, sourceFile, content, sources, nonValidChangedFiles);
 				} catch (Exception e) {

@@ -15,6 +15,8 @@ import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import org.eclipse.jgit.errors.LargeObjectException;
+
 import refdiff.core.diff.similarity.SourceRepresentationBuilder;
 import refdiff.core.io.SourceFile;
 import refdiff.core.io.SourceFileSet;
@@ -75,9 +77,13 @@ public class CstRootHelper<T> {
 				}
 			});
 		}
-		
-		for (SourceFile file : sources.getSourceFiles()) {
-			fileMap.put(file.getPath(), sources.readContent(file));
+		for (SourceFile file : sources.getSourceFiles()) {			
+			try {
+				fileMap.put(file.getPath(), sources.readContent(file));
+			}
+			catch (LargeObjectException e) {
+				fileMap.put(file.getPath(), e.getMessage());
+			}
 		}
 	}
 	

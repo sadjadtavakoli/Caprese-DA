@@ -124,7 +124,7 @@ function runRefDiff(commit) {
 
 function computeCommitChanges(commit) {
     return new Promise(function (resolve, reject) {
-        exec(constants.REFDIFF_COMMAND + `"${constants.REPO_URL} ${commit} ${constants.CURRENT_CHANGES_PATH} ${constants.REMOVED_PATH} 0 ${constants.LATEST_MAPPINGS_PATH}"`, (err, stdout, stderr) => {
+        exec(constants.REFDIFF_COMMAND + `"${constants.REPO_URL} ${commit} ${constants.CURRENT_CHANGES_PATH} ${constants.REMOVED_PATH} 0"`, (err, stdout, stderr) => {
             if (!err) {
                 resolve(commit)
             }
@@ -191,18 +191,15 @@ function runBerke() {
     }
 
     function IntrepretDAResult(){
-        console.log("HERE")
         let mappings = JSON.parse(fs.readFileSync(constants.MAPPINGS_PATH))
         let dependenciesData = JSON.parse(fs.readFileSync(constants.DA_DEPENDENCIES_PATH))
         let keyMap = dependenciesData['keyMap']
-        console.log(changes)
         for (const changedFucntion of changes) {
             let dependencies = dependenciesData[changedFucntion];
             if (dependencies == undefined) {
                 let unknownKey = changedFucntion.replace(/((?![.])([^-])*)/, "arrowFunction");
                 dependencies = dependenciesData[unknownKey];
             }
-            console.log(dependencies);
             if (dependencies != undefined) {
                 for (const dependency of dependencies['callers']) {
                     let key = mappings[keyMap[dependency]];
