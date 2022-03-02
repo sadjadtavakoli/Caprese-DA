@@ -1,5 +1,5 @@
 # Berke
-Berke is a function-level change impact analysis tool using Dynamic Analysis and co-occurace. Follow the instruction below to run berke.
+Berke is a function-level change impact analysis tool using Dynamic Analysis and Frequent Pattern Mining. Follow the instruction below to run Berke.
 
 1- Install NodeProf ([check here](#NodeProf)) \
 2- Install RefDiff ([check here](#RefDiff))\
