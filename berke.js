@@ -172,8 +172,30 @@ function runBerke() {
 
     IntrepretFPData();
 
-    console.log("* * * * * * * * * impactSet * * * * * * * * * ")
-    console.log(impactSet)
+    let sortableImpactSet = [];
+    // console.log(impactSet)
+    for (var item of impactSet) {
+        sortableImpactSet.push(item);
+    }
+    sortableImpactSet.sort(function(a, b){
+        if(a[1]['DA'] && !b[1]['DA']){
+            return 1
+        }
+        if(b[1]['DA'] && !a[1]['DA']){
+            return 0
+        }
+        let aFP = a[1]['FP'] || 0
+        let bFP = b[1]['FP'] || 0
+        if(aFP - bFP != 0){
+            return bFP - aFP 
+        }
+        let aDA = (a[1]['DA'] || 0) + (a[1]['DA-test'] || 0)
+        let bDA = (b[1]['DA'] || 0) + (b[1]['DA-test'] || 0)
+        return bDA - aDA 
+        });
+
+    // console.log("* * * * * * * * * impactSet * * * * * * * * * ")
+    console.log(sortableImpactSet)
 
     function addImpactSet(item, value, score) {
         if (impactSet.has(item)) {
