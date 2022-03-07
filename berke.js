@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const exec = require('child_process').exec;
-const constants = require('./constants.js')
+const constants = require('./constants.js');
 
 let INITIALIZED_COMMIT = constants.SEED_COMMIT;
 
@@ -139,6 +139,7 @@ function computeCommitChanges(commit) {
 
 function runClasp(commit) {
     console.log(" = = = Run Clasp = = = ")
+    console.log(constants.CLASP_COMMAND + `"${constants.SEQUENCES_PATH} ${constants.PATTERNS_PATH} ${constants.ITEMS_FREQUENCIES_PATH} ${getItemConstraints()}"`)
     return new Promise(function (resolve, reject) {
         exec(constants.CLASP_COMMAND + `"${constants.SEQUENCES_PATH} ${constants.PATTERNS_PATH} ${constants.ITEMS_FREQUENCIES_PATH} ${getItemConstraints()}"`, (err, stdout, stderr) => {
             if (!err) {
@@ -153,7 +154,6 @@ function runClasp(commit) {
 
 // Not Completed
 function runBerke() {
-    console.log(" = = = Final Report = = = ")
     let impactSet = new Map()
 
     /* 
@@ -168,51 +168,48 @@ function runBerke() {
 
     getItemConstraints();
 
-    IntrepretDAResult();
+    intrepretDAResult();
 
-    IntrepretFPData();
+    intrepretFPData();
 
-    let sortableImpactSet = [];
-    // console.log(impactSet)
-    for (var item of impactSet) {
-        sortableImpactSet.push(item);
-    }
-    sortableImpactSet.sort(function(a, b){
-        if(a[1]['DA'] && !b[1]['DA']){
-            return 1
+    sortAndReport();
+
+    function sortAndReport() {
+
+        let sortableImpactSet = [];
+        for (var item of impactSet) {
+            sortableImpactSet.push(item);
         }
-        if(b[1]['DA'] && !a[1]['DA']){
-            return 0
-        }
-        let aFP = a[1]['FP'] || 0
-        let bFP = b[1]['FP'] || 0
-        if(aFP - bFP != 0){
-            return bFP - aFP 
-        }
-        let aDA = (a[1]['DA'] || 0) + (a[1]['DA-test'] || 0)
-        let bDA = (b[1]['DA'] || 0) + (b[1]['DA-test'] || 0)
-        return bDA - aDA 
+
+        sortableImpactSet.sort(function (a, b) {
+            if ((a[1]['DA'] && !b[1]['DA']) || (a[1]['DA-test'] && !b[1]['DA-test'])) {
+                return 1;
+            }
+            if ((b[1]['DA'] && !a[1]['DA']) || (b[1]['DA-test'] && !a[1]['DA-test'])) {
+                return 0;
+            }
+
+            let aFP = a[1]['FP'] || { 'score': 0 };
+            let bFP = b[1]['FP'] || { 'score': 0 };
+            if (aFP['score'] - bFP['score'] != 0) {
+                return bFP['score'] - aFP['score'];
+            }
+
+            let aDAScore = a[1]['DA'] || { 'score': 0 };
+            let aDATestScore = a[1]['DA-test'] || { 'score': 0 };
+            let bDAScore = b[1]['DA'] || { 'score': 0 };
+            let bDATestScore = b[1]['DA-test'] || { 'score': 0 };
+
+            let aDA = aDAScore['score'] + aDATestScore['score'];
+            let bDA = bDAScore['score'] + bDATestScore['score'];
+            return bDA - aDA;
         });
 
-    // console.log("* * * * * * * * * impactSet * * * * * * * * * ")
-    console.log(sortableImpactSet)
-
-    function addImpactSet(item, value, score) {
-        if (impactSet.has(item)) {
-            if (impactSet.get(item)[value])
-                impactSet.get(item)[value] += score
-            else {
-                impactSet.get(item)[value] = score
-            }
-        }
-        else {
-            let valueScore = {}
-            valueScore[value] = score
-            impactSet.set(item, valueScore)
-        }
+        console.log("* * * * * * * * * impactSet * * * * * * * * * ")
+        console.log(JSON.stringify(sortableImpactSet))
     }
 
-    function IntrepretDAResult(){
+    function intrepretDAResult() {
         let mappings = JSON.parse(fs.readFileSync(constants.MAPPINGS_PATH))
         let dependenciesData = JSON.parse(fs.readFileSync(constants.DA_DEPENDENCIES_PATH))
         let keyMap = dependenciesData['keyMap']
@@ -227,7 +224,7 @@ function runBerke() {
                     let key = mappings[keyMap[dependency]];
                     if (key == undefined)
                         key = keyMap[dependency];
-                    addImpactSet(key, 'DA', 1);
+                    addDAImpactSet(key, 'DA');
                 }
                 for (const test of dependencies['tests']) {
 
@@ -235,39 +232,46 @@ function runBerke() {
                     if (key == undefined)
                         key = keyMap[test];
 
-                    addImpactSet(key, 'DA-test', 1);
+                    addDAImpactSet(key, 'DA-test');
 
                 }
             }
         }
+
+        function addDAImpactSet(item, key) {
+            if (impactSet.has(item) && impactSet.get(item)[key]) {
+                impactSet.get(item)[key]['score'] = impactSet.get(item)[key]['score'] + 1
+            }
+            else {
+                let scoreValue = {}
+                scoreValue[key] = {'score': 1}
+                impactSet.set(item, scoreValue)
+            }
+        }
     }
 
-    function IntrepretFPData() {
+    function intrepretFPData() {
         let patterns = fs.readFileSync(constants.PATTERNS_PATH).toString();
         patterns = patterns.split(",");
-        let impactedSequences = [];
         for (let pattern of patterns) {
             let sequence = pattern.split(" -1:")[0];
             let probability = pattern.split(" -1:")[1];
             /*
             Keep the number of change-set items included in that particular itemset
             */
-            const filteredChangesCount = changes.filter(value => sequence.includes(value)).length;
-            if (filteredChangesCount) {
-                impactedSequences.push({ 'sequence': sequence, 'items-included': filteredChangesCount, 'probability': probability });
-            }
-        }
-
-        /*
-        Computes total score for each reported itemfrom frequent pattern detection.  
-        */
-        for (let impactedItem of impactedSequences) {
-            let transactions = impactedItem['sequence'].trim().split(" ")
-            for (let transaction of transactions) {
-                if (changes.indexOf(transaction) == -1 && removed.indexOf(transaction) == -1) {
-                    let power = 1 
-                    if(impactedItem['items-included'] > 1) power = impactedItem['items-included']
-                    addImpactSet(transaction, 'FP', parseFloat(impactedItem['probability']) * power) // @TODO we are ignoring number of items included in this change-sets in our result ordering
+            let transactions = sequence.trim().split(" ").filter(value => !removed.includes(value))
+            let intersections = transactions.filter(value => changes.includes(value));
+            let validTransactions = transactions.filter(value => !changes.includes(value));
+            for (let transaction of validTransactions) {
+                let newScore = probability
+                if (impactSet.has(transaction)) {
+                    let scores = impactSet.get(transaction)
+                    if (!scores['FP'] || (scores['FP'] && scores['FP']['score'] < newScore)) {
+                        scores['FP'] = { 'score': newScore, 'length': intersections.length }
+                        impactSet.set(transaction, scores) // @TODO we are ignoring number of items included in this change-sets in our result ordering
+                    }
+                } else {
+                    impactSet.set(transaction, { 'FP': { 'score': newScore, 'length': intersections.length } }) // @TODO we are ignoring number of items included in this change-sets in our result ordering
                 }
             }
         }
