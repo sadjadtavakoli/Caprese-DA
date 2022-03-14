@@ -37,9 +37,13 @@ function run() {
         .then(() => {
             runBerke()
         })
+        .then(runTARMAQ)
+        .then(compareResults)
         .catch((err) => {
             console.log(err)
         })
+
+    // cloneProject().then(runClaspNoItemConstraint).then(fakeBerke)
 }
 
 function getParentCommit(commit) {
@@ -139,9 +143,9 @@ function computeCommitChanges(commit) {
 
 function runClasp(commit) {
     console.log(" = = = Run Clasp = = = ")
-    console.log(constants.CLASP_COMMAND + `"${constants.SEQUENCES_PATH} ${constants.PATTERNS_PATH} ${constants.ITEMS_FREQUENCIES_PATH} ${getItemConstraints()}"`)
+    console.log(constants.CLASP_COMMAND + `"${constants.SEQUENCES_PATH} ${constants.PATTERNS_PATH} ${getItemConstraints()}"`)
     return new Promise(function (resolve, reject) {
-        exec(constants.CLASP_COMMAND + `"${constants.SEQUENCES_PATH} ${constants.PATTERNS_PATH} ${constants.ITEMS_FREQUENCIES_PATH} ${getItemConstraints()}"`, (err, stdout, stderr) => {
+        exec(constants.CLASP_COMMAND + `"${constants.SEQUENCES_PATH} ${constants.PATTERNS_PATH} ${getItemConstraints()}"`, (err, stdout, stderr) => {
             if (!err) {
                 resolve(commit)
             }
@@ -152,14 +156,59 @@ function runClasp(commit) {
     })
 }
 
-// Not Completed
+function runTARMAQ(commit) {
+    console.log(" = = = Run TARMAQ = = = ")
+    console.log(constants.TARMAQ_COMMAND + `"${constants.SEQUENCES_PATH} ${constants.TARMAQ_RESULT_PATH} ${getItemConstraints()}"`)
+    return new Promise(function (resolve, reject) {
+        exec(constants.TARMAQ_COMMAND + `"${constants.SEQUENCES_PATH} ${constants.TARMAQ_RESULT_PATH} ${getItemConstraints()}"`, (err, stdout, stderr) => {
+            if (!err) {
+                resolve(commit)
+            }
+            else {
+                reject(err)
+            }
+        })
+    })
+}
+
+function fakeBerke() {
+    let patterns = fs.readFileSync(constants.PATTERNS_PATH).toString();
+    patterns = patterns.split(",");
+    let sortableImpactSet = [];
+    for (let pattern of patterns) {
+        let sequence = pattern.split(" -1:")[0];
+        let probability = pattern.split(" -1:")[1];
+        sortableImpactSet.push([sequence, probability])
+    }
+
+    sortableImpactSet.sort(function (a, b) {
+        return b[1] - a[1];
+    });
+
+    fs.writeFileSync(constants.PATTERNS_PATH, JSON.stringify(sortableImpactSet))
+}
+
+function runClaspNoItemConstraint(commit) {
+    console.log(" = = = Run Clasp No Item Constraints = = = ")
+    return new Promise(function (resolve, reject) {
+        exec(constants.CLASP_COMMAND + `"${constants.SEQUENCES_PATH} ${constants.PATTERNS_PATH} ${constants.ITEMS_FREQUENCIES_PATH} -"`, (err, stdout, stderr) => {
+            if (!err) {
+                resolve(commit)
+            }
+            else {
+                reject(err)
+            }
+        })
+    })
+}
+
+
 function runBerke() {
     let impactSet = new Map()
 
     /* 
     Read and organize Dynamic analysis recorded dependencies as ImpactSet 
     */
-    let frequenciesData = JSON.parse(fs.readFileSync(constants.ITEMS_FREQUENCIES_PATH))
     let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(", ");
 
     /* 
@@ -205,8 +254,9 @@ function runBerke() {
             return bDA - aDA;
         });
 
-        console.log("* * * * * * * * * impactSet * * * * * * * * * ")
-        console.log(JSON.stringify(sortableImpactSet))
+        // console.log("* * * * * * * * * impactSet * * * * * * * * * ")
+        // console.log(JSON.stringify(sortableImpactSet))
+        fs.writeFileSync(constants.Berke_RESULT_PATH, JSON.stringify(sortableImpactSet))
     }
 
     function intrepretDAResult() {
@@ -244,7 +294,7 @@ function runBerke() {
             }
             else {
                 let scoreValue = {}
-                scoreValue[key] = {'score': 1}
+                scoreValue[key] = { 'score': 1 }
                 impactSet.set(item, scoreValue)
             }
         }
@@ -260,22 +310,56 @@ function runBerke() {
             Keep the number of change-set items included in that particular itemset
             */
             let transactions = sequence.trim().split(" ").filter(value => !removed.includes(value))
-            let intersections = transactions.filter(value => changes.includes(value));
+            let intersections = stringfyIntersection(transactions.filter(value => changes.includes(value)));
             let validTransactions = transactions.filter(value => !changes.includes(value));
             for (let transaction of validTransactions) {
                 let newScore = probability
                 if (impactSet.has(transaction)) {
                     let scores = impactSet.get(transaction)
-                    if (!scores['FP'] || (scores['FP'] && scores['FP']['score'] < newScore)) {
-                        scores['FP'] = { 'score': newScore, 'length': intersections.length }
-                        impactSet.set(transaction, scores) // @TODO we are ignoring number of items included in this change-sets in our result ordering
+                    if (!scores['FP'] || (scores['FP'] && newScore > scores['FP']['score'])) {
+                        scores['FP'] = { 'score': newScore, 'antecedents': [intersections] }
+                    } else if (newScore == scores['FP']['score']) {
+                        if (!scores['FP']['antecedents'].includes(intersections)) {
+
+                            scores['FP']['antecedents'].push(intersections)
+                        }
                     }
+                    impactSet.set(transaction, scores) // @TODO we are ignoring number of items included in this change-sets in our result ordering
                 } else {
-                    impactSet.set(transaction, { 'FP': { 'score': newScore, 'length': intersections.length } }) // @TODO we are ignoring number of items included in this change-sets in our result ordering
+                    impactSet.set(transaction, { 'FP': { 'score': newScore, 'antecedents': [intersections] } }) // @TODO we are ignoring number of items included in this change-sets in our result ordering
                 }
             }
         }
     }
+    
+    function stringfyIntersection(intersections) {
+        let res = ""
+        for (let intersection of intersections) {
+            res += ", " + intersection
+        }
+        return res.substring(2)
+    }
+
+}
+
+function compareResults(){
+    let tarmaq = JSON.parse(fs.readFileSync(constants.TARMAQ_RESULT_PATH))
+    let berkeResult = JSON.parse(fs.readFileSync(constants.Berke_RESULT_PATH))
+    let tarmaqAntecedents =[]
+    let berkeAntecedents =[]
+    for(let rule of tarmaq){
+        rule = rule['rule']
+        tarmaqAntecedents.push(rule.split(" => ")[1])
+    }
+    for(let rule of berkeResult){
+        berkeAntecedents.push(rule[0])
+    }
+    let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(", ");
+
+    console.log("tarmaq uniques")
+    console.log(tarmaqAntecedents.filter(x => berkeAntecedents.indexOf(x) === -1).filter(x=>removed.indexOf(x)===-1))
+    console.log("berke uniques")
+    console.log(berkeAntecedents.filter(x => tarmaqAntecedents.indexOf(x) === -1))
 }
 
 function getItemConstraints() {

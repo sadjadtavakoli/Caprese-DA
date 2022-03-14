@@ -3,3 +3,5 @@ package-lock.json
 data/*
 refdiff/*/mappings.json
 .vscode 
+*.DS_Store
+hs_err*
