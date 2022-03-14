@@ -449,25 +449,27 @@ public class FrequentPatternEnumeration_ClaSP {
             }
             listaPatrones.add(p);
         }
+        if(!itemConstraint.isEmpty()){
+            for (List<Pattern> lista : totalPatterns.values()) {
+                // For all their patterns
+                for (int i = 0; i < lista.size(); i++) {
+                    Pattern p = lista.get(i);
+                    if (!p.contains(itemConstraint)) {
+                            lista.remove(i);
+                            i--;
+                        }
+                }
+            }
+        }
+
 
         // For all the list associated with de different sumSequencesIDs values
         for (List<Pattern> lista : totalPatterns.values()) {
             // For all their patterns
             for (int i = 0; i < lista.size(); i++) {
                 Pattern p1 = lista.get(i);
-                if (!p1.contains(itemConstraint)) {
-                    lista.remove(i);
-                    i--;
-                    continue;
-                }
                 for (int j = i + 1; j < lista.size(); j++) {
                     Pattern p2 = lista.get(j);
-                    if (!p2.contains(itemConstraint)) {
-                        lista.remove(j);
-                        j--;
-                        continue;
-                    }
-                    // If the patterns has the same support:
                     if (p1.getAppearingIn().cardinality() == p2.getAppearingIn().cardinality()
                             && p1.size() != p2.size()) {
                         /*

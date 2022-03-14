@@ -30,7 +30,7 @@ public class AlgoCM_ClaSPExecutor {
      *                           memory
      * @param itemsFrequenciesPath the path in which each items frequency should be stored 
      */
-    public static List<String> runFile(List<String> itemConstraint, double support, String filePath, String outputPath, String itemsFrequenciesPath)
+    public static List<String> runFile(List<String> itemConstraint, double support, String filePath, String outputPath)
             throws IOException {
 
         // Load a sequence database
@@ -39,7 +39,6 @@ public class AlgoCM_ClaSPExecutor {
         boolean keepPatterns = true;
         boolean verbose = true;
         boolean findClosedPatterns = true;
-        boolean executePruningMethods = true;
         // if you set the following parameter to true, the sequence ids of the sequences
         // where
         // each pattern appears will be shown in the result
@@ -52,10 +51,9 @@ public class AlgoCM_ClaSPExecutor {
 
         sequenceDatabase.loadFile(filePath);
 
-        AlgoCM_ClaSP algorithm = new AlgoCM_ClaSP(support, abstractionCreator, findClosedPatterns,
-                executePruningMethods);
+        AlgoCM_ClaSP algorithm = new AlgoCM_ClaSP(support, abstractionCreator, findClosedPatterns);
 
-        algorithm.runAlgorithm(sequenceDatabase, keepPatterns, verbose, outputPath, outputSequenceIdentifiers, itemsFrequenciesPath);
+        algorithm.runAlgorithm(sequenceDatabase, keepPatterns, verbose, outputPath, outputSequenceIdentifiers);
         System.out.println("Minsup (relative) : " + support);
         System.out.println(algorithm.getNumberOfFrequentPatterns() + " patterns found.");
 

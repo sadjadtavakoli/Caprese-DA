@@ -90,11 +90,6 @@ public class AlgoCM_ClaSP {
      * flag to indicate if we are interesting in only finding the closed sequences
      */
     private boolean findClosedPatterns;
-    /**
-     * flag to indicate if we are interesting in only finding the closed sequence
-     * through the postprocessing step
-     */
-    private boolean executePruningMethods;
 
     protected List<TrieNode> itemConstraint;
 
@@ -107,12 +102,10 @@ public class AlgoCM_ClaSP {
      * @param abstractionCreator the abstraction creator
      * @param findClosedPatterns flag to indicate if we are interesting in only
      */
-    public AlgoCM_ClaSP(double support, AbstractionCreator abstractionCreator, boolean findClosedPatterns,
-            boolean executePruningMethods) {
+    public AlgoCM_ClaSP(double support, AbstractionCreator abstractionCreator, boolean findClosedPatterns) {
         this.minSupRelative = support;
         this.abstractionCreator = abstractionCreator;
         this.findClosedPatterns = findClosedPatterns;
-        this.executePruningMethods = executePruningMethods;
     }
 
     /**
@@ -132,11 +125,10 @@ public class AlgoCM_ClaSP {
      *                                  just when keepPatterns is activated.
      * @param outputSequenceIdentifiers indicates if sequence ids should be output
      *                                  with each pattern found.
-     * @param itemsFrequenciesPath        the path in which each items frequency should be stored 
      * @throws IOException
      */
     public void runAlgorithm(SequenceDatabase database, boolean keepPatterns, boolean verbose, String outputFilePath,
-            boolean outputSequenceIdentifiers, String itemsFrequenciesPath) throws IOException {
+            boolean outputSequenceIdentifiers) throws IOException {
         // If we do no have any file path
         if (outputFilePath == null || outputFilePath.equals("-")) {
             // The user wants to save the results in memory
@@ -150,7 +142,7 @@ public class AlgoCM_ClaSP {
         // keeping the starting time
         overallStart = System.currentTimeMillis();
         // Starting ClaSP algorithm
-        claSP(database, minSupRelative, keepPatterns, verbose, findClosedPatterns, itemsFrequenciesPath);
+        claSP(database, minSupRelative, keepPatterns, verbose, findClosedPatterns);
         // keeping the ending time
         overallEnd = System.currentTimeMillis();
         // Search for frequent patterns: Finished
@@ -167,7 +159,7 @@ public class AlgoCM_ClaSP {
      * @param verbose        Flag for debugging purposes
      */
     protected void claSP(SequenceDatabase database, double minSupRelative, boolean keepPatterns, boolean verbose,
-            boolean findClosedPatterns, String itemsFrequenciesPath) {
+            boolean findClosedPatterns) {
         // We get the initial trie whose children are the frequent 1-patterns
         FrequentAtomsTrie = database.frequentItems();
         itemConstraint = database.itemConstraints();
@@ -220,7 +212,6 @@ public class AlgoCM_ClaSP {
         }
         // System.out.println("************ cooc map ************");
         // System.out.println(coocMapEquals);
-        database.writeItemsFrequency(itemsFrequenciesPath);
         database.clear();
         database = null;
 

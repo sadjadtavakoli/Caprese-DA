@@ -3,7 +3,6 @@ package clasp_AGP.dataStructures.database;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -271,63 +270,6 @@ public class SequenceDatabase {
      */
     public Map<Item, TrieNode> getFrequentItems() {
         return frequentItems;
-    }
-
-    /**
-     * It reduces the original database to just frequent items
-     * 
-     * @param keySet
-     */
-    private void reduceDatabase(Set<Item> keySet) {
-        for (int k = 0; k < sequences.size(); k++) {
-            Sequence sequence = sequences.get(k);
-            for (int i = 0; i < sequence.size(); i++) {
-                Itemset itemset = sequence.get(i);
-                for (int j = 0; j < itemset.size(); j++) {
-                    Item item = itemset.get(j);
-                    if (!keySet.contains(item)) {
-                        sequence.remove(i, j);
-                        j--;
-                    }
-                }
-                if (itemset.size() == 0) {
-                    sequence.remove(i);
-                    i--;
-                }
-            }
-            if (sequence.size() == 0) {
-                sequences.remove(k);
-                k--;
-            }
-        }
-    }
-
-    public void writeItemsFrequency(String targetFilePath) {
-        Set<Item> frequentItemsSet = frequentItems.keySet();
-        StringBuffer sb = new StringBuffer();
-        boolean first = true;
-        sb.append('{');
-        for (Item frequentItem : frequentItemsSet) {
-            if (first)
-                first = false;
-            else
-                sb.append(',');
-            sb.append("\"").append(frequentItem).append("\":").append(frequentItem.getQuantity());
-        }
-        sb.append('}');
-
-        if (targetFilePath != null) {
-
-            try (FileWriter file = new FileWriter(targetFilePath)) {
-                // We can write any JSONArray or JSONObject instance to the file
-                file.write(sb.toString());
-                file.flush();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else {
-            System.out.println(sb.toString());
-        }
     }
 
     public void clear() {
