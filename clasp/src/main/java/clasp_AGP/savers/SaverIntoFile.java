@@ -49,7 +49,6 @@ public class SaverIntoFile implements Saver {
         if (writer != null) {
             // create a StringBuilder
             StringBuilder r = new StringBuilder("");
-            // for each itemset in this sequential pattern
             r.append(p.toStringToFileSimple());
             try {
                 // write the string to the file

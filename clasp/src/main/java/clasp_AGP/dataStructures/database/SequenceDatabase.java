@@ -136,7 +136,6 @@ public class SequenceDatabase {
          *       locations of our item-set items.
          */
         ItemAbstractionPairCreator pairCreator = ItemAbstractionPairCreator.getInstance();
-        long timestamp = -1;
         Sequence sequence = new Sequence(sequences.size());
         sequence.setID(nSequences);
         int beginning = 0;
@@ -149,18 +148,10 @@ public class SequenceDatabase {
             }
         }
         for (int i = beginning; i < integers.length; i++) {
-            if (integers[i].codePointAt(0) == '<') { // Timestamp
-                String value = integers[i].substring(1, integers[i].length() - 1);
-                timestamp = Long.parseLong(value);
-                sequence.setTimestamp(timestamp);
-                // sequence.setTimestamp(timestamp);
-            } else if (integers[i].equals("-1")) { // End of an sequence
-                timestamp = sequence.getTimestamp() + 1;
-                // timestamp = sequence.getTimestamp() + 1;
-                
+            if (integers[i].equals("-1")) { // End of an sequence
                 sequences.add(sequence);
                 nSequences++;
-                sequencesLengths.put(sequence.getId(), sequence.length());
+                sequencesLengths.put(sequence.getId(), sequence.size());
             } else { // an item with the format : id(value) ou: id
                 int indexParentheseGauche = integers[i].indexOf("(");
                 if (indexParentheseGauche == -1) {
@@ -181,16 +172,9 @@ public class SequenceDatabase {
                         }
                     }
                     IDList idlist = node.getChild().getIdList();
-                    if (timestamp < 0) {
-                        timestamp = 1;
-                        sequence.setTimestamp(timestamp);
-                        // sequence.setTimestamp(timestamp)
-                    }
                     sequence.addItem(item);
-                    // sequence.addItem(item);
 
-                    idListCreator.addAppearance(idlist, sequence.getId(), (int) timestamp,
-                            sequence.size());
+                    idListCreator.addAppearance(idlist, sequence.getId(), sequence.size());
                     idListCreator.updateProjectionDistance(projectingDistance, item, sequence.getId(),
                             sequence.size());
                 }

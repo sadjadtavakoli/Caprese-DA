@@ -29,17 +29,9 @@ import java.util.List;
 public class Sequence {
 
     /**
-     * Counter that has the total items contained in the sequence.
-     */
-    private int numberOfItems = 0;
-    /**
      * List of items that compose the sequence.
      */
-    private List<Item> items = new ArrayList<Item>();
-    /**
-     * Timestamp of the sequence.
-     */
-    private long timestamp = 0;
+    private List<Item> items = new ArrayList<>();
     /**
      * Sequence identifier
      */
@@ -93,14 +85,6 @@ public class Sequence {
         return items.get(index);
     }
 
-    public long getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(long timestamp) {
-        this.timestamp = timestamp;
-    }
-
     /**
      * It returns the number of items that compose the sequence.
      * 
@@ -117,9 +101,7 @@ public class Sequence {
     @Override
     public String toString() {
         StringBuilder r = new StringBuilder("");
-        r.append("{t=");
-        r.append(this.getTimestamp());
-        r.append(", ");
+        r.append("{");
         for (Item item : items) {
             String string = item.toString();
             r.append(string);
@@ -136,15 +118,6 @@ public class Sequence {
      */
     public int getId() {
         return id;
-    }
-
-    /**
-     * It returns the number of items that the sequence has
-     * 
-     * @return the number of items
-     */
-    public int length() {
-        return numberOfItems;
     }
 
     /**

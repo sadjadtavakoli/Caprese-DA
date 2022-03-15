@@ -41,7 +41,7 @@ public interface IDList {
      *                   relation, or, if it is false, an after relation.
      * @return the intersection
      */
-    public IDList join(IDList idList, boolean equals);
+    public IDList join(IDList idList);
 
     /**
      * Get the minimum relative support outlined by the IdList, i.e. the number of
@@ -91,7 +91,7 @@ public interface IDList {
      * 
      * @return the map
      */
-    public Map<Integer, List<Position>> appearingInMap();
+    public Map<Integer, List<Integer>> appearingInMap();
 
     /**
      * It returns the number of elements that appears after each appearance of the

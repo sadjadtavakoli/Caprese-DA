@@ -279,7 +279,7 @@ public class Pattern implements Comparable<Pattern> {
                         nodeIdlist.clone(result);
                         initiated = true;
                     } else {
-                        result = result.join(nodeIdlist, true);
+                        result = result.join(nodeIdlist);
                     }
                     break;
                 }

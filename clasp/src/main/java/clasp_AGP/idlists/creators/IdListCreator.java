@@ -5,7 +5,6 @@ import java.util.Map;
 
 import clasp_AGP.dataStructures.Item;
 import clasp_AGP.idlists.IDList;
-import clasp_AGP.idlists.Position;
 import clasp_AGP.tries.TrieNode;
 
 /**
@@ -44,7 +43,7 @@ public interface IdListCreator {
     /**
      * Add an appearance <sid,tid> to an Idlist.
      */
-    public void addAppearance(IDList idlist, Integer sequence, Integer timestamp, Integer item);
+    public void addAppearance(IDList idlist, Integer sequence, Integer item);
 
     public void initializeMaps(Map<Item, TrieNode> frequentItems,
             Map<Item, Map<Integer, List<Integer>>> projectingDistanceMap, Map<Integer, Integer> sequenceSize);

@@ -8,7 +8,6 @@ import java.util.Map;
 import clasp_AGP.dataStructures.Item;
 import clasp_AGP.idlists.IDList;
 import clasp_AGP.idlists.IDListStandard_Map;
-import clasp_AGP.idlists.Position;
 import clasp_AGP.tries.TrieNode;
 
 /**
@@ -72,7 +71,7 @@ public class IdListCreatorStandard_Map implements IdListCreator {
      * @return the idlist
      */
     public IDList create() {
-        Map<Integer, List<Position>> sequencePositionsEntries = new HashMap<Integer, List<Position>>();
+        Map<Integer, List<Integer>> sequencePositionsEntries = new HashMap<Integer, List<Integer>>();
         return new IDListStandard_Map(sequencePositionsEntries);
     }
 
@@ -81,18 +80,18 @@ public class IdListCreatorStandard_Map implements IdListCreator {
      * 
      * @return the idlist
      */
-    public IDList create(Map<Integer, List<Position>> sequencePositionsEntries) {
+    public IDList create(Map<Integer, List<Integer>> sequencePositionsEntries) {
         return new IDListStandard_Map(sequencePositionsEntries);
     }
 
     
     /**
      * It adds to an Idlist of entries of arraylists an appearance <sid,<tid,item
-     * position>>
+     * integer>>
      */
-    public void addAppearance(IDList idlist, Integer sequence, Integer timestamp, Integer item) {
+    public void addAppearance(IDList idlist, Integer sequence, Integer item) {
         IDListStandard_Map id = (IDListStandard_Map) idlist;
-        id.addAppearance(sequence, new Position(timestamp, item));
+        id.addAppearance(sequence, item);
     }
 
     @Override

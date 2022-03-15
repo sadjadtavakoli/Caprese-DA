@@ -183,7 +183,7 @@ public class FrequentPatternEnumeration_ClaSP {
             // @SADJADRE here we should take the intersection between the new produced
             // sequence and item-constaints, then compute
             // newIdList.getSupport()/intersection.getSupport()
-            IDList newIdList = currentTrie.getIdList().join(eq.getChild().getIdList(), true);
+            IDList newIdList = currentTrie.getIdList().join(eq.getChild().getIdList());
             double newPatternScore;
             if (itemConstraint.isEmpty()) { // @SADJAD for test
                 newPatternScore = newIdList.getSupport();

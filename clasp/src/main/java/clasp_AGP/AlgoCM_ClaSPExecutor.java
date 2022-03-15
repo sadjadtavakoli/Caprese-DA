@@ -60,7 +60,7 @@ public class AlgoCM_ClaSPExecutor {
     }
 
     public static List<String> runList(List<String> itemConstraint, double support, String[] sequences,
-            String outputPath, String itemsFrequenciesPath) throws IOException {
+            String outputPath) throws IOException {
 
         String filePath = "input.txt";
         StringBuilder sequencesString = new StringBuilder();

@@ -12,7 +12,7 @@ import clasp_AGP.tries.Trie;
 
 /**
  * Inspired in Implementation of a Idlist for ClaSP. This IdList is based on a
- * hash map of entries <Integer, List<Position>>, and it makes a correspondence
+ * hash map of entries <Integer, List<Integer>>, and it makes a correspondence
  * between a sid, denoted by the Integer, with the apperances of the pattern in
  * that sequence, denoted by the list of positions. In that list we will have
  * positions with the where an appearance of the pattern can be found, and is
@@ -46,7 +46,7 @@ public class IDListStandard_Map implements IDList {
      * integer we stand for a sequence id, whereas a list of itemsets correspond to
      * all the itemset timestamps where the pattern occurs
      */
-    private Map<Integer, List<Position>> sequencePositionsEntries;
+    private Map<Integer, List<Integer>> sequencePositionsEntries;
     /**
      * A bitset to keep just the sequences where a pattern appears. Is the bitset
      * representation of the keyset of the map sequence_ItemsetEntries
@@ -64,15 +64,15 @@ public class IDListStandard_Map implements IDList {
      * The standard constructor. It creates an empty IdList.
      */
     public IDListStandard_Map() {
-        this.sequencePositionsEntries = new HashMap<Integer, List<Position>>();
+        this.sequencePositionsEntries = new HashMap<Integer, List<Integer>>();
     }
 
     /**
-     * It creates an IdList from a map of <Integer,List<Position>>
+     * It creates an IdList from a map of <Integer,List<Integer>>
      *
      * @param sequencePositionsEntries
      */
-    public IDListStandard_Map(Map<Integer, List<Position>> sequencePositionsEntries) {
+    public IDListStandard_Map(Map<Integer, List<Integer>> sequencePositionsEntries) {
         this.sequencePositionsEntries = sequencePositionsEntries;
         this.sequences = new BitSet(sequencePositionsEntries.size());
     }
@@ -87,7 +87,7 @@ public class IDListStandard_Map implements IDList {
      * @return the intersection
      */
     @Override
-    public IDList join(IDList idList, boolean equals) {
+    public IDList join(IDList idList) {
         // We create the result map of entries of list of item positions
         /*
          * Tin modifies:
@@ -97,39 +97,31 @@ public class IDListStandard_Map implements IDList {
                 .getSequencePositionsEntries().size())
                         ? ((IDListStandard_Map) this).getSequencePositionsEntries().size()
                         : ((IDListStandard_Map) idList).getSequencePositionsEntries().size();
-        Map<Integer, List<Position>> intersection = new HashMap<Integer, List<Position>>(size);
+        Map<Integer, List<Integer>> intersection = new HashMap<Integer, List<Integer>>(size);
 
-        // Map<Integer, List<Position>> intersection = new HashMap<Integer,
-        // List<Position>>(((IDListStandard_Map)
-        // idList).getSequencePositionsEntries().size());
         // We create an empty bitset where we will keep the pattern appearances
         BitSet newSequences = new BitSet(idList.getSupport());
         // Cast in the argument IdList
         IDListStandard_Map idStandard = (IDListStandard_Map) idList;
         int[] newTotalElementsAfterPrefixes = new int[1];
         // And we get the map of entries of list of positions
-        Map<Integer, List<Position>> idListMap = idStandard.getSequencePositionsEntries();
-        Set<Map.Entry<Integer, List<Position>>> entries = idListMap.entrySet();
+        Map<Integer, List<Integer>> idListMap = idStandard.getSequencePositionsEntries();
+        Set<Map.Entry<Integer, List<Integer>>> entries = idListMap.entrySet();
         // For each entry of the given IdList
-        for (Map.Entry<Integer, List<Position>> entry : entries) {
+        for (Map.Entry<Integer, List<Integer>> entry : entries) {
             int sid = entry.getKey();
             /*
              * We get the positions that correspond with the sequence given by the key of
              * the current entry
              */
-            List<Position> positionAppearancesInSequence = entry.getValue();
+            List<Integer> positionAppearancesInSequence = entry.getValue();
             /*
              * We create a new list of positions where we keep the result for this entry
              */
-            List<Position> positionAppearances;
+            List<Integer> positionAppearances;
             // If the flag is activated
-            if (equals) {
                 // We make an equal operation join for the current sequence sid
-                positionAppearances = equalOperation(sid, positionAppearancesInSequence, newTotalElementsAfterPrefixes);
-            } else {
-                // otherwise, we make an after operation join for the current sequence sid
-                positionAppearances = laterOperation(sid, positionAppearancesInSequence, newTotalElementsAfterPrefixes);
-            }
+            positionAppearances = equalOperation(sid, positionAppearancesInSequence, newTotalElementsAfterPrefixes);
             // If there is any result, we keep it
             if (positionAppearances != null) {
                 intersection.put(entry.getKey(), positionAppearances);
@@ -148,7 +140,7 @@ public class IDListStandard_Map implements IDList {
      *
      * @return the map
      */
-    public Map<Integer, List<Position>> getSequencePositionsEntries() {
+    public Map<Integer, List<Integer>> getSequencePositionsEntries() {
         return sequencePositionsEntries;
     }
 
@@ -163,64 +155,8 @@ public class IDListStandard_Map implements IDList {
     /**
      * set sequencePositionsEntries
      */
-    public void setSequencePositionsEntries(Map<Integer, List<Position>> sequencePositionsEntries){
+    public void setSequencePositionsEntries(Map<Integer, List<Integer>> sequencePositionsEntries){
         this.sequencePositionsEntries = sequencePositionsEntries;
-    }
-
-    /**
-     * It executes a join operation under the after relation for a two sets of
-     * appearances that correspond to a same sequence in two different patterns
-     *
-     * @param sid                           Sequence identifier of the sequence
-     *                                      where we want to check if it exists the
-     *                                      pattern
-     * @param positionAppearancesInSequence Position items of the parameter Idlist
-     * @param dif                           Place where we store the difference
-     *                                      between the original size of the
-     *                                      sequence and the elements that there are
-     *                                      up to the last item appearance of the
-     *                                      pattern that the IdList is referring to
-     * @return The new Entry for the new IdList
-     */
-    private List<Position> laterOperation(Integer sid, List<Position> positionAppearancesInSequence, int[] dif) {
-        // We get the positions for the same sequence for the current IdList
-        List<Position> positionItemsAppearancesInSequenceOfMyIdList = sequencePositionsEntries.get(sid);
-        // If there is not any occurrence we end the join operation
-        if (positionItemsAppearancesInSequenceOfMyIdList == null
-                || positionItemsAppearancesInSequenceOfMyIdList.isEmpty()) {
-            return null;
-        }
-        // Otherwise we create a new List of position items where we keep the new
-        // entries
-        List<Position> result = new ArrayList<Position>();
-
-        int index = -1;
-        /*
-         * For all the position items of the parameter Idlist that appear after the
-         * first position item of the current IdList
-         */
-        for (int i = 0; i < positionAppearancesInSequence.size() && index < 0; i++) {
-            int eid = positionAppearancesInSequence.get(i).getItemsetIndex();
-            if (positionItemsAppearancesInSequenceOfMyIdList.get(0).getItemsetIndex() < eid) {
-                index = i;
-            }
-        }
-        /*
-         * We keep them in the new result list
-         */
-        if (index >= 0) {
-            for (int i = index; i < positionAppearancesInSequence.size(); i++) {
-                Position pos = positionAppearancesInSequence.get(i);
-                result.add(pos);
-                if (i == index)
-                    dif[0] += (originalSizeOfSequences.get(sid) - pos.getItemIndex());
-            }
-        }
-
-        if (result.isEmpty()) {
-            return null;
-        }
-        return result;
     }
 
     /**
@@ -240,9 +176,9 @@ public class IDListStandard_Map implements IDList {
      *                                           IdList is referring to
      * @return The new Entry for the new IdList
      */
-    private List<Position> equalOperation(Integer key, List<Position> positionItemsAppearancesInSequence, int[] dif) {
+    private List<Integer> equalOperation(Integer key, List<Integer> positionItemsAppearancesInSequence, int[] dif) {
         // We get the position items for the same sequence for the current IdList
-        List<Position> positionItemsAppearancesInSequenceOfMyIdList = sequencePositionsEntries.get(key);
+        List<Integer> positionItemsAppearancesInSequenceOfMyIdList = sequencePositionsEntries.get(key);
         // If there is not any occurrence we end the join operation
         if (positionItemsAppearancesInSequenceOfMyIdList == null
                 || positionItemsAppearancesInSequenceOfMyIdList.isEmpty()) {
@@ -250,13 +186,13 @@ public class IDListStandard_Map implements IDList {
         }
         // Otherwise we create a new List of position items where we keep the new
         // entries
-        List<Position> result = new ArrayList<Position>();
+        List<Integer> result = new ArrayList<>();
         int beginningIndex = 0;
 
         /*
          * We explore the smaller list and we search in the greater one
          */
-        List<Position> listToExplore, listToSearch;
+        List<Integer> listToExplore, listToSearch;
         if (positionItemsAppearancesInSequenceOfMyIdList.size() <= positionItemsAppearancesInSequence.size()) {
             listToExplore = positionItemsAppearancesInSequenceOfMyIdList;
             listToSearch = positionItemsAppearancesInSequence;
@@ -269,51 +205,31 @@ public class IDListStandard_Map implements IDList {
          */
         boolean twoFirstEventsEqual = false;
         // For each itemset timestamp in the list to explores
-        for (Position eid : listToExplore) {
+        for (Integer eid : listToExplore) {
             /*
              * For each itemset timestamp from the beginning index to the end of the list to
              * search
              */
             for (int i = beginningIndex; i < listToSearch.size(); i++) {
-                Position currentPosition = listToSearch.get(i);
+                Integer currentPosition = listToSearch.get(i);
                 // We make a comparison
-                int comparison = currentPosition.getItemsetIndex().compareTo(eid.getItemsetIndex());
-                /*
-                 * If that comparison says that the element of the list to search is greater
-                 * than or equal to eid
-                 */
-                if (comparison >= 0) {
+                if (eid > currentPosition) {
+                    result.add(eid);
                     /*
-                     * If is equal to eid, we add it in the result list and update the beginning
-                     * index (The lists from the IdList are sorted). Besides, we calculate the value
-                     * of the elements that appear after the last item of the pattern that the
-                     * IdList is referring to
-                     */
-                    if (comparison == 0) {
-                        if (eid.getItemIndex() > currentPosition.getItemIndex()) {
-                            result.add(eid);
-                            /*
-                             * Tin modifies:
-                             */
-                            if (!twoFirstEventsEqual)
-                                dif[0] += (originalSizeOfSequences.get(key) - eid.getItemIndex());
-                            // dif[0] += (originalSizeOfSequences.get(key) - eid.getItemIndex());
-                        } else {
-                            result.add(currentPosition);
-                            if (!twoFirstEventsEqual)
-                                dif[0] += (originalSizeOfSequences.get(key) - currentPosition.getItemIndex());
-                            // dif[0] += (originalSizeOfSequences.get(key) -
-                            // currentPosition.getItemIndex());
-                        }
-                        twoFirstEventsEqual = true;
-                        beginningIndex = i + 1;
-                    }
-                    /*
-                     * Nevertheless, we stop searching since we know that the rest of timestamp are
-                     * all greater than eid (the timestamp occur later since the idlists are sorted)
-                     */
-                    break;
+                        * Tin modifies:
+                        */
+                    if (!twoFirstEventsEqual)
+                        dif[0] += (originalSizeOfSequences.get(key) - eid);
+                    // dif[0] += (originalSizeOfSequences.get(key) - eid.getItemIndex());
+                } else {
+                    result.add(currentPosition);
+                    if (!twoFirstEventsEqual)
+                        dif[0] += (originalSizeOfSequences.get(key) - currentPosition);
+                    // dif[0] += (originalSizeOfSequences.get(key) -
+                    // currentPosition.getItemIndex());
                 }
+                twoFirstEventsEqual = true;
+                beginningIndex = i + 1;
             }
         }
 
@@ -345,10 +261,10 @@ public class IDListStandard_Map implements IDList {
      * @param sequence     Sequence identifier where the appearence occurs
      * @param positionItem Itemset timestamp where the appearance occurs
      */
-    public void addAppearance(Integer sequence, Position positionItem) {
-        List<Position> eids = sequencePositionsEntries.get(sequence);
+    public void addAppearance(Integer sequence, Integer positionItem) {
+        List<Integer> eids = sequencePositionsEntries.get(sequence);
         if (eids == null) {
-            eids = new ArrayList<Position>();
+            eids = new ArrayList<Integer>();
         }
         if (!eids.contains(positionItem)) {
             eids.add(positionItem);
@@ -365,13 +281,9 @@ public class IDListStandard_Map implements IDList {
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
-        Set<Map.Entry<Integer, List<Position>>> entries = sequencePositionsEntries.entrySet();
-        for (Map.Entry<Integer, List<Position>> entry : entries) {
+        Set<Map.Entry<Integer, List<Integer>>> entries = sequencePositionsEntries.entrySet();
+        for (Map.Entry<Integer, List<Integer>> entry : entries) {
             result.append("\t").append(entry.getKey()).append(" {");
-            List<Position> eids = entry.getValue();
-            for (Position i : eids) {
-                result.append(i.getItemsetIndex()).append(",");
-            }
             result.deleteCharAt(result.length() - 1);
             result.append("}\n");
         }
@@ -406,7 +318,7 @@ public class IDListStandard_Map implements IDList {
     }
 
     @Override
-    public Map<Integer, List<Position>> appearingInMap() {
+    public Map<Integer, List<Integer>> appearingInMap() {
         return sequencePositionsEntries;
     }
 
