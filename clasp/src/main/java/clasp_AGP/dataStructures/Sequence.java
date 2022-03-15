@@ -1,12 +1,11 @@
 package clasp_AGP.dataStructures;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 /**
  * Inspired in SPMF Implementation of a sequence. A sequence is defined as a
- * list of itemsets and can have an identifier.
+ * list of items and can have an identifier.
  * 
  * Copyright Antonio Gomariz Peñalver 2013
  * 
@@ -34,9 +33,13 @@ public class Sequence {
      */
     private int numberOfItems = 0;
     /**
-     * Itemsets that compose the sequence
+     * List of items that compose the sequence.
      */
-    private final List<Itemset> itemsets = new ArrayList<Itemset>();
+    private List<Item> items = new ArrayList<Item>();
+    /**
+     * Timestamp of the sequence.
+     */
+    private long timestamp = 0;
     /**
      * Sequence identifier
      */
@@ -51,64 +54,61 @@ public class Sequence {
         this.id = id;
     }
 
+
     /**
-     * It adds an itemset in the last position of the sequence
+     * It adds an item to the sequence. The item is inserted in the last position.
      * 
-     * @param itemset the itemset to add
+     * @param value The item to add
      */
-    public void addItemset(Itemset itemset) {
-        itemsets.add(itemset);
-        numberOfItems += itemset.size();
+    public void addItem(Item value) {
+        items.add(value);
     }
 
     /**
-     * It adds an item in the specified itemset of the sequence
+     * It removes the item which appears in the specified index.
      * 
-     * @param indexItemset Itemset index where we want to insert the item
-     * @param item         The item that we want to insert
-     */
-    public void addItem(int indexItemset, Item item) {
-        itemsets.get(indexItemset).addItem(item);
-        numberOfItems++;
-    }
-
-    /**
-     * It removes the specified itemset from the sequence
-     * 
-     * @param indexItemset Itemset index of itemset that we want to remove
-     * @return the itemset that has been removed
-     */
-    public Itemset remove(int indexItemset) {
-        Itemset itemset = itemsets.remove(indexItemset);
-        numberOfItems -= itemset.size();
-        return itemset;
-    }
-
-    /**
-     * It removes the specified item from the specified itemset in the sequence
-     * 
-     * @param indexItemset Itemset index from where we want to remove the item
-     * @param indexItem    Item index that we want to remove
+     * @param i the index
      * @return the removed item
      */
-    public Item remove(int indexItemset, int indexItem) {
-        numberOfItems--;
-        return itemsets.get(indexItemset).removeItem(indexItem);
+    public Item removeItem(int i) {
+        return items.remove(i);
+    }
+
+/**
+     * It returns the list of items that compose the sequence.
+     * 
+     * @return the list of items
+     */
+    public List<Item> getItems() {
+        return items;
     }
 
     /**
-     * It clones a sequence
+     * It returns the item from the specified position.
      * 
-     * @return the clone sequence
+     * @param index The index where is the item in which we are interested.
+     * @return the item
      */
-    public Sequence cloneSequence() {
-        Sequence sequence = new Sequence(getId());
-        for (Itemset itemset : itemsets) {
-            sequence.addItemset(itemset.cloneItemSet());
-        }
-        return sequence;
+    public Item get(int index) {
+        return items.get(index);
     }
 
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    /**
+     * It returns the number of items that compose the sequence.
+     * 
+     * @return the number of items
+     */
+    public int size() {
+        return items.size();
+    }
     /**
      * Get the string representation of this sequence
      * 
@@ -117,17 +117,15 @@ public class Sequence {
     @Override
     public String toString() {
         StringBuilder r = new StringBuilder("");
-        for (Itemset itemset : itemsets) {
-            r.append("{t=");
-            r.append(itemset.getTimestamp());
-            r.append(", ");
-            for (Item item : itemset.getItems()) {
-                String string = item.toString();
-                r.append(string);
-                r.append(' ');
-            }
-            r.append('}');
+        r.append("{t=");
+        r.append(this.getTimestamp());
+        r.append(", ");
+        for (Item item : items) {
+            String string = item.toString();
+            r.append(string);
+            r.append(' ');
         }
+        r.append('}');
         return r.append("    ").toString();
     }
 
@@ -140,35 +138,6 @@ public class Sequence {
         return id;
     }
 
-
-    /**
-     * It gets the list of itemsets in this sequence
-     * 
-     * @return the list of itemsets
-     */
-    public List<Itemset> getItemsets() {
-        return itemsets;
-    }
-
-    /**
-     * It gets a particular itemset from the sequence
-     * 
-     * @param index The itemset index in which we are interested in
-     * @return the itemset
-     */
-    public Itemset get(int index) {
-        return itemsets.get(index);
-    }
-
-    /**
-     * It returns the number of itemsets that the sequence has
-     * 
-     * @return the number of itemsets
-     */
-    public int size() {
-        return itemsets.size();
-    }
-
     /**
      * It returns the number of items that the sequence has
      * 
@@ -176,16 +145,6 @@ public class Sequence {
      */
     public int length() {
         return numberOfItems;
-    }
-
-    /**
-     * It returns the time length of the sequence, i.e. the timestamp of the last
-     * itemset minus the timestamp of the first itemset
-     * 
-     * @return the time length
-     */
-    public long getTimeLength() {
-        return itemsets.get(itemsets.size() - 1).getTimestamp() - itemsets.get(0).getTimestamp();
     }
 
     /**
@@ -197,34 +156,4 @@ public class Sequence {
         this.id = id;
     }
 
-
-    /*
-     * public int elementosExistentesAPartirDePosicion(int indexItemset, int
-     * indexItem){ int size=0; if(indexItemset<itemsets.size()-1){ int
-     * itemset=indexItemset+1; for(int i=itemset;i<itemsets.size();i++){
-     * size+=itemsets.get(itemset).size(); } }
-     * size+=(itemsets.get(indexItemset).size()-indexItem-1); return size; }
-     * 
-     * public int tamHastaItemset(int k) { int res=0; for(int i=0;i<k;i++){
-     * res+=itemsets.get(i).size(); } return res; }
-     */
-}
-
-class comparatorTimestamps implements Comparator<Itemset> {
-
-    /**
-     * Comparator class that compares two itemsets by timestamp.
-     * 
-     * @param o1
-     * @param o2
-     * @return
-     */
-    public int compare(Itemset o1, Itemset o2) {
-        long time1 = o1.getTimestamp();
-        long time2 = o2.getTimestamp();
-        if (time1 < time2) {
-            return -1;
-        }
-        return 1;
-    }
 }

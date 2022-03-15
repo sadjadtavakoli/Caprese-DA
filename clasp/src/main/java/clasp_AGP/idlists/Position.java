@@ -50,16 +50,8 @@ public class Position {
         return itemIndex;
     }
 
-    public void setItemIndex(int item) {
-        this.itemIndex = item;
-    }
-
     public Integer getItemsetIndex() {
         return itemsetIndex;
-    }
-
-    public void setItemsetIndex(int itemset) {
-        this.itemsetIndex = itemset;
     }
 
 }

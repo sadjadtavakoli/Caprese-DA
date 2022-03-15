@@ -13,7 +13,6 @@ import java.util.Map;
 import java.util.Set;
 
 import clasp_AGP.dataStructures.Item;
-import clasp_AGP.dataStructures.Itemset;
 import clasp_AGP.dataStructures.Sequence;
 import clasp_AGP.dataStructures.creators.AbstractionCreator;
 import clasp_AGP.dataStructures.creators.ItemAbstractionPairCreator;
@@ -59,11 +58,6 @@ public class SequenceDatabase {
      * Map where we keep the original length for all the sequences
      */
     private Map<Integer, Integer> sequencesLengths = new HashMap<>();
-    /**
-     * Map where, for each sequence, we have a list of integers corresponding to all
-     * the sizes of all the itemsets that the sequence has
-     */
-    private Map<Integer, List<Integer>> sequenceItemsetSize = new HashMap<>();
     /**
      * For each item, we match it with a map of entries <sequence id, number of
      * elements after item>. We will use this map in order to maintain the values
@@ -119,8 +113,7 @@ public class SequenceDatabase {
             /*
              * We initialize all the maps
              */
-            idListCreator.initializeMaps(frequentItems, projectingDistance, sequencesLengths,
-                    sequenceItemsetSize/* , itemsetTimestampMatching */);
+            idListCreator.initializeMaps(frequentItems, projectingDistance, sequencesLengths);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         } finally {
@@ -145,10 +138,8 @@ public class SequenceDatabase {
         ItemAbstractionPairCreator pairCreator = ItemAbstractionPairCreator.getInstance();
         long timestamp = -1;
         Sequence sequence = new Sequence(sequences.size());
-        Itemset itemset = new Itemset();
         sequence.setID(nSequences);
         int beginning = 0;
-        List<Integer> sizeItemsetsList = new ArrayList<>();
 
         if (!itemConstraintStrings.isEmpty()) {
             List<String> itemConstraintCopy = new ArrayList<>(itemConstraintStrings);
@@ -161,16 +152,15 @@ public class SequenceDatabase {
             if (integers[i].codePointAt(0) == '<') { // Timestamp
                 String value = integers[i].substring(1, integers[i].length() - 1);
                 timestamp = Long.parseLong(value);
-                itemset.setTimestamp(timestamp);
-            } else if (integers[i].equals("-1")) { // End of an Itemset
-                // insertMatchItemsetTimestamp(nSequences, sequence.size(), timestamp);
-                timestamp = itemset.getTimestamp() + 1;
-                sequence.addItemset(itemset);
-                sizeItemsetsList.add(sequence.length());
+                sequence.setTimestamp(timestamp);
+                // sequence.setTimestamp(timestamp);
+            } else if (integers[i].equals("-1")) { // End of an sequence
+                timestamp = sequence.getTimestamp() + 1;
+                // timestamp = sequence.getTimestamp() + 1;
+                
                 sequences.add(sequence);
                 nSequences++;
                 sequencesLengths.put(sequence.getId(), sequence.length());
-                sequenceItemsetSize.put(sequence.getId(), sizeItemsetsList);
             } else { // an item with the format : id(value) ou: id
                 int indexParentheseGauche = integers[i].indexOf("(");
                 if (indexParentheseGauche == -1) {
@@ -193,14 +183,16 @@ public class SequenceDatabase {
                     IDList idlist = node.getChild().getIdList();
                     if (timestamp < 0) {
                         timestamp = 1;
-                        itemset.setTimestamp(timestamp);
+                        sequence.setTimestamp(timestamp);
+                        // sequence.setTimestamp(timestamp)
                     }
-                    itemset.addItem(item);
+                    sequence.addItem(item);
+                    // sequence.addItem(item);
 
                     idListCreator.addAppearance(idlist, sequence.getId(), (int) timestamp,
-                            sequence.length() + itemset.size());
-                    idListCreator.updateProjectionDistance(projectingDistance, item, sequence.getId(), sequence.size(),
-                            sequence.length() + itemset.size());
+                            sequence.size());
+                    idListCreator.updateProjectionDistance(projectingDistance, item, sequence.getId(),
+                            sequence.size());
                 }
             }
         }
@@ -280,7 +272,6 @@ public class SequenceDatabase {
         itemFactory = null;
         itemConstraintStrings = null;
         projectingDistance = null;
-        sequenceItemsetSize = null;
         sequencesLengths = null;
     }
 }

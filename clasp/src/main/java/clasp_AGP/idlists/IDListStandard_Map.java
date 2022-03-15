@@ -358,22 +358,6 @@ public class IDListStandard_Map implements IDList {
     }
 
     /**
-     * It adds the appearances for the sequence and the position items list given as
-     * parameter in the current IdList
-     *
-     * @param sid      Sequence identifier where the appearence occurs
-     * @param itemsets Itemset timestamps where the appearances occur
-     */
-    public void addAppearancesInSequence(Integer sid, List<Position> itemsets) {
-        List<Position> positionItemsAppearancesInSequenceOfMyIdList = sequencePositionsEntries.get(sid);
-        if (positionItemsAppearancesInSequenceOfMyIdList == null) {
-            positionItemsAppearancesInSequenceOfMyIdList = itemsets;
-        }
-        sequencePositionsEntries.put(sid, positionItemsAppearancesInSequenceOfMyIdList);
-        sequences.set(sid);
-    }
-
-    /**
      * Get a string representation of this IdList
      *
      * @return the string representation

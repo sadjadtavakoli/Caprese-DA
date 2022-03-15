@@ -38,12 +38,10 @@ public class SaverIntoFile implements Saver {
 
     private BufferedWriter writer = null;
     private String path = null;
-    private boolean outputSequenceIdentifiers;
 
-    public SaverIntoFile(String outputFilePath, boolean outputSequenceIdentifiers) throws IOException {
+    public SaverIntoFile(String outputFilePath) throws IOException {
         path = outputFilePath;
         writer = new BufferedWriter(new FileWriter(outputFilePath));
-        this.outputSequenceIdentifiers = outputSequenceIdentifiers;
     }
 
     @Override

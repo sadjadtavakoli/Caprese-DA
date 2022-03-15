@@ -46,16 +46,9 @@ public interface IdListCreator {
      */
     public void addAppearance(IDList idlist, Integer sequence, Integer timestamp, Integer item);
 
-    /**
-     * Add several appearances in a same sequence <sid, {tid_1,tid_2,...,tid_n}> to
-     * an Idlist
-     */
-    public void addAppearancesInSequence(IDList idlist, Integer sequence, List<Position> itemsets);
-
     public void initializeMaps(Map<Item, TrieNode> frequentItems,
-            Map<Item, Map<Integer, List<Integer>>> projectingDistanceMap, Map<Integer, Integer> sequenceSize,
-            Map<Integer, List<Integer>> itemsetSequenceSize);
+            Map<Item, Map<Integer, List<Integer>>> projectingDistanceMap, Map<Integer, Integer> sequenceSize);
 
     public void updateProjectionDistance(Map<Item, Map<Integer, List<Integer>>> projectingDistanceMap, Item item,
-            int id, int size, int i);
+            int id, int i);
 }

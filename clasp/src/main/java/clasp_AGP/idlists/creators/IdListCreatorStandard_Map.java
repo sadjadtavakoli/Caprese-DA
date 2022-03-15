@@ -95,20 +95,9 @@ public class IdListCreatorStandard_Map implements IdListCreator {
         id.addAppearance(sequence, new Position(timestamp, item));
     }
 
-    /**
-     * It adds to an Idlist of entries of arraylists several appearances in a same
-     * sequence <sid, {<tid_1,item1 position>,<tid_2, item2 position>, ...,<tid_n,
-     * item2 position>}>
-     */
-    public void addAppearancesInSequence(IDList idlist, Integer sequence, List<Position> itemsets) {
-        IDListStandard_Map id = (IDListStandard_Map) idlist;
-        id.addAppearancesInSequence(sequence, itemsets);
-    }
-
     @Override
     public void initializeMaps(Map<Item, TrieNode> frequentItems,
-            Map<Item, Map<Integer, List<Integer>>> projectingDistance, Map<Integer, Integer> sequenceSize,
-            Map<Integer, List<Integer>> sequenceItemsetsSize) {
+            Map<Item, Map<Integer, List<Integer>>> projectingDistance, Map<Integer, Integer> sequenceSize) {
         for (Item frecuente : frequentItems.keySet()) {
             TrieNode node = frequentItems.get(frecuente);
             Map<Integer, List<Integer>> sequenceElementsProjectingByItemMap = projectingDistance.get(frecuente);
@@ -131,8 +120,7 @@ public class IdListCreatorStandard_Map implements IdListCreator {
     }
 
     @Override
-    public void updateProjectionDistance(Map<Item, Map<Integer, List<Integer>>> projectingDistance, Item item, int id,
-            int itemsetCount, int itemsCount) {
+    public void updateProjectionDistance(Map<Item, Map<Integer, List<Integer>>> projectingDistance, Item item, int id, int itemsCount) {
         Map<Integer, List<Integer>> associatedMap = projectingDistance.get(item);
         if (associatedMap == null) {
             associatedMap = new HashMap<Integer, List<Integer>>();

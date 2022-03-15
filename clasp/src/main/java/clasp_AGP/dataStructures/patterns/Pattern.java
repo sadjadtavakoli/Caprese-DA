@@ -401,14 +401,14 @@ public class Pattern implements Comparable<Pattern> {
         return abstractionCreator.isSubpattern(this, p, 0, positions);
     }
 
-    public boolean contains(List<TrieNode> itemset) { // @sadjad TODO REFACTOR => our itemset should be a list of items
+    public boolean contains(List<TrieNode> nodeList) { // @sadjad TODO REFACTOR => our nodeList should be a list of items
                                                     // just like elements
-        if (itemset.isEmpty()) {
+        if (nodeList.isEmpty()) {
             return true;
         }
         for (int j = 0; j < elements.size(); j++) {
-            for (int i = 0; i < itemset.size(); i++) {
-                if (elements.get(j).getItem().getId() == itemset.get(i).getPair().getItem().getId()) {
+            for (int i = 0; i < nodeList.size(); i++) {
+                if (elements.get(j).getItem().getId() == nodeList.get(i).getPair().getItem().getId()) {
                     return true;
                 }
             }

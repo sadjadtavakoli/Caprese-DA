@@ -8,7 +8,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import clasp_AGP.dataStructures.Itemset;
 import clasp_AGP.dataStructures.Sequence;
 import clasp_AGP.dataStructures.creators.AbstractionCreator;
 import clasp_AGP.dataStructures.database.SequenceDatabase;
@@ -127,7 +126,7 @@ public class AlgoCM_ClaSP {
             saver = new SaverIntoMemory(outputSequenceIdentifiers);
         } else {
             // Otherwise, the user wants to save them in the given file
-            saver = new SaverIntoFile(outputFilePath, outputSequenceIdentifiers);
+            saver = new SaverIntoFile(outputFilePath);
         }
         // reset the stats about memory usage
         MemoryLogger.getInstance().reset();
@@ -161,9 +160,8 @@ public class AlgoCM_ClaSP {
         for (Sequence seq : database.getSequences()) {
             Map<String, Set<String>> alreadySeenB_equals = new HashMap<>();
             // for each item
-            Itemset itemsetA = seq.get(0);
-            for (int j = 0; j < itemsetA.size(); j++) {
-                String itemA = (String) itemsetA.get(j).getId();
+            for (int j = 0; j < seq.size(); j++) {
+                String itemA = (String) seq.get(j).getId();
                 Set<String> equalSet = alreadySeenB_equals.get(itemA);
                 if (equalSet == null) {
                     equalSet = new HashSet<>();
@@ -173,10 +171,10 @@ public class AlgoCM_ClaSP {
                 // create the map if not existing already
                 Map<String, Integer> mapCoocItemEquals = coocMapEquals.get(itemA);
 
-                // For each item after itemA in the same itemset // @SADJADRE It's enough to
+                // For each item after itemA in the same sequence // @SADJADRE It's enough to
                 // count items occured after each item since the items are sorted.
-                for (int k = j + 1; k < itemsetA.size(); k++) {
-                    String itemB = (String) itemsetA.get(k).getId();
+                for (int k = j + 1; k < seq.size(); k++) {
+                    String itemB = (String) seq.get(k).getId();
                     if (!equalSet.contains(itemB)) {
                         if (mapCoocItemEquals == null) {
                             mapCoocItemEquals = new HashMap<>();

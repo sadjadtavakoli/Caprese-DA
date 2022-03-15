@@ -195,10 +195,10 @@ public class AbstractionCreator_Qualitative extends AbstractionCreator {
                 // If we are not in the first element of the pattern
                 if (index > 0) {
                     /*
-                     * We increase the itemset position of the previous index in order to find other
+                     * We increase the sequence position of the previous index in order to find other
                      * matching elements
                      */
-                    int newPos = increaseItemset(larger, positions.get(index - 1));
+                    int newPos = increaseSequence(larger, positions.get(index - 1));
                     // And we update that position
                     positions.set(index - 1, newPos);
                 }
@@ -217,10 +217,10 @@ public class AbstractionCreator_Qualitative extends AbstractionCreator {
          */
         if (index > 0 && !cancelled) {
             /*
-             * We increase the itemset position of the previous index in order to find other
+             * We increase the sequence position of the previous index in order to find other
              * matching elements
              */
-            int newPos = increaseItemset(larger, positions.get(index - 1));
+            int newPos = increaseSequence(larger, positions.get(index - 1));
             // And we update that position
             positions.set(index - 1, newPos);
         }
@@ -271,21 +271,21 @@ public class AbstractionCreator_Qualitative extends AbstractionCreator {
         Integer pos;
         // If the current Abstraction has an equal relation with the previous pair
         if (abs.hasEqualRelation()) {
-            // We search for the item in the same itemset where the previous item appeared
-            pos = searchForInTheSameItemset(p, itemPair, currentPosition);
+            // We search for the item in the same sequence where the previous item appeared
+            pos = searchForInTheSameSequence(p, itemPair, currentPosition);
         } else {// Otherwise
             // We start keeping the currentPosition
             int positionToSearchFor = currentPosition;
             /*
              * If the positions of both the current item and the previous one are not in
-             * different itemsets
+             * different sequences
              */
-            if (!areInDifferentItemsets(p, previousPosition, currentPosition)) {
+            if (!areInDifferentSequence(p, previousPosition, currentPosition)) {
                 /*
                  * We increase the position until we get the first element that appear in
-                 * another itemset
+                 * another sequence
                  */
-                positionToSearchFor = increaseItemset(p, currentPosition);
+                positionToSearchFor = increaseSequence(p, currentPosition);
             }
             pos = searchForFirstAppearance(p, positionToSearchFor, itemPair);
         }
@@ -304,26 +304,26 @@ public class AbstractionCreator_Qualitative extends AbstractionCreator {
 
     /**
      * Increase a position to the first element position where it starts another
-     * itemset
+     * sequence
      * 
      * @param p         Pattern in which we search for the beginning of another
-     *                  itemset
+     *                  sequence
      * @param beginning Index from which we start to search for
-     * @return The item index where a new Itemset starts
+     * @return The item index where a new sequence starts
      */
-    public int increaseItemset(Pattern p, Integer beginning) {
+    public int increaseSequence(Pattern p, Integer beginning) {
         // For all the elements appearing after beginning index
         for (int i = beginning + 1; i < p.size(); i++) {
             ItemAbstractionPair currentPair = p.getIthElement(i);
             Abstraction_Qualitative qualitativeAbs = (Abstraction_Qualitative) currentPair.getAbstraction();
-            // If the relation is not an equal relation, then we have changed of itemset
+            // If the relation is not an equal relation, then we have changed of sequence
             if (!qualitativeAbs.hasEqualRelation()) {
                 // And return the index
                 return i;
             }
         }
         /*
-         * If we have got this point that means that we were in the last itemset of the
+         * If we have got this point that means that we were in the last sequence of the
          * pattern and, therefore, we return the size of the pattern, since there can
          * not be any index bigger than this value
          */
@@ -331,7 +331,7 @@ public class AbstractionCreator_Qualitative extends AbstractionCreator {
     }
 
     /**
-     * Search for an item in the same itemset that the previous one appeared
+     * Search for an item in the same sequence that the previous one appeared
      * 
      * @param pattern   Pattern where we are goin to search for the item
      * @param itemPair  Item to search for
@@ -339,7 +339,7 @@ public class AbstractionCreator_Qualitative extends AbstractionCreator {
      * @return the index where the item appears, or null if this index does not
      *         exist
      */
-    private Integer searchForInTheSameItemset(Pattern pattern, Item itemPair, Integer beginning) {
+    private Integer searchForInTheSameSequence(Pattern pattern, Item itemPair, Integer beginning) {
         // From the beginning index and on
         for (int i = beginning; i < pattern.size(); i++) {
             ItemAbstractionPair currentPair = pattern.getIthElement(i);
@@ -348,7 +348,7 @@ public class AbstractionCreator_Qualitative extends AbstractionCreator {
             if (!qualitativeAbstraction.hasEqualRelation()) {
                 /*
                  * We have finished without finding the item, since we have already change of
-                 * itemset
+                 * sequence
                  */
                 return null;
             } else {
@@ -367,26 +367,26 @@ public class AbstractionCreator_Qualitative extends AbstractionCreator {
 
     /**
      * Method that informs if for a pattern, two positions correspond to a same
-     * itemset or not
+     * sequence or not
      * 
      * @param pattern Pattern in which we check the two positions
      * @param p1      First position
      * @param p2      Second position
-     * @return True if they are in different itemsets, False otherwise
+     * @return True if they are in different sequences, False otherwise
      */
-    private boolean areInDifferentItemsets(Pattern pattern, Integer p1, Integer p2) {
+    private boolean areInDifferentSequence(Pattern pattern, Integer p1, Integer p2) {
         // For all the elements between positions p1 and p2
         for (int i = p1 + 1; i <= p2 && i < pattern.size(); i++) {
             ItemAbstractionPair currentPair = pattern.getIthElement(i);
             Abstraction_Qualitative qualitativeAbs = (Abstraction_Qualitative) currentPair.getAbstraction();
             /*
              * If the ith element does not have an equal relation, we conclude that p1 and
-             * p2 are not in the same itemset and we can finish
+             * p2 are not in the same sequence and we can finish
              */
             if (!qualitativeAbs.hasEqualRelation())
                 return true;
         }
-        // If we get this point that means p1 and p2 are in the same itemset
+        // If we get this point that means p1 and p2 are in the same sequence
         return false;
     }
 }
