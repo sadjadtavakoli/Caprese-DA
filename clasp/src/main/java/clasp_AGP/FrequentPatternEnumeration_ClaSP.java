@@ -127,7 +127,7 @@ public class FrequentPatternEnumeration_ClaSP {
         }
     }
 
-    private void exploreChildren(Pattern pattern, TrieNode currentNode, List<TrieNode> itemsetsExtensions,
+    private void exploreChildren(Pattern pattern, TrieNode currentNode, List<TrieNode> extensions,
             int beginning, Item lastAppended) {
 
         // We get the curretn trie
@@ -143,16 +143,16 @@ public class FrequentPatternEnumeration_ClaSP {
         }
 
         // Initialization of new sets
-        List<TrieNode> newItemsetExtension = new ArrayList<>();
+        List<TrieNode> newExtensions = new ArrayList<>();
 
         // Clone for the current pattern
         Pattern clone = pattern.clonePatron();
         /*
          * From the beginning index to the last equivalence class appearing in the
-         * itemset extension set
+         * extension set
          */
-        for (int k = beginning; k < itemsetsExtensions.size(); k++) {
-            TrieNode eq = itemsetsExtensions.get(k);
+        for (int k = beginning; k < extensions.size(); k++) {
+            TrieNode eq = extensions.get(k);
             if (this.coocMapEquals != null) {
                 Map<String, Integer> map = this.coocMapEquals.get(lastAppended.getId());
                 if (map != null) {
@@ -170,7 +170,7 @@ public class FrequentPatternEnumeration_ClaSP {
 
             // We create a new pattern with the elements of the current pattern
             Pattern extension = new Pattern(new ArrayList<>(clone.getElements()));
-            // And we add it the current item of itemset extension set
+            // And we add it the current item of extension set
             ItemAbstractionPair newPair = ItemAbstractionPairCreator.getInstance().getItemAbstractionPair(
                     eq.getPair().getItem(), AbstractionCreator_Qualitative.getInstance().crearAbstraccion(true));
             extension.add(newPair);
@@ -208,13 +208,13 @@ public class FrequentPatternEnumeration_ClaSP {
                  */
                 newPatterns.add(extension);
                 newNodesToExtends.add(newTrieNode);
-                newItemsetExtension.add(newTrieNode);
+                newExtensions.add(newTrieNode);
             }
         }
 
-        int itemsetExtensionSize = newItemsetExtension.size();
+        int extensionSize = newExtensions.size();
         // For all the elements valuables as future i-extensions
-        for (int i = 0; i < itemsetExtensionSize; i++) {
+        for (int i = 0; i < extensionSize; i++) {
             // we get the new pattern and the nodeTrie associated with it
             Pattern newPattern = newPatterns.get(i);
             TrieNode nodeToExtend = newNodesToExtends.remove(0);
@@ -222,11 +222,11 @@ public class FrequentPatternEnumeration_ClaSP {
             Item last = newPattern.getIthElement(newPattern.size() - 1).getItem(); // PFV 2013
 
             /*
-             * And we make a recursive call to dfs_pruning with the new itemset extension.
+             * And we make a recursive call to dfs_pruning with the new extension.
              * Besides we establish the same set as the set which we will make the
              * i-extensions, but beginning from the (i+1)-th element
              */
-            exploreChildren(newPattern, nodeToExtend, newItemsetExtension, i + 1, last);
+            exploreChildren(newPattern, nodeToExtend, newExtensions, i + 1, last);
             nodeToExtend.getChild().setIdList(null);
         }
     }
@@ -425,7 +425,7 @@ public class FrequentPatternEnumeration_ClaSP {
      *                         non-closed patterns
      * @param keepPatterns     Flag indicating if we want to keep the final output
      */
-    void removeNonClosedNonItemConstraintPatterns(List<Entry<Pattern, Trie>> frequentPatterns, boolean keepPatterns) {
+    void removeNonClosedNonItemConstraintPatterns(List<Entry<Pattern, Trie>> frequentPatterns) {
         System.err.println("Before removing NonClosed patterns there are " + numberOfFrequentPatterns + " patterns");
         /*
          * Tin modifies:
@@ -501,15 +501,13 @@ public class FrequentPatternEnumeration_ClaSP {
              * Tin modifies:
              */
             numberOfFrequentClosedPatterns += list.size();
-            if (keepPatterns) {
-                for (Pattern p : list) {
-                    if (itemConstraint.isEmpty()) { // @SADJAD for test
-                        p.setProbability(p.getSupport());
-                    } else {
-                        p.setProbability((double) p.getSupport() / p.getIntersections(itemConstraint).getSupport());
-                    }
-                    saver.savePattern(p);
+            for (Pattern p : list) {
+                if (itemConstraint.isEmpty()) { // @SADJAD for test
+                    p.setProbability(p.getSupport());
+                } else {
+                    p.setProbability((double) p.getSupport() / p.getIntersections(itemConstraint).getSupport());
                 }
+                saver.savePattern(p);
             }
         }
 

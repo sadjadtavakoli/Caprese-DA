@@ -89,8 +89,6 @@ public class AlgoCM_ClaSP {
     /**
      * flag to indicate if we are interesting in only finding the closed sequences
      */
-    private boolean findClosedPatterns;
-
     protected List<TrieNode> itemConstraint;
 
     public long joinCount; // PFV 2013
@@ -100,12 +98,10 @@ public class AlgoCM_ClaSP {
      *
      * @param support            Absolute minimum support
      * @param abstractionCreator the abstraction creator
-     * @param findClosedPatterns flag to indicate if we are interesting in only
      */
-    public AlgoCM_ClaSP(double support, AbstractionCreator abstractionCreator, boolean findClosedPatterns) {
+    public AlgoCM_ClaSP(double support, AbstractionCreator abstractionCreator) {
         this.minSupRelative = support;
         this.abstractionCreator = abstractionCreator;
-        this.findClosedPatterns = findClosedPatterns;
     }
 
     /**
@@ -115,19 +111,15 @@ public class AlgoCM_ClaSP {
      *
      * @param database                  Original database in where we want to search
      *                                  for the frequent patterns.
-     * @param keepPatterns              Flag indicating if we want to keep the
-     *                                  output or not
-     * @param verbose                   Flag for debugging purposes
      * @param outputFilePath            Path of the file in which we want to store
      *                                  the frequent patterns. If this value is
      *                                  null, we keep the patterns in the main
-     *                                  memory. This argument is taken into account
-     *                                  just when keepPatterns is activated.
+     *                                  memory. 
      * @param outputSequenceIdentifiers indicates if sequence ids should be output
      *                                  with each pattern found.
      * @throws IOException
      */
-    public void runAlgorithm(SequenceDatabase database, boolean keepPatterns, boolean verbose, String outputFilePath,
+    public void runAlgorithm(SequenceDatabase database, String outputFilePath,
             boolean outputSequenceIdentifiers) throws IOException {
         // If we do no have any file path
         if (outputFilePath == null || outputFilePath.equals("-")) {
@@ -142,7 +134,7 @@ public class AlgoCM_ClaSP {
         // keeping the starting time
         overallStart = System.currentTimeMillis();
         // Starting ClaSP algorithm
-        claSP(database, minSupRelative, keepPatterns, verbose, findClosedPatterns);
+        claSP(database, minSupRelative);
         // keeping the ending time
         overallEnd = System.currentTimeMillis();
         // Search for frequent patterns: Finished
@@ -154,12 +146,8 @@ public class AlgoCM_ClaSP {
      *
      * @param database       The original database
      * @param minSupRelative the absolute minimum support
-     * @param keepPatterns   flag indicating if we are interested in keeping the
-     *                       output of the algorithm
-     * @param verbose        Flag for debugging purposes
      */
-    protected void claSP(SequenceDatabase database, double minSupRelative, boolean keepPatterns, boolean verbose,
-            boolean findClosedPatterns) {
+    protected void claSP(SequenceDatabase database, double minSupRelative) {
         // We get the initial trie whose children are the frequent 1-patterns
         FrequentAtomsTrie = database.frequentItems();
         itemConstraint = database.itemConstraints();
@@ -173,39 +161,36 @@ public class AlgoCM_ClaSP {
         for (Sequence seq : database.getSequences()) {
             Map<String, Set<String>> alreadySeenB_equals = new HashMap<>();
             // for each item
+            Itemset itemsetA = seq.get(0);
+            for (int j = 0; j < itemsetA.size(); j++) {
+                String itemA = (String) itemsetA.get(j).getId();
+                Set<String> equalSet = alreadySeenB_equals.get(itemA);
+                if (equalSet == null) {
+                    equalSet = new HashSet<>();
+                    alreadySeenB_equals.put(itemA, equalSet);
+                }
 
-            for (int i = 0; i < seq.getItemsets().size(); i++) {
-                Itemset itemsetA = seq.get(i);
-                for (int j = 0; j < itemsetA.size(); j++) {
-                    String itemA = (String) itemsetA.get(j).getId();
-                    Set<String> equalSet = alreadySeenB_equals.get(itemA);
-                    if (equalSet == null) {
-                        equalSet = new HashSet<>();
-                        alreadySeenB_equals.put(itemA, equalSet);
-                    }
+                // create the map if not existing already
+                Map<String, Integer> mapCoocItemEquals = coocMapEquals.get(itemA);
 
-                    // create the map if not existing already
-                    Map<String, Integer> mapCoocItemEquals = coocMapEquals.get(itemA);
-
-                    // For each item after itemA in the same itemset // @SADJADRE It's enough to
-                    // count items occured after each item since the items are sorted.
-                    for (int k = j + 1; k < itemsetA.size(); k++) {
-                        String itemB = (String) itemsetA.get(k).getId();
-                        if (!equalSet.contains(itemB)) {
-                            if (mapCoocItemEquals == null) {
-                                mapCoocItemEquals = new HashMap<>();
-                                coocMapEquals.put(itemA, mapCoocItemEquals);
-                            }
-                            Integer frequency = mapCoocItemEquals.get(itemB);
-
-                            if (frequency == null) {
-                                mapCoocItemEquals.put(itemB, 1);
-                            } else {
-                                mapCoocItemEquals.put(itemB, frequency + 1);
-                            }
-
-                            equalSet.add(itemB);
+                // For each item after itemA in the same itemset // @SADJADRE It's enough to
+                // count items occured after each item since the items are sorted.
+                for (int k = j + 1; k < itemsetA.size(); k++) {
+                    String itemB = (String) itemsetA.get(k).getId();
+                    if (!equalSet.contains(itemB)) {
+                        if (mapCoocItemEquals == null) {
+                            mapCoocItemEquals = new HashMap<>();
+                            coocMapEquals.put(itemA, mapCoocItemEquals);
                         }
+                        Integer frequency = mapCoocItemEquals.get(itemB);
+
+                        if (frequency == null) {
+                            mapCoocItemEquals.put(itemB, 1);
+                        } else {
+                            mapCoocItemEquals.put(itemB, frequency + 1);
+                        }
+
+                        equalSet.add(itemB);
                     }
                 }
             }
@@ -229,37 +214,21 @@ public class AlgoCM_ClaSP {
         // check the memory usage for statistics
         MemoryLogger.getInstance().checkMemory();
 
-        if (verbose) {
-            System.out.println("ClaSP: The algorithm takes " + (mainMethodEnd - mainMethodStart) / 1000
-                    + " seconds and finds " + numberOfFrequentPatterns + " patterns");
-        }
-        // If the we are interested in closed patterns, we dfsPruning the
-        // post-processing step
-        if (findClosedPatterns) {
-            // @TODO @SADJADRE should refactor this sections. This whole code is implemented
-            // for seqeunce detection not just simply cooccurance probability detection
-            List<Entry<Pattern, Trie>> outputPatternsFromMainMethod = FrequentAtomsTrie.preorderTraversal(null);
-            // System.out.println("patterns before non-closed elimination");
-            // System.out.println(outputPatternsFromMainMethod.toString());
+        System.out.println("ClaSP: The algorithm takes " + (mainMethodEnd - mainMethodStart) / 1000
+                + " seconds and finds " + numberOfFrequentPatterns + " patterns");
+        // @TODO @SADJADRE should refactor this sections. This whole code is implemented
+        // for seqeunce detection not just simply cooccurance probability detection
+        List<Entry<Pattern, Trie>> outputPatternsFromMainMethod = FrequentAtomsTrie.preorderTraversal(null);
+        // System.out.println("patterns before non-closed elimination");
+        // System.out.println(outputPatternsFromMainMethod.toString());
 
-            this.postProcessingStart = System.currentTimeMillis();
-            frequentPatternEnumeration.removeNonClosedNonItemConstraintPatterns(outputPatternsFromMainMethod,
-                    keepPatterns);
-            this.postProcessingEnd = System.currentTimeMillis();
-            numberOfFrequentClosedPatterns = frequentPatternEnumeration.getFrequentClosedPatterns();
-            if (verbose) {
-                System.out.println("ClaSP:The post-processing algorithm to remove the non-Closed patterns takes "
-                        + (postProcessingEnd - postProcessingStart) / 1000 + " seconds and finds "
-                        + numberOfFrequentClosedPatterns + " closed patterns");
-            }
-        } else {
-            if (keepPatterns) {
-                List<Entry<Pattern, Trie>> outputPatternsFromMainMethod = FrequentAtomsTrie.preorderTraversal(null);
-                for (Entry<Pattern, Trie> p : outputPatternsFromMainMethod) {
-                    saver.savePattern(p.getKey());
-                }
-            }
-        }
+        this.postProcessingStart = System.currentTimeMillis();
+        frequentPatternEnumeration.removeNonClosedNonItemConstraintPatterns(outputPatternsFromMainMethod);
+        this.postProcessingEnd = System.currentTimeMillis();
+        numberOfFrequentClosedPatterns = frequentPatternEnumeration.getFrequentClosedPatterns();
+        System.out.println("ClaSP:The post-processing algorithm to remove the non-Closed patterns takes "
+                + (postProcessingEnd - postProcessingStart) / 1000 + " seconds and finds "
+                + numberOfFrequentClosedPatterns + " closed patterns");
 
         numberOfFrequentPatterns = frequentPatternEnumeration.getFrequentPatterns();
         frequentPatternEnumeration.clear();
@@ -281,7 +250,9 @@ public class AlgoCM_ClaSP {
         r.append("=============  Algorithm - STATISTICS =============\n Total time ~ ");
         r.append(getRunningTime());
         r.append(" ms\n");
-        r.append(" Frequent closed sequences count : ");
+        r.append(" Frequent patterns: ");
+        r.append(numberOfFrequentPatterns);
+        r.append("\n Frequent closed sequences count : ");
         r.append(numberOfFrequentClosedPatterns);
         r.append('\n');
         r.append(" Join count : ");

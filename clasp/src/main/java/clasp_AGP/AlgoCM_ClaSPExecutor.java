@@ -33,12 +33,6 @@ public class AlgoCM_ClaSPExecutor {
     public static List<String> runFile(List<String> itemConstraint, double support, String filePath, String outputPath)
             throws IOException {
 
-        // Load a sequence database
-        // double support = 0.5;
-
-        boolean keepPatterns = true;
-        boolean verbose = true;
-        boolean findClosedPatterns = true;
         // if you set the following parameter to true, the sequence ids of the sequences
         // where
         // each pattern appears will be shown in the result
@@ -51,15 +45,13 @@ public class AlgoCM_ClaSPExecutor {
 
         sequenceDatabase.loadFile(filePath);
 
-        AlgoCM_ClaSP algorithm = new AlgoCM_ClaSP(support, abstractionCreator, findClosedPatterns);
+        AlgoCM_ClaSP algorithm = new AlgoCM_ClaSP(support, abstractionCreator);
 
-        algorithm.runAlgorithm(sequenceDatabase, keepPatterns, verbose, outputPath, outputSequenceIdentifiers);
+        algorithm.runAlgorithm(sequenceDatabase, outputPath, outputSequenceIdentifiers);
         System.out.println("Minsup (relative) : " + support);
         System.out.println(algorithm.getNumberOfFrequentPatterns() + " patterns found.");
 
-        if (verbose && keepPatterns) {
-            System.out.println(algorithm.printStatistics());
-        }
+        System.out.println(algorithm.printStatistics());
         return algorithm.getResutl();
 
         // uncomment if we want to see the Trie graphically
@@ -81,7 +73,7 @@ public class AlgoCM_ClaSPExecutor {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return runFile(itemConstraint, support, filePath, outputPath, itemsFrequenciesPath);
+        return runFile(itemConstraint, support, filePath, outputPath);
     }
 
     public static String fileToPath(String filename) throws UnsupportedEncodingException {

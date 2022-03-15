@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const exec = require('child_process').exec;
 const constants = require('./constants.js');
-const compareResults = require('./evaluation/compareResults.js').compareResults
+const compareResults = require('./evaluation/compareResults.js').compareResults;
 let INITIALIZED_COMMIT = constants.SEED_COMMIT;
 
 let changes = []
@@ -43,7 +43,7 @@ function run() {
                 runBerke()
             })
             .then(runTARMAQ)
-            .then(compareResults)
+            .then(()=>console.log(compareResults()))
             .catch((err) => {
                 console.log(err)
             })

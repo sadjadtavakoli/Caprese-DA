@@ -166,11 +166,7 @@ public class SequenceDatabase {
                 // insertMatchItemsetTimestamp(nSequences, sequence.size(), timestamp);
                 timestamp = itemset.getTimestamp() + 1;
                 sequence.addItemset(itemset);
-                itemset = new Itemset();
-                itemset.setTimestamp(timestamp);
                 sizeItemsetsList.add(sequence.length());
-
-            } else if (integers[i].equals("-2")) { // End of a sequence
                 sequences.add(sequence);
                 nSequences++;
                 sequencesLengths.put(sequence.getId(), sequence.length());

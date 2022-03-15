@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 const constants = require('../constants.js');
 
 function compareResults() {
@@ -22,7 +23,6 @@ function compareResults() {
 }
 
 module.exports = {compareResults}
-
-if(process.argv[1]){
+if(process.argv[1].endsWith(path.basename(__filename))){
     console.log(compareResults())
 }

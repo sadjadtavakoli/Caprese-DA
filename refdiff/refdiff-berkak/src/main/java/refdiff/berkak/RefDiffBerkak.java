@@ -109,11 +109,11 @@ public class RefDiffBerkak {
 				Collections.sort(changes);
 				String changesString = changes.toString().replaceAll("[\\[\\],\"]", "");
 				try (FileWriter file = new FileWriter(dataPath, true)) {
-					file.write(changesString + " -1 -2 \n");
+					file.write(changesString + " -1 \n");
 					file.flush();
 				}
 				try (FileWriter file = new FileWriter(dataPath + "details.txt", true)) {
-					file.write(commit.getName() + " : " + changesString + " -1 -2 \n");
+					file.write(commit.getName() + " : " + changesString + " -1 \n");
 					file.flush();
 				}
 			} else {
