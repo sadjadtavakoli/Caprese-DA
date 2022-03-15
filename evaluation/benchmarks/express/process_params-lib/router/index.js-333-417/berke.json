@@ -1,0 +1,199 @@
+[
+    [
+        "next-lib/router/index.js-176-286", 
+        {
+            "DA": {
+                "score": 1
+            }
+        }
+    ],
+    [
+        "index.js-lib/router/index.js-1-669", 
+        {
+            "FP": {
+                "score": "0.7",
+                "length": 1
+            }
+        }
+    ],
+    [
+        "handle-lib/router/index.js-136-326",
+        {
+            "FP": {
+                "score": "0.6",
+                "length": 1
+            }
+        }
+    ],
+    [
+        "History.md",
+        {
+            "FP": {
+                "score": "0.6",
+                "length": 1
+            }
+        }
+    ],
+    [
+        "param-lib/router/index.js-354-391",
+        {
+            "FP": {
+                "score": "0.5",
+                "length": 1
+            }
+        }
+    ],
+    [
+        "paramCallback-lib/router/index.js-394-414",
+        {
+            "FP": {
+                "score": "0.4",
+                "length": 1
+            }
+        }
+    ],
+    [
+        "route-lib/router/index.js-497-510",
+        {
+            "FP": {
+                "score": "0.4",
+                "length": 1
+            }
+        }
+    ],
+    [
+        "route.js-lib/router/route.js-1-217",
+        {
+            "FP": {
+                "score": "0.4",
+                "length": 1
+            }
+        }
+    ],
+    [
+        "use-lib/router/index.js-434-482",
+        {
+            "FP": {
+                "score": "0.4",
+                "length": 1
+            }
+        }
+    ],
+    [
+        "Router.js-test/router.js-1-561",
+        {
+            "FP": {
+                "score": "0.4",
+                "length": 1
+            }
+        }
+    ],
+    [
+        "app.param.js-test/app.param.js-1-367",
+        {
+            "FP": {
+                "score": "0.3",
+                "length": 1
+            }
+        }
+    ],
+    [
+        "Layer-lib/router/layer.js-33-50",
+        {
+            "FP": {
+                "score": "0.3",
+                "length": 1
+            }
+        }
+    ],
+    [
+        "all-lib/router/route.js-170-190",
+        {
+            "FP": {
+                "score": "0.3",
+                "length": 1
+            }
+        }
+    ],
+    [
+        "method-lib/router/route.js-193-215",
+        {
+            "FP": {
+                "score": "0.3",
+                "length": 1
+            }
+        }
+    ],
+    [
+        "exports-lib/router/index.js-43-61",
+        {
+            "FP": {
+                "score": "0.3",
+                "length": 1
+            }
+        }
+    ],
+    [
+        "match-lib/router/layer.js-110-156",
+        {
+            "FP": {
+                "score": "0.3",
+                "length": 1
+            }
+        }
+    ],
+    [
+        "layer.js-lib/router/layer.js-1-182",
+        {
+            "FP": {
+                "score": "0.2",
+                "length": 1
+            }
+        }
+    ],
+    [
+        "dispatch-lib/router/route.js-98-140",
+        {
+            "FP": {
+                "score": "0.2",
+                "length": 1
+            }
+        }
+    ],
+    [
+        "method-lib/router/index.js-514-518",
+        {
+            "FP": {
+                "score": "0.2",
+                "length": 1
+            }
+        }
+    ],
+    [
+        "express.js-lib/express.js-1-117",
+        {
+            "FP": {
+                "score": "0.2",
+                "length": 1
+            }
+        }
+    ],
+    [
+        "Route-lib/router/route.js-43-51",
+        {
+            "FP": {
+                "score": "0.2",
+                "length": 1
+            }
+        }
+    ],
+    [
+        "Route.js-test/route.js-1-243",
+        {
+            "FP": {
+                "score": "0.2",
+                "length": 1
+            }
+        }
+    ]
+]

@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const exec = require('child_process').exec;
 const constants = require('./constants.js');
-
+const compareResults = require('./evaluation/compareResults.js').compareResults
 let INITIALIZED_COMMIT = constants.SEED_COMMIT;
 
 let changes = []
@@ -17,33 +17,52 @@ function run() {
             recursive: true
         });
     }
-    cloneProject()
-        .then(() => {
-            console.log(" = = = Compute Current Changes = = = ")
-            if (INITIALIZED_COMMIT) return computeCommitChanges(INITIALIZED_COMMIT)
-            return getCurrentCommit().then((commit) => {
-                return computeCommitChanges(commit)
+    if (process.argv[2] == "data") {
+        cloneProject().then(runClaspNoItemConstraint).then(fakeBerke)
+
+    } else {
+        if(!process.argv[2]){ // temp if statement for experiments 
+            cloneProject()
+            .then(() => {
+                console.log(" = = = Compute Current Changes = = = ")
+                if (INITIALIZED_COMMIT) return computeCommitChanges(INITIALIZED_COMMIT)
+                return getCurrentCommit().then((commit) => {
+                    return computeCommitChanges(commit)
+                })
             })
-        })
-        .then(() => {
-            if (INITIALIZED_COMMIT) return getParentCommit(INITIALIZED_COMMIT)
-            return getParentCommit('origin')
+            .then(() => {
+                if (INITIALIZED_COMMIT) return getParentCommit(INITIALIZED_COMMIT)
+                return getParentCommit('origin')
 
-        })
-        .then(checkoutProject)
-        .then(runRefDiff)
-        .then(runDynamicAnalysis)
-        .then(runClasp)
-        .then(() => {
-            runBerke()
-        })
-        .then(runTARMAQ)
-        .then(compareResults)
-        .catch((err) => {
-            console.log(err)
-        })
+            })
+            .then(checkoutProject)
+            .then(runRefDiff)
+            .then(runDynamicAnalysis)
+            .then(runClasp)
+            .then(() => {
+                runBerke()
+            })
+            .then(runTARMAQ)
+            .then(compareResults)
+            .catch((err) => {
+                console.log(err)
+            })
 
-    // cloneProject().then(runClaspNoItemConstraint).then(fakeBerke)
+        }else{
+        cloneProject()
+            .then(runClasp)
+            .then(() => {
+                runBerke()
+            })
+            .then(runTARMAQ)
+            .then(()=>console.log(compareResults()))
+            .catch((err) => {
+                console.log(err)
+            })
+        }
+
+    }
+
 }
 
 function getParentCommit(commit) {
@@ -171,27 +190,10 @@ function runTARMAQ(commit) {
     })
 }
 
-function fakeBerke() {
-    let patterns = fs.readFileSync(constants.PATTERNS_PATH).toString();
-    patterns = patterns.split(",");
-    let sortableImpactSet = [];
-    for (let pattern of patterns) {
-        let sequence = pattern.split(" -1:")[0];
-        let probability = pattern.split(" -1:")[1];
-        sortableImpactSet.push([sequence, probability])
-    }
-
-    sortableImpactSet.sort(function (a, b) {
-        return b[1] - a[1];
-    });
-
-    fs.writeFileSync(constants.PATTERNS_PATH, JSON.stringify(sortableImpactSet))
-}
-
 function runClaspNoItemConstraint(commit) {
     console.log(" = = = Run Clasp No Item Constraints = = = ")
     return new Promise(function (resolve, reject) {
-        exec(constants.CLASP_COMMAND + `"${constants.SEQUENCES_PATH} ${constants.PATTERNS_PATH} ${constants.ITEMS_FREQUENCIES_PATH} -"`, (err, stdout, stderr) => {
+        exec(constants.CLASP_COMMAND + `"${constants.SEQUENCES_PATH} ${constants.EXPERIMENTAL_PATTERNS_PATH} -"`, (err, stdout, stderr) => {
             if (!err) {
                 resolve(commit)
             }
@@ -202,18 +204,30 @@ function runClaspNoItemConstraint(commit) {
     })
 }
 
+function fakeBerke() {
+    let patterns = fs.readFileSync(constants.EXPERIMENTAL_PATTERNS_PATH).toString();
+    patterns = patterns.split(",");
+    let sortableImpactSet = [];
+    for (let pattern of patterns) {
+        let sequence = pattern.split(" -1:")[0];
+        if (sequence.split(" ").length == 1) {
+            continue;
+        }
+        let probability = pattern.split(" -1:")[1];
+        sortableImpactSet.push([sequence, probability])
+    }
+
+    sortableImpactSet.sort(function (a, b) {
+        return b[1] - a[1];
+    });
+
+    fs.writeFileSync(constants.EXPERIMENTAL_PATTERNS_PATH, JSON.stringify(sortableImpactSet))
+}
+
 
 function runBerke() {
     let impactSet = new Map()
-
-    /* 
-    Read and organize Dynamic analysis recorded dependencies as ImpactSet 
-    */
     let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(", ");
-
-    /* 
-    Callers and tests of our current changes as potential impactSet items 
-    */
 
     getItemConstraints();
 
@@ -231,11 +245,17 @@ function runBerke() {
         }
 
         sortableImpactSet.sort(function (a, b) {
-            if ((a[1]['DA'] && !b[1]['DA']) || (a[1]['DA-test'] && !b[1]['DA-test'])) {
+            if (a[1]['DA'] && !b[1]['DA']) {
+                return -1;
+            }
+            if (b[1]['DA'] && !a[1]['DA']) {
                 return 1;
             }
-            if ((b[1]['DA'] && !a[1]['DA']) || (b[1]['DA-test'] && !a[1]['DA-test'])) {
-                return 0;
+            if (a[1]['FP'] && !b[1]['FP']) {
+                return -1;
+            }
+            if (b[1]['FP'] && !a[1]['FP']) {
+                return 1;
             }
 
             let aFP = a[1]['FP'] || { 'score': 0 };
@@ -244,14 +264,9 @@ function runBerke() {
                 return bFP['score'] - aFP['score'];
             }
 
-            let aDAScore = a[1]['DA'] || { 'score': 0 };
-            let aDATestScore = a[1]['DA-test'] || { 'score': 0 };
-            let bDAScore = b[1]['DA'] || { 'score': 0 };
-            let bDATestScore = b[1]['DA-test'] || { 'score': 0 };
-
-            let aDA = aDAScore['score'] + aDATestScore['score'];
-            let bDA = bDAScore['score'] + bDATestScore['score'];
-            return bDA - aDA;
+            let aDA = a[1]['DA'] || { 'score': 0 };
+            let bDA = b[1]['DA'] || { 'score': 0 };
+            return bDA['score'] - aDA['score'];
         });
 
         // console.log("* * * * * * * * * impactSet * * * * * * * * * ")
@@ -274,7 +289,7 @@ function runBerke() {
                     let key = mappings[keyMap[dependency]];
                     if (key == undefined)
                         key = keyMap[dependency];
-                    addDAImpactSet(key, 'DA');
+                    addDAImpactSet(key);
                 }
                 for (const test of dependencies['tests']) {
 
@@ -282,21 +297,23 @@ function runBerke() {
                     if (key == undefined)
                         key = keyMap[test];
 
-                    addDAImpactSet(key, 'DA-test');
+                    addDAImpactSet(key, true);
 
                 }
             }
         }
 
-        function addDAImpactSet(item, key) {
-            if (impactSet.has(item) && impactSet.get(item)[key]) {
-                impactSet.get(item)[key]['score'] = impactSet.get(item)[key]['score'] + 1
+        function addDAImpactSet(item, isTest) {
+            if (impactSet.has(item) && impactSet.get(item)['DA']) {
+                impactSet.get(item)['DA']['score'] = impactSet.get(item)['DA']['score'] + 1
             }
             else {
                 let scoreValue = {}
-                scoreValue[key] = { 'score': 1 }
+                scoreValue['DA'] = { 'score': 1 }
                 impactSet.set(item, scoreValue)
             }
+            if(isTest)
+                impactSet.get(item)['DA']['test'] = isTest
         }
     }
 
@@ -331,7 +348,7 @@ function runBerke() {
             }
         }
     }
-    
+
     function stringfyIntersection(intersections) {
         let res = ""
         for (let intersection of intersections) {
@@ -340,26 +357,6 @@ function runBerke() {
         return res.substring(2)
     }
 
-}
-
-function compareResults(){
-    let tarmaq = JSON.parse(fs.readFileSync(constants.TARMAQ_RESULT_PATH))
-    let berkeResult = JSON.parse(fs.readFileSync(constants.Berke_RESULT_PATH))
-    let tarmaqAntecedents =[]
-    let berkeAntecedents =[]
-    for(let rule of tarmaq){
-        rule = rule['rule']
-        tarmaqAntecedents.push(rule.split(" => ")[1])
-    }
-    for(let rule of berkeResult){
-        berkeAntecedents.push(rule[0])
-    }
-    let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(", ");
-
-    console.log("tarmaq uniques")
-    console.log(tarmaqAntecedents.filter(x => berkeAntecedents.indexOf(x) === -1).filter(x=>removed.indexOf(x)===-1))
-    console.log("berke uniques")
-    console.log(berkeAntecedents.filter(x => tarmaqAntecedents.indexOf(x) === -1))
 }
 
 function getItemConstraints() {

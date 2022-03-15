@@ -2,17 +2,17 @@ const path = require('path');
 const fs = require('fs');
 const constants = require('./constants.js');
 function cleanup() {
-    
-    fs.unlinkSync(constants.SEQUENCES_PATH)
-    fs.unlinkSync(constants.SEQUENCES_PATH+"details.txt")
-    fs.unlinkSync(constants.REMOVED_PATH)
-    fs.unlinkSync(constants.PATTERNS_PATH)
-    fs.unlinkSync(constants.MAPPINGS_PATH)
-    fs.unlinkSync(constants.DA_DEPENDENCIES_PATH)
-    fs.unlinkSync(constants.DA_CALL_SEQUENCE_PATH)
-    fs.unlinkSync(constants.CURRENT_CHANGES_PATH)
-    fs.unlinkSync(constants.Berke_RESULT_PATH)
-    fs.unlinkSync(constants.TARMAQ_RESULT_PATH)
+
+    clearFile(constants.SEQUENCES_PATH)
+    clearFile(constants.SEQUENCES_PATH+"details.txt")
+    clearFile(constants.REMOVED_PATH)
+    clearFile(constants.PATTERNS_PATH)
+    clearFile(constants.MAPPINGS_PATH)
+    clearFile(constants.DA_DEPENDENCIES_PATH)
+    clearFile(constants.DA_CALL_SEQUENCE_PATH)
+    clearFile(constants.CURRENT_CHANGES_PATH)
+    clearFile(constants.Berke_RESULT_PATH)
+    clearFile(constants.TARMAQ_RESULT_PATH)
 
     fs.writeFileSync(constants.SEQUENCES_PATH, "")
     fs.writeFileSync(constants.SEQUENCES_PATH+"details.txt", "")
@@ -24,6 +24,12 @@ function cleanup() {
     fs.writeFileSync(constants.CURRENT_CHANGES_PATH, "")
     fs.writeFileSync(constants.Berke_RESULT_PATH, "")
     fs.writeFileSync(constants.TARMAQ_RESULT_PATH, "")
+}
+
+function clearFile(filePath){
+    if(fs.existsSync(filePath)){
+        fs.unlinkSync(filePath)
+    }
 }
 
 cleanup()
