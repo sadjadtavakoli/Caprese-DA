@@ -355,11 +355,11 @@ public class CstComparator {
 		}
 
 		private void findChangedEntitiesNoMapping() {
-			Map<CstNode, CstNode> treeMap = new TreeMap<>(new CstNodeTypeComprator());
-			treeMap.putAll(mapBeforeToAfter);
-			for (Entry<CstNode, CstNode> entry : treeMap.entrySet()) {
-				CstNode n1 = entry.getKey();
-				CstNode n2 = entry.getValue();
+			List<CstNode> employeeByKey = new ArrayList<>(mapBeforeToAfter.keySet());
+			Collections.sort(employeeByKey, new CstNodeTypeComprator());
+			for(int i=0; i<employeeByKey.size(); i++){
+				CstNode n1 = employeeByKey.get(i);
+				CstNode n2 = mapBeforeToAfter.get(n1);
 				String n1Key = n1.toString();
 				double score = computeHardSimilarityScore(n1, n2);
 
