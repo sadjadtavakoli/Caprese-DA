@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const constants = require('./constants.js');
 function cleanup() {
-
+    console.log(" = = = = cleanup = = = = = ")
     clearFile(constants.SEQUENCES_PATH)
     clearFile(constants.SEQUENCES_PATH+"details.txt")
     clearFile(constants.REMOVED_PATH)
@@ -19,7 +19,7 @@ function cleanup() {
     fs.writeFileSync(constants.REMOVED_PATH, "")
     fs.writeFileSync(constants.PATTERNS_PATH, "")
     fs.writeFileSync(constants.MAPPINGS_PATH, "{}")
-    fs.writeFileSync(constants.DA_DEPENDENCIES_PATH, "")
+    fs.writeFileSync(constants.DA_DEPENDENCIES_PATH, "{}")
     fs.writeFileSync(constants.DA_CALL_SEQUENCE_PATH, "")
     fs.writeFileSync(constants.CURRENT_CHANGES_PATH, "")
     fs.writeFileSync(constants.Berke_RESULT_PATH, "")

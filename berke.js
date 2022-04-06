@@ -2,72 +2,46 @@ const path = require('path');
 const fs = require('fs');
 const exec = require('child_process').exec;
 const constants = require('./constants.js');
-const compareResults = require('./evaluation/compareResults.js').compareResults;
 let INITIALIZED_COMMIT = constants.SEED_COMMIT;
 
 let changes = []
 
-function run() {
+if (!fs.existsSync(constants.DATA_PATH)) {
+    fs.mkdirSync(constants.DATA_PATH, {
+        recursive: true
+    });
+}
 
-    console.log(" * * * * * * * * * * * \n * * * *  Srart! * * * \n * * * * * * * * * * * \n")
+if (process.argv[1].endsWith(path.basename(__filename))) {
+    runBerke(INITIALIZED_COMMIT)
+}
 
+function runBerke(initialized_commit) {
+    return getChanges(initialized_commit).then(() => {
+        if (initialized_commit) return getParentCommit(initialized_commit)
+        return getParentCommit('origin')
 
-    if (!fs.existsSync(constants.DATA_PATH)) {
-        fs.mkdirSync(constants.DATA_PATH, {
-            recursive: true
-        });
-    }
-    if (process.argv[2] == "data") {
-        cloneProject().then(runClaspNoItemConstraint).then(fakeBerke)
+    })
+        .then(checkoutProject)
+        .then(runRefDiff)
+        .then(runDynamicAnalysis)
+        .then(runClasp)
+        .then(() => computeBerkeResult())
+        .catch((err) => {
+            console.log(err)
+        })
+}
 
-    } else {
-        if(!process.argv[2]){ // temp if statement for experiments 
-            cloneProject()
-            .then(() => {
-                console.log(" = = = Compute Current Changes = = = ")
-                if (INITIALIZED_COMMIT) return computeCommitChanges(INITIALIZED_COMMIT)
-                return getCurrentCommit().then((commit) => {
-                    return computeCommitChanges(commit)
-                })
-            })
-            .then(() => {
-                if (INITIALIZED_COMMIT) return getParentCommit(INITIALIZED_COMMIT)
-                return getParentCommit('origin')
-
-            })
-            .then(checkoutProject)
-            .then(runRefDiff)
-            .then(runDynamicAnalysis)
-            .then(runClasp)
-            .then(() => {
-                runBerke()
-            })
-            .then(runTARMAQ)
-            .then(()=>console.log(compareResults()))
-            .catch((err) => {
-                console.log(err)
-            })
-
-        }else{
-        cloneProject()
-            .then(runClasp)
-            .then(() => {
-                runBerke()
-            })
-            .then(runTARMAQ)
-            .then(()=>console.log(compareResults()))
-            .catch((err) => {
-                console.log(err)
-            })
-        }
-
-    }
-
+function getChanges(initialized_commit) {
+        if (initialized_commit) return computeCommitChanges(initialized_commit)
+        return getCurrentCommit().then((commit) => {
+            return computeCommitChanges(commit)
+        })
 }
 
 function getParentCommit(commit) {
     console.log(" = = = Get Parent Commit = = = ")
-    const getOriginCommand = "cd " + constants.REPO_PATH + ` ; git rev-parse ${commit}^`
+    const getOriginCommand = `cd ${constants.REPO_PATH} ; git rev-parse ${commit}^`
     return new Promise(function (resolve, reject) {
         exec(getOriginCommand, (err, stdout, stderr) => {
             if (!err) {
@@ -81,7 +55,7 @@ function getParentCommit(commit) {
 
 function getCurrentCommit() {
     console.log(" = = = Get Current Commit = = = ")
-    const getOriginCommand = "cd " + constants.REPO_PATH + ` ; git rev-parse origin`
+    const getOriginCommand = `cd ${constants.REPO_PATH} ; git rev-parse origin`
     return new Promise(function (resolve, reject) {
         exec(getOriginCommand, (err, stdout, stderr) => {
             if (!err) {
@@ -93,18 +67,9 @@ function getCurrentCommit() {
     })
 }
 
-function cloneProject() {
-    // const projectCloneCommand = "cd " + constants.DATA_PATH + " ; git clone " + constants.REPO_URL
-    return new Promise(function (resolve, reject) {
-        // exec(projectCloneCommand, (err, stdout, stderr) => {
-        resolve()
-        // })
-    })
-}
-
 function checkoutProject(commit) {
     console.log(" = = = Checkout Project = = = ")
-    const checkoutCommand = "cd " + constants.REPO_PATH + " ; git checkout " + commit
+    const checkoutCommand = `cd ${constants.REPO_PATH} ; git checkout ${commit}`
     return new Promise(function (resolve, reject) {
         exec(checkoutCommand, (err, stdout, stderr) => {
             if (!err) {
@@ -130,10 +95,11 @@ function runDynamicAnalysis(commit) {
         })
     })
 }
+
 function runRefDiff(commit) {
     console.log(" = = = Run RefDiff = = = ")
     return new Promise(function (resolve, reject) {
-        exec(constants.REFDIFF_COMMAND + `"${constants.REPO_URL} ${commit} ${constants.SEQUENCES_PATH} ${constants.REMOVED_PATH} ${constants.REPO_DIGGING_DEPTH} ${constants.MAPPINGS_PATH}"`, (err, stdout, stderr) => {
+        exec(`${constants.REFDIFF_COMMAND}"${constants.REPO_URL} ${commit} ${constants.SEQUENCES_PATH} ${constants.REMOVED_PATH} ${constants.REPO_DIGGING_DEPTH} ${constants.MAPPINGS_PATH}"`, (err, stdout, stderr) => {
             if (!err) {
                 resolve(commit)
             }
@@ -147,7 +113,7 @@ function runRefDiff(commit) {
 
 function computeCommitChanges(commit) {
     return new Promise(function (resolve, reject) {
-        exec(constants.REFDIFF_COMMAND + `"${constants.REPO_URL} ${commit} ${constants.CURRENT_CHANGES_PATH} ${constants.REMOVED_PATH} 0"`, (err, stdout, stderr) => {
+        exec(`${constants.REFDIFF_COMMAND}"${constants.REPO_URL} ${commit} ${constants.CURRENT_CHANGES_PATH} ${constants.REMOVED_PATH} 0"`, (err, stdout, stderr) => {
             if (!err) {
                 resolve(commit)
             }
@@ -162,9 +128,8 @@ function computeCommitChanges(commit) {
 
 function runClasp(commit) {
     console.log(" = = = Run Clasp = = = ")
-    console.log(constants.CLASP_COMMAND + `"${constants.SEQUENCES_PATH} ${constants.PATTERNS_PATH} ${getItemConstraints()}"`)
     return new Promise(function (resolve, reject) {
-        exec(constants.CLASP_COMMAND + `"${constants.SEQUENCES_PATH} ${constants.PATTERNS_PATH} ${getItemConstraints()}"`, (err, stdout, stderr) => {
+        exec(`${constants.CLASP_COMMAND}"${constants.SEQUENCES_PATH} ${constants.PATTERNS_PATH} ${getItemConstraints()}"`, (err, stdout, stderr) => {
             if (!err) {
                 resolve(commit)
             }
@@ -175,57 +140,13 @@ function runClasp(commit) {
     })
 }
 
-function runTARMAQ(commit) {
-    console.log(" = = = Run TARMAQ = = = ")
-    console.log(constants.TARMAQ_COMMAND + `"${constants.SEQUENCES_PATH} ${constants.TARMAQ_RESULT_PATH} ${getItemConstraints()}"`)
-    return new Promise(function (resolve, reject) {
-        exec(constants.TARMAQ_COMMAND + `"${constants.SEQUENCES_PATH} ${constants.TARMAQ_RESULT_PATH} ${getItemConstraints()}"`, (err, stdout, stderr) => {
-            if (!err) {
-                resolve(commit)
-            }
-            else {
-                reject(err)
-            }
-        })
-    })
+function getItemConstraints() {
+    changes = fs.readFileSync(constants.CURRENT_CHANGES_PATH).toString().trim().split(" ")
+    return changes
 }
 
-function runClaspNoItemConstraint(commit) {
-    console.log(" = = = Run Clasp No Item Constraints = = = ")
-    return new Promise(function (resolve, reject) {
-        exec(constants.CLASP_COMMAND + `"${constants.SEQUENCES_PATH} ${constants.EXPERIMENTAL_PATTERNS_PATH} -"`, (err, stdout, stderr) => {
-            if (!err) {
-                resolve(commit)
-            }
-            else {
-                reject(err)
-            }
-        })
-    })
-}
-
-function fakeBerke() {
-    let patterns = fs.readFileSync(constants.EXPERIMENTAL_PATTERNS_PATH).toString();
-    patterns = patterns.split(",");
-    let sortableImpactSet = [];
-    for (let pattern of patterns) {
-        let sequence = pattern.split(" -1:")[0];
-        if (sequence.split(" ").length == 1) {
-            continue;
-        }
-        let probability = pattern.split(" -1:")[1];
-        sortableImpactSet.push([sequence, probability])
-    }
-
-    sortableImpactSet.sort(function (a, b) {
-        return b[1] - a[1];
-    });
-
-    fs.writeFileSync(constants.EXPERIMENTAL_PATTERNS_PATH, JSON.stringify(sortableImpactSet))
-}
-
-
-function runBerke() {
+function computeBerkeResult(isTest = false) {
+    console.log(" = = = Compute Impact-set = = = ")
     let impactSet = new Map()
     let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(", ");
 
@@ -234,6 +155,10 @@ function runBerke() {
     intrepretDAResult();
 
     intrepretFPData();
+
+    if (isTest) {
+        fs.writeFileSync(constants.Berke_RESULT_PATH, JSON.stringify(impactSet))
+    }
 
     sortAndReport();
 
@@ -245,7 +170,7 @@ function runBerke() {
         }
 
         sortableImpactSet.sort(function (a, b) {
-            if (a[1]['DA'] && !b[1]['DA']) {
+            if ((a[1]['DA'] && !b[1]['DA'])) {
                 return -1;
             }
             if (b[1]['DA'] && !a[1]['DA']) {
@@ -268,53 +193,51 @@ function runBerke() {
             let bDA = b[1]['DA'] || { 'score': 0 };
             return bDA['score'] - aDA['score'];
         });
-
-        // console.log("* * * * * * * * * impactSet * * * * * * * * * ")
-        // console.log(JSON.stringify(sortableImpactSet))
         fs.writeFileSync(constants.Berke_RESULT_PATH, JSON.stringify(sortableImpactSet))
     }
+
 
     function intrepretDAResult() {
         let mappings = JSON.parse(fs.readFileSync(constants.MAPPINGS_PATH))
         let dependenciesData = JSON.parse(fs.readFileSync(constants.DA_DEPENDENCIES_PATH))
         let keyMap = dependenciesData['keyMap']
-        for (const changedFucntion of changes) {
+        for (let changedFucntion of changes) {
             let dependencies = dependenciesData[changedFucntion];
             if (dependencies == undefined) {
                 let unknownKey = changedFucntion.replace(/((?![.])([^-])*)/, "arrowFunction");
                 dependencies = dependenciesData[unknownKey];
             }
+
             if (dependencies != undefined) {
-                for (const dependency of dependencies['callers']) {
+                for (let dependency of dependencies['callers']) {
                     let key = mappings[keyMap[dependency]];
                     if (key == undefined)
                         key = keyMap[dependency];
                     addDAImpactSet(key);
                 }
-                for (const test of dependencies['tests']) {
 
+                for (let test of dependencies['tests']) {
                     let key = mappings[keyMap[test]];
                     if (key == undefined)
                         key = keyMap[test];
-
                     addDAImpactSet(key, true);
 
                 }
             }
         }
+    }
 
-        function addDAImpactSet(item, isTest) {
-            if (impactSet.has(item) && impactSet.get(item)['DA']) {
-                impactSet.get(item)['DA']['score'] = impactSet.get(item)['DA']['score'] + 1
-            }
-            else {
-                let scoreValue = {}
-                scoreValue['DA'] = { 'score': 1 }
-                impactSet.set(item, scoreValue)
-            }
-            if(isTest)
-                impactSet.get(item)['DA']['test'] = isTest
+    function addDAImpactSet(item, isTestFunction) {
+        if (impactSet.has(item) && impactSet.get(item)['DA']) {
+            impactSet.get(item)['DA']['score'] = impactSet.get(item)['DA']['score'] + 1
         }
+        else {
+            let scoreValue = {}
+            scoreValue['DA'] = { 'score': 1 }
+            impactSet.set(item, scoreValue)
+        }
+        if (isTestFunction)
+            impactSet.get(item)['DA']['test'] = isTestFunction
     }
 
     function intrepretFPData() {
@@ -359,9 +282,4 @@ function runBerke() {
 
 }
 
-function getItemConstraints() {
-    changes = fs.readFileSync(constants.CURRENT_CHANGES_PATH).toString().trim().split(" ")
-    return changes
-}
-
-run()
+module.exports = { runClasp, computeBerkeResult, getItemConstraints, runBerke }
