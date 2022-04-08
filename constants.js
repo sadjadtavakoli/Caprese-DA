@@ -77,7 +77,7 @@ const DATA_PATH = __dirname + path.sep + 'data'
 /**
  * The number of commits you want to mine through the co-occurrence analysis phase
  */
-const REPO_DIGGING_DEPTH = 1000;
+const REPO_DIGGING_DEPTH = 50;
 
 /**
  * REPO_PATH, Your project path
@@ -98,7 +98,7 @@ const REPO_DIGGING_DEPTH = 1000;
 const REFDIFF_PATH = __dirname + path.sep + "refdiff";
 const CLASP_PATH = __dirname + path.sep + "clasp";
 const DA_PATH = __dirname + path.sep + "DA";
-const TARMAQ_PATH = path.dirname(__dirname) + path.sep + "TARMAQ";
+
 /**
  * reported data paths
  */
@@ -111,7 +111,6 @@ const DA_DEPENDENCIES_PATH = DATA_PATH + path.sep + "dependencies.json"; // reco
 const DA_CALL_SEQUENCE_PATH = DATA_PATH + path.sep + "call_sequences.txt"; // call sequences recorded by dynamic analysis 
 const MAPPINGS_PATH = DATA_PATH + path.sep + "mappings.json" // unigue key mappings for functions in different revisions
 const Berke_RESULT_PATH = DATA_PATH + path.sep + "berke.json"; // berke result 
-const TARMAQ_RESULT_PATH = DATA_PATH + path.sep + "tarmaq.json"; // tarmq result
 const KEEP_READABLE_TRACE_LOG = true // recording function call traces, accessable in DA subdirecory (BETTER TO CHANGE THIS ADDRESS)
 
 
@@ -121,10 +120,9 @@ const KEEP_READABLE_TRACE_LOG = true // recording function call traces, accessab
 const REFDIFF_COMMAND = "cd " + REFDIFF_PATH + " ; ./gradlew run --args=";
 const CLASP_COMMAND = "cd " + CLASP_PATH + " ; mvn exec:java -Dexec.mainClass='clasp_AGP.MainCMClaSP' -Dexec.args=";
 const DA_COMMAND = "cd " + DA_PATH + " ; $GRAAL_HOME/bin/node --nodeprof.Scope=app --jvm --experimental-options --vm.Dtruffle.class.path.append=$NODEPROF_HOME/nodeprof.jar --nodeprof $NODEPROF_HOME/jalangi.js --analysis utils.js --analysis analyser.js runner.js";
-const TARMAQ_COMMAND = "cd " + TARMAQ_PATH + " ; mvn exec:java -Dexec.mainClass='TARMAQ.MainTARMAQ' -Dexec.args=";
 
 module.exports = {
     REPO_URL, PROJECT_NAME, REPO_TEST_RELATIVE_DIR, SEED_COMMIT, REPO_PATH, REFDIFF_PATH, REPO_MAIN_BRANCH, EXPERIMENTAL_PATTERNS_PATH,
     CLASP_PATH, DA_PATH, SEQUENCES_PATH, PATTERNS_PATH, DATA_PATH, REPO_DIGGING_DEPTH, REFDIFF_COMMAND, REMOVED_PATH, MAPPINGS_PATH, Berke_RESULT_PATH,
-    CLASP_COMMAND, DA_COMMAND, DA_DEPENDENCIES_PATH, DA_CALL_SEQUENCE_PATH, KEEP_READABLE_TRACE_LOG, CURRENT_CHANGES_PATH, TARMAQ_COMMAND, TARMAQ_RESULT_PATH
+    CLASP_COMMAND, DA_COMMAND, DA_DEPENDENCIES_PATH, DA_CALL_SEQUENCE_PATH, KEEP_READABLE_TRACE_LOG, CURRENT_CHANGES_PATH
 }

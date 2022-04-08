@@ -23,13 +23,12 @@ if (!fs.existsSync(RESULT_PATH)) {
 function run(repoUrl, seeCommit) {
     getlastNCommits(repoUrl, seeCommit, NUMBER_OF_COMMITS_TO_EXPLORE).then(testSetGenerator).then((testSet) => {
         testSet.reduce( // MUST RUN IN SEQUENCE NOT PARAl
-            (p, x) => p.then(() => runTest(x)),
+            (p, x) => p.then(() => runAnalyzer(x)),
             Promise.resolve())
     }).catch(error => {
         console.log(error)
     })
 }
-
 
 function testSetGenerator() {
     return new Promise(resolve => {
@@ -38,14 +37,14 @@ function testSetGenerator() {
         let testSet = []
         for (let sequence of sequences) {
             let commit = sequence.split(" : ")[0]
-            let changeSet = sequence.split(" : ")[1]
-            if (candidatedCommits[changeSet]) {
+            let commitChanges = sequence.split(" : ")[1]
+            if (candidatedCommits[commitChanges]) {
                 continue
             }
             if (testSet.length == NUMBER_OF_COMMITS_PER_PROJECT) {
                 break
             }
-            candidatedCommits[changeSet] = commit
+            candidatedCommits[commitChanges] = commit
             testSet.push(commit)
         }
         fs.writeFileSync(COMMIT_DATA_PATH, JSON.stringify(candidatedCommits))
@@ -53,13 +52,13 @@ function testSetGenerator() {
     })
 }
 
-
-function runTest(test) {
+function runAnalyzer(test) {
     return new Promise(resolve => {
         console.log(`# # # # # # . . . . ${test} # # # #`)
         exec(CLEANUP_COMMAND, (err, stdout, stderr) => {
             if (!err) {
-                runBerke(test, true).then(() => {
+
+                runBerke(test).then(() => {
                     resolve()
                     getUniqueContributions(test)
                 })

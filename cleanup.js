@@ -12,7 +12,6 @@ function cleanup() {
     clearFile(constants.DA_CALL_SEQUENCE_PATH)
     clearFile(constants.CURRENT_CHANGES_PATH)
     clearFile(constants.Berke_RESULT_PATH)
-    clearFile(constants.TARMAQ_RESULT_PATH)
 
     fs.writeFileSync(constants.SEQUENCES_PATH, "")
     fs.writeFileSync(constants.SEQUENCES_PATH+"details.txt", "")
@@ -23,7 +22,6 @@ function cleanup() {
     fs.writeFileSync(constants.DA_CALL_SEQUENCE_PATH, "")
     fs.writeFileSync(constants.CURRENT_CHANGES_PATH, "")
     fs.writeFileSync(constants.Berke_RESULT_PATH, "")
-    fs.writeFileSync(constants.TARMAQ_RESULT_PATH, "")
 }
 
 function clearFile(filePath){
