@@ -45,7 +45,11 @@ public class RefDiffBerkak {
 				findCurrentVersionChanges(refDiffJs, repo, commit, dataPath, removedPath);
 			} else {
 				String mappingsPath = args[5];
-				minRepo(refDiffJs, repo, commit, counter, dataPath, mappingsPath, removedPath);
+				while(commit!=null && counter!=0){
+					commit = minRepo(refDiffJs, repo, commit, dataPath, mappingsPath, removedPath);
+					counter--;
+					System.out.println(counter);
+				}
 				System.out.println(oneLengthCommitsCount);
 				System.out.println(moreThanLimitationLengthCommitsCount);
 				System.out.println(zeroLenghCommitsCount);
@@ -55,49 +59,14 @@ public class RefDiffBerkak {
 		}
 	}
 
-	private static void findCurrentVersionChanges(RefDiff refDiffJs, File repo, RevCommit commit, String dataPath,
-			String removedPath) throws Exception {
-		if (commit.getParentCount() > 0) {
-			RevCommit commitPr = refDiffJs.getCommit(repo, commit.getParent(0));
-			CstDiff diffForCommit = refDiffJs.computeDiffForCommitNoMapping(repo, commitPr, commit);
-			List<String> changes = new ArrayList<>();
-
-			changes.addAll(diffForCommit.getNonValidChangedFiles());
-			changes.addAll(diffForCommit.getChangedEntitiesKeys());
-			changes.addAll(diffForCommit.getAddedEntitiesKeys());
-			changes.addAll(diffForCommit.getRemovedEntitiesKeys());
-
-			if (!changes.isEmpty()) {
-				String changesString = changes.toString().replaceAll("[\\[\\],\"]", "");
-				try (FileWriter file = new FileWriter(dataPath, false)) {
-					file.write(changesString);
-					file.flush();
-				}
-			} else {
-				System.out.println("no changes detected " + commit.getName());
-			}
-
-			List<String> removed = new ArrayList<>();
-			removed.addAll(diffForCommit.getRemovedEntitiesKeys());
-
-			if (!removed.isEmpty()) {
-				String removedString = removed.toString().replaceAll("[\\[\\]\"]", "");
-				try (FileWriter file = new FileWriter(removedPath, false)) {
-					file.write(removedString + ", ");
-					file.flush();
-				}
-			}
-		}
-	}
-
-	private static void minRepo(RefDiff refDiffJs, File repo, RevCommit commit, int counter, String dataPath,
+	private static RevCommit minRepo(RefDiff refDiffJs, File repo, RevCommit commit, String dataPath,
 			String mappingsPath, String removedPath) throws Exception {
 		if (commit.getParentCount() != 1) {
 			System.out.println("two parents" + commit.getName());
 		}
-		counter--;
+		RevCommit commitPr = null;
 		if (commit.getParentCount() > 0) {
-			RevCommit commitPr = refDiffJs.getCommit(repo, commit.getParent(0));
+			commitPr = refDiffJs.getCommit(repo, commit.getParent(0));
 			PairBeforeAfter<SourceFileSet> beforeAndAfter = refDiffJs.getResources(repo, commitPr, commit);
 			CstDiff diffForCommit = refDiffJs.computeDiffForCommit(beforeAndAfter, mappingsPath);
 			List<String> changes = new ArrayList<>();
@@ -139,8 +108,41 @@ public class RefDiffBerkak {
 					file.flush();
 				}
 			}
-			if (counter > 0) {
-				minRepo(refDiffJs, repo, commitPr, counter, dataPath, mappingsPath, removedPath);
+		}
+		return commitPr;
+	}
+
+	private static void findCurrentVersionChanges(RefDiff refDiffJs, File repo, RevCommit commit, String dataPath,
+			String removedPath) throws Exception {
+		if (commit.getParentCount() > 0) {
+			RevCommit commitPr = refDiffJs.getCommit(repo, commit.getParent(0));
+			CstDiff diffForCommit = refDiffJs.computeDiffForCommitNoMapping(repo, commitPr, commit);
+			List<String> changes = new ArrayList<>();
+
+			changes.addAll(diffForCommit.getNonValidChangedFiles());
+			changes.addAll(diffForCommit.getChangedEntitiesKeys());
+			changes.addAll(diffForCommit.getAddedEntitiesKeys());
+			changes.addAll(diffForCommit.getRemovedEntitiesKeys());
+
+			if (!changes.isEmpty()) {
+				String changesString = changes.toString().replaceAll("[\\[\\],\"]", "");
+				try (FileWriter file = new FileWriter(dataPath, false)) {
+					file.write(changesString);
+					file.flush();
+				}
+			} else {
+				System.out.println("no changes detected " + commit.getName());
+			}
+
+			List<String> removed = new ArrayList<>();
+			removed.addAll(diffForCommit.getRemovedEntitiesKeys());
+
+			if (!removed.isEmpty()) {
+				String removedString = removed.toString().replaceAll("[\\[\\]\"]", "");
+				try (FileWriter file = new FileWriter(removedPath, false)) {
+					file.write(removedString + ", ");
+					file.flush();
+				}
 			}
 		}
 	}
