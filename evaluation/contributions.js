@@ -2,16 +2,13 @@ const constants = require('../constants.js');
 const fs = require('fs');
 const path = require('path')
 const exec = require('child_process').exec;
-const { evaluationGetMainData, evaluationAnalyzer } = require('../berke');
+const { evaluationGetMainData, evaluationAnalyzer, runRefDiff } = require('../berke');
 const { range } = require('lodash');
 
 const NUMBER_OF_COMMITS_PER_PROJECT = 100;
 const NUMBER_OF_COMMITS_TO_EXPLORE = 300;
 const CLEANUP_COMMAND = "node cleanup.js";
-const SEED_COMMIT = constants.SEED_COMMIT
-const REPO_URL = constants.REPO_URL
-const PROJECT_NAME = constants.PROJECT_NAME;
-const RESULT_PATH = `${__dirname}${path.sep}result${path.sep}${PROJECT_NAME}${path.sep}contribution${path.sep}`;
+const RESULT_PATH = `${__dirname}${path.sep}result${path.sep}${constants.PROJECT_NAME}${path.sep}contribution${path.sep}`;
 const COMMIT_DATA_PATH = `${RESULT_PATH}commits.json`
 
 let testSetCommits = []
@@ -24,12 +21,12 @@ if (!fs.existsSync(RESULT_PATH)) {
     });
 }
 
-function run(repoUrl, seedCommit) {
-    getlastNCommits(repoUrl, seedCommit, NUMBER_OF_COMMITS_TO_EXPLORE).then(testSetGenerator).then(() => {
+function run() {
+    runRefDiff(constants.SEED_COMMIT, NUMBER_OF_COMMITS_TO_EXPLORE).then(testSetGenerator).then(() => {
         let firstPromis = new Promise((resolve) => {
             exec(CLEANUP_COMMAND, (err, stdout, stderr) => {
                 if (!err) {
-                    evaluationGetMainData(seedCommit).then(() => excludeTestCases()).then(() => resolve())
+                    evaluationGetMainData(constants.SEED_COMMIT).then(() => excludeTestCases()).then(() => resolve())
                 } else {
                     console.log(err)
                 }
@@ -38,7 +35,7 @@ function run(repoUrl, seedCommit) {
 
         testSetChanges = testSetChanges.reduce( // MUST RUN IN SEQUENCE NOT PARAl
             (p, x) => p.then(() => {
-                return evaluationAnalyzer(seedCommit, x).then(()=>getUniqueContributions(candidatedCommits[x]))
+                return evaluationAnalyzer(constants.SEED_COMMIT, x).then(()=>getUniqueContributions(candidatedCommits[x]))
             }),
             firstPromis)
         return testSetChanges
@@ -83,20 +80,6 @@ function getUniqueContributions(commit) {
     fs.writeFileSync(`${RESULT_PATH}${commit}.json`, JSON.stringify(uniqeContributions))
 }
 
-function getlastNCommits(repoUrl, seedCommit, diggingDepth, sequencesPath = constants.SEQUENCES_PATH) {
-    console.log("* * * RefDiff for test-set * * * ") 
-    return new Promise(function (resolve, reject) {
-        exec(`${constants.REFDIFF_COMMAND}"${repoUrl} ${seedCommit} ${sequencesPath} ${constants.REMOVED_PATH} ${diggingDepth} ${constants.MAPPINGS_PATH}"`, (err, stdout, stderr) => {
-            if (!err) {
-                resolve(seedCommit)
-            }
-            else {
-                reject()
-            }
-        })
-    })
-}
-
 function excludeTestCases() {
     console.log("* * * excluding test * * * ") 
     return new Promise((resolve) => {
@@ -111,9 +94,10 @@ function excludeTestCases() {
         resolve()
     })
 }
+
 exec(CLEANUP_COMMAND, (err, stdout, stderr) => {
     if (!err) {
-        run(REPO_URL, SEED_COMMIT)
+        run()
     } else {
         console.log(err)
     }

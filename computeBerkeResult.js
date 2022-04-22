@@ -57,9 +57,7 @@ function intrepretDAResult(changes, impactSet) {
         let dependencies = dependenciesData[changedFucntion];
         if (dependencies == undefined) {
             let unknownKey = changedFucntion.replace(/((?![.])([^-])*)/, "arrowFunction");
-            // console.log(`**** ${changedFucntion} changed to ${unknownKey}`)
             dependencies = dependenciesData[unknownKey];
-            // console.log(`*** and here is the data ! ${dependencies!=undefined}`)
         }
 
         if (dependencies != undefined) {

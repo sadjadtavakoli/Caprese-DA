@@ -17,11 +17,14 @@ if (process.argv[1].endsWith(path.basename(__filename))) {
 }
 
 function runBerke(initialized_commit) {
-    return ignite(initialized_commit).then(() => {
-        if (initialized_commit) return getParentCommit(initialized_commit)
-        return getParentCommit('origin')
-
-    })
+    return new Promise((resolve) => resolve())
+        .then(() => {
+            if (initialized_commit) return computeCommitChanges(initialized_commit)
+            return getCurrentCommit().then((commit) => {
+                return computeCommitChanges(commit)
+            })
+        })
+        .then(getParentCommit)
         .then(checkoutProject)
         .then(runRefDiff)
         .then(runDynamicAnalysis)
@@ -43,19 +46,11 @@ function evaluationGetMainData(initialized_commit) {
 
 function evaluationAnalyzer(initialized_commit, changes) {
     changeSet = changes
-    // console.log("berke evaluation analyzer")
     return runClasp(initialized_commit)
-        .then(() => computeBerkeResult(getChangeSet()))
+        .then(() => computeBerkeResult(changes))
         .catch((err) => {
             console.log(err)
         })
-}
-
-function ignite(initialized_commit) {
-    if (initialized_commit) return computeCommitChanges(initialized_commit)
-    return getCurrentCommit().then((commit) => {
-        return computeCommitChanges(commit)
-    })
 }
 
 function getParentCommit(commit) {
@@ -115,10 +110,10 @@ function runDynamicAnalysis(commit) {
     })
 }
 
-function runRefDiff(commit) {
-    console.log(" = = = Run RefDiff = = = ")
+function runRefDiff(commit, diggingDepth = constants.REPO_DIGGING_DEPTH, resultPath = constants.SEQUENCES_PATH) {
+    console.log(` = = = Run RefDiff with depth ${diggingDepth} = = = `)
     return new Promise((resolve, reject) => {
-        exec(`${constants.REFDIFF_COMMAND}"${constants.REPO_URL} ${commit} ${constants.SEQUENCES_PATH} ${constants.REMOVED_PATH} ${constants.REPO_DIGGING_DEPTH} ${constants.MAPPINGS_PATH}"`, (err, stdout, stderr) => {
+        exec(`${constants.REFDIFF_COMMAND}"${constants.REPO_URL} ${commit} ${resultPath} ${constants.REMOVED_PATH} ${diggingDepth} ${constants.MAPPINGS_PATH}"`, (err, stdout, stderr) => {
             if (!err) {
                 resolve(commit)
             }
@@ -131,18 +126,8 @@ function runRefDiff(commit) {
 }
 
 function computeCommitChanges(commit) {
-    return new Promise((resolve, reject) => {
-        exec(`${constants.REFDIFF_COMMAND}"${constants.REPO_URL} ${commit} ${constants.CURRENT_CHANGES_PATH} ${constants.REMOVED_PATH} 0"`, (err, stdout, stderr) => {
-            if (!err) {
-                resolve(commit)
-            }
-            else {
-                console.log(stderr)
-                reject(err)
-            }
-        })
-    })
-
+    console.log(" = = = Get Commit's Changes = = = ")
+    return runRefDiff(commit, 0, constants.CURRENT_CHANGES_PATH)
 }
 
 function runClasp(commit) {
@@ -164,4 +149,5 @@ function getChangeSet() {
         changeSet = fs.readFileSync(constants.CURRENT_CHANGES_PATH).toString().trim().split(" ")
     return changeSet
 }
-module.exports = { getParentCommit, evaluationAnalyzer, evaluationGetMainData }
+
+module.exports = { evaluationAnalyzer, evaluationGetMainData, runRefDiff }
