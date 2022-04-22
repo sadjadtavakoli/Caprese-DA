@@ -44,9 +44,9 @@ function evaluationGetMainData(initialized_commit) {
         })
 }
 
-function evaluationAnalyzer(initialized_commit, changes) {
+function evaluationAnalyzer(changes) {
     changeSet = changes
-    return runClasp(initialized_commit)
+    return runClasp()
         .then(() => computeBerkeResult(changes))
         .catch((err) => {
             console.log(err)
@@ -55,9 +55,9 @@ function evaluationAnalyzer(initialized_commit, changes) {
 
 function getParentCommit(commit) {
     console.log(" = = = Get Parent Commit = = = ")
-    const getOriginCommand = `cd ${constants.REPO_PATH} ; git rev-parse ${commit}^`
+    const getParrentCommand = `cd ${constants.REPO_PATH} ; git rev-parse ${commit}^`
     return new Promise((resolve, reject) => {
-        exec(getOriginCommand, (err, stdout, stderr) => {
+        exec(getParrentCommand, (err, stdout, stderr) => {
             if (!err) {
                 resolve(stdout.trimEnd())
             } else {
@@ -96,12 +96,12 @@ function checkoutProject(commit) {
 
 }
 
-function runDynamicAnalysis(commit) {
+function runDynamicAnalysis() {
     console.log(" = = = Run Dynamic Anlaysis = = = ")
     return new Promise((resolve, reject) => {
         exec(constants.DA_COMMAND, (err, stdout, stderr) => {
             if (!err) {
-                resolve(commit)
+                resolve()
             }
             else {
                 reject(err)
@@ -130,12 +130,12 @@ function computeCommitChanges(commit) {
     return runRefDiff(commit, 0, constants.CURRENT_CHANGES_PATH)
 }
 
-function runClasp(commit) {
+function runClasp() {
     console.log(" = = = Run Clasp = = = ")
     return new Promise((resolve, reject) => {
         exec(`${constants.CLASP_COMMAND}"${constants.SEQUENCES_PATH} ${constants.PATTERNS_PATH} ${getChangeSet()}"`, (err, stdout, stderr) => {
             if (!err) {
-                resolve(commit)
+                resolve()
             }
             else {
                 reject(err)
@@ -150,4 +150,4 @@ function getChangeSet() {
     return changeSet
 }
 
-module.exports = { evaluationAnalyzer, evaluationGetMainData, runRefDiff }
+module.exports = { evaluationAnalyzer, evaluationGetMainData }
