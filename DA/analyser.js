@@ -1,7 +1,7 @@
 // do not remove the following comment
 // JALANGI DO NOT INSTRUMENT
 const fs = require('fs');
-const { DA_DEPENDENCIES_PATH, DA_CALL_SEQUENCE_PATH, KEEP_READABLE_TRACE_LOG, MAPPINGS_PATH } = require('../constants')
+const { DA_DEPENDENCIES_PATH, DA_CALL_SEQUENCE_PATH, KEEP_READABLE_TRACE_LOG} = require('../constants')
 
 let logger = "";
 let trace = "";
@@ -205,12 +205,9 @@ let tempIDsMap = {};
                 }
                 console.log("Traces file was saved!");
             });
-            // let mappings = readMappings()
             let functionDependenciesByKeys = {}
             for (const item in functionsDependency) {
                 let mappedKey = tempIDsMap[item]
-                // let mappedKey = mappings[key]
-                // if (mappedKey == undefined) mappedKey = key
                 functionDependenciesByKeys[mappedKey] = { 'callers': [...functionsDependency[item]['callers']], 'tests': [...functionsDependency[item]['tests']] }
                 delete functionsDependency[item]
             }
@@ -396,8 +393,5 @@ let tempIDsMap = {};
         return getFunctionName(f, iid)
     }
 
-    function readMappings() {
-        return JSON.parse(fs.readFileSync(MAPPINGS_PATH))
-    }
     sandbox.analysis = new Analyser();
 })(J$);

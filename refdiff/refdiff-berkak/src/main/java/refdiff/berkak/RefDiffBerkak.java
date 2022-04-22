@@ -25,8 +25,6 @@ public class RefDiffBerkak {
 		String commitSha = args[1];
 		String dataPath = args[2];
 		String removedPath = args[3];
-		int counter = Integer.parseInt(args[4]);
-		boolean currentVersion = counter == 0;
 		// String repoLink = "https://github.com/sadjad-tavakoli/sample_project.git";
 		// String commitSha = "a5deb46558ebde4d57e4d2620c503604dd2ef7fc";
 		// String dataPath = "sequences.txt";
@@ -34,25 +32,36 @@ public class RefDiffBerkak {
 
 		new File("data").mkdir();
 		new File(changesPath).mkdir();
-		File commitFolder = new File("data/" + commitSha);
-
+		File commitFolder = new File("data/" + repoLink);
 		try (JsPlugin jsPlugin = new JsPlugin()) {
 			RefDiff refDiffJs = new RefDiff(jsPlugin);
 
 			File repo = refDiffJs.cloneGitRepository(commitFolder, repoLink);
 			RevCommit commit = refDiffJs.getCommit(repo, commitSha);
-			if (currentVersion) {
-				findCurrentVersionChanges(refDiffJs, repo, commit, dataPath, removedPath);
-			} else {
-				String mappingsPath = args[5];
-				while(commit!=null && counter!=0){
-					commit = minRepo(refDiffJs, repo, commit, dataPath, mappingsPath, removedPath);
-					counter--;
-					System.out.println(counter);
+
+			try {
+				int counter = Integer.parseInt(args[4]);
+				if (counter == 0) {
+					findCurrentVersionChanges(refDiffJs, repo, commit, dataPath, removedPath);
+				} else {
+					String mappingsPath = args[5];
+					while (commit != null && counter != 0) {
+						commit = minRepo(refDiffJs, repo, commit, dataPath, mappingsPath,
+								removedPath);
+						counter--;
+						System.out.println(counter);
+					}
+					System.out.println(oneLengthCommitsCount);
+					System.out.println(moreThanLimitationLengthCommitsCount);
+					System.out.println(zeroLenghCommitsCount);
 				}
-				System.out.println(oneLengthCommitsCount);
-				System.out.println(moreThanLimitationLengthCommitsCount);
-				System.out.println(zeroLenghCommitsCount);
+			} catch (NumberFormatException e) { // for evaluation
+				String mappingsPath = args[5];
+				while (commit != null && !commit.getName().equals(args[4])) {
+					commit = minRepo(refDiffJs, repo, commit, dataPath, mappingsPath, removedPath);
+				}
+				commit = minRepo(refDiffJs, repo, commit, dataPath, mappingsPath, removedPath);
+				commit = minRepo(refDiffJs, repo, commit, dataPath, mappingsPath, removedPath);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

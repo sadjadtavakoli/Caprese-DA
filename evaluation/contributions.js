@@ -2,17 +2,21 @@ const constants = require('../constants.js');
 const fs = require('fs');
 const path = require('path')
 const exec = require('child_process').exec;
-const runBerke = require('../berke').runBerke
+const { evaluationGetMainData, evaluationAnalyzer } = require('../berke');
+const { range } = require('lodash');
 
-const NUMBER_OF_COMMITS_PER_PROJECT = 20;
-const NUMBER_OF_COMMITS_TO_EXPLORE = 10;
+const NUMBER_OF_COMMITS_PER_PROJECT = 100;
+const NUMBER_OF_COMMITS_TO_EXPLORE = 300;
 const CLEANUP_COMMAND = "node cleanup.js";
-const SEED_COMMIT = "947b6b7d57939d1a3b33ce008765f9aba3eb6f70"
-const REPO_URL = "git@github.com:expressjs/express.git"
-const PROJECT_NAME = [...REPO_URL.matchAll("[\\w\\.-]+(?=.git)")].pop();
-const RESULT_PATH = `result${path.sep}${PROJECT_NAME}${path.sep}`;
+const SEED_COMMIT = constants.SEED_COMMIT
+const REPO_URL = constants.REPO_URL
+const PROJECT_NAME = constants.PROJECT_NAME;
+const RESULT_PATH = `${__dirname}${path.sep}result${path.sep}${PROJECT_NAME}${path.sep}contribution${path.sep}`;
 const COMMIT_DATA_PATH = `${RESULT_PATH}commits.json`
 
+let testSetCommits = []
+let testSetChanges = []
+let candidatedCommits = {}
 
 if (!fs.existsSync(RESULT_PATH)) {
     fs.mkdirSync(RESULT_PATH, {
@@ -20,11 +24,24 @@ if (!fs.existsSync(RESULT_PATH)) {
     });
 }
 
-function run(repoUrl, seeCommit) {
-    getlastNCommits(repoUrl, seeCommit, NUMBER_OF_COMMITS_TO_EXPLORE).then(testSetGenerator).then((testSet) => {
-        testSet.reduce( // MUST RUN IN SEQUENCE NOT PARAl
-            (p, x) => p.then(() => runAnalyzer(x)),
-            Promise.resolve())
+function run(repoUrl, seedCommit) {
+    getlastNCommits(repoUrl, seedCommit, NUMBER_OF_COMMITS_TO_EXPLORE).then(testSetGenerator).then(() => {
+        let firstPromis = new Promise((resolve) => {
+            exec(CLEANUP_COMMAND, (err, stdout, stderr) => {
+                if (!err) {
+                    evaluationGetMainData(seedCommit).then(() => excludeTestCases()).then(() => resolve())
+                } else {
+                    console.log(err)
+                }
+            })
+        })
+
+        testSetChanges = testSetChanges.reduce( // MUST RUN IN SEQUENCE NOT PARAl
+            (p, x) => p.then(() => {
+                return evaluationAnalyzer(seedCommit, x).then(()=>getUniqueContributions(candidatedCommits[x]))
+            }),
+            firstPromis)
+        return testSetChanges
     }).catch(error => {
         console.log(error)
     })
@@ -33,11 +50,10 @@ function run(repoUrl, seeCommit) {
 function testSetGenerator() {
     return new Promise(resolve => {
         let sequences = fs.readFileSync(constants.SEQUENCES_PATH + "details.txt").toString().trim().split("\n");
-        let candidatedCommits = {}
         let testSet = []
-        for (let sequence of sequences) {
+        for (let sequence of sequences.reverse()) {
             let commit = sequence.split(" : ")[0]
-            let commitChanges = sequence.split(" : ")[1]
+            let commitChanges = sequence.split(" : ")[1].slice(0, -4).split(" ")
             if (candidatedCommits[commitChanges]) {
                 continue
             }
@@ -45,30 +61,13 @@ function testSetGenerator() {
                 break
             }
             candidatedCommits[commitChanges] = commit
-            testSet.push(commit)
+            testSetCommits.push(commit) // commit and its changes 
+            testSetChanges.push(commitChanges) // commit and its changes 
         }
         fs.writeFileSync(COMMIT_DATA_PATH, JSON.stringify(candidatedCommits))
-        resolve(testSet)
+        resolve()
     })
 }
-
-function runAnalyzer(test) {
-    return new Promise(resolve => {
-        console.log(`# # # # # # . . . . ${test} # # # #`)
-        exec(CLEANUP_COMMAND, (err, stdout, stderr) => {
-            if (!err) {
-
-                runBerke(test).then(() => {
-                    resolve()
-                    getUniqueContributions(test)
-                })
-            } else {
-                console.log(err)
-            }
-        })
-    })
-}
-
 
 function getUniqueContributions(commit) {
     console.log(" * * * Unique contribution * * * ")
@@ -82,15 +81,14 @@ function getUniqueContributions(commit) {
         }
     }
     fs.writeFileSync(`${RESULT_PATH}${commit}.json`, JSON.stringify(uniqeContributions))
-
 }
 
-function getlastNCommits(repoUrl, seedCommit, diggingDepth) {
-    console.log("* * * RefDiff for test-set * * *  ")
+function getlastNCommits(repoUrl, seedCommit, diggingDepth, sequencesPath = constants.SEQUENCES_PATH) {
+    console.log("* * * RefDiff for test-set * * * ") 
     return new Promise(function (resolve, reject) {
-        exec(`${constants.REFDIFF_COMMAND}"${repoUrl} ${seedCommit} ${constants.SEQUENCES_PATH} ${constants.REMOVED_PATH} ${diggingDepth} ${constants.MAPPINGS_PATH}"`, (err, stdout, stderr) => {
+        exec(`${constants.REFDIFF_COMMAND}"${repoUrl} ${seedCommit} ${sequencesPath} ${constants.REMOVED_PATH} ${diggingDepth} ${constants.MAPPINGS_PATH}"`, (err, stdout, stderr) => {
             if (!err) {
-                resolve()
+                resolve(seedCommit)
             }
             else {
                 reject()
@@ -99,6 +97,20 @@ function getlastNCommits(repoUrl, seedCommit, diggingDepth) {
     })
 }
 
+function excludeTestCases() {
+    console.log("* * * excluding test * * * ") 
+    return new Promise((resolve) => {
+        let detailedSequences = fs.readFileSync(constants.SEQUENCES_PATH + "details.txt").toString().trim().split("\n");
+        let sequences = fs.readFileSync(constants.SEQUENCES_PATH).toString().trim().split("\n");
+        for (let i in range(0, sequences.length)) {
+            if (testSetCommits.includes(detailedSequences[i].split(" : "))[0]) {
+                sequences.splice(i, 1)
+            }
+        }
+        fs.writeFileSync(constants.SEQUENCES_PATH, sequences.join("\n"));
+        resolve()
+    })
+}
 exec(CLEANUP_COMMAND, (err, stdout, stderr) => {
     if (!err) {
         run(REPO_URL, SEED_COMMIT)

@@ -1,10 +1,9 @@
 const fs = require('fs');
-const path = require('path');
 const constants = require('./constants.js');
 
 
 function computeBerkeResult(changes) {
-    console.log(" = = = Compute Impact-set = = = ");
+    // console.log(" = = = Compute Impact-set = = = ");
     let impactSet = new Map()
 
     intrepretDAResult(changes, impactSet);
@@ -15,7 +14,7 @@ function computeBerkeResult(changes) {
 }
 
 function sortAndReport(impactSet) {
-    console.log(" ... Saving result ... ");
+    // console.log(" ... Saving result ... ");
 
     let sortableImpactSet = [];
     for (var item of impactSet) {
@@ -50,31 +49,26 @@ function sortAndReport(impactSet) {
 }
 
 function intrepretDAResult(changes, impactSet) {
-    console.log(" ... DA result intrepration ... ");
+    // console.log(" ... DA result intrepration ... ");
 
-    let mappings = JSON.parse(fs.readFileSync(constants.MAPPINGS_PATH));
     let dependenciesData = JSON.parse(fs.readFileSync(constants.DA_DEPENDENCIES_PATH));
     let keyMap = dependenciesData['keyMap'];
     for (let changedFucntion of changes) {
         let dependencies = dependenciesData[changedFucntion];
         if (dependencies == undefined) {
             let unknownKey = changedFucntion.replace(/((?![.])([^-])*)/, "arrowFunction");
+            // console.log(`**** ${changedFucntion} changed to ${unknownKey}`)
             dependencies = dependenciesData[unknownKey];
+            // console.log(`*** and here is the data ! ${dependencies!=undefined}`)
         }
 
         if (dependencies != undefined) {
             for (let dependency of dependencies['callers']) {
-                let key = mappings[keyMap[dependency]];
-                if (key == undefined)
-                    key = keyMap[dependency];
-                addDAImpactSet(key);
+                addDAImpactSet(keyMap[dependency]);
             }
 
             for (let test of dependencies['tests']) {
-                let key = mappings[keyMap[test]];
-                if (key == undefined)
-                    key = keyMap[test];
-                addDAImpactSet(key, true);
+                addDAImpactSet(keyMap[test], true);
 
             }
         }
@@ -95,7 +89,7 @@ function intrepretDAResult(changes, impactSet) {
 }
 
 function intrepretFPData(changes, impactSet) {
-    console.log(" ... FP result intrepration ... ");
+    // console.log(" ... FP result intrepration ... ");
 
     let patterns = fs.readFileSync(constants.PATTERNS_PATH).toString();
     let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(", ");
