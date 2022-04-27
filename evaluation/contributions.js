@@ -50,7 +50,7 @@ function testSetGenerator() {
             let sequence = detailedSequences[i]
             let commit = sequence.split(" : ")[0]
             let commitChanges = sequence.split(" : ")[1].slice(0, -4).split(" ")
-            if (candidatedCommits.has(commitChanges)) {
+            if (candidatedCommits.has(commitChanges)) { // needs test
                 continue
             }
             if (candidatedCommits.size == NUMBER_OF_COMMITS_PER_PROJECT) {

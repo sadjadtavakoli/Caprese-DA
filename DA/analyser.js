@@ -1,7 +1,7 @@
 // do not remove the following comment
 // JALANGI DO NOT INSTRUMENT
 const fs = require('fs');
-const { DA_DEPENDENCIES_PATH, DA_CALL_SEQUENCE_PATH, KEEP_READABLE_TRACE_LOG} = require('../constants')
+const { DA_DEPENDENCIES_PATH, DA_CALL_SEQUENCE_PATH, KEEP_READABLE_TRACE_LOG } = require('../constants')
 
 let logger = "";
 let trace = "";
@@ -12,6 +12,7 @@ let callbackMap = new Map();
 let functionsFuncInput = new Map();
 let accessedFiles = new Map();
 let addedListeners = new Map();
+let eventsCallers = new Map();
 let emittedEvents = new Map();
 let functionIDs = new Map();
 let IDsFunction = new Map();
@@ -21,25 +22,26 @@ let tempIDsMap = {};
 (function (sandbox) {
     let utils = sandbox.Utils;
     function Analyser() {
-        this.invokeFunPre = function (iid, f, base, args, isConstructor, isMethod, functionIid, functionSid) {
+        this.invokeFunPre = function (iid, f, base, args) {
             if (isImportingNewModule(iid)) {
                 return { f: f, base: base, args: args, skip: false };
             }
-
             if (utils.isAddEventlistener(f)) {
-                //  we should keep these ones as well
-                let callerFunction = functionEnterStack[functionEnterStack.length - 1]
                 let listenerID = getID(args[1], iid)
+                let callerFunction = functionEnterStack[functionEnterStack.length - 1]
                 addToAddedListener(getID(base, "b" + iid), args[0], listenerID)
-                addDependency(listenerID, callerFunction)
+                addToEventsCallers(getID(base, "b" + iid), args[0], callerFunction.fID)
                 if (!tempIDsMap[listenerID]) tempIDsMap[listenerID] = utils.getIIDKey(getFunctionName(args[1], iid), iid)
 
             } else if (utils.isEmitEvent(f)) {
 
                 let callerFunction = functionEnterStack[functionEnterStack.length - 1]
                 let baseID = getID(base, "b" + iid)
+                let callers = getEventsCallers(baseID, args[0]) 
+                callers.forEach(caller=>{
+                    addDependency(caller, callerFunction)
+                })
                 addToEmittedEvents(baseID, { 'event': args[0], 'listeners': getAddedListeners(baseID, args[0]).slice(), 'callerFunction': callerFunction })
-                // console.log("called" + utils.getLine(iid) + " function " + utils.getIIDKey(callerFunction.fID, callerFunction.iid) + " emitted event " + args[0] + " of " + base.constructor.name + "\n\n")
 
             } else {
 
@@ -56,11 +58,11 @@ let tempIDsMap = {};
                 } else if (utils.isInterval(f)) {
                     let argID = getID(args[0], iid)
                     addToTimeoutMap('v_' + argID + args[1], callerFunction)
+
                 } else if (utils.isForEach(f)) {
                     let argID = getID(args[0], iid)
                     addToForloopMap(argID, callerFunction, base.length)
-                    // } else if (f == undefined) {
-                    // console.log(`function is undefined (!) at ${J$.iidToLocation(iid)}`)
+
                 } else {
                     let fID = getID(f, iid)
                     let funcArgs = []
@@ -76,19 +78,17 @@ let tempIDsMap = {};
                     if (funcArgs.length) {
                         addToFunctionsFuncInputs(fID, funcArgs)
                     }
-                    // console.log("called" + utils.getLine(iid) + " function " + getFunctionNameFID(fID, 40) + " is called with variables " + 'args' + " by " + utils.getIIDKey(functionEnterStack[functionEnterStack.length - 1].fID, functionEnterStack[functionEnterStack.length - 1].iid) + "\n\n")
                 }
             }
 
             return { f: f, base: base, args: args, skip: false };
         };
 
-        this.functionEnter = function (iid, f, dis, args) {
+        this.functionEnter = function (iid, f, dis) {
             // TODO it's not understandable => remove these ugly if elses
             if (isImportingNewModule(iid)) {
                 let fID = getID(f, iid)
                 tempIDsMap[fID] = utils.getIIDKey(utils.getIIDFileName(iid), iid)
-                // console.log("we are here! " + utils.getFilePath(iid))
                 accessedFiles.set(utils.getFilePath(iid), iid)
                 if (functionEnterStack[functionEnterStack.length - 1] && functionEnterStack[functionEnterStack.length - 1].iid != iid) {
                     functionEnterStack.push({ 'iid': iid, 'fID': fID, 'isImportedFile': true })
@@ -102,24 +102,24 @@ let tempIDsMap = {};
                     mainFilePath = utils.getFilePath(iid)
                     accessedFiles.set(mainFilePath, iid)
 
-                // } else if (dis == undefined) {
-                //     console.log(`dis is undefined! ${J$.iidToLocation(iid)}`)
                 } else if (utils.isCalledByEvents(dis)) {
                     let event = getRelatedEvent(getID(dis), fID)
                     let callerFunctionName = ""
                     let callerFunction;
                     if (!event) {
                         callerFunction = functionEnterStack[functionEnterStack.length - 1]
-                        log(utils.getLine(iid) + " function " + utils.getIIDKey(functionName, iid) + " entered from " + utils.getIIDKey(callerFunctionName, callerFunction.iid))
-
+                        if (KEEP_READABLE_TRACE_LOG){
+                            callerFunctionName = getFunctionNameFID(callerFunction.fID, callerFunction.iid)
+                            log(utils.getLine(iid) + " function " + utils.getIIDKey(functionName, iid) + " entered from " + utils.getIIDKey(callerFunctionName, callerFunction.iid))
+                        } 
                     } else {
                         callerFunction = event.callerFunction
-                        callerFunctionName = getFunctionNameFID(callerFunction.fID, callerFunction.iid)
-                        log(utils.getLine(iid) + " function  " + utils.getIIDKey(functionName, iid) + " entered throught event " + event.event + " emitted by function " + utils.getIIDKey(callerFunctionName, event.callerFunction.iid))
+                        if (KEEP_READABLE_TRACE_LOG) {
+                            callerFunctionName = getFunctionNameFID(callerFunction.fID, callerFunction.iid)
+                            log(utils.getLine(iid) + " function  " + utils.getIIDKey(functionName, iid) + " entered throught event " + event.event + " emitted by function " + utils.getIIDKey(callerFunctionName, event.callerFunction.iid))
+                        }
                     }
-                    // console.log(utils.getLine(iid) + " function  " + utils.getIIDKey(functionName, iid) + " entered throught event " + event.event + " emitted by function " + utils.getIIDKey(callerFunctionName, event.callerFunction.iid) + "\n\n")
                     addDependency(fID, callerFunction)
-                    updateTrace(utils.getIIDKey(functionName, iid))
                 } else {
                     let callerFunction;
                     if (utils.isCalledByInterval(dis)) {
@@ -143,10 +143,8 @@ let tempIDsMap = {};
                         callerFunction = functionEnterStack[functionEnterStack.length - 1]
                     }
                     let callerFunctionName = getFunctionNameFID(callerFunction.fID, callerFunction.iid)
-                    log(utils.getLine(iid) + " function " + utils.getIIDKey(functionName, iid) + " entered from " + utils.getIIDKey(callerFunctionName, callerFunction.iid))
-                    // console.log(utils.getLine(iid) + " function " + utils.getIIDKey(functionName, iid) + " entered from " + utils.getIIDKey(callerFunctionName, callerFunction.iid) + "\n\n")
+                    if (KEEP_READABLE_TRACE_LOG) log(utils.getLine(iid) + " function " + utils.getIIDKey(functionName, iid) + " entered from " + utils.getIIDKey(callerFunctionName, callerFunction.iid))
                     addDependency(fID, callerFunction)
-                    updateTrace(utils.getIIDKey(functionName, iid))
                 }
 
                 functionEnterStack.push({ 'iid': iid, 'fID': fID })
@@ -171,7 +169,7 @@ let tempIDsMap = {};
         };
 
         this.endExecution = function () {
-            log("end Execution");
+            if (KEEP_READABLE_TRACE_LOG) log("end Execution");
             const mainFileName = utils.filePathToFileName(mainFilePath);
             if (KEEP_READABLE_TRACE_LOG || process.argv[2]) {
                 fs.writeFileSync(path.join(__dirname, 'test' + path.sep + 'analyzerOutputs' + path.sep + mainFileName), logger, function (err) {
@@ -181,11 +179,9 @@ let tempIDsMap = {};
                     console.log("The file was saved!");
                 });
             }
-            let callSequencesPath;
             let depdendenciesPath;
             if (!process.argv[2]) {
 
-                callSequencesPath = DA_CALL_SEQUENCE_PATH;
                 depdendenciesPath = DA_DEPENDENCIES_PATH
 
             } else {
@@ -195,16 +191,9 @@ let tempIDsMap = {};
                     fs.mkdirSync(callSeqDir);
                     fs.mkdirSync(depDir);
                 }
-                callSequencesPath = path.join(callSeqDir + path.sep + mainFileName)
                 depdendenciesPath = path.join(depDir + path.sep + mainFileName)
             }
 
-            fs.writeFileSync(callSequencesPath, trace, function (err) {
-                if (err) {
-                    console.log(err);
-                }
-                console.log("Traces file was saved!");
-            });
             let functionDependenciesByKeys = {}
             for (const item in functionsDependency) {
                 let mappedKey = tempIDsMap[item]
@@ -233,10 +222,6 @@ let tempIDsMap = {};
     function log(log_value) {
         if (KEEP_READABLE_TRACE_LOG)
             logger += "\n#" + log_value
-    }
-
-    function updateTrace(key) {
-        // trace += key + " -1 "
     }
 
     function addToTimeoutMap(key, value) {
@@ -282,6 +267,19 @@ let tempIDsMap = {};
 
         }
     }
+
+    function addToEventsCallers(baseID, event, caller) {
+        let baseEvents = eventsCallers.get(baseID)
+        if (!baseEvents) {
+            eventsCallers.set(baseID, new Map().set(event, new Set([caller])))
+        } else if (!baseEvents.has(event)) {
+            baseEvents.set(event, new Set([caller]))
+        } else {
+            baseEvents.get(event).add(caller)
+
+        }
+    }
+    
     function addDependency(calleeFID, caller) {
         if (!functionsDependency[calleeFID]) {
             functionsDependency[calleeFID] = { 'tests': new Set([]), 'callers': new Set([]) }
@@ -312,12 +310,12 @@ let tempIDsMap = {};
         if (functionsFuncInput.has(enteredFunction)) {
             let argsList = functionsFuncInput.get(enteredFunction)
             for (let item of argsList) {
-                if(callbackMap.get(item)){
+                if (callbackMap.get(item)) {
                     callbackMap.set(item, callbackMap.get(item).filter(ele => {
                         return ele[0] != enteredFunction;
-                    }))    
+                    }))
                 }
-           }
+            }
             functionsFuncInput.delete(enteredFunction)
         }
     }
@@ -345,7 +343,6 @@ let tempIDsMap = {};
             let listeners = baseEmittedEvents[index]['listeners']
             let indexOf = listeners.indexOf(func)
             if (indexOf != -1) {
-
                 eventInfo = baseEmittedEvents[index]
                 listeners.splice(indexOf, 1)
                 if (!listeners.length) {
@@ -359,6 +356,14 @@ let tempIDsMap = {};
 
     function getAddedListeners(base, event) {
         let baseEvents = addedListeners.get(base)
+        if (baseEvents && baseEvents.has(event)) {
+            return [...baseEvents.get(event)]
+        }
+        return []
+    }
+
+    function getEventsCallers(base, event) {
+        let baseEvents = eventsCallers.get(base)
         if (baseEvents && baseEvents.has(event)) {
             return [...baseEvents.get(event)]
         }
