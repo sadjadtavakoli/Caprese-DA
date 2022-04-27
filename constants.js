@@ -1,35 +1,16 @@
 const path = require('path');
 
-// const REPO_URL = "https://github.com/sadjad-tavakoli/sample_project.git";
-// const REPO_URL = "git@github.com:http-party/http-server.git";
-// const REPO_URL = "git@github.com:Automattic/mongoose.git";
-// const REPO_URL = "git@github.com:node-fetch/node-fetch.git";
-// const REPO_URL = "git@github.com:bpampuch/pdfmake.git"
-// const REPO_URL = "git@github.com:pmandadapu9/Jhipster.git"
-// const REPO_URL = "git@github.com:devleague/curry-house-styel07.git"
-// const REPO_URL = "git@github.com:RomanSaveljev/jenkins-job-builder-js.git"
-// const REPO_URL = "git@github.com:dtex/j5e.git"
-// const REPO_URL = "git@github.com:antirek/ding-dong.git"
-// const REPO_URL = "git@github.com:andornaut/statezero.git"
-
-// const REPO_URL = "git@github.com:graphile/postgraphile.git" //used jest not mocha
-// const REPO_URL = "git@github.com:mysqljs/mysql.git" // TypeError: {} is not a constructor
-// const REPO_URL = "git@github.com:npm/cli.git" //  had errors
-// const REPO_URL = "git@github.com:SheetJS/sheetjs.git" // huge execution load, I had to shut it down.
-// const REPO_URL = "git@github.com:axios/axios.git" // used jest not mocha
-
-
-// with result:
 // const REPO_URL = "git@github.com:jhipster/jhipster-uml.git"
-const REPO_URL = "git@github.com:expressjs/express.git"
-// const REPO_URL = "git@github.com:expressjs/session.git"
-
+// const REPO_URL = "git@github.com:expressjs/express.git"
+// const REPO_URL = "git@github.com:FredrikNoren/ungit.git"
+// const REPO_URL = "git@github.com:jhipster/jhipster-uml.git"
+// const REPO_URL = "git@github.com:thelounge/thelounge.git" // not working - ESM errors
 
 
 /*
  ****** ! ** ! ** ! ** ! ** ! ** ! ** ! ** ! ** ! ** ! ** ! *******
  ****                                                        ******
- ***    Fill the following constants before running berke     *****
+ ***   Fill the following constants before running the tool   *****
  ****                                                        ******
  ******************************************************************
  */
@@ -37,20 +18,14 @@ const REPO_URL = "git@github.com:expressjs/express.git"
 /**
  * your repository address
  */
+const REPO_URL = "git@github.com:expressjs/session.git"
 
-// const REPO_URL = "git@github.com:thenativeweb/node-cqrs-eventdenormalizer.git"
-// const REPO_URL = "git@github.com:kazupon/vue-i18n.git"
-// const REPO_URL = "git@github.com:EFForg/https-everywhere.git" // not mocha test
-// const REPO_URL = "git@github.com:videojs/http-streaming.git" // import and export 
-// const REPO_URL = "git@github.com:ipfs-inactive/js-ipfs-http-client.git"
-// const REPO_URL = "git@github.com:Azure/azure-storage-node.git"
 
-// const REPO_URL = "git@github.com:sadjadtavakoli/azure-storage-node.git"  // * * * *  Ongoing 
-// const REPO_URL = "git@github.com:stylus/stylus.git"
+
 /**
  *  the main branch of your repository; it is usually master or main.
  */
-const REPO_MAIN_BRANCH = "master" // express, session
+const REPO_MAIN_BRANCH = "master" // express, session, ungit, thelounge
 
 /**
  * the relative address of your project's test directory
@@ -58,7 +33,7 @@ const REPO_MAIN_BRANCH = "master" // express, session
  *     Assume your project's test directory is GreatProject/subdir/tests/
  *     you should set REPO_TEST_RELATIVE_DIR="subdir/tests/"
  */
-const REPO_TEST_RELATIVE_DIR = "test"; //express, session
+const REPO_TEST_RELATIVE_DIR = "test"; //express, session, ungit, thelounge
 
 
 
@@ -66,8 +41,10 @@ const REPO_TEST_RELATIVE_DIR = "test"; //express, session
  * The first commits with which you want to begin the whole analysis. 
  * You can leave it empty if you want to begin with the latest one. 
  */
-const SEED_COMMIT = "";
-
+// const SEED_COMMIT = "e8a5a78566701f364c2097e4dc403fe558bca917"; // ungit
+// const SEED_COMMIT = "3726a8d00bf2734add7eed3d584cc86ce16b5a6d" // thelounge
+// const SEED_COMMIT = "51de04f3a9d944c1ee3c6ca08b827c154cc759df" // jhipster
+const SEED_COMMIT = "5df613c481bc7c5979aeaeac691b64ef0a5c4948" // session
 /**
  * Where you want to keep the analysis data, including sequences, dependencies, and the final report. 
  * By default it's addressed to "berke/data/"
@@ -77,7 +54,7 @@ const DATA_PATH = __dirname + path.sep + 'data'
 /**
  * The number of commits you want to mine through the co-occurrence analysis phase
  */
-const REPO_DIGGING_DEPTH = 50;
+const REPO_DIGGING_DEPTH = -1;
 
 /**
  * REPO_PATH, Your project path
