@@ -1,3 +1,5 @@
+// do not remove the following comment
+// JALANGI DO NOT INSTRUMENT
 const path = require('path');
 const events = require('events');
 const { REPO_PATH, REPO_TEST_RELATIVE_DIR } = require('../constants');
@@ -14,26 +16,18 @@ let EventEmmiter = events.EventEmitter.prototype;
 
     Utils.filePathToFileName = function (filePath) {
         let pathSections = filePath.split('/')
-        return pathSections[pathSections.length-1].toLowerCase();
+        return pathSections[pathSections.length - 1].toLowerCase();
     }
-    
+
     Utils.getIIDFileName = function (iid) {
         return Utils.filePathToFileName(Utils.getFilePath(iid))
     }
-    
+
     Utils.getFilePath = function (iid) {
         return J$.iidToLocation(iid).split(':')[0].substring(1);
     }
     Utils.getLine = function (iid) {
         return J$.iidToLocation(iid).split(':')[1]
-    }
-
-    Utils.getEndLine = function (iid) {
-        return J$.iidToLocation(iid).split(':')[3]
-    }
-
-    Utils.getPositionInLine = function (iid) {
-        return J$.iidToLocation(iid).split(':')[2]
     }
 
     Utils.getIIDKey = function (functionName, iid) {
@@ -44,18 +38,6 @@ let EventEmmiter = events.EventEmitter.prototype;
         return `${functionName}-${filePath}-${line}-${Endline}`
     }
 
-    Utils.isTimeOut = function (func) {
-        return func == setTimeout
-    }
-
-    Utils.isImmediate = function (func) {
-        return func == setImmediate
-    }
-
-    Utils.isInterval = function (func) {
-        return func == setInterval
-    }
-
     Utils.isEmitEvent = function (func) {
         return func == EventEmmiter.emit
     }
@@ -64,31 +46,21 @@ let EventEmmiter = events.EventEmitter.prototype;
         return [EventEmmiter.addListener, EventEmmiter.once, EventEmmiter.prependListener, EventEmmiter.prependOnceListener].includes(func)
     }
 
-    Utils.isForEach = function (func) {
-        return func == Array.prototype.forEach
-    }
-    Utils.isAnonymousFunction = function (func) {
-        return func.name == "";
-    }
-
-    Utils.isCalledByImmediate = function (base) {
-        return base!=undefined && base._onImmediate
-    }
-
-    Utils.isCalledByTimeoutOrInterval = function (base) {
-        return base!=undefined && base._onTimeout
+    Utils.isCallBackRequiredFunction = function (func) {
+        let arrayCallBackFunctions = [Array.prototype.every, 
+            Array.prototype.some, 
+            Array.prototype.forEach, 
+            Array.prototype.map, 
+            Array.prototype.filter, 
+            Array.prototype.reduce,
+            Array.prototype.reduceRight,
+            setTimeout, setImmediate, setInterval]
+        return arrayCallBackFunctions.includes(func)
+        
     }
 
-    Utils.isCalledByEvents = function (base) {
-        return base!=undefined && base.constructor.prototype == EventEmmiter
-    }
-
-    Utils.isCalledByInterval = function (base) {
-        return base!=undefined && base._repeat
-    }
-
-    Utils.isCalledByTimeout = function (base) {
-        return base!=undefined && base._onTimeout && !base._repeat
+    Utils.isCalledByCallBackRequiredFunctions = function (base) {
+        return base!=undefined && (base._onImmediate || base._onTimeout || base.constructor.prototype == EventEmmiter || base._repeat)
     }
 
     Utils.addToMapList = function (map, key, value, distinct) {

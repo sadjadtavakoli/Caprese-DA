@@ -85,10 +85,8 @@ const CURRENT_CHANGES_PATH = DATA_PATH + path.sep + "currentVersionChanges.txt";
 const PATTERNS_PATH = DATA_PATH + path.sep + "patterns.json"; // detected co-change patterns mined based on extracted changes 
 const EXPERIMENTAL_PATTERNS_PATH = DATA_PATH + path.sep + "patterns_EX.json"; // detected co-change patterns mined based on extracted changes 
 const DA_DEPENDENCIES_PATH = DATA_PATH + path.sep + "dependencies.json"; // recorded dependencies by dynamic analysis
-const DA_CALL_SEQUENCE_PATH = DATA_PATH + path.sep + "call_sequences.txt"; // call sequences recorded by dynamic analysis 
 const MAPPINGS_PATH = DATA_PATH + path.sep + "mappings.json" // unigue key mappings for functions in different revisions
 const Berke_RESULT_PATH = DATA_PATH + path.sep + "berke.json"; // berke result 
-const KEEP_READABLE_TRACE_LOG = true // recording function call traces, accessable in DA subdirecory (BETTER TO CHANGE THIS ADDRESS)
 
 
 /**
@@ -101,5 +99,5 @@ const DA_COMMAND = "cd " + DA_PATH + " ; $GRAAL_HOME/bin/node --nodeprof.Scope=a
 module.exports = {
     REPO_URL, PROJECT_NAME, REPO_TEST_RELATIVE_DIR, SEED_COMMIT, REPO_PATH, REFDIFF_PATH, REPO_MAIN_BRANCH, EXPERIMENTAL_PATTERNS_PATH,
     CLASP_PATH, DA_PATH, SEQUENCES_PATH, PATTERNS_PATH, DATA_PATH, REPO_DIGGING_DEPTH, REFDIFF_COMMAND, REMOVED_PATH, MAPPINGS_PATH, Berke_RESULT_PATH,
-    CLASP_COMMAND, DA_COMMAND, DA_DEPENDENCIES_PATH, DA_CALL_SEQUENCE_PATH, KEEP_READABLE_TRACE_LOG, CURRENT_CHANGES_PATH
+    CLASP_COMMAND, DA_COMMAND, DA_DEPENDENCIES_PATH, CURRENT_CHANGES_PATH
 }

@@ -26,6 +26,7 @@ describe('Test eventsOnceListener.js', () => runTest('eventsOnceListener.js'));
 describe('Test eventsPrependListener.js', () => runTest('eventsPrependListener.js'));
 describe('Test eventsPrependOnceListener.js', () => runTest('eventsPrependOnceListener.js'));
 describe('Test eventsSingleListener.js', () => runTest('eventsSingleListener.js'));
+describe('Test functionCallNestedRequireModule.js', () => runTest('functionCallNestedRequireModule.js'));
 describe('Test functionCallRequireModule.js', () => runTest('functionCallRequireModule.js'));
 describe('Test functionCall_1.js', () => runTest('functionCall_1.js'));
 describe('Test functionCall_2.js', () => runTest('functionCall_2.js'));
@@ -51,13 +52,6 @@ function runTest(item) {
     this.timeout(10000);
     execute(nodeprofCommand + item + " testMode", done)
   });
-  it('Compare result', function (done) {
-    let diffs = compairResult(item);
-    if (diffs.length > 0) {
-      assert.fail(JSON.stringify(diffs, null, '\t'));
-    }
-    done();
-  });
   it('Compare dependencies', function (done) {
     compairDependencies(item);
     done();
@@ -73,37 +67,9 @@ function execute(command, done) {
   })
 }
 
-function compairResult(fileName) {
-  let expectedOutput = fs.readFileSync(path.join(__dirname, 'expectedOutputs' + path.sep + fileName.toLowerCase()), { encoding: 'utf8' }).split('\n')
-  let analyzerOutput = fs.readFileSync(path.join(__dirname, 'analyzerOutputs' + path.sep + fileName.toLowerCase()), { encoding: 'utf8' }).split('\n')
-  let min_content = expectedOutput
-  let max_content = 'expected output'
-
-  if (analyzerOutput.length < expectedOutput.length) {
-    min_content = analyzerOutput
-    max_content = 'analyzer result'
-  }
-  let diffs = []
-  for (let i in min_content) {
-    if (expectedOutput[i] !== analyzerOutput[i]) {
-      diffs.push({
-        'line_number': i,
-        'expected': expectedOutput[i],
-        'actual': analyzerOutput[i]
-      })
-    }
-  }
-  if (analyzerOutput.length !== expectedOutput.length) {
-    diffs.push(max_content + ' has some extra lines!')
-  }
-  return diffs
-}
-
-
 function compairDependencies(fileName) {
-  let expectedOutput = JSON.parse(fs.readFileSync(path.join(__dirname, 'expectedOutputs' + path.sep + 'dependencies' + path.sep + fileName.toLowerCase()), { encoding: 'utf8' }))
-  let analyzerOutput = JSON.parse(fs.readFileSync(path.join(__dirname, 'analyzerOutputs' + path.sep + 'dependencies' + path.sep + fileName.toLowerCase()), { encoding: 'utf8' }))
+  let expectedOutput = JSON.parse(fs.readFileSync(path.join(__dirname, 'expectedOutputs' + path.sep + 'dependencies' + path.sep + fileName + ".json"), { encoding: 'utf8' }))
+  let analyzerOutput = JSON.parse(fs.readFileSync(path.join(__dirname, 'analyzerOutputs' + path.sep + 'dependencies' + path.sep + fileName + ".json"), { encoding: 'utf8' }))
   assert.deepEqual(expectedOutput, analyzerOutput)
 }
 
-// 
