@@ -30,7 +30,7 @@ let tempIDsMap = {};
 
             } else if (utils.isEmitEvent(f)) {
                 let baseID = getID(base, "b" + iid)
-                let eventInfo = getAddedListeners(baseID, args[0]).slice()
+                let eventInfo = getAddedListeners(baseID, args[0])
                 if (eventInfo.length) {
                     let listeners = eventInfo[0]
                     let callers = eventInfo[1]
@@ -49,7 +49,6 @@ let tempIDsMap = {};
                 } else {
                     let fID = getID(f, iid)
                     let funcArgs = []
-
                     for (let i = 0; i < args.length; i = i + 1) {
                         if (typeof args[i] == "function") {
                             let argID = getID(args[i], iid + `${i}`)
@@ -66,47 +65,39 @@ let tempIDsMap = {};
         };
 
         this.functionEnter = function (iid, f, dis) {
-            if (isImporting(iid)) {
-                let fID = getID(f, iid)
-                tempIDsMap[fID] = utils.getIIDKey(utils.getIIDFileName(iid), iid)
-                accessedFiles.set(utils.getFilePath(iid), iid)
-                if (functionEnterStack[functionEnterStack.length - 1] && functionEnterStack[functionEnterStack.length - 1].iid != iid) {
-                    functionEnterStack.push({ 'iid': iid, 'fID': fID, 'isImportedFile': true })
-                }
-            } else {
-                let fID = getID(f, iid)
-                let functionName = getFunctionName(f, iid)
-                tempIDsMap[fID] = utils.getIIDKey(functionName, iid)
-
-                if (isMainFile(iid)) {
+            let fID = getID(f, iid)
+            if (isMainFile(iid)) {
+                if (mainFilePath == "") {
                     mainFilePath = utils.getFilePath(iid)
                     accessedFiles.set(mainFilePath, iid)
+                    tempIDsMap[fID] = utils.getIIDKey(utils.getIIDFileName(iid), iid)
+                }
+                functionEnterStack.push({ 'iid': iid, 'fID': fID })
 
-                } else {
+            } else if (isImporting(iid)) {
+                tempIDsMap[fID] = utils.getIIDKey(utils.getIIDFileName(iid), iid)
+                accessedFiles.set(utils.getFilePath(iid), iid)
+            } else {
+                if (!utils.isCalledByCallBackRequiredFunctions(dis)) {
                     validateCallBackMap(fID)
                     let argCheck = popFromCallbackMap(fID)
                     if (argCheck) {
                         addDependency(fID, argCheck[1])
 
-                    } else if (!utils.isCalledByCallBackRequiredFunctions(dis)) {
-                        addDependency(fID, functionEnterStack[functionEnterStack.length - 1])
+                    } else {
+                        addDependency(fID, functionEnterStack[functionEnterStack.length - 1]) // For the very first function in the imported file it doesn't get the currect caller 
                     }
-
                 }
+                let functionName = getFunctionName(f, iid) // there is a problem here! 
+                tempIDsMap[fID] = utils.getIIDKey(functionName, iid)
                 functionEnterStack.push({ 'iid': iid, 'fID': fID })
-
             }
         };
 
         this.functionExit = function (iid, returnVal, wrappedExceptionVal) {
             if (!(isImporting(iid) || isMainFile(iid))) {
                 functionEnterStack.pop()
-                let callerCallerFunction = functionEnterStack[functionEnterStack.length - 1]
-                if (callerCallerFunction && callerCallerFunction.isImportedFile) {
-                    functionEnterStack.pop()
-                }
             }
-
             return { returnVal: returnVal, wrappedExceptionVal: wrappedExceptionVal, isBacktrack: false };
         };
 
@@ -145,7 +136,9 @@ let tempIDsMap = {};
     }
 
     function isImporting(iid) {
-        return mainFilePath != "" && mainFilePath != utils.getFilePath(iid) && !(accessedFiles.has(utils.getFilePath(iid)) && utils.trackExternals)
+        let filePath = utils.getFilePath(iid)
+        let accedFileID = accessedFiles.get(filePath)
+        return mainFilePath != filePath && (accedFileID == undefined || accedFileID == iid)
     }
 
     /**
@@ -155,7 +148,11 @@ let tempIDsMap = {};
      * @param caller mainFunction's caller function
      */
     function addToCallbackMap(key, mainFunction, caller) {
-        utils.addToMapList(callbackMap, key, [mainFunction, caller])
+        if (callbackMap.has(key)) {
+            callbackMap.get(key).push([mainFunction, caller])
+        } else {
+            callbackMap.set(key, [[mainFunction, caller]])
+        }
     }
 
     function addToFunctionsFuncInputs(key, list) {
@@ -196,8 +193,9 @@ let tempIDsMap = {};
         if (functionsFuncInput.has(enteredFunction)) {
             let argsList = functionsFuncInput.get(enteredFunction)
             for (let item of argsList) {
-                if (callbackMap.get(item)) {
-                    callbackMap.set(item, callbackMap.get(item).filter(ele => {
+                let itemMap = callbackMap.get(item)
+                if (itemMap) {
+                    callbackMap.set(item, itemMap.filter(ele => {
                         return ele[0] != enteredFunction;
                     }))
                 }
@@ -214,6 +212,7 @@ let tempIDsMap = {};
             return res
         }
     }
+
     function getAddedListeners(base, event) {
         let baseEvents = addedListeners.get(base)
         if (baseEvents && baseEvents.has(event)) {

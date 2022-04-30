@@ -8,7 +8,6 @@ function cleanup() {
     clearFile(constants.REMOVED_PATH)
     clearFile(constants.PATTERNS_PATH)
     clearFile(constants.MAPPINGS_PATH)
-    clearFile(constants.DA_DEPENDENCIES_PATH)
     clearFile(constants.DA_CALL_SEQUENCE_PATH)
     clearFile(constants.CURRENT_CHANGES_PATH)
     clearFile(constants.Berke_RESULT_PATH)
@@ -19,7 +18,6 @@ function cleanup() {
     fs.writeFileSync(constants.PATTERNS_PATH, "")
     fs.writeFileSync(constants.MAPPINGS_PATH, "{}")
     fs.writeFileSync(constants.DA_DEPENDENCIES_PATH, "{}")
-    fs.writeFileSync(constants.DA_CALL_SEQUENCE_PATH, "")
     fs.writeFileSync(constants.CURRENT_CHANGES_PATH, "")
     fs.writeFileSync(constants.Berke_RESULT_PATH, "")
 }

@@ -3,7 +3,20 @@
 const path = require('path');
 const events = require('events');
 const { REPO_PATH, REPO_TEST_RELATIVE_DIR } = require('../constants');
-let EventEmmiter = events.EventEmitter.prototype;
+const CALLBACK_REQUIRED_FUNCTIONS =
+    [Array.prototype.every,
+    Array.prototype.some,
+    Array.prototype.forEach,
+    Array.prototype.map,
+    Array.prototype.filter,
+    Array.prototype.reduce,
+    Array.prototype.reduceRight,
+        setTimeout,
+        setImmediate,
+        setInterval];
+
+const EventEmmiter = events.EventEmitter.prototype;
+const EVENT_LISTENER_FUNCTIONS = [EventEmmiter.addListener, EventEmmiter.once, EventEmmiter.prependListener, EventEmmiter.prependOnceListener];
 
 (function (sandbox) {
     if (typeof sandbox.Utils !== 'undefined') {
@@ -11,8 +24,6 @@ let EventEmmiter = events.EventEmitter.prototype;
     }
 
     var Utils = sandbox.Utils = {};
-
-    Utils.trackExternals = true;
 
     Utils.filePathToFileName = function (filePath) {
         let pathSections = filePath.split('/')
@@ -43,35 +54,15 @@ let EventEmmiter = events.EventEmitter.prototype;
     }
 
     Utils.isAddEventlistener = function (func) {
-        return [EventEmmiter.addListener, EventEmmiter.once, EventEmmiter.prependListener, EventEmmiter.prependOnceListener].includes(func)
+        return EVENT_LISTENER_FUNCTIONS.includes(func)
     }
 
     Utils.isCallBackRequiredFunction = function (func) {
-        let arrayCallBackFunctions = [Array.prototype.every, 
-            Array.prototype.some, 
-            Array.prototype.forEach, 
-            Array.prototype.map, 
-            Array.prototype.filter, 
-            Array.prototype.reduce,
-            Array.prototype.reduceRight,
-            setTimeout, setImmediate, setInterval]
-        return arrayCallBackFunctions.includes(func)
-        
+        return CALLBACK_REQUIRED_FUNCTIONS.includes(func)
     }
 
     Utils.isCalledByCallBackRequiredFunctions = function (base) {
-        return base!=undefined && (base._onImmediate || base._onTimeout || base.constructor.prototype == EventEmmiter || base._repeat)
-    }
-
-    Utils.addToMapList = function (map, key, value, distinct) {
-        if (map.has(key)) {
-            map.get(key).push(value)
-            if (distinct) {
-                map.set(key, [...new Set(map.get(key))])
-            }
-        } else {
-            map.set(key, [value])
-        }
+        return base != undefined && (base._onImmediate || base._onTimeout || base.constructor.prototype == EventEmmiter || base._repeat)
     }
 
     Utils.isTestFunction = function (iid) {
