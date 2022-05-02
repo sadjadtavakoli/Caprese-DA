@@ -167,7 +167,7 @@ public class CstRootHelper<T> {
 	}
 	
 	public static boolean sameNamespace(CstNode n1, CstNode n2) {
-		return Objects.equals(n1.getNamespace(), n2.getNamespace());
+		return n1.getNamespace() != null && Objects.equals(n1.getNamespace(), n2.getNamespace());
 	}
 	
 	public static String signature(CstNode n) {
@@ -180,6 +180,10 @@ public class CstRootHelper<T> {
 	
 	public static boolean anonymous(CstNode n) {
 		return n.getSimpleName().isEmpty();
+	}
+	
+	public static boolean arrowAnonymousFunction(CstNode n) {
+		return n.getSimpleName().equals("arrowAnonymousFunction");
 	}
 	
 	public static boolean leaf(CstNode n) {
@@ -279,28 +283,6 @@ public class CstRootHelper<T> {
 			parent = parent.get().getParent();
 		}
 	}
-
-	// 	if (!srMap.containsKey(n1) || !srMap.containsKey(n2)) {
-	// 		throw new RuntimeException("Source representation not computed");
-	// 	}
-	// 	srb.subtractTokens(sourceRep(n1), sourceRep(n2));
-	// }
-
-	
-
-	// private void removeFromParentTokenBefore(CstNode n1){
-	// 	if(n1.getParent().isPresent()){
-	// 		srb.subtractTokens(before.sourceRep(n1.getParent().get()), before.sourceRep(n1));
-	// 	}
-	// }
-
-	// private void removeFromParentTokenAfter(CstNode n2){
-	// 	if(n2.getParent().isPresent()){
-	// 		srb.subtractTokens(after.sourceRep(n2.getParent().get()), after.sourceRep(n2));
-	// 	}
-	// }
-
-
 	
 	public T bodySourceRep(CstNode n) {
 		if (!srBodyMap.containsKey(n)) {

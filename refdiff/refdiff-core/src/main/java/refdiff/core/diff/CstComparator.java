@@ -186,7 +186,7 @@ public class CstComparator {
 			List<PotentialMatch> candidates = new ArrayList<>();
 			for (CstNode n1 : changed) {
 				String name = n1.getLocalName();
-				if (before.findByLocalName(name).size() == 1) {
+				if (!arrowAnonymousFunction(n1) &&  before.findByLocalName(name).size() == 1) {
 					List<CstNode> n2WithSameName = after.findByLocalName(name);
 					if (n2WithSameName.size() == 1) {
 						CstNode n2 = n2WithSameName.get(0);

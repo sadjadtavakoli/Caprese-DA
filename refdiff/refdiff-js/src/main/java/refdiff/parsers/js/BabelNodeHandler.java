@@ -123,7 +123,7 @@ abstract class BabelNodeHandler {
 		
 		RAST_NODE_HANDLERS.put("ArrowFunctionExpression", new BabelNodeHandler() {
 			public String getLocalName(CstNode cstNode, JsValueV8 esprimaNode) {
-				return "arrowFunction";
+				return "arrowAnonymousFunction";
 			}
 			
 			public Set<Stereotype> getStereotypes(CstNode cstNode, JsValueV8 esprimaNode) {
@@ -145,7 +145,32 @@ abstract class BabelNodeHandler {
 				return JsNodeType.FUNCTION;
 			}
 		});
-		
+
+		RAST_NODE_HANDLERS.put("FunctionExpression", new BabelNodeHandler() {
+			public String getLocalName(CstNode cstNode, JsValueV8 esprimaNode) {
+				return "arrowAnonymousFunction";
+			}
+			
+			public Set<Stereotype> getStereotypes(CstNode cstNode, JsValueV8 esprimaNode) {
+				return Collections.singleton(Stereotype.HAS_BODY);
+			}
+			
+			@Override
+			public List<Parameter> getParameters(CstNode cstNode, JsValueV8 esprimaNode) {
+				return extractParameters(esprimaNode);
+			}
+			
+			@Override
+			public JsValueV8 getBodyNode(JsValueV8 esprimaNode) {
+				return esprimaNode.get("body");
+			}
+			
+			@Override
+			public String getType(JsValueV8 babelAst) {
+				return JsNodeType.FUNCTION;
+			}
+		});
+
 		RAST_NODE_HANDLERS.put("VariableDeclarator", new BabelNodeHandler() {
 			@Override
 			public boolean isCstNode(JsValueV8 babelAst) {

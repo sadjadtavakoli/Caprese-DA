@@ -32,7 +32,7 @@ public class RefDiffBerkak {
 
 		new File("data").mkdir();
 		new File(changesPath).mkdir();
-		File commitFolder = new File("data/" + repoLink);
+		File commitFolder = new File("data/" + repoLink + "/" + commitSha);
 		try (JsPlugin jsPlugin = new JsPlugin()) {
 			RefDiff refDiffJs = new RefDiff(jsPlugin);
 
@@ -130,7 +130,6 @@ public class RefDiffBerkak {
 
 			changes.addAll(diffForCommit.getNonValidChangedFiles());
 			changes.addAll(diffForCommit.getChangedEntitiesKeys());
-			changes.addAll(diffForCommit.getAddedEntitiesKeys());
 			changes.addAll(diffForCommit.getRemovedEntitiesKeys());
 
 			if (!changes.isEmpty()) {

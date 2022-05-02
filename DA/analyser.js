@@ -237,7 +237,7 @@ let tempIDsMap = {};
             if (isMainFile(iid)) {
                 functionName = utils.filePathToFileName(mainFilePath)
             } else {
-                functionName = "arrowFunction"
+                functionName = "arrowAnonymousFunction"
             }
 
         }
