@@ -96,6 +96,7 @@ public class CstComparator {
 			this.before = new CstRootHelper<>(this.diff.getBefore(), sourcesBefore, srb, true);
 			this.after = new CstRootHelper<>(this.diff.getAfter(), sourcesAfter, srb, false);
 			this.changed = new HashSet<>();
+			this.added = new HashSet<>();
 			this.changedEntitiesKeys = new HashSet<>();
 			this.addedEntitiesKeys = new HashSet<>();
 			this.removedEntitiesKeys = new HashSet<>();
@@ -122,14 +123,11 @@ public class CstComparator {
 					fileMapAfter.put(fileAfter.getPath(), "LARGE OBJECT AFTER");
 				}
 			}
-			
-			this.diff.getBefore().forEachNode((node, depth) -> {
-				this.changed.add(node);
-			});
-			this.added = new HashSet<>();
-			this.diff.getAfter().forEachNode((node, depth) -> {
-				this.added.add(node);
-			});
+
+			this.diff.getBefore().forEachNode((node, depth) -> this.changed.add(node));
+
+			this.diff.getAfter().forEachNode((node, depth) -> this.added.add(node));
+
 			monitor.beforeCompare(before, after);
 
 		}
@@ -186,7 +184,7 @@ public class CstComparator {
 			List<PotentialMatch> candidates = new ArrayList<>();
 			for (CstNode n1 : changed) {
 				String name = n1.getLocalName();
-				if (!arrowAnonymousFunction(n1) &&  before.findByLocalName(name).size() == 1) {
+				if (!arrowAnonymousFunction(n1) && before.findByLocalName(name).size() == 1) {
 					List<CstNode> n2WithSameName = after.findByLocalName(name);
 					if (n2WithSameName.size() == 1) {
 						CstNode n2 = n2WithSameName.get(0);
@@ -212,19 +210,20 @@ public class CstComparator {
 		}
 
 		private void findMatchesBySimilarity(boolean onlySafe) {
-			List<PotentialMatch> candidates = new ArrayList<>();
+		List<PotentialMatch> candidates = new ArrayList<>();
 			for (CstNode n1 : changed) {
 				for (CstNode n2 : added) {
 					if (sameType(n1, n2) && !anonymous(n1) && !anonymous(n2)) {
-						boolean safePair = sameName(n1, n2) || sameLocation(n1, n2);
-
+						boolean safePair = sameLocation(n1, n2);
+						if (!arrowAnonymousFunction(n1)) {
+							safePair = sameName(n1, n2) || safePair;
+						}
 						double thresholdValue = safePair ? threshold.getMinimum() : threshold.getIdeal();
 						if (!onlySafe || safePair) {
 							Optional<RelationshipType> optRelationshipType = findRelationshipForCandidate(n1, n2);
 							if (optRelationshipType.isPresent()) {
 								RelationshipType type = optRelationshipType.get();
 								double score = computeHardSimilarityScore(n1, n2);
-								// double scoreLight = computeLightSimilarityScore(n1, n2);
 								double rankScore = srb.rawSimilarity(before.sourceRep(n1), after.sourceRep(n2)) * score;
 								if (type.isById() || score > thresholdValue) {
 									PotentialMatch candidate = new PotentialMatch(n1, n2,
@@ -251,9 +250,6 @@ public class CstComparator {
 					int matchingChild = countMatchingChild(n1, n2);
 					if (sameType(n1, n2) && !anonymous(n1) && !anonymous(n2) && matchingChild > 1) {
 						double nameScore = computeNameSimilarity(n1, n2);
-
-						// double matchingChildrenRatio = ((double) matchingChild) /
-						// n1.getNodes().size();
 
 						if (nameScore > 0.5) {
 							Optional<RelationshipType> optRelationshipType = findRelationshipForCandidate(n1, n2);
@@ -283,8 +279,6 @@ public class CstComparator {
 		private double computeNameSimilarity(CstNode n1, CstNode n2) {
 			double s1 = Math.max(srb.partialSimilarity(before.nameSourceRep(n1), after.nameSourceRep(n2)),
 					srb.partialSimilarity(after.nameSourceRep(n2), before.nameSourceRep(n1)));
-			// double s2 = srb.similarity(before.nameSourceRep(n1),
-			// after.nameSourceRep(n2));
 			return s1;
 		}
 
@@ -333,7 +327,7 @@ public class CstComparator {
 		}
 
 		private void findMatchesById(HasChildrenNodes parentBefore, HasChildrenNodes parentAfter) {
-			for (CstNode n1 : children(parentBefore, this::removed)) {
+			for (CstNode n1 : children(parentBefore, this::changed)) {
 				for (CstNode n2 : children(parentAfter, this::added)) {
 					if (sameNamespace(n1, n2) && sameSignature(n1, n2)) {
 						addMatch(n1, n2);
@@ -386,20 +380,22 @@ public class CstComparator {
 		}
 
 		private void findChangedEntities() throws IOException {
-			Map<CstNode, CstNode> treeMap = new TreeMap<>(new CstNodeTypeComprator());
-			treeMap.putAll(mapBeforeToAfter);
-			for (Entry<CstNode, CstNode> entry : treeMap.entrySet()) {
-				CstNode n1 = entry.getKey();
-				CstNode n2 = entry.getValue();
+			List<CstNode> beforekeys = new ArrayList<>(mapBeforeToAfter.keySet());
+			Collections.sort(beforekeys, new CstNodeTypeComprator());
+
+			Map<String, String> keyMappings = new HashMap<>();
+
+			for (int i = 0; i < beforekeys.size(); i++) {
+				CstNode n1 = beforekeys.get(i);
+				CstNode n2 = mapBeforeToAfter.get(n1);
 				String n1Key = n1.toString();
 				String n2Key = n2.toString();
+
 				if (this.mappings.has(n2Key)) {
-					JsonElement value = this.mappings.get(n2Key);
+					keyMappings.put(n1Key, this.mappings.get(n2Key).getAsString());
 					this.mappings.remove(n2Key);
-					this.mappings.add(n1Key, value);
-					n2Key = value.getAsString();
 				} else {
-					this.mappings.addProperty(n1Key, n2Key);
+					keyMappings.put(n1Key, n2Key);
 				}
 				double score = computeHardSimilarityScore(n1, n2);
 
@@ -409,13 +405,16 @@ public class CstComparator {
 					this.changedEntitiesKeys.add(n2Key);
 				}
 			}
+
+			for (Map.Entry<String, String> entry : keyMappings.entrySet()) {
+				this.mappings.addProperty(entry.getKey(), entry.getValue());
+			}
 		}
 
 		private void findAddedEntities() throws IOException {
 			for (CstNode entry : this.added) {
 				String entryKey = entry.toString();
 				if (!this.mappings.has(entryKey)) {
-					this.mappings.addProperty(entryKey, entryKey);
 					this.addedEntitiesKeys.add(entryKey);
 				} else {
 					this.addedEntitiesKeys.add(this.mappings.get(entryKey).getAsString());
@@ -427,7 +426,6 @@ public class CstComparator {
 		private void findRemovedEntities() throws IOException {
 			for (CstNode entry : this.changed) {
 				String entryKey = entry.toString();
-				this.mappings.addProperty(entryKey, entryKey);
 				this.removedEntitiesKeys.add(entryKey);
 			}
 		}
@@ -494,7 +492,7 @@ public class CstComparator {
 			return n1.hasStereotype(Stereotype.ABSTRACT) || n2.hasStereotype(Stereotype.ABSTRACT);
 		}
 
-		public boolean removed(CstNode n) {
+		public boolean changed(CstNode n) {
 			return this.changed.contains(n);
 		}
 

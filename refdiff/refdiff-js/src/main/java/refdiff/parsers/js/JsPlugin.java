@@ -56,21 +56,6 @@ public class JsPlugin implements LanguagePlugin, Closeable {
 		this.nodeJs.getRuntime().executeVoidScript("function toJson(object) {return JSON.stringify(object);}");
 	}
 
-	private void createFilesIfDoesNotExist(String... paths) {
-		ClassLoader cl = this.getClass().getClassLoader();
-		for (String path : paths) {
-			Path destPath = nodeModules.toPath().resolve(path);
-			if (!Files.exists(destPath)) {
-				try (InputStream is = cl.getResourceAsStream("node_modules/" + path)) {
-					Files.createDirectories(destPath.getParent());
-					Files.copy(is, destPath);
-				} catch (IOException e) {
-					throw new RuntimeException(String.format("Could not copy %s to %s", path, nodeModules.toString()),
-							e);
-				}
-			}
-		}
-	}
 
 	@Override
 	public CstRoot parse(SourceFileSet sources, Set<String> nonValidChangedFiles) throws Exception {
