@@ -1,11 +1,10 @@
 const path = require('path');
 
-// const REPO_URL = "git@github.com:jhipster/jhipster-uml.git"
 // const REPO_URL = "git@github.com:expressjs/express.git"
 // const REPO_URL = "git@github.com:FredrikNoren/ungit.git"
 // const REPO_URL = "git@github.com:jhipster/jhipster-uml.git"
 // const REPO_URL = "git@github.com:thelounge/thelounge.git" // not working - ESM errors
-
+// const REPO_URL = "git@github.com:expressjs/session.git"
 
 /*
  ****** ! ** ! ** ! ** ! ** ! ** ! ** ! ** ! ** ! ** ! ** ! *******
@@ -16,10 +15,9 @@ const path = require('path');
  */
 
 /**
- * your repository address
+ * your repository SSH address
  */
-const REPO_URL = "git@github.com:expressjs/session.git"
-
+ const REPO_URL = "git@github.com:thelounge/thelounge.git"
 
 
 /**
@@ -35,26 +33,26 @@ const REPO_MAIN_BRANCH = "master" // express, session, ungit, thelounge
  */
 const REPO_TEST_RELATIVE_DIR = "test"; //express, session, ungit, thelounge
 
-
-
 /**
  * The first commits with which you want to begin the whole analysis. 
  * You can leave it empty if you want to begin with the latest one. 
  */
-// const SEED_COMMIT = "e8a5a78566701f364c2097e4dc403fe558bca917"; // ungit
+const SEED_COMMIT = ""; // ungit
 // const SEED_COMMIT = "3726a8d00bf2734add7eed3d584cc86ce16b5a6d" // thelounge
 // const SEED_COMMIT = "51de04f3a9d944c1ee3c6ca08b827c154cc759df" // jhipster
-const SEED_COMMIT = "5df613c481bc7c5979aeaeac691b64ef0a5c4948" // session
+// const SEED_COMMIT = "5df613c481bc7c5979aeaeac691b64ef0a5c4948" // session
+// const SEED_COMMIT = "d854c43ea177d1faeea56189249fff8c24a764bd" // express
+
+/**
+ * The number of commits you want to mine through the co-occurrence analysis phase
+ */
+const REPO_DIGGING_DEPTH = 1;
+
 /**
  * Where you want to keep the analysis data, including sequences, dependencies, and the final report. 
  * By default it's addressed to "berke/data/"
  */
 const DATA_PATH = __dirname + path.sep + 'data'
-
-/**
- * The number of commits you want to mine through the co-occurrence analysis phase
- */
-const REPO_DIGGING_DEPTH = -1;
 
 /**
  * REPO_PATH, Your project path
@@ -77,6 +75,13 @@ const CLASP_PATH = __dirname + path.sep + "clasp";
 const DA_PATH = __dirname + path.sep + "DA";
 
 /**
+ * refdiff, clasp, and DA execution commands
+*/
+const REFDIFF_COMMAND = "cd " + REFDIFF_PATH + " ; ./gradlew run --args=";
+const CLASP_COMMAND = "cd " + CLASP_PATH + " ; mvn exec:java -Dexec.mainClass='clasp_AGP.MainCMClaSP' -Dexec.args=";
+const DA_COMMAND = "cd " + DA_PATH + " ; $GRAAL_HOME/bin/node --nodeprof.Scope=app --jvm --experimental-options --vm.Dtruffle.class.path.append=$NODEPROF_HOME/nodeprof.jar --nodeprof $NODEPROF_HOME/jalangi.js --analysis utils.js --analysis analyser.js runner.mjs";
+
+/**
  * reported data paths
  */
 const SEQUENCES_PATH = DATA_PATH + path.sep + "sequences.txt"; // changes extracted from commits 
@@ -88,13 +93,6 @@ const DA_DEPENDENCIES_PATH = DATA_PATH + path.sep + "dependencies.json"; // reco
 const MAPPINGS_PATH = DATA_PATH + path.sep + "mappings.json" // unigue key mappings for functions in different revisions
 const Berke_RESULT_PATH = DATA_PATH + path.sep + "berke.json"; // berke result 
 
-
-/**
- * refdiff, clasp, and DA execution commands
-*/
-const REFDIFF_COMMAND = "cd " + REFDIFF_PATH + " ; ./gradlew run --args=";
-const CLASP_COMMAND = "cd " + CLASP_PATH + " ; mvn exec:java -Dexec.mainClass='clasp_AGP.MainCMClaSP' -Dexec.args=";
-const DA_COMMAND = "cd " + DA_PATH + " ; $GRAAL_HOME/bin/node --nodeprof.Scope=app --jvm --experimental-options --vm.Dtruffle.class.path.append=$NODEPROF_HOME/nodeprof.jar --nodeprof $NODEPROF_HOME/jalangi.js --analysis utils.js --analysis analyser.js runner.js";
 
 module.exports = {
     REPO_URL, PROJECT_NAME, REPO_TEST_RELATIVE_DIR, SEED_COMMIT, REPO_PATH, REFDIFF_PATH, REPO_MAIN_BRANCH, EXPERIMENTAL_PATTERNS_PATH,

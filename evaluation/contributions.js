@@ -79,5 +79,4 @@ function getUniqueContributions(commit) {
     }
     commitsInfo[commit] = uniqeContributions
     fs.writeFileSync(RESULT_JSON_PATH, JSON.stringify(commitsInfo)) 
-    // TODO store candidate commits changes as well 
 }
