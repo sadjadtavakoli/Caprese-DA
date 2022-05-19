@@ -33,15 +33,15 @@ let tempIDsMap = {};
                 let eventInfo = getAddedListeners(baseID, args[0])
                 if (eventInfo.length) {
                     let listeners = eventInfo[0]
-                    let callers = eventInfo[1]
+                    let setters = eventInfo[1]
 
-                    callers.forEach(caller => {
-                        addDependency(caller, callerFunction)
+                    setters.forEach(setter => {
+                        addDependency(setter, callerFunction)
                     })
 
                     listeners.forEach(listener => {
                         addDependency(listener, callerFunction)
-                    })
+                    })   
                 }
             } else {
                 if (utils.isCallBackRequiredFunction(f)) {

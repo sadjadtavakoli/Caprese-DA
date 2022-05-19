@@ -17,7 +17,7 @@ if (process.argv[1].endsWith(path.basename(__filename))) {
 }
 
 function runBerke(initialized_commit) {
-    return new Promise((resolve) => resolve())
+    return Promise.resolve()
         .then(() => {
             if (initialized_commit) return computeCommitChanges(initialized_commit)
             return getCurrentCommit().then((commit) => {

@@ -41,6 +41,7 @@ exec(CLEANUP_COMMAND, (err, stdout, stderr) => {
 
 function testSetGenerator() {
     return new Promise(resolve => {
+        console.log(" * * * Testset Generator * * * ")
         let detailedSequences = fs.readFileSync(constants.SEQUENCES_PATH + "details.txt").toString().trim().split("\n");
         let sequences = fs.readFileSync(constants.SEQUENCES_PATH).toString().trim().split("\n");
 
@@ -50,16 +51,21 @@ function testSetGenerator() {
             let sequence = detailedSequences[i]
             let commit = sequence.split(" : ")[0]
             let commitChanges = sequence.split(" : ")[1].slice(0, -4).split(" ")
-            if (candidatedCommits.has(commitChanges)) { // needs test
+            if (includes(candidatedCommits, commitChanges)) {
                 continue
             }
-            if (candidatedCommits.size == NUMBER_OF_COMMITS_PER_PROJECT) {
+            if (candidatedCommits.size >= NUMBER_OF_COMMITS_PER_PROJECT) {
                 break
             }
             candidatedCommits.set(commitChanges, commit)
             sequences.splice(i, 1)
         }
-        fs.writeFileSync(COMMIT_DATA_PATH, JSON.stringify(Object.fromEntries(candidatedCommits)))
+        let reverseMap = new Map()
+        for (let entity of candidatedCommits) {
+            reverseMap.set(entity[1], entity[0])
+        }
+
+        fs.writeFileSync(COMMIT_DATA_PATH, JSON.stringify(Object.fromEntries(reverseMap)))
         fs.writeFileSync(constants.SEQUENCES_PATH, sequences.join("\n"));
         resolve(candidatedCommits)
     })
@@ -78,5 +84,19 @@ function getUniqueContributions(commit) {
         }
     }
     commitsInfo[commit] = uniqeContributions
-    fs.writeFileSync(RESULT_JSON_PATH, JSON.stringify(commitsInfo)) 
+    fs.writeFileSync(RESULT_JSON_PATH, JSON.stringify(commitsInfo))
+}
+
+function areEquals(array1, array2) {
+    if (array1.length != array2.length) return false
+    return array2.filter(item => !array1.includes(item)).length == 0
+}
+
+function includes(mapArr, array) {
+    for (let item of mapArr) {
+        if (areEquals(item[0], array)) {
+            return true
+        }
+    }
+    return false
 }

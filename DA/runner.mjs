@@ -1,7 +1,10 @@
-const constants = require("../constants.js")
-const Mocha = require("mocha"),
-    fs = require("fs"),
+import Mocha from 'mocha';
+import { createRequire } from 'module'
+const require = createRequire(import.meta.url)
+const constants = require("../constants");
+const fs = require("fs"),
     path = require("path");
+
 
 let mocha = new Mocha();
 mocha.reporter('./reporter') // path to custom reporter
@@ -12,15 +15,13 @@ addFiles(testDir);
 
 mocha.run();
 
-
 function addFiles(dirPath) {
     fs.readdirSync(dirPath).forEach(filename => {
         if (fs.statSync(dirPath + path.sep + filename).isDirectory()) {
             addFiles(dirPath + path.sep + filename)
-        } else if (filename.endsWith('js')) {
-            console.log(path.join(dirPath, filename))
+        } else if (filename.endsWith('.js') || filename.endsWith('.mjs')) {
+            // console.log(path.join(dirPath, filename))
             mocha.addFile(path.join(dirPath, filename));
         }
     });
-
 }

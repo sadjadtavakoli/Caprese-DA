@@ -56,7 +56,7 @@ function intrepretDAResult(changes, impactSet) {
     for (let changedFucntion of changes) {
         let dependencies = dependenciesData[changedFucntion];
         if (dependencies == undefined) {
-            let unknownKey = changedFucntion.replace(/((?![.])([^-])*)/, "arrowFunction");
+            let unknownKey = changedFucntion.replace(/((?![.])([^-])*)/, "arrowAnonymousFunction");
             dependencies = dependenciesData[unknownKey];
         }
 
@@ -71,18 +71,20 @@ function intrepretDAResult(changes, impactSet) {
             }
         }
     }
-    
+
     function addDAImpactSet(item, isTestFunction) {
-        if (impactSet.has(item) && impactSet.get(item)['DA']) {
-            impactSet.get(item)['DA']['score'] = impactSet.get(item)['DA']['score'] + 1;
+        if (!changes.includes(item)) {
+            if (impactSet.has(item) && impactSet.get(item)['DA']) {
+                impactSet.get(item)['DA']['score'] = impactSet.get(item)['DA']['score'] + 1;
+            }
+            else {
+                let scoreValue = {};
+                scoreValue['DA'] = { 'score': 1 };
+                impactSet.set(item, scoreValue);
+            }
+            if (isTestFunction)
+                impactSet.get(item)['DA']['test'] = isTestFunction;
         }
-        else {
-            let scoreValue = {};
-            scoreValue['DA'] = { 'score': 1 };
-            impactSet.set(item, scoreValue);
-        }
-        if (isTestFunction)
-            impactSet.get(item)['DA']['test'] = isTestFunction;
     }
 }
 

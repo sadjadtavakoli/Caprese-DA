@@ -77,7 +77,7 @@ public class RefDiffBerkak {
 		if (commit.getParentCount() > 0) {
 			commitPr = refDiffJs.getCommit(repo, commit.getParent(0));
 			PairBeforeAfter<SourceFileSet> beforeAndAfter = refDiffJs.getResources(repo, commitPr, commit);
-			CstDiff diffForCommit = refDiffJs.computeDiffForCommit(beforeAndAfter, mappingsPath);
+			CstDiff diffForCommit = refDiffJs.computeDiffForCommit(beforeAndAfter, mappingsPath, commit.getName());
 			List<String> changes = new ArrayList<>();
 			changes.addAll(diffForCommit.getNonValidChangedFiles());// @Sadjad TODO these three should be all in one
 			changes.addAll(diffForCommit.getChangedEntitiesKeys());
