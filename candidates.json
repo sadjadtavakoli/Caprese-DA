@@ -1,0 +1,157 @@
+{
+    "https://github.com//Zettlr/Zettlr": {
+        "b": "develop",
+        "test": "test",
+        "installer": "yarn",
+        "status": "failed: import-export - Must use import to load ES Module"
+    },
+    "git@github.com:vercel/next.js.git": {
+        "b": "canary",
+        "test": "test",
+        "installer": "yarn",
+        "status": "failed: import-export - Must use import to load ES Module"
+    },
+    "git@github.com:invertase/react-native-firebase.git": {
+        "b": "main",
+        "test": "tests",
+        "installer": "yarn",
+        "status": "failed: import-export - Must use import to load ES Module"
+    },
+    "git@github.com:rsuite/rsuite.git": {
+        "b": "main",
+        "test": "test",
+        "installer": "npm",
+        "status": "failed: import-export - Must use import to load ES Module"
+    },
+    "git@github.com:ant-design/ant-design.git": {
+        "b": "master",
+        "test": "tests",
+        "installer": "npm",
+        "status": "failed: import-export - Must use import to load ES Module"
+    },
+    "git@github.com:bepronetwork/bepro-js.git": {
+        "b": "master",
+        "test": "tests",
+        "installer": "yarn",
+        "status": "failed: import-export - Must use import to load ES Module"
+    },
+    "git@github.com:i18next/react-i18next.git": {
+        "b": "master",
+        "test": "test",
+        "installer": "npm",
+        "status": "failed: import-export - Must use import to load ES Module"
+    },
+    "git@github.com:pubkey/rxdb.git": {
+        "b": "master",
+        "test": "test",
+        "installer": "npm",
+        "status": "failed: import-export - Must use import to load ES Module"
+    },
+    "git@github.com:js-data/js-data.git": {
+        "b": "master",
+        "test": "test",
+        "installer": "npm",
+        "status": "failed: import-export - Must use import to load ES Module"
+    },
+    "git@github.com:jhipster/generator-jhipster.git": {
+        "b": "main",
+        "test": "test",
+        "installer": "npm",
+        "status": "failed: tests timeout"
+    },
+    "git@github.com:apostrophecms/apostrophe.git": {
+        "b": "main",
+        "test": "test",
+        "installer": "npm",
+        "status": "successful: mongodb is required"
+    },
+    "git@github.com:xmppjs/xmpp.js.git": {
+        "b": "main",
+        "test": "test",
+        "installer": "npm",
+        "status": "failed: Test files must be run with the AVA CLI"
+    },
+    "git@github.com:mrvautin/expressCart.git": {
+        "b": "master",
+        "test": "test",
+        "installer": "npm",
+        "status": "failed: Test files must be run with the AVA CLI"
+    },
+    "git@github.com:service-bot/servicebot.git": {
+        "b": "master",
+        "test": "tests",
+        "installer": "yarn",
+        "status": "failed: awful tests ;/ "
+    },
+    "git@github.com:apache/cordova-ios.git": {
+        "b": "master",
+        "test": "tests",
+        "installer": "npm",
+        "status": "successful"
+    },
+    "git@github.com:tidev/titanium_mobile.git": {
+        "b": "master",
+        "test": "tests",
+        "installer": "npm",
+        "status": "failed: Ti is not defined"
+    },
+    "git@github.com:sahat/hackathon-starter.git": {
+        "b": "master",
+        "test": "test",
+        "installer": "npm",
+        "status": "failed: Permission denied (publickey). Could not read from remote repository"
+    },
+    "git@github.com:Unitech/pm2.git": {
+        "b": "master",
+        "test": "test",
+        "installer": "npm",
+        "status": "successful: but strange recorded dependency!"
+    },
+    "git@github.com:jsdom/jsdom.git": {
+        "b": "master",
+        "test": "test",
+        "installer": "yarn",
+        "status": "failed: needed a lot changes in their tests!"
+    },
+    "git@github.com:assemble/assemble.git": {
+        "b": "master",
+        "test": "test",
+        "installer": "npm",
+        "status": "successful"
+    },
+    "git@github.com:cnpm/cnpmjs.org.git": {
+        "b": "master",
+        "test": "test",
+        "installer": "npm",
+        "status": "failed: sqlite3 installation error"
+    },
+    "git@github.com:nodegit/nodegit.git": {
+        "b": "master",
+        "test": "test",
+        "installer": "npm",
+        "status": "failed: an incompatible architecture (have 'arm64', need 'x86_64')"
+    },
+    "git@github.com:polonel/trudesk.git": {
+        "b": "master",
+        "test": "test",
+        "installer": "yarn",
+        "status": "failed: an incompatible architecture (have 'arm64', need 'x86_64')"
+    },
+    "git@github.com:muicss/mui.git": {
+        "b": "master",
+        "test": "test",
+        "installer": "npm",
+        "status": "failed: angular error"
+    },
+    "git@github.com:yodaos-project/ShadowNode.git": {
+        "b": "master",
+        "test": "test",
+        "installer": "yarn",
+        "status": ""
+    },
+    "git@github.com:NEIAPI/nei-toolkit.git": {
+        "b": "master",
+        "test": "test",
+        "installer": "npm"
+    }
+}

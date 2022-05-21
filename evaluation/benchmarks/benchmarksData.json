@@ -1,0 +1,85 @@
+{
+    "apostrophe": {
+        "Commits": 9631,
+        "LOC": 65279,
+        "Language": "javaScript,Vue,HTML",
+        "repo_link": "https://github.com/apostrophecms/apostrophe",
+        "branch": "main",
+        "test": "test",
+        "installer": "npm",
+        "note": "mongodb is required"
+    },
+    "assemble": {
+        "Commits": 2421,
+        "LOC": 26261,
+        "Language": "CSS, javaScript,HTML",
+        "repo_link": "https://github.com/assemble/assemble",
+        "branch": "master",
+        "test": "test",
+        "installer": "npm"
+    },
+    "cordova-ios": {
+        "Commits": 3912,
+        "LOC": 31875,
+        "Language": "JavaScript,Objective-C,HTML,Python,CSS,C",
+        "repo_link": "https://github.com//apache/cordova-ios",
+        "branch": "master",
+        "test": "tests",
+        "installer": "npm"
+    },
+    "pm2": {
+        "Commits": 4970,
+        "LOC": 34617,
+        "Language": "JavaScript,Shell",
+        "repo_link": "https://github.com//Unitech/pm2",
+        "branch": "master",
+        "test": "test",
+        "installer": "npm",
+        "note": "strange recorded dependency!"
+    },
+    "thelounge": {
+        "Commits": 7374,
+        "LOC": 34780,
+        "Language": "js, vue, CSS",
+        "repo_link": "https://github.com//thelounge/thelounge",
+        "branch": "master",
+        "test": "test",
+        "installer": "npm"
+    },
+    "Express": {
+        "Commits": 5694,
+        "LOC": 19187,
+        "Language": "JavaScript",
+        "repo_link": "git@github.com:expressjs/express.git",
+        "branch": "master",
+        "test": "test",
+        "installer": "npm"
+    },
+    "ungit": {
+        "Commits": 3908,
+        "LOC": 39760,
+        "Language": "JavaScript,HTML,less, ts",
+        "repo_link": "git@github.com:FredrikNoren/ungit.git",
+        "branch": "master",
+        "test": "test",
+        "installer": "npm"
+    },
+    "jhipster-uml": {
+        "Commits": 980,
+        "LOC": 11195,
+        "Language": "JavaScript",
+        "repo_link": "git@github.com:jhipster/jhipster-uml.git",
+        "branch": "master",
+        "test": "test",
+        "installer": "npm"
+    },
+    "session": {
+        "Commits": 686,
+        "LOC": 4267,
+        "Language": "JavaScript,md",
+        "repo_link": "git@github.com:expressjs/session.git",
+        "branch": "master",
+        "test": "test",
+        "installer": "npm"
+    }
+}

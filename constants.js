@@ -16,15 +16,17 @@ const path = require('path');
 // const REPO_URL = "git@github.com:jhipster/jhipster-uml.git"
 // const REPO_URL = "git@github.com:assemble/assemble.git"
 // const REPO_URL = "git@github.com:thelounge/thelounge.git"
-const REPO_URL = "git@github.com:expressjs/session.git"
+// const REPO_URL = "git@github.com:expressjs/session.git"
 // const REPO_URL = "git@github.com:apache/cordova-ios.git"
 // const REPO_URL = "git@github.com:Unitech/pm2.git"
+const REPO_URL = "git@github.com:apostrophecms/apostrophe.git"
 
 
 /**
  *  the main branch of your repository; it is usually master or main.
  */
-const REPO_MAIN_BRANCH = "master" // express, session, ungit, thelounge, assemble, pm2
+// const REPO_MAIN_BRANCH = "master" // express, session, ungit, thelounge, assemble, pm2
+const REPO_MAIN_BRANCH = "main" // apostrophe
 
 /**
  * the relative address of your project's test directory
@@ -32,7 +34,7 @@ const REPO_MAIN_BRANCH = "master" // express, session, ungit, thelounge, assembl
  *     Assume your project's test directory is GreatProject/subdir/tests/
  *     you should set REPO_TEST_RELATIVE_DIR="subdir/tests/"
  */
-const REPO_TEST_RELATIVE_DIR = "test"; //express, session, ungit, thelounge, assemble, pm2
+const REPO_TEST_RELATIVE_DIR = "test"; //express, session, ungit, thelounge, apostrophe, assemble, pm2
 // const REPO_TEST_RELATIVE_DIR = "tests"; // cordova-ios
 
 /**
@@ -45,7 +47,8 @@ const REPO_TEST_RELATIVE_DIR = "test"; //express, session, ungit, thelounge, ass
 // const SEED_COMMIT = "ec1d0e50c1d4f5a0b61ec0d9d91212ed8dc8949c" // assemble
 // const SEED_COMMIT = "67b0bb2cfceb3f04fcd25a09222e86404805c594" // cordova-ios
 // const SEED_COMMIT = "2573516e9321a78fb10474ea58c2cb487a663de6" // pm2
-const SEED_COMMIT = "5df613c481bc7c5979aeaeac691b64ef0a5c4948" // session
+// const SEED_COMMIT = "5df613c481bc7c5979aeaeac691b64ef0a5c4948" // session
+const SEED_COMMIT = "f192c068ef0aeb2e3a0f190825c9489047850914" // apostrophe
 // const SEED_COMMIT = "d854c43ea177d1faeea56189249fff8c24a764bd" // express
 
 
