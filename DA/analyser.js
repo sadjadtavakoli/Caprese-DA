@@ -10,9 +10,17 @@ let functionsFuncInput = new Map();
 let accessedFiles = new Map();
 let addedListeners = new Map();
 let functionIDs = new Map();
+let functionNCallerStack = [];
 let functionsDependency = {}
 let tempIDsMap = {};
 
+// functions if return value can affect their caller and it they have arguments, 
+// the caller affects them. The same scenario goes for timeout functions. 
+// Therefor, timeout setters are the ones affecting the functions inside the timeout but only if those function have arguments. 
+// \newLine
+// Similarly, for events, the listener is impacted by the emitter if the emitter passes data to it. 
+// Now, what about the setListener and the emitter? they both are working with the same event, and setListener function is the bridge between listener and emitter.
+// So, are they affected by each other? If so, what about the global variables? do they have the same impact? 
 (function (sandbox) {
     let utils = sandbox.Utils;
     function Analyser() {
@@ -41,7 +49,7 @@ let tempIDsMap = {};
 
                     listeners.forEach(listener => {
                         addDependency(listener, callerFunction)
-                    })   
+                    })
                 }
             } else {
                 if (utils.isCallBackRequiredFunction(f)) {
@@ -64,7 +72,7 @@ let tempIDsMap = {};
             return { f: f, base: base, args: args, skip: false };
         };
 
-        this.functionEnter = function (iid, f, dis) {
+        this.functionEnter = function (iid, f, dis, args) {
             let fID = getID(f, iid)
             if (isMainFile(iid)) {
                 if (mainFilePath == "") {
@@ -73,30 +81,47 @@ let tempIDsMap = {};
                     tempIDsMap[fID] = utils.getIIDKey(utils.getIIDFileName(iid), iid)
                 }
                 functionEnterStack.push({ 'iid': iid, 'fID': fID })
-
             } else if (isImporting(iid)) {
                 tempIDsMap[fID] = utils.getIIDKey(utils.getIIDFileName(iid), iid)
                 accessedFiles.set(utils.getFilePath(iid), iid)
             } else {
+                let functionName = getFunctionName(f, iid)
+                tempIDsMap[fID] = utils.getIIDKey(functionName, iid)
+                let data = { 'iid': iid, 'fID': fID }
+
                 if (!utils.isCalledByCallBackRequiredFunctions(dis)) {
                     validateCallBackMap(fID)
                     let argCheck = popFromCallbackMap(fID)
+                    let caller;
                     if (argCheck) {
-                        addDependency(fID, argCheck[1])
-
+                        caller = argCheck[1]
                     } else {
-                        addDependency(fID, functionEnterStack[functionEnterStack.length - 1]) // For the very first function in the imported file it doesn't get the currect caller 
+                        caller = functionEnterStack[functionEnterStack.length - 1]
                     }
+                    if (args.length) {
+                        addDependency(caller.fID, { 'iid': iid, 'fID': fID })
+                    }
+                    functionNCallerStack.push([fID, caller])
+                    data.isRegularCall = true
                 }
-                let functionName = getFunctionName(f, iid) // there is a problem here! 
-                tempIDsMap[fID] = utils.getIIDKey(functionName, iid)
-                functionEnterStack.push({ 'iid': iid, 'fID': fID })
+
+                functionEnterStack.push(data)
             }
+        };
+
+        this._return = function (iid, val) {
+            let fCaller = functionNCallerStack[functionNCallerStack.length-1]
+            let fID = fCaller[0]
+            let caller = fCaller[1]
+            addDependency(fID, caller)
         };
 
         this.functionExit = function (iid, returnVal, wrappedExceptionVal) {
             if (!(isImporting(iid) || isMainFile(iid))) {
-                functionEnterStack.pop()
+                let call = functionEnterStack.pop()
+                if(call.isRegularCall){
+                    functionNCallerStack.pop()
+                }
             }
             return { returnVal: returnVal, wrappedExceptionVal: wrappedExceptionVal, isBacktrack: false };
         };
