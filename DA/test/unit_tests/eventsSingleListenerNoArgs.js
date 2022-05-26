@@ -4,8 +4,9 @@ var eventEmitter = new events.EventEmitter();
 function listner1() {
     //   do nothing 
 }
+
 function adder() {
-    eventEmitter.prependListener('connection1', listner1);
+    eventEmitter.addListener('connection', listner1);
 }
 
 function adder2() {
@@ -13,7 +14,7 @@ function adder2() {
 }
 
 function emitter() {
-    eventEmitter.emit('connection1', "args");
+    eventEmitter.emit('connection');
 }
 
 adder()

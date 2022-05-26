@@ -9,15 +9,9 @@ function adderFunction() {
     eventEmitter.addListener('connection2', listner1);
 }
 
-
-function adderFunction2() {
-    eventEmitter.addListener('connection4', listner1);
-}
-
-function thidOne() {
+function emitter(){
     eventEmitter.emit("connection2", "args")
 }
 
+emitter()
 adderFunction()
-adderFunction2()
-thidOne()

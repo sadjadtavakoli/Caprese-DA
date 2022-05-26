@@ -2,10 +2,23 @@ var events = require('events');
 var eventEmitter = new events.EventEmitter();
 
 function listner1() {
-//   do nothing 
+    //   do nothing 
 }
 
-eventEmitter.addListener('connection', listner1);
-eventEmitter.addListener('connection2', listner1);
 
-eventEmitter.emit('connection');
+function adder() {
+    eventEmitter.addListener('connection', listner1);
+}
+
+function adder2() {
+    eventEmitter.addListener('connection2', listner1);
+}
+
+function emitter() {
+    eventEmitter.emit('connection', "args");
+}
+
+
+adder()
+adder2()
+emitter()
