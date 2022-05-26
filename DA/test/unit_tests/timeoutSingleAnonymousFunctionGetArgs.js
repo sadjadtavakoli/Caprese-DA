@@ -1,3 +1,3 @@
 setTimeout((input) => {
     // do nothing
-}, 500)
+}, 500, "argument")

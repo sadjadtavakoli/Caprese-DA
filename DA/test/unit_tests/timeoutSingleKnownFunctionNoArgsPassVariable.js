@@ -5,5 +5,5 @@ let bar = function() {
 foo()
 
 function foo(){
-    setTimeout(bar, 500)
+    setTimeout(bar, 500, "value")
 }

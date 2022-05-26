@@ -4,16 +4,15 @@ setImmediate(()=>{
     // do nothing
 })
 
-setImmediate(myFunction1)
+setImmediate(myFunction1, "test")
 
 setImmediate(()=>{
     // do nothing
 })
 
 function myFunction1(){
-    // do nothing
 }
 
-function myFunction2(){
+function myFunction2(value){
     // do nothing
 }
