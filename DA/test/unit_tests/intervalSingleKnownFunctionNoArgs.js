@@ -1,9 +1,9 @@
 
-let bar = function(input) {
+let bar = function() {
     // do nothing
 }
 
-let interval  = setInterval(bar, 50, "args")
+let interval  = setInterval(bar, 50)
 
 setTimeout(()=>{
     clearInterval(interval)

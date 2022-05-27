@@ -8,8 +8,8 @@ function bar(){
 
 setImmediate(()=>{
     // do nothing
-})
+}, "args")
 
-setTimeout(foo, 500)
+setTimeout(foo, 500, "args")
 
-setTimeout(bar, 0);
+setTimeout(bar, 0, "args");

@@ -1,5 +1,5 @@
 let function_call = require('../inputs/simpleModule')
 
-function_call.callee4()
+function_call.callee5()
 
 

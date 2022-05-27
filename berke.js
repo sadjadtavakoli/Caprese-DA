@@ -20,7 +20,8 @@ function runBerke(initialized_commit) {
     return Promise.resolve()
         .then(() => {
             if (initialized_commit) return computeCommitChanges(initialized_commit)
-            return getCurrentCommit().then((commit) => {
+            return getCurrentCommit()
+            .then((commit) => {
                 return computeCommitChanges(commit)
             })
         })

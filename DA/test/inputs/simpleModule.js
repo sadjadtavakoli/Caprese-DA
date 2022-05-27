@@ -19,6 +19,13 @@ let callee4 = function(){
 
 }
 
+let callee5 = function(){
+
+    calleeWithArgs("pass argument")
+    let result = calleeReturnValue()
+}
+
+
 let calleeWithArgs = function (input){
     // do nothign
 }
@@ -29,4 +36,4 @@ let calleeReturnValue = function (){
 
 // callee()
 
-module.exports =  {callee, callee2, callee4, calleeWithArgs, calleeReturnValue};
+module.exports =  {callee, callee2, callee4, callee5, calleeWithArgs, calleeReturnValue};
