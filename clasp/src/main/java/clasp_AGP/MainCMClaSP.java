@@ -16,7 +16,7 @@ public class MainCMClaSP {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        double support = 0.5;
+        double support = 0.2;
         String filePath = args[0];
         String distFilePath = args[1];
         List<String> itemConstraint = Arrays.asList(args[2].split(","));

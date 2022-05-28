@@ -62,25 +62,25 @@ function intrepretDAResult(changes, impactSet) {
 
         if (dependencies != undefined) {
             for (let dependency of dependencies['callers']) {
-                addDAImpactSet(keyMap[dependency]);
+                addDAImpactSet(keyMap[dependency], changedFucntion);
             }
 
             for (let test of dependencies['tests']) {
-                addDAImpactSet(keyMap[test], true);
+                addDAImpactSet(keyMap[test], changedFucntion, true);
 
             }
         }
     }
 
-    function addDAImpactSet(item, isTestFunction) {
+    function addDAImpactSet(item, antecedent, isTestFunction) {
         if (!changes.includes(item)) {
             if (impactSet.has(item) && impactSet.get(item)['DA']) {
-                impactSet.get(item)['DA']['score'] = impactSet.get(item)['DA']['score'] + 1;
+                impactSet.get(item)['DA']['antecedents'].push(antecedent);
             }
             else {
-                let scoreValue = {};
-                scoreValue['DA'] = { 'score': 1 };
-                impactSet.set(item, scoreValue);
+                let itemInfo = {};
+                itemInfo['DA'] = { 'antecedents': [antecedent] };
+                impactSet.set(item, itemInfo);
             }
             if (isTestFunction)
                 impactSet.get(item)['DA']['test'] = isTestFunction;
@@ -112,7 +112,6 @@ function intrepretFPData(changes, impactSet) {
                     scores['FP'] = { 'score': newScore, 'antecedents': [intersections] };
                 } else if (newScore == scores['FP']['score']) {
                     if (!scores['FP']['antecedents'].includes(intersections)) {
-
                         scores['FP']['antecedents'].push(intersections);
                     }
                 }
