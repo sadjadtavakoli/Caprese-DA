@@ -127,8 +127,10 @@ public class Pattern implements Comparable<Pattern> {
             }
 
         }
-        result.append(" #SUP: ");
+        result.append(" #CONF: ");
         result.append(getProbability());
+        result.append(" #SUP: ");
+        result.append(getSupport());
         // if the user wants the sequence IDs, we will show them
         if (outputSequenceIdentifiers) {
             result.append(" #SID: ");
@@ -164,6 +166,8 @@ public class Pattern implements Comparable<Pattern> {
 
         result.append(":");
         result.append(getProbability());
+        result.append(" ");
+        result.append(getSupport());
         return result.toString();
     }
 
