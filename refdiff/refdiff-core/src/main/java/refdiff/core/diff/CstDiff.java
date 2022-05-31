@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import refdiff.core.cst.CstNode;
 import refdiff.core.cst.CstRoot;
 
 /**
@@ -20,7 +19,6 @@ public class CstDiff {
 	private final CstRoot after;
 	private final Set<Relationship> relationships = new HashSet<>();
 	private Set<String> addedEntitiesKeys;	
-	private Set<String> nonValidChangedFiles;
 	private Set<String> changedEntitiesKeys;
 	private Set<String> removedEntitiesKeys;
 	public CstDiff(CstRoot before, CstRoot after) {
@@ -71,10 +69,6 @@ public class CstDiff {
 		this.removedEntitiesKeys = removed;
 	}
 	
-	public void setNonValidChangedFiles(Set<String> added){
-		this.nonValidChangedFiles = added;
-	}
-
 	public Set<String> getChangedEntitiesKeys(){
 		return this.changedEntitiesKeys;
 	}
@@ -85,10 +79,6 @@ public class CstDiff {
 
 	public Set<String> getRemovedEntitiesKeys() {
 		return this.removedEntitiesKeys;
-	}
-
-	public Set<String> getNonValidChangedFiles(){
-		return this.nonValidChangedFiles;
 	}
 
 	/**
