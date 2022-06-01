@@ -73,10 +73,14 @@ function intrepretDAResult(changes, impactSet) {
 
     function addDAImpactSet(item, antecedent) {
         if (!changes.includes(item)) {
-            if (impactSet.has(item) && impactSet.get(item)['DA-antecedents']) {
-                impactSet.get(item)['DA-antecedents'].push(antecedent);
-            }
-            else {
+            if (impactSet.has(item)) {
+                let imapctedItem = impactSet.get(item)
+                if (imapctedItem['DA-antecedents']) {
+                    imapctedItem['DA-antecedents'].push(antecedent);
+                } else {
+                    imapctedItem['DA-antecedents'] = [antecedent];
+                }
+            } else {
                 impactSet.set(item, { 'DA-antecedents': [antecedent] });
             }
         }
@@ -93,28 +97,27 @@ function intrepretFPData(changes, impactSet) {
     patterns.pop()
     for (let pattern of patterns) {
         let sequence = pattern.split(" -1:")[0];
-        let probability = pattern.split(" -1:")[1].split(" ")[0];
+        let confidence = pattern.split(" -1:")[1].split(" ")[0];
         let support = pattern.split(" -1:")[1].split(" ")[1];
-        /*
-        Keep the number of change-set items included in that particular itemset
-        */
-        let transactions = sequence.trim().split(" ").filter(value => !removed.includes(value));
-        let intersections = stringfyIntersection(transactions.filter(value => changes.includes(value)));
-        let validTransactions = transactions.filter(value => !changes.includes(value));
-        for (let transaction of validTransactions) {
-            let newScore = probability;
-            if (impactSet.has(transaction)) {
-                let scores = impactSet.get(transaction);
-                if (!scores['FP-score'] || (scores['FP-score'] && newScore > scores['FP-score'])) {
-                    scores = { 'FP-score': newScore, "support": support, 'FP-antecedents': [intersections] };
-                } else if (newScore == scores['FP-score']) {
-                    if (!scores['FP-antecedents'].includes(intersections)) {
-                        scores['FP-antecedents'].push(intersections);
+        let functions = sequence.trim().split(" ").filter(value => !removed.includes(value));
+        let intersections = stringfyIntersection(functions.filter(value => changes.includes(value)));
+        let impactedFunctions = functions.filter(value => !changes.includes(value));
+
+        for (let impacted of impactedFunctions) {
+            if (impactSet.has(impacted)) {
+                let imapctedItem = impactSet.get(impacted);
+                if (!imapctedItem['FP-score'] || (imapctedItem['FP-score'] && confidence > imapctedItem['FP-score'])) {
+                    imapctedItem['FP-score'] = confidence
+                    imapctedItem["support"] = support
+                    imapctedItem['FP-antecedents'] = [intersections]
+                } else if (confidence == imapctedItem['FP-score']) {
+                    if (!imapctedItem['FP-antecedents'].includes(intersections)) {
+                        imapctedItem['FP-antecedents'].push(intersections);
                     }
                 }
-                impactSet.set(transaction, scores); // @TODO we are ignoring number of items included in this change-sets in our result ordering
+                impactSet.set(impacted, imapctedItem); // @TODO we are ignoring number of items included in this change-sets in our result ordering
             } else {
-                impactSet.set(transaction, { 'FP-score': newScore, 'support': support, 'FP-antecedents': [intersections] }); // @TODO we are ignoring number of items included in this change-sets in our result ordering
+                impactSet.set(impacted, { 'FP-score': confidence, 'support': support, 'FP-antecedents': [intersections] }); // @TODO we are ignoring number of items included in this change-sets in our result ordering
             }
         }
     }

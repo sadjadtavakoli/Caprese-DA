@@ -59,7 +59,6 @@ function testSetGenerator() {
         let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(", ");
         let candidatedCommits = new Map()
         let maxIndex = detailedSequences.length - 1
-        console.log(`maxIndex = ${maxIndex}`)
         let useLessFiles = [
             "history.md", "HISTORY.md", "History.md",
             "README.md", "readme.md", "Readme.md",
@@ -156,13 +155,13 @@ function separateDAnFPsResults(commit) {
     let uniqeContributions = { 'DA': [], 'FP': [], 'Common': [] };
 
     for (let item of impactSet) {
-        if (item["FP-antecedents"] != undefined && item["DA-antecedents"] == undefined) {
-            uniqeContributions["FP"].push(item["consequent"]);
-        } else if (item["FP-antecedents"] == undefined && item["DA-antecedents"] != undefined) {
+        if (item["FP-antecedents"] != undefined && item["DA-antecedents"] != undefined) {
+            uniqeContributions['Common'].push(item["consequent"]);
+        } else if (item["DA-antecedents"] != undefined) {
             uniqeContributions["DA"].push(item["consequent"]);
         }
-        else {
-            uniqeContributions['Common'].push(item["consequent"]);
+        else{
+            uniqeContributions["FP"].push(item["consequent"]);
         }
     }
     commitsContributionData[commit] = uniqeContributions;

@@ -51,7 +51,10 @@ function unitsContributionSummary(filename) {
     fp = fp / length
     da = da / length
     common = common / length
-    return { "average": { "FP": fp, "DA": da, "Common": common }, "precentage": { "FP": fp, "DA": da, "Common": common, } };
+    FP_precentage = FP_precentage/length*100
+    DA_precentage = DA_precentage/length*100
+    commonPrecentage = commonPrecentage/length*100
+    return { "average": { "FP": fp, "DA": da, "Common": common }, "precentage": { "FP": FP_precentage, "DA": DA_precentage, "Common": commonPrecentage } };
 }
 
 function berkeSummary(result) {
