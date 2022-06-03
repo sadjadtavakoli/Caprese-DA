@@ -17,7 +17,7 @@ function sortAndReport(impactSet) {
 
     let sortableImpactSet = [];
     for (var item of impactSet) {
-        sortableImpactSet.push({...{"consequent":item[0]}, ...item[1]});
+        sortableImpactSet.push({ ...{ "consequent": item[0] }, ...item[1] });
     }
 
     sortableImpactSet.sort(function (a, b) {
@@ -40,8 +40,8 @@ function sortAndReport(impactSet) {
             return bFP['FP-score'] - aFP['FP-score'];
         }
 
-        let aDA = a['DA-antecedents']|| { 'DA-antecedents': [] };
-        let bDA = b['DA-antecedents'] || {'DA-antecedents': [] };
+        let aDA = a['DA-antecedents'] || { 'DA-antecedents': [] };
+        let bDA = b['DA-antecedents'] || { 'DA-antecedents': [] };
         return bDA.length - aDA.length;
     });
     fs.writeFileSync(constants.Berke_RESULT_PATH, JSON.stringify(sortableImpactSet));
@@ -97,10 +97,10 @@ function intrepretFPData(changes, impactSet) {
     patterns.pop()
     for (let pattern of patterns) {
         let sequence = pattern.split(" -1:")[0];
-        let confidence = pattern.split(" -1:")[1].split(" ")[0];
+        let confidence = parseFloat(pattern.split(" -1:")[1].split(" ")[0]);
         let support = pattern.split(" -1:")[1].split(" ")[1];
         let functions = sequence.trim().split(" ").filter(value => !removed.includes(value));
-        let intersections = stringfyIntersection(functions.filter(value => changes.includes(value)));
+        let intersections = functions.filter(value => changes.includes(value));
         let impactedFunctions = functions.filter(value => !changes.includes(value));
 
         for (let impacted of impactedFunctions) {
@@ -111,9 +111,7 @@ function intrepretFPData(changes, impactSet) {
                     imapctedItem["support"] = support
                     imapctedItem['FP-antecedents'] = [intersections]
                 } else if (confidence == imapctedItem['FP-score']) {
-                    if (!imapctedItem['FP-antecedents'].includes(intersections)) {
-                        imapctedItem['FP-antecedents'].push(intersections);
-                    }
+                    addToList(imapctedItem['FP-antecedents'], intersections)
                 }
                 impactSet.set(impacted, imapctedItem); // @TODO we are ignoring number of items included in this change-sets in our result ordering
             } else {
@@ -122,12 +120,20 @@ function intrepretFPData(changes, impactSet) {
         }
     }
 }
-function stringfyIntersection(intersections) {
-    let res = "";
-    for (let intersection of intersections) {
-        res += ", " + intersection;
+
+function addToList(listOflists, list2) {
+    for (let list of listOflists) {
+        if (list.length > list2.length) {
+            if (list2.every(item => list.includes(item))) {
+                return
+            }
+        }else{
+            if(list.every(item => list2.includes(item))){
+                return
+            }
+        }
     }
-    return res.substring(2);
+    listOflists.push(list2)
 }
 
 module.exports = { computeBerkeResult, intrepretFPData, sortAndReport }

@@ -89,6 +89,7 @@ public class AlgoCM_ClaSP {
      * flag to indicate if we are interesting in only finding the closed sequences
      */
     protected List<TrieNode> itemConstraint;
+    protected List<String> itemConstraintStrings;
 
     public long joinCount; // PFV 2013
 
@@ -150,6 +151,7 @@ public class AlgoCM_ClaSP {
         // We get the initial trie whose children are the frequent 1-patterns
         FrequentAtomsTrie = database.frequentItems();
         itemConstraint = database.itemConstraints();
+        itemConstraintStrings = database.itemConstraintsString();
 
         // NEW-CODE-PFV 2013
         // Map: key: item value: another item that followed the first item + support
@@ -200,7 +202,7 @@ public class AlgoCM_ClaSP {
 
         // Inizialitation of the class that is in charge of find the frequent patterns
         FrequentPatternEnumeration_ClaSP frequentPatternEnumeration = new FrequentPatternEnumeration_ClaSP(
-                abstractionCreator, minSupRelative, saver, itemConstraint, coocMapEquals);
+                abstractionCreator, minSupRelative, saver, itemConstraint, itemConstraintStrings , coocMapEquals);
 
         this.mainMethodStart = System.currentTimeMillis();
         // We dfsPruning the search
