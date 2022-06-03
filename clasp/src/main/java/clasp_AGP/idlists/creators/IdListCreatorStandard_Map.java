@@ -84,7 +84,6 @@ public class IdListCreatorStandard_Map implements IdListCreator {
         return new IDListStandard_Map(sequencePositionsEntries);
     }
 
-    
     /**
      * It adds to an Idlist of entries of arraylists an appearance <sid,<tid,item
      * integer>>
@@ -119,7 +118,8 @@ public class IdListCreatorStandard_Map implements IdListCreator {
     }
 
     @Override
-    public void updateProjectionDistance(Map<Item, Map<Integer, List<Integer>>> projectingDistance, Item item, int id, int itemsCount) {
+    public void updateProjectionDistance(Map<Item, Map<Integer, List<Integer>>> projectingDistance, Item item, int id,
+            int itemsCount) {
         Map<Integer, List<Integer>> associatedMap = projectingDistance.get(item);
         if (associatedMap == null) {
             associatedMap = new HashMap<Integer, List<Integer>>();
@@ -131,5 +131,26 @@ public class IdListCreatorStandard_Map implements IdListCreator {
             associatedMap.put(id, itemscount);
         }
         itemscount.add(itemsCount);
+    }
+
+    /**
+     * creates the given nodes list IDList
+     * @param nodes
+     */
+    public static IDList nodesToIDList(List<TrieNode> nodes) {
+        IDList result = getInstance().create();
+        if (!nodes.isEmpty()) {
+            boolean initiated = false;
+            for (TrieNode node : nodes) {
+                IDList nodeIdlist = node.getChild().getIdList();
+                if (initiated) {
+                    result = result.join(nodeIdlist);
+                } else {
+                    nodeIdlist.clone(result);
+                    initiated = true;
+                }
+            }
+        }
+        return result;
     }
 }

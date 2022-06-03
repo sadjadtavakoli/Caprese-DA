@@ -15,6 +15,7 @@ import clasp_AGP.dataStructures.creators.AbstractionCreator_Qualitative;
 import clasp_AGP.dataStructures.creators.ItemAbstractionPairCreator;
 import clasp_AGP.dataStructures.patterns.Pattern;
 import clasp_AGP.idlists.IDList;
+import clasp_AGP.idlists.creators.IdListCreatorStandard_Map;
 import clasp_AGP.savers.Saver;
 import clasp_AGP.tries.Trie;
 import clasp_AGP.tries.TrieNode;
@@ -75,6 +76,7 @@ public class FrequentPatternEnumeration_ClaSP {
     private Saver saver;
 
     private List<TrieNode> itemConstraint;
+    private List<String> itemConstraintString;
     private Map<String, Map<String, Integer>> coocMapEquals;
     /**
      * Tin inserts:
@@ -92,12 +94,14 @@ public class FrequentPatternEnumeration_ClaSP {
      *                           finding the closed sequences
      */
     public FrequentPatternEnumeration_ClaSP(AbstractionCreator abstractionCreator, double minSupRelative, Saver saver,
-            List<TrieNode> itemConstraint, Map<String, Map<String, Integer>> coocMapEquals) {
+            List<TrieNode> itemConstraint, List<String> itemConstraintString,
+            Map<String, Map<String, Integer>> coocMapEquals) {
         this.abstractionCreator = abstractionCreator;
         this.minSupRelative = minSupRelative;
         this.saver = saver;
         this.matchingMap = new HashMap<>();
         this.itemConstraint = itemConstraint;
+        this.itemConstraintString = itemConstraintString;
         this.coocMapEquals = coocMapEquals;
     }
 
@@ -152,16 +156,24 @@ public class FrequentPatternEnumeration_ClaSP {
          * extension set
          */
         for (int k = beginning; k < extensions.size(); k++) {
-            TrieNode eq = extensions.get(k);
+            TrieNode extensionNode = extensions.get(k);
+            boolean extensionNodeInItemConstraints = this.itemConstraintString
+                    .contains(extensionNode.getPair().getItem().getId());
             if (this.coocMapEquals != null) {
                 Map<String, Integer> map = this.coocMapEquals.get(lastAppended.getId());
                 if (map != null) {
-                    Integer coocurenceCount = map.get(eq.getPair().getItem().getId());
-                    if (coocurenceCount == null
-                            || (double) coocurenceCount / lastAppended.getQuantity() < minSupRelative) {
+                    Integer coocurenceCount = map.get(extensionNode.getPair().getItem().getId());
+
+                    if (coocurenceCount == null) {
                         // @SADJADRE This is based on frequency of the occurance. However, it can be on
                         // just occurance too; in other words, no need to check being frequent.
                         continue;
+                    } else {
+                        if (!(extensionNodeInItemConstraints||this.itemConstraintString.contains(lastAppended.getId())) &&
+                                (double) coocurenceCount
+                                        / lastAppended.getQuantity() < minSupRelative) {
+                            continue;
+                        }
                     }
                 } else {
                     continue;
@@ -172,7 +184,8 @@ public class FrequentPatternEnumeration_ClaSP {
             Pattern extension = new Pattern(new ArrayList<>(clone.getElements()));
             // And we add it the current item of extension set
             ItemAbstractionPair newPair = ItemAbstractionPairCreator.getInstance().getItemAbstractionPair(
-                    eq.getPair().getItem(), AbstractionCreator_Qualitative.getInstance().crearAbstraccion(true));
+                    extensionNode.getPair().getItem(),
+                    AbstractionCreator_Qualitative.getInstance().crearAbstraccion(true));
             extension.add(newPair);
 
             /*
@@ -180,19 +193,19 @@ public class FrequentPatternEnumeration_ClaSP {
              * know the appearances of the new pattern and its support.
              */
             joinCount++;
-            // @SADJADRE here we should take the intersection between the new produced
-            // sequence and item-constaints, then compute
-            // newIdList.getSupport()/intersection.getSupport()
-            IDList newIdList = currentTrie.getIdList().join(eq.getChild().getIdList());
+            IDList newIdList = currentTrie.getIdList().join(extensionNode.getChild().getIdList());
             double newPatternScore;
-            if (itemConstraint.isEmpty()) { // @SADJAD for test
+            boolean allInItemConstraints = false;
+            if (itemConstraint.isEmpty()) {
                 newPatternScore = newIdList.getSupport();
             } else {
-                IDList intersection = extension.getIntersections(itemConstraint);
-                newPatternScore = (double) newIdList.getSupport() / intersection.getSupport();
+                List<TrieNode> intersection = extension.getIntersections(itemConstraint);
+                IDList intersectionIdList = IdListCreatorStandard_Map.nodesToIDList(intersection);
+                allInItemConstraints = extensionNodeInItemConstraints ? (intersection.size() - 1) == clone.size()
+                        : (intersection.size() == clone.size() && intersection.size() != itemConstraint.size());
+                newPatternScore = (double) newIdList.getSupport() / intersectionIdList.getSupport();
             }
-            if (newPatternScore >= minSupRelative) { // SADJADRE the probablities computed above are the
-                                                     // contributing factors here
+            if (allInItemConstraints || extensionNodeInItemConstraints || newPatternScore >= minSupRelative) {
                 // We create a new trie for it
                 Trie newTrie = new Trie(null, newIdList);
                 // And we insert it its appearances
@@ -335,7 +348,9 @@ public class FrequentPatternEnumeration_ClaSP {
                             // if the prefix size is less than the size of p
                             if (prefixSize < pSize) {
                                 // and prefix is a subpattern of p
-                                if (prefix.isSubpattern(abstractionCreator, p)) {
+                                if (prefix.isSubpattern(abstractionCreator, p)
+                                        && (prefix.getIntersections(itemConstraint).size() != prefix.size()
+                                                || p.getIntersections(itemConstraint).size() == p.size())) {
                                     /*
                                      * We dfsPruning backward subpattern pruning and establish as new nodes the
                                      * nodes of the trie of p
@@ -361,7 +376,6 @@ public class FrequentPatternEnumeration_ClaSP {
                                 /*
                                  * and we make null the nodes of t since p is included in prefix
                                  */
-                                // t.setNodes(null);
                                 // And we remove the entry of the list
                                 associatedList.remove(i);
                                 i--;
@@ -449,19 +463,27 @@ public class FrequentPatternEnumeration_ClaSP {
             }
             listaPatrones.add(p);
         }
-        if(!itemConstraint.isEmpty()){
+        if (!itemConstraint.isEmpty()){
             for (List<Pattern> lista : totalPatterns.values()) {
                 // For all their patterns
                 for (int i = 0; i < lista.size(); i++) {
                     Pattern p = lista.get(i);
-                    if (!p.contains(itemConstraint)) {
+                    if (!p.contains(itemConstraintString)) {
+                        lista.remove(i);
+                        i--;
+                    } else {
+                        double confidence = (double) p.getSupport()
+                                / p.getIntersectionsIDList(itemConstraint).getSupport();
+                        if (confidence < minSupRelative) {
                             lista.remove(i);
                             i--;
+                        } else {
+                            p.setProbability(confidence);
                         }
+                    }
                 }
             }
         }
-
 
         // For all the list associated with de different sumSequencesIDs values
         for (List<Pattern> lista : totalPatterns.values()) {
@@ -502,11 +524,6 @@ public class FrequentPatternEnumeration_ClaSP {
              */
             numberOfFrequentClosedPatterns += list.size();
             for (Pattern p : list) {
-                if (itemConstraint.isEmpty()) { // @SADJAD for test
-                    p.setProbability(p.getSupport());
-                } else {
-                    p.setProbability((double) p.getSupport() / p.getIntersections(itemConstraint).getSupport());
-                }
                 saver.savePattern(p);
             }
         }
