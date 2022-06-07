@@ -51,7 +51,7 @@ public class AlgoCM_ClaSP {
      * The absolute minimum support threshold, i.e. the minimum number of sequences
      * where the patterns have to be
      */
-    protected double minSupRelative;
+    protected double minimumConfidence;
     /**
      * Saver variable to decide where the user want to save the results, if it the
      * case
@@ -96,11 +96,11 @@ public class AlgoCM_ClaSP {
     /**
      * Constructor of the class that calls ClaSP algorithm.
      *
-     * @param support            Absolute minimum support
+     * @param minimumConfidence minimum confidence
      * @param abstractionCreator the abstraction creator
      */
-    public AlgoCM_ClaSP(double support, AbstractionCreator abstractionCreator) {
-        this.minSupRelative = support;
+    public AlgoCM_ClaSP(double minimumConfidence, AbstractionCreator abstractionCreator) {
+        this.minimumConfidence = minimumConfidence;
         this.abstractionCreator = abstractionCreator;
     }
 
@@ -134,7 +134,7 @@ public class AlgoCM_ClaSP {
         // keeping the starting time
         overallStart = System.currentTimeMillis();
         // Starting ClaSP algorithm
-        claSP(database, minSupRelative);
+        claSP(database, minimumConfidence);
         // keeping the ending time
         overallEnd = System.currentTimeMillis();
         // Search for frequent patterns: Finished
@@ -145,9 +145,9 @@ public class AlgoCM_ClaSP {
      * The actual method for extracting frequent sequences.
      *
      * @param database       The original database
-     * @param minSupRelative the absolute minimum support
+     * @param minimumConfidence the minimum confidence
      */
-    protected void claSP(SequenceDatabase database, double minSupRelative) {
+    protected void claSP(SequenceDatabase database, double minimumConfidence) {
         // We get the initial trie whose children are the frequent 1-patterns
         FrequentAtomsTrie = database.frequentItems();
         itemConstraint = database.itemConstraints();
@@ -202,7 +202,7 @@ public class AlgoCM_ClaSP {
 
         // Inizialitation of the class that is in charge of find the frequent patterns
         FrequentPatternEnumeration_ClaSP frequentPatternEnumeration = new FrequentPatternEnumeration_ClaSP(
-                abstractionCreator, minSupRelative, saver, itemConstraint, itemConstraintStrings , coocMapEquals);
+                abstractionCreator, minimumConfidence, saver, itemConstraint, itemConstraintStrings , coocMapEquals);
 
         this.mainMethodStart = System.currentTimeMillis();
         // We dfsPruning the search

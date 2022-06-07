@@ -59,7 +59,7 @@ public class FrequentPatternEnumeration_ClaSP {
      * The absolute minimum support threshold, i.e. the minimum number of sequences
      * where the patterns have to be
      */
-    private double minSupRelative;
+    private double minimumConfidence;
     /**
      * Number of frequent patterns found by the algorithm. Initially set to zero.
      */
@@ -87,17 +87,17 @@ public class FrequentPatternEnumeration_ClaSP {
      * Standard constructor
      *
      * @param abstractionCreator the abstraction creator
-     * @param minSupRelative     The absolute minimum support
+     * @param minimumConfidence     The minimum confidence
      * @param saver              The saver for correctly save the results where the
      *                           user wants
      * @param findClosedPatterns flag to indicate if we are interesting in only
      *                           finding the closed sequences
      */
-    public FrequentPatternEnumeration_ClaSP(AbstractionCreator abstractionCreator, double minSupRelative, Saver saver,
+    public FrequentPatternEnumeration_ClaSP(AbstractionCreator abstractionCreator, double minimumConfidence, Saver saver,
             List<TrieNode> itemConstraint, List<String> itemConstraintString,
             Map<String, Map<String, Integer>> coocMapEquals) {
         this.abstractionCreator = abstractionCreator;
-        this.minSupRelative = minSupRelative;
+        this.minimumConfidence = minimumConfidence;
         this.saver = saver;
         this.matchingMap = new HashMap<>();
         this.itemConstraint = itemConstraint;
@@ -171,7 +171,7 @@ public class FrequentPatternEnumeration_ClaSP {
                     } else {
                         if (!(extensionNodeInItemConstraints||this.itemConstraintString.contains(lastAppended.getId())) &&
                                 (double) coocurenceCount
-                                        / lastAppended.getQuantity() < minSupRelative) {
+                                        / lastAppended.getQuantity() < minimumConfidence) {
                             continue;
                         }
                     }
@@ -205,7 +205,7 @@ public class FrequentPatternEnumeration_ClaSP {
                         : (intersection.size() == clone.size() && intersection.size() != itemConstraint.size());
                 newPatternScore = (double) newIdList.getSupport() / intersectionIdList.getSupport();
             }
-            if (allInItemConstraints || extensionNodeInItemConstraints || newPatternScore >= minSupRelative) {
+            if (allInItemConstraints || extensionNodeInItemConstraints || newPatternScore >= minimumConfidence) {
                 // We create a new trie for it
                 Trie newTrie = new Trie(null, newIdList);
                 // And we insert it its appearances
@@ -474,7 +474,7 @@ public class FrequentPatternEnumeration_ClaSP {
                     } else {
                         double confidence = (double) p.getSupport()
                                 / p.getIntersectionsIDList(itemConstraint).getSupport();
-                        if (confidence < minSupRelative) {
+                        if (confidence < minimumConfidence) {
                             lista.remove(i);
                             i--;
                         } else {

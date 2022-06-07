@@ -23,14 +23,14 @@ public class AlgoCM_ClaSPExecutor {
 
     /**
      * @param itemConstraint     a list of strings/items as our item constraint
-     * @param support            min support
+     * @param minimumConfidence            min support
      * @param filePath           sequences where is sequences as a string or sequences
      *                           file path where they are stored.
      * @param outputPath         file path to store the result. null if want to store in
      *                           memory
      * @param itemsFrequenciesPath the path in which each items frequency should be stored 
      */
-    public static List<String> runFile(List<String> itemConstraint, double support, String filePath, String outputPath)
+    public static List<String> runFile(List<String> itemConstraint, double minimumConfidence, String filePath, String outputPath)
             throws IOException {
 
         // if you set the following parameter to true, the sequence ids of the sequences
@@ -45,7 +45,7 @@ public class AlgoCM_ClaSPExecutor {
 
         sequenceDatabase.loadFile(filePath);
 
-        AlgoCM_ClaSP algorithm = new AlgoCM_ClaSP(support, abstractionCreator);
+        AlgoCM_ClaSP algorithm = new AlgoCM_ClaSP(minimumConfidence, abstractionCreator);
 
         algorithm.runAlgorithm(sequenceDatabase, outputPath, outputSequenceIdentifiers);
         System.out.println("Minsup (relative) : " + support);
@@ -59,7 +59,7 @@ public class AlgoCM_ClaSPExecutor {
 
     }
 
-    public static List<String> runList(List<String> itemConstraint, double support, String[] sequences,
+    public static List<String> runList(List<String> itemConstraint, double minumumConfidence, String[] sequences,
             String outputPath) throws IOException {
 
         String filePath = "input.txt";
@@ -73,7 +73,7 @@ public class AlgoCM_ClaSPExecutor {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return runFile(itemConstraint, support, filePath, outputPath);
+        return runFile(itemConstraint, minumumConfidence, filePath, outputPath);
     }
 
     public static String fileToPath(String filename) throws UnsupportedEncodingException {
