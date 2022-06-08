@@ -13,7 +13,7 @@ function adder2() {
 }
 
 function emitter() {
-    eventEmitter.emit('connection1', "args");
+    eventEmitter.emit('connection1');
 }
 
 adder()

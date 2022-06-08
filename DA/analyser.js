@@ -51,11 +51,9 @@ let tempIDsMap = {};
                         addDependency(setter, callerFunction.fID)
                         addDependency(callerFunction.fID, setter)
                     })
-                    if (args[1] != undefined) {
-                        listeners.forEach(listener => {
-                            addDependency(callerFunction.fID, listener)
-                        })
-                    }
+                    listeners.forEach(listener => {
+                        addDependency(callerFunction.fID, listener)
+                    })
                 }
 
             } else { // records regular and timing functions callers. 

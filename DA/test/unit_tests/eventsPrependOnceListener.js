@@ -13,15 +13,15 @@ function adder2() {
 }
 
 function emitter() {
-    eventEmitter.emit('connection1', "args");
+    eventEmitter.emit('connection1');
 }
 
 function emitter2() {
-    eventEmitter.emit('connection1', "args");
+    eventEmitter.emit('connection1');
 }
 
 function emitter3() {
-    eventEmitter.emit('connection1', "args");
+    eventEmitter.emit('connection1');
 }
 
 adder()
