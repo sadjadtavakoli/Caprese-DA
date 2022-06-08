@@ -9,7 +9,7 @@ const nodeprofCommand = '$GRAAL_HOME/bin/node --jvm --experimental-options --vm.
 
 function runTest(item) {
   it('Run nodeprof', function (done) {
-    this.timeout(10000);
+    this.timeout(15000);
     execute(nodeprofCommand + item + " testMode", done)
   });
   it('Compare dependencies', function (done) {
@@ -28,8 +28,8 @@ function execute(command, done) {
 }
 
 function compairDependencies(fileName) {
-  let expectedOutput = JSON.parse(fs.readFileSync(path.join(__dirname, 'expectedOutputs' + path.sep + 'dependencies' + path.sep + fileName), { encoding: 'utf8' }))
-  let analyzerOutput = JSON.parse(fs.readFileSync(path.join(__dirname, 'analyzerOutputs' + path.sep + 'dependencies' + path.sep + fileName), { encoding: 'utf8' }))
+  let expectedOutput = JSON.parse(fs.readFileSync(path.join(__dirname, 'expectedOutputs' + path.sep + 'dependencies' + path.sep + fileName + ".json"), { encoding: 'utf8' }))
+  let analyzerOutput = JSON.parse(fs.readFileSync(path.join(__dirname, 'analyzerOutputs' + path.sep + 'dependencies' + path.sep + fileName + ".json"), { encoding: 'utf8' }))
   assert.deepEqual(expectedOutput, analyzerOutput)
 }
 

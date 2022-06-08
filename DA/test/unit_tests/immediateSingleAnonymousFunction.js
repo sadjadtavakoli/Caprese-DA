@@ -1,3 +1,3 @@
-setImmediate(()=>{
+setImmediate((input)=>{
     //  do nothing
-})
+}, "arg")

@@ -1,10 +1,10 @@
 
-let bar = function() {
+let bar = function(input) {
     // do nothing
 }
 
-let interval  = setInterval(bar, 250)
+let interval  = setInterval(bar, 50, "args")
 
 setTimeout(()=>{
     clearInterval(interval)
-}, 1000)
+}, 500)

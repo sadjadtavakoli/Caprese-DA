@@ -1,1 +1,1 @@
-{"arrowFunction-test/unit_tests/immediatesingleanonymousfunction.js-1-3":{"callers":[],"tests":["t_1"]},"keyMap":{"t_1":"arrowFunction-test/unit_tests/immediatesingleanonymousfunction.js-1-3"}}
+{"arrowAnonymousFunction-test/unit_tests/immediatesingleanonymousfunction.js-1-3":{"impacted":["t_1"]},"keyMap":{"t_1":"arrowAnonymousFunction-test/unit_tests/immediatesingleanonymousfunction.js-1-3"}}

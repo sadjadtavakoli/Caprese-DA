@@ -1,6 +1,5 @@
-function foo(){
+function foo(input){
   //  do nothign
 }
 
-setImmediate(foo);
-
+setImmediate(foo, "argument");

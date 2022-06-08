@@ -2,4 +2,4 @@ let bar = function() {
     // do nothing
 }
 
-setTimeout(bar, 0)
+setTimeout(bar, 0, "args")

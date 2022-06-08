@@ -2,7 +2,7 @@
 // JALANGI DO NOT INSTRUMENT
 const path = require('path');
 const events = require('events');
-const { REPO_PATH, REPO_TEST_RELATIVE_DIR } = require('../constants');
+const { REPO_PATH } = require('../constants');
 const CALLBACK_REQUIRED_FUNCTIONS =
     [Array.prototype.every,
     Array.prototype.some,
@@ -61,13 +61,29 @@ const EVENT_LISTENER_FUNCTIONS = [EventEmmiter.addListener, EventEmmiter.once, E
         return CALLBACK_REQUIRED_FUNCTIONS.includes(func)
     }
 
-    Utils.isCalledByCallBackRequiredFunctions = function (base) {
+    Utils.isSetImmediate = function (func) {
+        return func == setImmediate
+    }
+
+    Utils.isSetInterval = function (func) {
+        return func == setInterval
+    }
+
+    Utils.isSetTimeout = function (func) {
+        return func == setTimeout
+    }
+
+    Utils.isTimingFunction = function (func) {
+        return TIMING_FUNCTIONS.includes(func)
+    }
+
+    /**
+     * @param base from Analyzer's functionEnter method 
+     * @returns True if it's a timing or regular event
+     */
+     Utils.isCalledByCallBackRequiredFunctions = function (base) {
         return base != undefined && (base._onImmediate || base._onTimeout || base.constructor.prototype == EventEmmiter || base._repeat)
     }
 
-    Utils.isTestFunction = function (iid) {
-        let filePath = Utils.getFilePath(iid)
-        return filePath.includes(REPO_TEST_RELATIVE_DIR)
-    }
 })(J$);
 
