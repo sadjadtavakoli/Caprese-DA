@@ -18,14 +18,22 @@ public class MainTestCMClaSP_saveToFile {
      */
     public static void main(String[] args) throws IOException {
         double support = 0.5;
-        List<String> itemConstraint = Arrays.asList();
-        String[] sequences = { 
-            "usernameGenerator usernameValidator -1 usernameValidator emailValidator -1 -2"
-            ,"usernameGenerator checkUniquness -1 usernameValidator -1 emailValidator checkEmailUniqueness -1 -2"
-           ,"emailValidator checkEmailUniquness usernameValidator -1 errorHandler -2 "
-           ,"randomGenerator usernameGenerator -1 usernameGenerator usernameValidator emailValidator -1 -2" 
-       
-             };
+        List<String> itemConstraint = Arrays.asList("f", "g");
+        String[] sequences = {
+            "f -1",       
+            "f -1",       
+            "f -1",       
+            "f -1",       
+            "f -1",       
+            "a f g h -1",       
+            "a f g h -1",       
+            "a f g h -1",
+            "g -1",
+            "g -1",
+            "g -1",
+            "g -1",
+            "g -1"
+        };
             //  "checkUniqueness usernameValidator -1 #SUP: 1, 
             //  emailValidator usernameValidator -1 #SUP: 2, 
             //  random usernameValidator -1 #SUP: 0, 
@@ -36,6 +44,6 @@ public class MainTestCMClaSP_saveToFile {
             //  checkUniqueness -1 checkEmailUniqueness emailValidator -1 #SUP: 2"
         // AlgoCM_ClaSPExecutor.runFile(itemConstraint, support,
         // "contextPrefixSpan.txt", null);
-        System.out.println(AlgoCM_ClaSPExecutor.runList(itemConstraint, support, sequences, null, null));
+        System.out.println(AlgoCM_ClaSPExecutor.runList(itemConstraint, support, sequences, null));
     }
 }

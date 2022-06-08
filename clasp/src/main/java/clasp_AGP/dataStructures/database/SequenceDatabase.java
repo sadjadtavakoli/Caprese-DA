@@ -212,13 +212,21 @@ public class SequenceDatabase {
     }
 
     /**
-     * Get the equivalence classes associated with the frequent items that we have
-     * found.
+     * Get a list of item constraints as TrieNodes
      * 
-     * @return the trie
+     * @return a List
      */
     public List<TrieNode> itemConstraints() {
         return itemConstraints;
+    }
+
+    /**
+     * Get a list of item constraints as Strings
+     * 
+     * @return a List
+     */
+    public List<String> itemConstraintsString() {
+        return itemConstraintStrings;
     }
 
     /**

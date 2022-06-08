@@ -127,8 +127,10 @@ public class Pattern implements Comparable<Pattern> {
             }
 
         }
-        result.append(" #SUP: ");
+        result.append(" #CONF: ");
         result.append(getProbability());
+        result.append(" #SUP: ");
+        result.append(getSupport());
         // if the user wants the sequence IDs, we will show them
         if (outputSequenceIdentifiers) {
             result.append(" #SID: ");
@@ -164,6 +166,8 @@ public class Pattern implements Comparable<Pattern> {
 
         result.append(":");
         result.append(getProbability());
+        result.append(" ");
+        result.append(getSupport());
         return result.toString();
     }
 
@@ -262,30 +266,33 @@ public class Pattern implements Comparable<Pattern> {
     }
 
     /**
-     * get a list of TrieNode and computes the this trie and that list's
-     * intersection IDlist
+     * get a list of TrieNode and computes its intersection with this 
      * 
      * @param itemConstraints
-     * @return IDList of this trie intersection with provided itemConstraints
+     * @return a list of TrieNode
      */
-    public IDList getIntersections(List<TrieNode> itemConstraints) {
-        boolean initiated = false;
-        IDList result = IdListCreatorStandard_Map.getInstance().create();
+    public List<TrieNode> getIntersections(List<TrieNode> itemConstraints) {
+        List<TrieNode> result = new ArrayList<>();
         for (ItemAbstractionPair pair : elements) {
             for (TrieNode node : itemConstraints) {
                 if (pair.getItem().getId() == node.getPair().getItem().getId()) {
-                    IDList nodeIdlist = node.getChild().getIdList();
-                    if (!initiated) {
-                        nodeIdlist.clone(result);
-                        initiated = true;
-                    } else {
-                        result = result.join(nodeIdlist);
-                    }
+                    result.add(node);
                     break;
                 }
             }
         }
         return result;
+    }
+
+    /**
+     * get a list of TrieNode and computes its intersection with this 
+     * 
+     * @param itemConstraints
+     * @return the intersection's IDList
+     */
+    public IDList getIntersectionsIDList(List<TrieNode> itemConstraints) {
+        List<TrieNode> intersection = this.getIntersections(itemConstraints);
+        return IdListCreatorStandard_Map.nodesToIDList(intersection);
     }
 
     @Override
@@ -401,16 +408,13 @@ public class Pattern implements Comparable<Pattern> {
         return abstractionCreator.isSubpattern(this, p, 0, positions);
     }
 
-    public boolean contains(List<TrieNode> nodeList) { // @sadjad TODO REFACTOR => our nodeList should be a list of items
-                                                    // just like elements
+    public boolean contains(List<String> nodeList) {
         if (nodeList.isEmpty()) {
             return true;
         }
         for (int j = 0; j < elements.size(); j++) {
-            for (int i = 0; i < nodeList.size(); i++) {
-                if (elements.get(j).getItem().getId() == nodeList.get(i).getPair().getItem().getId()) {
-                    return true;
-                }
+            if(nodeList.contains(elements.get(j).getItem().getId())){
+                return true;
             }
         }
         return false;

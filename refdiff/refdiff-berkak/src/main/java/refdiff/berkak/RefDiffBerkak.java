@@ -79,7 +79,6 @@ public class RefDiffBerkak {
 			PairBeforeAfter<SourceFileSet> beforeAndAfter = refDiffJs.getResources(repo, commitPr, commit);
 			CstDiff diffForCommit = refDiffJs.computeDiffForCommit(beforeAndAfter, mappingsPath, commit.getName());
 			List<String> changes = new ArrayList<>();
-			changes.addAll(diffForCommit.getNonValidChangedFiles());// @Sadjad TODO these three should be all in one
 			changes.addAll(diffForCommit.getChangedEntitiesKeys());
 			changes.addAll(diffForCommit.getAddedEntitiesKeys());
 
@@ -128,7 +127,6 @@ public class RefDiffBerkak {
 			CstDiff diffForCommit = refDiffJs.computeDiffForCommitNoMapping(repo, commitPr, commit);
 			List<String> changes = new ArrayList<>();
 
-			changes.addAll(diffForCommit.getNonValidChangedFiles());
 			changes.addAll(diffForCommit.getChangedEntitiesKeys());
 			changes.addAll(diffForCommit.getRemovedEntitiesKeys());
 

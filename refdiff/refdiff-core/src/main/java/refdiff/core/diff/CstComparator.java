@@ -57,7 +57,8 @@ public class CstComparator {
 		}
 	}
 
-	public CstDiff compareNoMapping(SourceFileSet sourcesBefore, SourceFileSet sourcesAfter, CstComparatorMonitor monitor) {
+	public CstDiff compareNoMapping(SourceFileSet sourcesBefore, SourceFileSet sourcesAfter,
+			CstComparatorMonitor monitor) {
 		try {
 			DiffBuilder<?> diffBuilder = new DiffBuilder<>(new TfIdfSourceRepresentationBuilder(), sourcesBefore,
 					sourcesAfter, monitor, "");
@@ -84,13 +85,14 @@ public class CstComparator {
 
 		private final Map<CstNode, CstNode> mapBeforeToAfter = new HashMap<>();
 		private final Map<CstNode, CstNode> mapAfterToBefore = new HashMap<>();
+		private Set<String> nonValidChangedFilesBefore = new HashSet<>();
+		private Set<String> nonValidChangedFilesAfter = new HashSet<>();
 
 		DiffBuilder(SourceRepresentationBuilder<T> srb, SourceFileSet sourcesBefore, SourceFileSet sourcesAfter,
 				CstComparatorMonitor monitor, String mappingsPath) throws Exception {
 			this.srb = srb;
-			Set<String> nonValidChangedFiles = new HashSet<>();
-			CstRoot cstRootBefore = languagePlugin.parse(sourcesBefore, nonValidChangedFiles);
-			CstRoot cstRootAfter = languagePlugin.parse(sourcesAfter, nonValidChangedFiles);
+			CstRoot cstRootBefore = languagePlugin.parse(sourcesBefore, nonValidChangedFilesBefore);
+			CstRoot cstRootAfter = languagePlugin.parse(sourcesAfter, nonValidChangedFilesAfter);
 			this.diff = new CstDiff(cstRootBefore, cstRootAfter);
 			this.before = new CstRootHelper<>(this.diff.getBefore(), sourcesBefore, srb, true);
 			this.after = new CstRootHelper<>(this.diff.getAfter(), sourcesAfter, srb, false);
@@ -100,7 +102,7 @@ public class CstComparator {
 			this.addedEntitiesKeys = new HashSet<>();
 			this.removedEntitiesKeys = new HashSet<>();
 			this.mappingsPath = mappingsPath;
-			this.diff.setNonValidChangedFiles(nonValidChangedFiles);
+			// this.diff.setNonValidChangedFiles(nonValidChangedFiles);
 			this.monitor = monitor;
 
 			Map<String, String> fileMapBefore = new HashMap<>();
@@ -109,16 +111,14 @@ public class CstComparator {
 			for (SourceFile fileBefore : sourcesBefore.getSourceFiles()) {
 				try {
 					fileMapBefore.put(fileBefore.getPath(), sourcesBefore.readContent(fileBefore));
-				}
-				 catch (LargeObjectException e) {
+				} catch (LargeObjectException e) {
 					fileMapBefore.put(fileBefore.getPath(), "LARGE OBJECT BEFORE");
 				}
 			}
 			for (SourceFile fileAfter : sourcesAfter.getSourceFiles()) {
 				try {
 					fileMapAfter.put(fileAfter.getPath(), sourcesAfter.readContent(fileAfter));
-				}
-				 catch (LargeObjectException e) {
+				} catch (LargeObjectException e) {
 					fileMapAfter.put(fileAfter.getPath(), "LARGE OBJECT AFTER");
 				}
 			}
@@ -146,7 +146,7 @@ public class CstComparator {
 			return diff;
 		}
 
-		CstDiff computeDiffNoMapping(){
+		CstDiff computeDiffNoMapping() {
 			match();
 			findChangedEntitiesNoMapping();
 			findAddedEntitiesNoMapping();
@@ -155,7 +155,7 @@ public class CstComparator {
 			return diff;
 		}
 
-		private void match(){
+		private void match() {
 			computeSourceRepresentationForRemovedAndAdded();
 			findMatchesById();
 			findMatchesByUniqueName(0.75);
@@ -164,12 +164,33 @@ public class CstComparator {
 			findMatchesByChildren();
 		}
 
-		private void addDetections(){
+		private void addDetections() {
+			addNonValidFiles();
 			diff.setChangedEntitiesKeys(this.changedEntitiesKeys);
 			diff.setAddedEntitiesKeys(this.addedEntitiesKeys);
 			diff.setRemovedEntitiesKeys(this.removedEntitiesKeys);
 		}
 
+		private void addNonValidFiles(){
+			for (String fileKeyBefore : this.nonValidChangedFilesBefore) {
+				boolean isChanged = false;
+				for (String fileKeyAfter : this.nonValidChangedFilesAfter) {
+					if (fileKeyAfter.equals(fileKeyBefore)) {
+						this.changedEntitiesKeys.add(fileKeyAfter);
+						isChanged = true;
+						this.nonValidChangedFilesAfter.remove(fileKeyAfter);
+						break;
+					}
+				}
+				if (!isChanged) {
+					this.removedEntitiesKeys.add(fileKeyBefore);
+				}
+			}
+			for (String fileKey : this.nonValidChangedFilesAfter) {
+				this.addedEntitiesKeys.add(fileKey);
+			}
+		}
+		
 		private void computeSourceRepresentationForRemovedAndAdded() {
 			for (CstNode node : changed) {
 				before.computeSourceRepresentation(node);
@@ -209,7 +230,7 @@ public class CstComparator {
 		}
 
 		private void findMatchesBySimilarity(boolean onlySafe) {
-		List<PotentialMatch> candidates = new ArrayList<>();
+			List<PotentialMatch> candidates = new ArrayList<>();
 			for (CstNode n1 : changed) {
 				for (CstNode n2 : added) {
 					if (sameType(n1, n2) && !anonymous(n1) && !anonymous(n2)) {
@@ -350,7 +371,7 @@ public class CstComparator {
 		private void findChangedEntitiesNoMapping() {
 			List<CstNode> employeeByKey = new ArrayList<>(mapBeforeToAfter.keySet());
 			Collections.sort(employeeByKey, new CstNodeTypeComprator());
-			for(int i=0; i<employeeByKey.size(); i++){
+			for (int i = 0; i < employeeByKey.size(); i++) {
 				CstNode n1 = employeeByKey.get(i);
 				CstNode n2 = mapBeforeToAfter.get(n1);
 				String n1Key = n1.toString();
