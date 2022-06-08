@@ -87,13 +87,14 @@ public class FrequentPatternEnumeration_ClaSP {
      * Standard constructor
      *
      * @param abstractionCreator the abstraction creator
-     * @param minimumConfidence     The minimum confidence
+     * @param minimumConfidence  The minimum confidence
      * @param saver              The saver for correctly save the results where the
      *                           user wants
      * @param findClosedPatterns flag to indicate if we are interesting in only
      *                           finding the closed sequences
      */
-    public FrequentPatternEnumeration_ClaSP(AbstractionCreator abstractionCreator, double minimumConfidence, Saver saver,
+    public FrequentPatternEnumeration_ClaSP(AbstractionCreator abstractionCreator, double minimumConfidence,
+            Saver saver,
             List<TrieNode> itemConstraint, List<String> itemConstraintString,
             Map<String, Map<String, Integer>> coocMapEquals) {
         this.abstractionCreator = abstractionCreator;
@@ -169,7 +170,8 @@ public class FrequentPatternEnumeration_ClaSP {
                         // just occurance too; in other words, no need to check being frequent.
                         continue;
                     } else {
-                        if (!(extensionNodeInItemConstraints||this.itemConstraintString.contains(lastAppended.getId())) &&
+                        if (!(extensionNodeInItemConstraints
+                                || this.itemConstraintString.contains(lastAppended.getId())) &&
                                 (double) coocurenceCount
                                         / lastAppended.getQuantity() < minimumConfidence) {
                             continue;
@@ -448,9 +450,9 @@ public class FrequentPatternEnumeration_ClaSP {
 
         /*
          * We make a map to match group of patterns linked by their addition of sequence
-         * identifiers
+         * identifiers to find closed patterns wrt to support
          */
-        Map<Integer, List<Pattern>> totalPatterns = new HashMap<>();
+        Map<Integer, List<Pattern>> patternClusters = new HashMap<>();
         // and we classify the patterns there by their sumIdSequences number
         for (int i = 0; i < frequentPatterns.size(); i++) {
             Entry<Pattern, Trie> entrada = frequentPatterns.get(i);
@@ -465,25 +467,28 @@ public class FrequentPatternEnumeration_ClaSP {
                     frequentPatterns.remove(i);
                     i--;
                 } else {
-                    List<Pattern> listaPatrones = totalPatterns.get(t.getSumIdSequences());
+                    List<Pattern> listaPatrones = patternClusters.get(t.getSumIdSequences());
                     if (listaPatrones == null) {
                         listaPatrones = new LinkedList<>();
-                        totalPatterns.put(t.getSumIdSequences(), listaPatrones);
+                        patternClusters.put(t.getSumIdSequences(), listaPatrones);
                     }
                     listaPatrones.add(p);
+                    frequentPatterns.remove(i);
+                    i--;
                 }
             }
         }
 
+        List<Pattern> totalPatterns = new ArrayList();
         // For all the list associated with de different sumSequencesIDs values
-        for (List<Pattern> lista : totalPatterns.values()) {
+        for (List<Pattern> lista : patternClusters.values()) {
             // For all their patterns
             for (int i = 0; i < lista.size(); i++) {
                 Pattern p1 = lista.get(i);
+                boolean valid = true;
                 for (int j = i + 1; j < lista.size(); j++) {
                     Pattern p2 = lista.get(j);
-                    if (p1.getAppearingIn().cardinality() == p2.getAppearingIn().cardinality()
-                            && p1.size() != p2.size()) {
+                    if (p1.getSupport() == p2.getSupport() && p1.size() != p2.size()) {
                         /*
                          * And one is subpattern of the other, we remove the shorter pattern and keep
                          * the longer one
@@ -492,6 +497,7 @@ public class FrequentPatternEnumeration_ClaSP {
                             if (p1.isSubpattern(abstractionCreator, p2)) {
                                 lista.remove(i);
                                 i--;
+                                valid = false;
                                 break;
                             }
                         } else {
@@ -502,22 +508,42 @@ public class FrequentPatternEnumeration_ClaSP {
                         }
                     }
                 }
-            }
-        }
-        /*
-         * We calcule the number of frequent patterns and we store in the chosen output
-         * if the flag is activated
-         */
-        for (List<Pattern> list : totalPatterns.values()) {
-            /*
-             * Tin modifies:
-             */
-            numberOfFrequentClosedPatterns += list.size();
-            for (Pattern p : list) {
-                saver.savePattern(p);
+                if (valid)
+                    totalPatterns.add(p1);
             }
         }
 
+        /*
+         * We go over all patterns to find closed patterns wrt to confidence
+         * Those pattern will be saved as the final result  
+         */
+        for (int i = 0; i < totalPatterns.size(); i++) {
+            Pattern p1 = totalPatterns.get(i);
+            boolean save = true;
+            for (int j = i + 1; j < totalPatterns.size(); j++) {
+                Pattern p2 = totalPatterns.get(j);
+                if (p1.getConfidence() == p2.getConfidence() && p1.size() != p2.size()) {
+                    /*
+                     * And one is subpattern of the other, we remove the shorter pattern and keep
+                     * the longer one
+                     */
+                    if (p1.size() < p2.size()) {
+                        if (p1.isSubpattern(abstractionCreator, p2)) {
+                            totalPatterns.remove(i);
+                            i--;
+                            save = false;
+                            break;
+                        }
+                    } else {
+                        if (p2.isSubpattern(abstractionCreator, p1)) {
+                            totalPatterns.remove(j);
+                            j--;
+                        }
+                    }
+                }
+            }
+            if (save) saver.savePattern(p1);
+        }
     }
 
     public void clear() {

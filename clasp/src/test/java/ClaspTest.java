@@ -118,8 +118,6 @@ public class ClaspTest {
                                 "d -1" };
 
                 String[] expectedOutput = {
-                        "a b -1 #CONF: 1.0 #SUP: 2",
-                        "a c -1 #CONF: 1.0 #SUP: 2",
                         "a d -1 #CONF: 1.0 #SUP: 1",
                         "a b c -1 #CONF: 1.0 #SUP: 1" };
 
@@ -237,8 +235,7 @@ public class ClaspTest {
                                 "g -1",
                 };
 
-                String[] expectedOutput = { "f g -1 #CONF: 1.0 #SUP: 12",
-                                "a f g -1 #CONF: 0.5833333333333334 #SUP: 7",
+                String[] expectedOutput = { "a f g -1 #CONF: 0.5833333333333334 #SUP: 7",
                                 "f g h -1 #CONF: 1.0 #SUP: 5"
                          };
 
