@@ -48,7 +48,7 @@ public class AlgoCM_ClaSPExecutor {
         AlgoCM_ClaSP algorithm = new AlgoCM_ClaSP(minimumConfidence, abstractionCreator);
 
         algorithm.runAlgorithm(sequenceDatabase, outputPath, outputSequenceIdentifiers);
-        System.out.println("Minsup (relative) : " + support);
+        System.out.println("Minsup (relative) : " + minimumConfidence);
         System.out.println(algorithm.getNumberOfFrequentPatterns() + " patterns found.");
 
         System.out.println(algorithm.printStatistics());

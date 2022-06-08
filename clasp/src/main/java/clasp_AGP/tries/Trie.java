@@ -462,6 +462,7 @@ public class Trie implements Comparable<Trie> {
                  * pattern, we set its appearances and we add it as a element in the result list
                  */
                 Pattern newPattern = PatternCreator.getInstance().concatenate(p, node.getPair());
+                newPattern.setConfidence(node.getConfidence());
                 Trie child = node.getChild();
                 AbstractMap.SimpleEntry newEntry = new AbstractMap.SimpleEntry(newPattern, child);
                 result.add(newEntry);
@@ -491,6 +492,7 @@ public class Trie implements Comparable<Trie> {
                  * pattern, we set its appearances and we add it as a element in the result list
                  */
                 Pattern newPattern = PatternCreator.getInstance().concatenate(p, node.getPair());
+                newPattern.setConfidence(node.getConfidence());
                 Trie child = node.getChild();
                 AbstractMap.SimpleEntry newEntry = new AbstractMap.SimpleEntry(newPattern, child);
                 result.add(newEntry);

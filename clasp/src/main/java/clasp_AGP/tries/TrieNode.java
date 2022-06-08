@@ -42,6 +42,11 @@ public class TrieNode implements Comparable {
      * Flag indicating if this node has already been traversed
      */
     private boolean alreadyExplored;
+    
+    /**
+    * Confidence of this TrieNode's Equvalent Pattern
+    */
+   private double confidence;
 
     /**
      * Standard Constructor
@@ -118,6 +123,15 @@ public class TrieNode implements Comparable {
         this.pair = child;
     }
 
+    public double getConfidence() {
+        return confidence;
+    }
+
+    public void setConfidence(double confidence) {
+        this.confidence = confidence;
+    }
+
+    
     /**
      * It removes all the descendants tries appearing below this NodeTrie
      */

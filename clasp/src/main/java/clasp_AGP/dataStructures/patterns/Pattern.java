@@ -48,7 +48,7 @@ public class Pattern implements Comparable<Pattern> {
     /**
      * the conditional probability of this pattern wrt to item constraints
      */
-    private double probability;
+    private double confidence;
 
     /**
      * Standard constructor
@@ -128,7 +128,7 @@ public class Pattern implements Comparable<Pattern> {
 
         }
         result.append(" #CONF: ");
-        result.append(getProbability());
+        result.append(getConfidence());
         result.append(" #SUP: ");
         result.append(getSupport());
         // if the user wants the sequence IDs, we will show them
@@ -165,7 +165,7 @@ public class Pattern implements Comparable<Pattern> {
         }
 
         result.append(":");
-        result.append(getProbability());
+        result.append(getConfidence());
         result.append(" ");
         result.append(getSupport());
         return result.toString();
@@ -350,14 +350,14 @@ public class Pattern implements Comparable<Pattern> {
 
     /**
      * set the conditional probability of this pattern wrt to item constraints
-     * @param probability
+     * @param confidence
      */
-    public void setProbability(double probability){
-        this.probability = probability;
+    public void setConfidence(double confidence){
+        this.confidence = confidence;
     }
 
-    public double getProbability(){
-        return this.probability;
+    public double getConfidence(){
+        return this.confidence;
     }
 
     public void clear() {

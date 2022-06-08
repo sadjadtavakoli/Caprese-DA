@@ -213,7 +213,7 @@ public class FrequentPatternEnumeration_ClaSP {
                 // we put in a TrieNode the new pair and the new Trie created
                 TrieNode newTrieNode = new TrieNode(newPair, newTrie);
                 // And we merge the new Trie with the current one
-
+                newTrieNode.setConfidence(newPatternScore);
                 currentTrie.mergeWithTrie_i(newTrieNode);
                 /*
                  * Finally we add the new pattern and nodeTrie to the sets that are needed for
@@ -452,35 +452,25 @@ public class FrequentPatternEnumeration_ClaSP {
          */
         Map<Integer, List<Pattern>> totalPatterns = new HashMap<>();
         // and we classify the patterns there by their sumIdSequences number
-        for (Entry<Pattern, Trie> entrada : frequentPatterns) {
+        for (int i = 0; i < frequentPatterns.size(); i++) {
+            Entry<Pattern, Trie> entrada = frequentPatterns.get(i);
             Pattern p = entrada.getKey();
             Trie t = entrada.getValue();
             p.setAppearingIn(t.getAppearingIn());
-            List<Pattern> listaPatrones = totalPatterns.get(t.getSumIdSequences());
-            if (listaPatrones == null) {
-                listaPatrones = new LinkedList<>();
-                totalPatterns.put(t.getSumIdSequences(), listaPatrones);
-            }
-            listaPatrones.add(p);
-        }
-        if (!itemConstraint.isEmpty()){
-            for (List<Pattern> lista : totalPatterns.values()) {
-                // For all their patterns
-                for (int i = 0; i < lista.size(); i++) {
-                    Pattern p = lista.get(i);
-                    if (!p.contains(itemConstraintString)) {
-                        lista.remove(i);
-                        i--;
-                    } else {
-                        double confidence = (double) p.getSupport()
-                                / p.getIntersectionsIDList(itemConstraint).getSupport();
-                        if (confidence < minimumConfidence) {
-                            lista.remove(i);
-                            i--;
-                        } else {
-                            p.setProbability(confidence);
-                        }
+            if (!p.contains(itemConstraintString)) {
+                frequentPatterns.remove(i);
+                i--;
+            } else {
+                if (p.getConfidence() < minimumConfidence) {
+                    frequentPatterns.remove(i);
+                    i--;
+                } else {
+                    List<Pattern> listaPatrones = totalPatterns.get(t.getSumIdSequences());
+                    if (listaPatrones == null) {
+                        listaPatrones = new LinkedList<>();
+                        totalPatterns.put(t.getSumIdSequences(), listaPatrones);
                     }
+                    listaPatrones.add(p);
                 }
             }
         }
