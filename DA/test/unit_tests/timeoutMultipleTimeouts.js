@@ -1,13 +1,13 @@
 
-setTimeout(myFunction, 1000);
+setTimeout(myFunction, 500, "args");
 
-setTimeout(myFunction, 500);
+setTimeout(myFunction, 200, "args");
 
-setTimeout(myFunction, 100);
+setTimeout(myFunction, 50, "args");
 
-setTimeout(myFunction, 100);
+setTimeout(myFunction, 50, "args");
 
 function myFunction() {
-//  do nothing
+    //  do nothing
 }
 

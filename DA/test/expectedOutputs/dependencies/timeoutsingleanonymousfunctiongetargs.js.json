@@ -1,0 +1,10 @@
+{
+    "arrowAnonymousFunction-test/unit_tests/timeoutsingleanonymousfunctiongetargs.js-1-3": {
+        "impacted": [
+            "t_1"
+        ]
+    },
+    "keyMap": {
+        "t_1": "arrowAnonymousFunction-test/unit_tests/timeoutsingleanonymousfunctiongetargs.js-1-3"
+    }
+}

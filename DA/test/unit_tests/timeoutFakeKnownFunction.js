@@ -1,13 +1,13 @@
-let bar = function() {
+let bar = function () {
     console.log("Done!");
 }
 
 foo()
 
-function foo(){
-    setTimeout(bar, 10 * 1000)
+function foo() {
+    setTimeout(bar, 100000)
 }
 
-function setTimeout(callback, time){
+function setTimeout(callback, time) {
     // do nothing
 }

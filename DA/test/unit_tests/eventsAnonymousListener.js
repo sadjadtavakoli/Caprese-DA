@@ -6,5 +6,14 @@ eventEmitter.addListener('connection', ()=>{
    //  do nithign
 });
 
-eventEmitter.emit('connection');
-eventEmitter.emit('connection2');
+
+function emitter(){
+   eventEmitter.emit('connection', "args");
+}
+
+function emitter2(){
+   eventEmitter.emit('connection2');
+}
+
+emitter()
+emitter2()

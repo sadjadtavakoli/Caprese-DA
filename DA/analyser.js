@@ -10,12 +10,24 @@ let functionsFuncInput = new Map();
 let accessedFiles = new Map();
 let addedListeners = new Map();
 let functionIDs = new Map();
+let functionNCallerStack = [];
 let functionsDependency = {}
 let tempIDsMap = {};
 
+// functions if return value can affect their caller and it they have arguments, 
+// the caller affects them. The same scenario goes for timeout functions. 
+// Therefor, timeout setters are the ones affecting the functions inside the timeout but only if those function have arguments. 
+// \newLine
+// Similarly, for events, the listener is impacted by the emitter if the emitter passes data to it. 
+// Now, what about the setListener and the emitter? they both are working with the same event, and setListener function is the bridge between listener and emitter.
+// So, are they affected by each other? If so, what about the global variables? do they have the same impact? 
 (function (sandbox) {
     let utils = sandbox.Utils;
     function Analyser() {
+
+        /**
+         * These callbacks are called before and after a function, method, or constructor invocation.
+        **/
         this.invokeFunPre = function (iid, f, base, args) {
             if (isImporting(iid)) {
                 return { f: f, base: base, args: args, skip: false };
@@ -36,21 +48,30 @@ let tempIDsMap = {};
                     let setters = eventInfo[1]
 
                     setters.forEach(setter => {
-                        addDependency(setter, callerFunction)
+                        addDependency(setter, callerFunction.fID)
+                        addDependency(callerFunction.fID, setter)
                     })
-
                     listeners.forEach(listener => {
-                        addDependency(listener, callerFunction)
-                    })   
+                        addDependency(callerFunction.fID, listener)
+                    })
                 }
-            } else {
-                if (utils.isCallBackRequiredFunction(f)) {
-                    addDependency(getID(args[0], iid), callerFunction)
+
+            } else { // records regular and timing functions callers. 
+                // This information will be used in FunctionEnter to add dependencies
+                if (utils.isSetTimeout(f) || utils.isSetInterval(f)) {
+                    if(args[2]!=undefined){
+                        addDependency(callerFunction.fID, getID(args[0], iid))
+                    }
+                } else if (utils.isSetImmediate(f)) {
+                    if(args[1]!=undefined){
+                        addDependency(callerFunction.fID, getID(args[0], iid))
+                    }
                 } else {
                     let fID = getID(f, iid)
                     let funcArgs = []
                     for (let i = 0; i < args.length; i = i + 1) {
-                        if (typeof args[i] == "function") {
+                        if (typeof args[i] == "function") { // iterate over function arguments and records functions.
+                            // This information is used in enterFunction to filter our callback like forEach, map, etc from regular inner callbacks
                             let argID = getID(args[i], iid + `${i}`)
                             funcArgs.push(argID)
                             addToCallbackMap(argID, fID, callerFunction)
@@ -64,7 +85,10 @@ let tempIDsMap = {};
             return { f: f, base: base, args: args, skip: false };
         };
 
-        this.functionEnter = function (iid, f, dis) {
+        /**
+         * These callbacks are called before the execution of a function body starts.
+         **/
+        this.functionEnter = function (iid, f, dis, args) {
             let fID = getID(f, iid)
             if (isMainFile(iid)) {
                 if (mainFilePath == "") {
@@ -73,34 +97,71 @@ let tempIDsMap = {};
                     tempIDsMap[fID] = utils.getIIDKey(utils.getIIDFileName(iid), iid)
                 }
                 functionEnterStack.push({ 'iid': iid, 'fID': fID })
-
             } else if (isImporting(iid)) {
                 tempIDsMap[fID] = utils.getIIDKey(utils.getIIDFileName(iid), iid)
                 accessedFiles.set(utils.getFilePath(iid), iid)
             } else {
-                if (!utils.isCalledByCallBackRequiredFunctions(dis)) {
-                    validateCallBackMap(fID)
-                    let argCheck = popFromCallbackMap(fID)
-                    if (argCheck) {
-                        addDependency(fID, argCheck[1])
+                let functionName = getFunctionName(f, iid)
+                tempIDsMap[fID] = utils.getIIDKey(functionName, iid)
+                let data = { 'iid': iid, 'fID': fID }
 
-                    } else {
-                        addDependency(fID, functionEnterStack[functionEnterStack.length - 1]) // For the very first function in the imported file it doesn't get the currect caller 
+                if (!utils.isCalledByCallBackRequiredFunctions(dis)){
+                    validateCallBackMap(fID)
+                    let argCheck = getFromCallbackMap(fID)
+                    if (argCheck == undefined) {
+                        let caller = functionEnterStack[functionEnterStack.length - 1]
+                        if (args.length) { // adds a function to its caller impact-list if its signature accepts arguments 
+                            addDependency(caller.fID, fID)
+                        }
+                        functionNCallerStack.push([fID, caller])  // Keeps each functions caller to add dependenbcy it _return function, in case the callee returns value
+                        data.isRegularCall = true // using thie variable, _return function only checks regular calls
                     }
                 }
-                let functionName = getFunctionName(f, iid) // there is a problem here! 
-                tempIDsMap[fID] = utils.getIIDKey(functionName, iid)
-                functionEnterStack.push({ 'iid': iid, 'fID': fID })
+                functionEnterStack.push(data)
             }
         };
 
+        /**
+         * This callback is called before a value is returned from a function using the <tt>return</tt> keyword.
+         *
+         * This does NOT mean the function is being exited. Functions can return 0, 1, or more times.
+         * For example:
+         * - <tt>void</tt> functions return 0 times
+         * - functions that use the <tt>return</tt> keyword regularly return 1 time
+         * - functions that return in both parts of a try/finally block can return 2 times
+         *
+         * To see when a function ACTUALLY exits, see the <tt>functionExit</tt> callback.
+         *
+         * @param {number} iid - Static unique instruction identifier of this callback
+         * @param {*} val - Value to be returned
+         */
+        this._return = function (iid, val) {
+            if (functionEnterStack[functionEnterStack.length - 1].isRegularCall) {
+                let fCaller = functionNCallerStack[functionNCallerStack.length - 1]
+                let fID = fCaller[0]
+                let caller = fCaller[1]
+                addDependency(fID, caller.fID)
+            }
+        };
+
+
+        /**
+         * These callbacks are called after the execution of a function body.
+         **/
         this.functionExit = function (iid, returnVal, wrappedExceptionVal) {
             if (!(isImporting(iid) || isMainFile(iid))) {
-                functionEnterStack.pop()
+                let call = functionEnterStack.pop()
+                if (call.isRegularCall) {
+                    functionNCallerStack.pop()
+                }
             }
             return { returnVal: returnVal, wrappedExceptionVal: wrappedExceptionVal, isBacktrack: false };
         };
 
+
+        /**
+         * This callback is called when an execution terminates in node.js.
+         **/
         this.endExecution = function () {
             const mainFileName = utils.filePathToFileName(mainFilePath);
             let depdendenciesPath;
@@ -117,7 +178,7 @@ let tempIDsMap = {};
             let functionDependenciesByKeys = {}
             for (const item in functionsDependency) {
                 let mappedKey = tempIDsMap[item]
-                functionDependenciesByKeys[mappedKey] = { 'callers': [...functionsDependency[item]['callers']], 'tests': [...functionsDependency[item]['tests']] }
+                functionDependenciesByKeys[mappedKey] = { 'impacted': [...functionsDependency[item]['impacted']] }
                 delete functionsDependency[item]
             }
             functionDependenciesByKeys['keyMap'] = tempIDsMap
@@ -131,10 +192,16 @@ let tempIDsMap = {};
         };
     }
 
+    /**
+     * this function checks wheather iid is for mainFile enterance or else 
+     */
     function isMainFile(iid) {
         return (utils.getLine(iid) == 1 && mainFilePath == "") || accessedFiles.get(mainFilePath) == iid
     }
 
+    /**
+     * this function checks wheather iid is for importing a new file/module or else 
+     */
     function isImporting(iid) {
         let filePath = utils.getFilePath(iid)
         let accedFileID = accessedFiles.get(filePath)
@@ -148,11 +215,7 @@ let tempIDsMap = {};
      * @param caller mainFunction's caller function
      */
     function addToCallbackMap(key, mainFunction, caller) {
-        if (callbackMap.has(key)) {
-            callbackMap.get(key).push([mainFunction, caller])
-        } else {
-            callbackMap.set(key, [[mainFunction, caller]])
-        }
+        callbackMap.set(key, [mainFunction, caller])
     }
 
     function addToFunctionsFuncInputs(key, list) {
@@ -176,41 +239,30 @@ let tempIDsMap = {};
         }
     }
 
-    function addDependency(calleeFID, caller) {
+    function addDependency(calleeFID, callerFID) {
         if (!functionsDependency[calleeFID]) {
-            functionsDependency[calleeFID] = { 'tests': new Set([]), 'callers': new Set([]) }
+            functionsDependency[calleeFID] = { 'impacted': new Set([]) }
         }
-        let callerFID = caller.fID
-        let callerIID = caller.iid
-        if (utils.isTestFunction(callerIID)) {
-            functionsDependency[calleeFID]['tests'].add(callerFID)
-        } else {
-            functionsDependency[calleeFID]['callers'].add(callerFID)
-        }
+        functionsDependency[calleeFID]['impacted'].add(callerFID)
     }
 
-    function validateCallBackMap(enteredFunction) {
-        if (functionsFuncInput.has(enteredFunction)) {
-            let argsList = functionsFuncInput.get(enteredFunction)
+    /**
+     * ValidateCallBackMap removes the given FID function's function arguments from callback calls list
+     * since they will be called directly by this function during its execution 
+     * @param {String} fID 
+     */
+    function validateCallBackMap(fID) {
+        if (functionsFuncInput.has(fID)) {
+            let argsList = functionsFuncInput.get(fID)
             for (let item of argsList) {
-                let itemMap = callbackMap.get(item)
-                if (itemMap) {
-                    callbackMap.set(item, itemMap.filter(ele => {
-                        return ele[0] != enteredFunction;
-                    }))
-                }
+                callbackMap.delete(item)
             }
-            functionsFuncInput.delete(enteredFunction)
+            functionsFuncInput.delete(fID)
         }
     }
 
-    function popFromCallbackMap(key) {
-        if (callbackMap.has(key)) {
-            let res = callbackMap.get(key).shift()
-            if (!callbackMap.get(key).length)
-                callbackMap.delete(key)
-            return res
-        }
+    function getFromCallbackMap(key) {
+        return callbackMap.get(key)
     }
 
     function getAddedListeners(base, event) {
