@@ -75,9 +75,8 @@ public class FrequentPatternEnumeration_ClaSP {
      */
     private Saver saver;
 
-    private List<TrieNode> itemConstraint;
-    private List<String> itemConstraintString;
     private Map<String, Map<String, Integer>> coocMapEquals;
+    private Map<String, TrieNode> itemConstraints;
     /**
      * Tin inserts:
      */
@@ -94,15 +93,12 @@ public class FrequentPatternEnumeration_ClaSP {
      *                           finding the closed sequences
      */
     public FrequentPatternEnumeration_ClaSP(AbstractionCreator abstractionCreator, double minimumConfidence,
-            Saver saver,
-            List<TrieNode> itemConstraint, List<String> itemConstraintString,
-            Map<String, Map<String, Integer>> coocMapEquals) {
+            Saver saver, Map<String, TrieNode> itemConstraints, Map<String, Map<String, Integer>> coocMapEquals) {
         this.abstractionCreator = abstractionCreator;
         this.minimumConfidence = minimumConfidence;
         this.saver = saver;
         this.matchingMap = new HashMap<>();
-        this.itemConstraint = itemConstraint;
-        this.itemConstraintString = itemConstraintString;
+        this.itemConstraints = itemConstraints;
         this.coocMapEquals = coocMapEquals;
     }
 
@@ -152,18 +148,21 @@ public class FrequentPatternEnumeration_ClaSP {
 
         // Clone for the current pattern
         Pattern clone = pattern.clonePatron();
+        List<TrieNode> intersection = clone.getIntersections(itemConstraints);
+        boolean allInItemConstraints = intersection.size() == clone.size();
         /*
          * From the beginning index to the last equivalence class appearing in the
          * extension set
          */
         for (int k = beginning; k < extensions.size(); k++) {
             TrieNode extensionNode = extensions.get(k);
-            boolean extensionNodeInItemConstraints = this.itemConstraintString
+            String extensionNodeID = (String) extensionNode.getPair().getItem().getId();
+            boolean extensionNodeInItemConstraints = this.itemConstraints.keySet()
                     .contains(extensionNode.getPair().getItem().getId());
             if (this.coocMapEquals != null) {
                 Map<String, Integer> map = this.coocMapEquals.get(lastAppended.getId());
                 if (map != null) {
-                    Integer coocurenceCount = map.get(extensionNode.getPair().getItem().getId());
+                    Integer coocurenceCount = map.get(extensionNodeID);
 
                     if (coocurenceCount == null) {
                         // @SADJADRE This is based on frequency of the occurance. However, it can be on
@@ -171,7 +170,7 @@ public class FrequentPatternEnumeration_ClaSP {
                         continue;
                     } else {
                         if (!(extensionNodeInItemConstraints
-                                || this.itemConstraintString.contains(lastAppended.getId())) &&
+                                || this.itemConstraints.keySet().contains(lastAppended.getId())) &&
                                 (double) coocurenceCount
                                         / lastAppended.getQuantity() < minimumConfidence) {
                             continue;
@@ -197,14 +196,17 @@ public class FrequentPatternEnumeration_ClaSP {
             joinCount++;
             IDList newIdList = currentTrie.getIdList().join(extensionNode.getChild().getIdList());
             double newPatternScore;
-            boolean allInItemConstraints = false;
-            if (itemConstraint.isEmpty()) {
+            if (itemConstraints.isEmpty()) {
                 newPatternScore = newIdList.getSupport();
             } else {
-                List<TrieNode> intersection = extension.getIntersections(itemConstraint);
-                IDList intersectionIdList = IdListCreatorStandard_Map.nodesToIDList(intersection);
-                allInItemConstraints = extensionNodeInItemConstraints ? (intersection.size() - 1) == clone.size()
-                        : (intersection.size() == clone.size() && intersection.size() != itemConstraint.size());
+                IDList intersectionIdList;
+                if (extensionNodeInItemConstraints) {
+                    List<TrieNode> cloneInterSection = new ArrayList<>(intersection);
+                    cloneInterSection.add(itemConstraints.get(extensionNodeID));
+                    intersectionIdList = IdListCreatorStandard_Map.nodesToIDList(cloneInterSection);
+                } else {
+                    intersectionIdList = IdListCreatorStandard_Map.nodesToIDList(intersection);
+                }
                 newPatternScore = (double) newIdList.getSupport() / intersectionIdList.getSupport();
             }
             if (allInItemConstraints || extensionNodeInItemConstraints || newPatternScore >= minimumConfidence) {
@@ -351,8 +353,8 @@ public class FrequentPatternEnumeration_ClaSP {
                             if (prefixSize < pSize) {
                                 // and prefix is a subpattern of p
                                 if (prefix.isSubpattern(abstractionCreator, p)
-                                        && (prefix.getIntersections(itemConstraint).size() != prefix.size()
-                                                || p.getIntersections(itemConstraint).size() == p.size())) {
+                                        && (prefix.getIntersections(itemConstraints).size() != prefix.size()
+                                                || p.getIntersections(itemConstraints).size() == p.size())) {
                                     /*
                                      * We dfsPruning backward subpattern pruning and establish as new nodes the
                                      * nodes of the trie of p
@@ -459,7 +461,7 @@ public class FrequentPatternEnumeration_ClaSP {
             Pattern p = entrada.getKey();
             Trie t = entrada.getValue();
             p.setAppearingIn(t.getAppearingIn());
-            if (!p.contains(itemConstraintString)) {
+            if (!p.contains(itemConstraints)) {
                 frequentPatterns.remove(i);
                 i--;
             } else {

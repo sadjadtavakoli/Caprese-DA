@@ -52,7 +52,7 @@ public class SequenceDatabase {
     private List<Sequence> sequences = new ArrayList<>();
     private ItemFactory<String> itemFactory = new ItemFactory<>();
     private List<String> itemConstraintStrings;
-    private List<TrieNode> itemConstraints = new ArrayList<>();
+    private Map<String, TrieNode> itemConstraints = new HashMap<>();
     private int nSequences = 1;
     /**
      * Map where we keep the original length for all the sequences
@@ -168,7 +168,7 @@ public class SequenceDatabase {
                         frequentItems.put(item, node);
 
                         if (itemConstraintStrings.contains(integers[i])) {
-                            itemConstraints.add(node);
+                            itemConstraints.put(integers[i], node);
                         }
                     }
                     IDList idlist = node.getChild().getIdList();
@@ -216,7 +216,7 @@ public class SequenceDatabase {
      * 
      * @return a List
      */
-    public List<TrieNode> itemConstraints() {
+    public Map<String, TrieNode> itemConstraints() {
         return itemConstraints;
     }
 

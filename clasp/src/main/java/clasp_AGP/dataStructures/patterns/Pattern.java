@@ -3,6 +3,7 @@ package clasp_AGP.dataStructures.patterns;
 import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.List;
+import java.util.Map;
 
 import clasp_AGP.dataStructures.abstracciones.ItemAbstractionPair;
 import clasp_AGP.dataStructures.creators.AbstractionCreator;
@@ -271,14 +272,11 @@ public class Pattern implements Comparable<Pattern> {
      * @param itemConstraints
      * @return a list of TrieNode
      */
-    public List<TrieNode> getIntersections(List<TrieNode> itemConstraints) {
+    public List<TrieNode> getIntersections(Map<String, TrieNode> itemConstraints) {
         List<TrieNode> result = new ArrayList<>();
         for (ItemAbstractionPair pair : elements) {
-            for (TrieNode node : itemConstraints) {
-                if (pair.getItem().getId() == node.getPair().getItem().getId()) {
-                    result.add(node);
-                    break;
-                }
+            if(itemConstraints.keySet().contains(pair.getItem().getId())){
+                result.add(itemConstraints.get(pair.getItem().getId()));
             }
         }
         return result;
@@ -290,7 +288,7 @@ public class Pattern implements Comparable<Pattern> {
      * @param itemConstraints
      * @return the intersection's IDList
      */
-    public IDList getIntersectionsIDList(List<TrieNode> itemConstraints) {
+    public IDList getIntersectionsIDList(Map<String, TrieNode> itemConstraints) {
         List<TrieNode> intersection = this.getIntersections(itemConstraints);
         return IdListCreatorStandard_Map.nodesToIDList(intersection);
     }
@@ -400,7 +398,7 @@ public class Pattern implements Comparable<Pattern> {
      */
     public boolean isSubpattern(AbstractionCreator abstractionCreator, Pattern p) {
         // We initialize all the positions values to 0
-        List<Integer> positions = new ArrayList<Integer>(p.size());
+        List<Integer> positions = new ArrayList<>(p.size());
         for (int i = 0; i < size(); i++) {
             positions.add(0);
         }
@@ -408,12 +406,12 @@ public class Pattern implements Comparable<Pattern> {
         return abstractionCreator.isSubpattern(this, p, 0, positions);
     }
 
-    public boolean contains(List<String> nodeList) {
+    public boolean contains(Map<String, TrieNode> nodeList) {
         if (nodeList.isEmpty()) {
             return true;
         }
         for (int j = 0; j < elements.size(); j++) {
-            if(nodeList.contains(elements.get(j).getItem().getId())){
+            if(nodeList.keySet().contains(elements.get(j).getItem().getId())){
                 return true;
             }
         }
