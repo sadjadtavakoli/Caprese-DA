@@ -3,14 +3,10 @@ package clasp_AGP;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
-
-import javax.lang.model.type.IntersectionType;
 
 import clasp_AGP.dataStructures.Item;
 import clasp_AGP.dataStructures.abstracciones.ItemAbstractionPair;
@@ -81,7 +77,7 @@ public class FrequentPatternEnumeration_ClaSP {
 
     private Map<String, Map<String, Integer>> coocMapEquals;
     private Map<String, TrieNode> itemConstraints;
-    private Set<String> detectedFunctions;
+    private Map<String, Double> detectedFunctions;
     /**
      * Tin inserts:
      */
@@ -103,7 +99,7 @@ public class FrequentPatternEnumeration_ClaSP {
         this.minimumConfidence = minimumConfidence;
         this.saver = saver;
         this.matchingMap = new HashMap<>();
-        this.detectedFunctions = new HashSet<>();
+        this.detectedFunctions = new HashMap<>();
         this.itemConstraints = itemConstraints;
         this.coocMapEquals = coocMapEquals;
     }
@@ -156,8 +152,8 @@ public class FrequentPatternEnumeration_ClaSP {
     private void exploreChildren(Pattern pattern, TrieNode currentNode, List<TrieNode> extensions,
             int beginning, Item lastAppended, List<TrieNode> patternIntersection,
             Map<String, Integer> itemConstraintsExtension,
-            Map<String, Integer> regularFunctionsExtension) { // RE 1- give extensions intersection with
-                                                              // item-constraints
+            Map<String, Integer> regularFunctionsExtension) {
+        // RE 1- give extensions intersection with item-constraints DONE
 
         // We get the curretn trie
         Trie currentTrie = currentNode.getChild();
@@ -172,13 +168,12 @@ public class FrequentPatternEnumeration_ClaSP {
             return;
         }
 
-        System.out.println(extensions);
-        System.out.println(itemConstraintsExtension);
-        System.out.println(regularFunctionsExtension);
-        System.out.println(pattern);
-        System.out.println(patternIntersection);
-        System.out.println("- - - - - -");
-
+        // System.out.println(extensions);
+        // System.out.println(itemConstraintsExtension);
+        // System.out.println(regularFunctionsExtension);
+        // System.out.println(pattern);
+        // System.out.println(patternIntersection);
+        // System.out.println("- - - - - -");
 
         // Initialization of new sets
         List<TrieNode> newExtensions = new ArrayList<>();
@@ -190,11 +185,11 @@ public class FrequentPatternEnumeration_ClaSP {
         // RE 2- compute extension's Intersection with item-constraints => pass
         // intersection with their indexes in the merged list DONE
         // RE 2- compute the pattern's intersection with item constraints can also be
-        // detected from the previous step instead of computing it everytime.
+        // detected from the previous step instead of computing it everytime. DONE
+        // RE 2- compute regular functions in extensions => pass their indexes in the
+        // merged list DONE
         // RE 2- but the intersection with not-detected ones must be computed everytime
         // here
-        // RE 2- compute regular functions in extensions => pass their indexes in the
-        // merged list
         // compute not-detected regular functions in this pattern.
 
         // RE 2- check if intersection.isEmpty and extensionIntersection is empty =>
@@ -221,10 +216,13 @@ public class FrequentPatternEnumeration_ClaSP {
                     if (coocurenceCount == null) {
                         continue;
                     } else {
-                        if (!(extensionNodeInItemConstraints
-                                || this.itemConstraints.keySet().contains(lastAppended.getId())) &&
-                                (double) coocurenceCount
-                                        / lastAppended.getQuantity() < minimumConfidence) {
+                        if (
+                            detectedFunctions.getOrDefault(extensionNodeID, 0.0) == 1
+                            // !(extensionNodeInItemConstraints
+                            //     || this.itemConstraints.keySet().contains(lastAppended.getId())) &&
+                            //     (double) coocurenceCount
+                            //             / lastAppended.getQuantity() < minimumConfidence
+                            ) {
                                                                                     // already detected with
                                                                                             // confidence 1 => continue
                                                                                             // DONE
@@ -295,13 +293,21 @@ public class FrequentPatternEnumeration_ClaSP {
                  * Finally we add the new pattern and nodeTrie to the sets that are needed for
                  * future patterns
                  */
-                newPatterns.add(extension);
-                newNodesToExtends.add(newTrieNode);
-                newExtensions.add(newTrieNode);
                 if (extensionNodeInItemConstraints) {
+                    newPatterns.add(extension);
+                    newNodesToExtends.add(newTrieNode);
+                    newExtensions.add(newTrieNode);
                     newItemConstraintsExtension.put(extensionNodeID, newExtensions.size() - 1);
                 } else {
-                    newRegularFunctionsExtension.put(extensionNodeID, newExtensions.size() - 1);
+                    double preScore = detectedFunctions.getOrDefault(extensionNodeID, 0.0);
+                    if (preScore == 0.0 || (newPatternScore <= 1 && newPatternScore > preScore)) {
+                        newPatterns.add(extension);
+                        newNodesToExtends.add(newTrieNode);
+                        newExtensions.add(newTrieNode);
+                        detectedFunctions.put(extensionNodeID, newPatternScore);
+                        newRegularFunctionsExtension.put(extensionNodeID, newExtensions.size() - 1);
+                    }
+
                 }
             }
         }
@@ -605,7 +611,7 @@ public class FrequentPatternEnumeration_ClaSP {
 
         /*
          * We go over all patterns to find closed patterns wrt to confidence
-         * Those pattern will be saved as the final result  
+         * Those pattern will be saved as the final result
          */
         for (int i = 0; i < totalPatterns.size(); i++) {
             Pattern p1 = totalPatterns.get(i);
@@ -632,7 +638,8 @@ public class FrequentPatternEnumeration_ClaSP {
                     }
                 }
             }
-            if (save) saver.savePattern(p1);
+            if (save)
+                saver.savePattern(p1);
         }
     }
 
