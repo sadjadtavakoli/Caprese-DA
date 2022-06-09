@@ -3,10 +3,14 @@ package clasp_AGP;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.Map.Entry;
+
+import javax.lang.model.type.IntersectionType;
 
 import clasp_AGP.dataStructures.Item;
 import clasp_AGP.dataStructures.abstracciones.ItemAbstractionPair;
@@ -77,6 +81,7 @@ public class FrequentPatternEnumeration_ClaSP {
 
     private Map<String, Map<String, Integer>> coocMapEquals;
     private Map<String, TrieNode> itemConstraints;
+    private Set<String> detectedFunctions;
     /**
      * Tin inserts:
      */
@@ -98,6 +103,7 @@ public class FrequentPatternEnumeration_ClaSP {
         this.minimumConfidence = minimumConfidence;
         this.saver = saver;
         this.matchingMap = new HashMap<>();
+        this.detectedFunctions = new HashSet<>();
         this.itemConstraints = itemConstraints;
         this.coocMapEquals = coocMapEquals;
     }
@@ -117,25 +123,48 @@ public class FrequentPatternEnumeration_ClaSP {
          * Tin inserts
          */
         firstSequenceExtensions = trie.getNodes();
+        Map<String, Integer> itemConstraintsExtension = new HashMap<>();
+        Map<String, Integer> regularFunctionsExtension = new HashMap<>();
+
+        for (int i = 0; i < firstSequenceExtensions.size(); i++) {
+            String nodeID = (String) firstSequenceExtensions.get(i).getPair().getItem().getId();
+            if (itemConstraints.containsKey(nodeID)) {
+                itemConstraintsExtension.put(nodeID, i);
+            } else {
+                regularFunctionsExtension.put(nodeID, i);
+
+            }
+        }
+
         for (int i = 0; i < tam; i++) {
             // For each frequent item (the children of the root Trie)
+            List<TrieNode> patternIntersection = new ArrayList<>();
             TrieNode eq = trie.getNode(i);
+            if (itemConstraints.containsKey(eq.getPair().getItem().getId())) {
+                patternIntersection.add(eq);
+            }
             /*
              * We call to the main method of the algorithm for that Trie associated with the
              * frequent item
              */
-            exploreChildren(new Pattern(eq.getPair()), eq, firstSequenceExtensions, i + 1, eq.getPair().getItem());
+            exploreChildren(new Pattern(eq.getPair()), eq, firstSequenceExtensions, i + 1, eq.getPair().getItem(),
+                    patternIntersection,
+                    itemConstraintsExtension, regularFunctionsExtension);
         }
     }
 
     private void exploreChildren(Pattern pattern, TrieNode currentNode, List<TrieNode> extensions,
-            int beginning, Item lastAppended) {
+            int beginning, Item lastAppended, List<TrieNode> patternIntersection,
+            Map<String, Integer> itemConstraintsExtension,
+            Map<String, Integer> regularFunctionsExtension) { // RE 1- give extensions intersection with
+                                                              // item-constraints
 
         // We get the curretn trie
         Trie currentTrie = currentNode.getChild();
         List<Pattern> newPatterns = new ArrayList<>();
         List<TrieNode> newNodesToExtends = new ArrayList<>();
-
+        Map<String, Integer> newItemConstraintsExtension = new HashMap<>();
+        Map<String, Integer> newRegularFunctionsExtension = new HashMap<>();
         // We start increasing the number of frequent patterns
         numberOfFrequentPatterns++;
 
@@ -143,13 +172,38 @@ public class FrequentPatternEnumeration_ClaSP {
             return;
         }
 
+        System.out.println(extensions);
+        System.out.println(itemConstraintsExtension);
+        System.out.println(regularFunctionsExtension);
+        System.out.println(pattern);
+        System.out.println(patternIntersection);
+        System.out.println("- - - - - -");
+
+
         // Initialization of new sets
         List<TrieNode> newExtensions = new ArrayList<>();
 
         // Clone for the current pattern
         Pattern clone = pattern.clonePatron();
-        List<TrieNode> intersection = clone.getIntersections(itemConstraints);
-        boolean allInItemConstraints = intersection.size() == clone.size();
+        boolean allInItemConstraints = patternIntersection.size() == clone.size();
+     
+        // RE 2- compute extension's Intersection with item-constraints => pass
+        // intersection with their indexes in the merged list DONE
+        // RE 2- compute the pattern's intersection with item constraints can also be
+        // detected from the previous step instead of computing it everytime.
+        // RE 2- but the intersection with not-detected ones must be computed everytime
+        // here
+        // RE 2- compute regular functions in extensions => pass their indexes in the
+        // merged list
+        // compute not-detected regular functions in this pattern.
+
+        // RE 2- check if intersection.isEmpty and extensionIntersection is empty =>
+        // return
+        // RE 3- there is no non-detected regular functions in pattern AND there is no
+        // non-detected regular functions in extension after beginning => return
+        // this data can be either passed as an argument or stored in a global Map-ish
+        // thing
+
         /*
          * From the beginning index to the last equivalence class appearing in the
          * extension set
@@ -157,22 +211,29 @@ public class FrequentPatternEnumeration_ClaSP {
         for (int k = beginning; k < extensions.size(); k++) {
             TrieNode extensionNode = extensions.get(k);
             String extensionNodeID = (String) extensionNode.getPair().getItem().getId();
-            boolean extensionNodeInItemConstraints = this.itemConstraints.keySet()
-                    .contains(extensionNode.getPair().getItem().getId());
+            boolean extensionNodeInItemConstraints = this.itemConstraints
+                    .containsKey(extensionNode.getPair().getItem().getId());
             if (this.coocMapEquals != null) {
                 Map<String, Integer> map = this.coocMapEquals.get(lastAppended.getId());
                 if (map != null) {
                     Integer coocurenceCount = map.get(extensionNodeID);
 
                     if (coocurenceCount == null) {
-                        // @SADJADRE This is based on frequency of the occurance. However, it can be on
-                        // just occurance too; in other words, no need to check being frequent.
                         continue;
                     } else {
                         if (!(extensionNodeInItemConstraints
                                 || this.itemConstraints.keySet().contains(lastAppended.getId())) &&
                                 (double) coocurenceCount
                                         / lastAppended.getQuantity() < minimumConfidence) {
+                                                                                    // already detected with
+                                                                                            // confidence 1 => continue
+                                                                                            // DONE
+                                                                                            // RE 4- item is
+                                                                                            // item-contraints and there
+                                                                                            // is regualr functions to
+                                                                                            // extend => continue
+                                                                                            // RE 4- if the previous
+                                                                                            // node is item-contraints
                             continue;
                         }
                     }
@@ -201,14 +262,25 @@ public class FrequentPatternEnumeration_ClaSP {
             } else {
                 IDList intersectionIdList;
                 if (extensionNodeInItemConstraints) {
-                    List<TrieNode> cloneInterSection = new ArrayList<>(intersection);
+                    List<TrieNode> cloneInterSection = new ArrayList<>(patternIntersection);
                     cloneInterSection.add(itemConstraints.get(extensionNodeID));
                     intersectionIdList = IdListCreatorStandard_Map.nodesToIDList(cloneInterSection);
                 } else {
-                    intersectionIdList = IdListCreatorStandard_Map.nodesToIDList(intersection);
+                    intersectionIdList = IdListCreatorStandard_Map.nodesToIDList(patternIntersection);
                 }
                 newPatternScore = (double) newIdList.getSupport() / intersectionIdList.getSupport();
             }
+
+            // if k is greater than the biggest intersection index (extension's intersection
+            // is empty) AND confidnce >= 1.0 => true
+            // if there are not-detected regular functions in the pattern AND
+            // k is less than the biggest intersection index (extension's intersection is
+            // not empty) => true
+
+            // if extension node is itemContstraints keep it in item-constraints extensions
+            // list with its index in original extension list
+            // otherwise keep it in regular extensions with its index in the original
+            // extension list
             if (allInItemConstraints || extensionNodeInItemConstraints || newPatternScore >= minimumConfidence) {
                 // We create a new trie for it
                 Trie newTrie = new Trie(null, newIdList);
@@ -226,6 +298,11 @@ public class FrequentPatternEnumeration_ClaSP {
                 newPatterns.add(extension);
                 newNodesToExtends.add(newTrieNode);
                 newExtensions.add(newTrieNode);
+                if (extensionNodeInItemConstraints) {
+                    newItemConstraintsExtension.put(extensionNodeID, newExtensions.size() - 1);
+                } else {
+                    newRegularFunctionsExtension.put(extensionNodeID, newExtensions.size() - 1);
+                }
             }
         }
 
@@ -243,7 +320,18 @@ public class FrequentPatternEnumeration_ClaSP {
              * Besides we establish the same set as the set which we will make the
              * i-extensions, but beginning from the (i+1)-th element
              */
-            exploreChildren(newPattern, nodeToExtend, newExtensions, i + 1, last);
+
+            if (itemConstraints.containsKey(nodeToExtend.getPair().getItem().getId())) {
+                List<TrieNode> cloneIntersection = new ArrayList<>(patternIntersection);
+                cloneIntersection.add(itemConstraints.get(nodeToExtend.getPair().getItem().getId()));
+                exploreChildren(newPattern, nodeToExtend, newExtensions, i + 1, last, cloneIntersection,
+                        newItemConstraintsExtension,
+                        newRegularFunctionsExtension);
+            } else {
+                exploreChildren(newPattern, nodeToExtend, newExtensions, i + 1, last, patternIntersection,
+                        newItemConstraintsExtension,
+                        newRegularFunctionsExtension);
+            }
             nodeToExtend.getChild().setIdList(null);
         }
     }

@@ -275,7 +275,7 @@ public class Pattern implements Comparable<Pattern> {
     public List<TrieNode> getIntersections(Map<String, TrieNode> itemConstraints) {
         List<TrieNode> result = new ArrayList<>();
         for (ItemAbstractionPair pair : elements) {
-            if(itemConstraints.keySet().contains(pair.getItem().getId())){
+            if(itemConstraints.containsKey(pair.getItem().getId())){
                 result.add(itemConstraints.get(pair.getItem().getId()));
             }
         }
@@ -411,7 +411,7 @@ public class Pattern implements Comparable<Pattern> {
             return true;
         }
         for (int j = 0; j < elements.size(); j++) {
-            if(nodeList.keySet().contains(elements.get(j).getItem().getId())){
+            if(nodeList.containsKey(elements.get(j).getItem().getId())){
                 return true;
             }
         }
