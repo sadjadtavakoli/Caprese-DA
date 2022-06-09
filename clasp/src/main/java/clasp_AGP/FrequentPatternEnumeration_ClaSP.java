@@ -189,8 +189,9 @@ public class FrequentPatternEnumeration_ClaSP {
         }
 
         // Check if intersection.isEmpty and extensionIntersection is empty => return
-        boolean itemConstraintsIsEmpty = extensionsIntersection.isEmpty();
-        if (patternIntersection.isEmpty() && (itemConstraintsIsEmpty || extensionsIntersection.get(extensionsIntersection.size() - 1) < beginning)) {
+        boolean extensionIntersectionIsEmpty = extensionsIntersection.isEmpty();
+        boolean notAnyItemConstraintsToExend = (extensionIntersectionIsEmpty || extensionsIntersection.get(extensionsIntersection.size() - 1) < beginning);
+        if (patternIntersection.isEmpty() && notAnyItemConstraintsToExend) {
             return;
         }
 
@@ -262,6 +263,12 @@ public class FrequentPatternEnumeration_ClaSP {
             }
 
             boolean condition = true;
+
+            if(notAnyItemConstraintsToExend){
+                condition = newPatternScore >= minimumConfidence;
+            } 
+
+
             if (condition) {
                 System.out.println("success");
                 // We create a new trie for it
