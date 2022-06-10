@@ -164,42 +164,17 @@ public class FrequentPatternEnumeration_ClaSP {
         List<Integer> newExtensionIntersection = new ArrayList<>();
         List<Integer> newExtensionRegularFunctions = new ArrayList<>();
 
-        if (isAvoidable(pattern, currentTrie)) {
+        if (isAvoidable(pattern, currentTrie, extensions, beginning, patternIntersection, patternRegularFunctions, extensionsIntersection, extensionsRegularFunctions)) {
             return;
         }
+
+        boolean notAnyItemConstraintsToExend = (extensionsIntersection.isEmpty() || extensionsIntersection.get(extensionsIntersection.size() - 1) < beginning);
 
         // Initialization of new sets
         List<TrieNode> newExtensions = new ArrayList<>();
 
         // Clone for the current pattern
         Pattern clone = pattern.clonePatron();
-        boolean hasRegularExtensionRemaind = false;
-        boolean hasUndetectedRegularFunctions = includeUndetectedRegularFunctions(patternRegularFunctions);
-        // checks whether the given pattern include any undetected regular functions or
-        // not
-        
-
-        // checks whether there is any undetected regular function extensions or not
-        for (Integer nodeIndex : extensionsRegularFunctions) {
-            if (nodeIndex >= beginning && detectedFunctions
-                    .getOrDefault(extensions.get(nodeIndex).getPair().getItem().getId(), 0.0) != 1) {
-                hasRegularExtensionRemaind = true;
-                break;
-            }
-        }
-
-        // Check if intersection.isEmpty and extensionIntersection is empty => return
-        boolean extensionIntersectionIsEmpty = extensionsIntersection.isEmpty();
-        boolean notAnyItemConstraintsToExend = (extensionIntersectionIsEmpty || extensionsIntersection.get(extensionsIntersection.size() - 1) < beginning);
-        if (patternIntersection.isEmpty() && notAnyItemConstraintsToExend) {
-            return;
-        }
-
-        // Check if there is no non-detected regular functions in pattern AND there is
-        // no non-detected regular functions in extension after beginning => return
-        if (!hasUndetectedRegularFunctions && !hasRegularExtensionRemaind) {
-            return;
-        }
 
         // We start increasing the number of frequent patterns
         numberOfFrequentPatterns++;
@@ -270,7 +245,6 @@ public class FrequentPatternEnumeration_ClaSP {
 
 
             if (condition) {
-                System.out.println("success");
                 // We create a new trie for it
                 Trie newTrie = new Trie(null, newIdList);
                 // And we insert it its appearances
@@ -377,7 +351,41 @@ public class FrequentPatternEnumeration_ClaSP {
      * @param trie   Trie associated with prefix
      * @return
      */
-    private boolean isAvoidable(Pattern prefix, Trie trie) {
+    private boolean isAvoidable(Pattern prefix, Trie trie, List<TrieNode> extensions,
+    int beginning, List<TrieNode> patternIntersection, List<String> patternRegularFunctions,
+    List<Integer> extensionsIntersection,
+    List<Integer> extensionsRegularFunctions) {
+
+        boolean hasRegularExtensionRemaind = false;
+        // checks whether the given pattern include any undetected regular functions or not
+        boolean hasUndetectedRegularFunctions = includeUndetectedRegularFunctions(patternRegularFunctions);
+        
+         // checks whether there is any undetected regular function extensions or not
+        for (Integer nodeIndex : extensionsRegularFunctions) {
+            if (nodeIndex >= beginning && detectedFunctions
+                    .getOrDefault(extensions.get(nodeIndex).getPair().getItem().getId(), 0.0) != 1) {
+                hasRegularExtensionRemaind = true;
+                break;
+            }
+        }
+
+              
+        // Check if intersection.isEmpty and extensionIntersection is empty => return
+        boolean notAnyItemConstraintsToExend = (extensionsIntersection.isEmpty() || extensionsIntersection.get(extensionsIntersection.size() - 1) < beginning);
+        if (patternIntersection.isEmpty() && notAnyItemConstraintsToExend) {
+            return true;
+        }
+
+        // Check if there is no non-detected regular functions in pattern AND there is
+        // no non-detected regular functions in extension after beginning => return
+        if (!hasUndetectedRegularFunctions && !hasRegularExtensionRemaind) {
+            return true;
+        }
+
+        return preserveClosedPatternset(prefix, trie);
+    }
+
+    private boolean preserveClosedPatternset(Pattern prefix, Trie trie) {
         // We get the support of the pattern
         int support = trie.getSupport();
         // We get the IdList of the pattern
