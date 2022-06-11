@@ -167,17 +167,14 @@ public class FrequentPatternEnumeration_ClaSP {
         if (isAvoidable(pattern, currentTrie, extensions, beginning, patternIntersection, patternRegularFunctions, extensionsIntersection, extensionsRegularFunctions)) {
             return;
         }
-
-        boolean notAnyItemConstraintsToExend = (extensionsIntersection.isEmpty() || extensionsIntersection.get(extensionsIntersection.size() - 1) < beginning);
+        Integer lastExtensionIntersection = extensionsIntersection.isEmpty() ? -1 : extensionsIntersection.get(extensionsIntersection.size() - 1);
+        boolean notAnyItemConstraintsToExend = lastExtensionIntersection < beginning;
 
         // Initialization of new sets
         List<TrieNode> newExtensions = new ArrayList<>();
 
         // Clone for the current pattern
         Pattern clone = pattern.clonePatron();
-
-        // We start increasing the number of frequent patterns
-        numberOfFrequentPatterns++;
 
         /*
          * From the beginning index to the last equivalence class appearing in the
@@ -195,7 +192,7 @@ public class FrequentPatternEnumeration_ClaSP {
 
                     if (coocurenceCount == null) {
                         continue;
-                    } else {
+                    } else if(!extensionNodeInItemConstraints){
                         if (detectedFunctions.getOrDefault(extensionNodeID, 0.0) == 1) {
                             // RE 4- item is item-contraints and there is regualr functions to extend =>
                             // continue
@@ -222,24 +219,18 @@ public class FrequentPatternEnumeration_ClaSP {
              */
             joinCount++;
             IDList newIdList = currentTrie.getIdList().join(extensionNode.getChild().getIdList());
-            double newPatternScore;
-            if (itemConstraints.isEmpty()) {
-                newPatternScore = newIdList.getSupport();
+            IDList intersectionIdList;
+            if (extensionNodeInItemConstraints) {
+                List<TrieNode> cloneInterSection = new ArrayList<>(patternIntersection);
+                cloneInterSection.add(itemConstraints.get(extensionNodeID));
+                intersectionIdList = IdListCreatorStandard_Map.nodesToIDList(cloneInterSection);
             } else {
-                IDList intersectionIdList;
-                if (extensionNodeInItemConstraints) {
-                    List<TrieNode> cloneInterSection = new ArrayList<>(patternIntersection);
-                    cloneInterSection.add(itemConstraints.get(extensionNodeID));
-                    intersectionIdList = IdListCreatorStandard_Map.nodesToIDList(cloneInterSection);
-                } else {
-                    intersectionIdList = IdListCreatorStandard_Map.nodesToIDList(patternIntersection);
-                }
-                newPatternScore = (double) newIdList.getSupport() / intersectionIdList.getSupport();
+                intersectionIdList = IdListCreatorStandard_Map.nodesToIDList(patternIntersection);
             }
 
+            double newPatternScore = (double) newIdList.getSupport() / intersectionIdList.getSupport();
             boolean condition = true;
-
-            if(notAnyItemConstraintsToExend){
+            if(notAnyItemConstraintsToExend || (extensionNodeInItemConstraints && patternIntersection.size() + 1 == extensionsIntersection.size())){
                 condition = newPatternScore >= minimumConfidence;
             } 
 
@@ -253,7 +244,11 @@ public class FrequentPatternEnumeration_ClaSP {
                 TrieNode newTrieNode = new TrieNode(newPair, newTrie);
                 // And we merge the new Trie with the current one
                 newTrieNode.setConfidence(newPatternScore);
-                currentTrie.mergeWithTrie_i(newTrieNode);
+                if (!(patternIntersection.isEmpty() && k > lastExtensionIntersection)) {
+                    // We start increasing the number of frequent patterns
+                    numberOfFrequentPatterns++;
+                    currentTrie.mergeWithTrie_i(newTrieNode);
+                }
                 /*
                  * Finally we add the new pattern and nodeTrie to the sets that are needed for
                  * future patterns
@@ -371,7 +366,7 @@ public class FrequentPatternEnumeration_ClaSP {
 
               
         // Check if intersection.isEmpty and extensionIntersection is empty => return
-        boolean notAnyItemConstraintsToExend = (extensionsIntersection.isEmpty() || extensionsIntersection.get(extensionsIntersection.size() - 1) < beginning);
+        boolean notAnyItemConstraintsToExend = (extensionsIntersection.isEmpty() || beginning > extensionsIntersection.get(extensionsIntersection.size() - 1));
         if (patternIntersection.isEmpty() && notAnyItemConstraintsToExend) {
             return true;
         }
@@ -458,9 +453,7 @@ public class FrequentPatternEnumeration_ClaSP {
                             // if the prefix size is less than the size of p
                             if (prefixSize < pSize) {
                                 // and prefix is a subpattern of p
-                                if (prefix.isSubpattern(abstractionCreator, p)
-                                        && (prefix.getIntersections(itemConstraints).size() != prefix.size()
-                                                || p.getIntersections(itemConstraints).size() == p.size())) {
+                                if (prefix.isSubpattern(abstractionCreator, p)) {
                                     /*
                                      * We dfsPruning backward subpattern pruning and establish as new nodes the
                                      * nodes of the trie of p
@@ -567,27 +560,16 @@ public class FrequentPatternEnumeration_ClaSP {
             Pattern p = entrada.getKey();
             Trie t = entrada.getValue();
             p.setAppearingIn(t.getAppearingIn());
-            if (!p.contains(itemConstraints)) {
-                frequentPatterns.remove(i);
-                i--;
-            } else {
-                if (p.getConfidence() < minimumConfidence) {
-                    frequentPatterns.remove(i);
-                    i--;
-                } else {
-                    List<Pattern> listaPatrones = patternClusters.get(t.getSumIdSequences());
-                    if (listaPatrones == null) {
-                        listaPatrones = new LinkedList<>();
-                        patternClusters.put(t.getSumIdSequences(), listaPatrones);
-                    }
-                    listaPatrones.add(p);
-                    frequentPatterns.remove(i);
-                    i--;
-                }
+            List<Pattern> listaPatrones = patternClusters.get(t.getSumIdSequences());
+            if (listaPatrones == null) {
+                listaPatrones = new LinkedList<>();
+                patternClusters.put(t.getSumIdSequences(), listaPatrones);
             }
+            listaPatrones.add(p);
+            frequentPatterns.remove(i);
+            i--;
         }
 
-        List<Pattern> totalPatterns = new ArrayList();
         // For all the list associated with de different sumSequencesIDs values
         for (List<Pattern> lista : patternClusters.values()) {
             // For all their patterns
@@ -616,8 +598,10 @@ public class FrequentPatternEnumeration_ClaSP {
                         }
                     }
                 }
-                if (valid)
-                    totalPatterns.add(p1);
+                if (valid){
+                    numberOfFrequentClosedPatterns++;
+                    saver.savePattern(p1);
+                }
             }
         }
 
@@ -625,36 +609,6 @@ public class FrequentPatternEnumeration_ClaSP {
          * We go over all patterns to find closed patterns wrt to confidence
          * Those pattern will be saved as the final result
          */
-        for (int i = 0; i < totalPatterns.size(); i++) {
-            Pattern p1 = totalPatterns.get(i);
-            boolean save = true;
-            for (int j = i + 1; j < totalPatterns.size(); j++) {
-                Pattern p2 = totalPatterns.get(j);
-                if (p1.getConfidence() == p2.getConfidence() && p1.size() != p2.size()) {
-                    /*
-                     * And one is subpattern of the other, we remove the shorter pattern and keep
-                     * the longer one
-                     */
-                    if (p1.size() < p2.size()) {
-                        if (p1.isSubpattern(abstractionCreator, p2)) {
-                            totalPatterns.remove(i);
-                            i--;
-                            save = false;
-                            break;
-                        }
-                    } else {
-                        if (p2.isSubpattern(abstractionCreator, p1)) {
-                            totalPatterns.remove(j);
-                            j--;
-                        }
-                    }
-                }
-            }
-            if (save) {
-                numberOfFrequentClosedPatterns++;
-                saver.savePattern(p1);
-            }
-        }
     }
 
     public void clear() {

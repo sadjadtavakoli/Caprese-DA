@@ -452,7 +452,7 @@ public class Trie implements Comparable<Trie> {
      * @param p Prefix pattern
      * @return a list of entries <Pattern, Trie>
      */
-    public List<Entry<Pattern, Trie>> preorderTraversal(Pattern p) {
+    public List<Entry<Pattern, Trie>> preorderTraversal(Pattern p, double minimumConfidence) {
         List<Entry<Pattern, Trie>> result = new ArrayList<Entry<Pattern, Trie>>();
         // If there is any node
         if (nodes != null) {
@@ -461,17 +461,18 @@ public class Trie implements Comparable<Trie> {
                  * We concatenate the pair component of this child with the previous prefix
                  * pattern, we set its appearances and we add it as a element in the result list
                  */
-                Pattern newPattern = PatternCreator.getInstance().concatenate(p, node.getPair());
-                newPattern.setConfidence(node.getConfidence());
                 Trie child = node.getChild();
-                AbstractMap.SimpleEntry newEntry = new AbstractMap.SimpleEntry(newPattern, child);
-                result.add(newEntry);
+                Pattern newPattern = PatternCreator.getInstance().concatenate(p, node.getPair());
+                if (node.getConfidence() <= 1 && node.getConfidence() >= minimumConfidence) {
+                    newPattern.setConfidence(node.getConfidence());
+                    AbstractMap.SimpleEntry newEntry = new AbstractMap.SimpleEntry(newPattern, child);
+                    result.add(newEntry);
+                }
                 if (child != null) {
                     /*
                      * If the child is not null we make a recursive call with the new pattern
                      */
-                    // System.out.println(newPattern);
-                    List<Entry<Pattern, Trie>> patternsFromChild = child.preorderTraversal(newPattern);
+                    List<Entry<Pattern, Trie>> patternsFromChild = child.preorderTraversal(newPattern, minimumConfidence);
                     if (patternsFromChild != null) {
                         result.addAll(patternsFromChild);
                     }
@@ -491,16 +492,18 @@ public class Trie implements Comparable<Trie> {
                  * We concatenate the pair component of this child with the previous prefix
                  * pattern, we set its appearances and we add it as a element in the result list
                  */
-                Pattern newPattern = PatternCreator.getInstance().concatenate(p, node.getPair());
-                newPattern.setConfidence(node.getConfidence());
                 Trie child = node.getChild();
-                AbstractMap.SimpleEntry newEntry = new AbstractMap.SimpleEntry(newPattern, child);
-                result.add(newEntry);
+                Pattern newPattern = PatternCreator.getInstance().concatenate(p, node.getPair());
+                if (node.getConfidence() <= 1 && node.getConfidence() >= minimumConfidence) {
+                    newPattern.setConfidence(node.getConfidence());
+                    AbstractMap.SimpleEntry newEntry = new AbstractMap.SimpleEntry(newPattern, child);
+                    result.add(newEntry);
+                }
                 if (child != null) {
                     /*
                      * If the child is not null we make a recursive call with the new pattern
                      */
-                    List<Entry<Pattern, Trie>> patternsFromChild = child.preorderTraversal(newPattern);
+                    List<Entry<Pattern, Trie>> patternsFromChild = child.preorderTraversal(newPattern, minimumConfidence);
                     if (patternsFromChild != null) {
                         result.addAll(patternsFromChild);
                     }

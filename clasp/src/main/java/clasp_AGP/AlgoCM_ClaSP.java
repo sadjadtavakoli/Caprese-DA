@@ -216,7 +216,7 @@ public class AlgoCM_ClaSP {
                 + " seconds and finds " + numberOfFrequentPatterns + " patterns");
         // @TODO @SADJADRE should refactor this sections. This whole code is implemented
         // for seqeunce detection not just simply cooccurance probability detection
-        List<Entry<Pattern, Trie>> outputPatternsFromMainMethod = FrequentAtomsTrie.preorderTraversal(null);
+        List<Entry<Pattern, Trie>> outputPatternsFromMainMethod = FrequentAtomsTrie.preorderTraversal(null, minimumConfidence);
         // System.out.println("patterns before non-closed elimination");
         // System.out.println(outputPatternsFromMainMethod.toString());
 
