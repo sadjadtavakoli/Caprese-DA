@@ -56,10 +56,16 @@ public class FrequentPatternEnumeration_ClaSP {
      */
     private AbstractionCreator abstractionCreator;
     /**
-     * The absolute minimum support threshold, i.e. the minimum number of sequences
+     * The absolute minimum confidence threshold, i.e. the minimum number of sequences
      * where the patterns have to be
      */
     private double minimumConfidence;
+
+    /**
+     * The absolute minimum confidence threshold, i.e. the minimum number of sequences
+     * where the patterns have to be, to be considered as detected
+     */
+    private double minimumConfidenceToStop;
     /**
      * Number of frequent patterns found by the algorithm. Initially set to zero.
      */
@@ -93,10 +99,11 @@ public class FrequentPatternEnumeration_ClaSP {
      * @param findClosedPatterns flag to indicate if we are interesting in only
      *                           finding the closed sequences
      */
-    public FrequentPatternEnumeration_ClaSP(AbstractionCreator abstractionCreator, double minimumConfidence,
+    public FrequentPatternEnumeration_ClaSP(AbstractionCreator abstractionCreator, double minimumConfidence, double minimumConfidenceToStop,
             Saver saver, Map<String, TrieNode> itemConstraints, Map<String, Map<String, Integer>> coocMapEquals) {
         this.abstractionCreator = abstractionCreator;
         this.minimumConfidence = minimumConfidence;
+        this.minimumConfidenceToStop = minimumConfidenceToStop;
         this.saver = saver;
         this.matchingMap = new HashMap<>();
         this.detectedFunctions = new HashMap<>();
@@ -193,7 +200,7 @@ public class FrequentPatternEnumeration_ClaSP {
                     if (coocurenceCount == null) {
                         continue;
                     } else if(!extensionNodeInItemConstraints){
-                        if (detectedFunctions.getOrDefault(extensionNodeID, 0.0) == 1) {
+                        if (detectedFunctions.getOrDefault(extensionNodeID, 0.0) == minimumConfidenceToStop) {
                             // RE 4- item is item-contraints and there is regualr functions to extend =>
                             // continue
                             // RE 4- if the previous node is item-contraints
@@ -260,7 +267,7 @@ public class FrequentPatternEnumeration_ClaSP {
                     newExtensionIntersection.add(newExtensions.size() - 1);
                 } else {
                     double preScore = detectedFunctions.getOrDefault(extensionNodeID, -1.0);
-                    if (preScore < 0 || newPatternScore == 1 || (newPatternScore > 0 && !notAnyItemConstraintsToExend)) {
+                    if (preScore < 0 || newPatternScore == minimumConfidenceToStop || (newPatternScore > 0 && !notAnyItemConstraintsToExend)) {
                         newPatterns.add(extension);
                         newNodesToExtends.add(newTrieNode);
                         newExtensions.add(newTrieNode);
@@ -302,7 +309,7 @@ public class FrequentPatternEnumeration_ClaSP {
                         newExtensionRegularFunctions);
             } else {
                 List<String> cloneRegularFunctions = patternRegularFunctions;
-                if(nodeToExtend.getConfidence()<1.0){
+                if(nodeToExtend.getConfidence()<minimumConfidenceToStop){
                     cloneRegularFunctions = new ArrayList<>(patternRegularFunctions);
                     cloneRegularFunctions.add((String) nodeToExtend.getPair().getItem().getId());
                 }
@@ -359,7 +366,7 @@ public class FrequentPatternEnumeration_ClaSP {
          // checks whether there is any undetected regular function extensions or not
         for (Integer nodeIndex : extensionsRegularFunctions) {
             if (nodeIndex >= beginning && detectedFunctions
-                    .getOrDefault(extensions.get(nodeIndex).getPair().getItem().getId(), 0.0) != 1) {
+                    .getOrDefault(extensions.get(nodeIndex).getPair().getItem().getId(), 0.0) != minimumConfidenceToStop) {
                 hasRegularExtensionRemaind = true;
                 break;
             }

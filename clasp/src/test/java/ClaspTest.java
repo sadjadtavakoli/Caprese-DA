@@ -26,7 +26,7 @@ public class ClaspTest {
 
                 String[] expectedOutput = { "e f g -1 #CONF: 0.6666666666666666 #SUP: 2" };
 
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, sequences, null);
+                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
 
                 assertArrayEquals(expectedOutput, result.toArray());
@@ -46,7 +46,7 @@ public class ClaspTest {
 
                 String[] expectedOutput = { "f g -1 #CONF: 1.0 #SUP: 3", "e f g -1 #CONF: 0.6666666666666666 #SUP: 2" };
 
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, sequences, null);
+                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
 
                 assertArrayEquals(expectedOutput, result.toArray());
@@ -64,7 +64,7 @@ public class ClaspTest {
 
                 String[] expectedOutput = { "e f g -1 #CONF: 1.0 #SUP: 1" };
 
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, sequences, null);
+                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
 
                 assertArrayEquals(expectedOutput, result.toArray());
@@ -82,7 +82,7 @@ public class ClaspTest {
 
                 String[] expectedOutput = {};
 
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, sequences, null);
+                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
 
                 assertArrayEquals(expectedOutput, result.toArray());
@@ -103,7 +103,7 @@ public class ClaspTest {
                 // "a b g -1 #CONF: 2.0 #SUP: 2", "a c g -1 #CONF: 2.0 #SUP: 2",
                 // "a d g -1 #CONF: 1.0 #SUP: 1", "a e g -1 #CONF: 1.0 #SUP: 1" };
                 String[] expectedOutput = {};
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, sequences, null);
+                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
                 assertArrayEquals(expectedOutput, result.toArray());
         }
@@ -120,7 +120,7 @@ public class ClaspTest {
 
                 String[] expectedOutput = {};
 
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, sequences, null);
+                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
 
                 assertArrayEquals(expectedOutput, result.toArray());
@@ -148,7 +148,7 @@ public class ClaspTest {
 
                 String[] expectedOutput = { "a f g -1 #CONF: 1.0 #SUP: 3" };
 
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, sequences, null);
+                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
 
                 assertArrayEquals(expectedOutput, result.toArray());
@@ -176,7 +176,7 @@ public class ClaspTest {
 
                 String[] expectedOutput = { "f g h -1 #CONF: 1.0 #SUP: 3" };
 
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, sequences, null);
+                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
 
                 assertArrayEquals(expectedOutput, result.toArray());
@@ -204,7 +204,7 @@ public class ClaspTest {
 
                 String[] expectedOutput = { "a f g h -1 #CONF: 1.0 #SUP: 3" };
 
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, sequences, null);
+                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
 
                 assertArrayEquals(expectedOutput, result.toArray());
@@ -235,7 +235,7 @@ public class ClaspTest {
 
                 String[] expectedOutput = { "a f g -1 #CONF: 0.5833333333333334 #SUP: 7" };
 
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, sequences, null);
+                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
 
                 assertArrayEquals(expectedOutput, result.toArray());
@@ -266,7 +266,7 @@ public class ClaspTest {
 
                 String[] expectedOutput = { "a f g h -1 #CONF: 0.5833333333333334 #SUP: 7" };
 
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, sequences, null);
+                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
 
                 assertArrayEquals(expectedOutput, result.toArray());
@@ -295,10 +295,10 @@ public class ClaspTest {
                                 "g -1",
                 };
 
-                String[] expectedOutput = { "f g h -1 #CONF: 1.0 #SUP: 12",
-                                "f g h i -1 #CONF: 0.5833333333333334 #SUP: 7" };
+                String[] expectedOutput = { "f g -1 #CONF: 1.0 #SUP: 12",  "f h -1 #CONF: 1.0 #SUP: 12",
+                                "f i -1 #CONF: 0.5 #SUP: 7" };
 
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, sequences, null);
+                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
 
                 assertArrayEquals(expectedOutput, result.toArray());
@@ -320,9 +320,8 @@ public class ClaspTest {
                                 "h i j -1"
                 };
 
-                String[] expectedOutput = { "f g -1 #CONF: 1.0 #SUP: 4", "f h -1 #CONF: 1.0 #SUP: 4",
-                                "f i -1 #CONF: 1.0 #SUP: 4", "h j -1 #CONF: 0.5555555555555556 #SUP: 5" };
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, sequences, null);
+                String[] expectedOutput = { "h i -1 #CONF: 1.0 #SUP: 9", "h j -1 #CONF: 0.5555555555555556 #SUP: 5", "f g h i -1 #CONF: 1.0 #SUP: 4" };
+                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
 
                 assertArrayEquals(expectedOutput, result.toArray());
@@ -336,7 +335,7 @@ public class ClaspTest {
                                 "a b c f g -1", "a b c f g -1" };
 
                 String[] expectedOutput = { "a b c f g -1 #CONF: 1.0 #SUP: 4" };
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, sequences, null);
+                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 assertArrayEquals(expectedOutput, result.toArray());
         }
 
@@ -347,7 +346,7 @@ public class ClaspTest {
                 String[] sequences = { "a b g c f -1", "a b c f g -1",
                                 "a b c g f -1" };
                 String[] expectedOutput = { "a b c f g -1 #CONF: 1.0 #SUP: 3" };
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, sequences, null);
+                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 assertArrayEquals(expectedOutput, result.toArray());
 
         }

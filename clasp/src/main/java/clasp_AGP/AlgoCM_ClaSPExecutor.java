@@ -30,7 +30,7 @@ public class AlgoCM_ClaSPExecutor {
      *                           memory
      * @param itemsFrequenciesPath the path in which each items frequency should be stored 
      */
-    public static List<String> runFile(List<String> itemConstraint, double minimumConfidence, String filePath, String outputPath)
+    public static List<String> runFile(List<String> itemConstraint, double minimumConfidence, double minimumConfidenceToStop, String filePath, String outputPath)
             throws IOException {
 
         // if you set the following parameter to true, the sequence ids of the sequences
@@ -45,7 +45,7 @@ public class AlgoCM_ClaSPExecutor {
 
         sequenceDatabase.loadFile(filePath);
 
-        AlgoCM_ClaSP algorithm = new AlgoCM_ClaSP(minimumConfidence, abstractionCreator);
+        AlgoCM_ClaSP algorithm = new AlgoCM_ClaSP(minimumConfidence, minimumConfidenceToStop, abstractionCreator);
 
         algorithm.runAlgorithm(sequenceDatabase, outputPath, outputSequenceIdentifiers);
         System.out.println("Minsup (relative) : " + minimumConfidence);
@@ -59,7 +59,7 @@ public class AlgoCM_ClaSPExecutor {
 
     }
 
-    public static List<String> runList(List<String> itemConstraint, double minumumConfidence, String[] sequences,
+    public static List<String> runList(List<String> itemConstraint, double minumumConfidence, double minumumConfidenceToStop, String[] sequences,
             String outputPath) throws IOException {
 
         String filePath = "input.txt";
@@ -73,7 +73,7 @@ public class AlgoCM_ClaSPExecutor {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return runFile(itemConstraint, minumumConfidence, filePath, outputPath);
+        return runFile(itemConstraint, minumumConfidence, minumumConfidenceToStop, filePath, outputPath);
     }
 
     public static String fileToPath(String filename) throws UnsupportedEncodingException {
