@@ -200,7 +200,7 @@ public class FrequentPatternEnumeration_ClaSP {
                     if (coocurenceCount == null) {
                         continue;
                     } else if(!extensionNodeInItemConstraints){
-                        if (detectedFunctions.getOrDefault(extensionNodeID, 0.0) == minimumConfidenceToStop) {
+                        if (detectedFunctions.getOrDefault(extensionNodeID, 0.0) >= minimumConfidenceToStop) {
                             // RE 4- item is item-contraints and there is regualr functions to extend =>
                             // continue
                             // RE 4- if the previous node is item-contraints
@@ -236,56 +236,49 @@ public class FrequentPatternEnumeration_ClaSP {
             }
 
             double newPatternScore = intersectionIdList.getSupport()>0 ? (double) newIdList.getSupport() / intersectionIdList.getSupport() : -1;
-            boolean condition = true;
-            if(notAnyItemConstraintsToExend || (extensionNodeInItemConstraints && patternIntersection.size() + 1 == extensionsIntersection.size())){
-                condition = newPatternScore < 0 || newPatternScore >= minimumConfidence;
-            } 
+            Trie newTrie = new Trie(null, newIdList);
+            // And we insert it its appearances
+            newIdList.setAppearingIn(newTrie);
+            // we put in a TrieNode the new pair and the new Trie created
+            TrieNode newTrieNode = new TrieNode(newPair, newTrie);
+            // And we merge the new Trie with the current one
+            newTrieNode.setConfidence(newPatternScore);
 
-
-            if (condition) {
-                // We create a new trie for it
-                Trie newTrie = new Trie(null, newIdList);
-                // And we insert it its appearances
-                newIdList.setAppearingIn(newTrie);
-                // we put in a TrieNode the new pair and the new Trie created
-                TrieNode newTrieNode = new TrieNode(newPair, newTrie);
-                // And we merge the new Trie with the current one
-                newTrieNode.setConfidence(newPatternScore);
-                if (!(patternIntersection.isEmpty() && k > lastExtensionIntersection)) {
-                    // We start increasing the number of frequent patterns
-                    numberOfFrequentPatterns++;
-                    currentTrie.mergeWithTrie_i(newTrieNode);
+            if((k>=lastExtensionIntersection && newPatternScore >= minimumConfidence)||k<lastExtensionIntersection){
+                numberOfFrequentPatterns++;
+                currentTrie.mergeWithTrie_i(newTrieNode);
+                double preScore = detectedFunctions.getOrDefault(extensionNodeID, -1.0);
+                if(newPatternScore>preScore){
+                    detectedFunctions.put(extensionNodeID, newPatternScore);
                 }
+                if(newPatternScore > currentNode.getConfidence()){
+                    for(String function: patternRegularFunctions){
+                        if(newPatternScore > detectedFunctions.getOrDefault(function, 0.0))
+                            detectedFunctions.put(function, newPatternScore);
+                    }
+                }
+            }
+
+            if(k<=lastExtensionIntersection){
+                newPatterns.add(extension);
+                newNodesToExtends.add(newTrieNode);
+            }
                 /*
                  * Finally we add the new pattern and nodeTrie to the sets that are needed for
                  * future patterns
                  */
-                if (extensionNodeInItemConstraints) {
-                    newPatterns.add(extension);
-                    newNodesToExtends.add(newTrieNode);
+            if (extensionNodeInItemConstraints) {
+                newExtensions.add(newTrieNode);
+                newExtensionIntersection.add(newExtensions.size() - 1);
+            } else {
+                if (!notAnyItemConstraintsToExend && newPatternScore < minimumConfidenceToStop) {
                     newExtensions.add(newTrieNode);
-                    newExtensionIntersection.add(newExtensions.size() - 1);
-                } else {
-                    double preScore = detectedFunctions.getOrDefault(extensionNodeID, -1.0);
-                    if (preScore < 0 || newPatternScore == minimumConfidenceToStop || (newPatternScore > 0 && !notAnyItemConstraintsToExend)) {
-                        newPatterns.add(extension);
-                        newNodesToExtends.add(newTrieNode);
-                        newExtensions.add(newTrieNode);
-                        newExtensionRegularFunctions.add(newExtensions.size() - 1);
-                        detectedFunctions.put(extensionNodeID, newPatternScore);
-                    }
-
-                    if(newPatternScore > currentNode.getConfidence()){
-                        for(String function: patternRegularFunctions){
-                            if(newPatternScore > detectedFunctions.getOrDefault(function, 0.0))
-                                detectedFunctions.put(function, newPatternScore);
-                        }
-                    }
+                    newExtensionRegularFunctions.add(newExtensions.size() - 1);
                 }
             }
         }
 
-        int extensionSize = newExtensions.size();
+        int extensionSize = newPatterns.size();
         // For all the elements valuables as future i-extensions
         for (int i = 0; i < extensionSize; i++) {
             // we get the new pattern and the nodeTrie associated with it
@@ -300,7 +293,7 @@ public class FrequentPatternEnumeration_ClaSP {
              * i-extensions, but beginning from the (i+1)-th element
              */
 
-            if (itemConstraints.containsKey(nodeToExtend.getPair().getItem().getId())) {
+            if(itemConstraints.containsKey(nodeToExtend.getPair().getItem().getId())) {
                 List<TrieNode> cloneIntersection = new ArrayList<>(patternIntersection);
                 cloneIntersection.add(itemConstraints.get(nodeToExtend.getPair().getItem().getId()));
                 exploreChildren(newPattern, nodeToExtend, newExtensions, i + 1, last, cloneIntersection,
@@ -366,7 +359,7 @@ public class FrequentPatternEnumeration_ClaSP {
          // checks whether there is any undetected regular function extensions or not
         for (Integer nodeIndex : extensionsRegularFunctions) {
             if (nodeIndex >= beginning && detectedFunctions
-                    .getOrDefault(extensions.get(nodeIndex).getPair().getItem().getId(), 0.0) != minimumConfidenceToStop) {
+                    .getOrDefault(extensions.get(nodeIndex).getPair().getItem().getId(), 0.0) < minimumConfidenceToStop) {
                 hasRegularExtensionRemaind = true;
                 break;
             }

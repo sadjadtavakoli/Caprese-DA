@@ -16,7 +16,8 @@ public class MainCMClaSP {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        double support = 0.5;
+        double minumumConfidence = 0.5;
+        double minumumConfidenceToStop = minumumConfidence;
         String filePath = args[0];
         String distFilePath = args[1];
         List<String> itemConstraint = Arrays.asList(args[2].split(","));
@@ -32,6 +33,6 @@ public class MainCMClaSP {
         System.out.println("Total Memory: " + totalMem + " (" + (totalMem / megs) + " MiB)");
         System.out.println("Max Memory:   " + maxMem + " (" + (maxMem / megs) + " MiB)");
         System.out.println("Free Memory:  " + freeMem + " (" + (freeMem / megs) + " MiB)");
-        System.out.println(AlgoCM_ClaSPExecutor.runFile(itemConstraint, support, filePath, distFilePath));
+        System.out.println(AlgoCM_ClaSPExecutor.runFile(itemConstraint, minumumConfidence, minumumConfidenceToStop, filePath, distFilePath));
     }
 }
