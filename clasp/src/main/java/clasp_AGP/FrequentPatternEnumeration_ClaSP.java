@@ -2,6 +2,7 @@ package clasp_AGP;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -85,6 +86,7 @@ public class FrequentPatternEnumeration_ClaSP {
     private Map<String, Map<String, Integer>> coocMapEquals;
     private Map<String, TrieNode> itemConstraints;
     private Map<String, Double> detectedFunctions;
+    private Map<String, List<List<TrieNode>>> detectedFunctionsAntecedents;
     /**
      * Tin inserts:
      */
@@ -108,6 +110,7 @@ public class FrequentPatternEnumeration_ClaSP {
         this.saver = saver;
         this.matchingMap = new HashMap<>();
         this.detectedFunctions = new HashMap<>();
+        this.detectedFunctionsAntecedents = new HashMap<>();
         this.itemConstraints = itemConstraints;
         this.coocMapEquals = coocMapEquals;
     }
@@ -251,14 +254,14 @@ public class FrequentPatternEnumeration_ClaSP {
             if((k>=lastExtensionIntersection && newPatternScore >= minimumConfidence)||k<lastExtensionIntersection){
                 numberOfFrequentPatterns++;
                 currentTrie.mergeWithTrie_i(newTrieNode);
-                double preScore = detectedFunctions.getOrDefault(extensionNodeID, -1.0);
-                if(newPatternScore>preScore){
-                    detectedFunctions.put(extensionNodeID, newPatternScore);
+
+                if(!extensionNodeInItemConstraints){
+                    updateDetectedFunctionsInfo(newPatternScore, extensionNodeID, patternIntersection);
                 }
+
                 if(newPatternScore > currentNode.getConfidence()){
-                    for(String function: patternRegularFunctions){
-                        if(newPatternScore > detectedFunctions.getOrDefault(function, 0.0))
-                            detectedFunctions.put(function, newPatternScore);
+                    for(String functionID: patternRegularFunctions){
+                        updateDetectedFunctionsInfo(newPatternScore, functionID, patternIntersection);
                     }
                 }
             }
@@ -331,6 +334,17 @@ public class FrequentPatternEnumeration_ClaSP {
                     newExtensionRegularFunctions);
             
             nodeToExtend.getChild().setIdList(null);
+        }
+    }
+
+    private void updateDetectedFunctionsInfo(double newPatternScore, String functionID, List<TrieNode> patternIntersection) {
+        double preScore = detectedFunctions.getOrDefault(functionID, 0.0);
+        
+        if(newPatternScore > preScore){
+            detectedFunctions.put(functionID, newPatternScore);
+            detectedFunctionsAntecedents.put(functionID, new ArrayList<>(Arrays.asList(patternIntersection)));
+        }else if(newPatternScore!=0.0 && newPatternScore==preScore){
+            detectedFunctionsAntecedents.get(functionID).add(patternIntersection);
         }
     }
 
@@ -549,20 +563,26 @@ public class FrequentPatternEnumeration_ClaSP {
      * @param keepPatterns     Flag indicating if we want to keep the final output
      */
     void removeNonClosedNonItemConstraintPatterns(List<Entry<Pattern, Trie>> frequentPatterns) {
-        System.err.println("Before removing NonClosed patterns there are " + numberOfFrequentPatterns + " patterns");
+        // System.err.println("Before removing NonClosed patterns there are " + numberOfFrequentPatterns + " patterns");
         /*
          * Tin modifies:
          */
         numberOfFrequentClosedPatterns = 0;
         // System.out.println(detectedFunctions.size());
+        // System.out.println(detectedFunctionsAntecedents.size());
 
         // Iterator<Double> iterator = detectedFunctions.values().iterator();
+        // Iterator<List<List<TrieNode>>> antecedentsIterator = detectedFunctionsAntecedents.values().iterator();
         // while (iterator.hasNext()) {
+        //     antecedentsIterator.next();
         //     if (iterator.next() < minimumConfidence) {
         //         iterator.remove();
+        //         antecedentsIterator.remove();
         //     }
         // }
         // System.out.println(detectedFunctions.size());
+        // System.out.println(detectedFunctionsAntecedents.size());
+        
         /*
          * We make a map to match group of patterns linked by their addition of sequence
          * identifiers to find closed patterns wrt to support
