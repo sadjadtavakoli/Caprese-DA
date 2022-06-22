@@ -266,32 +266,6 @@ public class Pattern implements Comparable<Pattern> {
         return getIthElement(size() - 1).compareTo(o.getIthElement(o.size() - 1));
     }
 
-    /**
-     * get a list of TrieNode and computes its intersection with this 
-     * 
-     * @param itemConstraints
-     * @return a list of TrieNode
-     */
-    public List<TrieNode> getIntersections(Map<String, TrieNode> itemConstraints) {
-        List<TrieNode> result = new ArrayList<>();
-        for (ItemAbstractionPair pair : elements) {
-            if(itemConstraints.containsKey(pair.getItem().getId())){
-                result.add(itemConstraints.get(pair.getItem().getId()));
-            }
-        }
-        return result;
-    }
-
-    /**
-     * get a list of TrieNode and computes its intersection with this 
-     * 
-     * @param itemConstraints
-     * @return the intersection's IDList
-     */
-    public IDList getIntersectionsIDList(Map<String, TrieNode> itemConstraints) {
-        List<TrieNode> intersection = this.getIntersections(itemConstraints);
-        return IdListCreatorStandard_Map.nodesToIDList(intersection);
-    }
 
     @Override
     public boolean equals(Object o) {

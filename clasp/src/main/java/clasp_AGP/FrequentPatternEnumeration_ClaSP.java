@@ -208,9 +208,6 @@ public class FrequentPatternEnumeration_ClaSP {
                         continue;
                     } else if(!extensionNodeInItemConstraints){
                         if (detectedFunctions.getOrDefault(extensionNodeID, 0.0) >= minimumConfidenceToStop) {
-                            // RE 4- item is item-contraints and there is regualr functions to extend =>
-                            // continue
-                            // RE 4- if the previous node is item-contraints
                             continue;
                         }
                     }
@@ -232,15 +229,14 @@ public class FrequentPatternEnumeration_ClaSP {
              * know the appearances of the new pattern and its support.
              */
             joinCount++;
-            IDList newIdList = currentTrie.getIdList().join(extensionNode.getChild().getIdList());
-            IDList intersectionIdList;
+            List<TrieNode> newPatternIntersection = patternIntersection;
             if (extensionNodeInItemConstraints) {
-                List<TrieNode> cloneInterSection = new ArrayList<>(patternIntersection);
-                cloneInterSection.add(itemConstraints.get(extensionNodeID));
-                intersectionIdList = IdListCreatorStandard_Map.nodesToIDList(cloneInterSection);
-            } else {
-                intersectionIdList = IdListCreatorStandard_Map.nodesToIDList(patternIntersection);
+                newPatternIntersection = new ArrayList<>(patternIntersection);
+                newPatternIntersection.add(itemConstraints.get(extensionNodeID));
             }
+
+            IDList newIdList = currentTrie.getIdList().join(extensionNode.getChild().getIdList());
+            IDList intersectionIdList = IdListCreatorStandard_Map.nodesToIDList(newPatternIntersection);
 
             double newPatternScore = intersectionIdList.getSupport()>0 ? (double) newIdList.getSupport() / intersectionIdList.getSupport() : -1;
             Trie newTrie = new Trie(null, newIdList);
@@ -256,12 +252,12 @@ public class FrequentPatternEnumeration_ClaSP {
                 currentTrie.mergeWithTrie_i(newTrieNode);
 
                 if(!extensionNodeInItemConstraints){
-                    updateDetectedFunctionsInfo(newPatternScore, extensionNodeID, patternIntersection);
+                    updateDetectedFunctionsInfo(newPatternScore, extensionNodeID, newPatternIntersection);
                 }
 
                 if(newPatternScore > currentNode.getConfidence()){
                     for(String functionID: patternRegularFunctions){
-                        updateDetectedFunctionsInfo(newPatternScore, functionID, patternIntersection);
+                        updateDetectedFunctionsInfo(newPatternScore, functionID, newPatternIntersection);
                     }
                 }
             }
@@ -305,31 +301,30 @@ public class FrequentPatternEnumeration_ClaSP {
              * Besides we establish the same set as the set which we will make the
              * i-extensions, but beginning from the (i+1)-th element
              */
-            List<TrieNode> cloneIntersection = patternIntersection;
-            List<String> clonePatternsRegularFunctions = patternRegularFunctions; 
+            List<TrieNode> newPatternIntersection = patternIntersection;
+            List<String> newPatternsRegularFunctions = patternRegularFunctions; 
 
             if(itemConstraints.containsKey(nodeToExtend.getPair().getItem().getId())) {
-                cloneIntersection = new ArrayList<>(patternIntersection);
-                cloneIntersection.add(itemConstraints.get(nodeToExtend.getPair().getItem().getId()));
+                newPatternIntersection = new ArrayList<>(patternIntersection);
+                newPatternIntersection.add(itemConstraints.get(nodeToExtend.getPair().getItem().getId()));
             } else if(nodeToExtend.getConfidence()<minimumConfidenceToStop){
-                clonePatternsRegularFunctions = new ArrayList<>(patternRegularFunctions);
-                clonePatternsRegularFunctions.add((String) nodeToExtend.getPair().getItem().getId());
+                newPatternsRegularFunctions = new ArrayList<>(patternRegularFunctions);
+                newPatternsRegularFunctions.add((String) nodeToExtend.getPair().getItem().getId());
             }
             
-            clonePatternsRegularFunctions = getUndetectedRegularFunctionsInPattern(clonePatternsRegularFunctions);
-            
-            if(clonePatternsRegularFunctions.isEmpty() && !hasUndetectedRegularFunctionsExtensions(i + 1, newExtensions, newExtensionRegularFunctions)){
+            newPatternsRegularFunctions = getUndetectedRegularFunctionsInPattern(newPatternsRegularFunctions);
+
+            if(newPatternsRegularFunctions.isEmpty() && !hasUndetectedRegularFunctionsExtensions(i + 1, newExtensions, newExtensionRegularFunctions)){
                 break;
             }
 
-            if (cloneIntersection.isEmpty() && i+1 > newLastExtensionIntersection) {
+            if (newPatternIntersection.isEmpty() && i+1 > newLastExtensionIntersection) {
                 break;
-                
             }
 
 
-            exploreChildren(newPattern, nodeToExtend, newExtensions, i + 1, last, cloneIntersection,
-            clonePatternsRegularFunctions,
+            exploreChildren(newPattern, nodeToExtend, newExtensions, i + 1, last, newPatternIntersection,
+            newPatternsRegularFunctions,
                     newExtensionIntersection,
                     newExtensionRegularFunctions);
             
@@ -552,6 +547,35 @@ public class FrequentPatternEnumeration_ClaSP {
      */
     private static int keyStandardAndSupport(IDList projection, Trie trie) {
         return projection.getTotalElementsAfterPrefixes() + trie.getSupport();
+    }
+
+    /**
+     * @return a hashmap containing the impact-set and their related change-set items. 
+     */
+    Map<String, List<List<TrieNode>>> getImpactSetAntecendents() {
+        return detectedFunctionsAntecedents;
+    }
+
+    /**
+     * @return a hashmap containing the impact-set and their confidence. 
+     */
+    Map<String, Double> getImpactSet() {
+        return detectedFunctions;
+    }
+
+    /**
+     * it removes infrequent detected functions 
+     */
+    void removeInfrequentImpactSet(){
+        Iterator<Double> iterator = detectedFunctions.values().iterator();
+        Iterator<List<List<TrieNode>>> antecedentsIterator = detectedFunctionsAntecedents.values().iterator();
+        while (iterator.hasNext()) {
+            antecedentsIterator.next();
+            if (iterator.next() < minimumConfidence) {
+                iterator.remove();
+                antecedentsIterator.remove();
+            }
+        }
     }
 
     /**
