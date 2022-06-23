@@ -71,10 +71,7 @@ public class ItemAbstractionPair implements Comparable<ItemAbstractionPair> {
 
     @Override
     public String toString() {
-        if (abstraction instanceof Abstraction_Qualitative) {
-            return (getAbstraction().toString() + " " + getItem().toString());
-        }
-        return (getItem().toString() + getAbstraction().toString() + " ");
+        return "\"" + getItem().toString() + "\"";
     }
 
     /**

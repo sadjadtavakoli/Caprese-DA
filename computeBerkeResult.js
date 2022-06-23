@@ -48,7 +48,6 @@ function sortAndReport(impactSet) {
 }
 
 function intrepretDAResult(changes, impactSet) {
-    // console.log(" ... DA result intrepration ... ");
 
     let dependenciesData = JSON.parse(fs.readFileSync(constants.DA_DEPENDENCIES_PATH));
     let keyMap = dependenciesData['keyMap'];
@@ -60,13 +59,8 @@ function intrepretDAResult(changes, impactSet) {
         }
 
         if (dependencies != undefined) {
-            for (let dependency of dependencies['callers']) {
+            for (let dependency of dependencies['impacted']) {
                 addDAImpactSet(keyMap[dependency], changedFucntion);
-            }
-
-            for (let test of dependencies['tests']) {
-                addDAImpactSet(keyMap[test], changedFucntion);
-
             }
         }
     }
@@ -88,34 +82,15 @@ function intrepretDAResult(changes, impactSet) {
 }
 
 function intrepretFPData(changes, impactSet) {
-    // console.log(" ... FP result intrepration ... ");
-
-    let patterns = fs.readFileSync(constants.PATTERNS_PATH).toString();
+    let FPimapctSet = JSON.parse(fs.readFileSync(constants.PATTERNS_PATH));
     let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(", ");
-
-    patterns = patterns.split(",");
-    patterns.pop()
-    for (let pattern of patterns) {
-        let sequence = pattern.split(" -1:")[0];
-        let confidence = parseFloat(pattern.split(" -1:")[1].split(" ")[0]);
-        let support = pattern.split(" -1:")[1].split(" ")[1];
-        let functions = sequence.trim().split(" ").filter(value => !removed.includes(value));
-        let intersections = functions.filter(value => changes.includes(value));
-        let impactedFunctions = functions.filter(value => !changes.includes(value));
-
-        for (let impacted of impactedFunctions) {
+    for (let impacted in FPimapctSet) {
+        let info = FPimapctSet[impacted];
+        if(!removed.includes(impacted)){
             if (impactSet.has(impacted)) {
-                let imapctedItem = impactSet.get(impacted);
-                if (!imapctedItem['FP-score'] || (imapctedItem['FP-score'] && confidence > imapctedItem['FP-score'])) {
-                    imapctedItem['FP-score'] = confidence
-                    imapctedItem["support"] = support
-                    imapctedItem['FP-antecedents'] = [intersections]
-                } else if (confidence == imapctedItem['FP-score']) {
-                    addToList(imapctedItem['FP-antecedents'], intersections)
-                }
-                impactSet.set(impacted, imapctedItem); // @TODO we are ignoring number of items included in this change-sets in our result ordering
+                impactSet.set(impacted, {...impactSet.get(impacted), ...info});
             } else {
-                impactSet.set(impacted, { 'FP-score': confidence, 'support': support, 'FP-antecedents': [intersections] }); // @TODO we are ignoring number of items included in this change-sets in our result ordering
+                impactSet.set(impacted, info); 
             }
         }
     }

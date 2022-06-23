@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import clasp_AGP.dataStructures.ImpactInformation;
 import clasp_AGP.dataStructures.Sequence;
 import clasp_AGP.dataStructures.creators.AbstractionCreator;
 import clasp_AGP.dataStructures.database.SequenceDatabase;
@@ -223,12 +224,9 @@ public class AlgoCM_ClaSP {
                 + " seconds and finds " + numberOfFrequentPatterns + " patterns");
         // @TODO @SADJADRE should refactor this sections. This whole code is implemented
         // for seqeunce detection not just simply cooccurance probability detection
-        List<Entry<Pattern, Trie>> outputPatternsFromMainMethod = FrequentAtomsTrie.preorderTraversal(null, minimumConfidence);
-        // System.out.println("patterns before non-closed elimination");
-        // System.out.println(outputPatternsFromMainMethod.toString());
 
         this.postProcessingStart = System.currentTimeMillis();
-        frequentPatternEnumeration.removeNonClosedNonItemConstraintPatterns(outputPatternsFromMainMethod);
+        frequentPatternEnumeration.saveFrequentImpactedFunctions();
         this.postProcessingEnd = System.currentTimeMillis();
         numberOfFrequentClosedPatterns = frequentPatternEnumeration.getFrequentClosedPatterns();
         System.out.println("ClaSP:The post-processing algorithm to remove the non-Closed patterns takes "
@@ -270,7 +268,7 @@ public class AlgoCM_ClaSP {
         return r.toString();
     }
 
-    public List<String> getResutl() {
+    public Map<String, ImpactInformation> getResut() {
         return saver.getList();
     }
 

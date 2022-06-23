@@ -3,11 +3,13 @@ package clasp_AGP.savers;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import clasp_AGP.dataStructures.ImpactInformation;
 import clasp_AGP.dataStructures.patterns.Pattern;
 
 /**
@@ -42,6 +44,7 @@ public class SaverIntoFile implements Saver {
     public SaverIntoFile(String outputFilePath) throws IOException {
         path = outputFilePath;
         writer = new BufferedWriter(new FileWriter(outputFilePath));
+        writer.write("{");
     }
 
     @Override
@@ -61,9 +64,28 @@ public class SaverIntoFile implements Saver {
     }
 
     @Override
+    public void saveImpactedFunctions(Entry<String, ImpactInformation> impactedFunction) {
+        if (writer != null) {
+            // create a StringBuilder
+            StringBuilder r = new StringBuilder("\"");
+            r.append(impactedFunction.getKey());
+            r.append("\":");
+            r.append(impactedFunction.getValue());
+            try {
+                // write the string to the file
+                writer.write(r.toString()+",");
+                // start a new line
+            } catch (IOException ex) {
+                Logger.getLogger(SaverIntoFile.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+    @Override
     public void finish() {
         if (writer != null) {
             try {
+                writer.write("\"\":\"\"}");
                 writer.close();
             } catch (IOException ex) {
                 Logger.getLogger(SaverIntoFile.class.getName()).log(Level.SEVERE, null, ex);
@@ -81,7 +103,9 @@ public class SaverIntoFile implements Saver {
         return "Content at file " + path;
     }
 
-    public List<String> getList(){
-        return Arrays.asList("Content at file " + path);
+    public Map<String, ImpactInformation> getList(){
+        Map<String, ImpactInformation> empty = new HashMap<>();
+        empty.put("Content at file " + path, ImpactInformation.nullObject());
+        return empty;
     }
 }

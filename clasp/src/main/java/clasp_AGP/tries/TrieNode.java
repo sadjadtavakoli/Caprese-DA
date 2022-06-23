@@ -190,12 +190,6 @@ public class TrieNode implements Comparable {
      */
     @Override
     public String toString() {
-        StringBuilder s = new StringBuilder("{").append(pair.toString()).append("}, [");
-        if (child == null)
-            s.append("NULL");
-        else
-            s.append(child.toString());
-        s.append("]");
-        return s.toString();
+        return pair.toString();
     }
 }

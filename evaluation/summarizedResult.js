@@ -38,14 +38,16 @@ function unitsContributionSummary(filename) {
     for (let commit in result) {
         let FP_length = result[commit]["FP"].length
         let da_length = result[commit]["DA"].length
-        let commonLength = result[commit]["Common"].length
+        let commonLength = result[commit]["common"].length
         let total = FP_length + da_length + commonLength
         fp += FP_length;
         da += da_length;
         common += commonLength;
-        commonPrecentage += commonLength / total
-        FP_precentage += FP_length / total
-        DA_precentage += da_length / total
+        if(total!=0){
+            commonPrecentage += commonLength / total
+            FP_precentage += FP_length / total
+            DA_precentage += da_length / total    
+        }
     }
     let length = Object.keys(result).length
     fp = fp / length

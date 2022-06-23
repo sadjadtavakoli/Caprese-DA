@@ -1,11 +1,16 @@
 import org.junit.jupiter.api.Test;
 import clasp_AGP.AlgoCM_ClaSPExecutor;
+import clasp_AGP.dataStructures.ImpactInformation;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 /**
  * Unit test for simple App.
@@ -24,12 +29,25 @@ public class ClaspTest {
                                 "e f g -1"
                 };
 
-                String[] expectedOutput = { "e f g -1 #CONF: 0.6666666666666666 #SUP: 2" };
 
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+                Map<String, ImpactInformation> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
+                
+                Map<String, Object[]> expectedValues = new HashMap<>();
+                Object[] values = {0.6666666666666666, 2, "[[\"f\"]]"};
+                expectedValues.put("e", values);
+                expectedValues.put("g", values);
 
-                assertArrayEquals(expectedOutput, result.toArray());
+                assertEquals(expectedValues.size(), result.size());
+                assertArrayEquals(expectedValues.keySet().toArray(), result.keySet().toArray());
+
+                for(Entry<String, Object[]> expectedValue: expectedValues.entrySet()){
+                        String key = expectedValue.getKey();
+                        Object[] value = expectedValue.getValue();
+                        assertEquals(value[0], result.get(key).getConfidence());
+                        assertEquals(value[1], result.get(key).getSupport());
+                        assertEquals(value[2], result.get(key).getAntecedents().toString());                        
+                }
         }
 
         @Test
@@ -44,12 +62,24 @@ public class ClaspTest {
                                 "e f g -1",
                 };
 
-                String[] expectedOutput = { "e f g -1 #CONF: 0.6666666666666666 #SUP: 2" };
-
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+                Map<String, ImpactInformation> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
+                
+                Map<String, Object[]> expectedValues = new HashMap<>();
+                Object[] values = {0.6666666666666666, 2, "[[\"f\"]]"};
+                expectedValues.put("e", values);
+                expectedValues.put("g", values);
 
-                assertArrayEquals(expectedOutput, result.toArray());
+                assertEquals(expectedValues.size(), result.size());
+                assertArrayEquals(expectedValues.keySet().toArray(), result.keySet().toArray());
+
+                for(Entry<String, Object[]> expectedValue: expectedValues.entrySet()){
+                        String key = expectedValue.getKey();
+                        Object[] value = expectedValue.getValue();
+                        assertEquals(value[0], result.get(key).getConfidence());
+                        assertEquals(value[1], result.get(key).getSupport());
+                        assertEquals(value[2], result.get(key).getAntecedents().toString());                        
+                }
         }
 
         @Test
@@ -62,12 +92,24 @@ public class ClaspTest {
                                 "a b g -1",
                                 "e f g -1" };
 
-                String[] expectedOutput = { "e f g -1 #CONF: 1.0 #SUP: 1" };
+                Map<String, ImpactInformation> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+                System.out.println(result.toString());
+                
+                Map<String, Object[]> expectedValues = new HashMap<>();
+                Object[] values = {1.0, 1, "[[\"f\"]]"};
+                expectedValues.put("e", values);
+                expectedValues.put("g", values);
 
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
-                System.out.println(result);
+                assertEquals(expectedValues.size(), result.size());
+                assertArrayEquals(expectedValues.keySet().toArray(), result.keySet().toArray());
 
-                assertArrayEquals(expectedOutput, result.toArray());
+                for(Entry<String, Object[]> expectedValue: expectedValues.entrySet()){
+                        String key = expectedValue.getKey();
+                        Object[] value = expectedValue.getValue();
+                        assertEquals(value[0], result.get(key).getConfidence());
+                        assertEquals(value[1], result.get(key).getSupport());
+                        assertEquals(value[2], result.get(key).getAntecedents().toString());                        
+                }
         }
 
         @Test
@@ -80,12 +122,11 @@ public class ClaspTest {
                                 "a b g -1",
                                 "e f g -1" };
 
-                String[] expectedOutput = {};
+                int expectedSize = 0;
+                Map<String, ImpactInformation> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+                System.out.println(result.toString());
 
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
-                System.out.println(result);
-
-                assertArrayEquals(expectedOutput, result.toArray());
+                assertEquals(expectedSize, result.size());
         }
 
         @Test
@@ -97,15 +138,12 @@ public class ClaspTest {
                                 "a d c e g -1",
                                 "a b g -1",
                                 "e f g -1" };
-                // String[] expectedOutput = { "a g -1 #CONF: 3.0 #SUP: 3", "e f -1 #CONF: 1.0
-                // #SUP: 1",
-                // "e g -1 #CONF: 2.0 #SUP: 2", "a b c -1 #CONF: 1.0 #SUP: 1",
-                // "a b g -1 #CONF: 2.0 #SUP: 2", "a c g -1 #CONF: 2.0 #SUP: 2",
-                // "a d g -1 #CONF: 1.0 #SUP: 1", "a e g -1 #CONF: 1.0 #SUP: 1" };
-                String[] expectedOutput = {};
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+
+                Integer expectedSize = 0;
+
+                Map<String, ImpactInformation> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
-                assertArrayEquals(expectedOutput, result.toArray());
+                assertEquals(expectedSize, result.size());
         }
 
         @Test
@@ -118,12 +156,11 @@ public class ClaspTest {
                                 "a b -1",
                                 "d -1" };
 
-                String[] expectedOutput = {"a b -1 #CONF: 1.0 #SUP: 2", "b c -1 #CONF: 1.0 #SUP: 1"};
+                Integer expectedSize = 0;
 
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+                Map<String, ImpactInformation> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
-
-                assertArrayEquals(expectedOutput, result.toArray());
+                assertEquals(expectedSize, result.size());
         }
 
         @Test
@@ -146,12 +183,24 @@ public class ClaspTest {
                                 "g -1"
                 };
 
-                String[] expectedOutput = { "a f g -1 #CONF: 1.0 #SUP: 3" };
-
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+                Map<String, ImpactInformation> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
 
-                assertArrayEquals(expectedOutput, result.toArray());
+                Map<String, Object[]> expectedValues = new HashMap<>();
+                Object[] values = {1.0, 3, "[[\"f\", \"g\"]]"};
+                expectedValues.put("a", values);
+
+                assertEquals(expectedValues.size(), result.size());
+                assertArrayEquals(expectedValues.keySet().toArray(), result.keySet().toArray());
+
+                for(Entry<String, Object[]> expectedValue: expectedValues.entrySet()){
+                        String key = expectedValue.getKey();
+                        Object[] value = expectedValue.getValue();
+                        assertEquals(value[0], result.get(key).getConfidence());
+                        assertEquals(value[1], result.get(key).getSupport());
+                        assertEquals(value[2], result.get(key).getAntecedents().toString());                        
+                }
+
         }
 
         @Test
@@ -174,12 +223,25 @@ public class ClaspTest {
                                 "g -1"
                 };
 
-                String[] expectedOutput = { "f g h -1 #CONF: 1.0 #SUP: 3" };
-
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+                Map<String, ImpactInformation> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
 
-                assertArrayEquals(expectedOutput, result.toArray());
+                Integer expectedSize = 1;
+                Map<String, Object[]> expectedValues = new HashMap<>();
+                Object[] values = {1.0, 3, "[[\"f\", \"g\"]]"};
+                expectedValues.put("h", values);
+
+                assertEquals(expectedValues.size(), result.size());
+                assertArrayEquals(expectedValues.keySet().toArray(), result.keySet().toArray());
+
+                for(Entry<String, Object[]> expectedValue: expectedValues.entrySet()){
+                        String key = expectedValue.getKey();
+                        Object[] value = expectedValue.getValue();
+                        assertEquals(value[0], result.get(key).getConfidence());
+                        assertEquals(value[1], result.get(key).getSupport());
+                        assertEquals(value[2], result.get(key).getAntecedents().toString());                        
+                }
+
         }
 
         @Test
@@ -202,12 +264,25 @@ public class ClaspTest {
                                 "g -1"
                 };
 
-                String[] expectedOutput = { "a f g h -1 #CONF: 1.0 #SUP: 3" };
-
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+                Map<String, ImpactInformation> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
 
-                assertArrayEquals(expectedOutput, result.toArray());
+                Integer expectedSize = 2;
+                Map<String, Object[]> expectedValues = new HashMap<>();
+                Object[] values = {1.0, 3, "[[\"f\", \"g\"]]"};
+                expectedValues.put("a", values);
+                expectedValues.put("h", values);
+
+                assertEquals(expectedValues.size(), result.size());
+                assertArrayEquals(expectedValues.keySet().toArray(), result.keySet().toArray());
+
+                for(Entry<String, Object[]> expectedValue: expectedValues.entrySet()){
+                        String key = expectedValue.getKey();
+                        Object[] value = expectedValue.getValue();
+                        assertEquals(value[0], result.get(key).getConfidence());
+                        assertEquals(value[1], result.get(key).getSupport());
+                        assertEquals(value[2], result.get(key).getAntecedents().toString());                        
+                }
         }
 
         @Test
@@ -233,12 +308,25 @@ public class ClaspTest {
                                 "g -1",
                 };
 
-                String[] expectedOutput = { "a f -1 #CONF: 0.5 #SUP: 7", "f g -1 #CONF: 1.0 #SUP: 12", "g h -1 #CONF: 1.0 #SUP: 5" };
-
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+                Map<String, ImpactInformation> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
 
-                assertArrayEquals(expectedOutput, result.toArray());
+
+                Integer expectedSize = 1;
+                Map<String, Object[]> expectedValues = new HashMap<>();
+                Object[] values = {0.5, 7, "[[\"f\"]]"};
+                expectedValues.put("a", values);
+
+                assertEquals(expectedValues.size(), result.size());
+                assertArrayEquals(expectedValues.keySet().toArray(), result.keySet().toArray());
+
+                for(Entry<String, Object[]> expectedValue: expectedValues.entrySet()){
+                        String key = expectedValue.getKey();
+                        Object[] value = expectedValue.getValue();
+                        assertEquals(value[0], result.get(key).getConfidence());
+                        assertEquals(value[1], result.get(key).getSupport());
+                        assertEquals(value[2], result.get(key).getAntecedents().toString());                        
+                }       
         }
 
         @Test
@@ -264,12 +352,24 @@ public class ClaspTest {
                                 "g -1",
                 };
 
-                String[] expectedOutput = { "a f -1 #CONF: 0.5 #SUP: 7", "f g -1 #CONF: 1.0 #SUP: 12", "g h -1 #CONF: 1.0 #SUP: 12" };
-
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+                Map<String, ImpactInformation> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
 
-                assertArrayEquals(expectedOutput, result.toArray());
+                Integer expectedSize = 1;
+                Map<String, Object[]> expectedValues = new HashMap<>();
+                Object[] values = {0.5, 7, "[[\"f\"]]"};
+                expectedValues.put("a", values);
+
+                assertEquals(expectedValues.size(), result.size());
+                assertArrayEquals(expectedValues.keySet().toArray(), result.keySet().toArray());
+
+                for(Entry<String, Object[]> expectedValue: expectedValues.entrySet()){
+                        String key = expectedValue.getKey();
+                        Object[] value = expectedValue.getValue();
+                        assertEquals(value[0], result.get(key).getConfidence());
+                        assertEquals(value[1], result.get(key).getSupport());
+                        assertEquals(value[2], result.get(key).getAntecedents().toString());                        
+                } 
         }
 
         @Test
@@ -295,12 +395,24 @@ public class ClaspTest {
                                 "g -1",
                 };
 
-                String[] expectedOutput = {"f g -1 #CONF: 1.0 #SUP: 12", "f h -1 #CONF: 1.0 #SUP: 12", "f i -1 #CONF: 0.5 #SUP: 7", "g h -1 #CONF: 1.0 #SUP: 12"};
-
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+                Map<String, ImpactInformation> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
 
-                assertArrayEquals(expectedOutput, result.toArray());
+                Integer expectedSize = 1;
+                Map<String, Object[]> expectedValues = new HashMap<>();
+                Object[] values = {0.5, 7, "[[\"f\"]]"};
+                expectedValues.put("i", values);
+
+                assertEquals(expectedValues.size(), result.size());
+                assertArrayEquals(expectedValues.keySet().toArray(), result.keySet().toArray());
+
+                for(Entry<String, Object[]> expectedValue: expectedValues.entrySet()){
+                        String key = expectedValue.getKey();
+                        Object[] value = expectedValue.getValue();
+                        assertEquals(value[0], result.get(key).getConfidence());
+                        assertEquals(value[1], result.get(key).getSupport());
+                        assertEquals(value[2], result.get(key).getAntecedents().toString());                        
+                }
         }
 
         @Test
@@ -319,11 +431,28 @@ public class ClaspTest {
                                 "h i j -1"
                 };
 
-                String[] expectedOutput = {"f g -1 #CONF: 1.0 #SUP: 4", "f h -1 #CONF: 1.0 #SUP: 4", "f i -1 #CONF: 1.0 #SUP: 4", "h j -1 #CONF: 0.5555555555555556 #SUP: 5" };
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+
+                Map<String, ImpactInformation> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
 
-                assertArrayEquals(expectedOutput, result.toArray());
+                Map<String, Object[]> expectedValues = new HashMap<>();
+                Object[] values1 = {1.0, 4, "[[\"f\"]]"};
+                Object[] values2 = {0.5555555555555556, 5, "[[\"h\"]]"};
+                
+                expectedValues.put("g", values1);
+                expectedValues.put("i", values1);
+                expectedValues.put("j", values2);
+
+                assertEquals(expectedValues.size(), result.size());
+                assertArrayEquals(expectedValues.keySet().toArray(), result.keySet().toArray());
+
+                for(Entry<String, Object[]> expectedValue: expectedValues.entrySet()){
+                        String key = expectedValue.getKey();
+                        Object[] value = expectedValue.getValue();
+                        assertEquals(value[0], result.get(key).getConfidence());
+                        assertEquals(value[1], result.get(key).getSupport());
+                        assertEquals(value[2], result.get(key).getAntecedents().toString());                        
+                }
         }
 
         @Test
@@ -333,9 +462,26 @@ public class ClaspTest {
                 String[] sequences = { "a b c f g -1", "a b c f g -1",
                                 "a b c f g -1", "a b c f g -1" };
 
-                String[] expectedOutput = { "a b c f g -1 #CONF: 1.0 #SUP: 4" };
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
-                assertArrayEquals(expectedOutput, result.toArray());
+                Map<String, ImpactInformation> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+
+                Map<String, Object[]> expectedValues = new HashMap<>();
+                Object[] values = {1.0, 4, "[[\"f\"]]"};
+                
+                expectedValues.put("a", values);
+                expectedValues.put("b", values);
+                expectedValues.put("c", values);
+                expectedValues.put("g", values);
+
+                assertEquals(expectedValues.size(), result.size());
+                assertArrayEquals(expectedValues.keySet().toArray(), result.keySet().toArray());
+
+                for(Entry<String, Object[]> expectedValue: expectedValues.entrySet()){
+                        String key = expectedValue.getKey();
+                        Object[] value = expectedValue.getValue();
+                        assertEquals(value[0], result.get(key).getConfidence());
+                        assertEquals(value[1], result.get(key).getSupport());
+                        assertEquals(value[2], result.get(key).getAntecedents().toString());                        
+                }        
         }
 
         @Test
@@ -344,9 +490,26 @@ public class ClaspTest {
                 double minimumConfidence = 0.5;
                 String[] sequences = { "a b g c f -1", "a b c f g -1",
                                 "a b c g f -1" };
-                String[] expectedOutput = { "a b c f g -1 #CONF: 1.0 #SUP: 3" };
-                List<String> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
-                assertArrayEquals(expectedOutput, result.toArray());
 
+                Map<String, ImpactInformation> result = AlgoCM_ClaSPExecutor.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+
+                Map<String, Object[]> expectedValues = new HashMap<>();
+                Object[] values = {1.0, 3, "[[\"f\"]]"};
+                
+                expectedValues.put("a", values);
+                expectedValues.put("b", values);
+                expectedValues.put("c", values);
+                expectedValues.put("g", values);
+
+                assertEquals(expectedValues.size(), result.size());
+                assertArrayEquals(expectedValues.keySet().toArray(), result.keySet().toArray());
+
+                for(Entry<String, Object[]> expectedValue: expectedValues.entrySet()){
+                        String key = expectedValue.getKey();
+                        Object[] value = expectedValue.getValue();
+                        assertEquals(value[0], result.get(key).getConfidence());
+                        assertEquals(value[1], result.get(key).getSupport());
+                        assertEquals(value[2], result.get(key).getAntecedents().toString());                        
+                }  
         }
 }

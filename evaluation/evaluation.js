@@ -28,12 +28,12 @@ if (process.argv[1].endsWith(path.basename(__filename))) {
             recursive: true
         });
     }
-    
+
     if (fs.existsSync(UNITS_CONTRIBUTION_PATH)) {
         fs.unlinkSync(UNITS_CONTRIBUTION_PATH)
     }
     fs.writeFileSync(UNITS_CONTRIBUTION_PATH, "{}")
-    
+
     evaluationGetMainData(constants.SEED_COMMIT)
         .then(testSetGenerator)
         .then((candidatedCommits) => {
@@ -97,21 +97,22 @@ function testSetGenerator() {
 
 function collectResult(commit) {
     console.log(" = = = Collect Result = = = ")
+    return new Promise(function (resolve, reject) {
+        let commitsInfo = JSON.parse(fs.readFileSync(RESULT_PATH));
 
-    let commitsInfo = JSON.parse(fs.readFileSync(RESULT_PATH));
+        // separate berke's different units' results
+        let uniqeContributions = separateDAnFPsResults(commit);
 
-    // separate berke's different units' results
-    let uniqeContributions = separateDAnFPsResults(commit);
+        // collect and evaluate TARMAQ's resutl
+        let tarmaqResult = tarmaqConsequentStatusUpdate(uniqeContributions);
+        commitsInfo[commit]['tarmaq'] = tarmaqResult
 
-    // collect and evaluate TARMAQ's resutl
-    let tarmaqResult = tarmaqConsequentStatusUpdate(uniqeContributions);
-    commitsInfo[commit]['tarmaq'] = tarmaqResult
+        // collect and evaluate Berke's result
+        commitsInfo[commit]['berke'] = berkeConsequentStatusUpdate(tarmaqResult);
 
-    // collect and evaluate Berke's result
-    commitsInfo[commit]['berke'] = berkeConsequentStatusUpdate(tarmaqResult);
-
-    fs.writeFileSync(RESULT_PATH, JSON.stringify(commitsInfo))
-
+        fs.writeFileSync(RESULT_PATH, JSON.stringify(commitsInfo));
+        resolve();
+    })
 }
 
 function tarmaqConsequentStatusUpdate(berkeSeparateUnitsResult) {
@@ -122,7 +123,7 @@ function tarmaqConsequentStatusUpdate(berkeSeparateUnitsResult) {
         item['consequent'] = consequent;
         if (removed.includes(consequent)) {
             item['status'] = STATUS.removed;
-        } else if (berkeSeparateUnitsResult['FP'].includes(consequent)) {
+        } else if (berkeSeparateUnitsResult['FP'].includes(consequent) || berkeSeparateUnitsResult['common'].includes(consequent)) {
             item['status'] = STATUS.common;
         } else {
             item['status'] = STATUS.tarmaq_unique;
@@ -152,15 +153,15 @@ function berkeConsequentStatusUpdate(tarmaqResult) {
 function separateDAnFPsResults(commit) {
     let impactSet = JSON.parse(fs.readFileSync(constants.Berke_RESULT_PATH));
     let commitsContributionData = JSON.parse(fs.readFileSync(UNITS_CONTRIBUTION_PATH));
-    let uniqeContributions = { 'DA': [], 'FP': [], 'Common': [] };
+    let uniqeContributions = { 'DA': [], 'FP': [], 'common': [] };
 
     for (let item of impactSet) {
         if (item["FP-antecedents"] != undefined && item["DA-antecedents"] != undefined) {
-            uniqeContributions['Common'].push(item["consequent"]);
+            uniqeContributions['common'].push(item["consequent"]);
         } else if (item["DA-antecedents"] != undefined) {
             uniqeContributions["DA"].push(item["consequent"]);
         }
-        else{
+        else {
             uniqeContributions["FP"].push(item["consequent"]);
         }
     }
@@ -194,7 +195,7 @@ function runTARMAQ(changeSet) {
             fs.unlinkSync(TARMAQ_RESULT_PATH)
         }
         fs.writeFileSync(TARMAQ_RESULT_PATH, "")
-        exec(TARMAQ_COMMAND + `"${constants.SEQUENCES_PATH} ${TARMAQ_RESULT_PATH} ${changeSet}"`, (err, stdout, stderr) => {
+        exec(`${TARMAQ_COMMAND}"${constants.SEQUENCES_PATH} ${TARMAQ_RESULT_PATH} ${changeSet}"`, (err, stdout, stderr) => {
             if (!err) {
                 resolve()
             }

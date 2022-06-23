@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.util.List;
+import java.util.Map;
 
+import clasp_AGP.dataStructures.ImpactInformation;
 import clasp_AGP.dataStructures.creators.AbstractionCreator;
 import clasp_AGP.dataStructures.creators.AbstractionCreator_Qualitative;
 import clasp_AGP.dataStructures.database.SequenceDatabase;
@@ -30,7 +32,7 @@ public class AlgoCM_ClaSPExecutor {
      *                           memory
      * @param itemsFrequenciesPath the path in which each items frequency should be stored 
      */
-    public static List<String> runFile(List<String> itemConstraint, double minimumConfidence, double minimumConfidenceToStop, String filePath, String outputPath)
+    public static Map<String, ImpactInformation> runFile(List<String> itemConstraint, double minimumConfidence, double minimumConfidenceToStop, String filePath, String outputPath)
             throws IOException {
 
         // if you set the following parameter to true, the sequence ids of the sequences
@@ -52,14 +54,14 @@ public class AlgoCM_ClaSPExecutor {
         System.out.println(algorithm.getNumberOfFrequentPatterns() + " patterns found.");
 
         System.out.println(algorithm.printStatistics());
-        return algorithm.getResutl();
+        return algorithm.getResut();
 
         // uncomment if we want to see the Trie graphically
         // ShowTrie.showTree(algorithm.getFrequentAtomsTrie());
 
     }
 
-    public static List<String> runList(List<String> itemConstraint, double minumumConfidence, double minumumConfidenceToStop, String[] sequences,
+    public static Map<String, ImpactInformation> runList(List<String> itemConstraint, double minumumConfidence, double minumumConfidenceToStop, String[] sequences,
             String outputPath) throws IOException {
 
         String filePath = "input.txt";

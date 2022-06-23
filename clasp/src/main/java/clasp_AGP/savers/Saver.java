@@ -1,7 +1,9 @@
 package clasp_AGP.savers;
 
-import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
+import clasp_AGP.dataStructures.ImpactInformation;
 import clasp_AGP.dataStructures.patterns.Pattern;
 
 /**
@@ -32,12 +34,14 @@ public interface Saver {
 
     public void savePattern(Pattern p);
 
+    public void saveImpactedFunctions(Entry<String, ImpactInformation> impactedFunction);
+    
     public void finish();
 
     public void clear();
 
     public String print();
 
-    public List<String> getList();
+    public Map<String, ImpactInformation> getList();
     
 }

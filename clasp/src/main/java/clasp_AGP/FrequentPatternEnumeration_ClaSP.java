@@ -2,14 +2,13 @@ package clasp_AGP;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import clasp_AGP.dataStructures.ImpactInformation;
 import clasp_AGP.dataStructures.Item;
 import clasp_AGP.dataStructures.abstracciones.ItemAbstractionPair;
 import clasp_AGP.dataStructures.creators.AbstractionCreator;
@@ -85,8 +84,7 @@ public class FrequentPatternEnumeration_ClaSP {
 
     private Map<String, Map<String, Integer>> coocMapEquals;
     private Map<String, TrieNode> itemConstraints;
-    private Map<String, Double> detectedFunctions;
-    private Map<String, List<List<TrieNode>>> detectedFunctionsAntecedents;
+    private Map<String, ImpactInformation> detectedFunctions;
     /**
      * Tin inserts:
      */
@@ -110,7 +108,6 @@ public class FrequentPatternEnumeration_ClaSP {
         this.saver = saver;
         this.matchingMap = new HashMap<>();
         this.detectedFunctions = new HashMap<>();
-        this.detectedFunctionsAntecedents = new HashMap<>();
         this.itemConstraints = itemConstraints;
         this.coocMapEquals = coocMapEquals;
     }
@@ -207,7 +204,7 @@ public class FrequentPatternEnumeration_ClaSP {
                     if (coocurenceCount == null) {
                         continue;
                     } else if(!extensionNodeInItemConstraints){
-                        if (detectedFunctions.getOrDefault(extensionNodeID, 0.0) >= minimumConfidenceToStop) {
+                        if (detectedFunctions.getOrDefault(extensionNodeID, ImpactInformation.nullObject()).getConfidence() >= minimumConfidenceToStop) {
                             continue;
                         }
                     }
@@ -252,12 +249,10 @@ public class FrequentPatternEnumeration_ClaSP {
                 currentTrie.mergeWithTrie_i(newTrieNode);
 
                 if(!extensionNodeInItemConstraints){
-                    updateDetectedFunctionsInfo(newPatternScore, extensionNodeID, newPatternIntersection);
-                }
-
-                if(newPatternScore > currentNode.getConfidence()){
+                    updateDetectedFunctionsInfo(newPatternScore, newIdList.getSupport(), extensionNodeID, newPatternIntersection);
+                }else{
                     for(String functionID: patternRegularFunctions){
-                        updateDetectedFunctionsInfo(newPatternScore, functionID, newPatternIntersection);
+                        updateDetectedFunctionsInfo(newPatternScore, newIdList.getSupport(), functionID, newPatternIntersection);
                     }
                 }
             }
@@ -332,21 +327,16 @@ public class FrequentPatternEnumeration_ClaSP {
         }
     }
 
-    private void updateDetectedFunctionsInfo(double newPatternScore, String functionID, List<TrieNode> patternIntersection) {
-        double preScore = detectedFunctions.getOrDefault(functionID, 0.0);
-        
-        if(newPatternScore > preScore){
-            detectedFunctions.put(functionID, newPatternScore);
-            detectedFunctionsAntecedents.put(functionID, new ArrayList<>(Arrays.asList(patternIntersection)));
-        }else if(newPatternScore!=0.0 && newPatternScore==preScore){
-            detectedFunctionsAntecedents.get(functionID).add(patternIntersection);
-        }
+    private void updateDetectedFunctionsInfo(double newPatternScore, Integer support, String functionID, List<TrieNode> patternIntersection) {
+        ImpactInformation preScore = detectedFunctions.getOrDefault(functionID, new ImpactInformation(0.0, 0, new ArrayList<>()));
+        preScore.updateImpact(newPatternScore, support, patternIntersection);
+        detectedFunctions.put(functionID, preScore);
     }
 
     private boolean hasUndetectedRegularFunctionsExtensions(Integer beginning, List<TrieNode> extensions, List<Integer> extensionsRegularFunctions){
         for(int i=0; i<extensionsRegularFunctions.size(); i++){
             int nodeIndex = extensionsRegularFunctions.get(i);
-            if(nodeIndex>=beginning && detectedFunctions.getOrDefault(extensions.get(nodeIndex).getPair().getItem().getId(), 0.0) < minimumConfidenceToStop) {
+            if(nodeIndex>=beginning && detectedFunctions.getOrDefault(extensions.get(nodeIndex).getPair().getItem().getId(), ImpactInformation.nullObject()).getConfidence() < minimumConfidenceToStop) {
                 return true;
             }
         }
@@ -356,7 +346,7 @@ public class FrequentPatternEnumeration_ClaSP {
     private List<String> getUndetectedRegularFunctionsInPattern(List<String> patternRegularFunctions){
         for(int i=0; i<patternRegularFunctions.size(); i++){
             String nodeID = patternRegularFunctions.get(i);
-            if (detectedFunctions.getOrDefault(nodeID, 0.0) >= minimumConfidenceToStop) {
+            if (detectedFunctions.getOrDefault(nodeID, ImpactInformation.nullObject()).getConfidence() >= minimumConfidenceToStop) {
                 patternRegularFunctions.remove(i);
                 i--;
             } 
@@ -550,123 +540,22 @@ public class FrequentPatternEnumeration_ClaSP {
     }
 
     /**
-     * @return a hashmap containing the impact-set and their related change-set items. 
-     */
-    Map<String, List<List<TrieNode>>> getImpactSetAntecendents() {
-        return detectedFunctionsAntecedents;
-    }
-
-    /**
      * @return a hashmap containing the impact-set and their confidence. 
      */
-    Map<String, Double> getImpactSet() {
+    Map<String, ImpactInformation> getImpactSet() {
         return detectedFunctions;
     }
 
     /**
      * it removes infrequent detected functions 
      */
-    void removeInfrequentImpactSet(){
-        Iterator<Double> iterator = detectedFunctions.values().iterator();
-        Iterator<List<List<TrieNode>>> antecedentsIterator = detectedFunctionsAntecedents.values().iterator();
-        while (iterator.hasNext()) {
-            antecedentsIterator.next();
-            if (iterator.next() < minimumConfidence) {
-                iterator.remove();
-                antecedentsIterator.remove();
+    void saveFrequentImpactedFunctions(){
+        for(Entry<String, ImpactInformation> impactedFunction: detectedFunctions.entrySet()){
+            if(impactedFunction.getValue().getConfidence() >= minimumConfidence){
+                // System.out.println(impactedFunction.getValue());
+                saver.saveImpactedFunctions(impactedFunction);
             }
         }
-    }
-
-    /**
-     * It removes the non closed patterns from the list of patterns given as
-     * parameter
-     *
-     * @param frequentPatterns List of patterns from which we want to remove the
-     *                         non-closed patterns
-     * @param keepPatterns     Flag indicating if we want to keep the final output
-     */
-    void removeNonClosedNonItemConstraintPatterns(List<Entry<Pattern, Trie>> frequentPatterns) {
-        // System.err.println("Before removing NonClosed patterns there are " + numberOfFrequentPatterns + " patterns");
-        /*
-         * Tin modifies:
-         */
-        numberOfFrequentClosedPatterns = 0;
-        // System.out.println(detectedFunctions.size());
-        // System.out.println(detectedFunctionsAntecedents.size());
-
-        // Iterator<Double> iterator = detectedFunctions.values().iterator();
-        // Iterator<List<List<TrieNode>>> antecedentsIterator = detectedFunctionsAntecedents.values().iterator();
-        // while (iterator.hasNext()) {
-        //     antecedentsIterator.next();
-        //     if (iterator.next() < minimumConfidence) {
-        //         iterator.remove();
-        //         antecedentsIterator.remove();
-        //     }
-        // }
-        // System.out.println(detectedFunctions.size());
-        // System.out.println(detectedFunctionsAntecedents.size());
-        
-        /*
-         * We make a map to match group of patterns linked by their addition of sequence
-         * identifiers to find closed patterns wrt to support
-         */
-        Map<Integer, List<Pattern>> patternClusters = new HashMap<>();
-        // and we classify the patterns there by their sumIdSequences number
-        for (int i = 0; i < frequentPatterns.size(); i++) {
-            Entry<Pattern, Trie> entrada = frequentPatterns.get(i);
-            Pattern p = entrada.getKey();
-            Trie t = entrada.getValue();
-            p.setAppearingIn(t.getAppearingIn());
-            List<Pattern> listaPatrones = patternClusters.get(t.getSumIdSequences());
-            if (listaPatrones == null) {
-                listaPatrones = new LinkedList<>();
-                patternClusters.put(t.getSumIdSequences(), listaPatrones);
-            }
-            listaPatrones.add(p);
-            frequentPatterns.remove(i);
-            i--;
-        }
-
-        // For all the list associated with de different sumSequencesIDs values
-        for (List<Pattern> lista : patternClusters.values()) {
-            // For all their patterns
-            for (int i = 0; i < lista.size(); i++) {
-                Pattern p1 = lista.get(i);
-                boolean valid = true;
-                for (int j = i + 1; j < lista.size(); j++) {
-                    Pattern p2 = lista.get(j);
-                    if (p1.getSupport() == p2.getSupport() && p1.size() != p2.size()) {
-                        /*
-                         * And one is subpattern of the other, we remove the shorter pattern and keep
-                         * the longer one
-                         */
-                        if (p1.size() < p2.size()) {
-                            if (p1.isSubpattern(abstractionCreator, p2)) {
-                                lista.remove(i);
-                                i--;
-                                valid = false;
-                                break;
-                            }
-                        } else {
-                            if (p2.isSubpattern(abstractionCreator, p1)) {
-                                lista.remove(j);
-                                j--;
-                            }
-                        }
-                    }
-                }
-                if (valid){
-                    numberOfFrequentClosedPatterns++;
-                    saver.savePattern(p1);
-                }
-            }
-        }
-
-        /*
-         * We go over all patterns to find closed patterns wrt to confidence
-         * Those pattern will be saved as the final result
-         */
     }
 
     public void clear() {
