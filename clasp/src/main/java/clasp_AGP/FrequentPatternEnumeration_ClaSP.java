@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.Map.Entry;
 
 import clasp_AGP.dataStructures.ImpactInformation;
@@ -81,7 +82,7 @@ public class FrequentPatternEnumeration_ClaSP {
      */
     private Saver saver;
 
-    private Map<String, Map<String, Integer>> coocMapEquals;
+    private Map<String, Set<String>> coocMap;
     private Map<String, TrieNode> itemConstraints;
     private Map<String, ImpactInformation> detectedFunctions;
     /**
@@ -100,7 +101,7 @@ public class FrequentPatternEnumeration_ClaSP {
      *                           finding the closed sequences
      */
     public FrequentPatternEnumeration_ClaSP(AbstractionCreator abstractionCreator, double minimumConfidence, double minimumConfidenceToStop,
-            Saver saver, Map<String, TrieNode> itemConstraints, Map<String, Map<String, Integer>> coocMapEquals) {
+            Saver saver, Map<String, TrieNode> itemConstraints, Map<String, Set<String>> coocMap) {
         this.abstractionCreator = abstractionCreator;
         this.minimumConfidence = minimumConfidence;
         this.minimumConfidenceToStop = minimumConfidenceToStop;
@@ -108,7 +109,7 @@ public class FrequentPatternEnumeration_ClaSP {
         this.matchingMap = new HashMap<>();
         this.detectedFunctions = new HashMap<>();
         this.itemConstraints = itemConstraints;
-        this.coocMapEquals = coocMapEquals;
+        this.coocMap = coocMap;
     }
 
     /**
@@ -194,19 +195,9 @@ public class FrequentPatternEnumeration_ClaSP {
             String extensionNodeID = (String) extensionNode.getPair().getItem().getId();
             boolean extensionNodeInItemConstraints = this.itemConstraints
                     .containsKey(extensionNode.getPair().getItem().getId());
-            if (this.coocMapEquals != null) {
-                Map<String, Integer> map = this.coocMapEquals.get(lastAppended.getId());
-                if (map != null) {
-                    Integer coocurenceCount = map.get(extensionNodeID);
-
-                    if (coocurenceCount == null) {
-                        continue;
-                    } else if(!extensionNodeInItemConstraints){
-                        if (detectedFunctions.getOrDefault(extensionNodeID, ImpactInformation.nullObject()).getConfidence() >= minimumConfidenceToStop) {
-                            continue;
-                        }
-                    }
-                } else {
+            if (this.coocMap != null) {
+                Set<String> map = this.coocMap.get(lastAppended.getId());
+                if (map != null && !map.contains(extensionNodeID) || (!extensionNodeInItemConstraints && detectedFunctions.getOrDefault(extensionNodeID, ImpactInformation.nullObject()).getConfidence() >= minimumConfidenceToStop)) {
                     continue;
                 }
             }

@@ -3,16 +3,13 @@ package clasp_AGP;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import clasp_AGP.dataStructures.ImpactInformation;
 import clasp_AGP.dataStructures.Sequence;
 import clasp_AGP.dataStructures.creators.AbstractionCreator;
 import clasp_AGP.dataStructures.database.SequenceDatabase;
-import clasp_AGP.dataStructures.patterns.Pattern;
 import clasp_AGP.savers.Saver;
 import clasp_AGP.savers.SaverIntoFile;
 import clasp_AGP.savers.SaverIntoMemory;
@@ -162,53 +159,30 @@ public class AlgoCM_ClaSP {
         // NEW-CODE-PFV 2013
         // Map: key: item value: another item that followed the first item + support
         // (could be replaced with a triangular matrix...)
-        Map<String, Map<String, Integer>> coocMapEquals = new HashMap<String, Map<String, Integer>>(1000);
+        Map<String, Set<String>> coocMap = new HashMap<>(1000);
 
         // update COOC map
         for (Sequence seq : database.getSequences()) {
-            Map<String, Set<String>> alreadySeenB_equals = new HashMap<>();
-            // for each item
             for (int j = 0; j < seq.size(); j++) {
                 String itemA = (String) seq.get(j).getId();
-                Set<String> equalSet = alreadySeenB_equals.get(itemA);
-                if (equalSet == null) {
-                    equalSet = new HashSet<>();
-                    alreadySeenB_equals.put(itemA, equalSet);
-                }
 
-                // create the map if not existing already
-                Map<String, Integer> mapCoocItemEquals = coocMapEquals.get(itemA);
+                // get or create the map if not existing already
+                Set<String> mapCoocItem = coocMap.computeIfAbsent(itemA, k -> new HashSet<>());
 
-                // For each item after itemA in the same sequence // @SADJADRE It's enough to
-                // count items occured after each item since the items are sorted.
+                // keep each item after itemA in the same sequence
                 for (int k = j + 1; k < seq.size(); k++) {
                     String itemB = (String) seq.get(k).getId();
-                    if (!equalSet.contains(itemB)) {
-                        if (mapCoocItemEquals == null) {
-                            mapCoocItemEquals = new HashMap<>();
-                            coocMapEquals.put(itemA, mapCoocItemEquals);
-                        }
-                        Integer frequency = mapCoocItemEquals.get(itemB);
-
-                        if (frequency == null) {
-                            mapCoocItemEquals.put(itemB, 1);
-                        } else {
-                            mapCoocItemEquals.put(itemB, frequency + 1);
-                        }
-
-                        equalSet.add(itemB);
+                    if (!mapCoocItem.contains(itemB)) {
+                        mapCoocItem.add(itemB);
                     }
                 }
             }
         }
-        // System.out.println("************ cooc map ************");
-        // System.out.println(coocMapEquals);
         database.clear();
-        database = null;
 
         // Inizialitation of the class that is in charge of find the frequent patterns
         FrequentPatternEnumeration_ClaSP frequentPatternEnumeration = new FrequentPatternEnumeration_ClaSP(
-                abstractionCreator, minimumConfidence, minimumConfidenceToStop, saver, itemConstraints , coocMapEquals);
+                abstractionCreator, minimumConfidence, minimumConfidenceToStop, saver, itemConstraints , coocMap);
 
         this.mainMethodStart = System.currentTimeMillis();
         // We dfsPruning the search
