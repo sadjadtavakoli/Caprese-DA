@@ -3,7 +3,6 @@ package clasp_AGP;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -165,23 +164,22 @@ public class FrequentPatternEnumeration_ClaSP {
             List<Integer> extensionsIntersection,
             List<Integer> extensionsRegularFunctions) {
 
-        // We get the curretn trie
         Trie currentTrie = currentNode.getChild();
-        List<Pattern> newPatterns = new ArrayList<>();
-        List<TrieNode> newNodesToExtends = new ArrayList<>();
-        List<Integer> newExtensionIntersection = new ArrayList<>();
-        List<Integer> newExtensionRegularFunctions = new ArrayList<>();
 
         if (isAvoidable(pattern, currentTrie)) {
             return;
         }
 
+        // Initialization of new sets
+        List<Pattern> newPatterns = new ArrayList<>();
+        List<TrieNode> newNodesToExtends = new ArrayList<>();
+        List<Integer> newExtensionIntersection = new ArrayList<>();
+        List<Integer> newExtensionRegularFunctions = new ArrayList<>();
+
         Integer lastExtensionIntersection = extensionsIntersection.isEmpty() ? -1 : extensionsIntersection.get(extensionsIntersection.size() - 1);
         boolean notAnyItemConstraintsToExend = lastExtensionIntersection < beginning;
-
         Integer lastExtensionRegularFunction = extensionsRegularFunctions.isEmpty() ? -1 : extensionsRegularFunctions.get(extensionsRegularFunctions.size() - 1);
 
-        // Initialization of new sets
         List<TrieNode> newExtensions = new ArrayList<>();
 
         // Clone for the current pattern
@@ -246,8 +244,6 @@ public class FrequentPatternEnumeration_ClaSP {
 
             if((k>=lastExtensionIntersection && newPatternScore >= minimumConfidence)||k<lastExtensionIntersection){
                 numberOfFrequentPatterns++;
-                currentTrie.mergeWithTrie_i(newTrieNode);
-
                 if(!extensionNodeInItemConstraints){
                     updateDetectedFunctionsInfo(newPatternScore, newIdList.getSupport(), extensionNodeID, newPatternIntersection);
                 }else{
@@ -313,7 +309,8 @@ public class FrequentPatternEnumeration_ClaSP {
                 break;
             }
 
-            if (newPatternIntersection.isEmpty() && i+1 > newLastExtensionIntersection) {
+            if (newPatternIntersection.isEmpty() && i+1 > newLastExtensionIntersection) { 
+                // this is not correct => i is an index of patterns not the extension nodes 
                 break;
             }
 
