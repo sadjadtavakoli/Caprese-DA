@@ -66,7 +66,7 @@ public class FrequentPatternEnumeration_ClaSP {
      * The absolute minimum confidence threshold, i.e. the minimum number of sequences
      * where the patterns have to be, to be considered as detected
      */
-    private double minimumConfidenceToStop;
+    private double enoughConfidence;
     /**
      * Number of frequent patterns found by the algorithm. Initially set to zero.
      */
@@ -100,11 +100,11 @@ public class FrequentPatternEnumeration_ClaSP {
      * @param findClosedPatterns flag to indicate if we are interesting in only
      *                           finding the closed sequences
      */
-    public FrequentPatternEnumeration_ClaSP(AbstractionCreator abstractionCreator, double minimumConfidence, double minimumConfidenceToStop,
+    public FrequentPatternEnumeration_ClaSP(AbstractionCreator abstractionCreator, double minimumConfidence, double enoughConfidence,
             Saver saver, Map<String, TrieNode> itemConstraints, Map<String, Set<String>> coocMap) {
         this.abstractionCreator = abstractionCreator;
         this.minimumConfidence = minimumConfidence;
-        this.minimumConfidenceToStop = minimumConfidenceToStop;
+        this.enoughConfidence = enoughConfidence;
         this.saver = saver;
         this.matchingMap = new HashMap<>();
         this.detectedFunctions = new HashMap<>();
@@ -197,7 +197,7 @@ public class FrequentPatternEnumeration_ClaSP {
                     .containsKey(extensionNode.getPair().getItem().getId());
             if (this.coocMap != null) {
                 Set<String> map = this.coocMap.get(lastAppended.getId());
-                if (map != null && !map.contains(extensionNodeID) || (!extensionNodeInItemConstraints && detectedFunctions.getOrDefault(extensionNodeID, ImpactInformation.nullObject()).getConfidence() >= minimumConfidenceToStop)) {
+                if (map != null && !map.contains(extensionNodeID) || (!extensionNodeInItemConstraints && detectedFunctions.getOrDefault(extensionNodeID, ImpactInformation.nullObject()).getConfidence() >= enoughConfidence)) {
                     continue;
                 }
             }
@@ -257,13 +257,13 @@ public class FrequentPatternEnumeration_ClaSP {
                 newExtensions.add(newTrieNode);
                 newExtensionIntersection.add(newExtensions.size() - 1);
             } else {
-                if (!notAnyItemConstraintsToExend && newPatternScore < minimumConfidenceToStop) {
+                if (!notAnyItemConstraintsToExend && newPatternScore < enoughConfidence) {
                     newExtensions.add(newTrieNode);
                     newExtensionRegularFunctions.add(newExtensions.size() - 1);
                 }
             }
 
-            if(k>=lastExtensionRegularFunction && newPatternScore>=minimumConfidenceToStop){
+            if(k>=lastExtensionRegularFunction && newPatternScore>=enoughConfidence){
                 break;
             }
         }
@@ -289,7 +289,7 @@ public class FrequentPatternEnumeration_ClaSP {
             if(itemConstraints.containsKey(nodeToExtend.getPair().getItem().getId())) {
                 newPatternIntersection = new ArrayList<>(patternIntersection);
                 newPatternIntersection.add(itemConstraints.get(nodeToExtend.getPair().getItem().getId()));
-            } else if(nodeToExtend.getConfidence()<minimumConfidenceToStop){
+            } else if(nodeToExtend.getConfidence()<enoughConfidence){
                 newPatternsRegularFunctions = new ArrayList<>(patternRegularFunctions);
                 newPatternsRegularFunctions.add((String) nodeToExtend.getPair().getItem().getId());
             }
@@ -324,7 +324,7 @@ public class FrequentPatternEnumeration_ClaSP {
     private boolean hasUndetectedRegularFunctionsExtensions(Integer beginning, List<TrieNode> extensions, List<Integer> extensionsRegularFunctions){
         for(int i=0; i<extensionsRegularFunctions.size(); i++){
             int nodeIndex = extensionsRegularFunctions.get(i);
-            if(nodeIndex>=beginning && detectedFunctions.getOrDefault(extensions.get(nodeIndex).getPair().getItem().getId(), ImpactInformation.nullObject()).getConfidence() < minimumConfidenceToStop) {
+            if(nodeIndex>=beginning && detectedFunctions.getOrDefault(extensions.get(nodeIndex).getPair().getItem().getId(), ImpactInformation.nullObject()).getConfidence() < enoughConfidence) {
                 return true;
             }
         }
@@ -334,7 +334,7 @@ public class FrequentPatternEnumeration_ClaSP {
     private List<String> getUndetectedRegularFunctionsInPattern(List<String> patternRegularFunctions){
         for(int i=0; i<patternRegularFunctions.size(); i++){
             String nodeID = patternRegularFunctions.get(i);
-            if (detectedFunctions.getOrDefault(nodeID, ImpactInformation.nullObject()).getConfidence() >= minimumConfidenceToStop) {
+            if (detectedFunctions.getOrDefault(nodeID, ImpactInformation.nullObject()).getConfidence() >= enoughConfidence) {
                 patternRegularFunctions.remove(i);
                 i--;
             } 

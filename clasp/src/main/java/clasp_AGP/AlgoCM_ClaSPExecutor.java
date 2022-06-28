@@ -32,7 +32,7 @@ public class AlgoCM_ClaSPExecutor {
      *                           memory
      * @param itemsFrequenciesPath the path in which each items frequency should be stored 
      */
-    public static Map<String, ImpactInformation> runFile(List<String> itemConstraint, double minimumConfidence, double minimumConfidenceToStop, String filePath, String outputPath)
+    public static Map<String, ImpactInformation> runFile(List<String> itemConstraint, double minimumConfidence, double enoughConfidence, String filePath, String outputPath)
             throws IOException {
 
         // if you set the following parameter to true, the sequence ids of the sequences
@@ -47,7 +47,7 @@ public class AlgoCM_ClaSPExecutor {
 
         sequenceDatabase.loadFile(filePath);
 
-        AlgoCM_ClaSP algorithm = new AlgoCM_ClaSP(minimumConfidence, minimumConfidenceToStop, abstractionCreator);
+        AlgoCM_ClaSP algorithm = new AlgoCM_ClaSP(minimumConfidence, enoughConfidence, abstractionCreator);
 
         algorithm.runAlgorithm(sequenceDatabase, outputPath, outputSequenceIdentifiers);
         System.out.println("Minsup (relative) : " + minimumConfidence);
@@ -61,7 +61,7 @@ public class AlgoCM_ClaSPExecutor {
 
     }
 
-    public static Map<String, ImpactInformation> runList(List<String> itemConstraint, double minumumConfidence, double minumumConfidenceToStop, String[] sequences,
+    public static Map<String, ImpactInformation> runList(List<String> itemConstraint, double minumumConfidence, double enoughConfidence, String[] sequences,
             String outputPath) throws IOException {
 
         String filePath = "input.txt";
@@ -75,7 +75,7 @@ public class AlgoCM_ClaSPExecutor {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return runFile(itemConstraint, minumumConfidence, minumumConfidenceToStop, filePath, outputPath);
+        return runFile(itemConstraint, minumumConfidence, enoughConfidence, filePath, outputPath);
     }
 
     public static String fileToPath(String filename) throws UnsupportedEncodingException {
