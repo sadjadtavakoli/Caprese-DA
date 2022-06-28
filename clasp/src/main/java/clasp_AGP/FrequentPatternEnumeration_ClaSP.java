@@ -136,19 +136,23 @@ public class FrequentPatternEnumeration_ClaSP {
                 itemConstraintsExtension.add(i);
             } else {
                 regularFunctionsExtension.add(i);
-
             }
         }
 
         for (int i = 0; i < tam; i++) {
             // For each frequent item (the children of the root Trie)
+            TrieNode eq = trie.getNode(i);
+            String eqID = (String) eq.getPair().getItem().getId();
+            
+            if(detectedFunctions.getOrDefault(eqID, ImpactInformation.nullObject()).getConfidence() >= enoughConfidence){
+                continue;
+            }
             List<TrieNode> patternIntersection = new ArrayList<>();
             List<String> patternRegularFunctions = new ArrayList<>();
-            TrieNode eq = trie.getNode(i);
-            if (itemConstraints.containsKey(eq.getPair().getItem().getId())) {
+            if (itemConstraints.containsKey(eqID)) {
                 patternIntersection.add(eq);
             } else {
-                patternRegularFunctions.add((String) eq.getPair().getItem().getId());
+                patternRegularFunctions.add(eqID);
             }
             /*
              * We call to the main method of the algorithm for that Trie associated with the
