@@ -9,7 +9,6 @@ import java.util.Set;
 import java.util.Map.Entry;
 
 import clasp_AGP.dataStructures.ImpactInformation;
-import clasp_AGP.dataStructures.Item;
 import clasp_AGP.dataStructures.abstracciones.ItemAbstractionPair;
 import clasp_AGP.dataStructures.creators.AbstractionCreator;
 import clasp_AGP.dataStructures.creators.AbstractionCreator_Qualitative;
@@ -158,14 +157,14 @@ public class FrequentPatternEnumeration_ClaSP {
              * We call to the main method of the algorithm for that Trie associated with the
              * frequent item
              */
-            exploreChildren(new Pattern(eq.getPair()), eq, firstSequenceExtensions, i + 1, eq.getPair().getItem(),
+            exploreChildren(new Pattern(eq.getPair()), eq, firstSequenceExtensions, i + 1,
                     patternIntersection, patternRegularFunctions,
                     itemConstraintsExtension, regularFunctionsExtension);
         }
     }
 
     private void exploreChildren(Pattern pattern, TrieNode currentNode, List<TrieNode> extensions,
-            int beginning, Item lastAppended, List<TrieNode> patternIntersection, List<String> patternRegularFunctions,
+            int beginning, List<TrieNode> patternIntersection, List<String> patternRegularFunctions,
             List<Integer> extensionsIntersection,
             List<Integer> extensionsRegularFunctions) {
 
@@ -174,6 +173,8 @@ public class FrequentPatternEnumeration_ClaSP {
         if (isAvoidable(pattern, currentTrie)) {
             return;
         }
+
+        numberOfFrequentPatterns++;
 
         // Initialization of new sets
         List<Pattern> newPatterns = new ArrayList<>();
@@ -200,7 +201,8 @@ public class FrequentPatternEnumeration_ClaSP {
             boolean extensionNodeInItemConstraints = this.itemConstraints
                     .containsKey(extensionNode.getPair().getItem().getId());
             if (this.coocMap != null) {
-                Set<String> map = this.coocMap.get(lastAppended.getId());
+                String lastAppendedID = (String) clone.getIthElement(clone.size() - 1).getItem().getId();
+                Set<String> map = this.coocMap.get(lastAppendedID);
                 if (map != null && !map.contains(extensionNodeID) || (!extensionNodeInItemConstraints && detectedFunctions.getOrDefault(extensionNodeID, ImpactInformation.nullObject()).getConfidence() >= enoughConfidence)) {
                     continue;
                 }
@@ -238,7 +240,6 @@ public class FrequentPatternEnumeration_ClaSP {
             newTrieNode.setConfidence(newPatternScore);
 
             if((k>=lastExtensionIntersection && newPatternScore >= minimumConfidence)||k<lastExtensionIntersection){
-                numberOfFrequentPatterns++;
                 if(!extensionNodeInItemConstraints){
                     updateDetectedFunctionsInfo(newPatternScore, newIdList.getSupport(), extensionNodeID, newPatternIntersection);
                 }else{
@@ -248,11 +249,20 @@ public class FrequentPatternEnumeration_ClaSP {
                 }
             }
 
-            if(k<lastExtensionIntersection || (k==lastExtensionIntersection && newPatternScore >= minimumConfidence)){
+            boolean patternIsExtendable = false;
+
+            if(k<lastExtensionIntersection){
+                if(extensionNodeInItemConstraints || newPatternScore < minimumConfidence){
+                    patternIsExtendable = true;
+                }
+            }else if(k==lastExtensionIntersection && newPatternScore >= minimumConfidence){
+                patternIsExtendable = true;
+            }
+
+            if(patternIsExtendable){
                 newPatterns.add(extension);
                 newNodesToExtends.add(newTrieNode);
             }
-
             /*
             * Finally we add the new pattern and nodeTrie to the sets that are needed for
             * future patterns
@@ -260,27 +270,23 @@ public class FrequentPatternEnumeration_ClaSP {
             if (extensionNodeInItemConstraints) {
                 newExtensions.add(newTrieNode);
                 newExtensionIntersection.add(newExtensions.size() - 1);
-            } else {
-                if (!notAnyItemConstraintsToExend && newPatternScore < enoughConfidence) {
-                    newExtensions.add(newTrieNode);
-                    newExtensionRegularFunctions.add(newExtensions.size() - 1);
-                }
+            } else if (!notAnyItemConstraintsToExend && newPatternScore < enoughConfidence) {
+                newExtensions.add(newTrieNode);
+                newExtensionRegularFunctions.add(newExtensions.size() - 1);
             }
 
             if(k>=lastExtensionRegularFunction && newPatternScore>=enoughConfidence){
                 break;
             }
         }
+        Integer extensionSize = newPatterns.size();
 
-        int extensionSize = newPatterns.size();
         Integer newLastExtensionIntersection = newExtensionIntersection.isEmpty() ? -1 : newExtensionIntersection.get(newExtensionIntersection.size() - 1);
         // For all the elements valuables as future i-extensions
         for (int i = 0; i < extensionSize; i++) {
             // we get the new pattern and the nodeTrie associated with it
             Pattern newPattern = newPatterns.get(i);
             TrieNode nodeToExtend = newNodesToExtends.remove(0);
-
-            Item last = newPattern.getIthElement(newPattern.size() - 1).getItem(); // PFV 2013
 
             /*
              * And we make a recursive call to dfs_pruning with the new extension.
@@ -289,6 +295,7 @@ public class FrequentPatternEnumeration_ClaSP {
              */
             List<TrieNode> newPatternIntersection = patternIntersection;
             List<String> newPatternsRegularFunctions = patternRegularFunctions; 
+            Integer lastNodeIndex = newExtensions.indexOf(nodeToExtend);
 
             if(itemConstraints.containsKey(nodeToExtend.getPair().getItem().getId())) {
                 newPatternIntersection = new ArrayList<>(patternIntersection);
@@ -297,23 +304,20 @@ public class FrequentPatternEnumeration_ClaSP {
                 newPatternsRegularFunctions = new ArrayList<>(patternRegularFunctions);
                 newPatternsRegularFunctions.add((String) nodeToExtend.getPair().getItem().getId());
             }
-            
             newPatternsRegularFunctions = getUndetectedRegularFunctionsInPattern(newPatternsRegularFunctions);
-
-            if(newPatternsRegularFunctions.isEmpty() && !hasUndetectedRegularFunctionsExtensions(i + 1, newExtensions, newExtensionRegularFunctions)){
+            boolean noRegularFunctionToDetect = newPatternsRegularFunctions.isEmpty() && !hasUndetectedRegularFunctionsExtensions(lastNodeIndex + 1, newExtensions, newExtensionRegularFunctions);
+            if(noRegularFunctionToDetect){
                 break;
             }
 
-            if (newPatternIntersection.isEmpty() && i+1 > newLastExtensionIntersection) { 
-                // this is not correct => i is an index of patterns not the extension nodes 
+            boolean noChangeSetFunctionToExtendWith = newPatternIntersection.isEmpty() && lastNodeIndex > newLastExtensionIntersection;
+            if (noChangeSetFunctionToExtendWith) { 
                 break;
             }
 
 
-            exploreChildren(newPattern, nodeToExtend, newExtensions, i + 1, last, newPatternIntersection,
-            newPatternsRegularFunctions,
-                    newExtensionIntersection,
-                    newExtensionRegularFunctions);
+            exploreChildren(newPattern, nodeToExtend, newExtensions, lastNodeIndex + 1, newPatternIntersection,
+            newPatternsRegularFunctions, newExtensionIntersection, newExtensionRegularFunctions);
             
             nodeToExtend.getChild().setIdList(null);
         }
@@ -544,7 +548,6 @@ public class FrequentPatternEnumeration_ClaSP {
     void saveFrequentImpactedFunctions(){
         for(Entry<String, ImpactInformation> impactedFunction: detectedFunctions.entrySet()){
             if(impactedFunction.getValue().getConfidence() >= minimumConfidence){
-                // System.out.println(impactedFunction.getValue());
                 saver.saveImpactedFunctions(impactedFunction);
             }
         }
