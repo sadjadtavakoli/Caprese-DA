@@ -69,7 +69,7 @@ public class FrequentPatternEnumeration_ClaSP {
     /**
      * Number of frequent patterns found by the algorithm. Initially set to zero.
      */
-    private int numberOfFrequentPatterns = 0, numberOfFrequentClosedPatterns = 0;
+    private int numberOfFrequentPatterns = 0;
     /**
      * Map in which we store the different patterns in order to know which ones can
      * be skipped because can be summarized by other ones (the closed patterns)
@@ -358,14 +358,6 @@ public class FrequentPatternEnumeration_ClaSP {
      */
     public int getFrequentPatterns() {
         return numberOfFrequentPatterns;
-    }
-
-    public int getFrequentClosedPatterns() {
-        return numberOfFrequentClosedPatterns;
-    }
-
-    public void setPatronesFrecuentes(int patronesFrecuentes) {
-        this.numberOfFrequentPatterns = patronesFrecuentes;
     }
 
     /**

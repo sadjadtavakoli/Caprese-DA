@@ -8,7 +8,6 @@ import java.util.stream.Collectors;
 
 import clasp_AGP.dataStructures.ImpactInformation;
 import clasp_AGP.dataStructures.Sequences;
-import clasp_AGP.dataStructures.patterns.Pattern;
 
 /**
  * This is an implementation of a class implementing the Saver interface. By
@@ -39,29 +38,20 @@ import clasp_AGP.dataStructures.patterns.Pattern;
 public class SaverIntoMemory implements Saver {
 
     private Sequences patterns = null;
-    private boolean outputSequenceIdentifiers;
     private List<Entry<String, ImpactInformation>> detectedFunction;
 
-    public SaverIntoMemory(boolean outputSequenceIdentifiers) {
+    public SaverIntoMemory() {
         patterns = new Sequences("FREQUENT SEQUENTIAL PATTERNS");
         detectedFunction = new ArrayList<>();
-        this.outputSequenceIdentifiers = outputSequenceIdentifiers;
     }
 
-    public SaverIntoMemory(String name, boolean outputSequenceIdentifiers) {
+    public SaverIntoMemory(String name) {
         patterns = new Sequences(name);
-        this.outputSequenceIdentifiers = outputSequenceIdentifiers;
-    }
-
-    @Override
-    public void savePattern(Pattern p) {
-        patterns.addSequence(p, p.size());
     }
 
     public void saveImpactedFunctions(Entry<String, ImpactInformation> impactedFunction){
         detectedFunction.add(impactedFunction);
     }
-
 
     @Override
     public void finish() {
@@ -75,9 +65,13 @@ public class SaverIntoMemory implements Saver {
     }
 
     @Override
+    public Integer resultSize(){
+        return detectedFunction.size();
+    }
+
+    @Override
     public String print() {
         return detectedFunction.toString();
-        // return patterns.toStringToFile(outputSequenceIdentifiers);
     }
 
     public Map<String, ImpactInformation> getList(){

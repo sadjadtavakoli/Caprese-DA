@@ -58,15 +58,6 @@ public class Trie implements Comparable<Trie> {
      */
     List<TrieNode> nodei;
 
-    public void mergeWithTrie_i(TrieNode trie) {
-        if (levelSize_i() == 0) {
-            if (nodei == null) {
-                nodei = new ArrayList<TrieNode>(1);
-            }
-        }
-        nodei.add(trie);
-    }
-
     public int levelSize_i() {
         if (nodei == null) {
             return 0;
@@ -306,21 +297,6 @@ public class Trie implements Comparable<Trie> {
     }
 
     /**
-     * It merges a trie with another one, inserting the TrieNode given as parameter
-     * in the list of node associated with the current Trie.
-     * 
-     * @param trie
-     */
-    public void mergeWithTrie(TrieNode trie) {
-        if (levelSize() == 0) {
-            if (nodes == null) {
-                nodes = new ArrayList<TrieNode>(1);
-            }
-        }
-        nodes.add(trie);
-    }
-
-    /**
      * It sorts the children by lexicographic order (given by their pair values)
      */
     public void sort() {
@@ -401,15 +377,6 @@ public class Trie implements Comparable<Trie> {
     }
 
     /**
-     * It updates the support of the pattern referred by the Trie
-     * 
-     * @param support
-     */
-    public void setSupport(int support) {
-        this.support = support;
-    }
-
-    /**
      * It gets the sum of the sequence identifiers of the sequences where the
      * pattern, referred by the Trie, appears
      * 
@@ -445,85 +412,4 @@ public class Trie implements Comparable<Trie> {
         return acum;
     }
 
-    /**
-     * It makes a pre-order traversal from the Trie. The result is concatenate to
-     * the prefix pattern given as parameter
-     * 
-     * @param p Prefix pattern
-     * @return a list of entries <Pattern, Trie>
-     */
-    public List<Entry<Pattern, Trie>> preorderTraversal(Pattern p, double minimumConfidence) {
-        List<Entry<Pattern, Trie>> result = new ArrayList<Entry<Pattern, Trie>>();
-        // If there is any node
-        if (nodes != null) {
-            for (TrieNode node : nodes) {
-                /*
-                 * We concatenate the pair component of this child with the previous prefix
-                 * pattern, we set its appearances and we add it as a element in the result list
-                 */
-                Trie child = node.getChild();
-                Pattern newPattern = PatternCreator.getInstance().concatenate(p, node.getPair());
-                if (node.getConfidence() <= 1 && node.getConfidence() >= minimumConfidence) {
-                    newPattern.setConfidence(node.getConfidence());
-                    AbstractMap.SimpleEntry newEntry = new AbstractMap.SimpleEntry(newPattern, child);
-                    result.add(newEntry);
-                }
-                if (child != null) {
-                    /*
-                     * If the child is not null we make a recursive call with the new pattern
-                     */
-                    List<Entry<Pattern, Trie>> patternsFromChild = child.preorderTraversal(newPattern, minimumConfidence);
-                    if (patternsFromChild != null) {
-                        result.addAll(patternsFromChild);
-                    }
-                }
-            }
-            /*
-             * Tin correct:
-             */
-            // return result;
-        }
-        /*
-         * else { return null; }
-         */
-        if (nodei != null) {
-            for (TrieNode node : nodei) {
-                /*
-                 * We concatenate the pair component of this child with the previous prefix
-                 * pattern, we set its appearances and we add it as a element in the result list
-                 */
-                Trie child = node.getChild();
-                Pattern newPattern = PatternCreator.getInstance().concatenate(p, node.getPair());
-                if (node.getConfidence() <= 1 && node.getConfidence() >= minimumConfidence) {
-                    newPattern.setConfidence(node.getConfidence());
-                    AbstractMap.SimpleEntry newEntry = new AbstractMap.SimpleEntry(newPattern, child);
-                    result.add(newEntry);
-                }
-                if (child != null) {
-                    /*
-                     * If the child is not null we make a recursive call with the new pattern
-                     */
-                    List<Entry<Pattern, Trie>> patternsFromChild = child.preorderTraversal(newPattern, minimumConfidence);
-                    if (patternsFromChild != null) {
-                        result.addAll(patternsFromChild);
-                    }
-                }
-            }
-        }
-        if (nodes != null || nodei != null)
-            return result;
-        else
-            return null;
-    }
-
-    /**
-     * It compares this trie with another
-     * 
-     * @param t the other trie
-     * @return 0 if equal, -1 if smaller, otherwise 1
-     */
-    @Override
-    public int compareTo(Trie t) {
-        return (new Integer(this.id)).compareTo(t.id);
-    }
 }

@@ -10,7 +10,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import clasp_AGP.dataStructures.ImpactInformation;
-import clasp_AGP.dataStructures.patterns.Pattern;
 
 /**
  * This is an implementation of a class implementing the Saver interface. By
@@ -40,6 +39,7 @@ public class SaverIntoFile implements Saver {
 
     private BufferedWriter writer = null;
     private String path = null;
+    private Integer resultSize = 0;
 
     public SaverIntoFile(String outputFilePath) throws IOException {
         path = outputFilePath;
@@ -48,24 +48,9 @@ public class SaverIntoFile implements Saver {
     }
 
     @Override
-    public void savePattern(Pattern p) {
-        if (writer != null) {
-            // create a StringBuilder
-            StringBuilder r = new StringBuilder("");
-            r.append(p.toStringToFileSimple());
-            try {
-                // write the string to the file
-                writer.write(r.toString()+",");
-                // start a new line
-            } catch (IOException ex) {
-                Logger.getLogger(SaverIntoFile.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
-
-    @Override
     public void saveImpactedFunctions(Entry<String, ImpactInformation> impactedFunction) {
         if (writer != null) {
+            resultSize++;
             // create a StringBuilder
             StringBuilder r = new StringBuilder("\"");
             r.append(impactedFunction.getKey());
@@ -73,7 +58,7 @@ public class SaverIntoFile implements Saver {
             r.append(impactedFunction.getValue());
             try {
                 // write the string to the file
-                writer.write(r.toString()+",");
+                writer.write(r.toString() + ",");
                 // start a new line
             } catch (IOException ex) {
                 Logger.getLogger(SaverIntoFile.class.getName()).log(Level.SEVERE, null, ex);
@@ -99,11 +84,16 @@ public class SaverIntoFile implements Saver {
     }
 
     @Override
+    public Integer resultSize(){
+        return resultSize;
+    }
+
+    @Override
     public String print() {
         return "Content at file " + path;
     }
 
-    public Map<String, ImpactInformation> getList(){
+    public Map<String, ImpactInformation> getList() {
         Map<String, ImpactInformation> empty = new HashMap<>();
         empty.put("Content at file " + path, ImpactInformation.nullObject());
         return empty;

@@ -4,7 +4,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import clasp_AGP.dataStructures.ImpactInformation;
-import clasp_AGP.dataStructures.patterns.Pattern;
 
 /**
  * This is the definition of a interface in order to decide where the user wants
@@ -32,13 +31,13 @@ import clasp_AGP.dataStructures.patterns.Pattern;
  */
 public interface Saver {
 
-    public void savePattern(Pattern p);
-
     public void saveImpactedFunctions(Entry<String, ImpactInformation> impactedFunction);
     
     public void finish();
 
     public void clear();
+
+    public Integer resultSize();
 
     public String print();
 

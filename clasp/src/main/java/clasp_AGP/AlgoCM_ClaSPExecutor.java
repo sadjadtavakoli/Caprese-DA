@@ -35,11 +35,6 @@ public class AlgoCM_ClaSPExecutor {
     public static Map<String, ImpactInformation> runFile(List<String> itemConstraint, double minimumConfidence, double enoughConfidence, String filePath, String outputPath)
             throws IOException {
 
-        // if you set the following parameter to true, the sequence ids of the sequences
-        // where
-        // each pattern appears will be shown in the result
-        boolean outputSequenceIdentifiers = false;
-
         AbstractionCreator abstractionCreator = AbstractionCreator_Qualitative.getInstance();
         IdListCreator idListCreator = IdListCreatorStandard_Map.getInstance();
 
@@ -49,16 +44,11 @@ public class AlgoCM_ClaSPExecutor {
 
         AlgoCM_ClaSP algorithm = new AlgoCM_ClaSP(minimumConfidence, enoughConfidence, abstractionCreator);
 
-        algorithm.runAlgorithm(sequenceDatabase, outputPath, outputSequenceIdentifiers);
-        System.out.println("Minsup (relative) : " + minimumConfidence);
-        System.out.println(algorithm.getNumberOfFrequentPatterns() + " patterns found.");
+        algorithm.runAlgorithm(sequenceDatabase, outputPath);
 
         System.out.println(algorithm.printStatistics());
+
         return algorithm.getResut();
-
-        // uncomment if we want to see the Trie graphically
-        // ShowTrie.showTree(algorithm.getFrequentAtomsTrie());
-
     }
 
     public static Map<String, ImpactInformation> runList(List<String> itemConstraint, double minumumConfidence, double enoughConfidence, String[] sequences,
