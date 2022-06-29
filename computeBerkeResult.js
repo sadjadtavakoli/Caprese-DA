@@ -8,7 +8,7 @@ function computeBerkeResult(changes) {
 
     intrepretDAResult(changes, impactSet);
 
-    intrepretFPData(changes, impactSet);
+    intrepretFPData(impactSet);
 
     sortAndReport(impactSet);
 }
@@ -81,7 +81,7 @@ function intrepretDAResult(changes, impactSet) {
     }
 }
 
-function intrepretFPData(changes, impactSet) {
+function intrepretFPData(impactSet) {
     let FPimapctSet = JSON.parse(fs.readFileSync(constants.PATTERNS_PATH));
     let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(", ");
     for (let impacted in FPimapctSet) {
@@ -111,4 +111,4 @@ function addToList(listOflists, list2) {
     listOflists.push(list2)
 }
 
-module.exports = { computeBerkeResult, intrepretFPData, sortAndReport }
+module.exports = { computeBerkeResult }

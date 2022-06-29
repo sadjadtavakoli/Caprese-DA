@@ -110,6 +110,8 @@ function collectResult(commit) {
         // collect and evaluate Berke's result
         commitsInfo[commit]['berke'] = berkeConsequentStatusUpdate(tarmaqResult);
 
+        commitsInfo[commit]['reversed-FP'] = reverseFP();
+        
         fs.writeFileSync(RESULT_PATH, JSON.stringify(commitsInfo));
         resolve();
     })
@@ -131,6 +133,26 @@ function tarmaqConsequentStatusUpdate(berkeSeparateUnitsResult) {
         return item;
     });
     return tarmaqResult;
+}
+
+function reverseFP() {
+    let impactSet = JSON.parse(fs.readFileSync(constants.Berke_RESULT_PATH));
+    let result = {};
+    impactSet.forEach(impacted=>{
+        let consequent = impacted['consequent']
+        let antecedents = impacted['FP-antecedents']
+        if(antecedents!=undefined){
+            antecedents.forEach(element => {
+                let id = stringfy(element)
+                if(result[id]!=undefined){
+                    result[id].push({'consequent':consequent, 'support':impacted['support'], 'FP-score':impacted['FP-score']})                
+                }else{
+                    result[id] = [{'consequent':consequent, 'support':impacted['support'], 'FP-score':impacted['FP-score']}]                    
+                }
+            });
+        }
+    })
+    return result
 }
 
 function berkeConsequentStatusUpdate(tarmaqResult) {
@@ -186,6 +208,10 @@ function includes(mapArr, array) {
         }
     }
     return false
+}
+
+function stringfy(listOfFunctions){
+    return listOfFunctions.join(",")
 }
 
 function runTARMAQ(changeSet) {
