@@ -84,10 +84,6 @@ public class FrequentPatternEnumeration_ClaSP {
     private Map<String, Set<String>> coocMap;
     private Map<String, TrieNode> itemConstraints;
     private Map<String, ImpactInformation> detectedFunctions;
-    /**
-     * Tin inserts:
-     */
-    protected List<TrieNode> firstSequenceExtensions;
 
     /**
      * Standard constructor
@@ -122,13 +118,12 @@ public class FrequentPatternEnumeration_ClaSP {
 
     public void dfsPruning(Trie trie) {
         int tam = trie.levelSize();
-        /*
-         * Tin inserts
-         */
-        firstSequenceExtensions = trie.getNodes();
+
+        List<TrieNode> firstSequenceExtensions = trie.getNodes();
         List<Integer> itemConstraintsExtension = new ArrayList<>();
         List<Integer> regularFunctionsExtension = new ArrayList<>();
 
+        // The algorithm finds the intersection of extensions and item constrains and regular functions 
         for (int i = 0; i < firstSequenceExtensions.size(); i++) {
             String nodeID = (String) firstSequenceExtensions.get(i).getPair().getItem().getId();
             if (itemConstraints.containsKey(nodeID)) {
@@ -138,14 +133,20 @@ public class FrequentPatternEnumeration_ClaSP {
             }
         }
 
+        // For each frequent item (the children of the root Trie)
         for (int i = 0; i < tam; i++) {
-            // For each frequent item (the children of the root Trie)
             TrieNode eq = trie.getNode(i);
             String eqID = (String) eq.getPair().getItem().getId();
-            
+        
+            /*
+            * If node is already detected with a confidence greather than the given enoughConfidence,
+            * the algorithm skips it and continues the iteration with the next node. 
+            */
             if(detectedFunctions.getOrDefault(eqID, ImpactInformation.nullObject()).getConfidence() >= enoughConfidence){
                 continue;
             }
+
+            // The algorithm updates pattern's intersection with item constraints or regular functions 
             List<TrieNode> patternIntersection = new ArrayList<>();
             List<String> patternRegularFunctions = new ArrayList<>();
             if (itemConstraints.containsKey(eqID)) {
@@ -153,10 +154,11 @@ public class FrequentPatternEnumeration_ClaSP {
             } else {
                 patternRegularFunctions.add(eqID);
             }
+
             /*
-             * We call to the main method of the algorithm for that Trie associated with the
-             * frequent item
-             */
+            * The algorithm calls exploreChildren to produce new patterns and find the impacted function. 
+            * This function gets a pattern of length one and the extension nodes after the current item to create new patterns.
+            */
             exploreChildren(new Pattern(eq.getPair()), eq, firstSequenceExtensions, i + 1,
                     patternIntersection, patternRegularFunctions,
                     itemConstraintsExtension, regularFunctionsExtension);
@@ -170,10 +172,15 @@ public class FrequentPatternEnumeration_ClaSP {
 
         Trie currentTrie = currentNode.getChild();
 
+        /*
+        * The algorithm checks if the given pattern can be skipped using prune methods backward
+        * subpattern or backward superpattern of the patterns that have been extended so far.
+        */ 
         if (isAvoidable(pattern, currentTrie)) {
             return;
         }
 
+        // The algorithm increses the number of frequent patterns
         numberOfFrequentPatterns++;
 
         // Initialization of new sets
@@ -182,8 +189,13 @@ public class FrequentPatternEnumeration_ClaSP {
         List<Integer> newExtensionIntersection = new ArrayList<>();
         List<Integer> newExtensionRegularFunctions = new ArrayList<>();
 
+        // The index of the last item constraint's index in the extension nodes 
         Integer lastExtensionIntersection = extensionsIntersection.isEmpty() ? -1 : extensionsIntersection.get(extensionsIntersection.size() - 1);
+        
+        // This value indicates that whether there any item constraints in the extension nodes or not 
         boolean notAnyItemConstraintsToExend = lastExtensionIntersection < beginning;
+        
+        // The index of the last regular function's index in the extension nodes
         Integer lastExtensionRegularFunction = extensionsRegularFunctions.isEmpty() ? -1 : extensionsRegularFunctions.get(extensionsRegularFunctions.size() - 1);
 
         List<TrieNode> newExtensions = new ArrayList<>();
@@ -198,8 +210,18 @@ public class FrequentPatternEnumeration_ClaSP {
         for (int k = beginning; k < extensions.size(); k++) {
             TrieNode extensionNode = extensions.get(k);
             String extensionNodeID = (String) extensionNode.getPair().getItem().getId();
+
+           // This value indicates that the extension node is in the given ChangeSet
             boolean extensionNodeInItemConstraints = this.itemConstraints
                     .containsKey(extensionNode.getPair().getItem().getId());
+
+            
+            /*
+            * The algorithm checks whether the extension node is ever observed after the 
+            * last function of the pattern or not. If not so, the algorithm continues the extension with the next node.
+            * The algorithm also checks whether or not the extension node is already detected with 
+            * the confidence more than the given enough confidence. If so, the algorithm skips it. 
+            */
             if (this.coocMap != null) {
                 String lastAppendedID = (String) clone.getIthElement(clone.size() - 1).getItem().getId();
                 Set<String> map = this.coocMap.get(lastAppendedID);
@@ -208,40 +230,61 @@ public class FrequentPatternEnumeration_ClaSP {
                 }
             }
 
-            // We create a new pattern with the elements of the current pattern
+            // The algorithm creates a new pattern with the elements of the current pattern
             Pattern extension = new Pattern(new ArrayList<>(clone.getElements()));
-            // And we add it the current item of extension set
+
+            // Then it extends it with the current extension node
             ItemAbstractionPair newPair = ItemAbstractionPairCreator.getInstance().getItemAbstractionPair(
                     extensionNode.getPair().getItem(),
                     AbstractionCreator_Qualitative.getInstance().crearAbstraccion(true));
             extension.add(newPair);
 
-            /*
-             * We make the join operation between the tries of both patterns in order to
-             * know the appearances of the new pattern and its support.
-             */
-            joinCount++;
+
+            /* 
+            * Then, it computes the new pattern's intersection with item constraints based on the
+            * base pattern's intersection and the extension node
+            */ 
             List<TrieNode> newPatternIntersection = patternIntersection;
             if (extensionNodeInItemConstraints) {
                 newPatternIntersection = new ArrayList<>(patternIntersection);
                 newPatternIntersection.add(itemConstraints.get(extensionNodeID));
             }
 
+            /*
+             * The algorthm makes the join operation between the tries of both patterns in order to
+             * know the appearances of the new pattern and its support.
+             */   
+            joinCount++;
             IDList newIdList = currentTrie.getIdList().join(extensionNode.getChild().getIdList());
+            
+            // It gets the intersections' idList in order to find their cooccurrence support
             IDList intersectionIdList = IdListCreatorStandard_Map.nodesToIDList(newPatternIntersection);
-
+        
+            /*
+            * Based on the computed intersection, the algorithm computes the new pattern's confidence by
+            * dividing the new pattern's support and the intersection's. 
+            */
             double newPatternScore = intersectionIdList.getSupport()>0 ? (double) newIdList.getSupport() / intersectionIdList.getSupport() : -1;
+            
+            // The algorthm creates a new trie for it
             Trie newTrie = new Trie(null, newIdList);
-            // And we insert it its appearances
+            // And then inserts it its appearances
             newIdList.setAppearingIn(newTrie);
-            // we put in a TrieNode the new pair and the new Trie created
+            // Next it puts in a TrieNode the new pair and the new Trie created
             TrieNode newTrieNode = new TrieNode(newPair, newTrie);
-            // And we merge the new Trie with the current one
-            newTrieNode.setConfidence(newPatternScore);
 
-            if((k>=lastExtensionIntersection && newPatternScore >= minimumConfidence)||k<lastExtensionIntersection){
+            /*
+            * If the new pattern's confidence is greater than the given minimumConfidence
+            * we update extension node's and the undetected functions included in that pattern's 
+            * information. 
+            */
+            if(newPatternScore >= minimumConfidence){
                 if(!extensionNodeInItemConstraints){
-                    updateDetectedFunctionsInfo(newPatternScore, newIdList.getSupport(), extensionNodeID, newPatternIntersection);
+                    /*
+                    * Since the extension node is not in the given changeSet, the new pattern's score is definitely less than the older one.
+                    * So, the algorithm only updates the extension node's confidence
+                    */
+                    updateDetectedFunctionsInfo(newPatternScore, newIdList.getSupport(), extensionNodeID, newPatternIntersection);  
                 }else{
                     for(String functionID: patternRegularFunctions){
                         updateDetectedFunctionsInfo(newPatternScore, newIdList.getSupport(), functionID, newPatternIntersection);
@@ -251,21 +294,36 @@ public class FrequentPatternEnumeration_ClaSP {
 
             boolean patternIsExtendable = false;
 
+            // If there is still at least one changeSet function to extend the new pattern
             if(k<lastExtensionIntersection){
+                /*
+                * And if the extension node is in item constrains or it's score is less than 
+                * the given minimum confidence, the algorithm keeps the new pattern for furtuer extensions.
+                */
                 if(extensionNodeInItemConstraints || newPatternScore < minimumConfidence){
                     patternIsExtendable = true;
                 }
+            /*
+            * Also, suppose the extension node is the last changeSet function. In that case, 
+            * the algorithm keeps the new pattern for the further extension only if 
+            * its confidence exceeds the given minimum confidence.  
+            */
             }else if(k==lastExtensionIntersection && newPatternScore >= minimumConfidence){
                 patternIsExtendable = true;
             }
 
             if(patternIsExtendable){
+                // The algorthms sets the new pattern's score as the extension node's confidence. 
+                newTrieNode.setConfidence(newPatternScore);
                 newPatterns.add(extension);
                 newNodesToExtends.add(newTrieNode);
             }
+
             /*
-            * Finally we add the new pattern and nodeTrie to the sets that are needed for
-            * future patterns
+            * The algorithm keeps the extension node for the next level of extension only if two conditions
+            * First, if its in item constraints.
+            * Second, if there is at leat one changeSet function in the given extension nodes, and the new pattern's 
+            * confidence is less the enoughConfidence. 
             */
             if (extensionNodeInItemConstraints) {
                 newExtensions.add(newTrieNode);
@@ -274,28 +332,36 @@ public class FrequentPatternEnumeration_ClaSP {
                 newExtensions.add(newTrieNode);
                 newExtensionRegularFunctions.add(newExtensions.size() - 1);
             }
-
+            /*
+            * If the new pattern's confidence is enough, and no more regular functions remain to detect, 
+            * the algorithm ceases the iteration and goes to the next step. 
+            */
             if(k>=lastExtensionRegularFunction && newPatternScore>=enoughConfidence){
                 break;
             }
         }
-        Integer extensionSize = newPatterns.size();
 
+
+        // The index of the last item constraint function existed in the extension nodes 
         Integer newLastExtensionIntersection = newExtensionIntersection.isEmpty() ? -1 : newExtensionIntersection.get(newExtensionIntersection.size() - 1);
-        // For all the elements valuables as future i-extensions
+
+        Integer extensionSize = newPatterns.size();
+        
+        /*
+        * The algorithm iterates over the patterns kept for extension.
+        */
         for (int i = 0; i < extensionSize; i++) {
+
             // we get the new pattern and the nodeTrie associated with it
             Pattern newPattern = newPatterns.get(i);
             TrieNode nodeToExtend = newNodesToExtends.remove(0);
 
             /*
-             * And we make a recursive call to dfs_pruning with the new extension.
-             * Besides we establish the same set as the set which we will make the
-             * i-extensions, but beginning from the (i+1)-th element
+             * The algorithm computes the new pattern's intersection with regular functions and the 
+             * item constrains based on the current pattern's intersection and the extension node
              */
             List<TrieNode> newPatternIntersection = patternIntersection;
             List<String> newPatternsRegularFunctions = patternRegularFunctions; 
-            Integer lastNodeIndex = newExtensions.indexOf(nodeToExtend);
 
             if(itemConstraints.containsKey(nodeToExtend.getPair().getItem().getId())) {
                 newPatternIntersection = new ArrayList<>(patternIntersection);
@@ -304,18 +370,37 @@ public class FrequentPatternEnumeration_ClaSP {
                 newPatternsRegularFunctions = new ArrayList<>(patternRegularFunctions);
                 newPatternsRegularFunctions.add((String) nodeToExtend.getPair().getItem().getId());
             }
+            
+            // Pattern's last function's index in the new extension nodes. 
+            Integer lastNodeIndex = newExtensions.indexOf(nodeToExtend);
+
+            // The algorithm get's the new pattern's undetected regular functions
             newPatternsRegularFunctions = getUndetectedRegularFunctionsInPattern(newPatternsRegularFunctions);
+
+
+            /*
+            * If newPattern does not have any functions with confidence less than enough, and no functions with not enough confidence remain
+            * in the nex extensionNodes, the algorithm breaks the iteration and stops any further extensions. 
+            */
             boolean noRegularFunctionToDetect = newPatternsRegularFunctions.isEmpty() && !hasUndetectedRegularFunctionsExtensions(lastNodeIndex + 1, newExtensions, newExtensionRegularFunctions);
             if(noRegularFunctionToDetect){
                 break;
             }
 
+            /*
+            * If newPattern does not include any item constraints functions, and also its last function
+            * is greater than the last item constraints, the algorithm breaks the iteration and 
+            * stops any further extensions. 
+            */
             boolean noChangeSetFunctionToExtendWith = newPatternIntersection.isEmpty() && lastNodeIndex > newLastExtensionIntersection;
             if (noChangeSetFunctionToExtendWith) { 
                 break;
             }
 
-
+            /*
+            * The algorithm recursively calls exploreChildren function on the new pattern with extension nodes greater
+            * than its last function
+            */
             exploreChildren(newPattern, nodeToExtend, newExtensions, lastNodeIndex + 1, newPatternIntersection,
             newPatternsRegularFunctions, newExtensionIntersection, newExtensionRegularFunctions);
             
@@ -323,12 +408,19 @@ public class FrequentPatternEnumeration_ClaSP {
         }
     }
 
+    /**
+     * This function updates a function's info in the detected functions list. 
+     * this information include the confidence, supprt, and the changeSet functions that impacted on that function.
+     */
     private void updateDetectedFunctionsInfo(double newPatternScore, Integer support, String functionID, List<TrieNode> patternIntersection) {
         ImpactInformation preScore = detectedFunctions.getOrDefault(functionID, new ImpactInformation(0.0, 0, new ArrayList<>()));
         preScore.updateImpact(newPatternScore, support, patternIntersection);
         detectedFunctions.put(functionID, preScore);
     }
 
+    /**
+     * This function checks whether there is any undetected regular function remained or not
+     */
     private boolean hasUndetectedRegularFunctionsExtensions(Integer beginning, List<TrieNode> extensions, List<Integer> extensionsRegularFunctions){
         for(int i=0; i<extensionsRegularFunctions.size(); i++){
             int nodeIndex = extensionsRegularFunctions.get(i);
@@ -339,6 +431,9 @@ public class FrequentPatternEnumeration_ClaSP {
         return false;
     }
 
+    /**
+    * This function eliminates the detected regular functions and returns the rest
+    */
     private List<String> getUndetectedRegularFunctionsInPattern(List<String> patternRegularFunctions){
         for(int i=0; i<patternRegularFunctions.size(); i++){
             String nodeID = patternRegularFunctions.get(i);
@@ -483,10 +578,6 @@ public class FrequentPatternEnumeration_ClaSP {
                 associatedList.add(newEntry);
                 // If we found any superPattern
                 if (superPattern > 0) {
-                    /*
-                     * if (superPattern > 1) {
-                     * System.out.println("We removed more than one pattern!!"); }
-                     */
                     // We return the correspondent output
                     return true;
                 }
@@ -528,16 +619,9 @@ public class FrequentPatternEnumeration_ClaSP {
     }
 
     /**
-     * @return a hashmap containing the impact-set and their confidence. 
-     */
-    Map<String, ImpactInformation> getImpactSet() {
-        return detectedFunctions;
-    }
-
-    /**
      * it removes infrequent detected functions 
      */
-    void saveFrequentImpactedFunctions(){
+    void pruneImpactSet(){
         for(Entry<String, ImpactInformation> impactedFunction: detectedFunctions.entrySet()){
             if(impactedFunction.getValue().getConfidence() >= minimumConfidence){
                 saver.saveImpactedFunctions(impactedFunction);

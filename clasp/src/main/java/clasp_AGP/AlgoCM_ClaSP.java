@@ -78,7 +78,7 @@ public class AlgoCM_ClaSP {
     /**
      * Number of frequent patterns found by the algorithm
      */
-    private int numberOfFrequentPatterns, numberOfImpactedFunctions;
+    private int numberOfFrequentPatterns;
     /**
      * flag to indicate if we are interesting in only finding the closed sequences
      */
@@ -143,12 +143,12 @@ public class AlgoCM_ClaSP {
         FrequentAtomsTrie = database.frequentItems();
         itemConstraints = database.itemConstraints();
 
-        // NEW-CODE-PFV 2013
-        // Map: key: item value: another item that followed the first item + support
-        // (could be replaced with a triangular matrix...)
         Map<String, Set<String>> coocMap = new HashMap<>(1000);
 
-        // update COOC map
+        /**
+        * For each item foo after a function bar in the same sequence we add a true value 
+        * to the row foo and column var. This value indicates foo occured after bar in a sequence.
+        */
         for (Sequence seq : database.getSequences()) {
             for (int j = 0; j < seq.size(); j++) {
                 String itemA = (String) seq.get(j).getId();
@@ -180,7 +180,7 @@ public class AlgoCM_ClaSP {
         // check the memory usage for statistics
         MemoryLogger.getInstance().checkMemory();
 
-        frequentPatternEnumeration.saveFrequentImpactedFunctions();
+        frequentPatternEnumeration.pruneImpactSet();
 
         frequentPatternEnumeration.clear();
 

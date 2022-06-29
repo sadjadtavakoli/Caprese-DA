@@ -89,41 +89,49 @@ function extendPattern(pattern, extensionNodes, changeSet, coocMap, minimumConfi
         if(newPatternConfidence >= minimumConfidence){
 
             if(!extensionNodeInChangeSet){
+                /*
+                * Since the extension node is not in the given changeSet, the new pattern's score is definitely less than the older one.
+                * So, the algorithm only updates the extension node's confidence
+                */  
                 updateDetectedFunctionsInfo(newPatternConfidence, newPattern.getSupport(), extensionNode, newPatternIntersection);
             }else{
-                /*
-                * the extension is no in the given changeSet, the new pattern's score is definitely less than older one
-                * So, the undetected functions confidence do not increase.  
-                */  
                 for(functionID in pattern.getUndetectedFunctions()){
                     updateDetectedFunctionsInfo(newPatternConfidence, newPattern.getSupport(), functionID, newPatternIntersection);
                 }
             }
         }
 
+
+        // If there is still at least one changeSet function to extend the new pattern
+        if(extensionNode<lastExtensionIntersection){
+            /*
+            * And if the extension node is in item constrains or it's score is less than 
+            * the given minimum confidence, the algorithm keeps the new pattern for furtuer extensions.
+            */
+            if(extensionNodeInChangeSet || newPatternConfidence < minimumConfidence){
+                newPatternsToExtend.add(extension);
+            }
         /*
-        * If there is still at least a changeSet function to extend the new pattern, 
-        * the algorithm keeps the current pattern for the next step. 
         * Also, suppose the extension node is the last changeSet function. In that case, 
         * the algorithm keeps the new pattern for the further extension only if 
         * its confidence exceeds the given minimum confidence.  
         */
-        if(extensionNode<lastExtensionIntersection || (extensionNode==lastExtensionIntersection && newPatternConfidence >= minimumConfidence)){
+        }else if(extensionNode==lastExtensionIntersection && newPatternConfidence >= minimumConfidence){
             newPatternsToExtend.add(extension);
         }
 
         /*
         * The algorithm keeps the extension node for the next level of extension only if two conditions
         * First, if its in the given ChangeSet function.
-        * Second, there is at leat one changeSet functions the given extension nodes and the new pattern's 
-        * score is less the enoughConfidence. 
+        * Second, if there is at leat one changeSet function in the given extension nodes, and the new pattern's 
+        * confidence is less the enoughConfidence. 
         */
         if (extensionNodeInChangeSet || (lastExtensionIntersection && newPatternConfidence < enoughConfidence)) {
             newExtensions.add(extensionNode);
         }
 
         /*
-        * If the new pattern's confidence is enough and no more regular functions remain to detect, 
+        * If the new pattern's confidence is enough, and no more regular functions remain to detect, 
         * the algorithm ceases the iteration and goes to the next step. 
         */
         if(extensionNode>=lastExtensionRegularfunction && newPatternConfidence>=enoughConfidence){
