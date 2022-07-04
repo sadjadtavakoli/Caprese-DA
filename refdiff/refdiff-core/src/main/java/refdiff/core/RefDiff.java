@@ -77,8 +77,8 @@ public class RefDiff {
 	 * @param mappingsPath 
 	 * @return
 	 */
-	public CstDiff computeDiffForCommit(PairBeforeAfter<SourceFileSet> beforeAndAfter, String mappingsPath, String commit) {
-		return comparator.compare(beforeAndAfter.getBefore(), beforeAndAfter.getAfter(), new CstComparatorMonitor() {}, mappingsPath, commit);
+	public CstDiff computeDiffForCommit(PairBeforeAfter<SourceFileSet> beforeAndAfter, String mappingsPath) {
+		return comparator.compare(beforeAndAfter.getBefore(), beforeAndAfter.getAfter(), new CstComparatorMonitor() {}, mappingsPath);
 	}
 
 	/**

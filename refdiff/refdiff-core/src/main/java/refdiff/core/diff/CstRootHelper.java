@@ -216,15 +216,7 @@ public class CstRootHelper<T> {
 			
 			if (node.getLocation().getBegin() != node.getLocation().getBodyBegin()) {
 				List<String> nodeBodyTokens = retrieveTokens(sourceCode, node, true);
-				T body = srb.buildForFragment(nodeBodyTokens);
-				List<String> tokensToIgnore = new ArrayList<>();
-				for (Parameter parameter : node.getParameters()) {
-					tokensToIgnore.add(parameter.getName());
-				}
-				tokensToIgnore.addAll(getTokensToIgnoreInNodeBody(node));
-				T normalizedBody = srb.minus(body, tokensToIgnore);
-				srBodyMap.put(node, normalizedBody);
-				
+				srBodyMap.put(node, srb.buildForFragment(nodeBodyTokens));
 			} else {
 				srBodyMap.put(node, srMap.get(node));
 			}
@@ -260,10 +252,6 @@ public class CstRootHelper<T> {
 			tokens.add(sourceCode.substring(tokenStart, tokenEnd));
 		}
 		return tokens;
-	}
-	
-	private Collection<String> getTokensToIgnoreInNodeBody(CstNode node) {
-		return Arrays.asList("return");
 	}
 	
 	public T sourceRep(CstNode n) {

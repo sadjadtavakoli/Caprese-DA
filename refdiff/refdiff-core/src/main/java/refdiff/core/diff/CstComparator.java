@@ -26,6 +26,7 @@ import com.google.gson.JsonParser;
 import org.eclipse.jgit.errors.LargeObjectException;
 
 import refdiff.core.diff.similarity.SourceRepresentationBuilder;
+import refdiff.core.diff.similarity.TfIdfSourceRepresentation;
 import refdiff.core.diff.similarity.TfIdfSourceRepresentationBuilder;
 import refdiff.core.io.SourceFile;
 import refdiff.core.io.SourceFileSet;
@@ -47,11 +48,11 @@ public class CstComparator {
 	}
 
 	public CstDiff compare(SourceFileSet sourcesBefore, SourceFileSet sourcesAfter, CstComparatorMonitor monitor,
-			String mappingsPath, String commit) {
+			String mappingsPath) {
 		try {
 			DiffBuilder<?> diffBuilder = new DiffBuilder<>(new TfIdfSourceRepresentationBuilder(), sourcesBefore,
 					sourcesAfter, monitor, mappingsPath);
-			return diffBuilder.computeDiff(commit);
+			return diffBuilder.computeDiff();
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
@@ -135,10 +136,10 @@ public class CstComparator {
 			return diff;
 		}
 
-		CstDiff computeDiff(String commit) throws IOException {
+		CstDiff computeDiff() throws IOException {
 			match();
 			getMappings();
-			findChangedEntities(commit);
+			findChangedEntities();
 			findAddedEntities();
 			findRemovedEntities();
 			writeMappings();
@@ -296,6 +297,10 @@ public class CstComparator {
 			return srb.similarity(before.sourceRep(n1), after.sourceRep(n2));
 		}
 
+		private double computeBodyHardSimilarityScore(CstNode n1, CstNode n2) {
+			return srb.similarity(before.bodySourceRep(n1), after.bodySourceRep(n2));
+		}
+
 		private double computeNameSimilarity(CstNode n1, CstNode n2) {
 			double s1 = Math.max(srb.partialSimilarity(before.nameSourceRep(n1), after.nameSourceRep(n2)),
 					srb.partialSimilarity(after.nameSourceRep(n2), before.nameSourceRep(n1)));
@@ -375,9 +380,8 @@ public class CstComparator {
 				CstNode n1 = employeeByKey.get(i);
 				CstNode n2 = mapBeforeToAfter.get(n1);
 				String n1Key = n1.toString();
-				double score = computeHardSimilarityScore(n1, n2);
 
-				if (score < 1) {
+				if(!areTheSame(n1,n2)) {
 					after.removeFromParents(n2);
 					before.removeFromParents(n1);
 					this.changedEntitiesKeys.add(n1Key);
@@ -399,20 +403,17 @@ public class CstComparator {
 			}
 		}
 
-		private void findChangedEntities(String commit) throws IOException {
+		private void findChangedEntities() throws IOException {
 			List<CstNode> beforekeys = new ArrayList<>(mapBeforeToAfter.keySet());
 			Collections.sort(beforekeys, new CstNodeTypeComprator());
 
 			Map<String, String> keyMappings = new HashMap<>();
-			JsonObject currentMappign = new JsonObject();
-			JsonObject mappingHisotry = getMappingsHistory();
 
 			for (int i = 0; i < beforekeys.size(); i++) {
 				CstNode n1 = beforekeys.get(i);
 				CstNode n2 = mapBeforeToAfter.get(n1);
 				String n1Key = n1.toString();
 				String n2Key = n2.toString();
-				currentMappign.addProperty(n1Key, n2Key);
 
 				if (this.mappings.has(n2Key)) {
 					String oldKey = n2Key;
@@ -420,18 +421,14 @@ public class CstComparator {
 					this.mappings.remove(oldKey);
 				}
 				keyMappings.put(n1Key, n2Key);
-				double score = computeHardSimilarityScore(n1, n2);
 
-				if (score < 1) {
+				if(!areTheSame(n1,n2)) {
 					after.removeFromParents(n2);
 					before.removeFromParents(n1);
 					this.changedEntitiesKeys.add(n2Key);
 				}
 			}
-			if (!currentMappign.entrySet().isEmpty()) {
-				mappingHisotry.add(commit, currentMappign);
-				writeMappingHistory(mappingHisotry);
-			}
+
 			for (Map.Entry<String, String> entry : keyMappings.entrySet()) {
 				this.mappings.addProperty(entry.getKey(), entry.getValue());
 			}
@@ -479,29 +476,6 @@ public class CstComparator {
 			}
 		}
 
-		private JsonObject getMappingsHistory() throws IOException {
-			JsonParser jsonParser = new JsonParser();
-			String filePath = "mappingHistory.json";
-			File tempFile = new File(filePath);
-			JsonObject mappingHisotry = new JsonObject();
-			if (!tempFile.createNewFile()) {
-				try (FileReader reader = new FileReader(filePath)) {
-					mappingHisotry = jsonParser.parse(reader).getAsJsonObject();// Should check the content of this file
-					return mappingHisotry; // before parsing to prevent excepction
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-			return mappingHisotry;
-		}
-
-		private void writeMappingHistory(JsonObject mappingHistory) throws IOException {
-			try (FileWriter myWriter = new FileWriter("mappingHistory.json")) {
-				myWriter.write(mappingHistory.toString());
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
 
 		public Optional<CstNode> matchingNodeBefore(CstNode n2) {
 			return Optional.ofNullable(mapAfterToBefore.get(n2));
@@ -536,6 +510,11 @@ public class CstComparator {
 			} else {
 				return false;
 			}
+		}
+
+		public boolean areTheSame(CstNode n1, CstNode n2){
+			double score = computeBodyHardSimilarityScore(n1, n2);
+			return n1.getParameters().size() == n2.getParameters().size() && score >= 1; 
 		}
 
 		public boolean isAbstract(CstNode n1, CstNode n2) {

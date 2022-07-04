@@ -77,7 +77,7 @@ public class RefDiffBerkak {
 		if (commit.getParentCount() > 0) {
 			commitPr = refDiffJs.getCommit(repo, commit.getParent(0));
 			PairBeforeAfter<SourceFileSet> beforeAndAfter = refDiffJs.getResources(repo, commitPr, commit);
-			CstDiff diffForCommit = refDiffJs.computeDiffForCommit(beforeAndAfter, mappingsPath, commit.getName());
+			CstDiff diffForCommit = refDiffJs.computeDiffForCommit(beforeAndAfter, mappingsPath);
 			List<String> changes = new ArrayList<>();
 			changes.addAll(diffForCommit.getChangedEntitiesKeys());
 			changes.addAll(diffForCommit.getAddedEntitiesKeys());
@@ -94,15 +94,17 @@ public class RefDiffBerkak {
 					file.flush();
 				}
 			} else {
+				String changesString = changes.toString().replaceAll("[\\[\\],\"]", "");
 				if (beforeAndAfter.getAfter().getSourceFiles().size() >= 30) {
-					System.out.println("BIG ONE! " + commit.getName());
+					changesString += " => Larg";
 				} else if (changes.size() == 1) {
-					oneLengthCommitsCount++;
-					// System.out.println("one change detected " + commit.getName());
+					changesString += " => Short";
 				} else {
-					zeroLenghCommitsCount++;
-					// System.out.println("no changes detected " + commit.getName());
-
+					changesString += " => Empty";
+				}
+				try (FileWriter file = new FileWriter(dataPath+"-eliminated.txt", true)) {
+					file.write(changesString + "\n");
+					file.flush();
 				}
 			}
 
@@ -129,6 +131,8 @@ public class RefDiffBerkak {
 
 			changes.addAll(diffForCommit.getChangedEntitiesKeys());
 			changes.addAll(diffForCommit.getRemovedEntitiesKeys());
+
+			System.out.println(diffForCommit.getChangedEntitiesKeys().size());
 
 			if (!changes.isEmpty()) {
 				String changesString = changes.toString().replaceAll("[\\[\\],\"]", "");
