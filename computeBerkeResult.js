@@ -34,14 +34,14 @@ function sortAndReport(impactSet) {
             return 1;
         }
 
-        let aFP = a['FP-score'] || { 'FP-score': 0 };
-        let bFP = b['FP-score'] || { 'FP-score': 0 };
-        if (aFP['FP-score'] - bFP['FP-score'] != 0) {
-            return bFP['FP-score'] - aFP['FP-score'];
+        let aFP = a['FP-score'] || 0;
+        let bFP = b['FP-score'] || 0;
+        if (aFP - bFP != 0) {
+            return bFP - aFP;
         }
 
-        let aDA = a['DA-antecedents'] || { 'DA-antecedents': [] };
-        let bDA = b['DA-antecedents'] || { 'DA-antecedents': [] };
+        let aDA = a['DA-antecedents'] || [];
+        let bDA = b['DA-antecedents'] || [];
         return bDA.length - aDA.length;
     });
     fs.writeFileSync(constants.Berke_RESULT_PATH, JSON.stringify(sortableImpactSet));

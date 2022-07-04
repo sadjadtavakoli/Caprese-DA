@@ -110,8 +110,8 @@ function collectResult(commit) {
         // collect and evaluate Berke's result
         commitsInfo[commit]['berke'] = berkeConsequentStatusUpdate(tarmaqResult);
 
-        commitsInfo[commit]['reversed-FP'] = reverseFP();
-        
+        commitsInfo[commit]['reversed-FP'] = reverseFP(commitsInfo[commit]['berke']);
+
         fs.writeFileSync(RESULT_PATH, JSON.stringify(commitsInfo));
         resolve();
     })
@@ -135,20 +135,19 @@ function tarmaqConsequentStatusUpdate(berkeSeparateUnitsResult) {
     return tarmaqResult;
 }
 
-function reverseFP() {
-    let impactSet = JSON.parse(fs.readFileSync(constants.Berke_RESULT_PATH));
+function reverseFP(impactSet) {
     let result = {};
-    impactSet.forEach(impacted=>{
+    impactSet.forEach(impacted => {
         let consequent = impacted['consequent']
         let antecedents = impacted['FP-antecedents']
-        if(antecedents!=undefined){
+        if (antecedents != undefined) {
             antecedents.forEach(element => {
                 let id = stringfy(element)
-                if(result[id]!=undefined){
-                    result[id].push({'consequent':consequent, 'support':impacted['support'], 'FP-score':impacted['FP-score']})                
-                }else{
-                    result[id] = [{'consequent':consequent, 'support':impacted['support'], 'FP-score':impacted['FP-score']}]                    
+                if (result[id] == undefined) {
+                    result[id] = []
                 }
+                result[id].push({ 'consequent': consequent, 'support': impacted['support'], 'FP-score': impacted['FP-score'], 'status': impacted['status'], 'DA': impacted['DA-antecedents'] ? true : false })
+
             });
         }
     })
@@ -210,7 +209,7 @@ function includes(mapArr, array) {
     return false
 }
 
-function stringfy(listOfFunctions){
+function stringfy(listOfFunctions) {
     return listOfFunctions.join(",")
 }
 
