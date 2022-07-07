@@ -16,9 +16,6 @@ import org.eclipse.jgit.revwalk.RevCommit;
 
 public class RefDiffBerkak {
 	private static String changesPath = "data/changes/";
-	private static int oneLengthCommitsCount = 0;
-	private static int moreThanLimitationLengthCommitsCount = 0;
-	private static int zeroLenghCommitsCount = 0;
 
 	public static void main(String[] args) throws Exception {
 		String repoLink = args[0];
@@ -51,9 +48,6 @@ public class RefDiffBerkak {
 						counter--;
 						System.out.println(counter);
 					}
-					System.out.println(oneLengthCommitsCount);
-					System.out.println(moreThanLimitationLengthCommitsCount);
-					System.out.println(zeroLenghCommitsCount);
 				}
 			} catch (NumberFormatException e) { // for evaluation
 				String mappingsPath = args[5];
@@ -131,8 +125,6 @@ public class RefDiffBerkak {
 
 			changes.addAll(diffForCommit.getChangedEntitiesKeys());
 			changes.addAll(diffForCommit.getRemovedEntitiesKeys());
-
-			System.out.println(diffForCommit.getChangedEntitiesKeys().size());
 
 			if (!changes.isEmpty()) {
 				String changesString = changes.toString().replaceAll("[\\[\\],\"]", "");

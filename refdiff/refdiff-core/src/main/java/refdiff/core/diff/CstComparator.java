@@ -103,7 +103,6 @@ public class CstComparator {
 			this.addedEntitiesKeys = new HashSet<>();
 			this.removedEntitiesKeys = new HashSet<>();
 			this.mappingsPath = mappingsPath;
-			// this.diff.setNonValidChangedFiles(nonValidChangedFiles);
 			this.monitor = monitor;
 
 			Map<String, String> fileMapBefore = new HashMap<>();
@@ -139,9 +138,9 @@ public class CstComparator {
 		CstDiff computeDiff() throws IOException {
 			match();
 			getMappings();
-			findChangedEntities();
 			findAddedEntities();
 			findRemovedEntities();
+			findChangedEntities();
 			writeMappings();
 			addDetections();
 			return diff;
@@ -149,9 +148,9 @@ public class CstComparator {
 
 		CstDiff computeDiffNoMapping() {
 			match();
-			findChangedEntitiesNoMapping();
 			findAddedEntitiesNoMapping();
 			findRemovedEntitiesNoMapping();
+			findChangedEntitiesNoMapping();
 			addDetections();
 			return diff;
 		}
@@ -389,20 +388,6 @@ public class CstComparator {
 			}
 		}
 
-		private void findAddedEntitiesNoMapping() {
-			for (CstNode entry : this.added) {
-				String entryKey = entry.toString();
-				this.addedEntitiesKeys.add(entryKey);
-			}
-		}
-
-		private void findRemovedEntitiesNoMapping() {
-			for (CstNode entry : this.changed) {
-				String entryKey = entry.toString();
-				this.removedEntitiesKeys.add(entryKey);
-			}
-		}
-
 		private void findChangedEntities() throws IOException {
 			List<CstNode> beforekeys = new ArrayList<>(mapBeforeToAfter.keySet());
 			Collections.sort(beforekeys, new CstNodeTypeComprator());
@@ -434,6 +419,16 @@ public class CstComparator {
 			}
 		}
 
+		private void findAddedEntitiesNoMapping() {
+			List<CstNode> addedList = new ArrayList<>(this.added);
+			Collections.sort(addedList, new CstNodeTypeComprator());
+			for (CstNode entry : addedList) {
+				String entryKey = entry.toString();
+				this.addedEntitiesKeys.add(entryKey);
+				after.removeFromParents(entry);
+			}
+		}
+		
 		private void findAddedEntities() throws IOException {
 			for (CstNode entry : this.added) {
 				String entryKey = entry.toString();
@@ -441,8 +436,18 @@ public class CstComparator {
 					this.addedEntitiesKeys.add(entryKey);
 				} else {
 					this.addedEntitiesKeys.add(this.mappings.get(entryKey).getAsString());
-
 				}
+				after.removeFromParents(entry);
+			}
+		}
+
+		private void findRemovedEntitiesNoMapping() {
+			List<CstNode> changedList = new ArrayList<>(this.changed);
+			Collections.sort(changedList, new CstNodeTypeComprator());
+			for (CstNode entry : changedList) {
+				String entryKey = entry.toString();
+				this.removedEntitiesKeys.add(entryKey);
+				before.removeFromParents(entry);
 			}
 		}
 
@@ -450,6 +455,7 @@ public class CstComparator {
 			for (CstNode entry : this.changed) {
 				String entryKey = entry.toString();
 				this.removedEntitiesKeys.add(entryKey);
+				before.removeFromParents(entry);
 			}
 		}
 

@@ -14,20 +14,17 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-
 import org.eclipse.jgit.errors.LargeObjectException;
-
-import refdiff.core.diff.similarity.SourceRepresentationBuilder;
-import refdiff.core.io.SourceFile;
-import refdiff.core.io.SourceFileSet;
-import refdiff.core.cst.HasChildrenNodes;
-import refdiff.core.cst.Location;
-import refdiff.core.cst.Parameter;
 import refdiff.core.cst.CstNode;
 import refdiff.core.cst.CstNodeRelationship;
 import refdiff.core.cst.CstNodeRelationshipType;
 import refdiff.core.cst.CstRoot;
+import refdiff.core.cst.HasChildrenNodes;
+import refdiff.core.cst.Location;
 import refdiff.core.cst.TokenizedSource;
+import refdiff.core.diff.similarity.SourceRepresentationBuilder;
+import refdiff.core.io.SourceFile;
+import refdiff.core.io.SourceFileSet;
 
 public class CstRootHelper<T> {
 	
@@ -211,15 +208,15 @@ public class CstRootHelper<T> {
 		if (!srMap.containsKey(node)) {
 			String sourceCode = fileMap.get(node.getLocation().getFile());
 			List<String> nodeTokens = retrieveTokens(sourceCode, node, false);
-			srMap.put(node, srb.buildForNode(node, isBefore, nodeTokens));
+			T all = srb.buildForNode(node, isBefore, nodeTokens);
+			T normalizedAll = srb.minus(all, getTokensToIgnoreInNodeBody());
+			srMap.put(node, normalizedAll);
 			srNameMap.put(node, srb.buildForName(node, isBefore));
 			
-			if (node.getLocation().getBegin() != node.getLocation().getBodyBegin()) {
-				List<String> nodeBodyTokens = retrieveTokens(sourceCode, node, true);
-				srBodyMap.put(node, srb.buildForFragment(nodeBodyTokens));
-			} else {
-				srBodyMap.put(node, srMap.get(node));
-			}
+			List<String> nodeBodyTokens = retrieveTokens(sourceCode, node, true);
+			T body = srb.buildForFragment(nodeBodyTokens);
+			T normalizedBody = srb.minus(body, getTokensToIgnoreInNodeBody());
+			srBodyMap.put(node, normalizedBody);
 		}
 	}
 	
@@ -254,6 +251,10 @@ public class CstRootHelper<T> {
 		return tokens;
 	}
 	
+	private List<String> getTokensToIgnoreInNodeBody() {
+		return Arrays.asList(".", ",", ":", ";");
+	}
+	
 	public T sourceRep(CstNode n) {
 		if (!srMap.containsKey(n)) {
 			throw new RuntimeException("Source representation not computed");
@@ -262,12 +263,9 @@ public class CstRootHelper<T> {
 	}
 	
 	public void removeFromParents(CstNode n) {
-		if (!srMap.containsKey(n)) {
-			throw new RuntimeException("Source representation not computed");
-		}
 		Optional<CstNode> parent = n.getParent(); 
 		while(parent.isPresent()){
-			srb.subtractTokens(sourceRep(parent.get()), sourceRep(n));
+			srb.subtractTokens(bodySourceRep(parent.get()), sourceRep(n));
 			parent = parent.get().getParent();
 		}
 	}
