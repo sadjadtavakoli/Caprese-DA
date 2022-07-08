@@ -33,42 +33,53 @@ let tempIDsMap = {};
                 return { f: f, base: base, args: args, skip: false };
             }
 
+            // The last function of the functionEnterStack is the caller function 
             let callerFunction = functionEnterStack[functionEnterStack.length - 1]
             if (utils.isAddEventlistener(f)) {
                 let listenerID = getID(args[1], iid)
 
                 addToAddedListener(getID(base, "b" + iid), args[0], listenerID, callerFunction.fID)
+                // If the listener function's ID does not exist in function's ID map, we assign an ID to it and store it in the ID map.
                 if (!tempIDsMap[listenerID]) tempIDsMap[listenerID] = utils.getIIDKey(getFunctionName(args[1], iid), iid)
 
             } else if (utils.isEmitEvent(f)) {
                 let baseID = getID(base, "b" + iid)
                 let eventInfo = getAddedListeners(baseID, args[0])
+
                 if (eventInfo.length) {
                     let listeners = eventInfo[0]
                     let setters = eventInfo[1]
 
+                    // We add setter and adder to each other's impactSet
                     setters.forEach(setter => {
                         addDependency(setter, callerFunction.fID)
                         addDependency(callerFunction.fID, setter)
                     })
-                    listeners.forEach(listener => {
-                        addDependency(callerFunction.fID, listener)
-                    })
+
+                    /*
+                    * For the listeners, we add listeners into callerFunctions impactSet only if 
+                    * the emitter passes arguments with the emitted event. 
+                    */
+                    if (args[1] != undefined) {
+                        listeners.forEach(listener => {
+                            addDependency(callerFunction.fID, listener)
+                        })
+                    }
                 }
 
-            } else { // records regular and timing functions callers. 
-                // This information will be used in FunctionEnter to add dependencies
+            } else {
                 if (utils.isSetTimeout(f) || utils.isSetInterval(f)) {
-                    if(args[2]!=undefined){
+                    if (args[2] != undefined) {
                         addDependency(callerFunction.fID, getID(args[0], iid))
                     }
                 } else if (utils.isSetImmediate(f)) {
-                    if(args[1]!=undefined){
+                    if (args[1] != undefined) {
                         addDependency(callerFunction.fID, getID(args[0], iid))
                     }
                 } else {
                     let fID = getID(f, iid)
                     let funcArgs = []
+                    removeFromCallbackMap(fID)
                     for (let i = 0; i < args.length; i = i + 1) {
                         if (typeof args[i] == "function") { // iterate over function arguments and records functions.
                             // This information is used in enterFunction to filter our callback like forEach, map, etc from regular inner callbacks
@@ -105,16 +116,17 @@ let tempIDsMap = {};
                 tempIDsMap[fID] = utils.getIIDKey(functionName, iid)
                 let data = { 'iid': iid, 'fID': fID }
 
-                if (!utils.isCalledByCallBackRequiredFunctions(dis)){
+                if (!utils.isCalledByCallBackRequiredFunctions(dis)) {
                     validateCallBackMap(fID)
                     let argCheck = getFromCallbackMap(fID)
+                    let caller;
                     if (argCheck == undefined) {
-                        let caller = functionEnterStack[functionEnterStack.length - 1]
+                        caller = functionEnterStack[functionEnterStack.length - 1]
+                        functionNCallerStack.push([fID, caller])  // Keeps each functions caller to add dependenbcy it _return function, in case the callee returns value
+                        data.isRegularCall = true // using thie variable, _return function only checks regular calls
                         if (args.length) { // adds a function to its caller impact-list if its signature accepts arguments 
                             addDependency(caller.fID, fID)
                         }
-                        functionNCallerStack.push([fID, caller])  // Keeps each functions caller to add dependenbcy it _return function, in case the callee returns value
-                        data.isRegularCall = true // using thie variable, _return function only checks regular calls
                     }
                 }
                 functionEnterStack.push(data)
@@ -131,11 +143,8 @@ let tempIDsMap = {};
          * - functions that return in both parts of a try/finally block can return 2 times
          *
          * To see when a function ACTUALLY exits, see the <tt>functionExit</tt> callback.
-         *
-         * @param {number} iid - Static unique instruction identifier of this callback
-         * @param {*} val - Value to be returned
          */
-        this._return = function (iid, val) {
+        this._return = function () {
             if (functionEnterStack[functionEnterStack.length - 1].isRegularCall) {
                 let fCaller = functionNCallerStack[functionNCallerStack.length - 1]
                 let fID = fCaller[0]
@@ -263,6 +272,10 @@ let tempIDsMap = {};
 
     function getFromCallbackMap(key) {
         return callbackMap.get(key)
+    }
+
+    function removeFromCallbackMap(key){
+        return callbackMap.delete(key)
     }
 
     function getAddedListeners(base, event) {

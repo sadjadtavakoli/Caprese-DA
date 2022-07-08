@@ -54,6 +54,8 @@ describe('Test timeoutSingleAnonymousFunctionNoArgs.js', () => runTest('timeoutS
 describe('Test timeoutSingleKnownFunction.js', () => runTest('timeoutSingleKnownFunction.js'));
 describe('Test timeoutSingleKnownFunctionGetArgsNoArgs.js', () => runTest('timeoutSingleKnownFunctionGetArgsNoArgs.js'));
 describe('Test timeoutZero.js', () => runTest('timeoutZero.js'));
+describe('Test callbackOnCallableFunctionEarlyCall.js', () => runTest('callbackOnCallableFunctionEarlyCall.js'));
+describe('Test callbackOnCallableFunctionLateCall.js', () => runTest('callbackOnCallableFunctionLateCall.js'));
 
 
 const nodeprofCommand = '$GRAAL_HOME/bin/node --jvm --experimental-options --vm.Dtruffle.class.path.append=$NODEPROF_HOME/nodeprof.jar --nodeprof $NODEPROF_HOME/jalangi.js --analysis utils.js --analysis analyser.js test/unit_tests/'

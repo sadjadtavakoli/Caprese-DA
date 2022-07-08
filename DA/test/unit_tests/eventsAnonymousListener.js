@@ -12,7 +12,7 @@ function emitter(){
 }
 
 function emitter2(){
-   eventEmitter.emit('connection2');
+   eventEmitter.emit('connection2', "args");
 }
 
 emitter()

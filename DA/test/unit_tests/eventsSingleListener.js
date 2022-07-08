@@ -15,7 +15,7 @@ function adder2() {
 }
 
 function emitter() {
-    eventEmitter.emit('connection');
+    eventEmitter.emit('connection', "args");
 }
 
 
