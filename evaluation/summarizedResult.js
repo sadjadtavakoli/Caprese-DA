@@ -84,7 +84,7 @@ function berkeSummary(result) {
     confidence = confidence / fpCount
     impactSetSize = impactSetSize / length
     uniquesCount = uniquesCount / length
-    return { "avarage_impact-set_size": impactSetSize, "average_unique_result": uniquesCount, "average_support": support, "average_confidence": confidence }
+    return { "avarage_impactSet_size": impactSetSize, "average_unique_result": uniquesCount, "average_support": support, "average_confidence": confidence }
 }
 
 function tarmaqSummary(result) {
@@ -108,7 +108,7 @@ function tarmaqSummary(result) {
     confidence = confidence / impactSet_size
     impactSet_size = impactSet_size / length
     uniques_count = uniques_count / length
-    return { "avarage_impact-set_size": impactSet_size, "average_unique_result": uniques_count, "average_support": support, "average_confidence": confidence }
+    return { "avarage_impactSet_size": impactSet_size, "average_unique_result": uniques_count, "average_support": support, "average_confidence": confidence }
 }
 
 function averageCommitSize(result) {

@@ -48,14 +48,12 @@ function sortAndReport(impactSet) {
 }
 
 function intrepretDAResult(changes, impactSet) {
-
     let dependenciesData = JSON.parse(fs.readFileSync(constants.DA_DEPENDENCIES_PATH));
     let keyMap = dependenciesData['keyMap'];
     for (let changedFucntion of changes) {
         let dependencies = dependenciesData[changedFucntion];
         if (dependencies == undefined) {
-            let unknownKey = changedFucntion.replace(/((?![.])([^-])*)/, "arrowAnonymousFunction");
-            dependencies = dependenciesData[unknownKey];
+            dependencies = dependenciesData[anonymouseName(changedFucntion)];
         }
 
         if (dependencies != undefined) {
@@ -66,7 +64,7 @@ function intrepretDAResult(changes, impactSet) {
     }
 
     function addDAImpactSet(item, antecedent) {
-        if (!changes.includes(item)) {
+        if (!isIncluded(changes, item)) {
             if (impactSet.has(item)) {
                 let imapctedItem = impactSet.get(item)
                 if (imapctedItem['DA-antecedents']) {
@@ -86,29 +84,25 @@ function intrepretFPData(impactSet) {
     let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(", ");
     for (let impacted in FPimapctSet) {
         let info = FPimapctSet[impacted];
-        if(!removed.includes(impacted)){
+        if (!removed.includes(impacted)) {
             if (impactSet.has(impacted)) {
-                impactSet.set(impacted, {...impactSet.get(impacted), ...info});
+                impactSet.set(impacted, { ...impactSet.get(impacted), ...info });
+            } else if (impactSet.has(anonymouseName(impacted))) {
+                impactSet.set(impacted, { ...impactSet.get(anonymouseName(impacted)), ...info });
+                impactSet.delete(anonymouseName(impacted))
             } else {
-                impactSet.set(impacted, info); 
+                impactSet.set(impacted, info);
             }
         }
     }
 }
 
-function addToList(listOflists, list2) {
-    for (let list of listOflists) {
-        if (list.length > list2.length) {
-            if (list2.every(item => list.includes(item))) {
-                return
-            }
-        }else{
-            if(list.every(item => list2.includes(item))){
-                return
-            }
-        }
-    }
-    listOflists.push(list2)
+function isIncluded(changes, item){
+    return changes.some(changedItem=>
+        changedItem == item || anonymouseName(changedItem) == item )
+}
+function anonymouseName(name) {
+    return name.replace(/((?![.])([^-])*)/, "arrowAnonymousFunction");
 }
 
 module.exports = { computeBerkeResult }
