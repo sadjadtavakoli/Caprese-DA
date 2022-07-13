@@ -46,7 +46,6 @@ public class RefDiffBerkak {
 						commit = minRepo(refDiffJs, repo, commit, dataPath, mappingsPath,
 								removedPath);
 						counter--;
-						System.out.println(counter);
 					}
 				}
 			} catch (NumberFormatException e) { // for evaluation
@@ -64,11 +63,10 @@ public class RefDiffBerkak {
 
 	private static RevCommit minRepo(RefDiff refDiffJs, File repo, RevCommit commit, String dataPath,
 			String mappingsPath, String removedPath) throws Exception {
-		if (commit.getParentCount() != 1) {
-			System.out.println("two parents" + commit.getName());
-		}
+
+		int parentsCount = commit.getParentCount();
 		RevCommit commitPr = null;
-		if (commit.getParentCount() > 0) {
+		if (parentsCount > 0) {
 			commitPr = refDiffJs.getCommit(repo, commit.getParent(0));
 			PairBeforeAfter<SourceFileSet> beforeAndAfter = refDiffJs.getResources(repo, commitPr, commit);
 			CstDiff diffForCommit = refDiffJs.computeDiffForCommit(beforeAndAfter, mappingsPath);
@@ -83,14 +81,14 @@ public class RefDiffBerkak {
 					file.write(changesString + " -1 \n");
 					file.flush();
 				}
-				try (FileWriter file = new FileWriter(dataPath + "details.txt", true)) {
+				try (FileWriter file = new FileWriter(dataPath + "details.txt", true)) { // for evaluation purposes
 					file.write(commit.getName() + " : " + changesString + " -1 \n");
 					file.flush();
 				}
 			} else {
 				String changesString = changes.toString().replaceAll("[\\[\\],\"]", "");
 				if (beforeAndAfter.getAfter().getSourceFiles().size() >= 30) {
-					changesString += " => Larg";
+					changesString += " => Large";
 				} else if (changes.size() == 1) {
 					changesString += " => Short";
 				} else {

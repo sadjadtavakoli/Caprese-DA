@@ -53,7 +53,6 @@ public class JsPlugin implements LanguagePlugin, Closeable {
 		this.nodeJs.getRuntime().executeVoidScript("function toJson(object) {return JSON.stringify(object);}");
 	}
 
-
 	@Override
 	public CstRoot parse(SourceFileSet sources, Set<String> nonValidChangedFiles) throws Exception {
 		CstRoot root = new CstRoot();
@@ -63,8 +62,7 @@ public class JsPlugin implements LanguagePlugin, Closeable {
 				String content = "";
 				try {
 					content = sources.readContent(sourceFile);
-				}
-				catch (LargeObjectException e) {
+				} catch (LargeObjectException e) {
 					if (nonValidChangedFiles != null)
 						nonValidChangedFiles.add(sourceFile.getPath());
 					continue;
@@ -77,7 +75,7 @@ public class JsPlugin implements LanguagePlugin, Closeable {
 			} else {
 				if (nonValidChangedFiles != null)
 					nonValidChangedFiles.add(sourceFile.getPath());
-				}
+			}
 
 		}
 		return root;
@@ -235,7 +233,9 @@ public class JsPlugin implements LanguagePlugin, Closeable {
 		// prevent redundant reading of non js files, we could have another
 		// filter working in parallel just for suppoerted formats for
 		// changes.
-		return new FilePathFilter(Arrays.asList(".js", ".ts", ".jsx", ".md", ".json", ".yml", ".lock", ".ts", ".html", ".sql", ".txt", ".xmi"), Arrays.asList(".ts", ".js", ".jsx"), Arrays.asList(".min.js"));
+		return new FilePathFilter(Arrays.asList(".js", ".ts", ".jsx", ".md", ".json", ".yml", ".lock", ".ts", ".html",
+				".sql", ".txt", ".xmi", ".jade", ".tmpl", ".ejs", ".svg", ".c", ".cpp", ".java", ".h", ".m", ".mm",
+				".M", ".py", ".sh", ".php", ".rb"), Arrays.asList(".ts", ".js", ".jsx"), Arrays.asList(".min.js"));
 	}
 
 	@Override
