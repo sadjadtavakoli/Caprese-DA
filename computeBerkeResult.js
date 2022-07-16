@@ -1,10 +1,15 @@
 const fs = require('fs');
 const constants = require('./constants.js');
 
+// Step2 keep a map of each function's object body. Each item has an ID, name, and a list of relationships. 
+// relationships are basically the list of parents IDs. 
+let functionsObjectList = {};
 
 function computeBerkeResult(changes) {
     // console.log(" = = = Compute Impact-set = = = ");
     let impactSet = new Map()
+
+    setChangeSetRelations(changes)
 
     intrepretDAResult(changes, impactSet);
 
@@ -64,7 +69,10 @@ function intrepretDAResult(changes, impactSet) {
     }
 
     function addDAImpactSet(item, antecedent) {
+        // Step1 keep each of these nodes relation with the changedFunction 
+
         if (!isIncluded(changes, item)) {
+            setRelations(item, antecedent)
             if (impactSet.has(item)) {
                 let imapctedItem = impactSet.get(item)
                 if (imapctedItem['DA-antecedents']) {
@@ -80,11 +88,12 @@ function intrepretDAResult(changes, impactSet) {
 }
 
 function intrepretFPData(impactSet) {
-    let FPimapctSet = JSON.parse(fs.readFileSync(constants.PATTERNS_PATH));
+    let FPimapctSet = JSON.parse(fs.readFileSync(constants.FP_RESULT_PATH));
     let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(", ");
     for (let impacted in FPimapctSet) {
         let info = FPimapctSet[impacted];
         if (!removed.includes(impacted)) {
+            setFPImpactSetRelations(impacted, info['FP-antecedents'])
             if (impactSet.has(impacted)) {
                 impactSet.set(impacted, { ...impactSet.get(impacted), ...info });
             } else if (impactSet.has(anonymouseName(impacted))) {
@@ -97,12 +106,64 @@ function intrepretFPData(impactSet) {
     }
 }
 
-function isIncluded(changes, item){
-    return changes.some(changedItem=>
-        changedItem == item || anonymouseName(changedItem) == item )
+function isIncluded(changes, item) {
+    return changes.some(changedItem =>
+        changedItem == item || anonymouseName(changedItem) == item)
 }
 function anonymouseName(name) {
     return name.replace(/((?![.])([^-])*)/, "arrowAnonymousFunction");
 }
 
+
+function setChangeSetRelations(changeSet) {
+    for (let i = 0; i < changeSet.length; i++) {
+        for (let j = i + 1; j < changeSet.length; j++) {
+            setRelations(changeSet[i], changeSet[j])
+        }
+    }
+}
+
+function setRelations(item1, item2) {
+    let item1_brokenName = item1.split('-')
+    let item2_brokenName = item2.split('-')
+    if (item1_brokenName[1] == item2_brokenName[1]) {
+        let item1_beginning = parseInt(item1_brokenName[2])
+        let item1_end = parseInt(item1_brokenName[3])
+
+        let item2_beginning = parseInt(item2_brokenName[2])
+        let item2_end = parseInt(item2_brokenName[3])
+
+        if (item1_beginning <= item2_beginning && item1_end >= item2_end) {
+            let item1_object = getFunctionObject(item1)
+            let item2_object = getFunctionObject(item2)
+            item2_object['parents'].push(item1_object['id'])
+            functionsObjectList[item2] = item2_object
+
+        } else if (item2_beginning <= item1_beginning && item2_end >= item1_end) {
+            let item1_object = getFunctionObject(item1)
+            let item2_object = getFunctionObject(item2)
+            item1_object['parents'].push(item2_object['id'])
+            functionsObjectList[item1] = item1_object
+        }
+    }
+}
+
+function getFunctionObject(f) {
+    if (functionsObjectList[f]) {
+        return functionsObjectList[f]
+    }
+
+    let object = { "id": Object.keys(functionsObjectList).length, "parents": [] }
+    functionsObjectList[f] = object
+    return object
+}
+
+function setFPImpactSetRelations(impacted, antecedents){
+    for(let list of antecedents){
+        for(let antecedent of list){
+            setRelations(antecedent, impacted)    
+        }
+    }
+
+}
 module.exports = { computeBerkeResult }
