@@ -134,7 +134,7 @@ function computeCommitChanges(commit) {
 function runClasp() {
     console.log(" = = = Run Clasp = = = ")
     return new Promise((resolve, reject) => {
-        exec(`${constants.CLASP_COMMAND}"${constants.SEQUENCES_PATH} ${constants.PATTERNS_PATH} ${getChangeSet()}"`, (err, stdout, stderr) => {
+        exec(`${constants.CLASP_COMMAND}"${constants.SEQUENCES_PATH} ${constants.FP_RESULT_PATH} ${getChangeSet()}"`, (err, stdout, stderr) => {
             if (!err) {
                 resolve()
             }

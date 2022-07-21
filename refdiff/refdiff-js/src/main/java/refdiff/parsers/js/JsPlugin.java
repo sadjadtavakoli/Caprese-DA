@@ -40,7 +40,7 @@ public class JsPlugin implements LanguagePlugin, Closeable {
 	public JsPlugin() throws Exception {
 		this.nodeJs = NodeJS.createNodeJS();
 		nodeModules = new File(
-				"/Users/sadjadtavakoli/University/lab/libraries/RefDiff/refdiff-js/src/main/resources/node_modules");
+				"/Users/sadjadtavakoli/University/lab/libraries/RefDiff/refdiff-js/src/main/resources/node_modules");  
 		this.babel = this.nodeJs.require(new File(nodeModules, "@babel/parser"));
 
 		this.nodeJs.getRuntime().add("babelParser", this.babel);
@@ -234,7 +234,7 @@ public class JsPlugin implements LanguagePlugin, Closeable {
 		// filter working in parallel just for suppoerted formats for
 		// changes.
 		return new FilePathFilter(Arrays.asList(".js", ".ts", ".jsx", ".md", ".json", ".yml", ".lock", ".ts", ".html",
-				".sql", ".txt", ".xmi", ".jade", ".tmpl", ".ejs", ".svg", ".c", ".cpp", ".java", ".h", ".m", ".mm",
+				".sql", ".txt", ".xmi", ".jade", ".tmpl", ".ejs", ".svg", ".c", ".cpp", ".java", ".h", ".m", ".mm", ".mjs",
 				".M", ".py", ".sh", ".php", ".rb"), Arrays.asList(".ts", ".js", ".jsx"), Arrays.asList(".min.js"));
 	}
 

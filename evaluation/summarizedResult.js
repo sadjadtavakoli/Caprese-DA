@@ -26,7 +26,6 @@ function summarizeResult(filename) {
     return summarizedResult
 }
 
-
 function unitsContributionSummary(filename) {
     let fp = 0;
     let da = 0;

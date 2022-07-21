@@ -161,7 +161,8 @@ function berkeConsequentStatusUpdate(tarmaqResult) {
     });
 
     impactSet = impactSet.map(item => {
-        if (tarmaqKeys.includes(item["consequent"])) {
+        let consequent = item["consequent"].split(" | ")[0]
+        if (tarmaqKeys.includes(consequent)) {
             item["status"] = STATUS.common;
         } else {
             item["status"] = STATUS.berke_unique;
@@ -177,13 +178,14 @@ function separateDAnFPsResults(commit) {
     let uniqeContributions = { 'DA': [], 'FP': [], 'common': [] };
 
     for (let item of impactSet) {
+        let consequent = item["consequent"].split(" | ")[0]
         if (item["FP-antecedents"] != undefined && item["DA-antecedents"] != undefined) {
-            uniqeContributions['common'].push(item["consequent"]);
+            uniqeContributions['common'].push(consequent);
         } else if (item["DA-antecedents"] != undefined) {
-            uniqeContributions["DA"].push(item["consequent"]);
+            uniqeContributions["DA"].push(consequent);
         }
         else {
-            uniqeContributions["FP"].push(item["consequent"]);
+            uniqeContributions["FP"].push(consequent);
         }
     }
     commitsContributionData[commit] = uniqeContributions;

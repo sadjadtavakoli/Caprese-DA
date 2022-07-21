@@ -6,26 +6,35 @@ const constants = require('./constants.js');
 let functionsObjectList = {};
 
 function computeBerkeResult(changes) {
-    // console.log(" = = = Compute Impact-set = = = ");
     let impactSet = new Map()
-
-    setChangeSetRelations(changes)
 
     intrepretDAResult(changes, impactSet);
 
     intrepretFPData(impactSet);
 
-    sortAndReport(impactSet);
+    findFunctionsRelations(impactSet, changes)
+
+    let impactSetOrderedList = sort(impactSet);
+
+    impactSetOrderedList = replaceKeysWithObjects(impactSetOrderedList)
+
+    fs.writeFileSync(constants.Berke_RESULT_PATH, JSON.stringify(impactSetOrderedList));
 }
 
-function sortAndReport(impactSet) {
+function sort(impactSet) {
 
     let sortableImpactSet = [];
-    for (var item of impactSet) {
+    for (let item of impactSet) {
         sortableImpactSet.push({ ...{ "consequent": item[0] }, ...item[1] });
     }
 
-    sortableImpactSet.sort(function (a, b) {
+    sortableImpactSet.sort(impactSetSorter());
+
+    return sortableImpactSet
+}
+
+function impactSetSorter() {
+    return function (a, b) {
         if ((a['DA-antecedents'] && !b['DA-antecedents'])) {
             return -1;
         }
@@ -48,8 +57,7 @@ function sortAndReport(impactSet) {
         let aDA = a['DA-antecedents'] || [];
         let bDA = b['DA-antecedents'] || [];
         return bDA.length - aDA.length;
-    });
-    fs.writeFileSync(constants.Berke_RESULT_PATH, JSON.stringify(sortableImpactSet));
+    };
 }
 
 function intrepretDAResult(changes, impactSet) {
@@ -69,10 +77,7 @@ function intrepretDAResult(changes, impactSet) {
     }
 
     function addDAImpactSet(item, antecedent) {
-        // Step1 keep each of these nodes relation with the changedFunction 
-
         if (!isIncluded(changes, item)) {
-            setRelations(item, antecedent)
             if (impactSet.has(item)) {
                 let imapctedItem = impactSet.get(item)
                 if (imapctedItem['DA-antecedents']) {
@@ -93,7 +98,6 @@ function intrepretFPData(impactSet) {
     for (let impacted in FPimapctSet) {
         let info = FPimapctSet[impacted];
         if (!removed.includes(impacted)) {
-            setFPImpactSetRelations(impacted, info['FP-antecedents'])
             if (impactSet.has(impacted)) {
                 impactSet.set(impacted, { ...impactSet.get(impacted), ...info });
             } else if (impactSet.has(anonymouseName(impacted))) {
@@ -114,7 +118,6 @@ function anonymouseName(name) {
     return name.replace(/((?![.])([^-])*)/, "arrowAnonymousFunction");
 }
 
-
 function setChangeSetRelations(changeSet) {
     for (let i = 0; i < changeSet.length; i++) {
         for (let j = i + 1; j < changeSet.length; j++) {
@@ -134,21 +137,21 @@ function setRelations(item1, item2) {
         let item2_end = parseInt(item2_brokenName[3])
 
         if (item1_beginning <= item2_beginning && item1_end >= item2_end) {
-            let item1_object = getFunctionObject(item1)
-            let item2_object = getFunctionObject(item2)
+            let item1_object = getOrCreateFunctionObject(item1)
+            let item2_object = getOrCreateFunctionObject(item2)
             item2_object['parents'].push(item1_object['id'])
             functionsObjectList[item2] = item2_object
 
         } else if (item2_beginning <= item1_beginning && item2_end >= item1_end) {
-            let item1_object = getFunctionObject(item1)
-            let item2_object = getFunctionObject(item2)
+            let item1_object = getOrCreateFunctionObject(item1)
+            let item2_object = getOrCreateFunctionObject(item2)
             item1_object['parents'].push(item2_object['id'])
             functionsObjectList[item1] = item1_object
         }
     }
 }
 
-function getFunctionObject(f) {
+function getOrCreateFunctionObject(f) {
     if (functionsObjectList[f]) {
         return functionsObjectList[f]
     }
@@ -158,12 +161,75 @@ function getFunctionObject(f) {
     return object
 }
 
-function setFPImpactSetRelations(impacted, antecedents){
-    for(let list of antecedents){
-        for(let antecedent of list){
-            setRelations(antecedent, impacted)    
+function setFPImpactSetRelations(impacted, antecedents) {
+    for (let list of antecedents) {
+        for (let antecedent of list) {
+            setRelations(antecedent, impacted)
+        }
+    }
+}
+
+function findFunctionsRelations(impactSet, changes) {
+    let impactSetKeys = Array.from(impactSet.keys())
+    for (let i = 0; i < impactSetKeys.length; i += 1) {
+        let itemi = impactSetKeys[i]
+        for (let j = i+1; j < impactSetKeys.length; j += 1) {
+            let itemj = impactSetKeys[j]
+            setRelations(itemi, itemj)
+        }
+
+        for (let itemj of changes) {
+            setRelations(itemi, itemj)
         }
     }
 
+    for (let i = 0; i < changes.length; i++) {
+        let itemi = changes[i]
+        for (let j = i + 1; j < changes.length; j++) {
+            setRelations(itemi, changes[j])
+        }
+    }    
+}
+function replaceKeysWithObjects(impactSetList) {
+    for (let item of impactSetList) {
+        item['consequent'] = getObjectifiedKey(item['consequent'])
+
+        let FPAntecedents = item['FP-antecedents']
+        if (FPAntecedents != undefined) {
+            let objectifiedAntecedents = []
+            for (let antecedent of FPAntecedents) {
+                objectifiedAntecedents.push(getObjectifiedList(antecedent))
+            }
+            item['FP-antecedents'] = objectifiedAntecedents
+        }
+
+        let DAAntecedents = item['DA-antecedents']
+        if (DAAntecedents != undefined) {
+            item['DA-antecedents'] = getObjectifiedList(DAAntecedents);
+        }
+    }
+    return impactSetList
+}
+
+function getObjectifiedList(list) {
+    let objectifiedList = [];
+    for (let sub of list) {
+        objectifiedList.push(getObjectifiedKey(sub));
+    }
+    return objectifiedList;
+}
+
+function getObjectifiedKey(sub) {
+    let subObject = functionsObjectList[sub];
+    let newSub = sub;
+    if (subObject != undefined) {
+        newSub += stringifyFunctionObject(subObject);
+    }
+    return newSub;
+}
+
+function stringifyFunctionObject(object) {
+
+    return ` | {"id":${object['id']} - "parents":[${object['parents'].join("-")}]}`
 }
 module.exports = { computeBerkeResult }
