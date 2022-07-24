@@ -21,9 +21,9 @@ function runBerke(initialized_commit) {
         .then(() => {
             if (initialized_commit) return computeCommitChanges(initialized_commit)
             return getCurrentCommit()
-            .then((commit) => {
-                return computeCommitChanges(commit)
-            })
+                .then((commit) => {
+                    return computeCommitChanges(commit)
+                })
         })
         .then(getParentCommit)
         .then(checkoutProject)
@@ -114,7 +114,7 @@ function runDynamicAnalysis() {
 function runRefDiff(commit, diggingDepth = constants.REPO_DIGGING_DEPTH, resultPath = constants.SEQUENCES_PATH) {
     console.log(` = = = Run RefDiff with depth ${diggingDepth} = = = `)
     return new Promise((resolve, reject) => {
-        exec(`${constants.REFDIFF_COMMAND}"${constants.REPO_URL} ${commit} ${resultPath} ${constants.REMOVED_PATH} ${diggingDepth} ${constants.MAPPINGS_PATH}"`, (err, stdout, stderr) => {
+        exec(`${constants.REFDIFF_COMMAND}"${constants.REPO_URL} ${commit} ${resultPath} ${constants.REMOVED_PATH} ${diggingDepth} ${constants.MAPPINGS_PATH} ${constants.EXCLUDED}"`, (err, stdout, stderr) => {
             if (!err) {
                 resolve(commit)
             }

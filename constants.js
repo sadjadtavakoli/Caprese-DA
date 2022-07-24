@@ -14,12 +14,12 @@ const path = require('path');
 // const REPO_URL = "git@github.com:expressjs/express.git"
 // const REPO_URL = "git@github.com:FredrikNoren/ungit.git"
 // const REPO_URL = "git@github.com:jhipster/jhipster-uml.git"
-// const REPO_URL = "git@github.com:assemble/assemble.git"
+const REPO_URL = "git@github.com:assemble/assemble.git"
 // const REPO_URL = "git@github.com:thelounge/thelounge.git"
 // const REPO_URL = "git@github.com:expressjs/session.git"
 // const REPO_URL = "git@github.com:apache/cordova-ios.git"
 // const REPO_URL = "git@github.com:Unitech/pm2.git"
-const REPO_URL = "git@github.com:apostrophecms/apostrophe.git"
+// const REPO_URL = "git@github.com:apostrophecms/apostrophe.git"
 
 
 /**
@@ -44,11 +44,11 @@ const REPO_TEST_RELATIVE_DIR = "test"; //express, session, ungit, thelounge, apo
 // const SEED_COMMIT = "f08ef791713bf7989f95499892b4f83c366bccc6"; // ungit
 // const SEED_COMMIT = "3726a8d00bf2734add7eed3d584cc86ce16b5a6d" // thelounge
 // const SEED_COMMIT = "51de04f3a9d944c1ee3c6ca08b827c154cc759df" // jhipster-uml
-// const SEED_COMMIT = "ec1d0e50c1d4f5a0b61ec0d9d91212ed8dc8949c" // assemble
+const SEED_COMMIT = "ec1d0e50c1d4f5a0b61ec0d9d91212ed8dc8949c" // assemble
 // const SEED_COMMIT = "67b0bb2cfceb3f04fcd25a09222e86404805c594" // cordova-ios
 // const SEED_COMMIT = "2573516e9321a78fb10474ea58c2cb487a663de6" // pm2
 // const SEED_COMMIT = "5df613c481bc7c5979aeaeac691b64ef0a5c4948" // session
-const SEED_COMMIT = "f192c068ef0aeb2e3a0f190825c9489047850914" // apostrophe
+// const SEED_COMMIT = "f192c068ef0aeb2e3a0f190825c9489047850914" // apostrophe
 // const SEED_COMMIT = "d854c43ea177d1faeea56189249fff8c24a764bd" // express
 
 
@@ -70,7 +70,7 @@ let DATA_PATH = __dirname + path.sep + 'data'
  const REPO_PATH = DATA_PATH + path.sep + "Projects" + path.sep + PROJECT_NAME;
 
 //  FOR EVALUATION
-DATA_PATH = __dirname + path.sep + 'data' + path.sep + "ProjectsData" + path.sep + PROJECT_NAME + "_up-to-date"; // for evaluation, REMOVE THIS @TODO
+// DATA_PATH = __dirname + path.sep + 'data' + path.sep + "ProjectsData" + path.sep + PROJECT_NAME + "_up-to-date"; // for evaluation, REMOVE THIS @TODO
 
 /*
  ****************************************************************************
@@ -105,9 +105,14 @@ const DA_DEPENDENCIES_PATH = DATA_PATH + path.sep + "dependencies.json"; // reco
 const MAPPINGS_PATH = DATA_PATH + path.sep + "mappings.json" // unigue key mappings for functions in different revisions
 const Berke_RESULT_PATH = DATA_PATH + path.sep + "berke.json"; // berke result 
 
+/**
+ * Files to exclude
+ * The relative path of files that you want to be excluded from FP analysis
+ */
+const EXCLUDED = ['/assets/js/highlight.js', '/assets/js/jquery.js'] // assemble
 
 module.exports = {
     REPO_URL, PROJECT_NAME, REPO_TEST_RELATIVE_DIR, SEED_COMMIT, REPO_PATH, REFDIFF_PATH, REPO_MAIN_BRANCH,
-    CLASP_PATH, DA_PATH, SEQUENCES_PATH, FP_RESULT_PATH, DATA_PATH, REPO_DIGGING_DEPTH, REFDIFF_COMMAND, REMOVED_PATH, MAPPINGS_PATH, Berke_RESULT_PATH,
-    CLASP_COMMAND, DA_COMMAND, DA_DEPENDENCIES_PATH, CURRENT_CHANGES_PATH
+    CLASP_PATH, DA_PATH, SEQUENCES_PATH, FP_RESULT_PATH, DATA_PATH, REPO_DIGGING_DEPTH, REFDIFF_COMMAND, REMOVED_PATH, 
+    CLASP_COMMAND, DA_COMMAND, DA_DEPENDENCIES_PATH, CURRENT_CHANGES_PATH, MAPPINGS_PATH, Berke_RESULT_PATH, EXCLUDED
 }

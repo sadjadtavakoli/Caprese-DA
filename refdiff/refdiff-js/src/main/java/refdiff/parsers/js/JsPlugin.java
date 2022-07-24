@@ -36,8 +36,14 @@ public class JsPlugin implements LanguagePlugin, Closeable {
 	private int nodeCounter = 0;
 	private File nodeModules;
 	private V8Object babel;
+	private List<String> filesToExclude = new ArrayList<>(Arrays.asList(".min.js"));
+	private List<String> allowedFiles = Arrays.asList(".js", ".ts", ".jsx", ".md", ".json", ".yml", ".lock", ".ts", ".html",
+	".sql", ".txt", ".xmi", ".jade", ".tmpl", ".ejs", ".svg", ".c", ".cpp", ".java", ".h", ".m", ".mm", ".mjs",
+	".M", ".py", ".sh", ".php", ".rb");
+	private List<String> filesToParse = Arrays.asList(".ts", ".js", ".jsx", ".mjs");
 
-	public JsPlugin() throws Exception {
+
+	public JsPlugin(List<String> extraExcludedFiles) throws Exception {
 		this.nodeJs = NodeJS.createNodeJS();
 		nodeModules = new File(
 				"/Users/sadjadtavakoli/University/lab/libraries/RefDiff/refdiff-js/src/main/resources/node_modules");  
@@ -51,6 +57,7 @@ public class JsPlugin implements LanguagePlugin, Closeable {
 				"function parse(script) {return babelParser.parse(script, {ranges: true, tokens: true, sourceType: 'unambiguous', allowImportExportEverywhere: true, allowReturnOutsideFunction: true, plugins: "
 						+ plugins + " });}");
 		this.nodeJs.getRuntime().executeVoidScript("function toJson(object) {return JSON.stringify(object);}");
+		this.filesToExclude.addAll(extraExcludedFiles);
 	}
 
 	@Override
@@ -233,9 +240,7 @@ public class JsPlugin implements LanguagePlugin, Closeable {
 		// prevent redundant reading of non js files, we could have another
 		// filter working in parallel just for suppoerted formats for
 		// changes.
-		return new FilePathFilter(Arrays.asList(".js", ".ts", ".jsx", ".md", ".json", ".yml", ".lock", ".ts", ".html",
-				".sql", ".txt", ".xmi", ".jade", ".tmpl", ".ejs", ".svg", ".c", ".cpp", ".java", ".h", ".m", ".mm", ".mjs",
-				".M", ".py", ".sh", ".php", ".rb"), Arrays.asList(".ts", ".js", ".jsx"), Arrays.asList(".min.js"));
+		return new FilePathFilter(this.allowedFiles, this.filesToParse, this.filesToExclude);
 	}
 
 	@Override

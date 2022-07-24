@@ -9,6 +9,7 @@ import refdiff.parsers.js.JsPlugin;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -22,6 +23,14 @@ public class RefDiffBerkak {
 		String commitSha = args[1];
 		String dataPath = args[2];
 		String removedPath = args[3];
+		String mappingsPath = args[5];
+		List<String> filesToExclude;
+		try {
+			filesToExclude = Arrays.asList(args[6].split(","));
+		} catch (ArrayIndexOutOfBoundsException e) {
+			filesToExclude = Arrays.asList();
+		}
+
 		// String repoLink = "https://github.com/sadjad-tavakoli/sample_project.git";
 		// String commitSha = "a5deb46558ebde4d57e4d2620c503604dd2ef7fc";
 		// String dataPath = "sequences.txt";
@@ -30,7 +39,7 @@ public class RefDiffBerkak {
 		new File("data").mkdir();
 		new File(changesPath).mkdir();
 		File commitFolder = new File("data/" + repoLink + "/" + commitSha);
-		try (JsPlugin jsPlugin = new JsPlugin()) {
+		try (JsPlugin jsPlugin = new JsPlugin(filesToExclude)) {
 			RefDiff refDiffJs = new RefDiff(jsPlugin);
 
 			File repo = refDiffJs.cloneGitRepository(commitFolder, repoLink);
@@ -41,7 +50,6 @@ public class RefDiffBerkak {
 				if (counter == 0) {
 					findCurrentVersionChanges(refDiffJs, repo, commit, dataPath, removedPath);
 				} else {
-					String mappingsPath = args[5];
 					while (commit != null && counter != 0) {
 						commit = minRepo(refDiffJs, repo, commit, dataPath, mappingsPath,
 								removedPath);
@@ -49,7 +57,6 @@ public class RefDiffBerkak {
 					}
 				}
 			} catch (NumberFormatException e) { // for evaluation
-				String mappingsPath = args[5];
 				while (commit != null && !commit.getName().equals(args[4])) {
 					commit = minRepo(refDiffJs, repo, commit, dataPath, mappingsPath, removedPath);
 				}
@@ -94,7 +101,7 @@ public class RefDiffBerkak {
 				} else {
 					changesString += " => Empty";
 				}
-				try (FileWriter file = new FileWriter(dataPath+"-eliminated.txt", true)) {
+				try (FileWriter file = new FileWriter(dataPath + "-eliminated.txt", true)) {
 					file.write(changesString + "\n");
 					file.flush();
 				}

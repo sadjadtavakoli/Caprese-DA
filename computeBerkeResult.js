@@ -118,14 +118,6 @@ function anonymouseName(name) {
     return name.replace(/((?![.])([^-])*)/, "arrowAnonymousFunction");
 }
 
-function setChangeSetRelations(changeSet) {
-    for (let i = 0; i < changeSet.length; i++) {
-        for (let j = i + 1; j < changeSet.length; j++) {
-            setRelations(changeSet[i], changeSet[j])
-        }
-    }
-}
-
 function setRelations(item1, item2) {
     let item1_brokenName = item1.split('-')
     let item2_brokenName = item2.split('-')
@@ -159,14 +151,6 @@ function getOrCreateFunctionObject(f) {
     let object = { "id": Object.keys(functionsObjectList).length, "parents": [] }
     functionsObjectList[f] = object
     return object
-}
-
-function setFPImpactSetRelations(impacted, antecedents) {
-    for (let list of antecedents) {
-        for (let antecedent of list) {
-            setRelations(antecedent, impacted)
-        }
-    }
 }
 
 function findFunctionsRelations(impactSet, changes) {
