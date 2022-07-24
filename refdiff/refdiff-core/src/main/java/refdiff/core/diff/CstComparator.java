@@ -381,10 +381,10 @@ public class CstComparator {
 				String n1Key = n1.toString();
 
 				if(!areTheSame(n1,n2)) {
-					after.removeFromParents(n2);
-					before.removeFromParents(n1);
 					this.changedEntitiesKeys.add(n1Key);
 				}
+				after.removeFromParents(n2);
+				before.removeFromParents(n1);
 			}
 		}
 
@@ -408,10 +408,10 @@ public class CstComparator {
 				keyMappings.put(n1Key, n2Key);
 
 				if(!areTheSame(n1,n2)) {
-					after.removeFromParents(n2);
-					before.removeFromParents(n1);
 					this.changedEntitiesKeys.add(n2Key);
 				}
+				after.removeFromParents(n2);
+				before.removeFromParents(n1);
 			}
 
 			for (Map.Entry<String, String> entry : keyMappings.entrySet()) {

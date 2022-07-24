@@ -252,7 +252,7 @@ public class CstRootHelper<T> {
 	}
 	
 	private List<String> getTokensToIgnoreInNodeBody() {
-		return Arrays.asList(".", ",", ":", ";");
+		return Arrays.asList(".", ",", ":", ";", "{", "}", "(", ")");
 	}
 	
 	public T sourceRep(CstNode n) {
@@ -264,9 +264,8 @@ public class CstRootHelper<T> {
 	
 	public void removeFromParents(CstNode n) {
 		Optional<CstNode> parent = n.getParent(); 
-		while(parent.isPresent()){
+		if(parent.isPresent()){
 			srb.subtractTokens(bodySourceRep(parent.get()), sourceRep(n));
-			parent = parent.get().getParent();
 		}
 	}
 	

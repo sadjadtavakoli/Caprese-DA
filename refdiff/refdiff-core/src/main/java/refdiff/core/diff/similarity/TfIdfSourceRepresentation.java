@@ -56,6 +56,9 @@ public class TfIdfSourceRepresentation {
 	
 	public double[] jaccardSimilarityDecomposed(TfIdfSourceRepresentation other, boolean partial) {
 		Multiset<String> tokens2 = other.tokens;
+		if (tokens.isEmpty() && tokens2.isEmpty()) {
+			return new double[]{1.0, 1.0};
+		}
 		if (tokens.isEmpty() || tokens2.isEmpty()) {
 			return new double[]{0.0, 1.0};
 		}
