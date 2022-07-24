@@ -234,3 +234,17 @@ function runTARMAQ(changeSet) {
 }
 
 module.exports = { STATUS }
+
+
+//  To filter threshold
+// 
+// let i =0;
+// while(i<detailedSequences.length){
+//     let sequence = detailedSequences[i]
+//     let commitChanges = sequence.split(" : ")[1].slice(0, -4).split(" ")
+//     if (commitChanges.length <= 2) {
+//         detailedSequences.splice(i, 1)
+//         i--
+//     }
+//     i++
+// }
