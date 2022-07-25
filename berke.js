@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const { exec } = require('child_process');
 const constants = require('./constants.js');
-const { computeBerkeResult } = require("./computeBerkeResult");
+const { computeBerkeResult, getDAResult } = require("./computeBerkeResult");
 
 let changeSet = []
 
@@ -38,8 +38,8 @@ function runBerke(initialized_commit) {
 
 function evaluationGetMainData(initialized_commit) {
     return checkoutProject(initialized_commit)
-        .then(runRefDiff)
-        .then(runDynamicAnalysis)
+        // .then(runRefDiff)
+        // .then(runDynamicAnalysis)
         .catch((err) => {
             console.log(err)
         })
@@ -48,12 +48,32 @@ function evaluationGetMainData(initialized_commit) {
 function evaluationAnalyzer(changes) {
     changeSet = changes
     return runClasp()
+        .then(() => getDAResult(changes))
+        .then(getSecondLayer)
         .then(() => computeBerkeResult(changes))
         .catch((err) => {
             console.log(err)
         })
 }
 
+function getSecondLayer(changes){
+    console.log(changes)
+    console.log(" = = = Run Clasp Second Layer= = = ")
+    return new Promise((resolve, reject) => {
+        if(changes.length){
+            exec(`${constants.CLASP_COMMAND}"${constants.SEQUENCES_PATH} ${constants.FP_RESULT_PATH+"2.json"} ${changes}"`, (err, stdout, stderr) => {
+                if (!err) {
+                    resolve()
+                }
+                else {
+                    reject(err)
+                }
+            })
+        }else{
+            resolve()
+        }
+    })
+}
 function getParentCommit(commit) {
     console.log(" = = = Get Parent Commit = = = ")
     const getParrentCommand = `cd ${constants.REPO_PATH} ; git rev-parse ${commit}^`

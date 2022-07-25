@@ -12,6 +12,8 @@ function computeBerkeResult(changes) {
 
     intrepretFPData(impactSet);
 
+    getSecondLayerData(impactSet)
+
     findFunctionsRelations(impactSet, changes)
 
     let impactSetOrderedList = sort(impactSet);
@@ -63,6 +65,7 @@ function impactSetSorter() {
 function intrepretDAResult(changes, impactSet) {
     let dependenciesData = JSON.parse(fs.readFileSync(constants.DA_DEPENDENCIES_PATH));
     let keyMap = dependenciesData['keyMap'];
+    let daImpactedList = []
     for (let changedFucntion of changes) {
         let dependencies = dependenciesData[changedFucntion];
         if (dependencies == undefined) {
@@ -75,6 +78,7 @@ function intrepretDAResult(changes, impactSet) {
             }
         }
     }
+    fs.writeFileSync(constants.Berke_RESULT_PATH+"DA.json", JSON.stringify(daImpactedList));
 
     function addDAImpactSet(item, antecedent) {
         if (!isIncluded(changes, item)) {
@@ -89,9 +93,29 @@ function intrepretDAResult(changes, impactSet) {
                 impactSet.set(item, { 'DA-antecedents': [antecedent] });
             }
         }
+        daImpactedList.push(item)
     }
 }
 
+function getDAResult(changes) {
+    return new Promise((resolve, reject) => {
+        let dependenciesData = JSON.parse(fs.readFileSync(constants.DA_DEPENDENCIES_PATH));
+        let keyMap = dependenciesData['keyMap'];
+        let daImpactedList = []
+        for (let changedFucntion of changes) {
+            let dependencies = dependenciesData[changedFucntion];
+            if (dependencies == undefined) {
+                dependencies = dependenciesData[anonymouseName(changedFucntion)];
+            }
+            if (dependencies != undefined) {
+                for (let dependency of dependencies['impacted']) {
+                    daImpactedList.push(keyMap[dependency])
+                }
+            }
+        }
+        resolve(daImpactedList)
+    })
+}
 function intrepretFPData(impactSet) {
     let FPimapctSet = JSON.parse(fs.readFileSync(constants.FP_RESULT_PATH));
     let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(", ");
@@ -99,9 +123,51 @@ function intrepretFPData(impactSet) {
         let info = FPimapctSet[impacted];
         if (!removed.includes(impacted)) {
             if (impactSet.has(impacted)) {
-                impactSet.set(impacted, { ...impactSet.get(impacted), ...info });
+                let current =impactSet.get(impacted)
+                if(current['layers']){
+                    current['layers'].push("first")
+                }else{
+                    current['layers'] = ["first"]
+                }
+                impactSet.set(impacted, { ...current, ...info });
             } else if (impactSet.has(anonymouseName(impacted))) {
-                impactSet.set(impacted, { ...impactSet.get(anonymouseName(impacted)), ...info });
+                let current = impactSet.get(anonymouseName(impacted))
+                if(current['layers']){
+                    current['layers'].push("first")
+                }else{
+                    current['layers'] = ["first"]
+                }
+                impactSet.set(impacted, { ...current, ...info });
+                impactSet.delete(anonymouseName(impacted))
+            } else {
+                impactSet.set(impacted, info);
+            }
+        }
+    }
+}
+
+function getSecondLayerData(impactSet) {
+    let FPimapctSet = JSON.parse(fs.readFileSync(constants.FP_RESULT_PATH+"2.json"));
+    let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(", ");
+    for (let impacted in FPimapctSet) {
+        let info = FPimapctSet[impacted];
+        if (!removed.includes(impacted)) {
+            if (impactSet.has(impacted)) {
+                let current =impactSet.get(impacted)
+                if(current['layers']){
+                    current['layers'].push("second")
+                }else{
+                    current['layers'] = ["second"]
+                }
+                impactSet.set(impacted, { ...current, ...info });
+            } else if (impactSet.has(anonymouseName(impacted))) {
+                let current = impactSet.get(anonymouseName(impacted))
+                if(current['layers']){
+                    current['layers'].push("second")
+                }else{
+                    current['layers'] = ["second"]
+                }
+                impactSet.set(impacted, { ...current, ...info });
                 impactSet.delete(anonymouseName(impacted))
             } else {
                 impactSet.set(impacted, info);
@@ -216,4 +282,4 @@ function stringifyFunctionObject(object) {
 
     return ` | {"id":${object['id']} - "parents":[${object['parents'].join("-")}]}`
 }
-module.exports = { computeBerkeResult }
+module.exports = { computeBerkeResult, getDAResult }
