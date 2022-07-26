@@ -50,10 +50,40 @@ public class RefDiffBerkak {
 				if (counter == 0) {
 					findCurrentVersionChanges(refDiffJs, repo, commit, dataPath, removedPath);
 				} else {
-					while (commit != null && counter != 0) {
-						commit = minRepo(refDiffJs, repo, commit, dataPath, mappingsPath,
-								removedPath);
-						counter--;
+					List<RevCommit> allFirstCommits = new ArrayList<>();
+					List<RevCommit> twoParentalCommits = new ArrayList<>();
+
+					RevCommit recursiveCommit = commit;
+					while (recursiveCommit != null && counter != 0) {
+						int parentsCount = recursiveCommit.getParentCount();
+						if (parentsCount > 1) {
+							twoParentalCommits.add(recursiveCommit);
+						}
+						if (parentsCount > 0) {
+							allFirstCommits.add(recursiveCommit);
+							recursiveCommit = refDiffJs.getCommit(repo, recursiveCommit.getParent(0));
+						} else {
+							recursiveCommit = null;
+						}
+					}
+
+					for(int i=0;i<twoParentalCommits.size(); i++){
+						RevCommit orgCommit = twoParentalCommits.get(i);
+						recursiveCommit = refDiffJs.getCommit(repo, orgCommit.getParent(1));
+
+						while (recursiveCommit != null) {
+							if (recursiveCommit.getParentCount() > 0) {
+								RevCommit parent = refDiffJs.getCommit(repo, recursiveCommit.getParent(0));
+								if(allFirstCommits.contains(parent)){
+									System.out.println(twoParentalCommits.get(i) + " begining=> " + parent.getName());
+									recursiveCommit=null;
+								}else{
+									recursiveCommit = parent;
+								}
+							} else {
+								recursiveCommit = null;
+							}
+						}	
 					}
 				}
 			} catch (NumberFormatException e) { // for evaluation
