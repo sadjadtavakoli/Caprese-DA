@@ -9,9 +9,11 @@ const fs = require("fs"),
 let mocha = new Mocha();
 mocha.reporter('./reporter') // path to custom reporter
 
-let testDir = constants.REPO_PATH + path.sep + constants.REPO_TEST_RELATIVE_DIR
-// read all files in the `test` directory ending with `test.js` extension
-addFiles(testDir);
+for(let dir of constants.REPO_TEST_RELATIVE_DIR){
+    let testDir = constants.REPO_PATH + path.sep + dir
+    // read all files in the `test` directory ending with `.js` and `.mjs` extension
+    addFiles(testDir);
+}
 
 mocha.run();
 
@@ -20,7 +22,6 @@ function addFiles(dirPath) {
         if (fs.statSync(dirPath + path.sep + filename).isDirectory()) {
             addFiles(dirPath + path.sep + filename)
         } else if (filename.endsWith('.js') || filename.endsWith('.mjs')) {
-            // console.log(path.join(dirPath, filename))
             mocha.addFile(path.join(dirPath, filename));
         }
     });

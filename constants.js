@@ -29,14 +29,14 @@ const REPO_MAIN_BRANCH = "master" // express, session, ungit, thelounge, assembl
 // const REPO_MAIN_BRANCH = "main" // apostrophe
 
 /**
- * the relative address of your project's test directory
+ * the relative addresses of your project's test directories
  * Example:
- *     Assume your project's test directory is GreatProject/subdir/tests/
- *     you should set REPO_TEST_RELATIVE_DIR="subdir/tests/"
+ *     Assume your project's test directory is GreatProject/subdir/tests/ and GreatProject/subdir2/test/
+ *     you should set REPO_TEST_RELATIVE_DIR=["subdir/tests/", "GreatProject/subdir2/test/"]
  */
-const REPO_TEST_RELATIVE_DIR = "test"; //express, session, ungit, thelounge, apostrophe, assemble, pm2, jhipster-uml
-// const REPO_TEST_RELATIVE_DIR = "tests"; // cordova-ios
-
+// const REPO_TEST_RELATIVE_DIR = ["test"]; //express, session, ungit, thelounge, apostrophe, assemble, jhipster-uml
+// const REPO_TEST_RELATIVE_DIR = ["tests"]; // cordova-ios
+const REPO_TEST_RELATIVE_DIR = ["test/programmatic", "test/interface"]; // pm2
 /**
  * The first commits with which you want to begin the whole analysis. 
  * You can leave it empty if you want to begin with the latest one. 
