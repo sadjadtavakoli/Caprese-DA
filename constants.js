@@ -14,19 +14,20 @@ const path = require('path');
 // const REPO_URL = "git@github.com:expressjs/express.git"
 // const REPO_URL = "git@github.com:FredrikNoren/ungit.git"
 // const REPO_URL = "git@github.com:jhipster/jhipster-uml.git"
-const REPO_URL = "git@github.com:assemble/assemble.git"
+// const REPO_URL = "git@github.com:assemble/assemble.git"
 // const REPO_URL = "git@github.com:thelounge/thelounge.git"
 // const REPO_URL = "git@github.com:expressjs/session.git"
 // const REPO_URL = "git@github.com:apache/cordova-ios.git"
 // const REPO_URL = "git@github.com:Unitech/pm2.git"
 // const REPO_URL = "git@github.com:apostrophecms/apostrophe.git"
+const REPO_URL = "git@github.com:bepronetwork/bepro-js.git"
 
 
 /**
  * the main branch of your repository; it is usually master or main.
  */
-const REPO_MAIN_BRANCH = "master" // express, session, ungit, thelounge, assemble, pm2, jhipster-uml
-// const REPO_MAIN_BRANCH = "main" // apostrophe
+// const REPO_MAIN_BRANCH = "master" // express, session, ungit, thelounge, assemble, pm2, jhipster-uml
+const REPO_MAIN_BRANCH = "main" // apostrophe
 
 /**
  * the relative addresses of your project's test directories
@@ -34,9 +35,8 @@ const REPO_MAIN_BRANCH = "master" // express, session, ungit, thelounge, assembl
  *     Assume your project's test directory is GreatProject/subdir/tests/ and GreatProject/subdir2/test/
  *     you should set REPO_TEST_RELATIVE_DIR=["subdir/tests/", "GreatProject/subdir2/test/"]
  */
-// const REPO_TEST_RELATIVE_DIR = ["test"]; //express, session, ungit, thelounge, apostrophe, assemble, jhipster-uml
-// const REPO_TEST_RELATIVE_DIR = ["tests"]; // cordova-ios
-const REPO_TEST_RELATIVE_DIR = ["test/programmatic", "test/interface"]; // pm2
+// const REPO_TEST_RELATIVE_DIR = "test"; //express, session, ungit, thelounge, apostrophe, assemble, jhipster-uml
+const REPO_TEST_RELATIVE_DIR = "tests"; // cordova-ios, bepro-js
 /**
  * The first commits with which you want to begin the whole analysis. 
  * You can leave it empty if you want to begin with the latest one. 
@@ -44,11 +44,12 @@ const REPO_TEST_RELATIVE_DIR = ["test/programmatic", "test/interface"]; // pm2
 // const SEED_COMMIT = "f08ef791713bf7989f95499892b4f83c366bccc6"; // ungit
 // const SEED_COMMIT = "3726a8d00bf2734add7eed3d584cc86ce16b5a6d" // thelounge
 // const SEED_COMMIT = "51de04f3a9d944c1ee3c6ca08b827c154cc759df" // jhipster-uml
-const SEED_COMMIT = "ec1d0e50c1d4f5a0b61ec0d9d91212ed8dc8949c" // assemble
+// const SEED_COMMIT = "ec1d0e50c1d4f5a0b61ec0d9d91212ed8dc8949c" // assemble
 // const SEED_COMMIT = "67b0bb2cfceb3f04fcd25a09222e86404805c594" // cordova-ios
 // const SEED_COMMIT = "2573516e9321a78fb10474ea58c2cb487a663de6" // pm2
 // const SEED_COMMIT = "5df613c481bc7c5979aeaeac691b64ef0a5c4948" // session
 // const SEED_COMMIT = "f192c068ef0aeb2e3a0f190825c9489047850914" // apostrophe
+const SEED_COMMIT = "0ba64ff38590f34a67183da31ee03fb29c4d7fff" // bepro-js
 // const SEED_COMMIT = "d854c43ea177d1faeea56189249fff8c24a764bd" // express
 
 
