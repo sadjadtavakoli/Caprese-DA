@@ -21,6 +21,8 @@ const STATUS = {
     removed: "Removed"
 }
 
+//  NEW NAME FOR BERKE: Caprese: an italian food 
+
 if (process.argv[1].endsWith(path.basename(__filename))) {
 
     if (!fs.existsSync(RESULT_DIR_PATH)) {
