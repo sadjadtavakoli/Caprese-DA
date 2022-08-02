@@ -43,7 +43,11 @@ public class RefDiffBerkak {
 		}
 
 		new File("data").mkdir();
-		File commitFolder = new File("data/" + repoLink + "/" + commitSha);
+		String commitFolderPath = "data/" + repoLink + "/" + commitSha;
+		String tempMappingsDir = commitFolderPath + "/" + "mappings/";
+		
+		File commitFolder = new File(commitFolderPath);
+		new File(tempMappingsDir).mkdir();
 
 		try (JsPlugin jsPlugin = new JsPlugin(filesToExclude)) {
 			refDiffJs = new RefDiff(jsPlugin);
@@ -60,7 +64,7 @@ public class RefDiffBerkak {
 				while (commit.getParentCount() != 0 && counter != 0) {
 					commit = mineMainBranch(commit, mappingsPath, 0);
 					if (commitsWithTwoParents.contains(commit.getName())) { // this can change to "if commit.getParentCount == 2" 
-						File dirTo = new File(mappingsPath + commit.getName() + ".json");
+						File dirTo = new File(tempMappingsDir + commit.getName() + ".json");
 						Files.copy(Path.of(mappingsPath), dirTo.toPath(), StandardCopyOption.REPLACE_EXISTING);
 					}
 					counter--;
@@ -71,13 +75,14 @@ public class RefDiffBerkak {
 			for (Entry<String, String> branchSides : branchesSides.entrySet()) {
 				RevCommit iterationPointer = refDiffJs.getCommit(repo, branchSides.getKey());
 				String end = branchSides.getValue();
-				String branchMappingPath = mappingsPath + branchSides.getKey() + ".json";
+				String branchMappingPath = tempMappingsDir + branchSides.getKey() + ".json";
 				alreadyMet.add(iterationPointer.getName());
 				iterationPointer = mineMainBranch(iterationPointer, branchMappingPath, 1);
 				while (iterationPointer.getParentCount() !=0 && !alreadyMet.contains(iterationPointer.getName()) && !iterationPointer.getName().equals(end)) {
 					alreadyMet.add(iterationPointer.getName());
 					iterationPointer = mineSideBranches(iterationPointer, branchMappingPath);
 				}
+				Files.deleteIfExists(Path.of(branchMappingPath));
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
