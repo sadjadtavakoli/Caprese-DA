@@ -95,12 +95,8 @@ public class RefDiffBerkak {
 		PairBeforeAfter<SourceFileSet> beforeAndAfter = refDiffJs.getResources(repo, commitPr, commit);
 		CstDiff diffForCommit = refDiffJs.computeDiffForCommit(beforeAndAfter, mappingsPath);
 
-		if(parentIndex==0){
-			if(commit.getParentCount() != 2){
-				addToSequenceSet(dataPath, diffForCommit, beforeAndAfter, commit.getName());
-			}else { // Only TARMAQ 
-				addToSequenceSet(dataPath + "-onlyTARMAQ.txt", diffForCommit, beforeAndAfter, commit.getName());
-			}		
+		if(parentIndex==0 && commit.getParentCount() != 2){
+			addToSequenceSet(dataPath, diffForCommit, beforeAndAfter, commit.getName());
 		}
 		return commitPr;
 	}
