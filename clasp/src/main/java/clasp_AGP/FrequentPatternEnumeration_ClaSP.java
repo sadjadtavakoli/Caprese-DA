@@ -623,7 +623,7 @@ public class FrequentPatternEnumeration_ClaSP {
      */
     void pruneImpactSet(){
         for(Entry<String, ImpactInformation> impactedFunction: detectedFunctions.entrySet()){
-            if(impactedFunction.getValue().getConfidence() >= minimumConfidence){
+            if(impactedFunction.getValue().getConfidence() >= minimumConfidence){ // @TODO do we really need that?
                 saver.saveImpactedFunctions(impactedFunction);
             }
         }

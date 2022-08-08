@@ -1,2 +1,0 @@
-Both tarmaq and Berke gave the same result in FP phase for this 1-length change-set. This was expected for 1-length change-set. 
-However, Berke reported one function different that TARMAQ. This function is the change-set's caller and was detected using DA.

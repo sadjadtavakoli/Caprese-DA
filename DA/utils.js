@@ -82,7 +82,7 @@ const EVENT_LISTENER_FUNCTIONS = [EventEmmiter.addListener, EventEmmiter.once, E
      * @returns True if it's a timing or regular event
      */
      Utils.isCalledByCallBackRequiredFunctions = function (base) {
-        return base != undefined && (base._onImmediate || base._onTimeout || base.constructor.prototype == EventEmmiter || base._repeat)
+        return base != undefined && (base._onImmediate || base._onTimeout || (base.constructor && base.constructor.prototype == EventEmmiter) || base._repeat)
     }
 
 })(J$);

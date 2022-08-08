@@ -3,37 +3,36 @@
         "b": "develop",
         "test": "test",
         "installer": "yarn",
-        "status": "failed: import-export - Must use import to load ES Module"
+        "status": "failed: import-export - Must use import to load ES Module",
+        "comment": "few ts tests"
     },
     "git@github.com:vercel/next.js.git": {
         "b": "canary",
         "test": "test",
         "installer": "yarn",
-        "status": "failed: import-export - Must use import to load ES Module"
+        "status": "failed: import-export - Must use import to load ES Module",
+        "comment": "jest test"
     },
     "git@github.com:invertase/react-native-firebase.git": {
         "b": "main",
         "test": "tests",
         "installer": "yarn",
-        "status": "failed: import-export - Must use import to load ES Module"
+        "status": "failed: import-export - Must use import to load ES Module",
+        "comment": "not enough js tests"
     },
     "git@github.com:rsuite/rsuite.git": {
         "b": "main",
         "test": "test",
         "installer": "npm",
-        "status": "failed: import-export - Must use import to load ES Module"
+        "status": "failed: import-export - Must use import to load ES Module",
+        "comment": "not enough js tests"
     },
     "git@github.com:ant-design/ant-design.git": {
         "b": "master",
         "test": "tests",
         "installer": "npm",
-        "status": "failed: import-export - Must use import to load ES Module"
-    },
-    "git@github.com:bepronetwork/bepro-js.git": {
-        "b": "master",
-        "test": "tests",
-        "installer": "yarn",
-        "status": "failed: import-export - Must use import to load ES Module"
+        "status": "failed: import-export - Must use import to load ES Module",
+        "comment": "not enough js tests"
     },
     "git@github.com:i18next/react-i18next.git": {
         "b": "master",
@@ -42,12 +41,6 @@
         "status": "failed: import-export - Must use import to load ES Module"
     },
     "git@github.com:pubkey/rxdb.git": {
-        "b": "master",
-        "test": "test",
-        "installer": "npm",
-        "status": "failed: import-export - Must use import to load ES Module"
-    },
-    "git@github.com:js-data/js-data.git": {
         "b": "master",
         "test": "test",
         "installer": "npm",
@@ -153,5 +146,110 @@
         "b": "master",
         "test": "test",
         "installer": "npm"
-    }
+    },
+    "https://github.com/senecajs/seneca": {
+    "b": "",
+    "test": "",
+    "installer": "", 
+    "status": "no mocha"
 }
+
+{
+    "installation": {
+        "installer_command": "npm install",
+        "ERROR": true
+    },
+    "metadata": {
+        "repo_link": "https://github.com/rollup/rollup"
+    }
+    "ESM ERROR"
+}
+{
+"installation": {
+    "installer_command": "npm install"
+},
+"metadata": {
+    "repo_link": "https://github.com/vitaly-t/pg-promise"
+},
+FAILED: Error: connect ECONNREFUSED 127.0.0.1:5432
+jasmine is not defined
+}
+
+nodemon:
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (net.js:1340:8)
+    at process.processTicksAndRejections (internal/process/task_queues.js:84:21) {
+  code: 'EADDRINUSE',
+  errno: 'EADDRINUSE',
+  syscall: 'listen',
+  address: '::',
+  port: 8000
+}
+
+
+{
+    "setup": {
+        "repo_cloning_ERROR": true
+    },
+    "metadata": {
+        "repo_link": "https://github.com/Automattic/mongoose"
+    },
+    "error": "Error: Cannot find module 'fs/promises'"
+}
+{
+"installation": {
+    "installer_command": "npm install"
+},
+"build": {
+    "build_script_list": []
+},
+"metadata": {
+    "repo_link": "https://github.com/sideway/joi"
+}
+"comment": "not mocha"
+}
+{
+kefir: "SyntaxError[ @/Users/sadjadtavakoli/University/lab/berke/data/Projects/kefir/test/flow/combine.js ]: Expected ) but found :"
+"comment": "strang syntax"
+}
+
+
+{
+    "metadata": {
+        "repo_link": "https://github.com/TryGhost/Ghost"
+    },
+    "installation": {
+        "installer_command": "yarn"
+    },
+    "comment": "huge and strange!",
+}
+
+{
+    "metadata": {
+        "repo_link": "https://github.com/eslint/eslint"
+    },
+    "installation": {
+        "installer_command": "npm install"
+    },
+    "comment":"AssertionError [ERR_ASSERTION]: cwd argument isn't provided
+    at Object.<anonymous> (/Users/sadjadtavakoli/University/lab/berke/data/Projects/eslint/tests/_utils/test-lazy-loading-rules.js:28:8)"
+}
+
+{
+    "metadata": {
+        "repo_link": "https://github.com/OptimalBits/bull"
+    }
+    "installation": {
+        "installer_command": "yarn"
+    },
+    "comment": "so many faild tests: handled error event: Error: connect ECONNREFUSED 127.0.0.1:6379"
+}
+
+{
+    git@github.com:cytoscape/cytoscape.js.git 
+    "comment": "running but no recorded dependencies!"
+}
+
+// const REPO_URL = "git@github.com:rollup/rollup.git"
+// const REPO_URL = "git@github.com:remy/nodemon.git    "
+// const REPO_URL = "git@github.com:kach/nearley.git"
