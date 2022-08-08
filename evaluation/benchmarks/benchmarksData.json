@@ -1,85 +1,160 @@
 {
-    "apostrophe": {
+    "git@github.com:apostrophecms/apostrophe.git": {
         "Commits": 9631,
         "LOC": 65279,
         "Language": "javaScript,Vue,HTML",
-        "repo_link": "https://github.com/apostrophecms/apostrophe",
         "branch": "main",
         "test": "test",
         "installer": "npm",
-        "note": "mongodb is required"
+        "comment": "mongodb is required",
+        "seed_commit": "f192c068ef0aeb2e3a0f190825c9489047850914"
     },
-    "assemble": {
+    "git@github.com:assemble/assemble.git": {
         "Commits": 2421,
         "LOC": 26261,
         "Language": "CSS, javaScript,HTML",
-        "repo_link": "https://github.com/assemble/assemble",
-        "branch": "master",
+        "main_branch": "master",
         "test": "test",
-        "installer": "npm"
+        "installer": "npm",
+        "seed_commit": "ec1d0e50c1d4f5a0b61ec0d9d91212ed8dc8949c"
     },
-    "cordova-ios": {
+    "git@github.com:apache/cordova-ios.git": {
         "Commits": 3912,
         "LOC": 31875,
         "Language": "JavaScript,Objective-C,HTML,Python,CSS,C",
-        "repo_link": "https://github.com//apache/cordova-ios",
         "branch": "master",
         "test": "tests",
-        "installer": "npm"
+        "installer": "npm",
+        "seed_commit": "67b0bb2cfceb3f04fcd25a09222e86404805c594"
     },
-    "pm2": {
+    "git@github.com:Unitech/pm2.git": {
         "Commits": 4970,
         "LOC": 34617,
         "Language": "JavaScript,Shell",
-        "repo_link": "https://github.com//Unitech/pm2",
         "branch": "master",
         "test": "test",
         "installer": "npm",
-        "note": "strange recorded dependency!"
+        "comment": "strange recorded dependency!",
+        "seed_commit": "2573516e9321a78fb10474ea58c2cb487a663de6"
     },
-    "thelounge": {
+    "git@github.com:thelounge/thelounge.git": {
         "Commits": 7374,
         "LOC": 34780,
         "Language": "js, vue, CSS",
-        "repo_link": "https://github.com//thelounge/thelounge",
         "branch": "master",
         "test": "test",
-        "installer": "npm"
+        "installer": "npm",
+        "seed_commit": "3726a8d00bf2734add7eed3d584cc86ce16b5a6d"
     },
-    "Express": {
+    "git@github.com:expressjs/express.git": {
         "Commits": 5694,
         "LOC": 19187,
         "Language": "JavaScript",
-        "repo_link": "git@github.com:expressjs/express.git",
         "branch": "master",
         "test": "test",
-        "installer": "npm"
+        "installer": "npm",
+        "seed_commit": "d854c43ea177d1faeea56189249fff8c24a764bd"
     },
-    "ungit": {
+    "git@github.com:FredrikNoren/ungit.git": {
         "Commits": 3908,
         "LOC": 39760,
         "Language": "JavaScript,HTML,less, ts",
-        "repo_link": "git@github.com:FredrikNoren/ungit.git",
         "branch": "master",
         "test": "test",
-        "installer": "npm"
+        "installer": "npm",
+        "seed_commit": "f08ef791713bf7989f95499892b4f83c366bccc6"
     },
-    "jhipster-uml": {
+    "git@github.com:jhipster/jhipster-uml.git": {
         "Commits": 980,
         "LOC": 11195,
         "Language": "JavaScript",
-        "repo_link": "git@github.com:jhipster/jhipster-uml.git",
         "branch": "master",
         "test": "test",
-        "installer": "npm"
+        "installer": "npm",
+        "seed_commit": "51de04f3a9d944c1ee3c6ca08b827c154cc759df"
     },
-    "session": {
+    "git@github.com:expressjs/session.git": {
         "Commits": 686,
         "LOC": 4267,
         "Language": "JavaScript,md",
-        "repo_link": "git@github.com:expressjs/session.git",
         "branch": "master",
         "test": "test",
-        "installer": "npm"
-    }
+        "installer": "npm",
+        "seed_commit": "5df613c481bc7c5979aeaeac691b64ef0a5c4948"
+    },
+    
+
+
+    "git@github.com:cloudant/nodejs-cloudant.git": {
+        "test": "test",
+        "install": "npm install",
+        "commits": "1520",
+        "main_branch": "master",
+        "comment": "success",
+        "seed_comment": "22c37b922f36d5dde4f7efa20b80f388823b7de9"
+    },
+    "git@github.com:markdown-it/markdown-it.git": {
+        "test": "test",
+        "install": "npm install",
+        "commits": "1063",
+        "main_branch": "master",
+        "comment": "success",
+        "seed_comment": "1529ff4"
+    },
+    "git@github.com:nock/nock.git": {
+        "test": "tests",
+        "install": "npm install",
+        "commits": "2066",
+        "main_branch": "main",
+        "comment": "success",
+        "seed_comment": "824a414"
+    },
+    "git@github.com:yeoman/environment.git": {
+        "test": "test",
+        "install": "npm install",
+        "commits": "1476",
+        "main_branch": "main",
+        "comment": "success",
+        "seed_comment": "",
+        "excluded_dirs": ["fixtures"]
+    },
+    "git@github.com:fastify/fastify.git": {
+        "test": "test",
+        "install": "npm install",
+        "commits": "3379",
+        "main_branch": "v3.x",
+        "comment": "success",
+        "seed_comment": ""
+    },
+    "git@github.com:simov/grant.git": {
+        "test": "test",
+        "install": "npm install",
+        "commits": "1171",
+        "main_branch": "master",
+        "comment": "success",
+        "seed_comment": ""
+    },
+    "git@github.com:/websockets/ws.git": {
+        "install": "npm install",
+        "commit": "1810",
+        "main_branch": "master",
+        "test": "test",
+        "seed_commit": "success"
+    },
+    "git@github.com:yannickcr/eslint-plugin-react.git": {
+        "install": "npm install",
+        "commit": "2977",
+        "main_branch": "master",
+        "test": "tests",
+        "seed_commit": "",
+        "comment": "success"
+    },
+    "git@github.com:suguru03/neo-async.git": {
+        "install": "npm install",
+        "commit": "948",
+        "main_branch": "master",
+        "test": "test",
+        "seed_commit": "",
+        "comment": "success"
+    },
 }

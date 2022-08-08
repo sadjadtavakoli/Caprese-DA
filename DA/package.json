@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "chai": "^4.3.6",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
     "glob": "^8.0.3",
     "install": "^0.13.0",
@@ -30,5 +31,8 @@
     "url": "https://github.com/sadjad-tavakoli/Berke/issues"
   },
   "homepage": "https://github.com/sadjad-tavakoli/Berke#readme",
-  "keywords": []
+  "keywords": [],
+  "devDependencies": {
+    "@types/node": "^18.6.3"
+  }
 }
