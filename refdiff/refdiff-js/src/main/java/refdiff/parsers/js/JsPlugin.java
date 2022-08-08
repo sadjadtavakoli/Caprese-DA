@@ -37,7 +37,7 @@ public class JsPlugin implements LanguagePlugin, Closeable {
 	private File nodeModules;
 	private V8Object babel;
 	private List<String> filesToExclude = new ArrayList<>(Arrays.asList(".min.js"));
-	private List<String> allowedFiles = Arrays.asList(".js", ".ts", ".jsx", ".md", ".json", ".yml", ".lock", ".ts", ".html",
+	private List<String> allowedFiles = Arrays.asList(".js", ".ts", ".jsx", ".md", ".json", ".yml", ".lock", ".css", ".html",
 	".sql", ".txt", ".xmi", ".jade", ".tmpl", ".ejs", ".svg", ".c", ".cpp", ".java", ".h", ".m", ".mm", ".mjs",
 	".M", ".py", ".sh", ".php", ".rb");
 	private List<String> filesToParse = Arrays.asList(".ts", ".js", ".jsx", ".mjs");
