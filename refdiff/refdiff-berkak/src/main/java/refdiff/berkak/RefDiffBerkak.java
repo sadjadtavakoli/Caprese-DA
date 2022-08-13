@@ -54,22 +54,28 @@ public class RefDiffBerkak {
 			repo = refDiffJs.cloneGitRepository(commitFolder, repoLink);
 
 			RevCommit commit = refDiffJs.getCommit(repo, commitSha);
-			HashMap<String, String> branchesSides = getBranchSides(commit); // we also can find main branch commmits and commits with two parents list in the following iteration as well. 
-			Set<String> commitsWithTwoParents = branchesSides.keySet();
 
+			List<RevCommit> mainBranchCommits = new ArrayList<>();
+			List<RevCommit> commitsWithTwoParents = new ArrayList<>();
+			
 			if (depth == 0) {
 				findCurrentVersionChanges(commit);
 			} else {
 				Integer counter = depth;
 				while (commit.getParentCount() != 0 && counter != 0) {
+					mainBranchCommits.add(commit);
 					commit = mineMainBranch(commit, mappingsPath, 0);
-					if (commitsWithTwoParents.contains(commit.getName())) { // this can change to "if commit.getParentCount == 2" 
+					if (commit.getParentCount() == 2) { // this can change to "if commit.getParentCount == 2" 
 						File dirTo = new File(tempMappingsDir + commit.getName() + ".json");
 						Files.copy(Path.of(mappingsPath), dirTo.toPath(), StandardCopyOption.REPLACE_EXISTING);
+						commitsWithTwoParents.add(commit);
 					}
 					counter--;
+					System.out.println(counter);
 				}
 			}
+
+			HashMap<String, String> branchesSides = getBranchSides(mainBranchCommits, commitsWithTwoParents); // we also can find main branch commmits and commits with two parents list in the following iteration as well. 
 
 			List<String> alreadyMet = new ArrayList<>();
 			for (Entry<String, String> branchSides : branchesSides.entrySet()) {
@@ -125,24 +131,18 @@ public class RefDiffBerkak {
 		if (!isALargeCommit && !isASmallCommit) {
 			Collections.sort(changes);
 			String changesString = cleanStrings(changes);
-			try (FileWriter file = new FileWriter(resultPath, true)) {
-				file.write(changesString + " -1 \n");
-				file.flush();
-			}
-			try (FileWriter file = new FileWriter(resultPath + "details.txt", true)) { // for evaluation purposes
-				file.write(commitName + " : " + changesString + " -1 \n");
-				file.flush();
-			}
+
+			write(resultPath, changesString + " -1 \n",true);
+			
+			write(resultPath + "details.txt", commitName + " : " + changesString + " -1 \n",true);// for evaluation purposes
+
 		} else {
 			if (isALargeCommit) {
 				commitName += " => Large";
 			} else {
 				commitName += " => Short";
 			}
-			try (FileWriter file = new FileWriter(dataPath + "-eliminated.txt", true)) {
-				file.write(commitName + "\n");
-				file.flush();
-			}
+			write(dataPath + "-eliminated.txt", commitName + "\n",true);
 		}
 	}
 
@@ -166,10 +166,7 @@ public class RefDiffBerkak {
 			changesString = "no changes detected ";
 		}
 
-		try (FileWriter file = new FileWriter(dataPath, false)) {
-			file.write(changesString);
-			file.flush();
-		}
+		write(dataPath, changesString,false);
 
 		addToRemoved(diffForCommit.getRemovedEntitiesKeys());
 	}
@@ -178,10 +175,7 @@ public class RefDiffBerkak {
 
 		if (!removed.isEmpty()) {
 			String removedString = cleanStrings(new ArrayList<>(removed));
-			try (FileWriter file = new FileWriter(removedPath, true)) {
-				file.write(removedString + ", ");
-				file.flush();
-			}
+			write(removedPath, removedString + " ", true);
 		}
 	}
 
@@ -189,26 +183,8 @@ public class RefDiffBerkak {
 		return changes.toString().replaceAll("[\\[\\],\"]", "");
 	}
 
-	private static HashMap<String, String> getBranchSides(RevCommit commit) {
+	private static HashMap<String, String> getBranchSides(List<RevCommit> mainBranchCommits, List<RevCommit> commitsWithTwoParents) {
 		HashMap<String, String> result = new HashMap<>();
-		List<RevCommit> mainBranchCommits = new ArrayList<>();
-		List<RevCommit> commitsWithTwoParents = new ArrayList<>();
-		Integer depthCounter = depth;
-
-		RevCommit recursiveCommit = commit;
-		while (depthCounter != 0) { // we can find this forLoop's information from the main iteration at this
-									// function's call location
-			int parentsCount = recursiveCommit.getParentCount();
-			if (parentsCount == 2) {
-				commitsWithTwoParents.add(recursiveCommit);
-			}
-			if (parentsCount == 0)
-				break;
-
-			mainBranchCommits.add(recursiveCommit);
-			recursiveCommit = refDiffJs.getCommit(repo, recursiveCommit.getParent(0));
-			depthCounter--;
-		}
 
 		for (RevCommit orgCommit : commitsWithTwoParents) {
 
@@ -223,5 +199,12 @@ public class RefDiffBerkak {
 			}
 		}
 		return result;
+	}
+
+	private static void write(String dataPath, String content, boolean append) throws IOException{
+		try (FileWriter file = new FileWriter(dataPath, append)) {
+			file.write(content);
+			file.flush();
+		}
 	}
 }
