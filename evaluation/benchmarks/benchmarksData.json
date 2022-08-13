@@ -7,7 +7,9 @@
         "test": "test",
         "installer": "npm",
         "comment": "mongodb is required",
-        "seed_commit": "f192c068ef0aeb2e3a0f190825c9489047850914"
+        "seed_commit": "f192c068ef0aeb2e3a0f190825c9489047850914",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
     },
     "git@github.com:assemble/assemble.git": {
         "Commits": 2421,
@@ -16,7 +18,12 @@
         "main_branch": "master",
         "test": "test",
         "installer": "npm",
-        "seed_commit": "ec1d0e50c1d4f5a0b61ec0d9d91212ed8dc8949c"
+        "seed_commit": "ec1d0e50c1d4f5a0b61ec0d9d91212ed8dc8949c",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": [
+            "/assets/js/highlight.js",
+            "/assets/js/jquery.js"
+        ]
     },
     "git@github.com:apache/cordova-ios.git": {
         "Commits": 3912,
@@ -25,7 +32,9 @@
         "branch": "master",
         "test": "tests",
         "installer": "npm",
-        "seed_commit": "67b0bb2cfceb3f04fcd25a09222e86404805c594"
+        "seed_commit": "67b0bb2cfceb3f04fcd25a09222e86404805c594",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
     },
     "git@github.com:Unitech/pm2.git": {
         "Commits": 4970,
@@ -35,7 +44,9 @@
         "test": "test",
         "installer": "npm",
         "comment": "strange recorded dependency!",
-        "seed_commit": "2573516e9321a78fb10474ea58c2cb487a663de6"
+        "seed_commit": "2573516e9321a78fb10474ea58c2cb487a663de6",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
     },
     "git@github.com:thelounge/thelounge.git": {
         "Commits": 7374,
@@ -44,7 +55,9 @@
         "branch": "master",
         "test": "test",
         "installer": "npm",
-        "seed_commit": "3726a8d00bf2734add7eed3d584cc86ce16b5a6d"
+        "seed_commit": "3726a8d00bf2734add7eed3d584cc86ce16b5a6d",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
     },
     "git@github.com:expressjs/express.git": {
         "Commits": 5694,
@@ -53,7 +66,9 @@
         "branch": "master",
         "test": "test",
         "installer": "npm",
-        "seed_commit": "d854c43ea177d1faeea56189249fff8c24a764bd"
+        "seed_commit": "d854c43ea177d1faeea56189249fff8c24a764bd",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
     },
     "git@github.com:FredrikNoren/ungit.git": {
         "Commits": 3908,
@@ -62,7 +77,9 @@
         "branch": "master",
         "test": "test",
         "installer": "npm",
-        "seed_commit": "f08ef791713bf7989f95499892b4f83c366bccc6"
+        "seed_commit": "f08ef791713bf7989f95499892b4f83c366bccc6",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
     },
     "git@github.com:jhipster/jhipster-uml.git": {
         "Commits": 980,
@@ -71,7 +88,9 @@
         "branch": "master",
         "test": "test",
         "installer": "npm",
-        "seed_commit": "51de04f3a9d944c1ee3c6ca08b827c154cc759df"
+        "seed_commit": "51de04f3a9d944c1ee3c6ca08b827c154cc759df",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
     },
     "git@github.com:expressjs/session.git": {
         "Commits": 686,
@@ -80,51 +99,19 @@
         "branch": "master",
         "test": "test",
         "installer": "npm",
-        "seed_commit": "5df613c481bc7c5979aeaeac691b64ef0a5c4948"
+        "seed_commit": "5df613c481bc7c5979aeaeac691b64ef0a5c4948",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
     },
-    
-
-
-    "git@github.com:cloudant/nodejs-cloudant.git": {
-        "test": "test",
+    "git@github.com:suguru03/neo-async.git": {
         "install": "npm install",
-        "commits": "1520",
+        "commit": "948",
         "main_branch": "master",
-        "comment": "success",
-        "seed_comment": "22c37b922f36d5dde4f7efa20b80f388823b7de9"
-    },
-    "git@github.com:markdown-it/markdown-it.git": {
         "test": "test",
-        "install": "npm install",
-        "commits": "1063",
-        "main_branch": "master",
+        "seed_commit": "f91287a98228bde63bcd921aaab362d6ba42dfdb",
         "comment": "success",
-        "seed_comment": "1529ff4"
-    },
-    "git@github.com:nock/nock.git": {
-        "test": "tests",
-        "install": "npm install",
-        "commits": "2066",
-        "main_branch": "main",
-        "comment": "success",
-        "seed_comment": "824a414"
-    },
-    "git@github.com:yeoman/environment.git": {
-        "test": "test",
-        "install": "npm install",
-        "commits": "1476",
-        "main_branch": "main",
-        "comment": "success",
-        "seed_comment": "",
-        "excluded_dirs": ["fixtures"]
-    },
-    "git@github.com:fastify/fastify.git": {
-        "test": "test",
-        "install": "npm install",
-        "commits": "3379",
-        "main_branch": "v3.x",
-        "comment": "success",
-        "seed_comment": ""
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
     },
     "git@github.com:simov/grant.git": {
         "test": "test",
@@ -132,14 +119,70 @@
         "commits": "1171",
         "main_branch": "master",
         "comment": "success",
-        "seed_comment": ""
+        "seed_commit": "4d6928346e97e9ed3bbc8d6d4106d254c57c5915",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
+    },
+    "git@github.com:cloudant/nodejs-cloudant.git": {
+        "test": "test",
+        "install": "npm install",
+        "commits": "1520",
+        "main_branch": "master",
+        "comment": "success",
+        "seed_commit": "22c37b922f36d5dde4f7efa20b80f388823b7de9",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
+    },
+    "git@github.com:markdown-it/markdown-it.git": {
+        "test": "test",
+        "install": "npm install",
+        "commits": "1063",
+        "main_branch": "master",
+        "comment": "success",
+        "seed_commit": "1529ff4",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
+    },
+    "git@github.com:nock/nock.git": {
+        "test": "tests",
+        "install": "npm install",
+        "commits": "2066",
+        "main_branch": "main",
+        "comment": "success",
+        "seed_commit": "824a414",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
+    },
+    "git@github.com:yeoman/environment.git": {
+        "test": "test",
+        "install": "npm install",
+        "commits": "1476",
+        "main_branch": "main",
+        "comment": "success",
+        "seed_commit": "",
+        "excluded_dirs": [
+            "fixtures"
+        ],
+        "fp_excluded_dirs": []
+    },
+    "git@github.com:fastify/fastify.git": {
+        "test": "test",
+        "install": "npm install",
+        "commits": "3379",
+        "main_branch": "v3.x",
+        "comment": "success",
+        "seed_commit": "",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
     },
     "git@github.com:/websockets/ws.git": {
         "install": "npm install",
         "commit": "1810",
         "main_branch": "master",
         "test": "test",
-        "seed_commit": "success"
+        "seed_commit": "success",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
     },
     "git@github.com:yannickcr/eslint-plugin-react.git": {
         "install": "npm install",
@@ -147,14 +190,20 @@
         "main_branch": "master",
         "test": "tests",
         "seed_commit": "",
-        "comment": "success"
+        "comment": "success",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
     },
-    "git@github.com:suguru03/neo-async.git": {
+    "git@github.com:cla-assistant/cla-assistant.git": {
         "install": "npm install",
-        "commit": "948",
-        "main_branch": "master",
-        "test": "test",
-        "seed_commit": "",
-        "comment": "success"
-    },
+        "commit": "1380",
+        "main_branch": "main",
+        "test": "src/tests",
+        "seed_commit": "ebd28b21a3c9f80a545fb46be20ef29f1ab6280d",
+        "excluded_dirs": [
+            "acceptance_tests",
+            "client"
+        ],
+        "fp_excluded_dirs": []
+    }
 }

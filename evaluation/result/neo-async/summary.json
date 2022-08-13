@@ -1,0 +1,23 @@
+{
+  berke_units_contribution: {
+    average: { FP: 102.8, DA: 15.1, Common: 4.1 },
+    precentage: {
+      FP: 75.06722004691298,
+      DA: 22.005225579171743,
+      Common: 2.927554373915291
+    }
+  },
+  average_commmit_size: 10.3,
+  berke: {
+    avarage_impactSet_size: 122,
+    average_unique_result: 91.9,
+    average_fp_support: 1.2703461178671656,
+    average_fp_confidence: 0.8560629735091841
+  },
+  tarmaq: {
+    avarage_impactSet_size: 31.6,
+    average_unique_result: 0,
+    average_support: 1.1645569620253164,
+    average_confidence: 0.8934599156118145
+  }
+}
