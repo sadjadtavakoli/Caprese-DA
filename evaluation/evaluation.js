@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path')
 const { exec } = require('child_process');
 const { evaluationGetMainData, evaluationAnalyzer } = require('../berke');
+const { anonymouseName } = require('../computeBerkeResult');
 
 const NUMBER_OF_COMMITS_PER_PROJECT = 10;
 const RESULT_DIR_PATH = `${__dirname}${path.sep}result${path.sep}${constants.PROJECT_NAME}`;
@@ -42,9 +43,12 @@ if (process.argv[1].endsWith(path.basename(__filename))) {
             let testSet = [...candidatedCommits.keys()]
             testSet = testSet.reduce(
                 (p, x) => p.then(() => {
+                    let commitX = candidatedCommits.get(x)
                     return evaluationAnalyzer(x)
                         .then(() => runTARMAQ(x))
-                        .then(() => collectResult(candidatedCommits.get(x)))
+                        .then(() => collectResult(commitX))
+                        .then(() => separateDAnFPsResults(commitX))
+
                 }),
                 Promise.resolve())
             return testSet
@@ -58,7 +62,7 @@ function testSetGenerator() {
     return new Promise(resolve => {
         console.log(" * * * testset Generator * * * ")
         let detailedSequences = fs.readFileSync(constants.SEQUENCES_PATH + "details.txt").toString().trim().split("\n");
-        let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(", ");
+        let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(" ");
         let candidatedCommits = new Map()
         let maxIndex = detailedSequences.length - 1
         let useLessFiles = [
@@ -67,7 +71,7 @@ function testSetGenerator() {
             "package.json", "package-lock.json",
             "appveyor.yml", ".travis.yml"]
 
-        while (true) {
+        while (candidatedCommits.size < NUMBER_OF_COMMITS_PER_PROJECT) {
             let i = getRandomNumbers(maxIndex)
             maxIndex -= 1
             console.log(`random i = ${i}`)
@@ -76,9 +80,6 @@ function testSetGenerator() {
             let commitChanges = sequence.split(" : ")[1].slice(0, -4).split(" ").filter(item => !removed.includes(item) & !useLessFiles.includes(item))
             if (commitChanges.length <= 1 || includes(candidatedCommits, commitChanges)) {
                 continue
-            }
-            if (candidatedCommits.size >= NUMBER_OF_COMMITS_PER_PROJECT) {
-                break
             }
             candidatedCommits.set(commitChanges, commit)
             detailedSequences.splice(i, 1)
@@ -100,41 +101,57 @@ function testSetGenerator() {
 function collectResult(commit) {
     console.log(" = = = Collect Result = = = ")
     return new Promise(function (resolve, reject) {
+
         let commitsInfo = JSON.parse(fs.readFileSync(RESULT_PATH));
 
-        // separate berke's different units' results
-        let uniqeContributions = separateDAnFPsResults(commit);
+        let tarmaqResult = getTarmaqResult();
+        let berkeResult = getBerkeResult();
 
-        // collect and evaluate TARMAQ's resutl
-        let tarmaqResult = tarmaqConsequentStatusUpdate(uniqeContributions);
+        tarmaqAndBerkeConsequentStatusUpdate(berkeResult, tarmaqResult);
+
+        commitsInfo[commit]['berke'] = berkeResult
         commitsInfo[commit]['tarmaq'] = tarmaqResult
 
-        // collect and evaluate Berke's result
-        commitsInfo[commit]['berke'] = berkeConsequentStatusUpdate(tarmaqResult);
-
         commitsInfo[commit]['reversed-FP'] = reverseFP(commitsInfo[commit]['berke']);
+        commitsInfo[commit]['reversed-DA'] = reverseDA(commitsInfo[commit]['berke']);
 
         fs.writeFileSync(RESULT_PATH, JSON.stringify(commitsInfo));
         resolve();
     })
 }
 
-function tarmaqConsequentStatusUpdate(berkeSeparateUnitsResult) {
+function getTarmaqResult() {
     let tarmaqResult = JSON.parse(fs.readFileSync(TARMAQ_RESULT_PATH));
-    let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(", ");
+    let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(" ");
     tarmaqResult = tarmaqResult.map(item => {
         let consequent = item['rule'].split(" => ")[1];
         item['consequent'] = consequent;
+        item['status'] = STATUS.tarmaq_unique;
+
         if (removed.includes(consequent)) {
             item['status'] = STATUS.removed;
-        } else if (berkeSeparateUnitsResult['FP'].includes(consequent) || berkeSeparateUnitsResult['common'].includes(consequent)) {
-            item['status'] = STATUS.common;
-        } else {
-            item['status'] = STATUS.tarmaq_unique;
         }
         return item;
     });
     return tarmaqResult;
+}
+
+function getBerkeResult() {
+    return JSON.parse(fs.readFileSync(constants.Berke_RESULT_PATH));
+
+}
+function tarmaqAndBerkeConsequentStatusUpdate(berkeResult, tarmaqResult) {
+
+    berkeResult.forEach(item => {
+        let consequent = item["consequent"].split(" | ")[0]
+        let tarmaqItems = tarmaqResult.filter(element => element['consequent'] == consequent || element['consequent'] == anonymouseName(consequent))
+        if (tarmaqItems.length != 0) {
+            tarmaqItems.forEach(tarmaqItem => tarmaqItem['status'] = STATUS.common)
+            item["status"] = STATUS.common;
+        } else {
+            item["status"] = STATUS.berke_unique;
+        }
+    });
 }
 
 function reverseFP(impactSet) {
@@ -148,7 +165,7 @@ function reverseFP(impactSet) {
                 if (result[id] == undefined) {
                     result[id] = []
                 }
-                result[id].push({ 'consequent': consequent, 'support': impacted['support'], 'FP-score': impacted['FP-score'], 'status': impacted['status'], 'DA': impacted['DA-antecedents'] ? true : false })
+                result[id].push({ 'consequent': consequent, 'support': impacted['support'], 'FP-score': impacted['FP-score'], 'status': impacted['status'], 'DA': impacted['DA-antecedents'], 'evaluation result': '' })
 
             });
         }
@@ -156,25 +173,27 @@ function reverseFP(impactSet) {
     return result
 }
 
-function berkeConsequentStatusUpdate(tarmaqResult) {
-    let impactSet = JSON.parse(fs.readFileSync(constants.Berke_RESULT_PATH));
-    let tarmaqKeys = tarmaqResult.map(item => {
-        return item['consequent'];
-    });
+function reverseDA(impactSet) {
+    let result = {};
+    impactSet.forEach(impacted => {
+        let consequent = impacted['consequent']
+        let antecedents = impacted['DA-antecedents']
+        if (antecedents != undefined) {
+            antecedents.forEach(id => {
+                if (result[id] == undefined) {
+                    result[id] = []
+                }
+                result[id].push({ 'consequent': consequent, 'support': impacted['support'], 'FP-score': impacted['FP-score'], 'status': impacted['status'], 'FP': impacted['FP-antecedents'], 'evaluation result': '' })
 
-    impactSet = impactSet.map(item => {
-        let consequent = item["consequent"].split(" | ")[0]
-        if (tarmaqKeys.includes(consequent)) {
-            item["status"] = STATUS.common;
-        } else {
-            item["status"] = STATUS.berke_unique;
+            });
         }
-        return item;
-    });
-    return impactSet;
+    })
+    return result
 }
 
 function separateDAnFPsResults(commit) {
+    console.log(" = = = Separating Units Contribution = = = ")
+
     let impactSet = JSON.parse(fs.readFileSync(constants.Berke_RESULT_PATH));
     let commitsContributionData = JSON.parse(fs.readFileSync(UNITS_CONTRIBUTION_PATH));
     let uniqeContributions = { 'DA': [], 'FP': [], 'common': [] };
@@ -192,7 +211,6 @@ function separateDAnFPsResults(commit) {
     }
     commitsContributionData[commit] = uniqeContributions;
     fs.writeFileSync(UNITS_CONTRIBUTION_PATH, JSON.stringify(commitsContributionData));
-    return uniqeContributions;
 }
 
 function getRandomNumbers(maximum) {
@@ -236,17 +254,3 @@ function runTARMAQ(changeSet) {
 }
 
 module.exports = { STATUS }
-
-
-//  To filter threshold
-// 
-// let i =0;
-// while(i<detailedSequences.length){
-//     let sequence = detailedSequences[i]
-//     let commitChanges = sequence.split(" : ")[1].slice(0, -4).split(" ")
-//     if (commitChanges.length <= 2) {
-//         detailedSequences.splice(i, 1)
-//         i--
-//     }
-//     i++
-// }

@@ -6,7 +6,7 @@ function commitsLengthDistribution() {
     let filename = process.argv[2];
     const resultDirPath = `data${path.sep}ProjectsData${path.sep}`
     let distribution = {}
-    let result = fs.readFileSync(`${resultDirPath}${filename}_up-to-date${path.sep}sequences.txtdetails.txt`).toString().trim().split("\n")
+    let result = fs.readFileSync(`${resultDirPath}${filename}${path.sep}sequences.txtdetails.txt`).toString().trim().split("\n")
     for (let commit of result) {
         let commitems = commit.split(" : ")[1].slice(0, -4).split(" ")
         if (distribution[commitems.length]) {
@@ -31,7 +31,7 @@ function getCommitsWithLengthGreaterThan() {
     let FN = process.argv[4]
     const resultDirPath = `data${path.sep}ProjectsData${path.sep}`
     let finalResult = []
-    let commits = fs.readFileSync(`${resultDirPath}${filename}_up-to-date${path.sep}sequences.txtdetails.txt`).toString().trim().split("\n")
+    let commits = fs.readFileSync(`${resultDirPath}${filename}${path.sep}sequences.txtdetails.txt`).toString().trim().split("\n")
     for (let commit of commits) {
         let functions = commit.split(" : ")[1].slice(0, -4).split(" ")
         if (functions.length >= N) {

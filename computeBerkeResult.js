@@ -94,7 +94,7 @@ function intrepretDAResult(changes, impactSet) {
 
 function intrepretFPData(impactSet) {
     let FPimapctSet = JSON.parse(fs.readFileSync(constants.FP_RESULT_PATH));
-    let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(", ");
+    let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(" ");
     for (let impacted in FPimapctSet) {
         let info = FPimapctSet[impacted];
         if (!removed.includes(impacted)) {
@@ -216,4 +216,4 @@ function stringifyFunctionObject(object) {
 
     return ` | {"id":${object['id']} - "parents":[${object['parents'].join("-")}]}`
 }
-module.exports = { computeBerkeResult }
+module.exports = { computeBerkeResult , anonymouseName}

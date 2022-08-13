@@ -3,6 +3,9 @@ const fs = require('fs');
 const constants = require('./constants.js');
 
 function cleanup() {
+    if (!fs.existsSync(constants.DATA_PATH)) {
+        fs.mkdirSync(constants.DATA_PATH);
+    }
     console.log(" = = = = cleanup = = = = = ")
     clearFile(constants.SEQUENCES_PATH)
     clearFile(constants.SEQUENCES_PATH+"details.txt")
