@@ -118,31 +118,6 @@ function anonymouseName(name) {
     return name.replace(/((?![.])([^-])*)/, "arrowAnonymousFunction");
 }
 
-function setRelations(item1, item2) {
-    let item1_brokenName = item1.split('-')
-    let item2_brokenName = item2.split('-')
-    if (item1_brokenName[1] == item2_brokenName[1]) {
-        let item1_beginning = parseInt(item1_brokenName[2])
-        let item1_end = parseInt(item1_brokenName[3])
-
-        let item2_beginning = parseInt(item2_brokenName[2])
-        let item2_end = parseInt(item2_brokenName[3])
-
-        if (item1_beginning <= item2_beginning && item1_end >= item2_end) {
-            let item1_object = getOrCreateFunctionObject(item1)
-            let item2_object = getOrCreateFunctionObject(item2)
-            item2_object['parents'].push(item1_object['id'])
-            functionsObjectList[item2] = item2_object
-
-        } else if (item2_beginning <= item1_beginning && item2_end >= item1_end) {
-            let item1_object = getOrCreateFunctionObject(item1)
-            let item2_object = getOrCreateFunctionObject(item2)
-            item1_object['parents'].push(item2_object['id'])
-            functionsObjectList[item1] = item1_object
-        }
-    }
-}
-
 function getOrCreateFunctionObject(f) {
     if (functionsObjectList[f]) {
         return functionsObjectList[f]
@@ -174,6 +149,34 @@ function findFunctionsRelations(impactSet, changes) {
         }
     }    
 }
+
+function setRelations(item1, item2) {
+    let item1_brokenName = item1.split('-')
+    let item2_brokenName = item2.split('-')
+    let item1_length = item1_brokenName.length
+    let item2_length = item2_brokenName.length
+    if (item1_brokenName[1] == item2_brokenName[1]) {
+        let item1_beginning = parseInt(item1_brokenName[item1_length-2])
+        let item1_end = parseInt(item1_brokenName[item1_length-1])
+
+        let item2_beginning = parseInt(item2_brokenName[item2_length-2])
+        let item2_end = parseInt(item2_brokenName[item2_length-1])
+
+        if (item1_beginning <= item2_beginning && item1_end >= item2_end) {
+            let item1_object = getOrCreateFunctionObject(item1)
+            let item2_object = getOrCreateFunctionObject(item2)
+            item2_object['parents'].push(item1_object['id'])
+            functionsObjectList[item2] = item2_object
+
+        } else if (item2_beginning <= item1_beginning && item2_end >= item1_end) {
+            let item1_object = getOrCreateFunctionObject(item1)
+            let item2_object = getOrCreateFunctionObject(item2)
+            item1_object['parents'].push(item2_object['id'])
+            functionsObjectList[item1] = item1_object
+        }
+    }
+}
+
 function replaceKeysWithObjects(impactSetList) {
     for (let item of impactSetList) {
         item['consequent'] = getObjectifiedKey(item['consequent'])

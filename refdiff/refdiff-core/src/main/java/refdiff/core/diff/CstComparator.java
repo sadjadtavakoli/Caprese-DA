@@ -12,21 +12,17 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.Set;
-import java.util.TreeMap;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import org.eclipse.jgit.errors.LargeObjectException;
 
 import refdiff.core.diff.similarity.SourceRepresentationBuilder;
-import refdiff.core.diff.similarity.TfIdfSourceRepresentation;
 import refdiff.core.diff.similarity.TfIdfSourceRepresentationBuilder;
 import refdiff.core.io.SourceFile;
 import refdiff.core.io.SourceFileSet;
@@ -36,7 +32,6 @@ import refdiff.core.cst.CstNodeRelationshipType;
 import refdiff.core.cst.CstNodeTypeComprator;
 import refdiff.core.cst.CstRoot;
 import refdiff.core.cst.Stereotype;
-import refdiff.core.util.PairBeforeAfter;
 import refdiff.parsers.LanguagePlugin;
 
 public class CstComparator {

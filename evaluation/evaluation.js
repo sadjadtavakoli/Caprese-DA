@@ -66,7 +66,7 @@ function testSetGenerator() {
         let candidatedCommits = new Map()
         let maxIndex = detailedSequences.length - 1
         let useLessFiles = [
-            "history.md", "HISTORY.md", "History.md",
+            "history.md", "HISTORY.md", "History.md", "CHANGELOG.md",
             "README.md", "readme.md", "Readme.md",
             "package.json", "package-lock.json",
             "appveyor.yml", ".travis.yml"]

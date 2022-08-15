@@ -252,7 +252,7 @@ public class CstRootHelper<T> {
 	}
 	
 	private List<String> getTokensToIgnoreInNodeBody() {
-		return Arrays.asList(".", ",", ":", ";", "{", "}", "(", ")");
+		return Arrays.asList(".", ",", ":", ";", "{", "}", "(", ")", "use strict");
 	}
 	
 	public T sourceRep(CstNode n) {

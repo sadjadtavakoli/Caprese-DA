@@ -190,7 +190,7 @@ const confiqs = {
         "seed_commit": "",
         "comment": "success",
         "excluded_dirs": [],
-        "fp_excluded_dirs": []
+        "fp_excluded_dirs": ["dist/markdown-it.js"]
     },
     "git@github.com:nock/nock.git": {
         "test": "tests",
