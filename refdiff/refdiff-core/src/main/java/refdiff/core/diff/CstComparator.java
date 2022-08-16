@@ -20,11 +20,9 @@ import java.util.stream.Collectors;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import org.eclipse.jgit.errors.LargeObjectException;
 
 import refdiff.core.diff.similarity.SourceRepresentationBuilder;
 import refdiff.core.diff.similarity.TfIdfSourceRepresentationBuilder;
-import refdiff.core.io.SourceFile;
 import refdiff.core.io.SourceFileSet;
 import refdiff.core.cst.HasChildrenNodes;
 import refdiff.core.cst.CstNode;
@@ -99,24 +97,6 @@ public class CstComparator {
 			this.removedEntitiesKeys = new HashSet<>();
 			this.mappingsPath = mappingsPath;
 			this.monitor = monitor;
-
-			Map<String, String> fileMapBefore = new HashMap<>();
-			Map<String, String> fileMapAfter = new HashMap<>();
-
-			for (SourceFile fileBefore : sourcesBefore.getSourceFiles()) {
-				try {
-					fileMapBefore.put(fileBefore.getPath(), sourcesBefore.readContent(fileBefore));
-				} catch (LargeObjectException e) {
-					fileMapBefore.put(fileBefore.getPath(), "LARGE OBJECT BEFORE");
-				}
-			}
-			for (SourceFile fileAfter : sourcesAfter.getSourceFiles()) {
-				try {
-					fileMapAfter.put(fileAfter.getPath(), sourcesAfter.readContent(fileAfter));
-				} catch (LargeObjectException e) {
-					fileMapAfter.put(fileAfter.getPath(), "LARGE OBJECT AFTER");
-				}
-			}
 
 			this.diff.getBefore().forEachNode((node, depth) -> this.changed.add(node));
 

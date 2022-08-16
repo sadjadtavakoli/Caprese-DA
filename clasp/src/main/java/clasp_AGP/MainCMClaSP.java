@@ -4,6 +4,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.io.FileWriter;
+import clasp_AGP.dataStructures.ImpactInformation;
+import clasp_AGP.dataStructures.creators.AbstractionCreator;
+import clasp_AGP.dataStructures.creators.AbstractionCreator_Qualitative;
+import clasp_AGP.dataStructures.database.SequenceDatabase;
+import clasp_AGP.idlists.creators.IdListCreator;
+import clasp_AGP.idlists.creators.IdListCreatorStandard_Map;
 
 /**
  * Example of how to use the algorithm ClaSP, saving the results in a given file
@@ -33,6 +41,51 @@ public class MainCMClaSP {
         System.out.println("Total Memory: " + totalMem + " (" + (totalMem / megs) + " MiB)");
         System.out.println("Max Memory:   " + maxMem + " (" + (maxMem / megs) + " MiB)");
         System.out.println("Free Memory:  " + freeMem + " (" + (freeMem / megs) + " MiB)");
-        System.out.println(AlgoCM_ClaSPExecutor.runFile(itemConstraint, minumumConfidence, enoughConfidence, filePath, distFilePath));
+        System.out.println(runFile(itemConstraint, minumumConfidence, enoughConfidence, filePath, distFilePath));
+    }
+
+    /**
+     * @param itemConstraint     a list of strings/items as our item constraint
+     * @param minimumConfidence            min support
+     * @param filePath           sequences where is sequences as a string or sequences
+     *                           file path where they are stored.
+     * @param outputPath         file path to store the result. null if want to store in
+     *                           memory
+     * @param itemsFrequenciesPath the path in which each items frequency should be stored 
+     */
+    public static Map<String, ImpactInformation> runFile(List<String> itemConstraint, double minimumConfidence, double enoughConfidence, String filePath, String outputPath)
+            throws IOException {
+
+        AbstractionCreator abstractionCreator = AbstractionCreator_Qualitative.getInstance();
+        IdListCreator idListCreator = IdListCreatorStandard_Map.getInstance();
+
+        SequenceDatabase sequenceDatabase = new SequenceDatabase(abstractionCreator, idListCreator, itemConstraint);
+
+        sequenceDatabase.loadFile(filePath);
+
+        AlgoCM_ClaSP algorithm = new AlgoCM_ClaSP(minimumConfidence, enoughConfidence, abstractionCreator);
+
+        algorithm.runAlgorithm(sequenceDatabase, outputPath);
+
+        System.out.println(algorithm.printStatistics());
+
+        return algorithm.getResut();
+    }
+
+    public static Map<String, ImpactInformation> runList(List<String> itemConstraint, double minumumConfidence, double enoughConfidence, String[] sequences,
+            String outputPath) throws IOException {
+
+        String filePath = "input.txt";
+        StringBuilder sequencesString = new StringBuilder();
+        try (FileWriter myWriter = new FileWriter(filePath, false)) {
+            for (int i = 0; i < sequences.length; i++) {
+                // If the line is not a comment line
+                sequencesString.append(sequences[i]).append("\n");
+            }
+            myWriter.write(sequencesString.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return runFile(itemConstraint, minumumConfidence, enoughConfidence, filePath, outputPath);
     }
 }

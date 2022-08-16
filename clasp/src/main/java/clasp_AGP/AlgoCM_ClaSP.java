@@ -143,28 +143,8 @@ public class AlgoCM_ClaSP {
         FrequentAtomsTrie = database.frequentItems();
         itemConstraints = database.itemConstraints();
 
-        Map<String, Set<String>> coocMap = new HashMap<>(1000);
 
-        /**
-        * For each item foo after a function bar in the same sequence we add a true value 
-        * to the row foo and column var. This value indicates foo occured after bar in a sequence.
-        */
-        for (Sequence seq : database.getSequences()) {
-            for (int j = 0; j < seq.size(); j++) {
-                String itemA = (String) seq.get(j).getId();
-
-                // get or create the map if not existing already
-                Set<String> mapCoocItem = coocMap.computeIfAbsent(itemA, k -> new HashSet<>());
-
-                // keep each item after itemA in the same sequence
-                for (int k = j + 1; k < seq.size(); k++) {
-                    String itemB = (String) seq.get(k).getId();
-                    if (!mapCoocItem.contains(itemB)) {
-                        mapCoocItem.add(itemB);
-                    }
-                }
-            }
-        }
+        Map<String, Set<String>> coocMap = recordCoOccurrences(database);
         database.clear();
 
         // Inizialitation of the class that is in charge of find the frequent patterns
@@ -190,6 +170,32 @@ public class AlgoCM_ClaSP {
         joinCount = frequentPatternEnumeration.joinCount;
     }
 
+    private Map<String, Set<String>> recordCoOccurrences(SequenceDatabase database) {
+        Map<String, Set<String>> coocMap = new HashMap<>(1000);
+
+        /**
+        * For each item foo after a function bar in the same sequence we add a true value 
+        * to the row foo and column var. This value indicates foo occured after bar in a sequence.
+        */
+        for (Sequence seq : database.getSequences()) {
+            for (int j = 0; j < seq.size(); j++) {
+                String itemA = (String) seq.get(j).getId();
+
+                // get or create the map if not existing already
+                Set<String> mapCoocItem = coocMap.computeIfAbsent(itemA, k -> new HashSet<>());
+
+                // keep each item after itemA in the same sequence
+                for (int k = j + 1; k < seq.size(); k++) {
+                    String itemB = (String) seq.get(k).getId();
+                    if (!mapCoocItem.contains(itemB)) {
+                        mapCoocItem.add(itemB);
+                    }
+                }
+            }
+        }
+        return coocMap;
+    }
+
     /**
      * Method to show the outlined information about the search for frequent
      * sequences by means of ClaSP algorithm
@@ -199,7 +205,7 @@ public class AlgoCM_ClaSP {
     public String printStatistics() {
         StringBuilder r = new StringBuilder(200);
         r.append("=============  Algorithm - STATISTICS =============\n Total time ~ ");
-        r.append(getRunningTime());
+        r.append(overallEnd - overallStart);
         r.append(" ms\n");
         r.append(" Frequent patterns: ");
         r.append(numberOfFrequentPatterns);
@@ -218,22 +224,5 @@ public class AlgoCM_ClaSP {
 
     public Map<String, ImpactInformation> getResut() {
         return saver.getList();
-    }
-
-    /**
-     * It gets the time spent by the algoritm in its execution.
-     *
-     * @return
-     */
-    public long getRunningTime() {
-        return (overallEnd - overallStart);
-    }
-
-    /**
-     * It clears all the attributes of AlgoClaSP class
-     */
-    public void clear() {
-        FrequentAtomsTrie.removeAll();
-        abstractionCreator = null;
     }
 }
