@@ -113,14 +113,26 @@
         "excluded_dirs": [],
         "fp_excluded_dirs": []
     },
-    "git@github.com:simov/grant.git": {
+    "git@github.com:markdown-it/markdown-it.git": {
         "test": "test",
         "install": "npm install",
-        "commits": "1171",
+        "commits": "1063",
         "main_branch": "master",
         "comment": "success",
-        "seed_commit": "4d6928346e97e9ed3bbc8d6d4106d254c57c5915",
+        "seed_commit": "1529ff4",
         "excluded_dirs": [],
+        "fp_excluded_dirs": ["dist/markdown-it.js"]
+    },
+    "git@github.com:yeoman/environment.git": {
+        "test": "test",
+        "install": "npm install",
+        "commits": "1476",
+        "main_branch": "main",
+        "comment": "success",
+        "seed_commit": "",
+        "excluded_dirs": [
+            "fixtures"
+        ],
         "fp_excluded_dirs": []
     },
     "git@github.com:cloudant/nodejs-cloudant.git": {
@@ -133,16 +145,7 @@
         "excluded_dirs": [],
         "fp_excluded_dirs": []
     },
-    "git@github.com:markdown-it/markdown-it.git": {
-        "test": "test",
-        "install": "npm install",
-        "commits": "1063",
-        "main_branch": "master",
-        "comment": "success",
-        "seed_commit": "1529ff4",
-        "excluded_dirs": [],
-        "fp_excluded_dirs": []
-    },
+
     "git@github.com:nock/nock.git": {
         "test": "tests",
         "install": "npm install",
@@ -153,16 +156,14 @@
         "excluded_dirs": [],
         "fp_excluded_dirs": []
     },
-    "git@github.com:yeoman/environment.git": {
+    "git@github.com:simov/grant.git": {
         "test": "test",
         "install": "npm install",
-        "commits": "1476",
-        "main_branch": "main",
+        "commits": "1171",
+        "main_branch": "master",
         "comment": "success",
-        "seed_commit": "",
-        "excluded_dirs": [
-            "fixtures"
-        ],
+        "seed_commit": "4d6928346e97e9ed3bbc8d6d4106d254c57c5915",
+        "excluded_dirs": [],
         "fp_excluded_dirs": []
     },
     "git@github.com:fastify/fastify.git": {
