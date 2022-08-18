@@ -1673,92 +1673,92 @@
                             "resolver.js-lib/resolver.js-1-417 | {\"id\":247 - \"parents\":[]}"
                         ]
                     ],
-                    "evaluation result": ""
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/composability.js-50-52",
                     "status": "Berke Unique",
-                    "evaluation result": ""
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/resolver.js-95-99",
                     "status": "Berke Unique",
-                    "evaluation result": ""
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/resolver.js-166-170",
                     "status": "Berke Unique",
-                    "evaluation result": ""
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/resolver.js-309-314",
                     "status": "Berke Unique",
-                    "evaluation result": ""
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/resolver.js-342-346",
                     "status": "Berke Unique",
-                    "evaluation result": ""
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/resolver.js-395-401",
                     "status": "Berke Unique",
-                    "evaluation result": ""
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/resolver.js-403-411",
                     "status": "Berke Unique",
-                    "evaluation result": ""
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/resolver.js-413-421",
                     "status": "Berke Unique",
-                    "evaluation result": ""
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/resolver.js-423-433",
                     "status": "Berke Unique",
-                    "evaluation result": ""
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/resolver.js-435-447",
                     "status": "Berke Unique",
-                    "evaluation result": ""
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/resolver.js-449-456",
                     "status": "Berke Unique",
-                    "evaluation result": ""
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/resolver.js-458-461",
                     "status": "Berke Unique",
-                    "evaluation result": ""
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/resolver.js-463-468",
                     "status": "Berke Unique",
-                    "evaluation result": ""
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/resolver.js-470-473",
                     "status": "Berke Unique",
-                    "evaluation result": ""
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/resolver.js-475-478",
                     "status": "Berke Unique",
-                    "evaluation result": ""
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/namespace-composability.js-72-72",
                     "status": "Berke Unique",
-                    "evaluation result": ""
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/resolver.js-806-812",
                     "status": "Berke Unique",
-                    "evaluation result": ""
+                    "evaluation result": "true"
                 }
             ]
         }
