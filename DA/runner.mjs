@@ -29,7 +29,7 @@ function addFiles(dirPath) {
     let filePath = dirPath + path.sep + filename;
     if (fs.statSync(filePath).isDirectory() && !excludedFiles.includes(filePath)) {
       addFiles(filePath)
-    } else if (filename.endsWith('.js') || filename.endsWith('.cjs') || filename.endsWith('.ts')) {
+    } else if (filename.endsWith('.js') || filename.endsWith('.cjs')) {
       console.log(filename);  
       mocha.addFile(path.join(dirPath, filename));
       }
