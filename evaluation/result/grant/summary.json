@@ -111,3 +111,118 @@
       average_confidence: 0.6848039215686272
     }
   }
+  {
+    berke_units_contribution: {
+      average: { FP: 91.5, DA: 1.7, Common: 2 },
+      precentage: {
+        FP: 86.1470372229693,
+        DA: 1.8419407051584598,
+        Common: 2.011022071872227
+      }
+    },
+    average_commmit_size: 7.4,
+    berke: {
+      avarage_impactSet_size: 95.2,
+      average_unique_result: 44.8,
+      average_fp_support: 1.1219251336898395,
+      average_fp_confidence: 0.6290589351929395
+    },
+    tarmaq: {
+      avarage_impactSet_size: 66.1,
+      average_unique_result: 0,
+      average_support: 1.0453857791225416,
+      average_confidence: 0.9442763489662127
+    }
+  }
+  {
+    berke_units_contribution: {
+      average: { FP: 150.6, DA: 1.1, Common: 0.9 },
+      precentage: {
+        FP: 88.16311139840552,
+        DA: 1.507218271924154,
+        Common: 0.32967032967032966
+      }
+    },
+    average_commmit_size: 17.2,
+    berke: {
+      avarage_impactSet_size: 152.6,
+      average_unique_result: 119.9,
+      average_fp_support: 1.0422442244224421,
+      average_fp_confidence: 0.7550263359669299
+    },
+    tarmaq: {
+      avarage_impactSet_size: 69.1,
+      average_unique_result: 0,
+      average_support: 1.2257597684515196,
+      average_confidence: 0.8799500065780818
+    }
+  }
+  {
+    berke_units_contribution: {
+      average: { FP: 90.1, DA: 1.5, Common: 1.4 },
+      precentage: {
+        FP: 77.70715379674917,
+        DA: 1.1571068623091745,
+        Common: 1.1357393409416532
+      }
+    },
+    average_commmit_size: 9.7,
+    berke: {
+      avarage_impactSet_size: 93,
+      average_unique_result: 49.6,
+      average_fp_support: 1.039344262295082,
+      average_fp_confidence: 0.7848573163327262
+    },
+    tarmaq: {
+      avarage_impactSet_size: 60.7,
+      average_unique_result: 0,
+      average_support: 1.1367380560131797,
+      average_confidence: 0.9708585026542194
+    }
+  }
+  {
+    berke_units_contribution: {
+      average: { FP: 47.7, DA: 2.1, Common: 1.3 },
+      precentage: {
+        FP: 79.92278763397593,
+        DA: 8.993833602453407,
+        Common: 1.0833787635706609
+      }
+    },
+    average_commmit_size: 5.8,
+    berke: {
+      avarage_impactSet_size: 51.1,
+      average_unique_result: 26.5,
+      average_fp_support: 1.0938775510204082,
+      average_fp_confidence: 0.6879733480693867
+    },
+    tarmaq: {
+      avarage_impactSet_size: 29.8,
+      average_unique_result: 0,
+      average_support: 1.0671140939597314,
+      average_confidence: 0.9723287525300944
+    }
+  }
+  {
+    berke_units_contribution: {
+      average: { FP: 33.4, DA: 2.3, Common: 1.2 },
+      precentage: {
+        FP: 71.48531262806628,
+        DA: 6.640521632222937,
+        Common: 1.8741657397107896
+      }
+    },
+    average_commmit_size: 5.7,
+    berke: {
+      avarage_impactSet_size: 36.9,
+      average_unique_result: 21.3,
+      average_fp_support: 1.2080924855491328,
+      average_fp_confidence: 0.6878149547947235
+    },
+    tarmaq: {
+      avarage_impactSet_size: 37.3,
+      average_unique_result: 0,
+      average_support: 1.0160857908847185,
+      average_confidence: 0.7131367292225201
+    }
+  }
