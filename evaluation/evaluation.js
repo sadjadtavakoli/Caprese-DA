@@ -47,7 +47,6 @@ if (process.argv[1].endsWith(path.basename(__filename))) {
                     return evaluationAnalyzer(x)
                         .then(() => runTARMAQ(x))
                         .then(() => collectResult(commitX))
-                        .then(() => separateDAnFPsResults(commitX))
 
                 }),
                 Promise.resolve())
@@ -189,28 +188,6 @@ function reverseDA(impactSet) {
         }
     })
     return result
-}
-
-function separateDAnFPsResults(commit) {
-    console.log(" = = = Separating Units Contribution = = = ")
-
-    let impactSet = JSON.parse(fs.readFileSync(constants.Berke_RESULT_PATH));
-    let commitsContributionData = JSON.parse(fs.readFileSync(UNITS_CONTRIBUTION_PATH));
-    let uniqeContributions = { 'DA': [], 'FP': [], 'common': [] };
-
-    for (let item of impactSet) {
-        let consequent = item["consequent"].split(" | ")[0]
-        if (item["FP-antecedents"] != undefined && item["DA-antecedents"] != undefined) {
-            uniqeContributions['common'].push(consequent);
-        } else if (item["DA-antecedents"] != undefined) {
-            uniqeContributions["DA"].push(consequent);
-        }
-        else {
-            uniqeContributions["FP"].push(consequent);
-        }
-    }
-    commitsContributionData[commit] = uniqeContributions;
-    fs.writeFileSync(UNITS_CONTRIBUTION_PATH, JSON.stringify(commitsContributionData));
 }
 
 function getRandomNumbers(maximum) {
