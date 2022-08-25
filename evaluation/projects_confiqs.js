@@ -1,5 +1,61 @@
 const confiqs = {
-
+    "git@github.com:apostrophecms/apostrophe.git": {
+        "Commits": 9631,
+        "LOC": 65279,
+        "Language": "javaScript,Vue,HTML",
+        "branch": "main",
+        "test": "test",
+        "installer": "npm",
+        "comment": "mongodb is required",
+        "seed_commit": "f192c068ef0aeb2e3a0f190825c9489047850914",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
+    },
+    "git@github.com:apache/cordova-ios.git": {
+        "Commits": 3912,
+        "LOC": 31875,
+        "Language": "JavaScript,Objective-C,HTML,Python,CSS,C",
+        "branch": "master",
+        "test": "tests",
+        "installer": "npm",
+        "seed_commit": "67b0bb2cfceb3f04fcd25a09222e86404805c594",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
+    },
+    "git@github.com:FredrikNoren/ungit.git": {
+        "Commits": 3908,
+        "LOC": 39760,
+        "Language": "JavaScript,HTML,less, ts",
+        "branch": "master",
+        "test": "test",
+        "installer": "npm",
+        "seed_commit": "f08ef791713bf7989f95499892b4f83c366bccc6",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
+    },
+    "git@github.com:thelounge/thelounge.git": {
+        "Commits": 7374,
+        "LOC": 34780,
+        "Language": "js, vue, CSS",
+        "branch": "master",
+        "test": "test",
+        "installer": "npm",
+        "seed_commit": "3726a8d00bf2734add7eed3d584cc86ce16b5a6d",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
+    },
+    "git@github.com:Unitech/pm2.git": {
+        "Commits": 4970,
+        "LOC": 34617,
+        "Language": "JavaScript,Shell",
+        "branch": "master",
+        "test": "test",
+        "installer": "npm",
+        "comment": "strange recorded dependency!",
+        "seed_commit": "2573516e9321a78fb10474ea58c2cb487a663de6",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
+    },
     "git@github.com:EventEmitter2/EventEmitter2.git": {
         "test": "test",
         "install": "npm install",
@@ -29,6 +85,53 @@ const confiqs = {
         "comment": "",
         "excluded_dirs": [],
         "fp_excluded_dirs": []
+    },
+    "git@github.com:expressjs/session.git": {
+        "Commits": 686,
+        "LOC": 4267,
+        "Language": "JavaScript,md",
+        "branch": "master",
+        "test": "test",
+        "installer": "npm",
+        "seed_commit": "5df613c481bc7c5979aeaeac691b64ef0a5c4948",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
+    },
+    "git@github.com:jhipster/jhipster-uml.git": {
+        "Commits": 980,
+        "LOC": 11195,
+        "Language": "JavaScript",
+        "branch": "master",
+        "test": "test",
+        "installer": "npm",
+        "seed_commit": "51de04f3a9d944c1ee3c6ca08b827c154cc759df",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
+    },
+    "git@github.com:expressjs/express.git": {
+        "Commits": 5694,
+        "LOC": 19187,
+        "Language": "JavaScript",
+        "branch": "master",
+        "test": "test",
+        "installer": "npm",
+        "seed_commit": "d854c43ea177d1faeea56189249fff8c24a764bd",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
+    },
+    "git@github.com:assemble/assemble.git": {
+        "Commits": 2421,
+        "LOC": 26261,
+        "Language": "CSS, javaScript,HTML",
+        "main_branch": "master",
+        "test": "test",
+        "installer": "npm",
+        "seed_commit": "ec1d0e50c1d4f5a0b61ec0d9d91212ed8dc8949c",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": [
+            "/assets/js/highlight.js",
+            "/assets/js/jquery.js"
+        ]
     },
     "git@github.com:expressjs/body-parser.git": {
         "test": "test",
@@ -571,7 +674,8 @@ const confiqs = {
         "commit": "1810",
         "main_branch": "master",
         "test": "test",
-        "seed_commit": "success",
+        "comment": "success",
+        "seed_commit": "975382178f8a9355a5a564bb29cb1566889da9ba",
         "excluded_dirs": [],
         "fp_excluded_dirs": []
     },
