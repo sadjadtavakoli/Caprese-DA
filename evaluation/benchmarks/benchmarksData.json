@@ -1,16 +1,4 @@
 {
-    "git@github.com:apostrophecms/apostrophe.git": {
-        "Commits": 9631,
-        "LOC": 65279,
-        "Language": "javaScript,Vue,HTML",
-        "branch": "main",
-        "test": "test",
-        "installer": "npm",
-        "comment": "mongodb is required",
-        "seed_commit": "f192c068ef0aeb2e3a0f190825c9489047850914",
-        "excluded_dirs": [],
-        "fp_excluded_dirs": []
-    },
     "git@github.com:assemble/assemble.git": {
         "Commits": 2421,
         "LOC": 26261,
@@ -25,37 +13,15 @@
             "/assets/js/jquery.js"
         ]
     },
-    "git@github.com:apache/cordova-ios.git": {
-        "Commits": 3912,
-        "LOC": 31875,
-        "Language": "JavaScript,Objective-C,HTML,Python,CSS,C",
-        "branch": "master",
-        "test": "tests",
-        "installer": "npm",
-        "seed_commit": "67b0bb2cfceb3f04fcd25a09222e86404805c594",
-        "excluded_dirs": [],
-        "fp_excluded_dirs": []
-    },
-    "git@github.com:Unitech/pm2.git": {
-        "Commits": 4970,
-        "LOC": 34617,
-        "Language": "JavaScript,Shell",
-        "branch": "master",
+    "git@github.com:apostrophecms/apostrophe.git": {
+        "Commits": 9631,
+        "LOC": 65279,
+        "Language": "javaScript,Vue,HTML",
+        "branch": "main",
         "test": "test",
         "installer": "npm",
-        "comment": "strange recorded dependency!",
-        "seed_commit": "2573516e9321a78fb10474ea58c2cb487a663de6",
-        "excluded_dirs": [],
-        "fp_excluded_dirs": []
-    },
-    "git@github.com:thelounge/thelounge.git": {
-        "Commits": 7374,
-        "LOC": 34780,
-        "Language": "js, vue, CSS",
-        "branch": "master",
-        "test": "test",
-        "installer": "npm",
-        "seed_commit": "3726a8d00bf2734add7eed3d584cc86ce16b5a6d",
+        "comment": "mongodb is required",
+        "seed_commit": "f192c068ef0aeb2e3a0f190825c9489047850914",
         "excluded_dirs": [],
         "fp_excluded_dirs": []
     },
@@ -67,17 +33,6 @@
         "test": "test",
         "installer": "npm",
         "seed_commit": "d854c43ea177d1faeea56189249fff8c24a764bd",
-        "excluded_dirs": [],
-        "fp_excluded_dirs": []
-    },
-    "git@github.com:FredrikNoren/ungit.git": {
-        "Commits": 3908,
-        "LOC": 39760,
-        "Language": "JavaScript,HTML,less, ts",
-        "branch": "master",
-        "test": "test",
-        "installer": "npm",
-        "seed_commit": "f08ef791713bf7989f95499892b4f83c366bccc6",
         "excluded_dirs": [],
         "fp_excluded_dirs": []
     },
@@ -103,6 +58,8 @@
         "excluded_dirs": [],
         "fp_excluded_dirs": []
     },
+
+
     "git@github.com:suguru03/neo-async.git": {
         "install": "npm install",
         "commit": "948",
@@ -160,7 +117,7 @@
         "install": "npm install",
         "commits": "1171",
         "main_branch": "master",
-        "comment": "success",
+        "comment": "done",
         "seed_commit": "4d6928346e97e9ed3bbc8d6d4106d254c57c5915",
         "excluded_dirs": [],
         "fp_excluded_dirs": []
