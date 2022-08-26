@@ -1,0 +1,1216 @@
+{
+    "git@github.com:assemble/assemble.git": [
+        {
+            "language": "Markdown",
+            "files": 156,
+            "lines": 13136,
+            "blanks": 4228,
+            "comments": 0,
+            "linesOfCode": 8908
+        },
+        {
+            "language": "Handlebars",
+            "files": 71,
+            "lines": 1203,
+            "blanks": 112,
+            "comments": 87,
+            "linesOfCode": 1004
+        },
+        {
+            "language": "JavaScript",
+            "files": 49,
+            "lines": 4902,
+            "blanks": 716,
+            "comments": 1374,
+            "linesOfCode": 2812
+        },
+        {
+            "language": "JSON",
+            "files": 17,
+            "lines": 936,
+            "blanks": 4,
+            "comments": 0,
+            "linesOfCode": 932
+        },
+        {
+            "language": "CSS",
+            "files": 11,
+            "lines": 12568,
+            "blanks": 246,
+            "comments": 366,
+            "linesOfCode": 11956
+        },
+        {
+            "language": "HTML",
+            "files": 3,
+            "lines": 114,
+            "blanks": 15,
+            "comments": 7,
+            "linesOfCode": 92
+        },
+        {
+            "language": "Plain Text",
+            "files": 3,
+            "lines": 39,
+            "blanks": 10,
+            "comments": 0,
+            "linesOfCode": 29
+        },
+        {
+            "language": "SVG",
+            "files": 3,
+            "lines": 478,
+            "blanks": 42,
+            "comments": 2,
+            "linesOfCode": 434
+        },
+        {
+            "language": "gitignore",
+            "files": 3,
+            "lines": 33,
+            "blanks": 5,
+            "comments": 7,
+            "linesOfCode": 21
+        },
+        {
+            "language": "License",
+            "files": 2,
+            "lines": 43,
+            "blanks": 7,
+            "comments": 0,
+            "linesOfCode": 36
+        },
+        {
+            "language": "Makefile",
+            "files": 2,
+            "lines": 16,
+            "blanks": 6,
+            "comments": 0,
+            "linesOfCode": 10
+        },
+        {
+            "language": "XML",
+            "files": 2,
+            "lines": 27,
+            "blanks": 2,
+            "comments": 9,
+            "linesOfCode": 16
+        },
+        {
+            "language": "YAML",
+            "files": 1,
+            "lines": 11,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 11
+        },
+        {
+            "language": "Total",
+            "files": 323,
+            "lines": 33506,
+            "blanks": 5393,
+            "comments": 1852,
+            "linesOfCode": 26261
+        }
+    ],
+    "git@github.com:apostrophecms/apostrophe.git": [
+        {
+            "language": "JavaScript",
+            "files": 230,
+            "lines": 53427,
+            "blanks": 3950,
+            "comments": 8185,
+            "linesOfCode": 41292
+        },
+        {
+            "language": "Vue",
+            "files": 121,
+            "lines": 23959,
+            "blanks": 1397,
+            "comments": 83,
+            "linesOfCode": 22479
+        },
+        {
+            "language": "HTML",
+            "files": 69,
+            "lines": 838,
+            "blanks": 108,
+            "comments": 0,
+            "linesOfCode": 730
+        },
+        {
+            "language": "Sass",
+            "files": 22,
+            "lines": 998,
+            "blanks": 112,
+            "comments": 51,
+            "linesOfCode": 835
+        },
+        {
+            "language": "JSON",
+            "files": 11,
+            "lines": 2202,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 2202
+        },
+        {
+            "language": "Markdown",
+            "files": 6,
+            "lines": 1276,
+            "blanks": 352,
+            "comments": 0,
+            "linesOfCode": 924
+        },
+        {
+            "language": "Plain Text",
+            "files": 5,
+            "lines": 7,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 7
+        },
+        {
+            "language": "YAML",
+            "files": 2,
+            "lines": 70,
+            "blanks": 11,
+            "comments": 9,
+            "linesOfCode": 50
+        },
+        {
+            "language": "gitignore",
+            "files": 2,
+            "lines": 39,
+            "blanks": 4,
+            "comments": 7,
+            "linesOfCode": 28
+        },
+        {
+            "language": "BASH",
+            "files": 1,
+            "lines": 13,
+            "blanks": 3,
+            "comments": 4,
+            "linesOfCode": 6
+        },
+        {
+            "language": "CSS",
+            "files": 1,
+            "lines": 1,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 1
+        },
+        {
+            "language": "SVG",
+            "files": 1,
+            "lines": 33,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 33
+        },
+        {
+            "language": "Total",
+            "files": 471,
+            "lines": 82863,
+            "blanks": 5937,
+            "comments": 8339,
+            "linesOfCode": 68587
+        }
+    ],
+    "git@github.com:expressjs/express.git": [
+        {
+            "language": "JavaScript",
+            "files": 153,
+            "lines": 21630,
+            "blanks": 3648,
+            "comments": 3032,
+            "linesOfCode": 14950
+        },
+        {
+            "language": "Markdown",
+            "files": 12,
+            "lines": 4541,
+            "blanks": 840,
+            "comments": 0,
+            "linesOfCode": 3701
+        },
+        {
+            "language": "Plain Text",
+            "files": 11,
+            "lines": 13,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 13
+        },
+        {
+            "language": "HTML",
+            "files": 8,
+            "lines": 46,
+            "blanks": 2,
+            "comments": 0,
+            "linesOfCode": 44
+        },
+        {
+            "language": "Go Template",
+            "files": 7,
+            "lines": 7,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 7
+        },
+        {
+            "language": "CSS",
+            "files": 4,
+            "lines": 45,
+            "blanks": 1,
+            "comments": 0,
+            "linesOfCode": 44
+        },
+        {
+            "language": "Handlebars",
+            "files": 3,
+            "lines": 76,
+            "blanks": 5,
+            "comments": 0,
+            "linesOfCode": 71
+        },
+        {
+            "language": "YAML",
+            "files": 3,
+            "lines": 267,
+            "blanks": 31,
+            "comments": 27,
+            "linesOfCode": 209
+        },
+        {
+            "language": "BASH",
+            "files": 1,
+            "lines": 16,
+            "blanks": 4,
+            "comments": 1,
+            "linesOfCode": 11
+        },
+        {
+            "language": "JSON",
+            "files": 1,
+            "lines": 99,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 99
+        },
+        {
+            "language": "License",
+            "files": 1,
+            "lines": 24,
+            "blanks": 4,
+            "comments": 0,
+            "linesOfCode": 20
+        },
+        {
+            "language": "Makefile",
+            "files": 1,
+            "lines": 13,
+            "blanks": 2,
+            "comments": 0,
+            "linesOfCode": 11
+        },
+        {
+            "language": "gitignore",
+            "files": 1,
+            "lines": 15,
+            "blanks": 3,
+            "comments": 5,
+            "linesOfCode": 7
+        },
+        {
+            "language": "Total",
+            "files": 206,
+            "lines": 26792,
+            "blanks": 4540,
+            "comments": 3065,
+            "linesOfCode": 19187
+        }
+    ],
+    "git@github.com:jhipster/jhipster-uml.git": [
+        {
+            "language": "JavaScript",
+            "files": 72,
+            "lines": 8697,
+            "blanks": 530,
+            "comments": 1043,
+            "linesOfCode": 7124
+        },
+        {
+            "language": "Markdown",
+            "files": 7,
+            "lines": 309,
+            "blanks": 96,
+            "comments": 0,
+            "linesOfCode": 213
+        },
+        {
+            "language": "JSON",
+            "files": 4,
+            "lines": 3657,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 3657
+        },
+        {
+            "language": "YAML",
+            "files": 2,
+            "lines": 41,
+            "blanks": 4,
+            "comments": 18,
+            "linesOfCode": 19
+        },
+        {
+            "language": "License",
+            "files": 1,
+            "lines": 204,
+            "blanks": 34,
+            "comments": 0,
+            "linesOfCode": 170
+        },
+        {
+            "language": "gitignore",
+            "files": 1,
+            "lines": 12,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 12
+        },
+        {
+            "language": "Total",
+            "files": 87,
+            "lines": 12920,
+            "blanks": 664,
+            "comments": 1061,
+            "linesOfCode": 11195
+        }
+    ],
+    "git@github.com:expressjs/session.git": [
+        {
+            "language": "JavaScript",
+            "files": 13,
+            "lines": 4162,
+            "blanks": 629,
+            "comments": 414,
+            "linesOfCode": 3119
+        },
+        {
+            "language": "Markdown",
+            "files": 2,
+            "lines": 1427,
+            "blanks": 431,
+            "comments": 0,
+            "linesOfCode": 996
+        },
+        {
+            "language": "YAML",
+            "files": 2,
+            "lines": 210,
+            "blanks": 35,
+            "comments": 2,
+            "linesOfCode": 173
+        },
+        {
+            "language": "JSON",
+            "files": 1,
+            "lines": 47,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 47
+        },
+        {
+            "language": "License",
+            "files": 1,
+            "lines": 24,
+            "blanks": 4,
+            "comments": 0,
+            "linesOfCode": 20
+        },
+        {
+            "language": "gitignore",
+            "files": 1,
+            "lines": 5,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 5
+        },
+        {
+            "language": "Total",
+            "files": 20,
+            "lines": 5875,
+            "blanks": 1099,
+            "comments": 416,
+            "linesOfCode": 4360
+        }
+    ],
+    "git@github.com:suguru03/neo-async.git": [
+        {
+            "language": "JavaScript",
+            "files": 72,
+            "lines": 8697,
+            "blanks": 530,
+            "comments": 1043,
+            "linesOfCode": 7124
+        },
+        {
+            "language": "Markdown",
+            "files": 7,
+            "lines": 309,
+            "blanks": 96,
+            "comments": 0,
+            "linesOfCode": 213
+        },
+        {
+            "language": "JSON",
+            "files": 4,
+            "lines": 3657,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 3657
+        },
+        {
+            "language": "YAML",
+            "files": 2,
+            "lines": 41,
+            "blanks": 4,
+            "comments": 18,
+            "linesOfCode": 19
+        },
+        {
+            "language": "License",
+            "files": 1,
+            "lines": 204,
+            "blanks": 34,
+            "comments": 0,
+            "linesOfCode": 170
+        },
+        {
+            "language": "gitignore",
+            "files": 1,
+            "lines": 12,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 12
+        },
+        {
+            "language": "Total",
+            "files": 87,
+            "lines": 12920,
+            "blanks": 664,
+            "comments": 1061,
+            "linesOfCode": 11195
+        }
+    ],
+    "git@github.com:markdown-it/markdown-it.git": [
+        {
+            "language": "JavaScript",
+            "files": 82,
+            "lines": 17038,
+            "blanks": 1768,
+            "comments": 2870,
+            "linesOfCode": 12400
+        },
+        {
+            "language": "Markdown",
+            "files": 44,
+            "lines": 2977,
+            "blanks": 856,
+            "comments": 0,
+            "linesOfCode": 2121
+        },
+        {
+            "language": "Plain Text",
+            "files": 14,
+            "lines": 20004,
+            "blanks": 4349,
+            "comments": 0,
+            "linesOfCode": 15655
+        },
+        {
+            "language": "YAML",
+            "files": 5,
+            "lines": 211,
+            "blanks": 16,
+            "comments": 25,
+            "linesOfCode": 170
+        },
+        {
+            "language": "JSON",
+            "files": 2,
+            "lines": 88,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 88
+        },
+        {
+            "language": "License",
+            "files": 1,
+            "lines": 22,
+            "blanks": 3,
+            "comments": 0,
+            "linesOfCode": 19
+        },
+        {
+            "language": "Stylus",
+            "files": 1,
+            "lines": 143,
+            "blanks": 22,
+            "comments": 6,
+            "linesOfCode": 115
+        },
+        {
+            "language": "gitignore",
+            "files": 1,
+            "lines": 7,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 7
+        },
+        {
+            "language": "Total",
+            "files": 150,
+            "lines": 40490,
+            "blanks": 7014,
+            "comments": 2901,
+            "linesOfCode": 30575
+        }
+    ],
+    "git@github.com:yeoman/environment.git": [
+        {
+            "language": "JavaScript",
+            "files": 62,
+            "lines": 8560,
+            "blanks": 1003,
+            "comments": 1597,
+            "linesOfCode": 5960
+        },
+        {
+            "language": "JSON",
+            "files": 25,
+            "lines": 26660,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 26660
+        },
+        {
+            "language": "YAML",
+            "files": 10,
+            "lines": 295,
+            "blanks": 21,
+            "comments": 3,
+            "linesOfCode": 271
+        },
+        {
+            "language": "Plain Text",
+            "files": 2,
+            "lines": 15,
+            "blanks": 5,
+            "comments": 0,
+            "linesOfCode": 10
+        },
+        {
+            "language": "TypeScript",
+            "files": 2,
+            "lines": 20,
+            "blanks": 4,
+            "comments": 0,
+            "linesOfCode": 16
+        },
+        {
+            "language": "License",
+            "files": 1,
+            "lines": 9,
+            "blanks": 4,
+            "comments": 0,
+            "linesOfCode": 5
+        },
+        {
+            "language": "Markdown",
+            "files": 1,
+            "lines": 42,
+            "blanks": 16,
+            "comments": 0,
+            "linesOfCode": 26
+        },
+        {
+            "language": "gitignore",
+            "files": 1,
+            "lines": 4,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 4
+        },
+        {
+            "language": "Total",
+            "files": 104,
+            "lines": 35605,
+            "blanks": 1053,
+            "comments": 1600,
+            "linesOfCode": 32952
+        }
+    ],
+    "git@github.com:cloudant/nodejs-cloudant.git": [
+        {
+            "language": "JavaScript",
+            "files": 36,
+            "lines": 12072,
+            "blanks": 1286,
+            "comments": 1097,
+            "linesOfCode": 9689
+        },
+        {
+            "language": "JSON",
+            "files": 12,
+            "lines": 110600,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 110600
+        },
+        {
+            "language": "Markdown",
+            "files": 10,
+            "lines": 2231,
+            "blanks": 488,
+            "comments": 0,
+            "linesOfCode": 1743
+        },
+        {
+            "language": "TypeScript",
+            "files": 2,
+            "lines": 210,
+            "blanks": 45,
+            "comments": 52,
+            "linesOfCode": 113
+        },
+        {
+            "language": "CSS",
+            "files": 1,
+            "lines": 95,
+            "blanks": 1,
+            "comments": 0,
+            "linesOfCode": 94
+        },
+        {
+            "language": "Plain Text",
+            "files": 1,
+            "lines": 37,
+            "blanks": 9,
+            "comments": 0,
+            "linesOfCode": 28
+        },
+        {
+            "language": "TypeScript Typings",
+            "files": 1,
+            "lines": 253,
+            "blanks": 45,
+            "comments": 32,
+            "linesOfCode": 176
+        },
+        {
+            "language": "YAML",
+            "files": 1,
+            "lines": 15,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 15
+        },
+        {
+            "language": "gitignore",
+            "files": 1,
+            "lines": 7,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 7
+        },
+        {
+            "language": "Total",
+            "files": 65,
+            "lines": 125520,
+            "blanks": 1874,
+            "comments": 1181,
+            "linesOfCode": 122465
+        }
+    ],
+    "git@github.com:nock/nock.git": [
+        {
+            "language": "JavaScript",
+            "files": 70,
+            "lines": 15255,
+            "blanks": 2452,
+            "comments": 1071,
+            "linesOfCode": 11732
+        },
+        {
+            "language": "YAML",
+            "files": 14,
+            "lines": 375,
+            "blanks": 26,
+            "comments": 20,
+            "linesOfCode": 329
+        },
+        {
+            "language": "Markdown",
+            "files": 10,
+            "lines": 3220,
+            "blanks": 592,
+            "comments": 0,
+            "linesOfCode": 2628
+        },
+        {
+            "language": "JSON",
+            "files": 6,
+            "lines": 20962,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 20962
+        },
+        {
+            "language": "License",
+            "files": 1,
+            "lines": 21,
+            "blanks": 4,
+            "comments": 0,
+            "linesOfCode": 17
+        },
+        {
+            "language": "Plain Text",
+            "files": 1,
+            "lines": 1,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 1
+        },
+        {
+            "language": "TypeScript",
+            "files": 1,
+            "lines": 778,
+            "blanks": 121,
+            "comments": 71,
+            "linesOfCode": 586
+        },
+        {
+            "language": "TypeScript Typings",
+            "files": 1,
+            "lines": 276,
+            "blanks": 34,
+            "comments": 9,
+            "linesOfCode": 233
+        },
+        {
+            "language": "gitignore",
+            "files": 1,
+            "lines": 8,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 8
+        },
+        {
+            "language": "Total",
+            "files": 105,
+            "lines": 40896,
+            "blanks": 3229,
+            "comments": 1171,
+            "linesOfCode": 36496
+        }
+    ],
+    "git@github.com:simov/grant.git": [
+        {
+            "language": "JavaScript",
+            "files": 73,
+            "lines": 8309,
+            "blanks": 859,
+            "comments": 65,
+            "linesOfCode": 7385
+        },
+        {
+            "language": "JSON",
+            "files": 26,
+            "lines": 2517,
+            "blanks": 4,
+            "comments": 0,
+            "linesOfCode": 2513
+        },
+        {
+            "language": "Markdown",
+            "files": 4,
+            "lines": 1760,
+            "blanks": 457,
+            "comments": 0,
+            "linesOfCode": 1303
+        },
+        {
+            "language": "HTML",
+            "files": 1,
+            "lines": 30,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 30
+        },
+        {
+            "language": "License",
+            "files": 1,
+            "lines": 21,
+            "blanks": 4,
+            "comments": 0,
+            "linesOfCode": 17
+        },
+        {
+            "language": "TypeScript Typings",
+            "files": 1,
+            "lines": 442,
+            "blanks": 24,
+            "comments": 289,
+            "linesOfCode": 129
+        },
+        {
+            "language": "YAML",
+            "files": 1,
+            "lines": 49,
+            "blanks": 0,
+            "comments": 6,
+            "linesOfCode": 43
+        },
+        {
+            "language": "gitignore",
+            "files": 1,
+            "lines": 5,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 5
+        },
+        {
+            "language": "Total",
+            "files": 108,
+            "lines": 13133,
+            "blanks": 1348,
+            "comments": 360,
+            "linesOfCode": 11425
+        }
+    ],
+    "git@github.com:cla-assistant/cla-assistant.git": [
+        {
+            "language": "JavaScript",
+            "files": 91,
+            "lines": 20818,
+            "blanks": 2225,
+            "comments": 1237,
+            "linesOfCode": 17356
+        },
+        {
+            "language": "SVG",
+            "files": 29,
+            "lines": 2069,
+            "blanks": 8,
+            "comments": 26,
+            "linesOfCode": 2035
+        },
+        {
+            "language": "HTML",
+            "files": 25,
+            "lines": 1631,
+            "blanks": 126,
+            "comments": 212,
+            "linesOfCode": 1293
+        },
+        {
+            "language": "Sass",
+            "files": 15,
+            "lines": 1605,
+            "blanks": 276,
+            "comments": 145,
+            "linesOfCode": 1184
+        },
+        {
+            "language": "Markdown",
+            "files": 9,
+            "lines": 1229,
+            "blanks": 298,
+            "comments": 0,
+            "linesOfCode": 931
+        },
+        {
+            "language": "JSON",
+            "files": 6,
+            "lines": 22226,
+            "blanks": 1,
+            "comments": 0,
+            "linesOfCode": 22225
+        },
+        {
+            "language": "YAML",
+            "files": 5,
+            "lines": 210,
+            "blanks": 18,
+            "comments": 51,
+            "linesOfCode": 141
+        },
+        {
+            "language": "Plain Text",
+            "files": 3,
+            "lines": 88,
+            "blanks": 37,
+            "comments": 0,
+            "linesOfCode": 51
+        },
+        {
+            "language": "Docker ignore",
+            "files": 1,
+            "lines": 6,
+            "blanks": 1,
+            "comments": 3,
+            "linesOfCode": 2
+        },
+        {
+            "language": "Dockerfile",
+            "files": 1,
+            "lines": 19,
+            "blanks": 7,
+            "comments": 3,
+            "linesOfCode": 9
+        },
+        {
+            "language": "License",
+            "files": 1,
+            "lines": 519,
+            "blanks": 114,
+            "comments": 0,
+            "linesOfCode": 405
+        },
+        {
+            "language": "gitignore",
+            "files": 1,
+            "lines": 23,
+            "blanks": 1,
+            "comments": 3,
+            "linesOfCode": 19
+        },
+        {
+            "language": "Total",
+            "files": 187,
+            "lines": 50443,
+            "blanks": 3112,
+            "comments": 1680,
+            "linesOfCode": 45651
+        }
+    ],
+    "git@github.com:websockets/ws.git": [
+        {
+            "language": "JavaScript",
+            "files": 38,
+            "lines": 14233,
+            "blanks": 2298,
+            "comments": 1248,
+            "linesOfCode": 10687
+        },
+        {
+            "language": "YAML",
+            "files": 6,
+            "lines": 145,
+            "blanks": 5,
+            "comments": 0,
+            "linesOfCode": 140
+        },
+        {
+            "language": "JSON",
+            "files": 3,
+            "lines": 81,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 81
+        },
+        {
+            "language": "Markdown",
+            "files": 3,
+            "lines": 1203,
+            "blanks": 315,
+            "comments": 0,
+            "linesOfCode": 888
+        },
+        {
+            "language": "HTML",
+            "files": 2,
+            "lines": 87,
+            "blanks": 3,
+            "comments": 0,
+            "linesOfCode": 84
+        },
+        {
+            "language": "License",
+            "files": 1,
+            "lines": 19,
+            "blanks": 3,
+            "comments": 0,
+            "linesOfCode": 16
+        },
+        {
+            "language": "gitignore",
+            "files": 1,
+            "lines": 4,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 4
+        },
+        {
+            "language": "Total",
+            "files": 54,
+            "lines": 15772,
+            "blanks": 2624,
+            "comments": 1248,
+            "linesOfCode": 11900
+        }
+    ],
+    "git@github.com:fastify/fastify.git": [
+        {
+            "language": "JavaScript",
+            "files": 159,
+            "lines": 42460,
+            "blanks": 5976,
+            "comments": 1003,
+            "linesOfCode": 35481
+        },
+        {
+            "language": "Markdown",
+            "files": 40,
+            "lines": 12940,
+            "blanks": 2616,
+            "comments": 0,
+            "linesOfCode": 10324
+        },
+        {
+            "language": "TypeScript",
+            "files": 15,
+            "lines": 1762,
+            "blanks": 217,
+            "comments": 69,
+            "linesOfCode": 1476
+        },
+        {
+            "language": "TypeScript Typings",
+            "files": 14,
+            "lines": 1771,
+            "blanks": 155,
+            "comments": 337,
+            "linesOfCode": 1279
+        },
+        {
+            "language": "YAML",
+            "files": 12,
+            "lines": 436,
+            "blanks": 65,
+            "comments": 13,
+            "linesOfCode": 358
+        },
+        {
+            "language": "JSON",
+            "files": 5,
+            "lines": 290,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 290
+        },
+        {
+            "language": "License",
+            "files": 1,
+            "lines": 24,
+            "blanks": 5,
+            "comments": 0,
+            "linesOfCode": 19
+        },
+        {
+            "language": "SVG",
+            "files": 1,
+            "lines": 3,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 3
+        },
+        {
+            "language": "gitignore",
+            "files": 1,
+            "lines": 152,
+            "blanks": 40,
+            "comments": 44,
+            "linesOfCode": 68
+        },
+        {
+            "language": "Total",
+            "files": 248,
+            "lines": 59838,
+            "blanks": 9074,
+            "comments": 1466,
+            "linesOfCode": 49298
+        }
+    ],
+    "git@github.com:yannickcr/eslint-plugin-react.git": [
+        {
+            "language": "JavaScript",
+            "files": 240,
+            "lines": 99912,
+            "blanks": 4823,
+            "comments": 5910,
+            "linesOfCode": 89179
+        },
+        {
+            "language": "Markdown",
+            "files": 102,
+            "lines": 14019,
+            "blanks": 3011,
+            "comments": 0,
+            "linesOfCode": 11008
+        },
+        {
+            "language": "YAML",
+            "files": 8,
+            "lines": 281,
+            "blanks": 35,
+            "comments": 3,
+            "linesOfCode": 243
+        },
+        {
+            "language": "JSON",
+            "files": 2,
+            "lines": 122,
+            "blanks": 1,
+            "comments": 0,
+            "linesOfCode": 121
+        },
+        {
+            "language": "License",
+            "files": 1,
+            "lines": 22,
+            "blanks": 5,
+            "comments": 0,
+            "linesOfCode": 17
+        },
+        {
+            "language": "TypeScript Typings",
+            "files": 1,
+            "lines": 28,
+            "blanks": 5,
+            "comments": 0,
+            "linesOfCode": 23
+        },
+        {
+            "language": "gitignore",
+            "files": 1,
+            "lines": 30,
+            "blanks": 3,
+            "comments": 2,
+            "linesOfCode": 25
+        },
+        {
+            "language": "Total",
+            "files": 355,
+            "lines": 114414,
+            "blanks": 7883,
+            "comments": 5915,
+            "linesOfCode": 100616
+        }
+    ]
+}
