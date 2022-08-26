@@ -2,7 +2,9 @@ const fs = require("fs")
 const path = require("path")
 const resultDirPath = `evaluation${path.sep}result${path.sep}`
 const { STATUS } = require("./evaluation.js")
-
+const { unitsContributionToLatex, approachesComparisonToLatex } = require("./utils/jsonToLatexRow")
+const capreseName = "berke"
+const tarmaqName = "tarmaq"
 
 if (process.argv[2]) {
     console.log(summarizeResult(process.argv[2]))
@@ -19,10 +21,12 @@ if (process.argv[2]) {
 function summarizeResult(filename) {
     let result = JSON.parse(fs.readFileSync(`${resultDirPath}${filename}${path.sep}results.json`));
     let summarizedResult = {}
-    summarizedResult['average_commmit_size'] = averageCommitSize(result)
+    summarizedResult['changeSet Size'] = averageCommitSize(result)
     summarizedResult['units contribution summary'] = unitsContributionSummary(result)
-    summarizedResult['berke'] = approachSummary(result, "berke")
-    summarizedResult['tarmaq'] = approachSummary(result, "tarmaq")
+    summarizedResult['approaches data'] = approachesResultSummary(result)
+    summarizedResult['units contribution summary latex row'] = unitsContributionToLatex(summarizedResult['units contribution summary'])
+    summarizedResult['approaches data latex row'] = approachesComparisonToLatex(summarizedResult['approaches data'])
+
     return summarizedResult
 }
 
@@ -48,7 +52,7 @@ function unitsContributionSummary(result) {
     let HadFP = 0;
 
     for (let commit in result) {
-        let impactSet = result[commit]["berke"]
+        let impactSet = result[commit][capreseName]
 
         let uniqueDACounter = 0;
         let uniqueFPCounter = 0;
@@ -79,7 +83,7 @@ function unitsContributionSummary(result) {
         let DAcounter = uniqueDACounter + commonCounter
         let FPcounter = uniqueFPCounter + commonCounter
         DASumOfTruePositivesRatio += DAcounter ? DATruePositiveCounter / DAcounter : 0 // @TODO not sure it's the right way to have an average of ratios. 
-        FPSumOfTruePositivesRatio += FPcounter ? FPTruePositiveCounter / FPcounter : 0 
+        FPSumOfTruePositivesRatio += FPcounter ? FPTruePositiveCounter / FPcounter : 0
 
         HadDA += DAcounter ? 1 : 0
         HadFP += FPcounter ? 1 : 0
@@ -106,9 +110,9 @@ function unitsContributionSummary(result) {
 
 
     return {
-        "impact-set size": {
-            "DA": JSON.stringify({ "min": minDA, "max": maxDA, "avg": avgDA, "unique": avgUniqueDA }),
-            "FP": JSON.stringify({ "min": minFP, "max": maxFP, "avg": avgFP, "unique": avgUniqueFP }),
+        "Impact-set size": {
+            "DA": JSON.stringify({ "avg": avgDA, "min": minDA, "max": maxDA, "unique": avgUniqueDA }),
+            "FP": JSON.stringify({ "avg": avgFP, "min": minFP, "max": maxFP, "unique": avgUniqueFP }),
             "avg common": avgCommon
         },
         "True Positives": {
@@ -116,6 +120,24 @@ function unitsContributionSummary(result) {
             "FP": JSON.stringify({ "avg": avgFPTruPositives, "avg commit %": FPSumOfTruePositivesRatio / HadFP, "total %": avgFPTruPositives / avgFP })
         }
     };
+}
+
+function approachesResultSummary(result) {
+
+    let [capreseImpactSetSizeData, capreseTruePositivesData] = approachSummary(result, capreseName)
+
+    let [tarmaqImpactSetSizeData, tarmaqTruePositivesData] = approachSummary(result, tarmaqName)
+
+    let impactSetSize = {}
+    let truePositiveData = {}
+    impactSetSize[capreseName] = JSON.stringify(capreseImpactSetSizeData)
+    impactSetSize[tarmaqName] = JSON.stringify(tarmaqImpactSetSizeData)
+    truePositiveData[capreseName] = JSON.stringify(capreseTruePositivesData)
+    truePositiveData[tarmaqName] = JSON.stringify(tarmaqTruePositivesData)
+
+    return {
+        "Impact-set size": impactSetSize, "True Positives": truePositiveData
+    }
 }
 
 function approachSummary(result, approach) {
@@ -129,7 +151,7 @@ function approachSummary(result, approach) {
     let sumOfAveragePrecisions = 0;
     let totalTruePositives = 0;
 
-    let fpSearchKey = approach == "berke" ? "FP-score" : "confidence"
+    let fpSearchKey = approach == capreseName ? "FP-score" : "confidence"
 
     for (let commit in result) {
         let truePositiveCounter = 0;
@@ -163,14 +185,20 @@ function approachSummary(result, approach) {
     }
     let length = Object.keys(result).length
 
-    return {
-        "min": minSize, "max": maxSize, "avg": totalImpactSetSize / length,
+    let impactSetSizeData = {
+        "avg": totalImpactSetSize / length,
+        "min": minSize,
+        "max": maxSize
+    }
+    let truePositivesData = {
         "Average Precision": sumOfAveragePrecisions / length,
         "Average True Positives": totalTruePositives / length,
         "Average Unique Results": uniquesCount / length,
         "Average FP Support": support / fpCount,
         "Average FP Confidence": confidence / fpCount
     }
+
+    return [impactSetSizeData, truePositivesData]
 }
 
 function increaseIfIsTruePositive(totalTruePositives, evaluationResult) {
@@ -185,12 +213,17 @@ function increaseIfIsTruePositive(totalTruePositives, evaluationResult) {
 
 function averageCommitSize(result) {
     let counter = 0;
+    let min = Infinity;
+    let max = 0;
     for (let commit in result) {
         let commits = result[commit]["commits"]
-        counter += commits.length
+        let functionsCount = commits.length
+        counter += functionsCount
+        min = Math.min(min, functionsCount)
+        max = Math.max(max, functionsCount)
     }
     let length = Object.keys(result).length
-    return counter / length
+    return { "avg": counter / length, "min": min, "max": max }
 }
 
 module.exports = { averageCommitSize }

@@ -19,7 +19,7 @@ if (process.argv[2]) {
 function summarizeResult(filename) {
     let result = JSON.parse(fs.readFileSync(`${resultDirPath}${filename}${path.sep}results.json`));
     let summarizedResult = {}
-    summarizedResult['average_commmit_size'] = averageCommitSize(result)
+    summarizedResult['changeSet Size'] = averageCommitSize(result)
     summarizedResult['berke_units_contribution'] = unitsContributionSummary(result)
     summarizedResult['berke'] = approachSummary(result, "berke")
     summarizedResult['tarmaq'] = approachSummary(result, "tarmaq")
