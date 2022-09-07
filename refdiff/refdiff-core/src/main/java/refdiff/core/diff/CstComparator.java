@@ -41,11 +41,11 @@ public class CstComparator {
 	}
 
 	public CstDiff compare(SourceFileSet sourcesBefore, SourceFileSet sourcesAfter, CstComparatorMonitor monitor,
-			String mappingsPath) {
+			String mappingsPath, String commit) {
 		try {
 			DiffBuilder<?> diffBuilder = new DiffBuilder<>(new TfIdfSourceRepresentationBuilder(), sourcesBefore,
 					sourcesAfter, monitor, mappingsPath);
-			return diffBuilder.computeDiff();
+			return diffBuilder.computeDiff(commit);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
@@ -110,12 +110,12 @@ public class CstComparator {
 			return diff;
 		}
 
-		CstDiff computeDiff() throws IOException {
+		CstDiff computeDiff(String commit) throws IOException {
 			match();
 			getMappings();
 			findAddedEntities();
 			findRemovedEntities();
-			findChangedEntities();
+			findChangedEntities(commit);
 			writeMappings();
 			addDetections();
 			return diff;
@@ -363,17 +363,20 @@ public class CstComparator {
 			}
 		}
 
-		private void findChangedEntities() throws IOException {
+		private void findChangedEntities(String commit) throws IOException {
 			List<CstNode> beforekeys = new ArrayList<>(mapBeforeToAfter.keySet());
 			Collections.sort(beforekeys, new CstNodeTypeComprator());
 
 			Map<String, String> keyMappings = new HashMap<>();
+			// JsonObject currentMappign = new JsonObject();
+			// JsonObject mappingHisotry = getMappingsHistory();
 
 			for (int i = 0; i < beforekeys.size(); i++) {
 				CstNode n1 = beforekeys.get(i);
 				CstNode n2 = mapBeforeToAfter.get(n1);
 				String n1Key = n1.toString();
 				String n2Key = n2.toString();
+				// currentMappign.addProperty(n1Key, n2Key);
 
 				if (this.mappings.has(n2Key)) {
 					String oldKey = n2Key;
@@ -389,9 +392,39 @@ public class CstComparator {
 				before.removeFromParents(n1);
 			}
 
+			// if (!currentMappign.entrySet().isEmpty()) {
+			// 	mappingHisotry.add(commit, currentMappign);
+			// 	writeMappingHistory(mappingHisotry);
+			// }
+
 			for (Map.Entry<String, String> entry : keyMappings.entrySet()) {
 				this.mappings.addProperty(entry.getKey(), entry.getValue());
 			}
+		}
+
+		private JsonObject getMappingsHistory() throws IOException {
+			JsonParser jsonParser = new JsonParser();
+			String filePath = "mappingHistory.json";
+			File tempFile = new File(filePath);
+			JsonObject mappingHisotry = new JsonObject();
+			if (!tempFile.createNewFile()) {
+				try (FileReader reader = new FileReader(filePath)) {
+					mappingHisotry = jsonParser.parse(reader).getAsJsonObject();// Should check the content of this file
+					return mappingHisotry; // before parsing to prevent excepction
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			return mappingHisotry;
+		}
+
+		private void writeMappingHistory(JsonObject mappingHistory) throws IOException {
+			try (FileWriter myWriter = new FileWriter("mappingHistory.json")) {
+				myWriter.write(mappingHistory.toString());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
 		}
 
 		private void findAddedEntitiesNoMapping() {

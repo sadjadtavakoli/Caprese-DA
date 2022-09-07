@@ -48,6 +48,7 @@ public class RefDiffBerkak {
 		
 		File commitFolder = new File(commitFolderPath);
 		new File(tempMappingsDir).mkdir();
+		Integer counter = depth;
 
 		try (JsPlugin jsPlugin = new JsPlugin(filesToExclude)) {
 			refDiffJs = new RefDiff(jsPlugin);
@@ -61,7 +62,6 @@ public class RefDiffBerkak {
 			if (depth == 0) {
 				findCurrentVersionChanges(commit);
 			} else {
-				Integer counter = depth;
 				while (commit.getParentCount() != 0 && counter != 0) {
 					mainBranchCommits.add(commit);
 					commit = mineMainBranch(commit, mappingsPath, 0);
@@ -85,6 +85,8 @@ public class RefDiffBerkak {
 				alreadyMet.add(iterationPointer.getName());
 				iterationPointer = mineMainBranch(iterationPointer, branchMappingPath, 1);
 				while (iterationPointer.getParentCount() !=0 && !alreadyMet.contains(iterationPointer.getName()) && !iterationPointer.getName().equals(end)) {
+					counter--;
+					System.out.println(counter);
 					alreadyMet.add(iterationPointer.getName());
 					iterationPointer = mineSideBranches(iterationPointer, branchMappingPath);
 				}
@@ -99,8 +101,9 @@ public class RefDiffBerkak {
 
 		RevCommit commitPr = refDiffJs.getCommit(repo, commit.getParent(parentIndex));
 		PairBeforeAfter<SourceFileSet> beforeAndAfter = refDiffJs.getResources(repo, commitPr, commit);
-		CstDiff diffForCommit = refDiffJs.computeDiffForCommit(beforeAndAfter, mappingsPath);
+		CstDiff diffForCommit = refDiffJs.computeDiffForCommit(beforeAndAfter, mappingsPath, commit.getName()+" " + parentIndex);
 
+		addToRemoved(diffForCommit.getRemovedEntitiesKeys());
 		if(parentIndex==0 && commit.getParentCount() != 2){
 			addToSequenceSet(dataPath, diffForCommit, beforeAndAfter, commit.getName());
 		}
@@ -111,8 +114,9 @@ public class RefDiffBerkak {
 
 		RevCommit commitPr = refDiffJs.getCommit(repo, commit.getParent(0));
 		PairBeforeAfter<SourceFileSet> beforeAndAfter = refDiffJs.getResources(repo, commitPr, commit);
-		CstDiff diffForCommit = refDiffJs.computeDiffForCommit(beforeAndAfter, mappingsPath);
+		CstDiff diffForCommit = refDiffJs.computeDiffForCommit(beforeAndAfter, mappingsPath, commit.getName());
 
+		addToRemoved(diffForCommit.getRemovedEntitiesKeys());
 		addToSequenceSet(dataPath, diffForCommit, beforeAndAfter, commit.getName());
 		return commitPr;
 	}
@@ -123,7 +127,6 @@ public class RefDiffBerkak {
 
 		changes.addAll(diffForCommit.getChangedEntitiesKeys());
 		changes.addAll(diffForCommit.getAddedEntitiesKeys());
-		addToRemoved(diffForCommit.getRemovedEntitiesKeys());
 
 		boolean isALargeCommit = beforeAndAfter.getAfter().getSourceFiles().size() >= 30;
 		boolean isASmallCommit = changes.size() <= 1;
@@ -167,8 +170,6 @@ public class RefDiffBerkak {
 		}
 
 		write(dataPath, changesString,false);
-
-		addToRemoved(diffForCommit.getRemovedEntitiesKeys());
 	}
 
 	private static void addToRemoved(Set<String> removed) throws IOException {
