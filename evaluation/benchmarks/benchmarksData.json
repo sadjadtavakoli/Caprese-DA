@@ -13,18 +13,6 @@
             "/assets/js/jquery.js"
         ]
     },
-    "git@github.com:apostrophecms/apostrophe.git": {
-        "Commits": 9631,
-        "LOC": 65279,
-        "Language": "javaScript,Vue,HTML",
-        "branch": "main",
-        "test": "test",
-        "installer": "npm",
-        "comment": "mongodb is required",
-        "seed_commit": "f192c068ef0aeb2e3a0f190825c9489047850914",
-        "excluded_dirs": [],
-        "fp_excluded_dirs": []
-    },
     "git@github.com:expressjs/express.git": {
         "Commits": 5694,
         "LOC": 19187,
@@ -58,8 +46,6 @@
         "excluded_dirs": [],
         "fp_excluded_dirs": []
     },
-
-
     "git@github.com:suguru03/neo-async.git": {
         "install": "npm install",
         "commit": "948",
@@ -161,6 +147,18 @@
         "test": "tests",
         "seed_commit": "",
         "comment": "success",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
+    },
+    "git@github.com:apostrophecms/apostrophe.git": {
+        "Commits": 9631,
+        "LOC": 65279,
+        "Language": "javaScript,Vue,HTML",
+        "branch": "main",
+        "test": "test",
+        "installer": "npm",
+        "comment": "mongodb is required",
+        "seed_commit": "f192c068ef0aeb2e3a0f190825c9489047850914",
         "excluded_dirs": [],
         "fp_excluded_dirs": []
     }

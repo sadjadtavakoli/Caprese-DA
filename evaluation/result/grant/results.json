@@ -12,7 +12,8 @@
                 "DA-antecedents": [
                     "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-273-317 | {\"id\":0 - \"parents\":[1]}",
@@ -24,7 +25,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-399-487 | {\"id\":2 - \"parents\":[1]}",
@@ -36,7 +38,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-49-73 | {\"id\":3 - \"parents\":[1]}",
@@ -48,7 +51,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "handler.js-test/handler.js-1-195",
@@ -60,7 +64,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-610-625 | {\"id\":5 - \"parents\":[6-1]}",
@@ -72,7 +77,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "exports-lib/handler/hapi-16.js-7-60 | {\"id\":7 - \"parents\":[]}",
@@ -84,7 +90,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-104-123 | {\"id\":12 - \"parents\":[1]}",
@@ -96,7 +103,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-43-46 | {\"id\":13 - \"parents\":[1]}",
@@ -108,7 +116,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "koa-grant.js-74-84",
@@ -121,7 +130,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-360-393 | {\"id\":14 - \"parents\":[1]}",
@@ -133,7 +143,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "koa-1.js-lib/handler/koa-1.js-1-47",
@@ -146,7 +157,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "exports-lib/handler/koa-1.js-6-46 | {\"id\":15 - \"parents\":[]}",
@@ -158,7 +170,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "session.js-test/handler/session.js-1-216 | {\"id\":19 - \"parents\":[]}",
@@ -172,7 +185,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "express-4.js-lib/handler/express-4.js-1-54",
@@ -184,7 +198,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "app-lib/handler/koa-2.js-18-43 | {\"id\":16 - \"parents\":[15-17]}",
@@ -196,7 +211,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "exports-lib/handler/koa-2.js-6-46 | {\"id\":17 - \"parents\":[15]}",
@@ -208,7 +224,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "handler-lib/handler/hapi-17.js-22-39 | {\"id\":8 - \"parents\":[7-10-11]}",
@@ -220,7 +237,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "koa-2.js-lib/handler/koa-2.js-1-47",
@@ -233,7 +251,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "grant-grant.js-2-67",
@@ -245,7 +264,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "hapi-17.js-lib/handler/hapi-17.js-1-48",
@@ -258,7 +278,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false parent"
             },
             {
                 "consequent": "oauth1.js-test/flow/oauth1.js-1-417",
@@ -271,7 +292,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "oauth2.js-test/flow/oauth2.js-1-752",
@@ -284,7 +306,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-50-72 | {\"id\":4 - \"parents\":[3-1]}",
@@ -296,7 +319,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "hapi-grant.js-86-101",
@@ -309,7 +333,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "express-grant.js-69-72",
@@ -321,7 +346,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/session.js-44-213 | {\"id\":20 - \"parents\":[19]}",
@@ -333,7 +359,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-582-604 | {\"id\":23 - \"parents\":[1]}",
@@ -345,7 +372,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "exports-lib/handler/express-4.js-5-47 | {\"id\":22 - \"parents\":[]}",
@@ -357,7 +385,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-608-644 | {\"id\":6 - \"parents\":[1]}",
@@ -369,7 +398,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-322-355 | {\"id\":24 - \"parents\":[1]}",
@@ -381,7 +411,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "handler.js-test/handler/handler.js-1-747 | {\"id\":1 - \"parents\":[]}",
@@ -393,7 +424,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-77-100 | {\"id\":25 - \"parents\":[1]}",
@@ -405,7 +437,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "client.js-test/util/client.js-1-1602",
@@ -417,7 +450,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-239-268 | {\"id\":26 - \"parents\":[1]}",
@@ -429,7 +463,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "app-lib/handler/express-4.js-17-44 | {\"id\":21 - \"parents\":[22]}",
@@ -440,7 +475,8 @@
                         "handler-lib/handler/hapi-16.js-23-48 | {\"id\":9 - \"parents\":[7-10]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "app-lib/handler/koa-1.js-18-43 | {\"id\":18 - \"parents\":[15-16-17]}",
@@ -451,7 +487,8 @@
                         "handler-lib/handler/hapi-16.js-23-48 | {\"id\":9 - \"parents\":[7-10]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "package.json",
@@ -463,7 +500,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             }
         ],
         "tarmaq": [
@@ -598,7 +636,8 @@
                 "support": 1,
                 "confidence": 1,
                 "consequent": "client.js-test/util/client.js-1-1602",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[handler-lib/handler/hapi-16.js-23-48, hapi-16.js-lib/handler/hapi-16.js-1-61, register-lib/handler/hapi-16.js-10-52, register-lib/handler/hapi-17.js-9-41] => exports-lib/handler/express-4.js-5-47",
@@ -633,21 +672,24 @@
                 "support": 1,
                 "confidence": 1,
                 "consequent": "express-4.js-lib/handler/express-4.js-1-54",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[handler-lib/handler/hapi-16.js-23-48, hapi-16.js-lib/handler/hapi-16.js-1-61, register-lib/handler/hapi-16.js-10-52, register-lib/handler/hapi-17.js-9-41] => express-grant.js-69-72",
                 "support": 1,
                 "confidence": 1,
                 "consequent": "express-grant.js-69-72",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[handler-lib/handler/hapi-16.js-23-48, hapi-16.js-lib/handler/hapi-16.js-1-61, register-lib/handler/hapi-16.js-10-52, register-lib/handler/hapi-17.js-9-41] => grant-grant.js-2-67",
                 "support": 1,
                 "confidence": 1,
                 "consequent": "grant-grant.js-2-67",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[handler-lib/handler/hapi-16.js-23-48, hapi-16.js-lib/handler/hapi-16.js-1-61, register-lib/handler/hapi-16.js-10-52, register-lib/handler/hapi-17.js-9-41] => handler-lib/handler/hapi-16.js-55-81",
@@ -675,7 +717,8 @@
                 "support": 1,
                 "confidence": 1,
                 "consequent": "handler.js-test/handler.js-1-195",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[handler-lib/handler/hapi-16.js-23-48, hapi-16.js-lib/handler/hapi-16.js-1-61, register-lib/handler/hapi-16.js-10-52, register-lib/handler/hapi-17.js-9-41] => handler.js-test/handler/handler.js-1-747",
@@ -689,49 +732,56 @@
                 "support": 1,
                 "confidence": 1,
                 "consequent": "hapi-17.js-lib/handler/hapi-17.js-1-48",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false parent"
             },
             {
                 "rule": "[handler-lib/handler/hapi-16.js-23-48, hapi-16.js-lib/handler/hapi-16.js-1-61, register-lib/handler/hapi-16.js-10-52, register-lib/handler/hapi-17.js-9-41] => hapi-grant.js-86-101",
                 "support": 1,
                 "confidence": 1,
                 "consequent": "hapi-grant.js-86-101",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "rule": "[handler-lib/handler/hapi-16.js-23-48, hapi-16.js-lib/handler/hapi-16.js-1-61, register-lib/handler/hapi-16.js-10-52, register-lib/handler/hapi-17.js-9-41] => koa-1.js-lib/handler/koa-1.js-1-47",
                 "support": 1,
                 "confidence": 1,
                 "consequent": "koa-1.js-lib/handler/koa-1.js-1-47",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[handler-lib/handler/hapi-16.js-23-48, hapi-16.js-lib/handler/hapi-16.js-1-61, register-lib/handler/hapi-16.js-10-52, register-lib/handler/hapi-17.js-9-41] => koa-2.js-lib/handler/koa-2.js-1-47",
                 "support": 1,
                 "confidence": 1,
                 "consequent": "koa-2.js-lib/handler/koa-2.js-1-47",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[handler-lib/handler/hapi-16.js-23-48, hapi-16.js-lib/handler/hapi-16.js-1-61, register-lib/handler/hapi-16.js-10-52, register-lib/handler/hapi-17.js-9-41] => koa-grant.js-74-84",
                 "support": 1,
                 "confidence": 1,
                 "consequent": "koa-grant.js-74-84",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[handler-lib/handler/hapi-16.js-23-48, hapi-16.js-lib/handler/hapi-16.js-1-61, register-lib/handler/hapi-16.js-10-52, register-lib/handler/hapi-17.js-9-41] => oauth1.js-test/flow/oauth1.js-1-417",
                 "support": 1,
                 "confidence": 1,
                 "consequent": "oauth1.js-test/flow/oauth1.js-1-417",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[handler-lib/handler/hapi-16.js-23-48, hapi-16.js-lib/handler/hapi-16.js-1-61, register-lib/handler/hapi-16.js-10-52, register-lib/handler/hapi-17.js-9-41] => oauth2.js-test/flow/oauth2.js-1-752",
                 "support": 1,
                 "confidence": 1,
                 "consequent": "oauth2.js-test/flow/oauth2.js-1-752",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[handler-lib/handler/hapi-16.js-23-48, hapi-16.js-lib/handler/hapi-16.js-1-61, register-lib/handler/hapi-16.js-10-52, register-lib/handler/hapi-17.js-9-41] => session.js-test/handler/session.js-1-216",
@@ -1049,7 +1099,8 @@
                         "app-lib/handler/aws.js-21-43 | {\"id\":31 - \"parents\":[29]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "aws.js-lib/handler/aws.js-1-90 | {\"id\":29 - \"parents\":[]}",
@@ -1060,7 +1111,8 @@
                         "app-lib/handler/aws.js-21-43 | {\"id\":31 - \"parents\":[29]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true parent"
             },
             {
                 "consequent": "redirect-lib/handler/aws.js-76-89 | {\"id\":30 - \"parents\":[29]}",
@@ -1071,7 +1123,8 @@
                         "app-lib/handler/aws.js-21-43 | {\"id\":31 - \"parents\":[29]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-649-715 | {\"id\":32 - \"parents\":[28]}",
@@ -1107,7 +1160,8 @@
                         "app-lib/handler/gcloud.js-21-42"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/util/client.js-1105-1124",
@@ -1118,7 +1172,8 @@
                         "app-lib/handler/aws.js-21-43 | {\"id\":31 - \"parents\":[29]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "app-lib/handler/node.js-21-42",
@@ -1130,7 +1185,8 @@
                         "app-lib/handler/gcloud.js-21-42"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-400-486 | {\"id\":34 - \"parents\":[28]}",
@@ -1165,7 +1221,8 @@
                         "app-lib/handler/aws.js-21-43 | {\"id\":31 - \"parents\":[29]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-721-743 | {\"id\":35 - \"parents\":[28]}",
@@ -1188,7 +1245,8 @@
                         "app-lib/handler/gcloud.js-21-42"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-583-603 | {\"id\":36 - \"parents\":[28]}",
@@ -1211,7 +1269,8 @@
                         "app-lib/handler/aws.js-21-43 | {\"id\":31 - \"parents\":[29]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "app-lib/handler/vercel.js-21-42",
@@ -1223,7 +1282,8 @@
                         "app-lib/handler/gcloud.js-21-42"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-609-643 | {\"id\":37 - \"parents\":[28]}",
@@ -1244,21 +1304,24 @@
                 "support": 1,
                 "confidence": 0.5,
                 "consequent": "app-lib/handler/azure.js-21-42",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "rule": "[app-lib/handler/aws.js-21-43, app-lib/handler/gcloud.js-21-42] => app-lib/handler/node.js-21-42",
                 "support": 1,
                 "confidence": 0.5,
                 "consequent": "app-lib/handler/node.js-21-42",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "rule": "[app-lib/handler/aws.js-21-43, app-lib/handler/gcloud.js-21-42] => app-lib/handler/vercel.js-21-42",
                 "support": 1,
                 "confidence": 0.5,
                 "consequent": "app-lib/handler/vercel.js-21-42",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "rule": "[app-lib/handler/aws.js-21-43, app-lib/handler/gcloud.js-21-42] => arrowAnonymousFunction-test/handler/handler.js-15-746",
@@ -1412,49 +1475,57 @@
                         "express-4.js-lib/handler/express-4.js-1-54"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/grant.js-8-31",
                 "DA-antecedents": [
                     "exports-lib/handler/express-4.js-5-47 | {\"id\":22 - \"parents\":[]}"
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler.js-12-19",
                 "DA-antecedents": [
                     "exports-lib/handler/express-4.js-5-47 | {\"id\":22 - \"parents\":[]}"
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "grant-grant.js-2-67",
                 "DA-antecedents": [
                     "exports-lib/handler/express-4.js-5-47 | {\"id\":22 - \"parents\":[]}"
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler.js-39-43",
                 "DA-antecedents": [
                     "exports-lib/handler/express-4.js-5-47 | {\"id\":22 - \"parents\":[]}"
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler.js-52-76",
                 "DA-antecedents": [
                     "exports-lib/handler/express-4.js-5-47 | {\"id\":22 - \"parents\":[]}"
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler.js-77-101",
                 "DA-antecedents": [
                     "exports-lib/handler/express-4.js-5-47 | {\"id\":22 - \"parents\":[]}"
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "hapi-16.js-lib/handler/hapi-16.js-1-61",
@@ -1466,7 +1537,8 @@
                         "koa-1.js-lib/handler/koa-1.js-1-47"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "koa-grant.js-74-84",
@@ -1479,7 +1551,8 @@
                         "express-4.js-lib/handler/express-4.js-1-54"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "koa-2.js-lib/handler/koa-2.js-1-47",
@@ -1492,7 +1565,8 @@
                         "koa-1.js-lib/handler/koa-1.js-1-47"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "app-lib/handler/koa-2.js-18-43 | {\"id\":16 - \"parents\":[15-17-17-15]}",
@@ -1504,7 +1578,8 @@
                         "koa-1.js-lib/handler/koa-1.js-1-47"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "app-lib/handler/express-4.js-17-44 | {\"id\":21 - \"parents\":[22-22]}",
@@ -1516,7 +1591,8 @@
                         "koa-1.js-lib/handler/koa-1.js-1-47"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true children"
             },
             {
                 "consequent": "app-lib/handler/koa-1.js-18-43 | {\"id\":18 - \"parents\":[15-16-17-16-17-15]}",
@@ -1528,7 +1604,8 @@
                         "koa-1.js-lib/handler/koa-1.js-1-47"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true children"
             },
             {
                 "consequent": "exports-lib/handler/koa-2.js-6-46 | {\"id\":17 - \"parents\":[15]}",
@@ -1541,7 +1618,8 @@
                         "koa-1.js-lib/handler/koa-1.js-1-47"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7]}",
@@ -1554,7 +1632,8 @@
                         "koa-1.js-lib/handler/koa-1.js-1-47"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7]}",
@@ -1567,7 +1646,8 @@
                         "koa-1.js-lib/handler/koa-1.js-1-47"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             }
         ],
         "tarmaq": [
@@ -1583,14 +1663,16 @@
                 "support": 2,
                 "confidence": 0.6666666666666666,
                 "consequent": "express-grant.js-69-72",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => koa-grant.js-74-84",
                 "support": 2,
                 "confidence": 0.6666666666666666,
                 "consequent": "koa-grant.js-74-84",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             }
         ],
         "reversed-FP": {
@@ -1767,7 +1849,9 @@
                         "connect-lib/request.js-34-55 | {\"id\":168 - \"parents\":[167-153]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false",
+                "DA-evaluation": "true | true | true"
             },
             {
                 "consequent": "grant-grant.js-2-67",
@@ -1785,7 +1869,9 @@
                         "exports-lib/handler/express-4.js-5-47 | {\"id\":22 - \"parents\":[]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false",
+                "DA-evaluation": "true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler.js-52-76 | {\"id\":44 - \"parents\":[41]}",
@@ -1833,7 +1919,9 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true",
+                "DA-evaluation": "true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler.js-77-101 | {\"id\":45 - \"parents\":[41]}",
@@ -1881,7 +1969,9 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true",
+                "DA-evaluation": "true | true"
             },
             {
                 "consequent": "koa-grant.js-74-84",
@@ -1898,7 +1988,9 @@
                         "exports-lib/handler/express-4.js-5-47 | {\"id\":22 - \"parents\":[]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "express-grant.js-69-72",
@@ -1915,35 +2007,41 @@
                         "exports-lib/handler/express-4.js-5-47 | {\"id\":22 - \"parents\":[]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler.js-12-19 | {\"id\":40 - \"parents\":[41-42]}",
                 "DA-antecedents": [
                     "exports-lib/handler/express-4.js-5-47 | {\"id\":22 - \"parents\":[]}"
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler.js-39-43 | {\"id\":43 - \"parents\":[41]}",
                 "DA-antecedents": [
                     "exports-lib/handler/express-4.js-5-47 | {\"id\":22 - \"parents\":[]}"
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler.js-20-27 | {\"id\":46 - \"parents\":[41-42]}",
                 "DA-antecedents": [
                     "exports-lib/handler/koa-2.js-6-46 | {\"id\":17 - \"parents\":[15-15]}"
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler.js-44-48 | {\"id\":47 - \"parents\":[41]}",
                 "DA-antecedents": [
                     "exports-lib/handler/koa-2.js-6-46 | {\"id\":17 - \"parents\":[15-15]}"
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-88-95 | {\"id\":54 - \"parents\":[55]}",
@@ -1993,7 +2091,8 @@
                         "transport-lib/response.js-102-122 | {\"id\":129 - \"parents\":[66]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false | false | false | false | false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/flow/oauth2.js-729-738 | {\"id\":61 - \"parents\":[62]}",
@@ -2043,7 +2142,8 @@
                         "transport-lib/response.js-102-122 | {\"id\":129 - \"parents\":[66]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false | false | false | false | false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-124-138 | {\"id\":76 - \"parents\":[55]}",
@@ -2093,7 +2193,8 @@
                         "transport-lib/response.js-102-122 | {\"id\":129 - \"parents\":[66]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false | false | false | false | false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-140-154 | {\"id\":91 - \"parents\":[55]}",
@@ -2143,7 +2244,8 @@
                         "transport-lib/response.js-102-122 | {\"id\":129 - \"parents\":[66]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false | false | false | false | false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-610-625 | {\"id\":5 - \"parents\":[6-1-1-6]}",
@@ -2169,7 +2271,8 @@
                         "hapi-17.js-lib/handler/hapi-17.js-1-48"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-608-644 | {\"id\":6 - \"parents\":[1-1]}",
@@ -2195,7 +2298,8 @@
                         "hapi-17.js-lib/handler/hapi-17.js-1-48"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132]}",
@@ -2245,7 +2349,8 @@
                         "transport-lib/response.js-102-122 | {\"id\":129 - \"parents\":[66]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false | false | false | false | false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-43-46 | {\"id\":13 - \"parents\":[1-1]}",
@@ -2271,7 +2376,8 @@
                         "hapi-17.js-lib/handler/hapi-17.js-1-48"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false | false | false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-48-56 | {\"id\":136 - \"parents\":[55]}",
@@ -2321,7 +2427,8 @@
                         "transport-lib/response.js-102-122 | {\"id\":129 - \"parents\":[66]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false | false | false | false | false"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/grant.js-18-24 | {\"id\":140 - \"parents\":[141-142]}",
@@ -2334,7 +2441,8 @@
                         "redirect-lib/handler/express-4.js-49-53 | {\"id\":173 - \"parents\":[]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-58-75 | {\"id\":143 - \"parents\":[55]}",
@@ -2384,7 +2492,8 @@
                         "transport-lib/response.js-102-122 | {\"id\":129 - \"parents\":[66]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false | false | false | false | false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-322-355 | {\"id\":24 - \"parents\":[1-1]}",
@@ -2410,7 +2519,8 @@
                         "hapi-17.js-lib/handler/hapi-17.js-1-48"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-106-113 | {\"id\":144 - \"parents\":[55]}",
@@ -2460,7 +2570,8 @@
                         "transport-lib/response.js-102-122 | {\"id\":129 - \"parents\":[66]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false | false | false | false | false"
             },
             {
                 "consequent": "callback-lib/request.js-57-67 | {\"id\":151 - \"parents\":[153]}",
@@ -2510,7 +2621,8 @@
                         "transport-lib/response.js-102-122 | {\"id\":129 - \"parents\":[66]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false | false | false | false | false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-399-487 | {\"id\":2 - \"parents\":[1-1]}",
@@ -2536,7 +2648,8 @@
                         "hapi-17.js-lib/handler/hapi-17.js-1-48"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/request.js-57-67 | {\"id\":152 - \"parents\":[151-153]}",
@@ -2586,7 +2699,8 @@
                         "transport-lib/response.js-102-122 | {\"id\":129 - \"parents\":[66]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false | false | false | false | false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-30-37 | {\"id\":154 - \"parents\":[55]}",
@@ -2636,7 +2750,8 @@
                         "transport-lib/response.js-102-122 | {\"id\":129 - \"parents\":[66]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false | false | false | false | false"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/util.js-3-3 | {\"id\":147 - \"parents\":[146-148]}",
@@ -2686,7 +2801,8 @@
                         "transport-lib/response.js-102-122 | {\"id\":129 - \"parents\":[66]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-97-104 | {\"id\":155 - \"parents\":[55]}",
@@ -2736,7 +2852,8 @@
                         "transport-lib/response.js-102-122 | {\"id\":129 - \"parents\":[66]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false | false | false | false | false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-13-28 | {\"id\":156 - \"parents\":[55]}",
@@ -2786,7 +2903,8 @@
                         "transport-lib/response.js-102-122 | {\"id\":129 - \"parents\":[66]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false | false | false | false | false"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/request.js-34-55 | {\"id\":167 - \"parents\":[153]}",
@@ -2836,7 +2954,8 @@
                         "transport-lib/response.js-102-122 | {\"id\":129 - \"parents\":[66]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true children | true children | true children | true children | true children | true children | true children"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-49-73 | {\"id\":3 - \"parents\":[1-1]}",
@@ -2862,7 +2981,8 @@
                         "hapi-17.js-lib/handler/hapi-17.js-1-48"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-104-123 | {\"id\":12 - \"parents\":[1-1]}",
@@ -2888,7 +3008,8 @@
                         "hapi-17.js-lib/handler/hapi-17.js-1-48"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-79-86 | {\"id\":157 - \"parents\":[55]}",
@@ -2938,7 +3059,8 @@
                         "transport-lib/response.js-102-122 | {\"id\":129 - \"parents\":[66]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false | false | false | false | false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-50-72 | {\"id\":4 - \"parents\":[3-1-1-3]}",
@@ -2964,7 +3086,8 @@
                         "hapi-17.js-lib/handler/hapi-17.js-1-48"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-77-100 | {\"id\":25 - \"parents\":[1-1]}",
@@ -2990,7 +3113,8 @@
                         "hapi-17.js-lib/handler/hapi-17.js-1-48"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-239-268 | {\"id\":26 - \"parents\":[1-1]}",
@@ -3016,7 +3140,8 @@
                         "hapi-17.js-lib/handler/hapi-17.js-1-48"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-273-317 | {\"id\":0 - \"parents\":[1-1]}",
@@ -3042,7 +3167,8 @@
                         "hapi-17.js-lib/handler/hapi-17.js-1-48"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "compose-lib/util.js-2-3 | {\"id\":148 - \"parents\":[146]}",
@@ -3092,7 +3218,8 @@
                         "transport-lib/response.js-102-122 | {\"id\":129 - \"parents\":[66]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-360-393 | {\"id\":14 - \"parents\":[1-1]}",
@@ -3118,7 +3245,8 @@
                         "hapi-17.js-lib/handler/hapi-17.js-1-48"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-39-46 | {\"id\":158 - \"parents\":[55]}",
@@ -3168,7 +3296,8 @@
                         "transport-lib/response.js-102-122 | {\"id\":129 - \"parents\":[66]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false | false | false | false | false"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/handler/express-4.js-52-52 | {\"id\":172 - \"parents\":[173]}",
@@ -3181,7 +3310,8 @@
                         "redirect-lib/handler/express-4.js-49-53 | {\"id\":173 - \"parents\":[]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true children"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/session.js-44-213 | {\"id\":20 - \"parents\":[19-19]}",
@@ -3207,7 +3337,8 @@
                         "hapi-17.js-lib/handler/hapi-17.js-1-48"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/request.js-8-32 | {\"id\":174 - \"parents\":[153]}",
@@ -3257,7 +3388,8 @@
                         "transport-lib/response.js-102-122 | {\"id\":129 - \"parents\":[66]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true children | true children | true children | true children | true children | true children | true children"
             },
             {
                 "consequent": "authorize-lib/flow/oauth1.js-61-95 | {\"id\":70 - \"parents\":[67]}",
@@ -3307,7 +3439,8 @@
                         "transport-lib/response.js-102-122 | {\"id\":129 - \"parents\":[66]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false | false | false | false | false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-115-122 | {\"id\":159 - \"parents\":[55]}",
@@ -3357,7 +3490,8 @@
                         "transport-lib/response.js-102-122 | {\"id\":129 - \"parents\":[66]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false | false | false | false | false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-582-604 | {\"id\":23 - \"parents\":[1-1]}",
@@ -3383,7 +3517,8 @@
                         "hapi-17.js-lib/handler/hapi-17.js-1-48"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false | false | false"
             },
             {
                 "consequent": "client.js-test/util/client.js-1-1602 | {\"id\":49 - \"parents\":[]}",
@@ -3409,7 +3544,8 @@
                         "hapi-17.js-lib/handler/hapi-17.js-1-48"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/util/client.js-517-532 | {\"id\":48 - \"parents\":[49]}",
@@ -3421,7 +3557,8 @@
                         "handler-lib/handler/hapi-16.js-23-48 | {\"id\":9 - \"parents\":[7-10-7-10]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "compose-lib/config.js-9-10 | {\"id\":50 - \"parents\":[52]}",
@@ -3441,7 +3578,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false"
             },
             {
                 "consequent": "hapi-test/util/client.js-1499-1506 | {\"id\":53 - \"parents\":[49]}",
@@ -3459,7 +3597,8 @@
                         "transport-lib/response.js-102-122 | {\"id\":129 - \"parents\":[66]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true"
             },
             {
                 "consequent": "session.js-test/handler/session.js-1-216 | {\"id\":19 - \"parents\":[]}",
@@ -3473,7 +3612,8 @@
                         "exports-lib/handler/express-4.js-5-47 | {\"id\":22 - \"parents\":[]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-340-361 | {\"id\":56 - \"parents\":[57-58-59]}",
@@ -3517,7 +3657,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true"
             },
             {
                 "consequent": "merge-lib/config.js-15-16 | {\"id\":60 - \"parents\":[52]}",
@@ -3530,7 +3671,8 @@
                         "connect-lib/request.js-34-55 | {\"id\":168 - \"parents\":[167-153]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler.js-162-173 | {\"id\":63 - \"parents\":[41]}",
@@ -3574,7 +3716,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true"
             },
             {
                 "consequent": "state-lib/config.js-116-126 | {\"id\":64 - \"parents\":[52]}",
@@ -3587,7 +3730,8 @@
                         "connect-lib/request.js-34-55 | {\"id\":168 - \"parents\":[167-153]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "oidc-lib/response.js-44-67 | {\"id\":65 - \"parents\":[66]}",
@@ -3601,7 +3745,8 @@
                         "connect-lib/request.js-34-55 | {\"id\":168 - \"parents\":[167-153]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "oauth1.js-lib/flow/oauth1.js-1-146 | {\"id\":67 - \"parents\":[]}",
@@ -3615,7 +3760,8 @@
                         "connect-lib/request.js-34-55 | {\"id\":168 - \"parents\":[167-153]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-364-387 | {\"id\":71 - \"parents\":[58-59]}",
@@ -3659,7 +3805,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-435-445 | {\"id\":74 - \"parents\":[58-59-75]}",
@@ -3703,7 +3850,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true"
             },
             {
                 "consequent": "handler.js-test/handler/handler.js-1-747 | {\"id\":1 - \"parents\":[]}",
@@ -3717,7 +3865,8 @@
                         "exports-lib/handler/express-4.js-5-47 | {\"id\":22 - \"parents\":[]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true alredy reported its children"
             },
             {
                 "consequent": "exports-lib/handler/hapi-17.js-6-47 | {\"id\":77 - \"parents\":[]}",
@@ -3733,7 +3882,8 @@
                         "transport-lib/response.js-102-122 | {\"id\":129 - \"parents\":[66]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true children | true children"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/config.js-138-138 | {\"id\":79 - \"parents\":[52-80]}",
@@ -3753,7 +3903,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false"
             },
             {
                 "consequent": "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52]}",
@@ -3767,7 +3918,8 @@
                         "exports-lib/handler/koa-2.js-6-46 | {\"id\":17 - \"parents\":[15-15]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-319-362 | {\"id\":57 - \"parents\":[58-59]}",
@@ -3787,7 +3939,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-507-530 | {\"id\":83 - \"parents\":[58-59-75]}",
@@ -3831,7 +3984,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-44-47 | {\"id\":84 - \"parents\":[58-85-59]}",
@@ -3851,7 +4005,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/config.js-19-26 | {\"id\":86 - \"parents\":[52-87]}",
@@ -3871,7 +4026,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-320-339 | {\"id\":82 - \"parents\":[57-58-59]}",
@@ -3915,7 +4071,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/config.js-9-9 | {\"id\":51 - \"parents\":[50-52]}",
@@ -3935,7 +4092,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-467-487 | {\"id\":88 - \"parents\":[58-59-75]}",
@@ -3979,7 +4137,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-488-506 | {\"id\":89 - \"parents\":[58-59-75]}",
@@ -4023,7 +4182,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-547-562 | {\"id\":90 - \"parents\":[58-59-75]}",
@@ -4067,7 +4227,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-178-186 | {\"id\":92 - \"parents\":[58-93-59]}",
@@ -4087,7 +4248,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "config.js-test/config.js-1-585 | {\"id\":58 - \"parents\":[]}",
@@ -4107,7 +4269,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-187-195 | {\"id\":94 - \"parents\":[58-93-59]}",
@@ -4127,7 +4290,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "nonce-lib/config.js-69-70 | {\"id\":119 - \"parents\":[52]}",
@@ -4141,7 +4305,8 @@
                         "exports-lib/handler/koa-2.js-6-46 | {\"id\":17 - \"parents\":[15-15]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-400-407 | {\"id\":95 - \"parents\":[58-59-75]}",
@@ -4161,7 +4326,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "secret-lib/config.js-45-52 | {\"id\":120 - \"parents\":[52]}",
@@ -4175,7 +4341,8 @@
                         "exports-lib/handler/koa-2.js-6-46 | {\"id\":17 - \"parents\":[15-15]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/config.js-27-27 | {\"id\":121 - \"parents\":[52-87]}",
@@ -4195,7 +4362,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-531-546 | {\"id\":96 - \"parents\":[58-59-75]}",
@@ -4239,7 +4407,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-25-28 | {\"id\":97 - \"parents\":[58-106-59]}",
@@ -4259,7 +4428,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-16-21 | {\"id\":98 - \"parents\":[58-59-114]}",
@@ -4279,7 +4449,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/config.js-92-92 | {\"id\":122 - \"parents\":[123-52]}",
@@ -4299,7 +4470,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-36-39 | {\"id\":99 - \"parents\":[58-85-59]}",
@@ -4319,7 +4491,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "key-lib/config.js-35-42 | {\"id\":124 - \"parents\":[52]}",
@@ -4333,7 +4506,8 @@
                         "exports-lib/handler/koa-2.js-6-46 | {\"id\":17 - \"parents\":[15-15]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/config.js-105-105 | {\"id\":125 - \"parents\":[52-126]}",
@@ -4353,7 +4527,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false"
             },
             {
                 "consequent": "response.js-lib/response.js-1-125 | {\"id\":66 - \"parents\":[]}",
@@ -4367,7 +4542,8 @@
                         "connect-lib/request.js-34-55 | {\"id\":168 - \"parents\":[167-153]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-408-423 | {\"id\":100 - \"parents\":[58-59-75]}",
@@ -4411,7 +4587,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-95-101 | {\"id\":101 - \"parents\":[58-102-59]}",
@@ -4431,7 +4608,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-50-175 | {\"id\":102 - \"parents\":[58-59]}",
@@ -4451,7 +4629,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "dcopy-lib/config.js-12-13 | {\"id\":130 - \"parents\":[52]}",
@@ -4471,7 +4650,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false"
             },
             {
                 "consequent": "access-lib/flow/oauth2.js-65-220 | {\"id\":133 - \"parents\":[132]}",
@@ -4482,7 +4662,8 @@
                         "defaults-lib/request.js-8-32 | {\"id\":175 - \"parents\":[174-153]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "exports-lib/handler/hapi-16.js-7-60 | {\"id\":7 - \"parents\":[]}",
@@ -4496,7 +4677,8 @@
                         "exports-lib/handler/express-4.js-5-47 | {\"id\":22 - \"parents\":[]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true children"
             },
             {
                 "consequent": "custom_params-lib/config.js-86-95 | {\"id\":123 - \"parents\":[52]}",
@@ -4516,7 +4698,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false"
             },
             {
                 "consequent": "data-lib/response.js-69-100 | {\"id\":127 - \"parents\":[66]}",
@@ -4530,7 +4713,8 @@
                         "connect-lib/request.js-34-55 | {\"id\":168 - \"parents\":[167-153]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/config.js-161-164 | {\"id\":135 - \"parents\":[52]}",
@@ -4550,7 +4734,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false"
             },
             {
                 "consequent": "request-lib/flow/oauth1.js-6-59 | {\"id\":68 - \"parents\":[67]}",
@@ -4564,7 +4749,8 @@
                         "connect-lib/request.js-34-55 | {\"id\":168 - \"parents\":[167-153]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-383-385 | {\"id\":72 - \"parents\":[71-58-73-59]}",
@@ -4608,7 +4794,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true"
             },
             {
                 "consequent": "hapi-test/util/client.js-459-471 | {\"id\":137 - \"parents\":[49]}",
@@ -4626,7 +4813,8 @@
                         "transport-lib/response.js-102-122 | {\"id\":129 - \"parents\":[66]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true"
             },
             {
                 "consequent": "oauth2.js-test/flow/oauth2.js-1-752 | {\"id\":62 - \"parents\":[]}",
@@ -4640,7 +4828,8 @@
                         "exports-lib/handler/express-4.js-5-47 | {\"id\":22 - \"parents\":[]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/config.js-109-109 | {\"id\":145 - \"parents\":[52-126]}",
@@ -4660,7 +4849,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false"
             },
             {
                 "consequent": "util.js-lib/util.js-1-9 | {\"id\":146 - \"parents\":[]}",
@@ -4674,7 +4864,8 @@
                         "connect-lib/request.js-34-55 | {\"id\":168 - \"parents\":[167-153]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true parent"
             },
             {
                 "consequent": "package.json",
@@ -4687,7 +4878,8 @@
                         "connect-lib/request.js-34-55 | {\"id\":168 - \"parents\":[167-153]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": ""
             },
             {
                 "consequent": "scope-lib/config.js-55-62 | {\"id\":150 - \"parents\":[52]}",
@@ -4701,7 +4893,8 @@
                         "exports-lib/handler/koa-2.js-6-46 | {\"id\":17 - \"parents\":[15-15]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "response.js-test/response.js-1-158 | {\"id\":55 - \"parents\":[]}",
@@ -4715,7 +4908,8 @@
                         "connect-lib/request.js-34-55 | {\"id\":168 - \"parents\":[167-153]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/config.js-91-91 | {\"id\":134 - \"parents\":[123-52]}",
@@ -4735,7 +4929,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-209-245 | {\"id\":103 - \"parents\":[58-59-109]}",
@@ -4779,7 +4974,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-177-196 | {\"id\":93 - \"parents\":[58-59]}",
@@ -4799,7 +4995,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "handler.js-test/handler.js-1-195 | {\"id\":41 - \"parents\":[]}",
@@ -4813,7 +5010,8 @@
                         "exports-lib/handler/express-4.js-5-47 | {\"id\":22 - \"parents\":[]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "state-lib/config.js-65-66 | {\"id\":163 - \"parents\":[52]}",
@@ -4827,7 +5025,8 @@
                         "exports-lib/handler/koa-2.js-6-46 | {\"id\":17 - \"parents\":[15-15]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "oauth-lib/config.js-31-32 | {\"id\":164 - \"parents\":[52]}",
@@ -4841,7 +5040,8 @@
                         "exports-lib/handler/koa-2.js-6-46 | {\"id\":17 - \"parents\":[15-15]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/util/client.js-463-465 | {\"id\":138 - \"parents\":[137-49-139]}",
@@ -4857,7 +5057,8 @@
                         "transport-lib/response.js-102-122 | {\"id\":129 - \"parents\":[66]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-29-32 | {\"id\":104 - \"parents\":[58-106-59]}",
@@ -4877,7 +5078,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-390-399 | {\"id\":105 - \"parents\":[58-59-75]}",
@@ -4921,7 +5123,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true"
             },
             {
                 "consequent": "defaults-lib/config.js-152-155 | {\"id\":165 - \"parents\":[52]}",
@@ -4965,7 +5168,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false | false | false | false"
             },
             {
                 "consequent": "redirect_uri-lib/config.js-73-83 | {\"id\":166 - \"parents\":[52]}",
@@ -4979,7 +5183,8 @@
                         "exports-lib/handler/express-4.js-5-47 | {\"id\":22 - \"parents\":[]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "access-lib/flow/oauth1.js-97-145 | {\"id\":69 - \"parents\":[67]}",
@@ -4990,7 +5195,8 @@
                         "defaults-lib/request.js-8-32 | {\"id\":175 - \"parents\":[174-153]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-24-33 | {\"id\":106 - \"parents\":[58-59]}",
@@ -5010,7 +5216,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "grant.js-lib/grant.js-1-32 | {\"id\":141 - \"parents\":[]}",
@@ -5024,7 +5231,8 @@
                         "connect-lib/request.js-34-55 | {\"id\":168 - \"parents\":[167-153]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "config.js-lib/config.js-1-221 | {\"id\":52 - \"parents\":[]}",
@@ -5068,7 +5276,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true children | true children | true children | true children | true children | true children"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-35-48 | {\"id\":85 - \"parents\":[58-59]}",
@@ -5088,7 +5297,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-365-386 | {\"id\":73 - \"parents\":[71-58-59]}",
@@ -5132,7 +5342,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true"
             },
             {
                 "consequent": "oauth2.js-lib/flow/oauth2.js-1-221 | {\"id\":132 - \"parents\":[]}",
@@ -5146,7 +5357,8 @@
                         "connect-lib/request.js-34-55 | {\"id\":168 - \"parents\":[167-153]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "oauth1.js-test/flow/oauth1.js-1-417",
@@ -5159,7 +5371,8 @@
                         "hapi-16.js-lib/handler/hapi-16.js-1-61"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/config.js-156-162 | {\"id\":169 - \"parents\":[52]}",
@@ -5209,7 +5422,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false | false | false | false | false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-57-66 | {\"id\":107 - \"parents\":[58-102-59]}",
@@ -5229,7 +5443,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/config.js-160-160 | {\"id\":170 - \"parents\":[52-169]}",
@@ -5273,7 +5488,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false | false | false | false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-6-584 | {\"id\":59 - \"parents\":[58]}",
@@ -5317,7 +5533,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler.js-143-154 | {\"id\":160 - \"parents\":[41]}",
@@ -5361,7 +5578,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-102-127 | {\"id\":108 - \"parents\":[58-102-59]}",
@@ -5405,7 +5623,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler.js-7-36 | {\"id\":42 - \"parents\":[41]}",
@@ -5449,7 +5668,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true"
             },
             {
                 "consequent": "tokens-lib/response.js-5-42 | {\"id\":128 - \"parents\":[66]}",
@@ -5462,7 +5682,8 @@
                         "connect-lib/request.js-34-55 | {\"id\":168 - \"parents\":[167-153]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": ""
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-208-246 | {\"id\":109 - \"parents\":[58-59]}",
@@ -5482,7 +5703,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler.js-179-190 | {\"id\":161 - \"parents\":[41]}",
@@ -5526,7 +5748,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true"
             },
             {
                 "consequent": "config/reserved.json",
@@ -5570,7 +5793,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false | false | false | false | false | false"
             },
             {
                 "consequent": "filter-lib/config.js-18-27 | {\"id\":87 - \"parents\":[52]}",
@@ -5584,7 +5808,8 @@
                         "exports-lib/handler/koa-2.js-6-46 | {\"id\":17 - \"parents\":[15-15]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "transform-lib/config.js-135-142 | {\"id\":80 - \"parents\":[52]}",
@@ -5598,7 +5823,8 @@
                         "exports-lib/handler/koa-2.js-6-46 | {\"id\":17 - \"parents\":[15-15]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "README.md",
@@ -5610,7 +5836,8 @@
                         "connect-lib/request.js-34-55 | {\"id\":168 - \"parents\":[167-153]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-424-434 | {\"id\":110 - \"parents\":[58-59-75]}",
@@ -5654,7 +5881,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-389-582 | {\"id\":75 - \"parents\":[58-59]}",
@@ -5674,7 +5902,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler.js-125-136 | {\"id\":162 - \"parents\":[41]}",
@@ -5718,7 +5947,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-51-56 | {\"id\":111 - \"parents\":[58-102-59]}",
@@ -5738,7 +5968,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-77-87 | {\"id\":112 - \"parents\":[58-102-59]}",
@@ -5758,7 +5989,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "dcopy-lib/util.js-5-6 | {\"id\":149 - \"parents\":[146]}",
@@ -5772,7 +6004,8 @@
                         "arrowAnonymousFunction-lib/handler/hapi-16.js-43-47 | {\"id\":78 - \"parents\":[77-7-9-10]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-446-466 | {\"id\":113 - \"parents\":[58-59-75]}",
@@ -5816,7 +6049,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-8-22 | {\"id\":114 - \"parents\":[58-59]}",
@@ -5836,7 +6070,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "overrides-lib/config.js-97-112 | {\"id\":126 - \"parents\":[52]}",
@@ -5850,7 +6085,8 @@
                         "exports-lib/handler/koa-2.js-6-46 | {\"id\":17 - \"parents\":[15-15]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/config.js-153-159 | {\"id\":171 - \"parents\":[52]}",
@@ -5863,7 +6099,8 @@
                         "connect-lib/request.js-34-55 | {\"id\":168 - \"parents\":[167-153]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-67-76 | {\"id\":115 - \"parents\":[58-102-59]}",
@@ -5883,7 +6120,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-88-94 | {\"id\":116 - \"parents\":[58-102-59]}",
@@ -5903,7 +6141,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "hapi-grant.js-86-101",
@@ -5917,7 +6156,8 @@
                         "exports-lib/handler/express-4.js-5-47 | {\"id\":22 - \"parents\":[]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-40-43 | {\"id\":117 - \"parents\":[58-85-59]}",
@@ -5937,7 +6177,8 @@
                         "register-lib/handler/hapi-17.js-9-41 | {\"id\":11 - \"parents\":[7-77-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-563-581 | {\"id\":118 - \"parents\":[58-59-75]}",
@@ -5981,7 +6222,8 @@
                         "register-lib/handler/hapi-16.js-10-52 | {\"id\":10 - \"parents\":[7-7]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true | true | true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/util/client.js-459-471 | {\"id\":139 - \"parents\":[137-49]}",
@@ -5997,7 +6239,8 @@
                         "transport-lib/response.js-102-122 | {\"id\":129 - \"parents\":[66]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true | true"
             }
         ],
         "tarmaq": [
@@ -6125,14 +6368,16 @@
                 "support": 1,
                 "confidence": 1,
                 "consequent": "express-grant.js-69-72",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "rule": "[app-lib/handler/express-4.js-17-44, app-lib/handler/koa-1.js-18-43, app-lib/handler/koa-2.js-18-43, exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, exports-lib/handler/koa-2.js-6-46, express-4.js-lib/handler/express-4.js-1-54, handler-lib/handler/hapi-16.js-23-48, handler-lib/handler/hapi-17.js-22-39, hapi-16.js-lib/handler/hapi-16.js-1-61, hapi-17.js-lib/handler/hapi-17.js-1-48, koa-1.js-lib/handler/koa-1.js-1-47, koa-2.js-lib/handler/koa-2.js-1-47, register-lib/handler/hapi-16.js-10-52, register-lib/handler/hapi-17.js-9-41] => grant-grant.js-2-67",
                 "support": 1,
                 "confidence": 1,
                 "consequent": "grant-grant.js-2-67",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[app-lib/handler/express-4.js-17-44, app-lib/handler/koa-1.js-18-43, app-lib/handler/koa-2.js-18-43, exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, exports-lib/handler/koa-2.js-6-46, express-4.js-lib/handler/express-4.js-1-54, handler-lib/handler/hapi-16.js-23-48, handler-lib/handler/hapi-17.js-22-39, hapi-16.js-lib/handler/hapi-16.js-1-61, hapi-17.js-lib/handler/hapi-17.js-1-48, koa-1.js-lib/handler/koa-1.js-1-47, koa-2.js-lib/handler/koa-2.js-1-47, register-lib/handler/hapi-16.js-10-52, register-lib/handler/hapi-17.js-9-41] => handler-lib/handler/hapi-16.js-55-81",
@@ -6167,21 +6412,24 @@
                 "support": 1,
                 "confidence": 1,
                 "consequent": "hapi-grant.js-86-101",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[app-lib/handler/express-4.js-17-44, app-lib/handler/koa-1.js-18-43, app-lib/handler/koa-2.js-18-43, exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, exports-lib/handler/koa-2.js-6-46, express-4.js-lib/handler/express-4.js-1-54, handler-lib/handler/hapi-16.js-23-48, handler-lib/handler/hapi-17.js-22-39, hapi-16.js-lib/handler/hapi-16.js-1-61, hapi-17.js-lib/handler/hapi-17.js-1-48, koa-1.js-lib/handler/koa-1.js-1-47, koa-2.js-lib/handler/koa-2.js-1-47, register-lib/handler/hapi-16.js-10-52, register-lib/handler/hapi-17.js-9-41] => koa-grant.js-74-84",
                 "support": 1,
                 "confidence": 1,
                 "consequent": "koa-grant.js-74-84",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "rule": "[app-lib/handler/express-4.js-17-44, app-lib/handler/koa-1.js-18-43, app-lib/handler/koa-2.js-18-43, exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, exports-lib/handler/koa-2.js-6-46, express-4.js-lib/handler/express-4.js-1-54, handler-lib/handler/hapi-16.js-23-48, handler-lib/handler/hapi-17.js-22-39, hapi-16.js-lib/handler/hapi-16.js-1-61, hapi-17.js-lib/handler/hapi-17.js-1-48, koa-1.js-lib/handler/koa-1.js-1-47, koa-2.js-lib/handler/koa-2.js-1-47, register-lib/handler/hapi-16.js-10-52, register-lib/handler/hapi-17.js-9-41] => oauth1.js-test/flow/oauth1.js-1-417",
                 "support": 1,
                 "confidence": 1,
                 "consequent": "oauth1.js-test/flow/oauth1.js-1-417",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[app-lib/handler/express-4.js-17-44, app-lib/handler/koa-1.js-18-43, app-lib/handler/koa-2.js-18-43, exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, exports-lib/handler/koa-2.js-6-46, express-4.js-lib/handler/express-4.js-1-54, handler-lib/handler/hapi-16.js-23-48, handler-lib/handler/hapi-17.js-22-39, hapi-16.js-lib/handler/hapi-16.js-1-61, hapi-17.js-lib/handler/hapi-17.js-1-48, koa-1.js-lib/handler/koa-1.js-1-47, koa-2.js-lib/handler/koa-2.js-1-47, register-lib/handler/hapi-16.js-10-52, register-lib/handler/hapi-17.js-9-41] => oauth2.js-test/flow/oauth2.js-1-752",
@@ -10439,7 +10687,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "compose-lib/util.js-2-3 | {\"id\":148 - \"parents\":[146-146]}",
@@ -10451,7 +10700,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "koa-1.js-lib/handler/koa-1.js-1-47",
@@ -10463,7 +10713,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true parent"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-88-95 | {\"id\":54 - \"parents\":[55-55]}",
@@ -10475,7 +10726,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "tokens-lib/response.js-5-42 | {\"id\":128 - \"parents\":[66-66]}",
@@ -10487,7 +10739,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "app-lib/handler/koa-2.js-18-43 | {\"id\":16 - \"parents\":[15-17-17-15-18-15-17]}",
@@ -10499,7 +10752,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-39-46 | {\"id\":158 - \"parents\":[55-55]}",
@@ -10511,7 +10765,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-30-37 | {\"id\":154 - \"parents\":[55-55]}",
@@ -10523,7 +10778,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/flow/oauth2.js-729-738 | {\"id\":61 - \"parents\":[62]}",
@@ -10535,7 +10791,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/util.js-3-3 | {\"id\":147 - \"parents\":[146-148-148-176-146]}",
@@ -10547,7 +10804,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-97-104 | {\"id\":155 - \"parents\":[55-55]}",
@@ -10559,7 +10817,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "oidc-lib/response.js-44-67 | {\"id\":65 - \"parents\":[66-66]}",
@@ -10571,7 +10830,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "redirect-lib/handler/express-4.js-49-53 | {\"id\":173 - \"parents\":[]}",
@@ -10583,7 +10843,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "oauth1.js-lib/flow/oauth1.js-1-146 | {\"id\":67 - \"parents\":[]}",
@@ -10595,7 +10856,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "response.js-lib/response.js-1-125 | {\"id\":66 - \"parents\":[]}",
@@ -10607,7 +10869,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-124-138 | {\"id\":76 - \"parents\":[55-55]}",
@@ -10619,7 +10882,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "request.js-lib/request.js-1-70 | {\"id\":153 - \"parents\":[]}",
@@ -10631,7 +10895,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true but already reported its children"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/handler/express-4.js-52-52 | {\"id\":172 - \"parents\":[173-173]}",
@@ -10643,7 +10908,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "defaults-lib/request.js-8-32 | {\"id\":175 - \"parents\":[174-153-153]}",
@@ -10655,7 +10921,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/request.js-8-32 | {\"id\":174 - \"parents\":[153-153-175]}",
@@ -10667,7 +10934,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "authorize-lib/flow/oauth1.js-61-95 | {\"id\":70 - \"parents\":[67-67]}",
@@ -10679,7 +10947,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-13-28 | {\"id\":156 - \"parents\":[55-55]}",
@@ -10691,7 +10960,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "access-lib/flow/oauth1.js-97-145 | {\"id\":69 - \"parents\":[67-67]}",
@@ -10703,7 +10973,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "access-lib/flow/oauth2.js-65-220 | {\"id\":133 - \"parents\":[132-132]}",
@@ -10715,7 +10986,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "grant.js-lib/grant.js-1-32 | {\"id\":141 - \"parents\":[]}",
@@ -10727,7 +10999,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true but already reported its children"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-79-86 | {\"id\":157 - \"parents\":[55-55]}",
@@ -10739,7 +11012,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "hapi-16.js-lib/handler/hapi-16.js-1-61",
@@ -10751,7 +11025,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true but already reported its children"
             },
             {
                 "consequent": "express-4.js-lib/handler/express-4.js-1-54",
@@ -10763,7 +11038,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "data-lib/response.js-69-100 | {\"id\":127 - \"parents\":[66-66]}",
@@ -10775,7 +11051,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-115-122 | {\"id\":159 - \"parents\":[55-55]}",
@@ -10787,7 +11064,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-48-56 | {\"id\":136 - \"parents\":[55-55]}",
@@ -10799,7 +11077,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "exports-lib/grant.js-8-31 | {\"id\":142 - \"parents\":[141-141]}",
@@ -10811,7 +11090,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "request-lib/flow/oauth1.js-6-59 | {\"id\":68 - \"parents\":[67-67]}",
@@ -10823,7 +11103,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "oauth2.js-lib/flow/oauth2.js-1-221 | {\"id\":132 - \"parents\":[]}",
@@ -10835,7 +11116,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true parent"
             },
             {
                 "consequent": "transport-lib/response.js-102-122 | {\"id\":129 - \"parents\":[66-66]}",
@@ -10847,7 +11129,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "handler-lib/handler/hapi-17.js-22-39 | {\"id\":8 - \"parents\":[7-10-11-77-7-10-11]}",
@@ -10859,7 +11142,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "koa-2.js-lib/handler/koa-2.js-1-47",
@@ -10871,7 +11155,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "hapi-17.js-lib/handler/hapi-17.js-1-48",
@@ -10883,7 +11168,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true but alredy reported its children"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/util.js-2-3 | {\"id\":176 - \"parents\":[148-146]}",
@@ -10895,7 +11181,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/grant.js-18-24 | {\"id\":140 - \"parents\":[141-142-141-142]}",
@@ -10907,7 +11194,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-58-75 | {\"id\":143 - \"parents\":[55-55]}",
@@ -10919,7 +11207,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-140-154 | {\"id\":91 - \"parents\":[55-55]}",
@@ -10931,7 +11220,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "connect-lib/request.js-34-55 | {\"id\":168 - \"parents\":[167-153-153]}",
@@ -10943,7 +11233,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-106-113 | {\"id\":144 - \"parents\":[55-55]}",
@@ -10955,7 +11246,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "util.js-lib/util.js-1-9 | {\"id\":146 - \"parents\":[]}",
@@ -10967,7 +11259,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "callback-lib/request.js-57-67 | {\"id\":151 - \"parents\":[153-153]}",
@@ -10979,7 +11272,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "response.js-test/response.js-1-158 | {\"id\":55 - \"parents\":[]}",
@@ -10991,7 +11285,8 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "app-lib/handler/express-4.js-17-44 | {\"id\":21 - \"parents\":[22-22-22]}",
@@ -11002,7 +11297,8 @@
                         "app-lib/handler/koa-1.js-18-43 | {\"id\":18 - \"parents\":[15-16-17-16-17-15-15-17-16]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             }
         ],
         "tarmaq": [
@@ -11277,7 +11573,8 @@
                 "support": 1,
                 "confidence": 1,
                 "consequent": "express-4.js-lib/handler/express-4.js-1-54",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[app-lib/handler/koa-1.js-18-43, authorize-lib/flow/oauth2.js-7-63] => grant.js-lib/grant.js-1-32",
@@ -11305,28 +11602,32 @@
                 "support": 1,
                 "confidence": 1,
                 "consequent": "hapi-16.js-lib/handler/hapi-16.js-1-61",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true but already reported its children"
             },
             {
                 "rule": "[app-lib/handler/koa-1.js-18-43, authorize-lib/flow/oauth2.js-7-63] => hapi-17.js-lib/handler/hapi-17.js-1-48",
                 "support": 1,
                 "confidence": 1,
                 "consequent": "hapi-17.js-lib/handler/hapi-17.js-1-48",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true but alredy reported its children"
             },
             {
                 "rule": "[app-lib/handler/koa-1.js-18-43, authorize-lib/flow/oauth2.js-7-63] => koa-1.js-lib/handler/koa-1.js-1-47",
                 "support": 1,
                 "confidence": 1,
                 "consequent": "koa-1.js-lib/handler/koa-1.js-1-47",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true parent"
             },
             {
                 "rule": "[app-lib/handler/koa-1.js-18-43, authorize-lib/flow/oauth2.js-7-63] => koa-2.js-lib/handler/koa-2.js-1-47",
                 "support": 1,
                 "confidence": 1,
                 "consequent": "koa-2.js-lib/handler/koa-2.js-1-47",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "rule": "[app-lib/handler/koa-1.js-18-43, authorize-lib/flow/oauth2.js-7-63] => oauth1.js-lib/flow/oauth1.js-1-146",
@@ -11759,14 +12060,16 @@
                     "arrowAnonymousFunction-test/response.js-48-56 | {\"id\":136 - \"parents\":[55-55-186-55]}",
                     "arrowAnonymousFunction-test/response.js-58-75 | {\"id\":143 - \"parents\":[55-55-186-55]}"
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "DA-evaluation": "true | true | true"
             },
             {
                 "consequent": "sign-test/response.js-5-10 | {\"id\":177 - \"parents\":[55]}",
                 "DA-antecedents": [
                     "arrowAnonymousFunction-test/response.js-58-75 | {\"id\":143 - \"parents\":[55-55-186-55]}"
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "session.js-test/handler/session.js-1-216 | {\"id\":19 - \"parents\":[]}",
@@ -11778,7 +12081,8 @@
                         "arrowAnonymousFunction-test/response.js-39-46 | {\"id\":158 - \"parents\":[55-55-186-55]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "oidc-lib/response.js-44-67 | {\"id\":65 - \"parents\":[66-66-66]}",
@@ -11789,7 +12093,8 @@
                         "arrowAnonymousFunction-test/response.js-58-75 | {\"id\":143 - \"parents\":[55-55-186-55]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "oauth1.js-lib/flow/oauth1.js-1-146 | {\"id\":67 - \"parents\":[]}",
@@ -11801,7 +12106,8 @@
                         "arrowAnonymousFunction-test/response.js-39-46 | {\"id\":158 - \"parents\":[55-55-186-55]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "connect-lib/request.js-34-55 | {\"id\":168 - \"parents\":[167-153-153]}",
@@ -11813,7 +12119,8 @@
                         "arrowAnonymousFunction-test/response.js-39-46 | {\"id\":158 - \"parents\":[55-55-186-55]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/flow/oauth1.js-48-84 | {\"id\":178 - \"parents\":[179]}",
@@ -11837,7 +12144,8 @@
                         "response.js-test/response.js-1-158 | {\"id\":55 - \"parents\":[]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true | true | true | true"
             },
             {
                 "consequent": "parse-lib/client.js-14-48 | {\"id\":180 - \"parents\":[183]}",
@@ -11849,7 +12157,8 @@
                         "arrowAnonymousFunction-test/response.js-39-46 | {\"id\":158 - \"parents\":[55-55-186-55]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "koa-1.js-lib/handler/koa-1.js-1-47",
@@ -11861,7 +12170,8 @@
                         "arrowAnonymousFunction-test/response.js-39-46 | {\"id\":158 - \"parents\":[55-55-186-55]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "response.js-lib/response.js-1-125 | {\"id\":66 - \"parents\":[]}",
@@ -11873,7 +12183,8 @@
                         "arrowAnonymousFunction-test/response.js-39-46 | {\"id\":158 - \"parents\":[55-55-186-55]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "authorize-lib/flow/oauth2.js-7-63 | {\"id\":131 - \"parents\":[132-132-132]}",
@@ -11885,7 +12196,8 @@
                         "arrowAnonymousFunction-test/response.js-39-46 | {\"id\":158 - \"parents\":[55-55-186-55]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "access-lib/flow/oauth2.js-65-220 | {\"id\":133 - \"parents\":[132-132-132]}",
@@ -11899,7 +12211,8 @@
                         "arrowAnonymousFunction-test/response.js-48-56 | {\"id\":136 - \"parents\":[55-55-186-55]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false | false"
             },
             {
                 "consequent": "exports-lib/handler/hapi-16.js-7-60 | {\"id\":7 - \"parents\":[]}",
@@ -11911,7 +12224,8 @@
                         "arrowAnonymousFunction-test/response.js-39-46 | {\"id\":158 - \"parents\":[55-55-186-55]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "request-lib/flow/oauth1.js-6-59 | {\"id\":68 - \"parents\":[67-67-67]}",
@@ -11923,7 +12237,8 @@
                         "arrowAnonymousFunction-test/response.js-39-46 | {\"id\":158 - \"parents\":[55-55-186-55]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "koa-2.js-lib/handler/koa-2.js-1-47",
@@ -11935,7 +12250,8 @@
                         "arrowAnonymousFunction-test/response.js-39-46 | {\"id\":158 - \"parents\":[55-55-186-55]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "oauth2.js-test/flow/oauth2.js-1-752 | {\"id\":62 - \"parents\":[]}",
@@ -11947,7 +12263,8 @@
                         "arrowAnonymousFunction-test/response.js-39-46 | {\"id\":158 - \"parents\":[55-55-186-55]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true but already reported children"
             },
             {
                 "consequent": "authorize-test/flow/oauth2.js-242-244 | {\"id\":184 - \"parents\":[62]}",
@@ -11959,7 +12276,8 @@
                         "arrowAnonymousFunction-test/response.js-39-46 | {\"id\":158 - \"parents\":[55-55-186-55]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/client.js-14-48 | {\"id\":181 - \"parents\":[180-183]}",
@@ -11983,7 +12301,8 @@
                         "response.js-test/response.js-1-158 | {\"id\":55 - \"parents\":[]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false | false | false | false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-30-37 | {\"id\":154 - \"parents\":[55-55-186-55]}",
@@ -12007,7 +12326,8 @@
                         "response.js-test/response.js-1-158 | {\"id\":55 - \"parents\":[]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true | true | true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-13-28 | {\"id\":156 - \"parents\":[55-55-186-55]}",
@@ -12031,7 +12351,8 @@
                         "response.js-test/response.js-1-158 | {\"id\":55 - \"parents\":[]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true | true | true | true"
             },
             {
                 "consequent": "access-lib/flow/oauth1.js-97-145 | {\"id\":69 - \"parents\":[67-67-67]}",
@@ -12045,7 +12366,8 @@
                         "arrowAnonymousFunction-test/response.js-48-56 | {\"id\":136 - \"parents\":[55-55-186-55]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false | false"
             },
             {
                 "consequent": "oauth2.js-lib/flow/oauth2.js-1-221 | {\"id\":132 - \"parents\":[]}",
@@ -12057,7 +12379,8 @@
                         "arrowAnonymousFunction-test/response.js-39-46 | {\"id\":158 - \"parents\":[55-55-186-55]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/client.js-19-19 | {\"id\":182 - \"parents\":[180-181-183]}",
@@ -12081,7 +12404,8 @@
                         "response.js-test/response.js-1-158 | {\"id\":55 - \"parents\":[]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false | false | false | false"
             },
             {
                 "consequent": "oauth1.js-test/flow/oauth1.js-1-417 | {\"id\":179 - \"parents\":[]}",
@@ -12093,7 +12417,8 @@
                         "arrowAnonymousFunction-test/response.js-39-46 | {\"id\":158 - \"parents\":[55-55-186-55]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true but already reported children"
             },
             {
                 "consequent": "tokens-lib/response.js-5-42 | {\"id\":128 - \"parents\":[66-66-66]}",
@@ -12105,7 +12430,8 @@
                         "arrowAnonymousFunction-test/response.js-39-46 | {\"id\":158 - \"parents\":[55-55-186-55]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": ""
             },
             {
                 "consequent": "client.js-lib/client.js-1-63 | {\"id\":183 - \"parents\":[]}",
@@ -12117,7 +12443,8 @@
                         "arrowAnonymousFunction-test/response.js-39-46 | {\"id\":158 - \"parents\":[55-55-186-55]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "config/reserved.json",
@@ -12129,7 +12456,8 @@
                         "arrowAnonymousFunction-test/response.js-39-46 | {\"id\":158 - \"parents\":[55-55-186-55]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": ""
             },
             {
                 "consequent": "authorize-lib/flow/oauth1.js-61-95 | {\"id\":70 - \"parents\":[67-67-67]}",
@@ -12141,7 +12469,8 @@
                         "arrowAnonymousFunction-test/response.js-39-46 | {\"id\":158 - \"parents\":[55-55-186-55]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/flow/oauth2.js-46-75 | {\"id\":185 - \"parents\":[62]}",
@@ -12165,7 +12494,8 @@
                         "response.js-test/response.js-1-158 | {\"id\":55 - \"parents\":[]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true | true | true | true"
             },
             {
                 "consequent": "hapi-16.js-lib/handler/hapi-16.js-1-61",
@@ -12177,7 +12507,8 @@
                         "arrowAnonymousFunction-test/response.js-39-46 | {\"id\":158 - \"parents\":[55-55-186-55]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "express-4.js-lib/handler/express-4.js-1-54",
@@ -12189,7 +12520,8 @@
                         "arrowAnonymousFunction-test/response.js-39-46 | {\"id\":158 - \"parents\":[55-55-186-55]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             }
         ],
         "tarmaq": [
@@ -12261,7 +12593,8 @@
                 "support": 1,
                 "confidence": 0.5,
                 "consequent": "config/reserved.json",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": ""
             },
             {
                 "rule": "[arrowAnonymousFunction-test/response.js-11-157, arrowAnonymousFunction-test/response.js-39-46, arrowAnonymousFunction-test/response.js-48-56, arrowAnonymousFunction-test/response.js-58-75, response.js-test/response.js-1-158] => access-lib/flow/oauth1.js-97-145",
@@ -13423,7 +13756,8 @@
                 "support": 1,
                 "confidence": 0.5,
                 "consequent": "express-4.js-lib/handler/express-4.js-1-54",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/response.js-11-157, arrowAnonymousFunction-test/response.js-39-46, arrowAnonymousFunction-test/response.js-48-56, arrowAnonymousFunction-test/response.js-58-75, response.js-test/response.js-1-158] => flow.js-test/consumer/flow.js-1-148",
@@ -13472,21 +13806,24 @@
                 "support": 1,
                 "confidence": 0.5,
                 "consequent": "hapi-16.js-lib/handler/hapi-16.js-1-61",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/response.js-11-157, arrowAnonymousFunction-test/response.js-39-46, arrowAnonymousFunction-test/response.js-48-56, arrowAnonymousFunction-test/response.js-58-75, response.js-test/response.js-1-158] => koa-1.js-lib/handler/koa-1.js-1-47",
                 "support": 1,
                 "confidence": 0.5,
                 "consequent": "koa-1.js-lib/handler/koa-1.js-1-47",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/response.js-11-157, arrowAnonymousFunction-test/response.js-39-46, arrowAnonymousFunction-test/response.js-48-56, arrowAnonymousFunction-test/response.js-58-75, response.js-test/response.js-1-158] => koa-2.js-lib/handler/koa-2.js-1-47",
                 "support": 1,
                 "confidence": 0.5,
                 "consequent": "koa-2.js-lib/handler/koa-2.js-1-47",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/response.js-11-157, arrowAnonymousFunction-test/response.js-39-46, arrowAnonymousFunction-test/response.js-48-56, arrowAnonymousFunction-test/response.js-58-75, response.js-test/response.js-1-158] => oauth1.js-lib/flow/oauth1.js-1-146",
@@ -14040,7 +14377,9 @@
                         "arrowAnonymousFunction-test/handler/session.js-109-130 | {\"id\":199 - \"parents\":[19-200-20-201]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-408-423 | {\"id\":100 - \"parents\":[58-59-75-59-75]}",
@@ -14055,7 +14394,9 @@
                         "arrowAnonymousFunction-test/handler/session.js-109-130 | {\"id\":199 - \"parents\":[19-200-20-201]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-424-434 | {\"id\":110 - \"parents\":[58-59-75-59-75]}",
@@ -14070,7 +14411,9 @@
                         "arrowAnonymousFunction-test/handler/session.js-109-130 | {\"id\":199 - \"parents\":[19-200-20-201]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-531-546 | {\"id\":96 - \"parents\":[58-59-75-59-75]}",
@@ -14085,7 +14428,9 @@
                         "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-547-562 | {\"id\":90 - \"parents\":[58-59-75-59-75]}",
@@ -14100,77 +14445,89 @@
                         "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-390-399 | {\"id\":105 - \"parents\":[58-59-75-59-75]}",
                 "DA-antecedents": [
                     "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/config.js-10-10 | {\"id\":187 - \"parents\":[52]}",
                 "DA-antecedents": [
                     "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "DA-evaluation": "false"
             },
             {
                 "consequent": "dcopy-lib/config.js-12-14 | {\"id\":188 - \"parents\":[52]}",
                 "DA-antecedents": [
                     "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "DA-evaluation": "false"
             },
             {
                 "consequent": "state-lib/config.js-116-127 | {\"id\":189 - \"parents\":[52]}",
                 "DA-antecedents": [
                     "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "DA-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-435-445 | {\"id\":74 - \"parents\":[58-59-75-59-75]}",
                 "DA-antecedents": [
                     "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-446-466 | {\"id\":113 - \"parents\":[58-59-75-59-75]}",
                 "DA-antecedents": [
                     "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-467-487 | {\"id\":88 - \"parents\":[58-59-75-59-75]}",
                 "DA-antecedents": [
                     "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-488-506 | {\"id\":89 - \"parents\":[58-59-75-59-75]}",
                 "DA-antecedents": [
                     "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-507-530 | {\"id\":83 - \"parents\":[58-59-75-59-75]}",
                 "DA-antecedents": [
                     "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-563-581 | {\"id\":118 - \"parents\":[58-59-75-59-75]}",
                 "DA-antecedents": [
                     "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "merge-lib/config.js-15-16 | {\"id\":60 - \"parents\":[52-52]}",
@@ -14182,7 +14539,8 @@
                         "arrowAnonymousFunction-test/handler/session.js-109-130 | {\"id\":199 - \"parents\":[19-200-20-201]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/flow/oauth2.js-16-751 | {\"id\":202 - \"parents\":[62]}",
@@ -14198,7 +14556,8 @@
                         "arrowAnonymousFunction-test/handler/session.js-44-213 | {\"id\":20 - \"parents\":[19-19-19-200]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/flow/oauth1.js-16-416 | {\"id\":207 - \"parents\":[179]}",
@@ -14214,7 +14573,8 @@
                         "arrowAnonymousFunction-test/handler/session.js-44-213 | {\"id\":20 - \"parents\":[19-19-19-200]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true | true"
             },
             {
                 "consequent": "oauth1.js-test/flow/oauth1.js-1-417 | {\"id\":179 - \"parents\":[]}",
@@ -14226,7 +14586,8 @@
                         "arrowAnonymousFunction-test/handler/session.js-14-215 | {\"id\":200 - \"parents\":[19]}"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-155-161",
@@ -14250,7 +14611,8 @@
                         "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "session.js-test/handler/session.js-1-216 | {\"id\":19 - \"parents\":[]}",
@@ -14262,7 +14624,8 @@
                         "arrowAnonymousFunction-test/handler/session.js-14-215 | {\"id\":200 - \"parents\":[19]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true parent"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/session.js-17-37 | {\"id\":190 - \"parents\":[19-200]}",
@@ -14274,7 +14637,8 @@
                         "arrowAnonymousFunction-test/handler/session.js-14-215 | {\"id\":200 - \"parents\":[19]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "state-lib/config.js-116-126 | {\"id\":64 - \"parents\":[52-189-52]}",
@@ -14287,7 +14651,8 @@
                         "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "oidc-lib/response.js-44-67 | {\"id\":65 - \"parents\":[66-66-66-66]}",
@@ -14300,7 +14665,8 @@
                         "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-124-138 | {\"id\":76 - \"parents\":[55-55-204-55]}",
@@ -14313,7 +14679,8 @@
                         "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-79-86 | {\"id\":157 - \"parents\":[55-55-204-55]}",
@@ -14326,7 +14693,8 @@
                         "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "config.js-lib/config.js-1-221 | {\"id\":52 - \"parents\":[]}",
@@ -14339,7 +14707,8 @@
                         "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true parent"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/util/provider.js-140-266 | {\"id\":205 - \"parents\":[206]}",
@@ -14351,7 +14720,8 @@
                         "arrowAnonymousFunction-test/handler/session.js-14-215 | {\"id\":200 - \"parents\":[19]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/session.js-67-73 | {\"id\":191 - \"parents\":[19-200-20-201]}",
@@ -14363,7 +14733,8 @@
                         "arrowAnonymousFunction-test/handler/session.js-14-215 | {\"id\":200 - \"parents\":[19]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/session.js-188-197 | {\"id\":192 - \"parents\":[19-200-20-201]}",
@@ -14375,7 +14746,8 @@
                         "arrowAnonymousFunction-test/handler/session.js-14-215 | {\"id\":200 - \"parents\":[19]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/session.js-59-65 | {\"id\":193 - \"parents\":[19-200-20-201]}",
@@ -14387,7 +14759,8 @@
                         "arrowAnonymousFunction-test/handler/session.js-14-215 | {\"id\":200 - \"parents\":[19]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/session.js-75-91 | {\"id\":194 - \"parents\":[19-200-20-201]}",
@@ -14400,7 +14773,8 @@
                         "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-6-584 | {\"id\":59 - \"parents\":[58]}",
@@ -14412,7 +14786,8 @@
                         "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true parent"
             },
             {
                 "consequent": "connect-lib/request.js-34-55 | {\"id\":168 - \"parents\":[167-153-153]}",
@@ -14425,7 +14800,8 @@
                         "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/flow/oauth2.js-650-750 | {\"id\":203 - \"parents\":[202-62]}",
@@ -14437,7 +14813,8 @@
                         "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "tokens-lib/response.js-5-42 | {\"id\":128 - \"parents\":[66-66-66-66]}",
@@ -14450,7 +14827,8 @@
                         "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/util/provider.js-41-136 | {\"id\":208 - \"parents\":[206-209]}",
@@ -14462,7 +14840,8 @@
                         "arrowAnonymousFunction-test/handler/session.js-14-215 | {\"id\":200 - \"parents\":[19]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "provider.js-test/util/provider.js-1-276 | {\"id\":206 - \"parents\":[]}",
@@ -14474,7 +14853,8 @@
                         "arrowAnonymousFunction-test/handler/session.js-14-215 | {\"id\":200 - \"parents\":[19]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-77-155 | {\"id\":204 - \"parents\":[55]}",
@@ -14487,7 +14867,8 @@
                         "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "config/reserved.json",
@@ -14500,7 +14881,8 @@
                         "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "response.js-lib/response.js-1-125 | {\"id\":66 - \"parents\":[]}",
@@ -14513,7 +14895,8 @@
                         "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true but already reported children"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-389-582 | {\"id\":75 - \"parents\":[58-59-59]}",
@@ -14525,7 +14908,8 @@
                         "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/util/provider.js-38-138 | {\"id\":209 - \"parents\":[206]}",
@@ -14537,7 +14921,8 @@
                         "arrowAnonymousFunction-test/handler/session.js-14-215 | {\"id\":200 - \"parents\":[19]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "koa1-test/util/client.js-1556-1566 | {\"id\":211 - \"parents\":[49]}",
@@ -14549,7 +14934,8 @@
                         "arrowAnonymousFunction-test/handler/session.js-14-215 | {\"id\":200 - \"parents\":[19]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/session.js-39-42 | {\"id\":195 - \"parents\":[19-200]}",
@@ -14561,7 +14947,8 @@
                         "arrowAnonymousFunction-test/handler/session.js-14-215 | {\"id\":200 - \"parents\":[19]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "access-lib/flow/oauth2.js-65-220 | {\"id\":133 - \"parents\":[132-132-132]}",
@@ -14573,7 +14960,8 @@
                         "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "sign-test/response.js-5-8 | {\"id\":212 - \"parents\":[55]}",
@@ -14586,7 +14974,8 @@
                         "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/session.js-132-153 | {\"id\":196 - \"parents\":[19-200-20-201]}",
@@ -14598,7 +14987,8 @@
                         "arrowAnonymousFunction-test/handler/session.js-14-215 | {\"id\":200 - \"parents\":[19]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-115-122 | {\"id\":159 - \"parents\":[55-55-204-55]}",
@@ -14611,7 +15001,8 @@
                         "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "sign-test/util/provider.js-21-24 | {\"id\":210 - \"parents\":[206]}",
@@ -14624,7 +15015,8 @@
                         "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "oauth2.js-test/flow/oauth2.js-1-752 | {\"id\":62 - \"parents\":[]}",
@@ -14637,7 +15029,8 @@
                         "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-58-75 | {\"id\":143 - \"parents\":[55-55-186-55-55]}",
@@ -14650,7 +15043,8 @@
                         "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/session.js-93-107 | {\"id\":197 - \"parents\":[19-200-20-201]}",
@@ -14663,7 +15057,8 @@
                         "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/response.js-106-113 | {\"id\":144 - \"parents\":[55-55-204-55]}",
@@ -14676,7 +15071,8 @@
                         "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/session.js-50-52 | {\"id\":198 - \"parents\":[19-200-20-201]}",
@@ -14688,7 +15084,8 @@
                         "arrowAnonymousFunction-test/handler/session.js-14-215 | {\"id\":200 - \"parents\":[19]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "client.js-test/util/client.js-1-1602 | {\"id\":49 - \"parents\":[]}",
@@ -14700,7 +15097,8 @@
                         "arrowAnonymousFunction-test/handler/session.js-14-215 | {\"id\":200 - \"parents\":[19]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "response.js-test/response.js-1-158 | {\"id\":55 - \"parents\":[]}",
@@ -14713,7 +15111,8 @@
                         "provider-lib/config.js-168-216 | {\"id\":81 - \"parents\":[52-52]}"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             }
         ],
         "tarmaq": [
@@ -15355,7 +15754,8 @@
                         "express.js-examples/static-overrides/express.js-1-17"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "koa-session.js-examples/session-store/koa-session.js-1-23 | {\"id\":216 - \"parents\":[]}",
@@ -15367,7 +15767,8 @@
                         "express.js-examples/static-overrides/express.js-1-17"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "express-redis.js-examples/session-store/express-redis.js-1-22 | {\"id\":214 - \"parents\":[213]}",
@@ -15381,7 +15782,8 @@
                         "express.js-examples/transport-session/express.js-1-17"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true | true"
             },
             {
                 "consequent": "express-session.js-examples/session-store/express-session.js-1-17 | {\"id\":215 - \"parents\":[216]}",
@@ -15395,7 +15797,8 @@
                         "express.js-examples/transport-session/express.js-1-17"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true | true"
             },
             {
                 "consequent": "express-mongo.js-examples/session-store/express-mongo.js-1-21",
@@ -15409,7 +15812,8 @@
                         "express.js-examples/transport-session/express.js-1-17"
                     ]
                 ],
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true | true"
             }
         ],
         "tarmaq": [
@@ -15467,7 +15871,8 @@
                 "support": 1,
                 "confidence": 1,
                 "consequent": "express-mongo.js-examples/session-store/express-mongo.js-1-21",
-                "status": "common"
+                "status": "common",
+                "FP-evaluation": "true | true"
             },
             {
                 "rule": "[express.js-examples/dynamic-http/express.js-1-21, express.js-examples/static-overrides/express.js-1-17, express.js-examples/transport-session/express.js-1-17] => express-redis.js-examples/session-store/express-redis.js-1-22",

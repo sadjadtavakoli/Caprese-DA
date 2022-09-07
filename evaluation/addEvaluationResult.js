@@ -3,9 +3,9 @@ const path = require("path")
 const resultDirPath = `evaluation${path.sep}result${path.sep}`
 const { STATUS } = require('./evaluation')
 
-summarizeResult(process.argv[2])
+addEvaluationResult(process.argv[2])
 
-function summarizeResult(filename) {
+function addEvaluationResult(filename) {
     const RESULT_PATH = `${resultDirPath}${filename}${path.sep}results.json`
     let result = JSON.parse(fs.readFileSync(RESULT_PATH));
 
@@ -18,9 +18,8 @@ function summarizeResult(filename) {
         let FPEvaluation = collectEvaluationResult(reversedFP)
         let DAEvaluation = collectEvaluationResult(reversedDA)
 
-
         for (let consequentInfo of berke) {
-            let consequent = consequentInfo['consequent']
+            let consequent = getConsequenceKey(consequentInfo['consequent'])
             if (FPEvaluation[consequent] != undefined) {
                 consequentInfo['FP-evaluation'] = FPEvaluation[consequent]
             }
@@ -31,8 +30,8 @@ function summarizeResult(filename) {
         }
 
         for (let consequentInfo of tarmaq) {
-            let consequent = consequentInfo['consequent']
-            if (consequentInfo['status'] == STATUS.common) {
+            let consequent = getConsequenceKey(consequentInfo['consequent'])
+            if (consequentInfo['status'] != STATUS.removed) {
                 consequentInfo['FP-evaluation'] = FPEvaluation[consequent]
             }
         }
@@ -46,7 +45,7 @@ function collectEvaluationResult(reversedData) {
     for (let antecedent in reversedData) {
         for (let consequentInfo of reversedData[antecedent]) {
 
-            let consequent = consequentInfo['consequent']
+            let consequent = getConsequenceKey(consequentInfo['consequent'])
             let evaluationResult = consequentInfo['evaluation result']
 
             if (result[consequent] == undefined) {
@@ -59,3 +58,6 @@ function collectEvaluationResult(reversedData) {
     return result
 }
 
+function getConsequenceKey(consequentString) {
+    return consequentString.split(" | ")[0]
+}

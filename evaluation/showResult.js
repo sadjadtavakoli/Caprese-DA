@@ -105,8 +105,18 @@ function unitsContributionSummary(result) {
     let avgDA = avgUniqueDA + avgCommon
     let avgFP = avgUniqueFP + avgCommon
 
-    let avgDATruePositives = DATotalTruePositives / length
-    let avgFPTruPositives = FPTotalTruePositives / length
+    avgUniqueDA = avgUniqueDA.toFixed(2)
+    avgUniqueFP = avgUniqueFP.toFixed(2)
+    avgCommon = avgCommon.toFixed(2)
+
+    let avgDATruePositives = (DATotalTruePositives / length).toFixed(2)
+    let avgFPTruPositives = (FPTotalTruePositives / length).toFixed(2)
+
+    let avgDACommitRatio = (DASumOfTruePositivesRatio / HadDA).toFixed(2) * 100
+    let avgFPCommitRatio = (FPSumOfTruePositivesRatio / HadFP).toFixed(2) * 100
+
+    let avgDA2CommitRatio = (avgDATruePositives / avgDA).toFixed(2) * 100
+    let avgFP2CommitRatio = (avgFPTruPositives / avgFP).toFixed(2) * 100
 
 
     return {
@@ -116,8 +126,8 @@ function unitsContributionSummary(result) {
             "avg common": avgCommon
         },
         "True Positives": {
-            "DA": JSON.stringify({ "avg": avgDATruePositives, "avg commit %": DASumOfTruePositivesRatio / HadDA, "total %": avgDATruePositives / avgDA }),
-            "FP": JSON.stringify({ "avg": avgFPTruPositives, "avg commit %": FPSumOfTruePositivesRatio / HadFP, "total %": avgFPTruPositives / avgFP })
+            "DA": JSON.stringify({ "avg": avgDATruePositives, "avg commit %": avgDACommitRatio, "total %": avgDA2CommitRatio }),
+            "FP": JSON.stringify({ "avg": avgFPTruPositives, "avg commit %": avgFPCommitRatio, "total %": avgFP2CommitRatio })
         }
     };
 }
@@ -186,16 +196,16 @@ function approachSummary(result, approach) {
     let length = Object.keys(result).length
 
     let impactSetSizeData = {
-        "avg": totalImpactSetSize / length,
+        "avg": (totalImpactSetSize / length).toFixed(2),
         "min": minSize,
         "max": maxSize
     }
     let truePositivesData = {
-        "Average Precision": sumOfAveragePrecisions / length,
-        "Average True Positives": totalTruePositives / length,
-        "Average Unique Results": uniquesCount / length,
-        "Average FP Support": support / fpCount,
-        "Average FP Confidence": confidence / fpCount
+        "Average True Positives": (totalTruePositives / length).toFixed(2),
+        "Average Precision": (sumOfAveragePrecisions / length).toFixed(2),
+        "Average Unique Results": (uniquesCount / length).toFixed(2),
+        "Average FP Support": (support / fpCount).toFixed(2),
+        "Average FP Confidence": (confidence / fpCount).toFixed(2)
     }
 
     return [impactSetSizeData, truePositivesData]
@@ -223,7 +233,7 @@ function averageCommitSize(result) {
         max = Math.max(max, functionsCount)
     }
     let length = Object.keys(result).length
-    return { "avg": counter / length, "min": min, "max": max }
+    return { "avg": (counter / length).toFixed(2), "min": min, "max": max }
 }
 
 module.exports = { averageCommitSize }
