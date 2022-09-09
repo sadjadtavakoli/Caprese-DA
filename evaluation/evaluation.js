@@ -12,7 +12,6 @@ const TARMAQ_PATH = path.dirname(path.dirname(__dirname)) + path.sep + "TARMAQ";
 const TARMAQ_COMMAND = "cd " + TARMAQ_PATH + " ; mvn exec:java -Dexec.mainClass='TARMAQ.MainTARMAQ' -Dexec.args=";
 
 const RESULT_PATH = `${RESULT_DIR_PATH}${path.sep}results.json`
-const UNITS_CONTRIBUTION_PATH = `${RESULT_DIR_PATH}${path.sep}units_contribution.json`
 const TARMAQ_RESULT_PATH = `${RESULT_DIR_PATH}${path.sep}tarmaq.json`
 
 const STATUS = {
@@ -31,11 +30,6 @@ if (process.argv[1].endsWith(path.basename(__filename))) {
             recursive: true
         });
     }
-
-    if (fs.existsSync(UNITS_CONTRIBUTION_PATH)) {
-        fs.unlinkSync(UNITS_CONTRIBUTION_PATH)
-    }
-    fs.writeFileSync(UNITS_CONTRIBUTION_PATH, "{}")
 
     evaluationGetMainData(constants.SEED_COMMIT)
         .then(testSetGenerator)
