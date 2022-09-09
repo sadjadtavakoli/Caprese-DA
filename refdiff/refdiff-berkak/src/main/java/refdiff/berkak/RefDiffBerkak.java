@@ -26,14 +26,13 @@ public class RefDiffBerkak {
 	private static RefDiff refDiffJs;
 	private static String dataPath;
 	private static String removedPath;
-	private static Integer depth;
 
 	public static void main(String[] args) throws Exception {
 		String repoLink = args[0];
 		String commitSha = args[1];
 		dataPath = args[2];
 		removedPath = args[3];
-		depth = Integer.parseInt(args[4]);
+		Integer depth = Integer.parseInt(args[4]);
 		String mappingsPath = args[5];
 		List<String> filesToExclude;
 		try {
