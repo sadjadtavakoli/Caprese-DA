@@ -1,7 +1,7 @@
 const fs = require("fs")
 const path = require("path")
 const resultDirPath = `evaluation${path.sep}result${path.sep}`
-const { STATUS } = require('./evaluation')
+const { STATUS } = require('../evaluation')
 
 let projectName = ""
 let fileName = ""

@@ -1,8 +1,8 @@
 const fs = require("fs")
 const path = require("path")
 const resultDirPath = `evaluation${path.sep}result${path.sep}`
-const { STATUS } = require("./evaluation.js")
-const { unitsContributionToLatex, approachesComparisonToLatex } = require("./utils/jsonToLatexRow")
+const { STATUS } = require("../evaluation.js")
+const { unitsContributionToLatex, approachesComparisonToLatex } = require("./jsonToLatexRow")
 const capreseName = "berke"
 const tarmaqName = "tarmaq"
 

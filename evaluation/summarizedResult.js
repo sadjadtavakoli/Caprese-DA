@@ -2,7 +2,7 @@ const fs = require("fs")
 const path = require("path")
 const resultDirPath = `evaluation${path.sep}result${path.sep}`
 const { STATUS } = require("./evaluation.js")
-const { averageCommitSize } = require("./showResult")
+const { averageCommitSize } = require("./utils/showResult")
 
 if (process.argv[2]) {
     console.log(summarizeResult(process.argv[2]))
