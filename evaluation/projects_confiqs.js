@@ -604,9 +604,9 @@ const confiqs = {
         "commit": "2977",
         "main_branch": "master",
         "test": "tests",
-        "seed_commit": "",
+        "seed_commit": "8aa023a5ecbd51017315bab794f7aa0f50e31191",
         "comment": "success",
-        "excluded_dirs": [],
+        "excluded_dirs": ["fixtures"],
         "fp_excluded_dirs": []
     },
     "git@github.com:/socketio/engine.io.git": {
