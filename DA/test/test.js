@@ -81,8 +81,8 @@ function execute(command, done) {
 }
 
 function compairDependencies(fileName) {
-  let expectedOutput = JSON.parse(fs.readFileSync(path.join(__dirname, 'expectedOutputs' + path.sep + 'dependencies' + path.sep + fileName + ".json"), { encoding: 'utf8' }))
-  let analyzerOutput = JSON.parse(fs.readFileSync(path.join(__dirname, 'analyzerOutputs' + path.sep + 'dependencies' + path.sep + fileName + ".json"), { encoding: 'utf8' }))
+  let expectedOutput = JSON.parse(fs.readFileSync(path.join(__dirname, 'expectedOutputs' + path.sep + fileName + ".json"), { encoding: 'utf8' }))
+  let analyzerOutput = JSON.parse(fs.readFileSync(path.join(__dirname, 'analyzerOutputs' + path.sep + fileName + ".json"), { encoding: 'utf8' }))
   assert.deepEqual(expectedOutput, analyzerOutput)
 }
 

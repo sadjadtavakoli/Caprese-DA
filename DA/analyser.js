@@ -10,7 +10,6 @@ let functionsFuncInput = new Map();
 let accessedFiles = new Map();
 let addedListeners = new Map();
 let functionIDs = new Map();
-let functionNCallerStack = [];
 let functionsDependency = {}
 let tempIDsMap = {};
 
@@ -122,8 +121,7 @@ let tempIDsMap = {};
                     let caller;
                     if (argCheck == undefined) {
                         caller = functionEnterStack[functionEnterStack.length - 1]
-                        functionNCallerStack.push([fID, caller])  // Keeps each functions caller to add dependenbcy it _return function, in case the callee returns value
-                        data.isRegularCall = true // using thie variable, _return function only checks regular calls
+                        addDependency(fID, caller.fID) // adds the caller function to the callee's impact-list 
                         if (args.length) { // adds a function to its caller impact-list if its signature accepts arguments 
                             addDependency(caller.fID, fID)
                         }
@@ -133,36 +131,13 @@ let tempIDsMap = {};
             }
         };
 
-        /**
-         * This callback is called before a value is returned from a function using the <tt>return</tt> keyword.
-         *
-         * This does NOT mean the function is being exited. Functions can return 0, 1, or more times.
-         * For example:
-         * - <tt>void</tt> functions return 0 times
-         * - functions that use the <tt>return</tt> keyword regularly return 1 time
-         * - functions that return in both parts of a try/finally block can return 2 times
-         *
-         * To see when a function ACTUALLY exits, see the <tt>functionExit</tt> callback.
-         */
-        this._return = function () {
-            if (functionEnterStack[functionEnterStack.length - 1].isRegularCall) {
-                let fCaller = functionNCallerStack[functionNCallerStack.length - 1]
-                let fID = fCaller[0]
-                let caller = fCaller[1]
-                addDependency(fID, caller.fID)
-            }
-        };
-
 
         /**
          * These callbacks are called after the execution of a function body.
          **/
         this.functionExit = function (iid, returnVal, wrappedExceptionVal) {
             if (!(isImporting(iid) || isMainFile(iid))) {
-                let call = functionEnterStack.pop()
-                if (call.isRegularCall) {
-                    functionNCallerStack.pop()
-                }
+                functionEnterStack.pop()
             }
             return { returnVal: returnVal, wrappedExceptionVal: wrappedExceptionVal, isBacktrack: false };
         };
@@ -177,7 +152,7 @@ let tempIDsMap = {};
             if (!process.argv[2]) {
                 depdendenciesPath = DA_DEPENDENCIES_PATH
             } else {
-                let depDir = path.join(__dirname, 'test' + path.sep + 'analyzerOutputs' + path.sep + 'dependencies')
+                let depDir = path.join(__dirname, 'test' + path.sep + 'analyzerOutputs')
                 if (!fs.existsSync(depDir)) {
                     fs.mkdirSync(depDir);
                 }
