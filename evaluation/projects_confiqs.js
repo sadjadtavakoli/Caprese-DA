@@ -340,7 +340,7 @@ const confiqs = {
         "install": "npm install",
         "commits": "3379",
         "main_branch": "v3.x",
-        "seed_commit": "",
+        "seed_commit": "16e4b5bb1dbad1772572d9247694259f2419510e",
         "comment": "success",
         "excluded_dirs": [],
         "fp_excluded_dirs": []

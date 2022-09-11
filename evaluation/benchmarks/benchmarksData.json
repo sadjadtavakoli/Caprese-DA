@@ -136,7 +136,7 @@
         "commits": "3379",
         "main_branch": "v3.x",
         "comment": "success",
-        "seed_commit": "",
+        "seed_commit": "16e4b5bb1dbad1772572d9247694259f2419510e",
         "excluded_dirs": [],
         "fp_excluded_dirs": []
     },
