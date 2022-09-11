@@ -5,7 +5,7 @@ const { exec } = require('child_process');
 const { evaluationGetMainData, evaluationAnalyzer } = require('../berke');
 const { anonymouseName } = require('../computeBerkeResult');
 
-const NUMBER_OF_COMMITS_PER_PROJECT = 10;
+const NUMBER_OF_COMMITS_PER_PROJECT = 5;
 const RESULT_DIR_PATH = `${__dirname}${path.sep}result${path.sep}${constants.PROJECT_NAME}`;
 
 const TARMAQ_PATH = path.dirname(path.dirname(__dirname)) + path.sep + "TARMAQ";
