@@ -85,11 +85,13 @@ public class RefDiffBerkak {
 				iterationPointer = mineMainBranch(iterationPointer, branchMappingPath, 1);
 				while (iterationPointer.getParentCount() !=0 && !alreadyMet.contains(iterationPointer.getName()) && !iterationPointer.getName().equals(end)) {
 					counter--;
-					System.out.println(counter);
 					alreadyMet.add(iterationPointer.getName());
 					iterationPointer = mineSideBranches(iterationPointer, branchMappingPath);
+					// if(!iterationPointer.getName().equals(end) && alreadyMet.contains(iterationPointer.getName())){
+					// 	System.out.println(iterationPointer.getName());
+					// }
 				}
-				Files.deleteIfExists(Path.of(branchMappingPath));
+				// Files.deleteIfExists(Path.of(branchMappingPath));
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -100,7 +102,7 @@ public class RefDiffBerkak {
 
 		RevCommit commitPr = refDiffJs.getCommit(repo, commit.getParent(parentIndex));
 		PairBeforeAfter<SourceFileSet> beforeAndAfter = refDiffJs.getResources(repo, commitPr, commit);
-		CstDiff diffForCommit = refDiffJs.computeDiffForCommit(beforeAndAfter, mappingsPath, commit.getName()+" " + parentIndex);
+		CstDiff diffForCommit = refDiffJs.computeDiffForCommit(beforeAndAfter, mappingsPath, commit.getName(), commitPr.getName());
 
 		addToRemoved(diffForCommit.getRemovedEntitiesKeys());
 		if(parentIndex==0 && commit.getParentCount() != 2){
@@ -113,7 +115,7 @@ public class RefDiffBerkak {
 
 		RevCommit commitPr = refDiffJs.getCommit(repo, commit.getParent(0));
 		PairBeforeAfter<SourceFileSet> beforeAndAfter = refDiffJs.getResources(repo, commitPr, commit);
-		CstDiff diffForCommit = refDiffJs.computeDiffForCommit(beforeAndAfter, mappingsPath, commit.getName());
+		CstDiff diffForCommit = refDiffJs.computeDiffForCommit(beforeAndAfter, mappingsPath, commit.getName(), commitPr.getName());
 
 		addToRemoved(diffForCommit.getRemovedEntitiesKeys());
 		addToSequenceSet(dataPath, diffForCommit, beforeAndAfter, commit.getName());
@@ -187,11 +189,15 @@ public class RefDiffBerkak {
 		List<List<String>> result = new ArrayList<>();
 
 		for (RevCommit orgCommit : commitsWithTwoParents) {
+			// System.out.println("* * * * ");
+			// System.out.println(orgCommit);
 			RevCommit pointerCommit = refDiffJs.getCommit(repo, orgCommit.getParent(1));
+			// System.out.println(pointerCommit);
 			while (pointerCommit.getParentCount() > 0) {
 				RevCommit pointerParentCommit = refDiffJs.getCommit(repo, pointerCommit.getParent(0));
 				if (mainBranchCommits.contains(pointerParentCommit)) {
 					result.add(Arrays.asList(orgCommit.getName(), pointerParentCommit.getName()));
+					// System.out.println(pointerParentCommit);
 					break;
 				}
 				pointerCommit = pointerParentCommit;

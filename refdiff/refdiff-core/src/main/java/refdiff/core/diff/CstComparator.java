@@ -41,11 +41,11 @@ public class CstComparator {
 	}
 
 	public CstDiff compare(SourceFileSet sourcesBefore, SourceFileSet sourcesAfter, CstComparatorMonitor monitor,
-			String mappingsPath, String commit) {
+			String mappingsPath, String commit, String parentCommit) {
 		try {
 			DiffBuilder<?> diffBuilder = new DiffBuilder<>(new TfIdfSourceRepresentationBuilder(), sourcesBefore,
 					sourcesAfter, monitor, mappingsPath);
-			return diffBuilder.computeDiff(commit);
+			return diffBuilder.computeDiff(commit, parentCommit);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
@@ -110,11 +110,11 @@ public class CstComparator {
 			return diff;
 		}
 
-		CstDiff computeDiff(String commit) throws IOException {
+		CstDiff computeDiff(String commit, String parentCommit) throws IOException {
 			match();
 			getMappings();
 			findAddedEntities();
-			findRemovedEntities();
+			findRemovedEntities(parentCommit);
 			findChangedEntities(commit);
 			writeMappings();
 			addDetections();
@@ -347,6 +347,67 @@ public class CstComparator {
 			}
 		}
 
+		private void findChangedEntities(String commit) throws IOException {
+			List<CstNode> beforekeys = new ArrayList<>(mapBeforeToAfter.keySet());
+			Collections.sort(beforekeys, new CstNodeTypeComprator());
+
+			Map<String, String> keyMappings = new HashMap<>();
+			JsonObject currentMappign = new JsonObject();
+			JsonObject mappingHisotry = getMappingsHistory();
+
+			for (int i = 0; i < beforekeys.size(); i++) {
+				CstNode n1 = beforekeys.get(i);
+				CstNode n2 = mapBeforeToAfter.get(n1);
+				String n1Key = n1.toString();
+				String n2Key = n2.toString();
+				currentMappign.addProperty(n1Key, n2Key);
+
+				if (this.mappings.has(n2Key)) {
+					String oldKey = n2Key;
+					n2Key = this.mappings.get(n2Key).getAsString();
+					this.mappings.remove(oldKey);
+				}else{
+					n2Key = getStoreKey(n2Key, commit);
+				}
+				keyMappings.put(n1Key, n2Key);
+
+				if(!areTheSame(n1,n2)) {
+					this.changedEntitiesKeys.add(n2Key);
+				}
+				after.removeFromParents(n2);
+				before.removeFromParents(n1);
+			}
+
+			if (!currentMappign.entrySet().isEmpty()) {
+				mappingHisotry.add(commit, currentMappign);
+				writeMappingHistory(mappingHisotry);
+			}
+
+			for (Map.Entry<String, String> entry : keyMappings.entrySet()) {
+				this.mappings.addProperty(entry.getKey(), entry.getValue());
+			}
+		}
+
+		private void findAddedEntities() throws IOException {
+			for (CstNode entry : this.added) {
+				String entryKey = entry.toString();
+				if (!this.mappings.has(entryKey)) {
+					this.addedEntitiesKeys.add(entryKey);
+				} else {
+					this.addedEntitiesKeys.add(this.mappings.get(entryKey).getAsString());
+				}
+				after.removeFromParents(entry);
+			}
+		}
+
+		private void findRemovedEntities(String parentCommit) throws IOException {
+			for (CstNode entry : this.changed) {
+				String entryKey = entry.toString();
+				this.removedEntitiesKeys.add(getStoreKey(entryKey, parentCommit));
+				before.removeFromParents(entry);
+			}
+		}
+
 		private void findChangedEntitiesNoMapping() {
 			List<CstNode> employeeByKey = new ArrayList<>(mapBeforeToAfter.keySet());
 			Collections.sort(employeeByKey, new CstNodeTypeComprator());
@@ -363,70 +424,6 @@ public class CstComparator {
 			}
 		}
 
-		private void findChangedEntities(String commit) throws IOException {
-			List<CstNode> beforekeys = new ArrayList<>(mapBeforeToAfter.keySet());
-			Collections.sort(beforekeys, new CstNodeTypeComprator());
-
-			Map<String, String> keyMappings = new HashMap<>();
-			// JsonObject currentMappign = new JsonObject();
-			// JsonObject mappingHisotry = getMappingsHistory();
-
-			for (int i = 0; i < beforekeys.size(); i++) {
-				CstNode n1 = beforekeys.get(i);
-				CstNode n2 = mapBeforeToAfter.get(n1);
-				String n1Key = n1.toString();
-				String n2Key = n2.toString();
-				// currentMappign.addProperty(n1Key, n2Key);
-
-				if (this.mappings.has(n2Key)) {
-					String oldKey = n2Key;
-					n2Key = this.mappings.get(n2Key).getAsString();
-					this.mappings.remove(oldKey);
-				}
-				keyMappings.put(n1Key, n2Key);
-
-				if(!areTheSame(n1,n2)) {
-					this.changedEntitiesKeys.add(n2Key);
-				}
-				after.removeFromParents(n2);
-				before.removeFromParents(n1);
-			}
-
-			// if (!currentMappign.entrySet().isEmpty()) {
-			// 	mappingHisotry.add(commit, currentMappign);
-			// 	writeMappingHistory(mappingHisotry);
-			// }
-
-			for (Map.Entry<String, String> entry : keyMappings.entrySet()) {
-				this.mappings.addProperty(entry.getKey(), entry.getValue());
-			}
-		}
-
-		private JsonObject getMappingsHistory() throws IOException {
-			JsonParser jsonParser = new JsonParser();
-			String filePath = "mappingHistory.json";
-			File tempFile = new File(filePath);
-			JsonObject mappingHisotry = new JsonObject();
-			if (!tempFile.createNewFile()) {
-				try (FileReader reader = new FileReader(filePath)) {
-					mappingHisotry = jsonParser.parse(reader).getAsJsonObject();// Should check the content of this file
-					return mappingHisotry; // before parsing to prevent excepction
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-			return mappingHisotry;
-		}
-
-		private void writeMappingHistory(JsonObject mappingHistory) throws IOException {
-			try (FileWriter myWriter = new FileWriter("mappingHistory.json")) {
-				myWriter.write(mappingHistory.toString());
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
-		}
-
 		private void findAddedEntitiesNoMapping() {
 			List<CstNode> addedList = new ArrayList<>(this.added);
 			Collections.sort(addedList, new CstNodeTypeComprator());
@@ -437,30 +434,10 @@ public class CstComparator {
 			}
 		}
 		
-		private void findAddedEntities() throws IOException {
-			for (CstNode entry : this.added) {
-				String entryKey = entry.toString();
-				if (!this.mappings.has(entryKey)) {
-					this.addedEntitiesKeys.add(entryKey);
-				} else {
-					this.addedEntitiesKeys.add(this.mappings.get(entryKey).getAsString());
-				}
-				after.removeFromParents(entry);
-			}
-		}
-
 		private void findRemovedEntitiesNoMapping() {
 			List<CstNode> changedList = new ArrayList<>(this.changed);
 			Collections.sort(changedList, new CstNodeTypeComprator());
 			for (CstNode entry : changedList) {
-				String entryKey = entry.toString();
-				this.removedEntitiesKeys.add(entryKey);
-				before.removeFromParents(entry);
-			}
-		}
-
-		private void findRemovedEntities() throws IOException {
-			for (CstNode entry : this.changed) {
 				String entryKey = entry.toString();
 				this.removedEntitiesKeys.add(entryKey);
 				before.removeFromParents(entry);
@@ -489,6 +466,34 @@ public class CstComparator {
 			}
 		}
 
+		private String getStoreKey(String functionKey, String commit){
+			return functionKey + ":" + commit.substring(0, 7);
+		}
+
+		private JsonObject getMappingsHistory() throws IOException {
+			JsonParser jsonParser = new JsonParser();
+			String filePath = "mappingHistory.json";
+			File tempFile = new File(filePath);
+			JsonObject mappingHisotry = new JsonObject();
+			if (!tempFile.createNewFile()) {
+				try (FileReader reader = new FileReader(filePath)) {
+					mappingHisotry = jsonParser.parse(reader).getAsJsonObject();
+					return mappingHisotry;
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			return mappingHisotry;
+		}
+
+		private void writeMappingHistory(JsonObject mappingHistory) throws IOException {
+			try (FileWriter myWriter = new FileWriter("mappingHistory.json")) {
+				myWriter.write(mappingHistory.toString());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		}
 
 		public Optional<CstNode> matchingNodeBefore(CstNode n2) {
 			return Optional.ofNullable(mapAfterToBefore.get(n2));
