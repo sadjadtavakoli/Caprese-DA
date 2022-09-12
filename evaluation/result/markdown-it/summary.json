@@ -45,3 +45,38 @@
       average_confidence: 0.9676470588235291
     }
   }
+//  FINAL DATA
+  {
+    average_commmit_size: 3.7,
+    'units contribution summary': {
+      'impact-set size': {
+        DA: '{"min":0,"max":4,"avg":1.7999999999999998,"unique":1.4}',
+        FP: '{"min":0,"max":88,"avg":21.4,"unique":21}',
+        'avg common': 0.4
+      },
+      'True Positives': {
+        DA: '{"avg":0.4,"avg commit %":0.1130952380952381,"total %":0.22222222222222227}',
+        FP: '{"avg":7.2,"avg commit %":0.5217948717948718,"total %":0.33644859813084116}'
+      }
+    },
+    berke: {
+      min: 0,
+      max: 95,
+      avg: 22.8,
+      'Average Precision': 0.3522554918700415,
+      'Average True Positives': 7.6,
+      'Average Unique Results': 11,
+      'Average FP Support': 2.2196261682242993,
+      'Average FP Confidence': 0.8193260949239507
+    },
+    tarmaq: {
+      min: 0,
+      max: 94,
+      avg: 17,
+      'Average Precision': 0.22367884884171702,
+      'Average True Positives': 1.4,
+      'Average Unique Results': 0,
+      'Average FP Support': 1.3470588235294119,
+      'Average FP Confidence': 0.9676470588235291
+    }
+  }
