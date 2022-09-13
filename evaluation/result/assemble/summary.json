@@ -113,3 +113,35 @@
     average_confidence: 0.9592469545957918
   }
 }
+{
+  'changeSet Size': { avg: '5.80', min: 2, max: 12 },
+  berke_units_contribution: { average: { FP: 8.2, DA: 5.8, Common: 0.4 } },
+  berke: {
+    avarage_impactSet_size: 14.4,
+    average_unique_result: 6.8,
+    average_fp_support: 1.1162790697674418,
+    average_fp_confidence: 0.686046511627907
+  },
+  tarmaq: {
+    avarage_impactSet_size: 15.4,
+    average_unique_result: 0,
+    average_fp_support: 1.0129870129870129,
+    average_fp_confidence: 0.9675324675324676
+  }
+}
+{
+  'changeSet Size': { avg: '4.40', min: 2, max: 10 },
+  berke_units_contribution: { average: { FP: 13.6, DA: 2.2, Common: 0 } },
+  berke: {
+    avarage_impactSet_size: 15.8,
+    average_unique_result: 3.4,
+    average_fp_support: 1.75,
+    average_fp_confidence: 0.6936274509803918
+  },
+  tarmaq: {
+    avarage_impactSet_size: 13,
+    average_unique_result: 0,
+    average_fp_support: 1.8,
+    average_fp_confidence: 0.7333333333333328
+  }
+}
