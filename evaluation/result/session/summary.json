@@ -1,0 +1,183 @@
+{
+  berke_units_contribution: {
+    average: { FP: 47.8, DA: 10.7, Common: 5.4 },
+    precentage: {
+      FP: 77.44631984997312,
+      DA: 19.22634449514767,
+      Common: 3.327335654879197
+    }
+  },
+  average_commmit_size: 12.4,
+  berke: {
+    avarage_impactSet_size: 63.9,
+    average_unique_result: 35.3,
+    average_support: 1.1729323308270676,
+    average_confidence: 0.7809681671711747
+  },
+  tarmaq: {
+    avarage_impactSet_size: 43.3,
+    average_unique_result: 0,
+    average_support: 1.043879907621247,
+    average_confidence: 0.8099820374647164
+  }
+}
+{
+  'changeSet Size': { avg: '18.80', min: 3, max: 73 },
+  berke_units_contribution: { average: { FP: 73.2, DA: 4.8, Common: 4.4 } },
+  berke: {
+    avarage_impactSet_size: 82.4,
+    average_unique_result: 51.4,
+    average_fp_support: 1.0077319587628866,
+    average_fp_confidence: 0.754725085910653
+  },
+  tarmaq: {
+    avarage_impactSet_size: 44,
+    average_unique_result: 0,
+    average_fp_support: 1.009090909090909,
+    average_fp_confidence: 0.9969696969696971
+  }
+}
+{
+  'changeSet Size': { avg: '9.60', min: 3, max: 15 },
+  berke_units_contribution: { average: { FP: 37.4, DA: 18, Common: 4.8 } },
+  berke: {
+    avarage_impactSet_size: 60.2,
+    average_unique_result: 48.8,
+    average_fp_support: 1.1232227488151658,
+    average_fp_confidence: 0.9045023696682463
+  },
+  tarmaq: {
+    avarage_impactSet_size: 21.6,
+    average_unique_result: 0,
+    average_fp_support: 1.037037037037037,
+    average_fp_confidence: 0.8888888888888888
+  }
+}
+{
+  'changeSet Size': { avg: '4.20', min: 2, max: 9 },
+  berke_units_contribution: { average: { FP: 31.2, DA: 4.4, Common: 1.6 } },
+  berke: {
+    avarage_impactSet_size: 37.2,
+    average_unique_result: 29.6,
+    average_fp_support: 1.103658536585366,
+    average_fp_confidence: 0.7078106852497097
+  },
+  tarmaq: {
+    avarage_impactSet_size: 14.8,
+    average_unique_result: 0,
+    average_fp_support: 1.2297297297297298,
+    average_fp_confidence: 0.9387065637065638
+  }
+}
+{
+  'changeSet Size': { avg: '8.20', min: 2, max: 14 },
+  berke_units_contribution: { average: { FP: 25.6, DA: 7.4, Common: 0.6 } },
+  berke: {
+    avarage_impactSet_size: 33.6,
+    average_unique_result: 18.6,
+    average_fp_support: 1.1526717557251909,
+    average_fp_confidence: 0.634351145038168
+  },
+  tarmaq: {
+    avarage_impactSet_size: 19.4,
+    average_unique_result: 0,
+    average_fp_support: 1.1237113402061856,
+    average_fp_confidence: 0.7010309278350515
+  }
+}
+{
+  'changeSet Size': { avg: '7.80', min: 3, max: 15 },
+  berke_units_contribution: { average: { FP: 44.8, DA: 14.8, Common: 2.2 } },
+  berke: {
+    avarage_impactSet_size: 61.8,
+    average_unique_result: 30.2,
+    average_fp_support: 1.0638297872340425,
+    average_fp_confidence: 0.9039716312056736
+  },
+  tarmaq: {
+    avarage_impactSet_size: 41.2,
+    average_unique_result: 0,
+    average_fp_support: 1.0436893203883495,
+    average_fp_confidence: 0.9049352750809061
+  }
+}
+{
+  'changeSet Size': { avg: '10.00', min: 5, max: 14 },
+  berke_units_contribution: { average: { FP: 69, DA: 8.4, Common: 3.2 } },
+  berke: {
+    avarage_impactSet_size: 80.6,
+    average_unique_result: 67.6,
+    average_fp_support: 1.074792243767313,
+    average_fp_confidence: 0.8167925795349619
+  },
+  tarmaq: {
+    avarage_impactSet_size: 23.8,
+    average_unique_result: 0,
+    average_fp_support: 1.1512605042016806,
+    average_fp_confidence: 0.7478991596638656
+  }
+}
+{
+  'changeSet Size': { avg: '6.60', min: 3, max: 13 },
+  berke_units_contribution: { average: { FP: 21.2, DA: 5, Common: 1 } },
+  berke: {
+    avarage_impactSet_size: 27.2,
+    average_unique_result: 21.6,
+    average_fp_support: 1.2792792792792793,
+    average_fp_confidence: 0.7997747747747749
+  },
+  tarmaq: {
+    avarage_impactSet_size: 16.8,
+    average_unique_result: 0,
+    average_fp_support: 1.1904761904761905,
+    average_fp_confidence: 0.9821428571428571
+  }
+}
+{
+  'changeSet Size': { avg: '7.20', min: 2, max: 13 },
+  berke_units_contribution: { average: { FP: 53.8, DA: 5, Common: 3.2 } },
+  berke: {
+    avarage_impactSet_size: 62,
+    average_unique_result: 46.8,
+    average_fp_support: 1.1087719298245613,
+    average_fp_confidence: 0.625438596491228
+  },
+  tarmaq: {
+    avarage_impactSet_size: 15.4,
+    average_unique_result: 0,
+    average_fp_support: 1.3506493506493507,
+    average_fp_confidence: 0.9595010252904989
+  }
+}
+{
+  'changeSet Size': { avg: '12.00', min: 2, max: 38 },
+  berke_units_contribution: { average: { FP: 56.6, DA: 5.4, Common: 3 } },
+  berke: {
+    avarage_impactSet_size: 65,
+    average_unique_result: 43.8,
+    average_fp_support: 1.0201342281879195,
+    average_fp_confidence: 0.8109619686800894
+  },
+  tarmaq: {
+    avarage_impactSet_size: 33.8,
+    average_unique_result: 0,
+    average_fp_support: 1.0355029585798816,
+    average_fp_confidence: 0.8875739644970414
+  }
+}
+{
+  'changeSet Size': { avg: '8.40', min: 2, max: 22 },
+  berke_units_contribution: { average: { FP: 54.2, DA: 18.4, Common: 4 } },
+  berke: {
+    avarage_impactSet_size: 76.6,
+    average_unique_result: 54.2,
+    average_fp_support: 1.2061855670103092,
+    average_fp_confidence: 0.7890893470790377
+  },
+  tarmaq: {
+    avarage_impactSet_size: 31.4,
+    average_unique_result: 0,
+    average_fp_support: 1.0509554140127388,
+    average_fp_confidence: 0.987261146496815
+  }
+}
