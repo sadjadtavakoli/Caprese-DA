@@ -1,17 +1,22 @@
 const fs = require('fs');
 const path = require("path");
 const DATA_PATH = `data${path.sep}ProjectsData${path.sep}`
+const { benchmarksInfoLatexRow, getFullTable } = require("./jsonToLatexRow")
 
 if (process.argv[2]) {
-    console.log(getProjectsInfo(process.argv[2]))
+    console.log(getProjectsInfo(process.argv[2]).benchmarksInfo)
 } else {
     let finalResult = {}
-    fs.readdirSync(DATA_PATH).forEach(filename => {
+    let projects_list = ["ws", "cla-assistant", "grant", "markdown-it", "environment", "nodejs-cloudant", "assemble", "express", "session"]
+    let latexRows = {}
+    projects_list.forEach(filename => {
         if (fs.statSync(`${DATA_PATH}${filename}`).isDirectory()) {
-            finalResult[filename] = getProjectsInfo(filename)
+            let { benchmarksInfo, latexRow } = finalResult[filename] = getProjectsInfo(filename)
+            console.log(benchmarksInfo)
+            latexRows[filename] = latexRow
         }
     });
-    console.log(finalResult)
+    console.log(getFullTable(latexRows))
 }
 
 function getProjectsInfo(filename) {
@@ -20,16 +25,19 @@ function getProjectsInfo(filename) {
     let functionsInCommit = averageFunctionsInCommit(changeSequences)
     let numberOfUniqueFunctions = uniqueFunctionsCount(changeSequences)
     let { languagesInfo, totalLines } = readBenchmarkLanguagesData(filename);
-    let languages = writtenLanguages(languagesInfo, totalLines)
-
-    return {
-        "totalCommits": changeSequences.length + eliminated.length,
-        "change-sequences": changeSequences.length,
-        "number of unique functions": numberOfUniqueFunctions,
-        "average function in commit": functionsInCommit,
-        "languages": languages,
-        "LOC": totalLines
+    let { allLanguagesInfo, JsPercentage } = writtenLanguages(languagesInfo, totalLines)
+    let benchmarksInfo = {
+        "# Commits": changeSequences.length + eliminated.length,
+        "# Change-sequences": changeSequences.length,
+        "Unique #functions": numberOfUniqueFunctions,
+        "Avg # functions in commit": functionsInCommit,
+        "History (in yrs)": undefined,
+        "LOC": totalLines,
+        "languages": allLanguagesInfo,
+        "JavaScript Percentage": JsPercentage
     }
+    let latexRow = benchmarksInfoLatexRow(benchmarksInfo)
+    return { benchmarksInfo, latexRow }
 }
 
 function averageFunctionsInCommit(changeSequences) {
@@ -38,7 +46,7 @@ function averageFunctionsInCommit(changeSequences) {
     for (let commit of changeSequences) {
         totalFunctions += commit.split(" : ")[1].slice(0, -4).split(" ").length
     }
-    return totalFunctions / changeSequences.length
+    return (totalFunctions / changeSequences.length).toFixed(2)
 }
 
 function uniqueFunctionsCount(changeSequences) {
@@ -53,19 +61,22 @@ function uniqueFunctionsCount(changeSequences) {
 }
 
 function writtenLanguages(languages, totalLines) {
-    let languagesInfo = ""
+    let allLanguagesInfo = ""
     let rest = 0;
-
+    let JsPercentage = 0;
     for (let languageInfo of languages) {
         let language = languageInfo['language']
         let linesOfCode = languageInfo['linesOfCode']
         let ratio = (linesOfCode / totalLines) * 100
-        if (ratio > 5) languagesInfo += `${language} (%${Math.round(ratio)}), `
+        if (ratio > 5) allLanguagesInfo += `${language} (%${Math.round(ratio)}), `
         else rest += ratio
+        if (language == "JavaScript") {
+            JsPercentage = ratio.toFixed(2)
+        }
     }
 
-    languagesInfo += `Others (%${Math.round(rest)})`
-    return languagesInfo
+    allLanguagesInfo += `Others (%${Math.round(rest)})`
+    return { allLanguagesInfo, JsPercentage }
 }
 
 function readBenchmarkLanguagesData(filename) {

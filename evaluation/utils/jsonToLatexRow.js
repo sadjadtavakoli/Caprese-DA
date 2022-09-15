@@ -20,6 +20,9 @@ const approachesDataColumnOrdeing = {
     }
 }
 
+const benchmarksInfoOrdering = ["# Commits", "# Change-sequences", "Unique #functions", "Avg # functions in commit", "History (in yrs)", "LOC", "JavaScript Percentage"]
+const changeSetInfoOrdering = ["min", "max", "avg"]
+
 
 function unitsContributionToLatex(data) {
     return toLatex(data, unitsContributionColumnOrdeing)
@@ -29,6 +32,21 @@ function approachesComparisonToLatex(data) {
     return toLatex(data, approachesDataColumnOrdeing)
 }
 
+function benchmarksInfoLatexRow(data) {
+    return listToLatex(data, benchmarksInfoOrdering)
+}
+
+function changeSetLatexRow(data) {
+    return listToLatex(data, changeSetInfoOrdering)
+}
+
+function listToLatex(data, columnOrdering){
+    let result = ``
+    for (let item of columnOrdering) {
+        result += `${data[item]} & `
+    }
+    return result.slice(0, -3)
+}
 function toLatex(data, columnOrdering) {
     let result = ``
     for (let tableName in columnOrdering) {
@@ -56,4 +74,12 @@ function secondLevelSubTable(data, tableName, subtableName, columnOrdering) {
     return result.slice(0, -3)
 }
 
-module.exports = { unitsContributionToLatex, approachesComparisonToLatex }
+function getFullTable(projectsData) {
+    let finalTable = ""
+    for (let project in projectsData) {
+        finalTable += `${project} & ${projectsData[project]} \\\\ \n`
+    }
+    return finalTable
+}
+
+module.exports = { unitsContributionToLatex, approachesComparisonToLatex, getFullTable, benchmarksInfoLatexRow, changeSetLatexRow }
