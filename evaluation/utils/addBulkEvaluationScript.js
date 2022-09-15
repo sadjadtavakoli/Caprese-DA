@@ -22,7 +22,10 @@ function addEvaluationResult(evaluationResult) {
         for (let consequentInfo of reversedFP[antecedent]) {
             let consequent = getConsequenceKey(consequentInfo['consequent'])
             if (lines.includes(consequent)) {
-                consequentInfo['evaluation result'] = evaluationResult
+                if(consequentInfo['evaluation result']!="") consequentInfo['evaluation result']+=` | ${evaluationResult}`
+                else{
+                    consequentInfo['evaluation result'] = evaluationResult
+                }
             }
         }
     }

@@ -27,6 +27,10 @@ function addEvaluationResult(filename) {
             if (DAEvaluation[consequent] != undefined) {
                 consequentInfo['DA-evaluation'] = DAEvaluation[consequent]
             }
+
+            if(FPEvaluation[consequent] == undefined && DAEvaluation[consequent] == undefined){
+                consequentInfo['not-evaluated'] = ""
+            }
         }
 
         for (let consequentInfo of tarmaq) {

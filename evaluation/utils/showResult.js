@@ -7,15 +7,22 @@ const capreseName = "berke"
 const tarmaqName = "tarmaq"
 
 if (process.argv[2]) {
-    console.log(summarizeResult(process.argv[2]))
+    console.log(summarizeResult(process.argv[2]).summarizedResult)
 } else {
-    let finalResult = {}
-    fs.readdirSync(resultDirPath).forEach(filename => {
+    let projects_list = ["eslint-plugin-react","ws","cla-assistant","grant","markdown-it","environment","nodejs-cloudant","assemble","express","session"]
+
+    let unitsContributionLatexRows = {}
+    let approachesLatexRows = {}
+    projects_list.forEach(filename => {
         if (fs.statSync(`${resultDirPath}${filename}`).isDirectory()) {
-            finalResult[filename] = summarizeResult(filename)
+            let {summarizedResult, unitsContributionLatexRow, approachesLatexRow} = summarizeResult(filename)
+            console.log(summarizedResult)
+            unitsContributionLatexRows[filename] = unitsContributionLatexRow
+            approachesLatexRows[filename] = approachesLatexRow
         }
     });
-    console.log(finalResult)
+    console.log(getFullTable(unitsContributionLatexRows))
+    console.log(getFullTable(approachesLatexRows))
 }
 
 function summarizeResult(filename) {
@@ -24,10 +31,12 @@ function summarizeResult(filename) {
     summarizedResult['changeSet Size'] = averageCommitSize(result)
     summarizedResult['units contribution summary'] = unitsContributionSummary(result)
     summarizedResult['approaches data'] = approachesResultSummary(result)
-    summarizedResult['units contribution summary latex row'] = unitsContributionToLatex(summarizedResult['units contribution summary'])
-    summarizedResult['approaches data latex row'] = approachesComparisonToLatex(summarizedResult['approaches data'])
-
-    return summarizedResult
+    let unitsContributionLatexRow = unitsContributionToLatex(summarizedResult['units contribution summary'])
+    let approachesLatexRow = approachesComparisonToLatex(summarizedResult['approaches data'])
+    summarizedResult['units contribution summary latex row'] = unitsContributionLatexRow
+    summarizedResult['approaches data latex row'] = approachesLatexRow
+    
+    return {summarizedResult, unitsContributionLatexRow, approachesLatexRow}
 }
 
 function unitsContributionSummary(result) {
@@ -118,6 +127,8 @@ function unitsContributionSummary(result) {
     let avgDA2CommitRatio = (avgDATruePositives / avgDA).toFixed(2) * 100
     let avgFP2CommitRatio = (avgFPTruPositives / avgFP).toFixed(2) * 100
 
+    avgDA = avgDA.toFixed(2)
+    avgFP = avgFP.toFixed(2)
 
     return {
         "Impact-set size": {
@@ -234,6 +245,14 @@ function averageCommitSize(result) {
     }
     let length = Object.keys(result).length
     return { "avg": (counter / length).toFixed(2), "min": min, "max": max }
+}
+
+function getFullTable(projectsData){
+    let finalTable = ""
+    for(let project in projectsData){
+        finalTable+= `${project} & ${projectsData[project]} \\\\ \n`
+    }
+    return finalTable
 }
 
 module.exports = { averageCommitSize }

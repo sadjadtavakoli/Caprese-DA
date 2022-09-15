@@ -103,8 +103,8 @@
                     ]
                 ],
                 "status": "common",
-                "DA-evaluation": "true",
-                "FP-evaluation": "true"
+                "DA-evaluation": "false",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/misc.js-187-190 | {\"id\":7 - \"parents\":[8-9-10]}",
@@ -1537,7 +1537,7 @@
                 "confidence": 1,
                 "consequent": "StateBlock-lib/rules_block/state_block.js-9-106",
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[StateInline-lib/rules_inline/state_inline.js-12-42, parse-lib/parser_block.js-117-125, parse-lib/parser_inline.js-174-186] => exports-lib/helpers/parse_link_destination.js-9-80",
@@ -1616,7 +1616,7 @@
                 "confidence": 1,
                 "consequent": "StateBlock-lib/rules_block/state_block.js-9-106",
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[parse-lib/parser_block.js-117-125, parser_block.js-lib/parser_block.js-1-132, tokenize-lib/parser_inline.js-129-166] => clone-lib/rules_block/state_block.js-165-172",
@@ -2051,7 +2051,7 @@
                     "DA": [
                         "parse-lib/parser_block.js-117-125 | {\"id\":75 - \"parents\":[32]}"
                     ],
-                    "evaluation result": "true"
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "image.js-lib/rules_inline/image.js-1-153 | {\"id\":20 - \"parents\":[]}",

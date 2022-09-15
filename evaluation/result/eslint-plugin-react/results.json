@@ -1087,7 +1087,6 @@
             "arrowAnonymousFunction-lib/rules/forbid-foreign-prop-types.js-124-124",
             "arrowAnonymousFunction-lib/rules/jsx-filename-extension.js-70-70",
             "arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-53-53",
-            "arrowAnonymousFunction-lib/rules/no-unknown-property.js-379-386",
             "arrowAnonymousFunction-lib/rules/sort-comp.js-386-405",
             "arrowAnonymousFunction-lib/rules/style-prop-object.js-94-94",
             "arrowAnonymousFunction-lib/util/components.js-144-163",
@@ -1184,18 +1183,6 @@
                 "FP-evaluation": "true parent"
             },
             {
-                "consequent": "no-unknown-property.js-tests/lib/rules/no-unknown-property.js-1-554 | {\"id\":43 - \"parents\":[44]}",
-                "FP-score": 1,
-                "support": 1,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-lib/rules/no-unknown-property.js-379-386 | {\"id\":51 - \"parents\":[50]}"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": ""
-            },
-            {
                 "consequent": "handleJSX-lib/rules/jsx-filename-extension.js-72-76",
                 "FP-score": 1,
                 "support": 1,
@@ -1232,18 +1219,6 @@
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "no-unknown-property.js-lib/rules/no-unknown-property.js-1-600 | {\"id\":44 - \"parents\":[]}",
-                "FP-score": 1,
-                "support": 1,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-lib/rules/no-unknown-property.js-379-386 | {\"id\":51 - \"parents\":[50]}"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": ""
-            },
-            {
                 "consequent": "docs/rules/forbid-foreign-prop-types.md",
                 "FP-score": 1,
                 "support": 1,
@@ -1266,18 +1241,6 @@
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
-            },
-            {
-                "consequent": "isValidHTMLTagInJSX-lib/rules/no-unknown-property.js-376-389 | {\"id\":50 - \"parents\":[]}",
-                "FP-score": 1,
-                "support": 1,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-lib/rules/no-unknown-property.js-379-386 | {\"id\":51 - \"parents\":[50]}"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": ""
             },
             {
                 "consequent": "list-lib/util/components.js-138-174 | {\"id\":37 - \"parents\":[26]}",
@@ -1541,7 +1504,7 @@
                     ]
                 ],
                 "status": "Berke Unique",
-                "FP-evaluation": ""
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "prop-types.js-tests/lib/rules/prop-types.js-1-8205",
@@ -1640,6 +1603,13 @@
                     "FP-score": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "false"
+                },
+                {
+                    "consequent": "arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-89-89 | {\"id\":30 - \"parents\":[29]}",
+                    "support": 2,
+                    "FP-score": 0.5,
+                    "status": "Berke Unique",
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-59-62 | {\"id\":33 - \"parents\":[34]}",

@@ -340,9 +340,9 @@ const confiqs = {
         "install": "npm install",
         "commits": "3379",
         "main_branch": "v3.x",
-        "seed_commit": "16e4b5bb1dbad1772572d9247694259f2419510e",
+        "seed_commit": "68a290d",
         "comment": "success",
-        "excluded_dirs": [],
+        "excluded_dirs": ["bundler","types","esm"],
         "fp_excluded_dirs": []
     },
     "git@github.com:simov/grant.git": {
@@ -599,12 +599,12 @@ const confiqs = {
         "excluded_dirs": [],
         "fp_excluded_dirs": []
     },
-    "git@github.com:yannickcr/eslint-plugin-react.git": {
+    "git@github.com:jsx-eslint/eslint-plugin-react.git": {
         "install": "npm install",
         "commit": "2977",
         "main_branch": "master",
         "test": "tests",
-        "seed_commit": "8aa023a5ecbd51017315bab794f7aa0f50e31191",
+        "seed_commit": "8c9ec8a3929403ac34a22c11cb9bd2575ba766bd",
         "comment": "success",
         "excluded_dirs": ["fixtures"],
         "fp_excluded_dirs": []
@@ -669,7 +669,7 @@ const confiqs = {
         "excluded_dirs": [],
         "fp_excluded_dirs": []
     },
-    "git@github.com:/websockets/ws.git": {
+    "git@github.com:websockets/ws.git": {
         "install": "npm install",
         "commit": "1810",
         "main_branch": "master",
