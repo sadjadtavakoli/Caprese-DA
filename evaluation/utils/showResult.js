@@ -12,7 +12,7 @@ if (process.argv[2]) {
     console.log(summarizeResult(process.argv[2]).approachesLatexRow)
     console.log(summarizeResult(process.argv[2]).changeSetInfoLatexRow)
 } else {
-    let projects_list = ["eslint-plugin-react","ws","cla-assistant","grant","markdown-it","environment","nodejs-cloudant","assemble","express","session"]
+    let projects_list = ["eslint-plugin-react","ws","cla-assistant","grant","markdown-it","environment","nodejs-cloudant","assemble","express","session", "jhipster-uml"]
 
     let unitsContributionLatexRows = {}
     let approachesLatexRows = {}
@@ -123,27 +123,31 @@ function unitsContributionSummary(result) {
 
     let avgDA = avgUniqueDA + avgCommon
     let avgFP = avgUniqueFP + avgCommon
+    let totalAverage = avgUniqueDA + avgUniqueFP + avgCommon
 
-    avgUniqueDA = avgUniqueDA.toFixed(2)
-    avgUniqueFP = avgUniqueFP.toFixed(2)
-    avgCommon = avgCommon.toFixed(2)
+    let unigueDAPercentage = Math.round(avgUniqueDA/totalAverage*100)
+    let unigueFPPercentag = Math.round(avgUniqueFP/totalAverage*100) 
 
-    let avgDATruePositives = (DATotalTruePositives / length).toFixed(2)
-    let avgFPTruPositives = (FPTotalTruePositives / length).toFixed(2)
+    avgUniqueDA = avgUniqueDA.toFixed(1)
+    avgUniqueFP = avgUniqueFP.toFixed(1)
+    avgCommon = avgCommon.toFixed(1)
 
-    let avgDACommitRatio = (DASumOfTruePositivesRatio / HadDA).toFixed(2) * 100
-    let avgFPCommitRatio = (FPSumOfTruePositivesRatio / HadFP).toFixed(2) * 100
+    let avgDATruePositives = (DATotalTruePositives / length).toFixed(1)
+    let avgFPTruPositives = (FPTotalTruePositives / length).toFixed(1)
+
+    let avgDACommitRatio = Math.round(DASumOfTruePositivesRatio / HadDA * 100)
+    let avgFPCommitRatio = Math.round(FPSumOfTruePositivesRatio / HadFP * 100)
 
     let avgDA2CommitRatio = (avgDATruePositives / avgDA).toFixed(2) * 100
     let avgFP2CommitRatio = (avgFPTruPositives / avgFP).toFixed(2) * 100
 
-    avgDA = avgDA.toFixed(2)
-    avgFP = avgFP.toFixed(2)
+    avgDA = avgDA.toFixed(1)
+    avgFP = avgFP.toFixed(1)
 
     return {
         "Impact-set size": {
-            "DA": JSON.stringify({ "avg": avgDA, "min": minDA, "max": maxDA, "unique": avgUniqueDA }),
-            "FP": JSON.stringify({ "avg": avgFP, "min": minFP, "max": maxFP, "unique": avgUniqueFP }),
+            "DA": JSON.stringify({ "avg": avgDA, "min": minDA, "max": maxDA, "unique": avgUniqueDA, "unique/total": unigueDAPercentage}),
+            "FP": JSON.stringify({ "avg": avgFP, "min": minFP, "max": maxFP, "unique": avgUniqueFP,"unique/total": unigueFPPercentag}),
             "avg common": avgCommon
         },
         "True Positives": {
@@ -188,17 +192,19 @@ function approachSummary(result, approach) {
         let truePositiveCounter = 0;
         let sumOfPrecisions = 0;
         let impactset = result[commit][approach]
+        impactset = impactset.filter(item=>item['status']!=STATUS.removed)
+        
         impactset.forEach((consequentInfo, index) => {
             if (consequentInfo[fpSearchKey]) {
                 support += parseInt(consequentInfo["support"])
                 confidence += parseFloat(consequentInfo[fpSearchKey])
                 fpCount += 1
             }
-            if (consequentInfo["status"] != STATUS.common && consequentInfo["status"] != STATUS.removed) {
+            if (consequentInfo["status"] != STATUS.common) {
                 uniquesCount += 1
             }
 
-            truePositiveCounter = increaseIfIsTruePositive(truePositiveCounter, consequentInfo['DA-evaluation'] + consequentInfo['FP-evaluation'])
+            truePositiveCounter = increaseIfIsTruePositive(truePositiveCounter, consequentInfo['DA-evaluation'] + " " + consequentInfo['FP-evaluation'])
 
             let precisionSoFar = truePositiveCounter / (index + 1)
             sumOfPrecisions += precisionSoFar
@@ -217,16 +223,16 @@ function approachSummary(result, approach) {
     let length = Object.keys(result).length
 
     let impactSetSizeData = {
-        "avg": (totalImpactSetSize / length).toFixed(2),
+        "avg": (totalImpactSetSize / length).toFixed(1),
         "min": minSize,
-        "max": maxSize
+        "max": maxSize, 
+        "unique": (uniquesCount / length).toFixed(1)
     }
     let truePositivesData = {
-        "Average True Positives": (totalTruePositives / length).toFixed(2),
-        "Average Precision": (sumOfAveragePrecisions / length).toFixed(2),
-        "Average Unique Results": (uniquesCount / length).toFixed(2),
-        "Average FP Support": (support / fpCount).toFixed(2),
-        "Average FP Confidence": (confidence / fpCount).toFixed(2)
+        "Average True Positives": (totalTruePositives / length).toFixed(1),
+        "Average Precision": (sumOfAveragePrecisions / length).toFixed(1),
+        "Average FP Support": (support / fpCount).toFixed(1),
+        "Average FP Confidence": (confidence / fpCount).toFixed(1)
     }
 
     return [impactSetSizeData, truePositivesData]

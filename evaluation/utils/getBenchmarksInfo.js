@@ -7,7 +7,7 @@ if (process.argv[2]) {
     console.log(getProjectsInfo(process.argv[2]).benchmarksInfo)
 } else {
     let finalResult = {}
-    let projects_list = ["ws", "cla-assistant", "grant", "markdown-it", "environment", "nodejs-cloudant", "assemble", "express", "session"]
+    let projects_list = ["ws", "cla-assistant", "grant", "markdown-it", "environment", "nodejs-cloudant", "assemble", "express", "session", "jhipster-uml"]
     let latexRows = {}
     projects_list.forEach(filename => {
         if (fs.statSync(`${DATA_PATH}${filename}`).isDirectory()) {

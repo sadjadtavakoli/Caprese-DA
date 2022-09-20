@@ -1,7 +1,7 @@
 const unitsContributionColumnOrdeing = {
     'Impact-set size': {
-        DA: ["avg", "min", "max", "unique"],
-        FP: ["avg", "min", "max", "unique"]
+        DA: ["avg", "min", "max", "unique", "unique/total"],
+        FP: ["avg", "min", "max", "unique", "unique/total"]
     },
     'True Positives': {
         DA: ["avg", "total %"],
@@ -14,6 +14,11 @@ const approachesDataColumnOrdeing = {
         berke: ["avg", "min", "max"],
         tarmaq: ["avg", "min", "max"]
     },
+    // 'Impact-set size': {
+    //     berke: ["avg", "min", "max", "unique"],
+    //     tarmaq: ["avg", "min", "max", "unique"]
+    // },
+
     'True Positives': {
         berke: ["Average True Positives", "Average Precision"],
         tarmaq: ["Average True Positives", "Average Precision"]
@@ -40,7 +45,7 @@ function changeSetLatexRow(data) {
     return listToLatex(data, changeSetInfoOrdering)
 }
 
-function listToLatex(data, columnOrdering){
+function listToLatex(data, columnOrdering) {
     let result = ``
     for (let item of columnOrdering) {
         result += `${data[item]} & `
