@@ -21,3 +21,19 @@
     average_confidence: 0.8934599156118145
   }
 }
+{
+  'changeSet Size': { avg: '10.00', min: 3, max: 18 },
+  berke_units_contribution: { average: { FP: 70.2, DA: 12.4, Common: 5.4 } },
+  berke: {
+    avarage_impactSet_size: 88,
+    average_unique_result: 62,
+    average_fp_support: 1.335978835978836,
+    average_fp_confidence: 0.8045361164408777
+  },
+  tarmaq: {
+    avarage_impactSet_size: 27.4,
+    average_unique_result: 0,
+    average_fp_support: 1.3065693430656935,
+    average_fp_confidence: 0.7664233576642335
+  }
+}
