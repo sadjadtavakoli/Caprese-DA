@@ -4,8 +4,8 @@ const unitsContributionColumnOrdeing = {
         FP: ["avg", "min", "max", "unique", "unique/total"]
     },
     'True Positives': {
-        DA: ["avg", "total %"],
-        FP: ["avg", "total %"]
+        DA: ["avg", "precision"],
+        FP: ["avg", "precision"]
     }
 }
 

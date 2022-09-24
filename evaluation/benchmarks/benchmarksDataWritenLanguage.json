@@ -452,59 +452,67 @@
     "git@github.com:suguru03/neo-async.git": [
         {
             "language": "JavaScript",
-            "files": 72,
-            "lines": 8697,
-            "blanks": 530,
-            "comments": 1043,
-            "linesOfCode": 7124
-        },
-        {
-            "language": "Markdown",
-            "files": 7,
-            "lines": 309,
-            "blanks": 96,
-            "comments": 0,
-            "linesOfCode": 213
+            "files": 67,
+            "lines": 47351,
+            "blanks": 4349,
+            "comments": 8284,
+            "linesOfCode": 34718
         },
         {
             "language": "JSON",
-            "files": 4,
-            "lines": 3657,
+            "files": 3,
+            "lines": 7692,
             "blanks": 0,
             "comments": 0,
-            "linesOfCode": 3657
+            "linesOfCode": 7692
+        },
+        {
+            "language": "Markdown",
+            "files": 2,
+            "lines": 336,
+            "blanks": 48,
+            "comments": 0,
+            "linesOfCode": 288
         },
         {
             "language": "YAML",
             "files": 2,
-            "lines": 41,
-            "blanks": 4,
-            "comments": 18,
-            "linesOfCode": 19
+            "lines": 50,
+            "blanks": 10,
+            "comments": 8,
+            "linesOfCode": 32
         },
         {
             "language": "License",
             "files": 1,
-            "lines": 204,
-            "blanks": 34,
+            "lines": 22,
+            "blanks": 4,
             "comments": 0,
-            "linesOfCode": 170
+            "linesOfCode": 18
+        },
+        {
+            "language": "Makefile",
+            "files": 1,
+            "lines": 23,
+            "blanks": 7,
+            "comments": 0,
+            "linesOfCode": 16
         },
         {
             "language": "gitignore",
             "files": 1,
-            "lines": 12,
-            "blanks": 0,
+            "lines": 8,
+            "blanks": 1,
             "comments": 0,
-            "linesOfCode": 12
+            "linesOfCode": 7
         },
         {
             "language": "Total",
-            "files": 87,
-            "lines": 12920,
-            "blanks": 664,
-            "comments": 1061,
-            "linesOfCode": 11195
+            "files": 77,
+            "lines": 55482,
+            "blanks": 4419,
+            "comments": 8292,
+            "linesOfCode": 42771
         }
     ],
     "git@github.com:markdown-it/markdown-it.git": [
