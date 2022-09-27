@@ -1,0 +1,98 @@
+{
+    "389ab1b19fe5af63f4dbd119050c604ddcd60885": {
+        "changes": [
+            "arrowAnonymousFunction-test/acceptance/cookie-sessions.js-13-18",
+            "arrowAnonymousFunction-test/acceptance/cookie-sessions.js-20-30",
+            "arrowAnonymousFunction-test/acceptance/cookie-sessions.js-23-29",
+            "arrowAnonymousFunction-test/acceptance/cookie-sessions.js-5-32",
+            "arrowAnonymousFunction-test/acceptance/cookie-sessions.js-6-31",
+            "arrowAnonymousFunction-test/acceptance/cookie-sessions.js-7-11",
+            "cookie-sessions.js-test/acceptance/cookie-sessions.js-1-39",
+            "getCookies-test/acceptance/cookie-sessions.js-34-38"
+        ],
+        "true positives": {
+            "- count-examples/cookie-sessions/index.js-19-22": "DA insufficiency | primitives"
+        }
+    },
+    "3b3e1fc38a8e2763679fc11ff07aed1617946867": {
+        "changes": [
+            "decode_param-lib/router/layer.js-166-181",
+            "layer.js-lib/router/layer.js-1-182"
+        ],
+        "true positives": {
+            "+ match-lib/router/layer.js-110-156 =>  CHILD": "DA",
+            "- index.js-lib/router/index.js-1-674": "similarity | primitives",
+            "- route.js-lib/router/route.js-1-226": "similarity"
+        }
+    },
+    "e90413243ee5eda266826f611c0917a7541cd9cb": {
+        "changes": [
+            "defaultConfiguration-lib/application.js-77-134",
+            "render-lib/application.js-548-610"
+        ],
+        "true positives": {
+            "- application.js-lib/application.js-1-662 =>  PARENT": "parent"
+        }
+    },
+    "371b381074b3821be8207383fb250c80f9fba855": {
+        "changes": [
+            "View-lib/view.js-52-95",
+            "lookup-lib/view.js-104-123"
+        ],
+        "true positives": {
+            "- view.js-lib/view.js-1-183 =>  PARENT": "parent"
+        }
+    },
+    "c7e84d804450b1799611191d6aed12b44dc8201c": {
+        "changes": [
+            "all-lib/router/route.js-179-199",
+            "arrowAnonymousFunction-test/router.js-19-29",
+            "arrowAnonymousFunction-test/router.js-23-25",
+            "method-lib/router/index.js-519-523",
+            "method-lib/router/route.js-202-224",
+            "next-lib/router/index.js-177-291",
+            "route-lib/router/index.js-502-515",
+            "use-lib/router/index.js-439-487"
+        ],
+        "true positives": {
+            "+ method-lib/application.js-490-501": "da | similarity | indirect",
+            "+ arrowAnonymousFunction-test/route.js-134-158": "da",
+            "+ arrowAnonymousFunction-test/router.js-133-136": "da",
+            "+ arrowAnonymousFunction-test/router.js-140-143": "da",
+            "+ arrowAnonymousFunction-test/router.js-147-150": "da",
+            "+ arrowAnonymousFunction-test/router.js-153-156": "da",
+            "+ handle-lib/router/index.js-136-331 =>  PARENT": "da | parent",
+            "+ all-lib/application.js-514-525": "similarity | indirect",
+            "+ arrowAnonymousFunction-test/router.js-114-128": "da",
+            "+ arrowAnonymousFunction-test/route.js-55-73": "da",
+            "+ arrowAnonymousFunction-test/route.js-75-94": "da",
+            "+ arrowAnonymousFunction-test/route.js-162-186": "da",
+            "+ arrowAnonymousFunction-test/route.js-188-212": "da",
+            "+ arrowAnonymousFunction-test/router.js-367-381": "da",
+            "+ arrowAnonymousFunction-lib/router/index.js-280-290 =>  CHILD": "da | child",
+            "+ lazyrouter-lib/application.js-144-154": "da",
+            "+ arrowAnonymousFunction-test/router.js-160-181": "da",
+            "+ process_params-lib/router/index.js-338-422": "da",
+            "+ next-lib/router/route.js-116-148": "similarity | da",
+            "+ trim_prefix-lib/router/index.js-293-330": "da",
+            "+ route-lib/application.js-261-264": "da",
+            "+ arrowAnonymousFunction-test/router.js-486-501": "da",
+            "- arrowAnonymousFunction-test/route.js-97-159": "parent of DA detected",
+            "- arrowAnonymousFunction-lib/router/route.js-201-225": "similarity",
+            "- Router.js-test/router.js-1-596 =>  PARENT": "parent",
+            "- arrowAnonymousFunction-test/route.js-9-265": "parent of DA detected",
+            "- arrowAnonymousFunction-test/router.js-131-157": "primitives",
+            "- arrowAnonymousFunction-test/route.js-38-95": "parent of DA detected",
+            "- index.js-lib/router/index.js-1-674 =>  PARENT": "parent",
+            "- arrowAnonymousFunction-lib/router/index.js-518-524 =>  PARENT": "parent",
+            "- application.js-lib/application.js-1-662": "parent of already detected",
+            "- Route.js-test/route.js-1-266": "similarity | parent of DA detected",
+            "- arrowAnonymousFunction-test/router.js-159-242": "primitives",
+            "- arrowAnonymousFunction-test/router.js-9-595 =>  PARENT": "parent",
+            "- History.md": "docs | primitives",
+            "- arrowAnonymousFunction-test/router.js-469-556": "primitives",
+            "- route.js-lib/router/route.js-1-226 =>  PARENT": "parent",
+            "- use-lib/application.js-194-249": "similarity"
+        }
+    }
+}
