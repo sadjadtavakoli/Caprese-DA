@@ -209,7 +209,7 @@
                     ]
                 ],
                 "status": "Berke Unique",
-                "FP-evaluation": "true children"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "isSetStateUpdater-lib/util/usedproptypes.js-148-157",
@@ -450,7 +450,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "Berke Unique",
-                    "evaluation result": "true children"
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "isSetStateUpdater-lib/util/usedproptypes.js-148-157",
@@ -1264,7 +1264,7 @@
                     ]
                 ],
                 "status": "Berke Unique",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "style-prop-object.js-tests/lib/rules/style-prop-object.js-1-308",
@@ -1729,7 +1729,7 @@
                     "support": 2,
                     "FP-score": 0.6666666666666666,
                     "status": "Berke Unique",
-                    "evaluation result": "true"
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "style-prop-object.js-tests/lib/rules/style-prop-object.js-1-308",
