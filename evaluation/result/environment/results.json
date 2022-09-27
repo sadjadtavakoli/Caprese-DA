@@ -639,7 +639,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true but already reported its parent | true but already reported its parent | true"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "package.json",
@@ -1006,7 +1006,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "common",
-                    "evaluation result": "true but already reported its parent | true"
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "package.json",
@@ -1036,7 +1036,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "common",
-                    "evaluation result": "true but already reported its parent | true"
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/resolver.js-77-91 | {\"id\":26 - \"parents\":[3-1]}",
@@ -5769,7 +5769,7 @@
                     ]
                 ],
                 "status": "Berke Unique",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/adapter.js-180-197 | {\"id\":174 - \"parents\":[177-178]}",
@@ -5779,18 +5779,6 @@
                     [
                         "log.js-lib/util/log.js-1-189 | {\"id\":162 - \"parents\":[]}",
                         "status-lib/util/log.js-154-159 | {\"id\":172 - \"parents\":[161-162]}"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": "true"
-            },
-            {
-                "consequent": "arrowAnonymousFunction-test/actions.js-419-422",
-                "FP-score": 0.5,
-                "support": 1,
-                "FP-antecedents": [
-                    [
-                        "ok-lib/util/log.js-111-114 | {\"id\":171 - \"parents\":[161-162]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -6931,14 +6919,7 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "evaluation result": "true"
-                },
-                {
-                    "consequent": "arrowAnonymousFunction-test/actions.js-419-422",
-                    "support": 1,
-                    "FP-score": 0.5,
-                    "status": "Berke Unique",
-                    "evaluation result": "true"
+                    "evaluation result": "false"
                 }
             ]
         },
