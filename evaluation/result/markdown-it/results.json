@@ -395,7 +395,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "renderer.js-lib/renderer.js-1-342 | {\"id\":49 - \"parents\":[]}",
@@ -488,7 +488,7 @@
                     ]
                 ],
                 "status": "Berke Unique",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/misc.js-205-205 | {\"id\":27 - \"parents\":[16-8-10]}",
@@ -527,7 +527,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/misc.js-192-192 | {\"id\":41 - \"parents\":[8-9-10]}",
@@ -579,7 +579,7 @@
                     ]
                 ],
                 "status": "Berke Unique",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "render-lib/renderer.js-321-339 | {\"id\":59 - \"parents\":[49]}",
@@ -918,7 +918,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true children"
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "exports-lib/rules_inline/backticks.js-6-63",
@@ -1386,7 +1386,7 @@
                 "confidence": 1,
                 "consequent": "MarkdownIt-lib/index.js-222-349",
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[exports-lib/rules_core/block.js-4-16, exports-lib/rules_core/inline.js-3-13, parse-lib/parser_inline.js-174-186] => StateCore-lib/index.js-21-32",
@@ -1514,7 +1514,7 @@
                 "confidence": 1,
                 "consequent": "replace_rare-lib/rules_core/replacements.js-55-85",
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[exports-lib/rules_core/block.js-4-16, exports-lib/rules_core/inline.js-3-13, parse-lib/parser_inline.js-174-186] => typographer.js-lib/rules_core/typographer.js-1-8",
@@ -1529,7 +1529,7 @@
                 "confidence": 1,
                 "consequent": "MarkdownIt-lib/index.js-222-349",
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[StateInline-lib/rules_inline/state_inline.js-12-42, parse-lib/parser_block.js-117-125, parse-lib/parser_inline.js-174-186] => StateBlock-lib/rules_block/state_block.js-9-106",
@@ -2194,7 +2194,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "common",
-                    "evaluation result": "true"
+                    "evaluation result": "false"
                 }
             ],
             "CHANGELOG.md,parse-lib/parser_block.js-117-125 | {\"id\":75 - \"parents\":[32]}": [
@@ -2231,14 +2231,14 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "Berke Unique",
-                    "evaluation result": "true"
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "render-lib/index.js-541-545 | {\"id\":63 - \"parents\":[18]}",
                     "support": 1,
                     "FP-score": 1,
                     "status": "Berke Unique",
-                    "evaluation result": "true"
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/misc.js-235-239 | {\"id\":66 - \"parents\":[65-10]}",
@@ -2351,7 +2351,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "common",
-                    "evaluation result": "true"
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "process_inlines-lib/rules_core/smartquotes.js-19-183",
@@ -2383,7 +2383,7 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "common",
-                    "evaluation result": "true"
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "exports-lib/rules_block/heading.js-8-55",
@@ -3252,7 +3252,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/commonmark.js-31-35 | {\"id\":96 - \"parents\":[92]}",
@@ -3611,7 +3611,7 @@
                 "confidence": 1,
                 "consequent": "exports-lib/rules_block/list.js-100-362",
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/misc.js-272-274, arrowAnonymousFunction-test/misc.js-352-358] => exports-lib/rules_block/paragraph.js-6-51",
@@ -4099,7 +4099,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "common",
-                    "evaluation result": "true"
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/commonmark.js-31-35 | {\"id\":96 - \"parents\":[92]}",
@@ -4566,8 +4566,8 @@
                     ]
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "true",
-                "FP-evaluation": "true"
+                "DA-evaluation": "false",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "MarkdownIt-lib/index.js-222-349 | {\"id\":62 - \"parents\":[18-18]}",
@@ -4735,7 +4735,7 @@
                     ]
                 ],
                 "status": "Berke Unique",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "exports-lib/rules_inline/fragments_join.js-12-41 | {\"id\":110 - \"parents\":[108-109]}",
@@ -4748,7 +4748,7 @@
                     ]
                 ],
                 "status": "Berke Unique",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "exports-lib/rules_inline/image.js-9-152 | {\"id\":19 - \"parents\":[20]}",
@@ -5027,7 +5027,7 @@
                     ]
                 ],
                 "status": "Berke Unique",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "exports-lib/rules_inline/balance_pairs.js-118-130 | {\"id\":123 - \"parents\":[112]}",
@@ -5079,7 +5079,7 @@
                     ]
                 ],
                 "status": "Berke Unique",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "processDelimiters-lib/rules_inline/balance_pairs.js-6-115 | {\"id\":111 - \"parents\":[112]}",
@@ -5223,7 +5223,7 @@
                     "DA": [
                         "arrowAnonymousFunction-test/misc.js-252-262 | {\"id\":119 - \"parents\":[65]}"
                     ],
-                    "evaluation result": "true"
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "fragments_join.js-lib/rules_inline/fragments_join.js-1-42 | {\"id\":109 - \"parents\":[]}",
@@ -5265,14 +5265,14 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "Berke Unique",
-                    "evaluation result": "true"
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "exports-lib/rules_inline/fragments_join.js-12-41 | {\"id\":110 - \"parents\":[108-109]}",
                     "support": 1,
                     "FP-score": 1,
                     "status": "Berke Unique",
-                    "evaluation result": "true"
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "exports-lib/rules_inline/image.js-9-152 | {\"id\":19 - \"parents\":[20]}",
@@ -5370,7 +5370,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "Berke Unique",
-                    "evaluation result": "true"
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "exports-lib/rules_inline/balance_pairs.js-118-130 | {\"id\":123 - \"parents\":[112]}",
@@ -5398,7 +5398,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "Berke Unique",
-                    "evaluation result": "true"
+                    "evaluation result": "false"
                 }
             ],
             "html_blocks.js-lib/common/html_blocks.js-1-71,test/fixtures/commonmark/good.txt": [
@@ -5574,7 +5574,7 @@
                             "test/fixtures/commonmark/good.txt"
                         ]
                     ],
-                    "evaluation result": "true"
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "MarkdownIt-lib/index.js-222-349 | {\"id\":62 - \"parents\":[18-18]}",
