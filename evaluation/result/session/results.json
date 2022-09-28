@@ -890,7 +890,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/session.js-1263-1372 | {\"id\":66 - \"parents\":[11-9]}",
@@ -951,7 +951,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-index.js-335-341 | {\"id\":4 - \"parents\":[0-2-5-6-7]}",
@@ -976,7 +976,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "shouldNotHaveHeader-test/session.js-2351-2355 | {\"id\":116 - \"parents\":[9]}",
@@ -988,7 +988,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/session.js-1374-1439 | {\"id\":74 - \"parents\":[11-9]}",
@@ -1013,7 +1013,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "index.js-index.js-1-686 | {\"id\":5 - \"parents\":[]}",
@@ -1112,7 +1112,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "get-test/session.js-122-126 | {\"id\":114 - \"parents\":[11-16-9]}",
@@ -1124,7 +1124,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/session.js-1107-1193 | {\"id\":53 - \"parents\":[11-9]}",
@@ -1148,7 +1148,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "set-test/session.js-1163-1165 | {\"id\":58 - \"parents\":[55-11-9-53]}",
@@ -1160,7 +1160,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/session.js-1978-2016 | {\"id\":108 - \"parents\":[11-9]}",
@@ -1184,7 +1184,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "session-index.js-87-509 | {\"id\":6 - \"parents\":[5]}",
@@ -1222,7 +1222,7 @@
                 "confidence": 1,
                 "consequent": "arrowAnonymousFunction-test/session.js-1985-2006",
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/session.js-2299-2316, createRequestListener-test/session.js-2295-2317] => arrowAnonymousFunction-test/session.js-2008-2015",
@@ -1238,7 +1238,7 @@
                 "confidence": 1,
                 "consequent": "arrowAnonymousFunction-test/session.js-2352-2354",
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/session.js-2299-2316, createRequestListener-test/session.js-2295-2317] => createConnection-test/session.js-1997-2000",
@@ -1246,7 +1246,7 @@
                 "confidence": 1,
                 "consequent": "createConnection-test/session.js-1997-2000",
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/session.js-2299-2316, createRequestListener-test/session.js-2295-2317] => createServer-test/session.js-2279-2293",
@@ -1270,7 +1270,7 @@
                 "confidence": 1,
                 "consequent": "shouldNotHaveHeader-test/session.js-2351-2355",
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-index.js-179-508, createRequestListener-test/session.js-2295-2317] => History.md",
@@ -1425,7 +1425,7 @@
                 "confidence": 1,
                 "consequent": "arrowAnonymousFunction-test/session.js-1088-1092",
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/session.js-2302-2315, createRequestListener-test/session.js-2295-2317] => arrowAnonymousFunction-test/session.js-1107-1193",
@@ -1465,7 +1465,7 @@
                 "confidence": 1,
                 "consequent": "arrowAnonymousFunction-test/session.js-1167-1171",
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/session.js-2302-2315, createRequestListener-test/session.js-2295-2317] => arrowAnonymousFunction-test/session.js-117-120",
@@ -1537,7 +1537,7 @@
                 "confidence": 1,
                 "consequent": "destroy-test/session.js-1358-1360",
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/session.js-2302-2315, createRequestListener-test/session.js-2295-2317] => get-test/session.js-122-126",
@@ -1545,7 +1545,7 @@
                 "confidence": 1,
                 "consequent": "get-test/session.js-122-126",
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/session.js-2302-2315, createRequestListener-test/session.js-2295-2317] => get-test/session.js-98-100",
@@ -1553,7 +1553,7 @@
                 "confidence": 1,
                 "consequent": "get-test/session.js-98-100",
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/session.js-2302-2315, createRequestListener-test/session.js-2295-2317] => index.js-index.js-1-686",
@@ -1569,7 +1569,7 @@
                 "confidence": 1,
                 "consequent": "set-test/session.js-1163-1165",
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "false"
             }
         ],
         "reversed-FP": {
@@ -1667,14 +1667,14 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "common",
-                    "evaluation result": "true"
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "destroy-test/session.js-1358-1360 | {\"id\":72 - \"parents\":[70-11-66-9]}",
                     "support": 1,
                     "FP-score": 1,
                     "status": "common",
-                    "evaluation result": "true"
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "index.js-index.js-1-686 | {\"id\":5 - \"parents\":[]}",
@@ -1702,14 +1702,14 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "common",
-                    "evaluation result": "true"
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "get-test/session.js-122-126 | {\"id\":114 - \"parents\":[11-16-9]}",
                     "support": 1,
                     "FP-score": 1,
                     "status": "common",
-                    "evaluation result": "true"
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/session.js-1107-1193 | {\"id\":53 - \"parents\":[11-9]}",
@@ -1723,14 +1723,14 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "common",
-                    "evaluation result": "true"
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "set-test/session.js-1163-1165 | {\"id\":58 - \"parents\":[55-11-9-53]}",
                     "support": 1,
                     "FP-score": 1,
                     "status": "common",
-                    "evaluation result": "true"
+                    "evaluation result": "false"
                 }
             ],
             "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6]},createRequestListener-test/session.js-2295-2317 | {\"id\":120 - \"parents\":[9]}": [
@@ -1850,7 +1850,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "common",
-                    "evaluation result": "true"
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "session.js-test/session.js-1-2472 | {\"id\":9 - \"parents\":[]}",
@@ -1864,14 +1864,14 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "common",
-                    "evaluation result": "true"
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "shouldNotHaveHeader-test/session.js-2351-2355 | {\"id\":116 - \"parents\":[9]}",
                     "support": 1,
                     "FP-score": 1,
                     "status": "common",
-                    "evaluation result": "true"
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/session.js-2008-2015 | {\"id\":113 - \"parents\":[11-9-108]}",
@@ -1892,7 +1892,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "common",
-                    "evaluation result": "true"
+                    "evaluation result": "false"
                 }
             ],
             "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6]}": [
