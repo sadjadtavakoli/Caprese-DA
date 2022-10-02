@@ -19,20 +19,20 @@
             "+ createServer-test/session.js-2279-2293": "da",
             "+ createSession-test/session.js-2319-2331": "da",
             "+ arrowAnonymousFunction-test/session.js-1981-1983": "da",
-            "- arrowAnonymousFunction-test/session.js-19-2272": "primitves | da insufficiency | js",
-            "- arrowAnonymousFunction-test/session.js-114-138": "primitves | da insufficiency | js",
-            "- arrowAnonymousFunction-test/session.js-105-111": "primitves | da insufficiency | js",
-            "- arrowAnonymousFunction-test/session.js-1263-1372": "primitves | da insufficiency | js",
+            "- arrowAnonymousFunction-test/session.js-19-2272": "primitives | da insufficiency | js",
+            "- arrowAnonymousFunction-test/session.js-114-138": "primitives | da insufficiency | js",
+            "- arrowAnonymousFunction-test/session.js-105-111": "primitives | da insufficiency | js",
+            "- arrowAnonymousFunction-test/session.js-1263-1372": "primitives | da insufficiency | js",
             "- writeend-index.js-260-268 =>  CHILD": "child",
             "- session.js-test/session.js-1-2472 =>  PARENT": "parent",
-            "- arrowAnonymousFunction-test/session.js-131-137": "primitves | da insufficiency | js",
+            "- arrowAnonymousFunction-test/session.js-131-137": "primitives | da insufficiency | js",
             "- arrowAnonymousFunction-index.js-335-341 =>  CHILD": "child",
-            "- arrowAnonymousFunction-test/session.js-1374-1439": "primitves | da insufficiency | js",
+            "- arrowAnonymousFunction-test/session.js-1374-1439": "primitives | da insufficiency | js",
             "- index.js-index.js-1-686 =>  PARENT": "parent",
-            "- arrowAnonymousFunction-test/session.js-92-112": "primitves | da insufficiency | js",
-            "- arrowAnonymousFunction-test/session.js-2008-2015": "primitves | da insufficiency | js",
-            "- arrowAnonymousFunction-test/session.js-1107-1193": "primitves | da insufficiency | js",
-            "- arrowAnonymousFunction-test/session.js-1978-2016": "primitves | da insufficiency | js",
+            "- arrowAnonymousFunction-test/session.js-92-112": "primitives | da insufficiency | js",
+            "- arrowAnonymousFunction-test/session.js-2008-2015": "primitives | da insufficiency | js",
+            "- arrowAnonymousFunction-test/session.js-1107-1193": "primitives | da insufficiency | js",
+            "- arrowAnonymousFunction-test/session.js-1978-2016": "primitives | da insufficiency | js",
             "- session-index.js-87-509 =>  PARENT": "parent"
         }
     },
@@ -105,12 +105,12 @@
             "- arrowAnonymousFunction-test/session.js-1781-1812 =>  CHILD": "child",
             "- arrowAnonymousFunction-test/session.js-2210-2214 =>  CHILD": "child",
             "- arrowAnonymousFunction-test/session.js-1270-1275 =>  CHILD": "child",
-            "- arrowAnonymousFunction-test/session.js-19-2272 =>  PARENT  CHILD": "parent child",
-            "- arrowAnonymousFunction-test/session.js-1263-1372 =>  PARENT  CHILD": "parent child",
+            "- arrowAnonymousFunction-test/session.js-19-2272 =>  PARENT  CHILD": "parent | child",
+            "- arrowAnonymousFunction-test/session.js-1263-1372 =>  PARENT  CHILD": "parent | child",
             "- arrowAnonymousFunction-test/session.js-1213-1235 =>  CHILD": "child",
             "- arrowAnonymousFunction-test/session.js-1195-1261 =>  CHILD": "child",
-            "- session-index.js-87-509 =>  PARENT  CHILD": "parent child",
-            "- arrowAnonymousFunction-test/session.js-2182-2271 =>  PARENT  CHILD": "parent child",
+            "- session-index.js-87-509 =>  PARENT  CHILD": "parent | child",
+            "- arrowAnonymousFunction-test/session.js-2182-2271 =>  PARENT  CHILD": "parent | child",
             "- arrowAnonymousFunction-test/session.js-985-992 =>  CHILD": "child",
             "- arrowAnonymousFunction-test/session.js-468-490 =>  CHILD": "child",
             "- arrowAnonymousFunction-test/session.js-1312-1326 =>  CHILD": "child",
@@ -132,7 +132,7 @@
             "- arrowAnonymousFunction-test/session.js-613-618 =>  CHILD": "child",
             "- arrowAnonymousFunction-test/session.js-2240-2247 =>  CHILD": "child",
             "- arrowAnonymousFunction-test/session.js-964-971 =>  CHILD": "child",
-            "- README.md": "docs | primitives",
+            "- README.md": "docs",
             "- arrowAnonymousFunction-test/session.js-1281-1295 =>  CHILD": "child",
             "- arrowAnonymousFunction-test/session.js-2218-2224 =>  CHILD": "child",
             "- touch-test/session.js-1084-1086 =>  CHILD": "child",
@@ -147,7 +147,7 @@
             "- arrowAnonymousFunction-test/session.js-669-675 =>  CHILD": "child",
             "- arrowAnonymousFunction-test/session.js-1107-1193 =>  CHILD": "child",
             "- arrowAnonymousFunction-test/session.js-1310-1327 =>  CHILD": "child",
-            "- HISTORY.md": "docs | primitives",
+            "- HISTORY.md": "docs",
             "- arrowAnonymousFunction-test/session.js-493-563 =>  CHILD": "child",
             "- arrowAnonymousFunction-test/session.js-2076-2079 =>  CHILD": "child",
             "- arrowAnonymousFunction-test/session.js-554-560 =>  CHILD": "child",
@@ -220,13 +220,13 @@
             "setcookie-index.js-655-665"
         ],
         "true positives": {
-            "- HISTORY.md": "docs | primitives",
-            "- README.md": "docs | primitives",
+            "- HISTORY.md": "docs",
+            "- README.md": "docs",
             "- arrowAnonymousFunction-test/session.js-19-2272": "da insufficiency",
-            "- arrowAnonymousFunction-index.js-179-508 =>  PARENT  CHILD": "parent child",
+            "- arrowAnonymousFunction-index.js-179-508 =>  PARENT  CHILD": "parent | child",
             "- end-index.js-250-360 =>  CHILD": "similarity",
             "- package.json": "docs",
-            "- session-index.js-87-509 =>  PARENT  CHILD": "parent child"
+            "- session-index.js-87-509 =>  PARENT  CHILD": "parent | child"
         }
     },
     "5c503e7552ea48342f4ce4ce1322606eb8ee217c": {
@@ -245,7 +245,7 @@
         ],
         "true positives": {
             "- arrowAnonymousFunction-index.js-179-508 =>  PARENT": "parent",
-            "- HISTORY.md": "docs | primitives",
+            "- HISTORY.md": "docs",
             "- arrowAnonymousFunction-test/session.js-357-360 =>  CHILD": "child",
             "- arrowAnonymousFunction-test/session.js-355-390 =>  CHILD": "child",
             "- createRequestListener-test/session.js-2295-2317": "da insufficiency"
@@ -259,7 +259,7 @@
         "true positives": {
             "- arrowAnonymousFunction-index.js-220-244 =>  CHILD": "child",
             "- arrowAnonymousFunction-test/session.js-19-2272": "da insufficiency",
-            "- session-index.js-87-509 =>  PARENT  CHILD": "parent child"
+            "- session-index.js-87-509 =>  PARENT  CHILD": "parent | child"
         }
     }
 }

@@ -11,7 +11,7 @@
             "getCookies-test/acceptance/cookie-sessions.js-34-38"
         ],
         "true positives": {
-            "- count-examples/cookie-sessions/index.js-19-22": "DA insufficiency | primitives"
+            "- count-examples/cookie-sessions/index.js-19-22": "da insufficiency | primitives"
         }
     },
     "3b3e1fc38a8e2763679fc11ff07aed1617946867": {
@@ -20,7 +20,7 @@
             "layer.js-lib/router/layer.js-1-182"
         ],
         "true positives": {
-            "+ match-lib/router/layer.js-110-156 =>  CHILD": "DA",
+            "+ match-lib/router/layer.js-110-156 =>  CHILD": "da",
             "- index.js-lib/router/index.js-1-674": "similarity | primitives",
             "- route.js-lib/router/route.js-1-226": "similarity"
         }
@@ -77,19 +77,19 @@
             "+ trim_prefix-lib/router/index.js-293-330": "da",
             "+ route-lib/application.js-261-264": "da",
             "+ arrowAnonymousFunction-test/router.js-486-501": "da",
-            "- arrowAnonymousFunction-test/route.js-97-159": "parent of DA detected",
+            "- arrowAnonymousFunction-test/route.js-97-159": "parent of da",
             "- arrowAnonymousFunction-lib/router/route.js-201-225": "similarity",
             "- Router.js-test/router.js-1-596 =>  PARENT": "parent",
-            "- arrowAnonymousFunction-test/route.js-9-265": "parent of DA detected",
+            "- arrowAnonymousFunction-test/route.js-9-265": "parent of da",
             "- arrowAnonymousFunction-test/router.js-131-157": "primitives",
-            "- arrowAnonymousFunction-test/route.js-38-95": "parent of DA detected",
+            "- arrowAnonymousFunction-test/route.js-38-95": "parent of da",
             "- index.js-lib/router/index.js-1-674 =>  PARENT": "parent",
             "- arrowAnonymousFunction-lib/router/index.js-518-524 =>  PARENT": "parent",
-            "- application.js-lib/application.js-1-662": "parent of already detected",
-            "- Route.js-test/route.js-1-266": "similarity | parent of DA detected",
+            "- application.js-lib/application.js-1-662": "parent of da",
+            "- Route.js-test/route.js-1-266": "similarity | parent of da",
             "- arrowAnonymousFunction-test/router.js-159-242": "primitives",
             "- arrowAnonymousFunction-test/router.js-9-595 =>  PARENT": "parent",
-            "- History.md": "docs | primitives",
+            "- History.md": "docs",
             "- arrowAnonymousFunction-test/router.js-469-556": "primitives",
             "- route.js-lib/router/route.js-1-226 =>  PARENT": "parent",
             "- use-lib/application.js-194-249": "similarity"

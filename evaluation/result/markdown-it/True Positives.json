@@ -6,7 +6,7 @@
         ],
         "true positives": {
             "- updateResult-support/demo_template/index.js-192-227 =>  CHILD": "None",
-            "- arrowAnonymousFunction-support/demo_template/index.js-410-494 =>  CHILD": "child DA but parent FP => DA insufficiency OR unexpted behaviour"
+            "- arrowAnonymousFunction-support/demo_template/index.js-410-494 =>  CHILD": "parent of da"
         }
     },
     "c70700151a21de6edf5bf2abc016bd560decfe74": {
@@ -31,10 +31,10 @@
             "- arrowAnonymousFunction-test/misc.js-181-181": "da insufficiency",
             "- state_inline.js-lib/rules_inline/state_inline.js-1-159 =>  PARENT": "parent",
             "- arrowAnonymousFunction-test/misc.js-172-208": "da insufficiency",
-            "- pushPending-lib/rules_inline/state_inline.js-47-54": "js unsigned | da insufficiency",
+            "- pushPending-lib/rules_inline/state_inline.js-47-54": "js | da insufficiency",
             "- arrowAnonymousFunction-test/misc.js-174-182": "da insufficiency",
             "- index.js-lib/index.js-1-583": "similarity | da insufficiency",
-            "- push-lib/rules_inline/state_inline.js-60-88": "js unsigned | da insufficiency",
+            "- push-lib/rules_inline/state_inline.js-60-88": "js | da insufficiency",
             "- arrowAnonymousFunction-test/misc.js-205-205": "da insufficiency",
             "- text.js-lib/rules_inline/text.js-1-90": "similarity",
             "- arrowAnonymousFunction-test/misc.js-192-192": "da insufficiency",
@@ -44,7 +44,7 @@
             "- arrowAnonymousFunction-test/misc.js-184-194": "da insufficiency",
             "- misc.js-test/misc.js-1-497": "da insufficiency",
             "- inline.js-lib/rules_core/inline.js-1-14 =>  PARENT": "parent",
-            "- package.json": "docs | primitives",
+            "- package.json": "docs",
             "- exports-lib/rules_inline/escape.js-15-71": "da insufficiency",
             "- parser_inline.js-lib/parser_inline.js-1-193 =>  PARENT": "parent",
             "- exports-lib/rules_block/heading.js-8-55": "similarity | primitives",
@@ -53,7 +53,7 @@
             "- exports-lib/rules_inline/backticks.js-6-63": "similarity",
             "- parser_core.js-lib/parser_core.js-1-62": "similarity",
             "- exports-lib/rules_inline/entity.js-15-55": "similarity",
-            "- test/fixtures/markdown-it/commonmark_extras.txt": "docs | primitives",
+            "- test/fixtures/markdown-it/commonmark_extras.txt": "docs",
             "- exports-lib/rules_core/linkify.js-19-142": "similarity",
             "- arrowAnonymousFunction-test/misc.js-20-30": "da insufficiency",
             "- exports-lib/rules_inline/linkify.js-10-58": "similarity",

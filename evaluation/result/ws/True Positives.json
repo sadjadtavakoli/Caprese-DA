@@ -203,8 +203,8 @@
             "+ ping-lib/websocket.js-351-373": "da",
             "+ pong-lib/websocket.js-383-405": "da",
             "+ send-lib/websocket.js-439-469": "da",
-            "- WebSocket-lib/websocket.js-44-488": "parent of da detected",
-            "- websocket.js-lib/websocket.js-1-1306": "parent of da detected",
+            "- WebSocket-lib/websocket.js-44-488": "parent of da",
+            "- websocket.js-lib/websocket.js-1-1306": "parent of da",
             "- arrowAnonymousFunction-lib/websocket.js-894-988": "-",
             "- bufferedAmount-lib/websocket.js-116-120": "-",
             "- arrowAnonymousFunction-test/websocket.test.js-297-315": "da insufficiency",
@@ -216,7 +216,7 @@
             "- arrowAnonymousFunction-test/websocket.test.js-2092-2097": "da insufficiency",
             "- write-test/sender.test.js-257-268": "da insufficiency",
             "- write-test/sender.test.js-290-301": "da insufficiency",
-            "- arrowAnonymousFunction-test/sender.test.js-285-316": "parent of da detected",
+            "- arrowAnonymousFunction-test/sender.test.js-285-316": "parent of da",
             "- arrowAnonymousFunction-test/sender.test.js-23-370 =>  PARENT": "parent",
             "- write-test/sender.test.js-104-112": "da insufficiency",
             "- arrowAnonymousFunction-test/sender.test.js-24-63 =>  PARENT": "parent",
@@ -240,8 +240,8 @@
             "- receiver.js-lib/receiver.js-1-619": "da insufficiency",
             "- getPayloadLength64-lib/receiver.js-335-361": "indirect",
             "- getPayloadLength16-lib/receiver.js-319-327": "indirect",
-            "- arrowAnonymousFunction-test/receiver.test.js-1010-1034": "similarity | indirect",
-            "- arrowAnonymousFunction-test/receiver.test.js-1036-1061": "similarity| indirect"
+            "- arrowAnonymousFunction-test/receiver.test.js-1010-1034": "similarity | tests indirect",
+            "- arrowAnonymousFunction-test/receiver.test.js-1036-1061": "similarity | tests indirect"
         }
     },
     "c0e62781bd347342a905ee9e9ea54309ac4179df": {

@@ -7,7 +7,7 @@
         ],
         "true positives": {
             "+ sync-lib/resolver.js-112-147 =>  CHILD": "similarity | da",
-            "+ lookupGenerator-lib/environment.js-231-261": "smililarity | primitives"
+            "+ lookupGenerator-lib/environment.js-231-261": "similarity | primitives"
         }
     },
     "f28df18b1a204a1f42f820aa364472f6d1b7013a": {
@@ -26,8 +26,8 @@
             "test/fixtures/lookup-custom/package.json"
         ],
         "true positives": {
-            "+ sync-lib/resolver.js-112-147 =>  CHILD": "similar",
-            "+ lookupGenerator-lib/environment.js-231-261": "smililarity | primitives | da" ,
+            "+ sync-lib/resolver.js-112-147 =>  CHILD": "similarity",
+            "+ lookupGenerator-lib/environment.js-231-261": "similarity | primitives | da" ,
             "- arrowAnonymousFunction-lib/resolver.js-127-127 =>  CHILD": "similarity",
             "- arrowAnonymousFunction-test/environment.js-466-470": "similarity | primitives",
             "- DummyTsGenerator-test/fixtures/generator-ts/generators/app/index.ts-3-11": "similarity",
@@ -85,9 +85,9 @@
         "true positives": {
             "+ arrowAnonymousFunction-test/environment.js-952-955": "da",
             "+ arrowAnonymousFunction-test/environment.js-957-960": "da",
-            "- arrowAnonymousFunction-test/environment.js-934-961": "da parent",
-            "- arrowAnonymousFunction-test/environment.js-935-940": "js unsigned | indirect",
-            "- arrowAnonymousFunction-test/environment.js-41-60": "js unsigned | indirect"
+            "- arrowAnonymousFunction-test/environment.js-934-961": "parent of da",
+            "- arrowAnonymousFunction-test/environment.js-935-940": "js | tests indirect",
+            "- arrowAnonymousFunction-test/environment.js-41-60": "js | tests indirect"
         }
     }
 }

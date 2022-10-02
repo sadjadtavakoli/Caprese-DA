@@ -16,20 +16,20 @@
             "uncast-lib/rules/no-unused-state.js-19-24"
         ],
         "true positives": {
-            "+ isSetStateCall-lib/rules/no-unused-state.js-66-74": "DA | Primitvs | similar",
-            "+ reportUnusedFields-lib/rules/no-unused-state.js-220-233": "DA | Indirect DP | ",
-            "- isPropTypesUsageByMemberExpression-lib/util/usedproptypes.js-224-247": "Primitvs |",
-            "- ast.js-lib/util/ast.js-1-462": "Primitvs",
-            "- isThisDotProps-lib/util/usedproptypes.js-198-203": "Primitvs",
-            "- isPropArgumentInSetStateUpdater-lib/util/usedproptypes.js-159-183": "Primitvs",
-            "- isSetStateUpdater-lib/util/usedproptypes.js-148-157": "Primitvs",
-            "- exports-lib/util/usedproptypes.js-289-567": "Primitvs",
-            "- README.md": "docs | Primitvs?",
+            "+ isSetStateCall-lib/rules/no-unused-state.js-66-74": "da | primitives | similarity",
+            "+ reportUnusedFields-lib/rules/no-unused-state.js-220-233": "da | indirect",
+            "- isPropTypesUsageByMemberExpression-lib/util/usedproptypes.js-224-247": "primitives",
+            "- ast.js-lib/util/ast.js-1-462": "primitives",
+            "- isThisDotProps-lib/util/usedproptypes.js-198-203": "primitives",
+            "- isPropArgumentInSetStateUpdater-lib/util/usedproptypes.js-159-183": "primitives",
+            "- isSetStateUpdater-lib/util/usedproptypes.js-148-157": "primitives",
+            "- exports-lib/util/usedproptypes.js-289-567": "primitives",
+            "- README.md": "docs",
             "- arrowAnonymousFunction-lib/rules/no-unused-state.js-156-158 =>  CHILD": "child",
-            "- arrowAnonymousFunction-lib/rules/no-danger-with-children.js-48-63": "Primitvs",
-            "- getPropertyName-lib/rules/jsx-sort-default-props.js-52-66": "Primitvs",
-            "- getNodeViolationType-lib/rules/jsx-no-bind.js-84-114": "Primitvs",
-            "- getPropertyNameNode-lib/util/ast.js-145-153": "Primitvs"
+            "- arrowAnonymousFunction-lib/rules/no-danger-with-children.js-48-63": "primitives",
+            "- getPropertyName-lib/rules/jsx-sort-default-props.js-52-66": "primitives",
+            "- getNodeViolationType-lib/rules/jsx-no-bind.js-84-114": "primitives",
+            "- getPropertyNameNode-lib/util/ast.js-145-153": "primitives"
         }
     },
     "f0d71ee94c6113c3b63aeb97a1ecd59ac1698ace": {
@@ -45,7 +45,7 @@
             "no-array-index-key.js-tests/lib/rules/no-array-index-key.js-1-376"
         ],
         "true positives": {
-            "- docs/rules/no-array-index-key.md": "docs | Primitvs",
+            "- docs/rules/no-array-index-key.md": "docs",
             "- no-array-index-key.js-lib/rules/no-array-index-key.js-1-288": "parent"
         }
     },
@@ -61,31 +61,31 @@
             "create-lib/rules/void-dom-elements-no-children.js-66-164"
         ],
         "true positives": {
-            "+ hasExternalLink-lib/rules/jsx-no-target-blank.js-51-56 =>  PARENT": "parent | DA",
-            "- jsx-filename-extension.js-tests/lib/rules/jsx-filename-extension.js-1-154": "tests",
+            "+ hasExternalLink-lib/rules/jsx-no-target-blank.js-51-56 =>  PARENT": "parent | da",
+            "- jsx-filename-extension.js-tests/lib/rules/jsx-filename-extension.js-1-154": "tests indirect",
             "- forbid-foreign-prop-types.js-lib/rules/forbid-foreign-prop-types.js-1-135 =>  PARENT": "parent",
             "- jsx-filename-extension.js-lib/rules/jsx-filename-extension.js-1-111 =>  PARENT": "parent",
-            "- docs/rules/forbid-foreign-prop-types.md": "docs | Primitvs?",
-            "- forbid-foreign-prop-types.js-tests/lib/rules/forbid-foreign-prop-types.js-1-225": "tests",
+            "- docs/rules/forbid-foreign-prop-types.md": "docs",
+            "- forbid-foreign-prop-types.js-tests/lib/rules/forbid-foreign-prop-types.js-1-225": "tests indirect",
             "- list-lib/util/components.js-138-174 =>  PARENT": "parent",
-            "- style-prop-object.js-tests/lib/rules/style-prop-object.js-1-308": "tests",
-            "- arrowAnonymousFunction-lib/util/components.js-166-172": "similar",
-            "- sort-comp.js-tests/lib/rules/sort-comp.js-1-1287": "tests",
-            "- arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-59-62": "js unsinged",
-            "- jsx-no-target-blank.js-tests/lib/rules/jsx-no-target-blank.js-1-404": "tests",
+            "- style-prop-object.js-tests/lib/rules/style-prop-object.js-1-308": "tests indirect",
+            "- arrowAnonymousFunction-lib/util/components.js-166-172": "similarity",
+            "- sort-comp.js-tests/lib/rules/sort-comp.js-1-1287": "tests indirect",
+            "- arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-59-62": "js",
+            "- jsx-no-target-blank.js-tests/lib/rules/jsx-no-target-blank.js-1-404": "tests indirect",
             "- jsx-no-target-blank.js-lib/rules/jsx-no-target-blank.js-1-268 =>  PARENT": "parent",
             "- Components.js-lib/util/components.js-1-950 =>  PARENT": "parent",
-            "- componentRule-lib/util/components.js-283-943": "Primitvs",
+            "- componentRule-lib/util/components.js-283-943": "primitives",
             "- arrowAnonymousFunction-lib/rules/void-dom-elements-no-children.js-87-93 =>  CHILD": "child",
-            "- docs/rules/jsx-no-target-blank.md": "docs | Primitvs?",
-            "- CHANGELOG.md": "docs | Primitvs?",
-            "- docs/rules/void-dom-elements-no-children.md": "docs | Primitvs?",
+            "- docs/rules/jsx-no-target-blank.md": "docs",
+            "- CHANGELOG.md": "docs",
+            "- docs/rules/void-dom-elements-no-children.md": "docs",
             "- void-dom-elements-no-children.js-lib/rules/void-dom-elements-no-children.js-1-166": "parent",
-            "- void-dom-elements-no-children.js-tests/lib/rules/void-dom-elements-no-children.js-1-196": "test",
+            "- void-dom-elements-no-children.js-tests/lib/rules/void-dom-elements-no-children.js-1-196": "tests indirect",
             "- arrowAnonymousFunction-lib/rules/void-dom-elements-no-children.js-146-152 =>  CHILD": "child",
-            "- arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-89-89": "similar | js unsigned",
-            "- prop-types.js-tests/lib/rules/prop-types.js-1-8205": "test | Primitvs",
-            "- hasDynamicLink-lib/rules/jsx-no-target-blank.js-58-66": "js unsigned"
+            "- arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-89-89": "similarity | js",
+            "- prop-types.js-tests/lib/rules/prop-types.js-1-8205": "tests indirect | primitives",
+            "- hasDynamicLink-lib/rules/jsx-no-target-blank.js-58-66": "js"
         }
     },
     "68d63845635da3fedd6205b068cb33ff3d848c76": {

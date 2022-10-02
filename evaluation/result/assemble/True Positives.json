@@ -16,7 +16,7 @@
         "true positives": {
             "- generator.js-lib/generator.js-1-126": "parent",
             "- arrowAnonymousFunction-lib/generator.js-46-49": "child",
-            "- arrowAnonymousFunction-lib/generator.js-79-90": "insufficiency | primitives"
+            "- arrowAnonymousFunction-lib/generator.js-79-90": "da insufficiency | primitives"
         }
     },
     "48aa0a7641f668f79dde02074c7f645c32817d84": {
