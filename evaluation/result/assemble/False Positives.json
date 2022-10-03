@@ -1,0 +1,91 @@
+{
+    "10dd2083d8217aefe985c460055cd2ce035d0979": {
+        "changes": [
+            "formatDir-lib/utils.js-99-101",
+            "homeRelative-lib/utils.js-85-93",
+            "run-bin/cli.js-12-126",
+            "utils.js-lib/utils.js-1-102"
+        ],
+        "false positives": {
+            "- success-lib/plugins.js-51-53": "independant",
+            "- logger-lib/plugins.js-23-67": "independant and irrelevant",
+            "- info-lib/plugins.js-55-57": "independant and irrelevant",
+            "- logger-lib/plugins.js-26-34": "independant",
+            "- path-lib/plugins.js-42-44": "independant and irrelevant",
+            "- warn-lib/plugins.js-48-50": "independant and irrelevant",
+            "- log-lib/plugins.js-39-41": "independant and irrelevant",
+            "- get-lib/plugins.js-38-64": "independant and irrelevant",
+            "- arrowAnonymousFunction-lib/plugins.js-28-33": "independant and irrelevant",
+            "- arrowAnonymousFunction-lib/plugins.js-24-66": "independant and irrelevant",
+            "- error-lib/plugins.js-59-61": "independant and irrelevant",
+            "- arrowAnonymousFunction-index.js-77-88": "irrelevant",
+            "- arrowAnonymousFunction-lib/generator.js-43-50": "irrelevant",
+            "- Assemble-index.js-24-31": "irrelevant",
+            "- enable-index.js-112-117": "irrelevant",
+            "- exports-lib/generator.js-5-112": "irrelevant",
+            "- index.js-index.js-1-156": "irrelevant",
+            "- plugins.js-lib/plugins.js-1-74": "irrelevant",
+            "- initPlugins-index.js-105-118": "irrelevant"
+        }
+    },
+    "fd42c2b69dbc68b177085f8b8c5946862c4f369b": {
+        "changes": [
+            "arrowAnonymousFunction-lib/generator.js-43-50",
+            "exports-lib/generator.js-5-112"
+        ],
+        "false positives": {
+            "- utils.js-lib/utils.js-1-102": "independant"
+        }
+    },
+    "48aa0a7641f668f79dde02074c7f645c32817d84": {
+        "changes": [
+            "app.layout.js-test/app.layout.js-1-25",
+            "app.layouts.js-test/app.layouts.js-1-27",
+            "app.page.js-test/app.page.js-1-32",
+            "app.pages.js-test/app.pages.js-1-34",
+            "app.partial.js-test/app.partial.js-1-25",
+            "app.partials.js-test/app.partials.js-1-28",
+            "arrowAnonymousFunction-gulpfile.js-15-19",
+            "arrowAnonymousFunction-gulpfile.js-21-25",
+            "arrowAnonymousFunction-gulpfile.js-9-13",
+            "gulpfile.js-gulpfile.js-1-33"
+        ],
+        "false positives": {
+            "- arrowAnonymousFunction-test/app.store.js-305-320": "irrelevant",
+            "- app.store.js-test/app.store.js-1-336": "irrelevant",
+            "- arrowAnonymousFunction-test/app.store.js-237-245": "irrelevant",
+            "- arrowAnonymousFunction-test/app.store.js-46-52": "irrelevant",
+            "- arrowAnonymousFunction-test/app.store.js-293-303": "irrelevant",
+            "- arrowAnonymousFunction-test/app.store.js-269-279": "irrelevant",
+            "- arrowAnonymousFunction-test/app.store.js-143-149": "irrelevant",
+            "- arrowAnonymousFunction-test/app.store.js-247-256": "irrelevant",
+            "- arrowAnonymousFunction-test/app.store.js-294-298": "irrelevant",
+            "- arrowAnonymousFunction-test/app.store.js-258-267": "irrelevant",
+            "- arrowAnonymousFunction-test/app.store.js-41-44": "irrelevant",
+            "- arrowAnonymousFunction-test/app.store.js-121-124": "irrelevant",
+            "- arrowAnonymousFunction-test/app.store.js-322-334": "irrelevant",
+            "- arrowAnonymousFunction-test/app.store.js-30-34": "irrelevant",
+            "- arrowAnonymousFunction-test/app.store.js-126-129": "irrelevant",
+            "- arrowAnonymousFunction-test/app.store.js-36-39": "irrelevant",
+            "- arrowAnonymousFunction-test/app.store.js-13-17": "irrelevant",
+            "- arrowAnonymousFunction-test/app.store.js-25-28": "irrelevant",
+            "- arrowAnonymousFunction-test/app.store.js-54-63": "irrelevant"
+        }
+    },
+    "d158ad1c52405be76948ca8675b7a4d5e4d44722": {
+        "changes": [
+            "Assemble-index.js-24-31",
+            "index.js-index.js-1-156"
+        ],
+        "false positives": {}
+    },
+    "7ce20e969ad4d406cf37ad2dac6b6e4e59843824": {
+        "changes": [
+            "arrowAnonymousFunction-support/docs/src/assets/js/docs.js-4-7",
+            "arrowAnonymousFunction-support/docs/src/assets/js/docs.js-77-81",
+            "initSearch-support/docs/src/assets/js/docs.js-68-143",
+            "initVersions-support/docs/src/assets/js/docs.js-9-66"
+        ],
+        "false positives": {}
+    }
+}
