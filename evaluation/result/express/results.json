@@ -200,7 +200,7 @@
                     "render-lib/application.js-548-610 | {\"id\":181 - \"parents\":[51]}"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "false"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/response.js-1033-1036",
@@ -208,7 +208,7 @@
                     "render-lib/application.js-548-610 | {\"id\":181 - \"parents\":[51]}"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "false"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "View-test/app.render.js-64-67",
@@ -308,12 +308,12 @@
                 {
                     "consequent": "tryRender-lib/application.js-655-661 | {\"id\":180 - \"parents\":[51]}",
                     "status": "Berke Unique",
-                    "evaluation result": "false"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/response.js-1033-1036",
                     "status": "Berke Unique",
-                    "evaluation result": "false"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "View-test/app.render.js-64-67",

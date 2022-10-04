@@ -1,0 +1,124 @@
+{
+    "389ab1b19fe5af63f4dbd119050c604ddcd60885": {
+        "changes": [
+            "arrowAnonymousFunction-test/acceptance/cookie-sessions.js-13-18",
+            "arrowAnonymousFunction-test/acceptance/cookie-sessions.js-20-30",
+            "arrowAnonymousFunction-test/acceptance/cookie-sessions.js-23-29",
+            "arrowAnonymousFunction-test/acceptance/cookie-sessions.js-5-32",
+            "arrowAnonymousFunction-test/acceptance/cookie-sessions.js-6-31",
+            "arrowAnonymousFunction-test/acceptance/cookie-sessions.js-7-11",
+            "cookie-sessions.js-test/acceptance/cookie-sessions.js-1-39",
+            "getCookies-test/acceptance/cookie-sessions.js-34-38"
+        ],
+        "false positives": {
+            "- route.js-test/route.js-1-265": "test/gets args"
+        }
+    },
+    "3b3e1fc38a8e2763679fc11ff07aed1617946867": {
+        "changes": [
+            "decode_param-lib/router/layer.js-166-181",
+            "layer.js-lib/router/layer.js-1-182"
+        ],
+        "false positives": {}
+    },
+    "e90413243ee5eda266826f611c0917a7541cd9cb": {
+        "changes": [
+            "defaultConfiguration-lib/application.js-77-134",
+            "render-lib/application.js-548-610"
+        ],
+        "false positives": {}
+    },
+    "371b381074b3821be8207383fb250c80f9fba855": {
+        "changes": [
+            "View-lib/view.js-52-95",
+            "lookup-lib/view.js-104-123"
+        ],
+        "false positives": {}
+    },
+    "c7e84d804450b1799611191d6aed12b44dc8201c": {
+        "changes": [
+            "all-lib/router/route.js-179-199",
+            "arrowAnonymousFunction-test/router.js-19-29",
+            "arrowAnonymousFunction-test/router.js-23-25",
+            "method-lib/router/index.js-519-523",
+            "method-lib/router/route.js-202-224",
+            "next-lib/router/index.js-177-291",
+            "route-lib/router/index.js-502-515",
+            "use-lib/router/index.js-439-487"
+        ],
+        "false positives": {
+            "+ Route-lib/router/route.js-43-51": "dependant/gets args",
+            "+ Layer-lib/router/layer.js-33-50": "dependant/gets args",
+            "+ arrowAnonymousFunction-test/router.js-494-498": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-lib/router/index.js-640-647": "callee's changes doesn't impact its callers",
+            "- handle-lib/router/layer.js-86-99": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/route.js-98-112": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/route.js-114-132": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/route.js-214-236": "callee's changes doesn't impact its callers",
+            "- getPathname-lib/router/index.js-537-543": "callee's changes doesn't impact its callers",
+            "- matchLayer-lib/router/index.js-583-589": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/router.js-103-103": "callee's changes doesn't impact its callers",
+            "- handle_error-lib/router/layer.js-62-75": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/router.js-249-253": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/router.js-266-270": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/router.js-283-287": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/router.js-300-304": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/router.js-317-321": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/router.js-323-327": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/router.js-340-344": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/router.js-346-350": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/router.js-352-356": "callee's changes doesn't impact its callers",
+            "- fn1-test/router.js-450-453": "callee's changes doesn't impact its callers",
+            "- fn2-test/router.js-455-458": "callee's changes doesn't impact its callers",
+            "- query-lib/middleware/query.js-39-46": "callee's changes doesn't impact its callers",
+            "- expressInit-lib/middleware/init.js-29-41": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-examples/auth/index.js-30-39": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-lib/response.js-1033-1036": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-examples/mvc/index.js-53-73": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-examples/web-service/index.js-30-42": "callee's changes doesn't impact its callers",
+            "- appendMethods-lib/router/index.js-527-534": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/app.options.js-83-86": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/app.router.js-23-26": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/app.router.js-144-147": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/app.router.js-1082-1085": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/app.router.js-63-68": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/app.router.js-203-206": "callee's changes doesn't impact its callers",
+            "- mergeParams-lib/router/index.js-592-628": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/app.router.js-434-437": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/app.router.js-454-457": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/app.routes.error.js-12-14": "callee's changes doesn't impact its callers",
+            "- fn1-test/app.use.js-92-95": "callee's changes doesn't impact its callers",
+            "- fn1-test/app.use.js-129-132": "callee's changes doesn't impact its callers",
+            "- fn2-test/app.use.js-134-137": "callee's changes doesn't impact its callers",
+            "- fn1-test/app.use.js-232-235": "callee's changes doesn't impact its callers",
+            "- fn3-test/app.use.js-483-486": "callee's changes doesn't impact its callers",
+            "- fn1-test/app.use.js-299-302": "callee's changes doesn't impact its callers",
+            "- fn2-test/app.use.js-304-307": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/express.json.js-57-60": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/express.json.js-543-551": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/express.raw.js-29-32": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/express.raw.js-373-381": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/express.static.js-470-474": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/express.static.js-754-757": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/express.text.js-29-32": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/express.text.js-402-410": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/express.urlencoded.js-29-32": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/express.urlencoded.js-647-655": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/middleware.basic.js-13-16": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/middleware.basic.js-18-21": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/req.baseurl.js-73-76": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/req.baseurl.js-64-67": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/req.baseurl.js-69-72": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/res.append.js-12-15": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/res.append.js-47-51": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/res.append.js-68-71": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/res.append.js-88-91": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-lib/response.js-449-457": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-lib/response.js-684-709": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/res.locals.js-27-30": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-lib/response.js-518-526": "callee's changes doesn't impact its callers",
+            "- arrowAnonymousFunction-test/res.sendfile.js-1350-1353": "callee's changes doesn't impact its callers",
+            "- gettype-lib/router/index.js-563-573": "callee's changes doesn't impact its callers"
+        }
+    }
+}
