@@ -2,18 +2,12 @@ const constants = require('../../constants.js');
 const fs = require('fs');
 const path = require('path')
 const { evaluationAnalyzer } = require('../../berke');
-const { anonymouseName } = require('../../computeBerkeResult');
+
+const { STATUS, reverseDA, reverseFP, getBerkeResult, tarmaqAndBerkeConsequentStatusUpdate} = require('./evaluation')
 
 const RESULT_DIR_PATH = `${path.dirname(__dirname)}${path.sep}result${path.sep}${constants.PROJECT_NAME}`;
 
 const RESULT_PATH = `${RESULT_DIR_PATH}${path.sep}results.json`
-
-const STATUS = {
-    berke_unique: "Berke Unique",
-    tarmaq_unique: "TARMAQ Unique",
-    common: "common",
-    removed: "Removed"
-}
 
 if (process.argv[1].endsWith(path.basename(__filename))) {
 
@@ -145,63 +139,3 @@ function getTarmaqResult(tarmaqResult) {
     })
     return tarmaqResult;
 }
-
-function getBerkeResult() {
-    return JSON.parse(fs.readFileSync(constants.Berke_RESULT_PATH));
-}
-function tarmaqAndBerkeConsequentStatusUpdate(berkeResult, tarmaqResult) {
-
-    berkeResult.forEach(item => {
-        let consequent = item["consequent"].split(" | ")[0]
-        let tarmaqItems = tarmaqResult.filter(element => element['consequent'] == consequent || element['consequent'] == anonymouseName(consequent))
-        if (tarmaqItems.length != 0) {
-            tarmaqItems.forEach(tarmaqItem => tarmaqItem['status'] = STATUS.common)
-            item["status"] = STATUS.common;
-        } else {
-            item["status"] = STATUS.berke_unique;
-        }
-    });
-}
-
-function reverseFP(impactSet) {
-    let result = {};
-    impactSet.forEach(impacted => {
-        let consequent = impacted['consequent']
-        let antecedents = impacted['FP-antecedents']
-        if (antecedents != undefined) {
-            antecedents.forEach(element => {
-                let id = stringfy(element)
-                if (result[id] == undefined) {
-                    result[id] = []
-                }
-                result[id].push({ 'consequent': consequent, 'support': impacted['support'], 'FP-score': impacted['FP-score'], 'status': impacted['status'], 'DA': impacted['DA-antecedents'], 'evaluation result': '' })
-
-            });
-        }
-    })
-    return result
-}
-
-function reverseDA(impactSet) {
-    let result = {};
-    impactSet.forEach(impacted => {
-        let consequent = impacted['consequent']
-        let antecedents = impacted['DA-antecedents']
-        if (antecedents != undefined) {
-            antecedents.forEach(id => {
-                if (result[id] == undefined) {
-                    result[id] = []
-                }
-                result[id].push({ 'consequent': consequent, 'support': impacted['support'], 'FP-score': impacted['FP-score'], 'status': impacted['status'], 'FP': impacted['FP-antecedents'], 'evaluation result': '' })
-
-            });
-        }
-    })
-    return result
-}
-
-function stringfy(listOfFunctions) {
-    return listOfFunctions.join(",")
-}
-
-module.exports = { STATUS }

@@ -224,4 +224,4 @@ function runTARMAQ(changeSet) {
     })
 }
 
-module.exports = { STATUS }
+module.exports = { STATUS, runTARMAQ, reverseDA, reverseFP, getBerkeResult, tarmaqAndBerkeConsequentStatusUpdate}

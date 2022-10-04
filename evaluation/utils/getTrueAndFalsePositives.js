@@ -16,15 +16,15 @@ if (process.argv[2]) {
 
 function getData(filename) {
     let result = JSON.parse(fs.readFileSync(`${resultDirPath}${filename}${path.sep}results.json`));
-    fs.writeFileSync(`${resultDirPath}${filename}${path.sep}True Positivs.json`, JSON.stringify(getPositives(result, 'true')));
-    fs.writeFileSync(`${resultDirPath}${filename}${path.sep}False Positivs.json`, JSON.stringify(getPositives(result, 'false')));
+    fs.writeFileSync(`${resultDirPath}${filename}${path.sep}True Positives.json`, JSON.stringify(getPositives(result, 'true')));
+    fs.writeFileSync(`${resultDirPath}${filename}${path.sep}False Positives.json`, JSON.stringify(getPositives(result, 'false')));
 }
 
 function getPositives(evaluationResult, type) {
     let result = {};
     for (let commit in evaluationResult) {
         let impactSet = evaluationResult[commit][capreseName]
-        let items = []
+        let items = {}
         let changeSet = evaluationResult[commit]['commits']
         let changeSetID = {}
         for(let consequentInfo of impactSet){
@@ -60,7 +60,12 @@ function getPositives(evaluationResult, type) {
                         consequentKey+= "  CHILD"
                     }
                 }
-                items.push(consequentKey)
+                if(consequentInfo['DA-antecedents']!=undefined){
+                    consequentKey = "+ " + consequentKey
+                }else{
+                    consequentKey = "- " + consequentKey
+                }
+                items[consequentKey] = ""
             }
         })
 
