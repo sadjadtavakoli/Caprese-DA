@@ -43,7 +43,8 @@
             "- index.ts-test/fixtures/generator-ts/generators/app/index.ts-1-14": "similarity",
             "- index.js-test/fixtures/generator-ts-js/generators/app/index.js-1-8": "similarity",
             "- arrowAnonymousFunction-test/environment.js-465-481": "similarity | primitives",
-            "- arrowAnonymousFunction-test/environment.js-472-474": "similarity | primitives"
+            "- arrowAnonymousFunction-test/environment.js-472-474": "similarity | primitives",
+            "- arrowAnonymousFunction-lib/resolver.js-77-91 =>  CHILD": "child"
         }
     },
     "9ad77e97ad5080eb7eb294de84b205eb0af718b1": {
@@ -54,8 +55,11 @@
             "start-lib/environment.js-1017-1073"
         ],
         "true positives": {
+            "+ runGenerator-lib/environment.js-934-945": "primitives",
             "+ arrowAnonymousFunction-lib/environment.js-1066-1068 =>  CHILD": "child",
             "+ arrowAnonymousFunction-lib/environment.js-1038-1040 =>  CHILD": "child",
+            "+ arrowAnonymousFunction-lib/environment.js-154-169": "da",
+            "- queueGenerator-lib/environment.js-897-966": "primitives",
             "+ runGenerator-lib/environment.js-1081-1093": "da"
         }
     },

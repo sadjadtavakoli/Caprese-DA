@@ -451,14 +451,6 @@
                 "DA-evaluation": "true"
             },
             {
-                "consequent": "run-lib/environment.js-977-1011",
-                "DA-antecedents": [
-                    "index.js-test/fixtures/generator-module-root/app/index.js-1-6 | {\"id\":20 - \"parents\":[15-12-18-19]}"
-                ],
-                "status": "Berke Unique",
-                "DA-evaluation": "false"
-            },
-            {
                 "consequent": "arrowAnonymousFunction-lib/composability.js-50-52",
                 "DA-antecedents": [
                     "lookup-lib/resolver.js-55-94 | {\"id\":3 - \"parents\":[1-1]}"
@@ -669,7 +661,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false"
+                "FP-evaluation": "true children"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-466-470 | {\"id\":6 - \"parents\":[7-8]}",
@@ -916,7 +908,7 @@
                 "confidence": 1,
                 "consequent": "arrowAnonymousFunction-lib/resolver.js-77-91",
                 "status": "common",
-                "FP-evaluation": "false"
+                "FP-evaluation": "true children"
             },
             {
                 "rule": "[arrowAnonymousFunction-lib/resolver.js-69-69, findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => arrowAnonymousFunction-test/resolver.js-56-69",
@@ -1020,7 +1012,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "common",
-                    "evaluation result": "false"
+                    "evaluation result": "true children"
                 }
             ],
             "arrowAnonymousFunction-lib/resolver.js-69-69 | {\"id\":27 - \"parents\":[3-1]},resolver.js-lib/resolver.js-1-417 | {\"id\":1 - \"parents\":[]}": [
@@ -1043,7 +1035,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "common",
-                    "evaluation result": "false"
+                    "evaluation result": "true children"
                 }
             ],
             "arrowAnonymousFunction-lib/resolver.js-69-69 | {\"id\":27 - \"parents\":[3-1]},lookup-lib/resolver.js-55-94 | {\"id\":3 - \"parents\":[1-1]}": [
@@ -1306,13 +1298,6 @@
                     "status": "Berke Unique",
                     "evaluation result": "true"
                 }
-            ],
-            "index.js-test/fixtures/generator-module-root/app/index.js-1-6 | {\"id\":20 - \"parents\":[15-12-18-19]}": [
-                {
-                    "consequent": "run-lib/environment.js-977-1011",
-                    "status": "Berke Unique",
-                    "evaluation result": "false"
-                }
             ]
         }
     },
@@ -1338,8 +1323,8 @@
                     ]
                 ],
                 "status": "common",
-                "DA-evaluation": "false",
-                "FP-evaluation": "false"
+                "DA-evaluation": "true",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/environment.js-1066-1068 | {\"id\":35 - \"parents\":[31-32-36-37]}",
@@ -1410,8 +1395,8 @@
                     ]
                 ],
                 "status": "common",
-                "DA-evaluation": "false",
-                "FP-evaluation": "false"
+                "DA-evaluation": "true",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "Conflicter-lib/util/conflicter.js-34-382",
@@ -1420,14 +1405,6 @@
                 ],
                 "status": "Berke Unique",
                 "DA-evaluation": "true"
-            },
-            {
-                "consequent": "adapter.js-test/adapter.js-1-198",
-                "DA-antecedents": [
-                    "arrowAnonymousFunction-lib/environment.js-1053-1055 | {\"id\":136 - \"parents\":[31-32-36-37]}"
-                ],
-                "status": "Berke Unique",
-                "DA-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-127-132 | {\"id\":60 - \"parents\":[7-61]}",
@@ -3218,7 +3195,7 @@
                 "confidence": 1,
                 "consequent": "runGenerator-lib/environment.js-934-945",
                 "status": "common",
-                "FP-evaluation": "false"
+                "FP-evaluation": "true"
             },
             {
                 "rule": "[arrowAnonymousFunction-lib/environment.js-1018-1072, arrowAnonymousFunction-lib/environment.js-1053-1055, constructor-lib/environment.js-292-356] => splitArgsFromString-lib/environment.js-41-55",
@@ -3359,7 +3336,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-lib/environment.js-154-169",
                 "status": "common",
-                "FP-evaluation": "false"
+                "FP-evaluation": "true"
             },
             {
                 "rule": "[arrowAnonymousFunction-lib/environment.js-1018-1072, constructor-lib/environment.js-292-356, start-lib/environment.js-1017-1073] => arrowAnonymousFunction-lib/environment.js-164-164",
@@ -3833,7 +3810,7 @@
                     "DA": [
                         "arrowAnonymousFunction-lib/environment.js-1018-1072 | {\"id\":36 - \"parents\":[31-32-37]}"
                     ],
-                    "evaluation result": "false"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-127-132 | {\"id\":60 - \"parents\":[7-61]}",
@@ -4638,7 +4615,7 @@
                             "arrowAnonymousFunction-lib/environment.js-1053-1055 | {\"id\":136 - \"parents\":[31-32-36-37]}"
                         ]
                     ],
-                    "evaluation result": "false"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/environment.js-1066-1068 | {\"id\":35 - \"parents\":[31-32-36-37]}",
@@ -4674,11 +4651,6 @@
                         ]
                     ],
                     "evaluation result": "true"
-                },
-                {
-                    "consequent": "adapter.js-test/adapter.js-1-198",
-                    "status": "Berke Unique",
-                    "evaluation result": "false"
                 }
             ],
             "start-lib/environment.js-1017-1073 | {\"id\":37 - \"parents\":[31-32]}": [
@@ -4708,7 +4680,7 @@
                             "start-lib/environment.js-1017-1073 | {\"id\":37 - \"parents\":[31-32]}"
                         ]
                     ],
-                    "evaluation result": "false"
+                    "evaluation result": "true"
                 }
             ]
         }
@@ -4776,7 +4748,7 @@
                     "ok-lib/util/log.js-111-114 | {\"id\":171 - \"parents\":[161-162]}"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "false"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/util/log.js-96-99 | {\"id\":160 - \"parents\":[161-162]}",
@@ -5186,7 +5158,6 @@
                     ]
                 ],
                 "status": "common",
-                "DA-evaluation": "true",
                 "FP-evaluation": "false"
             },
             {
@@ -7138,7 +7109,7 @@
                 {
                     "consequent": "installPackages-lib/util/repository.js-166-188",
                     "status": "Berke Unique",
-                    "evaluation result": "false"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/util/log.js-96-99 | {\"id\":160 - \"parents\":[161-162]}",
@@ -7150,7 +7121,7 @@
                 {
                     "consequent": "installPackages-lib/util/repository.js-166-188",
                     "status": "Berke Unique",
-                    "evaluation result": "false"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/util/log.js-96-99 | {\"id\":160 - \"parents\":[161-162]}",
