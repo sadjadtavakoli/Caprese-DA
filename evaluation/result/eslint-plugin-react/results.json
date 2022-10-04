@@ -31,7 +31,7 @@
                     ]
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "true | true | true | true",
+                "DA-evaluation": "true",
                 "FP-evaluation": "true"
             },
             {
@@ -49,7 +49,7 @@
                     ]
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "false | false | false | false",
+                "DA-evaluation": "false",
                 "FP-evaluation": "false"
             },
             {
@@ -67,7 +67,7 @@
                     ]
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "true | true",
+                "DA-evaluation": "true",
                 "FP-evaluation": "true"
             },
             {
@@ -78,7 +78,7 @@
                     "handleStateDestructuring-lib/rules/no-unused-state.js-175-186"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "true | true | true | true | true | true | true | true | true"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "AssignmentExpression-lib/rules/no-unused-state.js-447-480",
@@ -88,7 +88,7 @@
                     "isThisExpression-lib/rules/no-unused-state.js-45-47"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "true | true | true | true | true | true | true | true | true"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "MemberExpression, OptionalMemberExpression-lib/rules/no-unused-state.js-489-505",
@@ -97,7 +97,7 @@
                     "isStateReference-lib/rules/no-unused-state.js-133-145"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "true | true | true | true"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/rules/no-unused-state.js-384-389",
@@ -129,7 +129,7 @@
                     "getName-lib/rules/no-unused-state.js-29-43"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "false"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "isGDSFP-lib/rules/no-unused-state.js-249-261",
@@ -137,7 +137,7 @@
                     "getName-lib/rules/no-unused-state.js-29-43"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "false"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "isStateParameterReference-lib/rules/no-unused-state.js-101-129",
@@ -145,7 +145,7 @@
                     "isStateReference-lib/rules/no-unused-state.js-133-145"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "false"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "isPropTypesUsageByMemberExpression-lib/util/usedproptypes.js-224-247",
@@ -591,7 +591,7 @@
                             "isThisExpression-lib/rules/no-unused-state.js-45-47"
                         ]
                     ],
-                    "evaluation result": "true | true"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "reportUnusedFields-lib/rules/no-unused-state.js-220-233",
@@ -622,12 +622,12 @@
                 {
                     "consequent": "CallExpression-lib/rules/no-unused-state.js-289-324",
                     "status": "Berke Unique",
-                    "evaluation result": "true | true | true"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "AssignmentExpression-lib/rules/no-unused-state.js-447-480",
                     "status": "Berke Unique",
-                    "evaluation result": "true | true | true"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/rules/no-unused-state.js-150-156 | {\"id\":0 - \"parents\":[1]}",
@@ -637,12 +637,12 @@
                 {
                     "consequent": "ClassProperty, PropertyDefinition-lib/rules/no-unused-state.js-326-352",
                     "status": "Berke Unique",
-                    "evaluation result": "false"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "isGDSFP-lib/rules/no-unused-state.js-249-261",
                     "status": "Berke Unique",
-                    "evaluation result": "false"
+                    "evaluation result": "true"
                 }
             ],
             "isThisExpression-lib/rules/no-unused-state.js-45-47": [
@@ -657,7 +657,7 @@
                             "isThisExpression-lib/rules/no-unused-state.js-45-47"
                         ]
                     ],
-                    "evaluation result": "true | true"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "unwrapTSAsExpression-lib/util/ast.js-342-345 | {\"id\":2 - \"parents\":[3]}",
@@ -670,12 +670,12 @@
                             "isThisExpression-lib/rules/no-unused-state.js-45-47"
                         ]
                     ],
-                    "evaluation result": "false | false"
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "AssignmentExpression-lib/rules/no-unused-state.js-447-480",
                     "status": "Berke Unique",
-                    "evaluation result": "true | true | true"
+                    "evaluation result": "true"
                 }
             ],
             "handleAssignment-lib/rules/no-unused-state.js-190-218": [
@@ -690,33 +690,33 @@
                             "isThisExpression-lib/rules/no-unused-state.js-45-47"
                         ]
                     ],
-                    "evaluation result": "false | false"
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "AssignmentExpression-lib/rules/no-unused-state.js-447-480",
                     "status": "Berke Unique",
-                    "evaluation result": "true | true | true"
+                    "evaluation result": "true"
                 }
             ],
             "addStateFields-lib/rules/no-unused-state.js-149-159 | {\"id\":1 - \"parents\":[]}": [
                 {
                     "consequent": "CallExpression-lib/rules/no-unused-state.js-289-324",
                     "status": "Berke Unique",
-                    "evaluation result": "true | true | true"
+                    "evaluation result": "true"
                 }
             ],
             "handleStateDestructuring-lib/rules/no-unused-state.js-175-186": [
                 {
                     "consequent": "CallExpression-lib/rules/no-unused-state.js-289-324",
                     "status": "Berke Unique",
-                    "evaluation result": "true | true | true"
+                    "evaluation result": "true"
                 }
             ],
             "addUsedStateField-lib/rules/no-unused-state.js-163-171": [
                 {
                     "consequent": "MemberExpression, OptionalMemberExpression-lib/rules/no-unused-state.js-489-505",
                     "status": "Berke Unique",
-                    "evaluation result": "true | true"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/rules/no-unused-state.js-384-389",
@@ -728,12 +728,12 @@
                 {
                     "consequent": "MemberExpression, OptionalMemberExpression-lib/rules/no-unused-state.js-489-505",
                     "status": "Berke Unique",
-                    "evaluation result": "true | true"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "isStateParameterReference-lib/rules/no-unused-state.js-101-129",
                     "status": "Berke Unique",
-                    "evaluation result": "false"
+                    "evaluation result": "true"
                 }
             ],
             "getErrorMessages-tests/lib/rules/no-unused-state.js-23-28 | {\"id\":15 - \"parents\":[]}": [

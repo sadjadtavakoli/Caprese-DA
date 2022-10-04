@@ -1,0 +1,64 @@
+{
+    "e8205386a2c0234793621c21f4612c3acac23fd2": {
+        "changes": [
+            "addStateFields-lib/rules/no-unused-state.js-149-159",
+            "addUsedStateField-lib/rules/no-unused-state.js-163-171",
+            "arrowAnonymousFunction-tests/lib/rules/no-unused-state.js-24-27",
+            "getErrorMessages-tests/lib/rules/no-unused-state.js-23-28",
+            "getName-lib/rules/no-unused-state.js-29-43",
+            "handleAssignment-lib/rules/no-unused-state.js-190-218",
+            "handleStateDestructuring-lib/rules/no-unused-state.js-175-186",
+            "index.js-index.js-1-188",
+            "isStateReference-lib/rules/no-unused-state.js-133-145",
+            "isThisExpression-lib/rules/no-unused-state.js-45-47",
+            "no-unused-state.js-lib/rules/no-unused-state.js-1-521",
+            "no-unused-state.js-tests/lib/rules/no-unused-state.js-1-1606",
+            "uncast-lib/rules/no-unused-state.js-19-24"
+        ],
+        "false positives": {
+            "+ unwrapTSAsExpression-lib/util/ast.js-342-345": "gets args",
+            "- geteslintcorerule.js-tests/helpers/geteslintcorerule.js-1-11": ""
+        }
+    },
+    "f0d71ee94c6113c3b63aeb97a1ecd59ac1698ace": {
+        "changes": [
+            "no-did-mount-set-state.js-tests/lib/rules/no-did-mount-set-state.js-1-301",
+            "no-did-update-set-state.js-tests/lib/rules/no-did-update-set-state.js-1-302"
+        ],
+        "false positives": {}
+    },
+    "941a67d90583b523ba4508e67cf4ee79ac818924": {
+        "changes": [
+            "arrowAnonymousFunction-lib/rules/no-array-index-key.js-242-250",
+            "no-array-index-key.js-tests/lib/rules/no-array-index-key.js-1-376"
+        ],
+        "false positives": {
+            "+ checkPropValue-lib/rules/no-array-index-key.js-155-217": "gets args"
+        }
+    },
+    "dba095d47de55bf7da181916ead771233c9f0273": {
+        "changes": [
+            "arrowAnonymousFunction-lib/rules/forbid-foreign-prop-types.js-124-124",
+            "arrowAnonymousFunction-lib/rules/jsx-filename-extension.js-70-70",
+            "arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-53-53",
+            "arrowAnonymousFunction-lib/rules/sort-comp.js-386-405",
+            "arrowAnonymousFunction-lib/rules/style-prop-object.js-94-94",
+            "arrowAnonymousFunction-lib/util/components.js-144-163",
+            "arrowAnonymousFunction-lib/util/componentutil.js-87-87",
+            "create-lib/rules/void-dom-elements-no-children.js-66-164"
+        ],
+        "false positives": {
+            "- getPropertyName-lib/rules/sort-comp.js-236-246": "gets args",
+            "- get-lib/util/components.js-94-101": "gets args",
+            "- getId-lib/util/components.js-23-25": "gets args",
+            "- geteslintcorerule.js-tests/helpers/geteslintcorerule.js-1-11": ""
+        }
+    },
+    "68d63845635da3fedd6205b068cb33ff3d848c76": {
+        "changes": [
+            "componentRule-lib/util/components.js-283-943",
+            "no-this-in-sfc.js-tests/lib/rules/no-this-in-sfc.js-1-280"
+        ],
+        "false positives": {}
+    }
+}
