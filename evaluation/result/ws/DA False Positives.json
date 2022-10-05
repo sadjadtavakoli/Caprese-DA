@@ -1,0 +1,96 @@
+{
+    "36e60fcc93b524369cdb0bc5d8d1a780e7e01f64": {
+        "changes": [
+            "arrowAnonymousFunction-test/websocket-server.test.js-996-1003",
+            "arrowAnonymousFunction-test/websocket.test.js-3565-3571",
+            "arrowAnonymousFunction-test/websocket.test.js-3595-3603",
+            "arrowAnonymousFunction-test/websocket.test.js-3640-3649",
+            "arrowAnonymousFunction-test/websocket.test.js-3668-3680"
+        ],
+        "false positives": {}
+    },
+    "5816e33059cfad4bf9fa533fa2474d6e60ed2ca0": {
+        "changes": [
+            "close-lib/websocket.js-281-324",
+            "terminate-lib/websocket.js-476-487"
+        ],
+        "false positives": {
+            "+ setSocket-lib/websocket.js-203-238": "sets event",
+            "- abortHandshake-lib/websocket.js-1044-1069": "sets event",
+            "- close-lib/sender.js-156-199": "independant/gets args",
+            "- arrowAnonymousFunction-lib/extension.js-181-199": ""
+        }
+    },
+    "8e1b092dc94e79c548f8b2e6fb38b8fafefc6b69": {
+        "changes": [
+            "arrowAnonymousFunction-lib/websocket.js-894-988",
+            "initAsClient-lib/websocket.js-637-991",
+            "websocket.js-lib/websocket.js-1-1306"
+        ],
+        "false positives": {
+            "- autobahn-server.js-test/autobahn-server.js-1-17": "",
+            "- arrowAnonymousFunction-test/create-websocket-stream.test.js-199-203": "answers to event",
+            "- abortHandshake-lib/websocket.js-1044-1069": "gets args",
+            "- parse-lib/extension.js-27-170": "gets args",
+            "- arrowAnonymousFunction-test/websocket.test.js-2864-2864": "answers to event",
+            "- arrowAnonymousFunction-test/websocket.test.js-3138-3138": "answers to event",
+            "- WebSocket-lib/websocket.js-44-488": "independant",
+            "- PerMessageDeflate-lib/permessage-deflate.js-28-458": "independant/gets atgs",
+            "- netConnect-lib/websocket.js-1013-1016": "gets args",
+            "- tlsConnect-lib/websocket.js-1025-1033": "gets args",
+            "- addRequest-test/websocket.test.js-27-27": "",
+            "- arrowAnonymousFunction-test/websocket.test.js-2845-2847": "answers to event",
+            "- arrowAnonymousFunction-test/websocket.test.js-3119-3121": "answers to event"
+        }
+    },
+    "9c116af775bf37ac1a47c093a2376b2cbe66fdeb": {
+        "changes": [
+            "Sender-lib/sender.js-20-476",
+            "arrowAnonymousFunction-bench/sender.benchmark.js-31-31",
+            "arrowAnonymousFunction-bench/sender.benchmark.js-32-32",
+            "arrowAnonymousFunction-bench/sender.benchmark.js-33-33",
+            "arrowAnonymousFunction-bench/sender.benchmark.js-34-34",
+            "arrowAnonymousFunction-bench/sender.benchmark.js-35-35",
+            "arrowAnonymousFunction-bench/sender.benchmark.js-36-36",
+            "arrowAnonymousFunction-bench/sender.benchmark.js-37-37",
+            "arrowAnonymousFunction-bench/sender.benchmark.js-38-38",
+            "arrowAnonymousFunction-bench/sender.benchmark.js-39-39",
+            "arrowAnonymousFunction-bench/sender.benchmark.js-40-40",
+            "arrowAnonymousFunction-lib/sender.js-408-431",
+            "arrowAnonymousFunction-test/sender.test.js-25-37",
+            "arrowAnonymousFunction-test/sender.test.js-39-49",
+            "close-lib/sender.js-156-199",
+            "constructor-lib/sender.js-29-45",
+            "dequeue-lib/sender.js-439-446",
+            "dispatch-lib/sender.js-398-432",
+            "frame-lib/sender.js-68-145",
+            "ping-lib/sender.js-209-242",
+            "pong-lib/sender.js-252-285",
+            "send-lib/sender.js-303-373",
+            "sender.benchmark.js-bench/sender.benchmark.js-1-49",
+            "sender.js-lib/sender.js-1-479"
+        ],
+        "false positives": {
+            "+ sendFrame-lib/sender.js-466-475": "independant/gets args",
+            "- toBuffer-lib/buffer-util.js-83-100": "independant/gets args",
+            "- arrowAnonymousFunction-lib/buffer-util.js-115-118": "independant/gets args",
+            "- compress-lib/permessage-deflate.js-321-328": "independant/gets args",
+            "- onMessage-lib/event-target.js-193-200": ""
+        }
+    },
+    "c0e62781bd347342a905ee9e9ea54309ac4179df": {
+        "changes": [
+            "Receiver-lib/receiver.js-27-593",
+            "constructor-lib/receiver.js-41-68",
+            "dataMessage-lib/receiver.js-492-533",
+            "receiver.js-lib/receiver.js-1-619"
+        ],
+        "false positives": {
+            "- arrowAnonymousFunction-test/websocket.test.js-66-70": "",
+            "- concat-lib/buffer-util.js-13-29": "independant/gets args",
+            "- arrowAnonymousFunction-lib/validation.js-119-121": "independant/gets args",
+            "- error-lib/receiver.js-609-618": "independant/gets args",
+            "- toArrayBuffer-lib/buffer-util.js-67-73": "independant/gets args"
+        }
+    }
+}

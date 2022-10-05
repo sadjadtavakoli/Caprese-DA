@@ -9980,7 +9980,7 @@
                     "close-lib/websocket.js-281-324 | {\"id\":305 - \"parents\":[]}"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "false"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "receiverOnError-lib/websocket.js-1143-1159",
@@ -11054,7 +11054,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-lib/stream.js-111-137",
                     "status": "Berke Unique",
-                    "evaluation result": "false"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "receiverOnError-lib/websocket.js-1143-1159",
@@ -11834,7 +11834,7 @@
                     "initAsClient-lib/websocket.js-637-991 | {\"id\":301 - \"parents\":[308]}"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "false"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/websocket.test.js-1763-1806 | {\"id\":325 - \"parents\":[]}",
@@ -12123,7 +12123,7 @@
                 {
                     "consequent": "emitErrorAndClose-lib/websocket.js-1000-1004 | {\"id\":324 - \"parents\":[308]}",
                     "status": "Berke Unique",
-                    "evaluation result": "false"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-1763-1806 | {\"id\":325 - \"parents\":[]}",
@@ -12569,7 +12569,7 @@
                     "arrowAnonymousFunction-lib/sender.js-408-431 | {\"id\":418 - \"parents\":[352-422-353]}"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "false"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/websocket.test.js-4242-4251",
@@ -12609,7 +12609,7 @@
                     "close-lib/sender.js-156-199 | {\"id\":419 - \"parents\":[352-353]}"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "false"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/sender.test.js-324-324 | {\"id\":285 - \"parents\":[77-286-78-286-336-77]}",
@@ -15431,7 +15431,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-lib/permessage-deflate.js-323-326 | {\"id\":349 - \"parents\":[350-313]}",
                     "status": "Berke Unique",
-                    "evaluation result": "false"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-4242-4251",
@@ -15499,7 +15499,7 @@
                 {
                     "consequent": "isValidStatusCode-lib/validation.js-33-42",
                     "status": "Berke Unique",
-                    "evaluation result": "false"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/sender.test.js-324-324 | {\"id\":285 - \"parents\":[77-286-78-286-336-77]}",
@@ -17537,7 +17537,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-66-70",
                     "status": "Berke Unique",
-                    "evaluation result": "true"
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-87-108 | {\"id\":447 - \"parents\":[439-440]}",
