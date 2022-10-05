@@ -1,0 +1,85 @@
+{
+    "362af9cc48574649aab74a33e561457f2d3cb736": {
+        "changes": [
+            "arrowAnonymousFunction-index.js-179-508",
+            "arrowAnonymousFunction-test/session.js-2299-2316",
+            "arrowAnonymousFunction-test/session.js-2302-2315",
+            "createRequestListener-test/session.js-2295-2317"
+        ],
+        "false positives": {
+            "+ arrowAnonymousFunction-test/session.js-94-96": ""
+        }
+    },
+    "737211b5629cb8eda4672023b99c763a92b3623b": {
+        "changes": [
+            "arrowAnonymousFunction-index.js-179-508",
+            "arrowAnonymousFunction-test/session.js-1268-1297",
+            "arrowAnonymousFunction-test/session.js-1299-1328",
+            "arrowAnonymousFunction-test/session.js-1330-1348",
+            "arrowAnonymousFunction-test/session.js-1441-2142",
+            "arrowAnonymousFunction-test/session.js-1465-1503",
+            "arrowAnonymousFunction-test/session.js-1574-1595",
+            "arrowAnonymousFunction-test/session.js-2075-2085",
+            "arrowAnonymousFunction-test/session.js-2250-2270",
+            "arrowAnonymousFunction-test/session.js-2253-2253",
+            "arrowAnonymousFunction-test/session.js-26-35",
+            "arrowAnonymousFunction-test/session.js-37-41",
+            "arrowAnonymousFunction-test/session.js-393-441",
+            "arrowAnonymousFunction-test/session.js-43-51",
+            "arrowAnonymousFunction-test/session.js-73-90",
+            "arrowAnonymousFunction-test/session.js-878-895",
+            "arrowAnonymousFunction-test/session.js-897-914",
+            "getcookie-index.js-529-586",
+            "index.js-index.js-1-686",
+            "session.js-test/session.js-1-2472",
+            "shouldSave-index.js-440-450",
+            "shouldSetCookie-index.js-464-473"
+        ],
+        "false positives": {
+            "+ shouldSetCookie-test/session.js-2371-2378": "get args",
+            "+ unsigncookie-index.js-675-685": "independant/get args",
+            "+ createServer-test/session.js-2279-2293": "independant/get args",
+            "+ isModified-index.js-425-427": "independant/get args",
+            "+ isSaved-index.js-430-432": "independant/get args",
+            "- shouldNotHaveHeader-test/session.js-2351-2355": "independant/get args",
+            "- shouldSetCookieWithAttributeAndValue-test/session.js-2418-2427": "independant/get args",
+            "- SyncStore-test/support/sync-store.js-8-11": ""
+        }
+    },
+    "6563e25f07e0470867c940dc90c25b922d4eae36": {
+        "changes": [
+            "arrowAnonymousFunction-index.js-220-244",
+            "index.js-index.js-1-686",
+            "setcookie-index.js-655-665"
+        ],
+        "false positives": {
+            "- shouldSetCookie-index.js-464-473": "independant/gets args",
+            "- issecure-index.js-623-647": "independant/gets args"
+        }
+    },
+    "5c503e7552ea48342f4ce4ce1322606eb8ee217c": {
+        "changes": [
+            "arrowAnonymousFunction-index.js-310-317",
+            "arrowAnonymousFunction-index.js-335-341",
+            "arrowAnonymousFunction-test/session.js-19-2272",
+            "arrowAnonymousFunction-test/session.js-291-391",
+            "arrowAnonymousFunction-test/session.js-294-297",
+            "arrowAnonymousFunction-test/session.js-309-313",
+            "arrowAnonymousFunction-test/session.js-324-329",
+            "arrowAnonymousFunction-test/session.js-341-345",
+            "end-index.js-250-360",
+            "writeend-index.js-260-268",
+            "writetop-index.js-270-305"
+        ],
+        "false positives": {
+            "- save-index.js-403-407": "independant/gets args"
+        }
+    },
+    "9020fea5326879b089b6fd4ffb4f8640b020d14c": {
+        "changes": [
+            "arrowAnonymousFunction-index.js-179-508",
+            "index.js-index.js-1-686"
+        ],
+        "false positives": {}
+    }
+}
