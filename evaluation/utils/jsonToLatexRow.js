@@ -22,6 +22,10 @@ const approachesDataColumnOrdeing = {
     'True Positives': {
         berke: ["Average True Positives", "Average Precision"],
         tarmaq: ["Average True Positives", "Average Precision"]
+    },
+    'Execution Time': {
+        berke: ["average"],
+        tarmaq: ["average"]
     }
 }
 

@@ -48,10 +48,17 @@ function impactSetSorter() {
             return 1;
         }
 
+        let aSupport = a['support'] || 0;
+        let bSupport = b['support'] || 0;
         let aFP = a['FP-score'] || 0;
         let bFP = b['FP-score'] || 0;
-        if (aFP - bFP != 0) {
-            return bFP - aFP;
+
+        if (aSupport == bSupport) {
+            if (bFP != aFP) {
+                return bFP - aFP;
+            }
+        } else {
+            return bSupport - aSupport;
         }
 
         let aDA = a['DA-antecedents'] || [];

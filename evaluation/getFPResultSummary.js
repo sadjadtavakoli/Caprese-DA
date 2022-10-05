@@ -2,6 +2,14 @@ const fs = require("fs")
 const path = require("path")
 const resultDirPath = `evaluation${path.sep}result${path.sep}`
 
+let projects_list = ["eslint-plugin-react","ws","cla-assistant","grant","markdown-it","environment","nodejs-cloudant","assemble","express","session", "jhipster-uml", "neo-async"]
+// let projects_list = ["cla-assistant", "grant", "markdown-it", "session"]
+let result = {}
+projects_list.forEach(filename => {
+    result[filename] = getFPAveragePrecision(filename)
+    console.log(getFPAveragePrecision(filename))
+})
+console.log(result)
 // console.log(addEvaluationResult(process.argv[2]))
 
 function getFPAveragePrecision(filename) {
@@ -32,7 +40,7 @@ function getFPAveragePrecision(filename) {
 
     let length = Object.keys(result).length
 
-    return { "FP AP": (sumOfAveragePrecisions / length).toFixed(1) }
+    return (sumOfAveragePrecisions / length).toFixed(2)
 }
 
 
@@ -45,6 +53,22 @@ function increaseIfIsTruePositive(totalTruePositives, evaluationResult) {
 
 function rankFPresult() {
     return function (a, b) {
-        return b['FP-score'] - a['FP-score'];
+        // only confidence
+        // return b['FP-score'] - a['FP-score'];
+
+        // only support then confidence
+        if (b['support'] == a['support']) {
+            return b['FP-score'] - a['FP-score'];
+        } else {
+            return b['support'] - a['support'];
+        }
+
+        // only confidence then support
+
+        // if (b['FP-score'] == a['FP-score']) {
+        //     return b['support'] - a['support'];
+        // } else {
+        //     return b['FP-score'] - a['FP-score'];
+        // }
     };
 }

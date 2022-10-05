@@ -1,5 +1,6 @@
 const fs = require("fs")
 const path = require("path")
+const { EXECUTION_TIMES_PATH } = require('../evaluationExecutionTime')
 const resultDirPath = `evaluation${path.sep}result${path.sep}`
 const { STATUS } = require("../evaluation.js")
 const { unitsContributionToLatex, approachesComparisonToLatex, getFullTable, changeSetLatexRow } = require("./jsonToLatexRow")
@@ -12,14 +13,14 @@ if (process.argv[2]) {
     console.log(summarizeResult(process.argv[2]).approachesLatexRow)
     console.log(summarizeResult(process.argv[2]).changeSetInfoLatexRow)
 } else {
-    let projects_list = ["eslint-plugin-react","ws","cla-assistant","grant","markdown-it","environment","nodejs-cloudant","assemble","express","session", "jhipster-uml"]
+    let projects_list = ["eslint-plugin-react", "ws", "cla-assistant", "grant", "markdown-it", "environment", "nodejs-cloudant", "assemble", "express", "session", "jhipster-uml", "neo-async"]
 
     let unitsContributionLatexRows = {}
     let approachesLatexRows = {}
     let changeSetInfoLatexRows = {}
     projects_list.forEach(filename => {
         if (fs.statSync(`${resultDirPath}${filename}`).isDirectory()) {
-            let {summarizedResult, unitsContributionLatexRow, approachesLatexRow, changeSetInfoLatexRow} = summarizeResult(filename)
+            let { summarizedResult, unitsContributionLatexRow, approachesLatexRow, changeSetInfoLatexRow } = summarizeResult(filename)
             console.log(summarizedResult)
             unitsContributionLatexRows[filename] = unitsContributionLatexRow
             approachesLatexRows[filename] = approachesLatexRow
@@ -36,17 +37,17 @@ function summarizeResult(filename) {
     let summarizedResult = {}
     let changeSetInfo = averageCommitSize(result)
     let unitsContribution = unitsContributionSummary(result)
-    let approachesData = approachesResultSummary(result)
+    let approachesData = approachesResultSummary(result, filename)
 
     summarizedResult['units contribution summary'] = unitsContribution
     summarizedResult['approaches data'] = approachesData
     summarizedResult['changeSet Size'] = changeSetInfo
-    
+
     let unitsContributionLatexRow = unitsContributionToLatex(unitsContribution)
     let approachesLatexRow = approachesComparisonToLatex(approachesData)
     let changeSetInfoLatexRow = changeSetLatexRow(changeSetInfo)
 
-    return {summarizedResult, unitsContributionLatexRow, approachesLatexRow, changeSetInfoLatexRow}
+    return { summarizedResult, unitsContributionLatexRow, approachesLatexRow, changeSetInfoLatexRow }
 }
 
 function unitsContributionSummary(result) {
@@ -125,8 +126,8 @@ function unitsContributionSummary(result) {
     let avgFP = avgUniqueFP + avgCommon
     let totalAverage = avgUniqueDA + avgUniqueFP + avgCommon
 
-    let unigueDAPercentage = Math.round(avgUniqueDA/totalAverage*100)
-    let unigueFPPercentag = Math.round(avgUniqueFP/totalAverage*100) 
+    let unigueDAPercentage = Math.round(avgUniqueDA / totalAverage * 100)
+    let unigueFPPercentag = Math.round(avgUniqueFP / totalAverage * 100)
 
     avgUniqueDA = avgUniqueDA.toFixed(1)
     avgUniqueFP = avgUniqueFP.toFixed(1)
@@ -135,33 +136,32 @@ function unitsContributionSummary(result) {
     let avgDATruePositives = (DATotalTruePositives / length).toFixed(1)
     let avgFPTruPositives = (FPTotalTruePositives / length).toFixed(1)
 
-    let avgDACommitRatio = Math.round(DASumOfTruePositivesRatio / HadDA * 100)
-    let avgFPCommitRatio = Math.round(FPSumOfTruePositivesRatio / HadFP * 100)
-
-    let avgDA2CommitRatio = (avgDATruePositives / avgDA).toFixed(2) * 100
-    let avgFP2CommitRatio = (avgFPTruPositives / avgFP).toFixed(2) * 100
+    let avgDAPrecision = (DASumOfTruePositivesRatio / HadDA).toFixed(2)
+    let avgFPPrecision = (FPSumOfTruePositivesRatio / HadFP).toFixed(2)
 
     avgDA = avgDA.toFixed(1)
     avgFP = avgFP.toFixed(1)
 
     return {
         "Impact-set size": {
-            "DA": JSON.stringify({ "avg": avgDA, "min": minDA, "max": maxDA, "unique": avgUniqueDA, "unique/total": unigueDAPercentage}),
-            "FP": JSON.stringify({ "avg": avgFP, "min": minFP, "max": maxFP, "unique": avgUniqueFP,"unique/total": unigueFPPercentag}),
+            "DA": JSON.stringify({ "avg": avgDA, "min": minDA, "max": maxDA, "unique": avgUniqueDA, "unique/total": unigueDAPercentage }),
+            "FP": JSON.stringify({ "avg": avgFP, "min": minFP, "max": maxFP, "unique": avgUniqueFP, "unique/total": unigueFPPercentag }),
             "avg common": avgCommon
         },
         "True Positives": {
-            "DA": JSON.stringify({ "avg": avgDATruePositives, "avg commit %": avgDACommitRatio, "total %": avgDA2CommitRatio }),
-            "FP": JSON.stringify({ "avg": avgFPTruPositives, "avg commit %": avgFPCommitRatio, "total %": avgFP2CommitRatio })
+            "DA": JSON.stringify({ "avg": avgDATruePositives, "precision": avgDAPrecision }),
+            "FP": JSON.stringify({ "avg": avgFPTruPositives, "precision": avgFPPrecision })
         }
     };
 }
 
-function approachesResultSummary(result) {
+function approachesResultSummary(result, projectName) {
 
     let [capreseImpactSetSizeData, capreseTruePositivesData] = approachSummary(result, capreseName)
 
     let [tarmaqImpactSetSizeData, tarmaqTruePositivesData] = approachSummary(result, tarmaqName)
+
+    let executionTime = getExecutionTimes(projectName)
 
     let impactSetSize = {}
     let truePositiveData = {}
@@ -169,9 +169,11 @@ function approachesResultSummary(result) {
     impactSetSize[tarmaqName] = JSON.stringify(tarmaqImpactSetSizeData)
     truePositiveData[capreseName] = JSON.stringify(capreseTruePositivesData)
     truePositiveData[tarmaqName] = JSON.stringify(tarmaqTruePositivesData)
+    executionTime[capreseName] = JSON.stringify(executionTime[capreseName])
+    executionTime[tarmaqName] = JSON.stringify(executionTime[tarmaqName])
 
     return {
-        "Impact-set size": impactSetSize, "True Positives": truePositiveData
+        "Impact-set size": impactSetSize, "True Positives": truePositiveData, "Execution Time": executionTime
     }
 }
 
@@ -192,8 +194,9 @@ function approachSummary(result, approach) {
         let truePositiveCounter = 0;
         let sumOfPrecisions = 0;
         let impactset = result[commit][approach]
-        impactset = impactset.filter(item=>item['status']!=STATUS.removed)
-        
+        // impactset = impactset.filter(item=>item['status']!=STATUS.removed)
+        impactset.sort(rankResult())
+
         impactset.forEach((consequentInfo, index) => {
             if (consequentInfo[fpSearchKey]) {
                 support += parseInt(consequentInfo["support"])
@@ -225,12 +228,12 @@ function approachSummary(result, approach) {
     let impactSetSizeData = {
         "avg": (totalImpactSetSize / length).toFixed(1),
         "min": minSize,
-        "max": maxSize, 
+        "max": maxSize,
         "unique": (uniquesCount / length).toFixed(1)
     }
     let truePositivesData = {
         "Average True Positives": (totalTruePositives / length).toFixed(1),
-        "Average Precision": (sumOfAveragePrecisions / length).toFixed(1),
+        "Average Precision": (sumOfAveragePrecisions / length).toFixed(2),
         "Average FP Support": (support / fpCount).toFixed(1),
         "Average FP Confidence": (confidence / fpCount).toFixed(1)
     }
@@ -263,4 +266,54 @@ function averageCommitSize(result) {
     return { "avg": (counter / length).toFixed(1), "min": min, "max": max }
 }
 
+function getExecutionTimes(projectName) {
+    let executionTimes = JSON.parse(fs.readFileSync(EXECUTION_TIMES_PATH));
+    executionTimes[projectName][tarmaqName]['average'] = (executionTimes[projectName][tarmaqName]['average'] / 1000).toFixed(2)
+    executionTimes[projectName][capreseName]['average'] = (executionTimes[projectName][capreseName]['average'] / 1000).toFixed(2)
+    return executionTimes[projectName]
+}
 module.exports = { averageCommitSize }
+
+function rankResult() {
+    return function (a, b) {
+        if ((a['DA-antecedents'] && !b['DA-antecedents'])) {
+            return -1;
+        }
+        if (b['DA-antecedents'] && !a['DA-antecedents']) {
+            return 1;
+        }
+        if (a['FP-antecedents'] && !b['FP-antecedents']) {
+            return -1;
+        }
+        if (b['FP-antecedents'] && !a['FP-antecedents']) {
+            return 1;
+        }
+
+        let aSupport = a['support'] || 0;
+        let bSupport = b['support'] || 0;
+        let aFP = a['FP-score'] || 0;
+        let bFP = b['FP-score'] || 0;
+
+        // confidence then support
+        // if (aFP == bFP) {
+        //     if (aSupport != bSupport) {
+        //         return bSupport - aSupport;
+        //     }
+        // } else {
+        //     return bFP - aFP;
+        // }
+
+        // support then confidence
+        if (aSupport == bSupport) {
+            if (bFP != aFP) {
+                return bFP - aFP;
+            }
+        } else {
+            return bSupport - aSupport;
+        }
+
+        let aDA = a['DA-antecedents'] || [];
+        let bDA = b['DA-antecedents'] || [];
+        return bDA.length - aDA.length;
+    };
+}

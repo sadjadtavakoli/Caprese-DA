@@ -8,6 +8,7 @@ const { performance } = require('perf_hooks');
 const RESULT_DIR_PATH = `${__dirname}${path.sep}result${path.sep}${constants.PROJECT_NAME}`;
 
 const RESULT_PATH = `${RESULT_DIR_PATH}${path.sep}results.json`
+const EXECUTION_TIMES_PATH = `${__dirname}${path.sep}result${path.sep}executionTime.json`
 
 if (process.argv[1].endsWith(path.basename(__filename))) {
 
@@ -18,6 +19,7 @@ if (process.argv[1].endsWith(path.basename(__filename))) {
     }
     let tarmaqExecutionTime = [];
     let capreseExectionTime = [];
+    let executionTimes = JSON.parse(fs.readFileSync(EXECUTION_TIMES_PATH))
     testSetGenerator()
         .then((candidatedCommits) => {
             let testSet = [...candidatedCommits.keys()]
@@ -30,12 +32,20 @@ if (process.argv[1].endsWith(path.basename(__filename))) {
                 }),
                 Promise.resolve())
             return testSet
-        }).then(()=>{
-            const average = (arr) =>{return arr.reduce((a, b) => a + b, 0) / arr.length};
-            console.log(tarmaqExecutionTime.length)
-            console.log(average(tarmaqExecutionTime))
-            console.log(capreseExectionTime.length)
-            console.log(average(capreseExectionTime))
+        }).then(() => {
+            const average = (arr) => { return arr.reduce((a, b) => a + b, 0) / arr.length };
+            let executionTime = {
+                "tarmaq": {
+                    "all": tarmaqExecutionTime, "average": average(tarmaqExecutionTime),
+                },
+                "berke": {
+                    "all": capreseExectionTime, "average": average(capreseExectionTime),
+                }
+            }
+            executionTimes[constants.PROJECT_NAME] = executionTime
+            console.log(executionTime)
+            fs.writeFileSync(EXECUTION_TIMES_PATH, JSON.stringify(executionTimes))
+
         })
         .catch(error => {
             console.log(error)
@@ -80,3 +90,5 @@ function getEvaluationTime(callback, query, evalutiontimes) {
         evalutiontimes.push(executiontime)
     })
 }
+
+module.exports = {EXECUTION_TIMES_PATH}
