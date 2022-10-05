@@ -1,8 +1,17 @@
 const fs = require("fs")
 const path = require("path")
 const resultDirPath = `evaluation${path.sep}result${path.sep}`
-const { STATUS } = require("../evaluation.js")
 const capreseName = "berke"
+
+const unit = "DA"
+
+const evaluationKey = `${unit}-evaluation`
+const antecedentsKey = `${unit}-antecedents`
+const otherUnitsEvaluationKey = "FP-antecedents"
+
+if(unit=="FP"){
+    otherUnitsEvaluationKey = "DA-antecedents"    
+}
 
 if (process.argv[2]) {
     getData(process.argv[2])
@@ -16,8 +25,8 @@ if (process.argv[2]) {
 
 function getData(filename) {
     let result = JSON.parse(fs.readFileSync(`${resultDirPath}${filename}${path.sep}results.json`));
-    fs.writeFileSync(`${resultDirPath}${filename}${path.sep}True Positives.json`, JSON.stringify(getPositives(result, 'true')));
-    fs.writeFileSync(`${resultDirPath}${filename}${path.sep}False Positives.json`, JSON.stringify(getPositives(result, 'false')));
+    fs.writeFileSync(`${resultDirPath}${filename}${path.sep}${unit} True Positives.json`, JSON.stringify(getPositives(result, 'true')));
+    fs.writeFileSync(`${resultDirPath}${filename}${path.sep}${unit} False Positives.json`, JSON.stringify(getPositives(result, 'false')));
 }
 
 function getPositives(evaluationResult, type) {
@@ -28,8 +37,9 @@ function getPositives(evaluationResult, type) {
         let changeSet = evaluationResult[commit]['commits']
         let changeSetID = {}
         for(let consequentInfo of impactSet){
-            if (consequentInfo["FP-evaluation"] != undefined) {
-                for(let entecedent of consequentInfo["FP-antecedents"]){
+            if (consequentInfo[evaluationKey] != undefined) {
+                console.log(consequentInfo)
+                for(let entecedent of consequentInfo[antecedentsKey]){
                     for(let func of entecedent){
                         let {consequentName, relationsInfo} = getFunctionRelations(func)
                         changeSetID[consequentName] = relationsInfo
@@ -41,7 +51,7 @@ function getPositives(evaluationResult, type) {
             }
         }
         impactSet.forEach(consequentInfo => {
-            if (consequentInfo["FP-evaluation"] != undefined && consequentInfo["FP-evaluation"].toLowerCase().includes(type)) {
+            if (consequentInfo[evaluationKey] != undefined && consequentInfo[evaluationKey].toLowerCase().includes(type)) {
                 let {consequentName, relationsInfo} = getFunctionRelations(consequentInfo['consequent'])
                 let isChild = false
                 let isParent = false
@@ -60,7 +70,7 @@ function getPositives(evaluationResult, type) {
                         consequentKey+= "  CHILD"
                     }
                 }
-                if(consequentInfo['DA-antecedents']!=undefined){
+                if(consequentInfo[otherUnitsEvaluationKey]!=undefined){
                     consequentKey = "+ " + consequentKey
                 }else{
                     consequentKey = "- " + consequentKey
