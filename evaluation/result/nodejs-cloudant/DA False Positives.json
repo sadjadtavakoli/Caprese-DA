@@ -1,0 +1,74 @@
+{
+    "be0ae266fb06250acbf16876badcffeeb8830453": {
+        "changes": [
+            "arrowAnonymousFunction-test/plugins/retry.js-1008-1051",
+            "arrowAnonymousFunction-test/plugins/retry.js-1126-1136",
+            "arrowAnonymousFunction-test/plugins/retry.js-117-151",
+            "arrowAnonymousFunction-test/plugins/retry.js-1195-1242",
+            "arrowAnonymousFunction-test/plugins/retry.js-1325-1335",
+            "arrowAnonymousFunction-test/plugins/retry.js-153-185",
+            "arrowAnonymousFunction-test/plugins/retry.js-342-397",
+            "arrowAnonymousFunction-test/plugins/retry.js-399-438",
+            "arrowAnonymousFunction-test/plugins/retry.js-636-695",
+            "arrowAnonymousFunction-test/plugins/retry.js-697-739",
+            "arrowAnonymousFunction-test/plugins/retry.js-896-915"
+        ],
+        "false positives": {
+            "- request-lib/client.js-266-385": "independant/gets args",
+            "- on-lib/passthroughduplex.js-69-81": "independant/gets args",
+            "- pipe-lib/passthroughduplex.js-37-40": "independant/gets args"
+        }
+    },
+    "82e5fe65bdb544fe27f2221565536c8d6c5867e5": {
+        "changes": [
+            "CHANGES.md",
+            "arrowAnonymousFunction-test/legacy/reconfigure.js-22-320",
+            "arrowAnonymousFunction-test/legacy/reconfigure.js-66-72",
+            "arrowAnonymousFunction-test/legacy/reconfigure.js-74-80",
+            "exports-lib/reconfigure.js-28-144"
+        ],
+        "false positives": {}
+    },
+    "7b238f7c2aa639a0819c684505dabcdc2a689c72": {
+        "changes": [
+            "Cloudant-cloudant.js-46-450",
+            "bulk_get-cloudant.js-97-101",
+            "cloudant.js-cloudant.js-1-451",
+            "generate_api_key-cloudant.js-416-418",
+            "get_cors-cloudant.js-421-423",
+            "get_security-cloudant.js-112-115",
+            "index_del-cloudant.js-151-161",
+            "ping-cloudant.js-411-413",
+            "set_cors-cloudant.js-426-430",
+            "set_security-cloudant.js-118-134",
+            "use-cloudant.js-95-401"
+        ],
+        "false positives": {
+            "+ exports-lib/reconfigure.js-28-144": "gets args",
+            "- client.js-test/client.js-1-1465": "",
+            "- CloudantClient-lib/client.js-34-386": "gets args"
+        }
+    },
+    "90782b31d235638c19150b4b34abf962940ebfda": {
+        "changes": [
+            "BasePlugin-plugins/base.js-28-89",
+            "onError-plugins/base.js-59-61",
+            "onRequest-plugins/base.js-51-53",
+            "onResponse-plugins/base.js-55-57"
+        ],
+        "false positives": {
+            "- defaultPlugin-test/legacy/plugin.js-182-184": ""
+        }
+    },
+    "297fdebe684d8fcb7148465c52a091d78526a6ef": {
+        "changes": [
+            "Cloudant-cloudant.js-46-450",
+            "exports-lib/reconfigure.js-28-144",
+            "reconfigure.js-lib/reconfigure.js-1-153"
+        ],
+        "false positives": {
+            "- client.js-test/client.js-1-1465": "",
+            "- CloudantClient-lib/client.js-34-386": "gets args"
+        }
+    }
+}

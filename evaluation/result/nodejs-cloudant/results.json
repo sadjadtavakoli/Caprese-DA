@@ -6410,7 +6410,7 @@
                     "set_security-cloudant.js-118-134 | {\"id\":270 - \"parents\":[211-212-229]}"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "false | false | false | false | false | false | false | false"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/legacy/plugin.js-186-198",
@@ -6535,7 +6535,7 @@
                     "Cloudant-cloudant.js-46-450 | {\"id\":211 - \"parents\":[212]}"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "false"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-71-86 | {\"id\":186 - \"parents\":[12]}",
@@ -10451,7 +10451,7 @@
                 {
                     "consequent": "_addPlugins-lib/client.js-78-140 | {\"id\":3 - \"parents\":[0-2-0]}",
                     "status": "Berke Unique",
-                    "evaluation result": "false"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/api.js-71-86 | {\"id\":186 - \"parents\":[12]}",
@@ -10751,7 +10751,7 @@
                 {
                     "consequent": "cloudantRequest-cloudant.js-71-73 | {\"id\":210 - \"parents\":[211-212]}",
                     "status": "Berke Unique",
-                    "evaluation result": "false"
+                    "evaluation result": "true"
                 }
             ],
             "bulk_get-cloudant.js-97-101 | {\"id\":263 - \"parents\":[211-212-229]}": [
@@ -10770,14 +10770,14 @@
                 {
                     "consequent": "cloudantRequest-cloudant.js-71-73 | {\"id\":210 - \"parents\":[211-212]}",
                     "status": "Berke Unique",
-                    "evaluation result": "false"
+                    "evaluation result": "true"
                 }
             ],
             "generate_api_key-cloudant.js-416-418 | {\"id\":264 - \"parents\":[211-212]}": [
                 {
                     "consequent": "cloudantRequest-cloudant.js-71-73 | {\"id\":210 - \"parents\":[211-212]}",
                     "status": "Berke Unique",
-                    "evaluation result": "false"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/readmeexamples.js-343-386 | {\"id\":205 - \"parents\":[]}",
@@ -10789,7 +10789,7 @@
                 {
                     "consequent": "cloudantRequest-cloudant.js-71-73 | {\"id\":210 - \"parents\":[211-212]}",
                     "status": "Berke Unique",
-                    "evaluation result": "false"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/readmeexamples.js-466-489",
@@ -10801,7 +10801,7 @@
                 {
                     "consequent": "cloudantRequest-cloudant.js-71-73 | {\"id\":210 - \"parents\":[211-212]}",
                     "status": "Berke Unique",
-                    "evaluation result": "false"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/readmeexamples.js-375-384 | {\"id\":206 - \"parents\":[205-207]}",
@@ -10813,7 +10813,7 @@
                 {
                     "consequent": "cloudantRequest-cloudant.js-71-73 | {\"id\":210 - \"parents\":[211-212]}",
                     "status": "Berke Unique",
-                    "evaluation result": "false"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/plugin.js-186-198",
@@ -10825,7 +10825,7 @@
                 {
                     "consequent": "cloudantRequest-cloudant.js-71-73 | {\"id\":210 - \"parents\":[211-212]}",
                     "status": "Berke Unique",
-                    "evaluation result": "false"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/readmeexamples.js-442-464",
@@ -10837,7 +10837,7 @@
                 {
                     "consequent": "cloudantRequest-cloudant.js-71-73 | {\"id\":210 - \"parents\":[211-212]}",
                     "status": "Berke Unique",
-                    "evaluation result": "false"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/readmeexamples.js-363-385 | {\"id\":207 - \"parents\":[205]}",
