@@ -36,7 +36,7 @@
             "index.js-index.js-1-156"
         ],
         "false positives": {
-            "- _suite.js-test/_suite.js-1-16": "no arg call"
+            "- _suite.js-test/_suite.js-1-16": "imported"
         }
     },
     "7ce20e969ad4d406cf37ad2dac6b6e4e59843824": {

@@ -47,8 +47,8 @@
             "use-lib/router/index.js-439-487"
         ],
         "false positives": {
-            "+ Route-lib/router/route.js-43-51": "dependant/gets args",
-            "+ Layer-lib/router/layer.js-33-50": "dependant/gets args",
+            "+ Route-lib/router/route.js-43-51": "independant/gets args",
+            "+ Layer-lib/router/layer.js-33-50": "independant/gets args",
             "+ arrowAnonymousFunction-test/router.js-494-498": "callee's changes doesn't impact its callers",
             "- arrowAnonymousFunction-lib/router/index.js-640-647": "callee's changes doesn't impact its callers",
             "- handle-lib/router/layer.js-86-99": "callee's changes doesn't impact its callers",
