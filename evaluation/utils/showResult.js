@@ -60,16 +60,17 @@ function unitsContributionSummary(result) {
     let uniqueFP = 0;
 
     let totalCommon = 0;
-    let avgCommon = 0;
 
     let DATotalTruePositives = 0;
     let FPTotalTruePositives = 0;
 
-    let DASumOfTruePositivesRatio = 0;
-    let FPSumOfTruePositivesRatio = 0;
+    let DASumOfPrecisions = 0;
+    let FPSumOfPrecisions = 0;
+    let totalSumOfPrecisions = 0;
 
     let HadDA = 0;
     let HadFP = 0;
+    let HadAny = 0;
 
     for (let commit in result) {
         let impactSet = result[commit][capreseName]
@@ -78,6 +79,7 @@ function unitsContributionSummary(result) {
         let uniqueFPCounter = 0;
         let DATruePositiveCounter = 0;
         let FPTruePositiveCounter = 0;
+        let TotalTruePositiveCounter = 0;
         let commonCounter = 0;
 
         impactSet.forEach(consequentInfo => {
@@ -85,12 +87,13 @@ function unitsContributionSummary(result) {
                 commonCounter += 1;
             } else if (consequentInfo["DA-antecedents"] != undefined) {
                 uniqueDACounter += 1;
-            } else {
+            } else if (consequentInfo["FP-antecedents"] != undefined){
                 uniqueFPCounter += 1;
             }
 
             DATruePositiveCounter = increaseIfIsTruePositive(DATruePositiveCounter, consequentInfo['DA-evaluation'])
             FPTruePositiveCounter = increaseIfIsTruePositive(FPTruePositiveCounter, consequentInfo['FP-evaluation'])
+            TotalTruePositiveCounter = increaseIfIsTruePositive(TotalTruePositiveCounter, consequentInfo['FP-evaluation'] + " " + consequentInfo['DA-evaluation'])
         })
 
         uniqueFP += uniqueFPCounter;
@@ -102,11 +105,14 @@ function unitsContributionSummary(result) {
 
         let DAcounter = uniqueDACounter + commonCounter
         let FPcounter = uniqueFPCounter + commonCounter
-        DASumOfTruePositivesRatio += DAcounter ? DATruePositiveCounter / DAcounter : 0 // @TODO not sure it's the right way to have an average of ratios. 
-        FPSumOfTruePositivesRatio += FPcounter ? FPTruePositiveCounter / FPcounter : 0
+        let totalCounter = uniqueFPCounter + commonCounter + uniqueDACounter
+        DASumOfPrecisions += DAcounter ? DATruePositiveCounter / DAcounter : 0 // @TODO not sure it's the right way to have an average of ratios. 
+        FPSumOfPrecisions += FPcounter ? FPTruePositiveCounter / FPcounter : 0
+        totalSumOfPrecisions += totalCounter ? TotalTruePositiveCounter / totalCounter : 0
 
         HadDA += DAcounter ? 1 : 0
         HadFP += FPcounter ? 1 : 0
+        HadAny += totalCounter ? 1 : 0
 
         minDA = Math.min(minDA, uniqueDACounter)
         maxDA = Math.max(maxDA, uniqueDACounter)
@@ -120,24 +126,25 @@ function unitsContributionSummary(result) {
 
     let avgUniqueDA = uniqueDA / length
     let avgUniqueFP = uniqueFP / length
-    avgCommon = totalCommon / length
+    let avgCommon = totalCommon / length
 
     let avgDA = avgUniqueDA + avgCommon
     let avgFP = avgUniqueFP + avgCommon
     let totalAverage = avgUniqueDA + avgUniqueFP + avgCommon
 
-    let unigueDAPercentage = Math.round(avgUniqueDA / totalAverage * 100)
-    let unigueFPPercentag = Math.round(avgUniqueFP / totalAverage * 100)
+    let unigueDAPercentage = (avgUniqueDA / totalAverage * 100).toFixed(2)
+    let unigueFPPercentag = (avgUniqueFP / totalAverage * 100).toFixed(2)
 
     avgUniqueDA = avgUniqueDA.toFixed(1)
     avgUniqueFP = avgUniqueFP.toFixed(1)
-    avgCommon = avgCommon.toFixed(1)
+    // avgCommon = avgCommon.toFixed(1)
 
     let avgDATruePositives = (DATotalTruePositives / length).toFixed(1)
     let avgFPTruPositives = (FPTotalTruePositives / length).toFixed(1)
 
-    let avgDAPrecision = (DASumOfTruePositivesRatio / HadDA).toFixed(2)
-    let avgFPPrecision = (FPSumOfTruePositivesRatio / HadFP).toFixed(2)
+    let DAmeanPrecision = (DASumOfPrecisions / HadDA).toFixed(2)
+    let FPmeanPrecision = (FPSumOfPrecisions / HadFP).toFixed(2)
+    let totalMeanPrecision = (totalSumOfPrecisions / HadAny).toFixed(2)
 
     avgDA = avgDA.toFixed(1)
     avgFP = avgFP.toFixed(1)
@@ -145,12 +152,12 @@ function unitsContributionSummary(result) {
     return {
         "Impact-set size": {
             "DA": JSON.stringify({ "avg": avgDA, "min": minDA, "max": maxDA, "unique": avgUniqueDA, "unique/total": unigueDAPercentage }),
-            "FP": JSON.stringify({ "avg": avgFP, "min": minFP, "max": maxFP, "unique": avgUniqueFP, "unique/total": unigueFPPercentag }),
-            "avg common": avgCommon
+            "FP": JSON.stringify({ "avg": avgFP, "min": minFP, "max": maxFP, "unique": avgUniqueFP, "unique/total": unigueFPPercentag })
         },
         "True Positives": {
-            "DA": JSON.stringify({ "avg": avgDATruePositives, "precision": avgDAPrecision }),
-            "FP": JSON.stringify({ "avg": avgFPTruPositives, "precision": avgFPPrecision })
+            "DA": JSON.stringify({ "avg": avgDATruePositives, "precision": DAmeanPrecision }),
+            "FP": JSON.stringify({ "avg": avgFPTruPositives, "precision": FPmeanPrecision }),
+            "total": JSON.stringify({ "avg": "-", "precision": totalMeanPrecision })
         }
     };
 }
@@ -274,46 +281,36 @@ function getExecutionTimes(projectName) {
 }
 module.exports = { averageCommitSize }
 
-function rankResult() {
-    return function (a, b) {
-        if ((a['DA-antecedents'] && !b['DA-antecedents'])) {
-            return -1;
-        }
-        if (b['DA-antecedents'] && !a['DA-antecedents']) {
-            return 1;
-        }
-        if (a['FP-antecedents'] && !b['FP-antecedents']) {
-            return -1;
-        }
-        if (b['FP-antecedents'] && !a['FP-antecedents']) {
-            return 1;
-        }
-
-        let aSupport = a['support'] || 0;
-        let bSupport = b['support'] || 0;
-        let aFP = a['FP-score'] || 0;
-        let bFP = b['FP-score'] || 0;
-
-        // confidence then support
-        // if (aFP == bFP) {
-        //     if (aSupport != bSupport) {
-        //         return bSupport - aSupport;
-        //     }
-        // } else {
-        //     return bFP - aFP;
-        // }
-
-        // support then confidence
-        if (aSupport == bSupport) {
-            if (bFP != aFP) {
-                return bFP - aFP;
+    function rankResult() {
+        return function (a, b) {
+            if ((a['DA-antecedents'] && !b['DA-antecedents'])) {
+                return -1;
             }
-        } else {
-            return bSupport - aSupport;
-        }
+            if (b['DA-antecedents'] && !a['DA-antecedents']) {
+                return 1;
+            }
+            if (a['FP-antecedents'] && !b['FP-antecedents']) {
+                return -1;
+            }
+            if (b['FP-antecedents'] && !a['FP-antecedents']) {
+                return 1;
+            }
 
-        let aDA = a['DA-antecedents'] || [];
-        let bDA = b['DA-antecedents'] || [];
-        return bDA.length - aDA.length;
-    };
-}
+            let aSupport = a['support'] || 0;
+            let bSupport = b['support'] || 0;
+            let aFP = a['FP-score'] || 0;
+            let bFP = b['FP-score'] || 0;
+
+            if (aSupport == bSupport) {
+                if (bFP != aFP) {
+                    return bFP - aFP;
+                }
+            } else {
+                return bSupport - aSupport;
+            }
+
+            let aDA = a['DA-antecedents'] || [];
+            let bDA = b['DA-antecedents'] || [];
+            return bDA.length - aDA.length;
+        };
+    }

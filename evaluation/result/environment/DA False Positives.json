@@ -43,10 +43,10 @@
             "status-lib/util/log.js-154-159"
         ],
         "false positives": {
-            "+ get-lib/environment.js-619-657": "get args",
-            "- toNamespace-lib/namespace.js-36-38": "get args",
-            "- arrowAnonymousFunction-lib/namespace-composability.js-18-25": "get args",
-            "- arrowAnonymousFunction-lib/namespace-composability.js-34-43": "get args"
+            "+ get-lib/environment.js-619-657": "gets args",
+            "- toNamespace-lib/namespace.js-36-38": "gets args",
+            "- arrowAnonymousFunction-lib/namespace-composability.js-18-25": "gets args",
+            "- arrowAnonymousFunction-lib/namespace-composability.js-34-43": "gets args"
         }
     },
     "4edbf42baaa2958205d91c7ea76353f88fd451af": {

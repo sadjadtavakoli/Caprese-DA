@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path')
 const { evaluationAnalyzer } = require('../../berke');
 
-const { STATUS, reverseDA, reverseFP, getBerkeResult, tarmaqAndBerkeConsequentStatusUpdate} = require('./evaluation')
+const { STATUS, reverseDA, reverseFP, getBerkeResult, tarmaqAndBerkeConsequentStatusUpdate} = require('../evaluation')
 
 const RESULT_DIR_PATH = `${path.dirname(__dirname)}${path.sep}result${path.sep}${constants.PROJECT_NAME}`;
 
