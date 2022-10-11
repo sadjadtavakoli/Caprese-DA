@@ -1,37 +1,38 @@
 const fs = require("fs")
 const path = require("path")
-const { EXECUTION_TIMES_PATH } = require('../evaluationExecutionTime')
+const { EXECUTION_TIMES_PATH } = require('./evaluationExecutionTime')
 const resultDirPath = `evaluation${path.sep}result${path.sep}`
 const { STATUS } = require("../evaluation.js")
 const { unitsContributionToLatex, approachesComparisonToLatex, getFullTable, changeSetLatexRow } = require("./jsonToLatexRow")
 const capreseName = "berke"
 const tarmaqName = "tarmaq"
 
-if (process.argv[2]) {
-    console.log(summarizeResult(process.argv[2]).summarizedResult)
-    console.log(summarizeResult(process.argv[2]).unitsContributionLatexRow)
-    console.log(summarizeResult(process.argv[2]).approachesLatexRow)
-    console.log(summarizeResult(process.argv[2]).changeSetInfoLatexRow)
-} else {
-    let projects_list = ["eslint-plugin-react", "ws", "cla-assistant", "grant", "markdown-it", "environment", "nodejs-cloudant", "assemble", "express", "session", "jhipster-uml", "neo-async"]
+if (process.argv[1].endsWith(path.basename(__filename))) {
+    if (process.argv[2]) {
+        console.log(summarizeResult(process.argv[2]).summarizedResult)
+        console.log(summarizeResult(process.argv[2]).unitsContributionLatexRow)
+        console.log(summarizeResult(process.argv[2]).approachesLatexRow)
+        console.log(summarizeResult(process.argv[2]).changeSetInfoLatexRow)
+    } else {
+        let projects_list = ["eslint-plugin-react", "ws", "cla-assistant", "grant", "markdown-it", "environment", "nodejs-cloudant", "assemble", "express", "session", "jhipster-uml", "neo-async"]
 
-    let unitsContributionLatexRows = {}
-    let approachesLatexRows = {}
-    let changeSetInfoLatexRows = {}
-    projects_list.forEach(filename => {
-        if (fs.statSync(`${resultDirPath}${filename}`).isDirectory()) {
-            let { summarizedResult, unitsContributionLatexRow, approachesLatexRow, changeSetInfoLatexRow } = summarizeResult(filename)
-            console.log(summarizedResult)
-            unitsContributionLatexRows[filename] = unitsContributionLatexRow
-            approachesLatexRows[filename] = approachesLatexRow
-            changeSetInfoLatexRows[filename] = changeSetInfoLatexRow
-        }
-    });
-    console.log(getFullTable(unitsContributionLatexRows))
-    console.log(getFullTable(approachesLatexRows))
-    console.log(getFullTable(changeSetInfoLatexRows))
+        let unitsContributionLatexRows = {}
+        let approachesLatexRows = {}
+        let changeSetInfoLatexRows = {}
+        projects_list.forEach(filename => {
+            if (fs.statSync(`${resultDirPath}${filename}`).isDirectory()) {
+                let { summarizedResult, unitsContributionLatexRow, approachesLatexRow, changeSetInfoLatexRow } = summarizeResult(filename)
+                console.log(summarizedResult)
+                unitsContributionLatexRows[filename] = unitsContributionLatexRow
+                approachesLatexRows[filename] = approachesLatexRow
+                changeSetInfoLatexRows[filename] = changeSetInfoLatexRow
+            }
+        });
+        console.log(getFullTable(unitsContributionLatexRows))
+        console.log(getFullTable(approachesLatexRows))
+        console.log(getFullTable(changeSetInfoLatexRows))
+    }
 }
-
 function summarizeResult(filename) {
     let result = JSON.parse(fs.readFileSync(`${resultDirPath}${filename}${path.sep}results.json`));
     let summarizedResult = {}

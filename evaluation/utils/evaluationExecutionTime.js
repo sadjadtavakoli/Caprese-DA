@@ -1,8 +1,8 @@
-const constants = require('../constants.js');
+const constants = require('../../constants.js');
 const fs = require('fs');
 const path = require('path')
-const { evaluationAnalyzer } = require('../berke');
-const { runTARMAQ } = require('./evaluation')
+const { evaluationAnalyzer } = require('../../berke');
+const { runTARMAQ } = require('../evaluation')
 const { performance } = require('perf_hooks');
 
 const RESULT_DIR_PATH = `${__dirname}${path.sep}result${path.sep}${constants.PROJECT_NAME}`;
