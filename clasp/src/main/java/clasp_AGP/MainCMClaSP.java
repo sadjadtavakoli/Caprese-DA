@@ -67,7 +67,7 @@ public class MainCMClaSP {
 
         algorithm.runAlgorithm(sequenceDatabase, outputPath);
 
-        System.out.println(algorithm.printStatistics());
+        // System.out.println(algorithm.printStatistics());
 
         return algorithm.getResut();
     }

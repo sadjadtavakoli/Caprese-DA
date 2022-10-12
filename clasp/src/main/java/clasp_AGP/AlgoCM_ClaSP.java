@@ -123,11 +123,11 @@ public class AlgoCM_ClaSP {
         // reset the stats about memory usage
         MemoryLogger.getInstance().reset();
         // keeping the starting time
-        overallStart = System.currentTimeMillis();
+        // overallStart = System.currentTimeMillis();
         // Starting ClaSP algorithm
         claSP(database, minimumConfidence, enoughConfidence);
         // keeping the ending time
-        overallEnd = System.currentTimeMillis();
+        // overallEnd = System.currentTimeMillis();
         // Search for frequent patterns: Finished
         saver.finish();
     }
@@ -204,21 +204,21 @@ public class AlgoCM_ClaSP {
      */
     public String printStatistics() {
         StringBuilder r = new StringBuilder(200);
-        r.append("=============  Algorithm - STATISTICS =============\n Total time ~ ");
-        r.append(overallEnd - overallStart);
-        r.append(" ms\n");
-        r.append(" Frequent patterns: ");
-        r.append(numberOfFrequentPatterns);
-        r.append("\n ImpactSet Size : ");
-        r.append(saver.resultSize());
-        r.append('\n');
-        r.append(" Join count : ");
-        r.append(joinCount);
-        r.append(" Max memory (mb):");
-        r.append(MemoryLogger.getInstance().getMaxMemory());
-        r.append('\n');
-        r.append(saver.print());
-        r.append("\n===================================================\n");
+        // r.append("=============  Algorithm - STATISTICS =============\n Total time ~ ");
+        // r.append(overallEnd - overallStart);
+        // r.append(" ms\n");
+        // r.append(" Frequent patterns: ");
+        // r.append(numberOfFrequentPatterns);
+        // r.append("\n ImpactSet Size : ");
+        // r.append(saver.resultSize());
+        // r.append('\n');
+        // r.append(" Join count : ");
+        // r.append(joinCount);
+        // r.append(" Max memory (mb):");
+        // r.append(MemoryLogger.getInstance().getMaxMemory());
+        // r.append('\n');
+        // r.append(saver.print());
+        // r.append("\n===================================================\n");
         return r.toString();
     }
 
