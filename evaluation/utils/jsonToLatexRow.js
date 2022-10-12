@@ -29,6 +29,11 @@ const approachesDataColumnOrdeing = {
     }
 }
 
+const menaAveragePrecisionOrdering = {
+    "berke": [5, 10, 20, 30, 60, 10000],
+    "tarmaq": [5, 10, 20, 30, 60, 10000],
+    "FP": [5, 10, 20, 30, 60, 10000]
+}
 const benchmarksInfoOrdering = ["# Commits", "# Change-sequences", "Unique #functions", "Avg # functions in commit", "History (in yrs)", "LOC", "JavaScript Percentage"]
 const changeSetInfoOrdering = ["min", "max", "avg"]
 
@@ -49,6 +54,10 @@ function changeSetLatexRow(data) {
     return listToLatex(data, changeSetInfoOrdering)
 }
 
+function meanAveragePrecisionLatexRow(data) {
+    return toLatexOneLevel(data, menaAveragePrecisionOrdering)
+}
+
 function listToLatex(data, columnOrdering) {
     let result = ``
     for (let item of columnOrdering) {
@@ -65,11 +74,32 @@ function toLatex(data, columnOrdering) {
     return result.slice(0, -3)
 }
 
+function toLatexOneLevel(data, columnOrdering) {
+    let result = ``
+    for (let tableName in columnOrdering) {
+        console.log(tableName)
+        result += `${subtableOneLevel(data, tableName, columnOrdering)} & `
+    }
+
+    return result.slice(0, -3)
+}
+
 function subtable(data, tableName, columnOrdering) {
     let result = ``
     for (let subTableName in columnOrdering[tableName]) {
         result += `${secondLevelSubTable(data, tableName, subTableName, columnOrdering)} & `
     }
+
+    return result.slice(0, -3)
+}
+
+function subtableOneLevel(data, tableName, columnOrdering) {
+    let result = ``
+
+    columnOrdering[tableName].forEach(element => {
+        console.log(data[tableName][element])
+        result += `${data[tableName][element]} & `
+    });
 
     return result.slice(0, -3)
 }
@@ -91,4 +121,4 @@ function getFullTable(projectsData) {
     return finalTable
 }
 
-module.exports = { unitsContributionToLatex, approachesComparisonToLatex, getFullTable, benchmarksInfoLatexRow, changeSetLatexRow }
+module.exports = { unitsContributionToLatex, approachesComparisonToLatex, getFullTable, benchmarksInfoLatexRow, changeSetLatexRow, meanAveragePrecisionLatexRow}

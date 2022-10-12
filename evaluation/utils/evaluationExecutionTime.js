@@ -5,10 +5,10 @@ const { evaluationAnalyzer } = require('../../berke');
 const { runTARMAQ } = require('../evaluation')
 const { performance } = require('perf_hooks');
 
-const RESULT_DIR_PATH = `${__dirname}${path.sep}result${path.sep}${constants.PROJECT_NAME}`;
+const RESULT_DIR_PATH = `${path.dirname(__dirname)}${path.sep}result${path.sep}${constants.PROJECT_NAME}`;
 
 const RESULT_PATH = `${RESULT_DIR_PATH}${path.sep}results.json`
-const EXECUTION_TIMES_PATH = `${__dirname}${path.sep}result${path.sep}executionTime.json`
+const EXECUTION_TIMES_PATH = `${path.dirname(__dirname)}${path.sep}result${path.sep}executionTime.json`
 
 if (process.argv[1].endsWith(path.basename(__filename))) {
 
