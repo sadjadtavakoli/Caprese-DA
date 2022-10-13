@@ -81,7 +81,7 @@ function approachSummary(result, approach, threshold) {
 
 
         let impactSetSize = impactset.length;
-        let averagePrecision = impactSetSize ? sumOfPrecisions / moendIndex : 0;
+        let averagePrecision = impactSetSize ? sumOfPrecisions / endIndex : 0;
         sumOfAveragePrecisions += averagePrecision;
     }
 

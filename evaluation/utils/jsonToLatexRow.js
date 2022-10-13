@@ -1,7 +1,7 @@
 const unitsContributionColumnOrdeing = {
     'Impact-set size': {
-        DA: ["avg", "min", "max", "unique", "unique/total"],
-        FP: ["avg", "min", "max", "unique", "unique/total"]
+        DA: ["avg", "min", "max", "std", "unique", "unique/total"],
+        FP: ["avg", "min", "max", "std", "unique", "unique/total"]
     },
     'True Positives': {
         DA: ["avg", "precision"],

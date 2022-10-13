@@ -22,7 +22,7 @@ if (process.argv[1].endsWith(path.basename(__filename))) {
         projects_list.forEach(filename => {
             if (fs.statSync(`${resultDirPath}${filename}`).isDirectory()) {
                 let { summarizedResult, unitsContributionLatexRow, approachesLatexRow, changeSetInfoLatexRow } = summarizeResult(filename)
-                console.log(summarizedResult)
+                // console.log(summarizedResult)
                 unitsContributionLatexRows[filename] = unitsContributionLatexRow
                 approachesLatexRows[filename] = approachesLatexRow
                 changeSetInfoLatexRows[filename] = changeSetInfoLatexRow
@@ -33,6 +33,17 @@ if (process.argv[1].endsWith(path.basename(__filename))) {
         console.log(getFullTable(changeSetInfoLatexRows))
     }
 }
+
+function average(array) {
+    return parseFloat((array.reduce((a, b) => a + b) / array.length).toFixed(2))
+}
+
+function getStandardDeviation(array) {
+    const n = array.length
+    const mean = array.reduce((a, b) => a + b) / n
+    return parseFloat(Math.sqrt(array.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / n).toFixed(2))
+}
+
 function summarizeResult(filename) {
     let result = JSON.parse(fs.readFileSync(`${resultDirPath}${filename}${path.sep}results.json`));
     let summarizedResult = {}
@@ -52,26 +63,16 @@ function summarizeResult(filename) {
 }
 
 function unitsContributionSummary(result) {
-    let minDA = Infinity;
-    let maxDA = 0;
-    let uniqueDA = 0;
+    let uniqueDA = [];
+    let uniqueFP = [];
+    let commons = [];
 
-    let minFP = Infinity;
-    let maxFP = 0;
-    let uniqueFP = 0;
+    let DATotalTruePositives = [];
+    let FPTotalTruePositives = [];
 
-    let totalCommon = 0;
-
-    let DATotalTruePositives = 0;
-    let FPTotalTruePositives = 0;
-
-    let DASumOfPrecisions = 0;
-    let FPSumOfPrecisions = 0;
-    let totalSumOfPrecisions = 0;
-
-    let HadDA = 0;
-    let HadFP = 0;
-    let HadAny = 0;
+    let DAPrecisions = [];
+    let FPPrecisions = [];
+    let totalPrecisions = [];
 
     for (let commit in result) {
         let impactSet = result[commit][capreseName]
@@ -88,7 +89,7 @@ function unitsContributionSummary(result) {
                 commonCounter += 1;
             } else if (consequentInfo["DA-antecedents"] != undefined) {
                 uniqueDACounter += 1;
-            } else if (consequentInfo["FP-antecedents"] != undefined){
+            } else if (consequentInfo["FP-antecedents"] != undefined) {
                 uniqueFPCounter += 1;
             }
 
@@ -97,70 +98,53 @@ function unitsContributionSummary(result) {
             TotalTruePositiveCounter = increaseIfIsTruePositive(TotalTruePositiveCounter, consequentInfo['FP-evaluation'] + " " + consequentInfo['DA-evaluation'])
         })
 
-        uniqueFP += uniqueFPCounter;
-        uniqueDA += uniqueDACounter;
-        totalCommon += commonCounter;
+        uniqueFP.push(uniqueFPCounter);
+        uniqueDA.push(uniqueDACounter);
+        commons.push(commonCounter);
 
-        DATotalTruePositives += DATruePositiveCounter
-        FPTotalTruePositives += FPTruePositiveCounter
+        DATotalTruePositives.push(DATruePositiveCounter)
+        FPTotalTruePositives.push(FPTruePositiveCounter)
 
         let DAcounter = uniqueDACounter + commonCounter
         let FPcounter = uniqueFPCounter + commonCounter
         let totalCounter = uniqueFPCounter + commonCounter + uniqueDACounter
-        DASumOfPrecisions += DAcounter ? DATruePositiveCounter / DAcounter : 0 // @TODO not sure it's the right way to have an average of ratios. 
-        FPSumOfPrecisions += FPcounter ? FPTruePositiveCounter / FPcounter : 0
-        totalSumOfPrecisions += totalCounter ? TotalTruePositiveCounter / totalCounter : 0
 
-        HadDA += DAcounter ? 1 : 0
-        HadFP += FPcounter ? 1 : 0
-        HadAny += totalCounter ? 1 : 0
+        let DAprecision = DAcounter ? DATruePositiveCounter / DAcounter : 0 // @TODO not sure it's the right way to have an average of ratios. 
+        if (DAcounter) DAPrecisions.push(DAprecision)
+        let FPprecision = FPcounter ? FPTruePositiveCounter / FPcounter : 0
+        if (DAcounter) FPPrecisions.push(FPprecision)
+        let totalPrecision = totalCounter ? TotalTruePositiveCounter / totalCounter : 0
+        if (totalCounter) totalPrecisions.push(totalPrecision)
 
-        minDA = Math.min(minDA, uniqueDACounter)
-        maxDA = Math.max(maxDA, uniqueDACounter)
-
-        minFP = Math.min(minFP, uniqueFPCounter)
-        maxFP = Math.max(maxFP, uniqueFPCounter)
     }
 
-    let length = Object.keys(result).length
-
-
-    let avgUniqueDA = uniqueDA / length
-    let avgUniqueFP = uniqueFP / length
-    let avgCommon = totalCommon / length
-
-    let avgDA = avgUniqueDA + avgCommon
-    let avgFP = avgUniqueFP + avgCommon
-    let totalAverage = avgUniqueDA + avgUniqueFP + avgCommon
+    let avgUniqueDA = average(uniqueDA)
+    let avgUniqueFP = average(uniqueFP)
+    let avgCommon = average(commons)
+    let allDA = uniqueDA.map(function (num, idx) {
+        return num + commons[idx];
+    });
+    let allFP = uniqueFP.map(function (num, idx) {
+        return num + commons[idx];
+    });
+    
+    let totalAverage = (avgUniqueDA + avgUniqueFP + avgCommon).toFixed(2)
 
     let unigueDAPercentage = (avgUniqueDA / totalAverage * 100).toFixed(2)
     let unigueFPPercentag = (avgUniqueFP / totalAverage * 100).toFixed(2)
 
-    avgUniqueDA = avgUniqueDA.toFixed(1)
-    avgUniqueFP = avgUniqueFP.toFixed(1)
-    // avgCommon = avgCommon.toFixed(1)
-
-    let avgDATruePositives = (DATotalTruePositives / length).toFixed(1)
-    let avgFPTruPositives = (FPTotalTruePositives / length).toFixed(1)
-
-    let DAmeanPrecision = (DASumOfPrecisions / HadDA).toFixed(2)
-    let FPmeanPrecision = (FPSumOfPrecisions / HadFP).toFixed(2)
-    let totalMeanPrecision = (totalSumOfPrecisions / HadAny).toFixed(2)
-
-    avgDA = avgDA.toFixed(1)
-    avgFP = avgFP.toFixed(1)
-
     return {
         "Impact-set size": {
-            "DA": JSON.stringify({ "avg": avgDA, "min": minDA, "max": maxDA, "unique": avgUniqueDA, "unique/total": unigueDAPercentage }),
-            "FP": JSON.stringify({ "avg": avgFP, "min": minFP, "max": maxFP, "unique": avgUniqueFP, "unique/total": unigueFPPercentag })
+            "DA": JSON.stringify({ "avg": average(allDA), "min": Math.min(...allDA), "max": Math.max(...allDA), "unique": avgUniqueDA, "std": getStandardDeviation(allDA), "unique/total": unigueDAPercentage }),
+            "FP": JSON.stringify({ "avg": average(allFP), "min": Math.min(...allFP), "max": Math.max(...allFP), "unique": avgUniqueFP, "std": getStandardDeviation(allFP), "unique/total": unigueFPPercentag })
         },
         "True Positives": {
-            "DA": JSON.stringify({ "avg": avgDATruePositives, "precision": DAmeanPrecision }),
-            "FP": JSON.stringify({ "avg": avgFPTruPositives, "precision": FPmeanPrecision }),
-            "total": JSON.stringify({ "avg": "-", "precision": totalMeanPrecision })
+            "DA": JSON.stringify({ "avg": average(DATotalTruePositives), "precision": average(DAPrecisions) }),
+            "FP": JSON.stringify({ "avg": average(FPTotalTruePositives), "precision": average(FPPrecisions) }),
+            "total": JSON.stringify({ "avg": "-", "precision": average(totalPrecisions) })
         }
     };
+
 }
 
 function approachesResultSummary(result, projectName) {
@@ -187,14 +171,12 @@ function approachesResultSummary(result, projectName) {
 
 function approachSummary(result, approach) {
     let totalImpactSetSize = 0
-    let support = 0
-    let confidence = 0
-    let fpCount = 0;
+    let supports = []
+    let confidences = []
+    let impactSetSizes = []
+    let averagePrecisions = [];
+    let totalTruePositives = [];
     let uniquesCount = 0;
-    let minSize = Infinity;
-    let maxSize = 0;
-    let sumOfAveragePrecisions = 0;
-    let totalTruePositives = 0;
 
     let fpSearchKey = approach == capreseName ? "FP-score" : "confidence"
 
@@ -207,9 +189,8 @@ function approachSummary(result, approach) {
 
         impactset.forEach((consequentInfo, index) => {
             if (consequentInfo[fpSearchKey]) {
-                support += parseInt(consequentInfo["support"])
-                confidence += parseFloat(consequentInfo[fpSearchKey])
-                fpCount += 1
+                supports.push(parseInt(consequentInfo["support"]))
+                confidences.push(parseFloat(consequentInfo[fpSearchKey]))
             }
             if (consequentInfo["status"] != STATUS.common) {
                 uniquesCount += 1
@@ -223,27 +204,25 @@ function approachSummary(result, approach) {
 
 
         let impactSetSize = impactset.length;
-        minSize = Math.min(minSize, impactSetSize);
-        maxSize = Math.max(maxSize, impactSetSize);
-        totalImpactSetSize += impactSetSize;
+        impactSetSizes.push(impactSetSize)
 
         let averagePrecision = impactSetSize ? sumOfPrecisions / impactSetSize : 0;
-        sumOfAveragePrecisions += averagePrecision;
-        totalTruePositives += truePositiveCounter;
+        if(impactSetSize) averagePrecisions.push(averagePrecision);
+        totalTruePositives.push(truePositiveCounter);
     }
     let length = Object.keys(result).length
 
     let impactSetSizeData = {
-        "avg": (totalImpactSetSize / length).toFixed(1),
-        "min": minSize,
-        "max": maxSize,
+        "avg": average(impactSetSizes),
+        "min": Math.min(...impactSetSizes),
+        "max": Math.max(...impactSetSizes),
         "unique": (uniquesCount / length).toFixed(1)
     }
     let truePositivesData = {
-        "Average True Positives": (totalTruePositives / length).toFixed(1),
-        "Average Precision": (sumOfAveragePrecisions / length).toFixed(2),
-        "Average FP Support": (support / fpCount).toFixed(1),
-        "Average FP Confidence": (confidence / fpCount).toFixed(1)
+        "Average True Positives": average(totalTruePositives),
+        "Average Precision": average(averagePrecisions),
+        "Average FP Support": average(supports),
+        "Average FP Confidence": average(confidences)
     }
 
     return [impactSetSizeData, truePositivesData]
@@ -282,36 +261,36 @@ function getExecutionTimes(projectName) {
 }
 module.exports = { averageCommitSize }
 
-    function rankResult() {
-        return function (a, b) {
-            if ((a['DA-antecedents'] && !b['DA-antecedents'])) {
-                return -1;
-            }
-            if (b['DA-antecedents'] && !a['DA-antecedents']) {
-                return 1;
-            }
-            if (a['FP-antecedents'] && !b['FP-antecedents']) {
-                return -1;
-            }
-            if (b['FP-antecedents'] && !a['FP-antecedents']) {
-                return 1;
-            }
+function rankResult() {
+    return function (a, b) {
+        if ((a['DA-antecedents'] && !b['DA-antecedents'])) {
+            return -1;
+        }
+        if (b['DA-antecedents'] && !a['DA-antecedents']) {
+            return 1;
+        }
+        if (a['FP-antecedents'] && !b['FP-antecedents']) {
+            return -1;
+        }
+        if (b['FP-antecedents'] && !a['FP-antecedents']) {
+            return 1;
+        }
 
-            let aSupport = a['support'] || 0;
-            let bSupport = b['support'] || 0;
-            let aFP = a['FP-score'] || 0;
-            let bFP = b['FP-score'] || 0;
+        let aSupport = a['support'] || 0;
+        let bSupport = b['support'] || 0;
+        let aFP = a['FP-score'] || 0;
+        let bFP = b['FP-score'] || 0;
 
-            if (aSupport == bSupport) {
-                if (bFP != aFP) {
-                    return bFP - aFP;
-                }
-            } else {
-                return bSupport - aSupport;
+        if (aSupport == bSupport) {
+            if (bFP != aFP) {
+                return bFP - aFP;
             }
+        } else {
+            return bSupport - aSupport;
+        }
 
-            let aDA = a['DA-antecedents'] || [];
-            let bDA = b['DA-antecedents'] || [];
-            return bDA.length - aDA.length;
-        };
-    }
+        let aDA = a['DA-antecedents'] || [];
+        let bDA = b['DA-antecedents'] || [];
+        return bDA.length - aDA.length;
+    };
+}
