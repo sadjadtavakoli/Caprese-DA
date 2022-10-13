@@ -212,6 +212,229 @@
                 "consequent": "lookupGenerator-lib/environment.js-231-261",
                 "status": "common",
                 "FP-evaluation": "true"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => _getGlobalNpmPaths-lib/resolver.js-309-367",
+                "support": 2,
+                "confidence": 0.3333333333333333,
+                "consequent": "_getGlobalNpmPaths-lib/resolver.js-309-367",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => arrowAnonymousFunction-test/resolver.js-748-751",
+                "support": 2,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/resolver.js-748-751",
+                "status": "Removed"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => package-lock.json",
+                "support": 2,
+                "confidence": 0.3333333333333333,
+                "consequent": "package-lock.json",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => package.json",
+                "support": 2,
+                "confidence": 0.3333333333333333,
+                "consequent": "package.json",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => arrowAnonymousFunction-test/resolver.js-457-460",
+                "support": 1,
+                "confidence": 0.16666666666666666,
+                "consequent": "arrowAnonymousFunction-test/resolver.js-457-460",
+                "status": "Removed"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => findGeneratorsIn-lib/resolver.js-169-178",
+                "support": 1,
+                "confidence": 0.16666666666666666,
+                "consequent": "findGeneratorsIn-lib/resolver.js-169-178",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true children"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => getNpmPaths-lib/resolver.js-240-250",
+                "support": 1,
+                "confidence": 0.16666666666666666,
+                "consequent": "getNpmPaths-lib/resolver.js-240-250",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => arrowAnonymousFunction-test/resolver.js-327-334",
+                "support": 1,
+                "confidence": 0.16666666666666666,
+                "consequent": "arrowAnonymousFunction-test/resolver.js-327-334",
+                "status": "Removed"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => arrowAnonymousFunction-test/resolver.js-328-333",
+                "support": 1,
+                "confidence": 0.16666666666666666,
+                "consequent": "arrowAnonymousFunction-test/resolver.js-328-333",
+                "status": "Removed"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => arrowAnonymousFunction-lib/resolver.js-88-88",
+                "support": 1,
+                "confidence": 0.16666666666666666,
+                "consequent": "arrowAnonymousFunction-lib/resolver.js-88-88",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true children"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => arrowAnonymousFunction-lib/resolver.js-95-95",
+                "support": 1,
+                "confidence": 0.16666666666666666,
+                "consequent": "arrowAnonymousFunction-lib/resolver.js-95-95",
+                "status": "Removed"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => arrowAnonymousFunction-test/resolver.js-326-331",
+                "support": 1,
+                "confidence": 0.16666666666666666,
+                "consequent": "arrowAnonymousFunction-test/resolver.js-326-331",
+                "status": "Removed"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => arrowAnonymousFunction-test/resolver.js-327-330",
+                "support": 1,
+                "confidence": 0.16666666666666666,
+                "consequent": "arrowAnonymousFunction-test/resolver.js-327-330",
+                "status": "Removed"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => arrowAnonymousFunction-test/resolver.js-381-383",
+                "support": 1,
+                "confidence": 0.16666666666666666,
+                "consequent": "arrowAnonymousFunction-test/resolver.js-381-383",
+                "status": "Removed"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => arrowAnonymousFunction-test/resolver.js-53-814",
+                "support": 1,
+                "confidence": 0.16666666666666666,
+                "consequent": "arrowAnonymousFunction-test/resolver.js-53-814",
+                "status": "Removed"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => arrowAnonymousFunction-test/resolver.js-675-705",
+                "support": 1,
+                "confidence": 0.16666666666666666,
+                "consequent": "arrowAnonymousFunction-test/resolver.js-675-705",
+                "status": "Removed"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => arrowAnonymousFunction-test/resolver.js-747-752",
+                "support": 1,
+                "confidence": 0.16666666666666666,
+                "consequent": "arrowAnonymousFunction-test/resolver.js-747-752",
+                "status": "Removed"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => _tryRegistering-lib/resolver.js-210-226",
+                "support": 1,
+                "confidence": 0.16666666666666666,
+                "consequent": "_tryRegistering-lib/resolver.js-210-226",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => alias-lib/resolver.js-398-416",
+                "support": 1,
+                "confidence": 0.16666666666666666,
+                "consequent": "alias-lib/resolver.js-398-416",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => arrowAnonymousFunction-lib/resolver.js-290-298",
+                "support": 1,
+                "confidence": 0.16666666666666666,
+                "consequent": "arrowAnonymousFunction-lib/resolver.js-290-298",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => arrowAnonymousFunction-lib/resolver.js-409-415",
+                "support": 1,
+                "confidence": 0.16666666666666666,
+                "consequent": "arrowAnonymousFunction-lib/resolver.js-409-415",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => arrowAnonymousFunction-test/resolver.js-157-160",
+                "support": 1,
+                "confidence": 0.16666666666666666,
+                "consequent": "arrowAnonymousFunction-test/resolver.js-157-160",
+                "status": "Removed"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => arrowAnonymousFunction-test/resolver.js-28-72",
+                "support": 1,
+                "confidence": 0.16666666666666666,
+                "consequent": "arrowAnonymousFunction-test/resolver.js-28-72",
+                "status": "Removed"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => resolver.js-test/resolver.js-1-815",
+                "support": 1,
+                "confidence": 0.16666666666666666,
+                "consequent": "resolver.js-test/resolver.js-1-815",
+                "status": "Removed"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => arrowAnonymousFunction-lib/resolver.js-115-115",
+                "support": 1,
+                "confidence": 0.16666666666666666,
+                "consequent": "arrowAnonymousFunction-lib/resolver.js-115-115",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => arrowAnonymousFunction-lib/resolver.js-127-127",
+                "support": 1,
+                "confidence": 0.16666666666666666,
+                "consequent": "arrowAnonymousFunction-lib/resolver.js-127-127",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => arrowAnonymousFunction-lib/resolver.js-69-69",
+                "support": 1,
+                "confidence": 0.16666666666666666,
+                "consequent": "arrowAnonymousFunction-lib/resolver.js-69-69",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true children"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => arrowAnonymousFunction-test/resolver.js-56-69",
+                "support": 1,
+                "confidence": 0.16666666666666666,
+                "consequent": "arrowAnonymousFunction-test/resolver.js-56-69",
+                "status": "Removed"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => arrowAnonymousFunction-test/resolver.js-689-694",
+                "support": 1,
+                "confidence": 0.16666666666666666,
+                "consequent": "arrowAnonymousFunction-test/resolver.js-689-694",
+                "status": "Removed"
+            },
+            {
+                "rule": "[findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => arrowAnonymousFunction-test/resolver.js-698-703",
+                "support": 1,
+                "confidence": 0.16666666666666666,
+                "consequent": "arrowAnonymousFunction-test/resolver.js-698-703",
+                "status": "Removed"
             }
         ],
         "reversed-FP": {
@@ -413,7 +636,7 @@
                         "findPackagesIn-lib/resolver.js-162-198 | {\"id\":2 - \"parents\":[1-1]}"
                     ]
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true",
                 "FP-evaluation": "true"
             },
@@ -892,7 +1115,7 @@
                 "confidence": 1,
                 "consequent": "arrowAnonymousFunction-lib/resolver.js-115-115",
                 "status": "common",
-                "FP-evaluation": "true but already reported its parent | true but already reported its parent | true"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-lib/resolver.js-69-69, findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => arrowAnonymousFunction-lib/resolver.js-127-127",
@@ -954,6 +1177,14 @@
                 "consequent": "package.json",
                 "status": "common",
                 "FP-evaluation": "false and unnecessary"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-lib/resolver.js-69-69, findPackagesIn-lib/resolver.js-162-198, lookup-lib/resolver.js-55-94, resolver.js-lib/resolver.js-1-417] => sync-lib/resolver.js-112-147",
+                "support": 1,
+                "confidence": 1,
+                "consequent": "sync-lib/resolver.js-112-147",
+                "status": "common",
+                "FP-evaluation": "true"
             }
         ],
         "reversed-FP": {
@@ -962,7 +1193,7 @@
                     "consequent": "sync-lib/resolver.js-112-147 | {\"id\":0 - \"parents\":[1-1]}",
                     "support": 1,
                     "FP-score": 1,
-                    "status": "Berke Unique",
+                    "status": "common",
                     "DA": [
                         "findPackagesIn-lib/resolver.js-162-198 | {\"id\":2 - \"parents\":[1-1]}",
                         "lookup-lib/resolver.js-55-94 | {\"id\":3 - \"parents\":[1-1]}"
@@ -991,7 +1222,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "common",
-                    "evaluation result": "true but already reported its parent | true"
+                    "evaluation result": "true but already reported its parent | true but already reported its parent | true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/resolver.js-115-115 | {\"id\":25 - \"parents\":[0-1]}",
@@ -1021,7 +1252,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "common",
-                    "evaluation result": "true but already reported its parent | true"
+                    "evaluation result": "true but already reported its parent | true but already reported its parent | true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/resolver.js-115-115 | {\"id\":25 - \"parents\":[0-1]}",
@@ -1166,7 +1397,7 @@
                     "consequent": "sync-lib/resolver.js-112-147 | {\"id\":0 - \"parents\":[1-1]}",
                     "support": 1,
                     "FP-score": 1,
-                    "status": "Berke Unique",
+                    "status": "common",
                     "FP": [
                         [
                             "arrowAnonymousFunction-lib/resolver.js-69-69 | {\"id\":27 - \"parents\":[3-1]}",
@@ -1204,7 +1435,7 @@
                     "consequent": "sync-lib/resolver.js-112-147 | {\"id\":0 - \"parents\":[1-1]}",
                     "support": 1,
                     "FP-score": 1,
-                    "status": "Berke Unique",
+                    "status": "common",
                     "FP": [
                         [
                             "arrowAnonymousFunction-lib/resolver.js-69-69 | {\"id\":27 - \"parents\":[3-1]}",
@@ -2716,7 +2947,7 @@
                         "start-lib/environment.js-1017-1073 | {\"id\":37 - \"parents\":[31-32]}"
                     ]
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "FP-evaluation": "false"
             },
             {
@@ -3312,7 +3543,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-lib/environment.js-1038-1040",
                 "status": "common",
-                "FP-evaluation": "false"
+                "FP-evaluation": "true"
             },
             {
                 "rule": "[arrowAnonymousFunction-lib/environment.js-1018-1072, constructor-lib/environment.js-292-356, start-lib/environment.js-1017-1073] => arrowAnonymousFunction-lib/environment.js-1049-1051",
@@ -3789,13 +4020,21 @@
                 "confidence": 0.5,
                 "consequent": "runGenerator-lib/environment.js-1081-1093",
                 "status": "common",
-                "FP-evaluation": "false"
+                "FP-evaluation": "true"
             },
             {
                 "rule": "[arrowAnonymousFunction-lib/environment.js-1018-1072, constructor-lib/environment.js-292-356, start-lib/environment.js-1017-1073] => test/fixtures/generator-commands/package.json",
                 "support": 1,
                 "confidence": 0.5,
                 "consequent": "test/fixtures/generator-commands/package.json",
+                "status": "common",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-lib/environment.js-1018-1072, constructor-lib/environment.js-292-356, start-lib/environment.js-1017-1073] => utils.js-cli/utils.js-1-33",
+                "support": 1,
+                "confidence": 0.5,
+                "consequent": "utils.js-cli/utils.js-1-33",
                 "status": "common",
                 "FP-evaluation": "false"
             }
@@ -4122,7 +4361,7 @@
                     "DA": [
                         "start-lib/environment.js-1017-1073 | {\"id\":37 - \"parents\":[31-32]}"
                     ],
-                    "evaluation result": "false"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/environment.js-154-169 | {\"id\":40 - \"parents\":[42-31-32]}",
@@ -4509,7 +4748,7 @@
                     "consequent": "utils.js-cli/utils.js-1-33 | {\"id\":104 - \"parents\":[]}",
                     "support": 1,
                     "FP-score": 0.5,
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "false"
                 },
                 {
@@ -5618,7 +5857,7 @@
                         "log.js-lib/util/log.js-1-189 | {\"id\":162 - \"parents\":[]}"
                     ]
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "FP-evaluation": "false"
             },
             {
@@ -6299,6 +6538,14 @@
                 "consequent": "util.js-lib/util/util.js-1-38",
                 "status": "common",
                 "FP-evaluation": "false"
+            },
+            {
+                "rule": "[create-lib/environment.js-724-779, environment.js-lib/environment.js-1-1350, log.js-lib/util/log.js-1-189, status-lib/util/log.js-154-159] => util.js-test/util.js-1-19",
+                "support": 1,
+                "confidence": 1,
+                "consequent": "util.js-test/util.js-1-19",
+                "status": "common",
+                "FP-evaluation": "false"
             }
         ],
         "reversed-FP": {
@@ -6453,7 +6700,7 @@
                     "consequent": "util.js-test/util.js-1-19 | {\"id\":197 - \"parents\":[]}",
                     "support": 1,
                     "FP-score": 1,
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "false"
                 },
                 {
@@ -7337,6 +7584,13 @@
                 "consequent": "arrowAnonymousFunction-test/environment.js-952-955",
                 "status": "common",
                 "FP-evaluation": "true"
+            },
+            {
+                "rule": "[enforceUpdate-lib/environment.js-112-130, environment.js-lib/environment.js-1-1350] => exports-lib/environment.js-39-61",
+                "support": 1,
+                "confidence": 0.5,
+                "consequent": "exports-lib/environment.js-39-61",
+                "status": "Removed"
             }
         ],
         "reversed-FP": {
