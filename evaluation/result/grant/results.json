@@ -829,6 +829,13 @@
                 "consequent": "session.js-test/handler/session.js-1-216",
                 "status": "common",
                 "FP-evaluation": "false"
+            },
+            {
+                "rule": "[handler-lib/handler/hapi-16.js-23-48, hapi-16.js-lib/handler/hapi-16.js-1-61, register-lib/handler/hapi-16.js-10-52, register-lib/handler/hapi-17.js-9-41] => version-grant.js-3-16",
+                "support": 1,
+                "confidence": 1,
+                "consequent": "version-grant.js-3-16",
+                "status": "Removed"
             }
         ],
         "reversed-FP": {
@@ -1193,7 +1200,7 @@
                 "DA-antecedents": [
                     "exports-lib/handler/express-4.js-5-47 | {\"id\":25 - \"parents\":[]}"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -1230,7 +1237,7 @@
                         "koa-1.js-lib/handler/koa-1.js-1-47"
                     ]
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "FP-evaluation": "true"
             },
             {
@@ -1258,7 +1265,7 @@
                         "koa-1.js-lib/handler/koa-1.js-1-47"
                     ]
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "FP-evaluation": "true"
             },
             {
@@ -1271,7 +1278,7 @@
                         "koa-1.js-lib/handler/koa-1.js-1-47"
                     ]
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "FP-evaluation": "true"
             },
             {
@@ -1284,7 +1291,7 @@
                         "koa-1.js-lib/handler/koa-1.js-1-47"
                     ]
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "FP-evaluation": "true children"
             },
             {
@@ -1311,7 +1318,7 @@
                         "koa-1.js-lib/handler/koa-1.js-1-47"
                     ]
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "FP-evaluation": "true"
             },
             {
@@ -1325,7 +1332,7 @@
                         "koa-1.js-lib/handler/koa-1.js-1-47"
                     ]
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "FP-evaluation": "true"
             },
             {
@@ -1339,7 +1346,7 @@
                         "koa-1.js-lib/handler/koa-1.js-1-47"
                     ]
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "FP-evaluation": "true"
             }
         ],
@@ -1367,6 +1374,404 @@
                 "consequent": "koa-grant.js-74-84",
                 "status": "common",
                 "FP-evaluation": "true"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => app-lib/handler/express-4.js-17-44",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "app-lib/handler/express-4.js-17-44",
+                "status": "common",
+                "FP-evaluation": "true children"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => app-lib/handler/koa-2.js-18-43",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "app-lib/handler/koa-2.js-18-43",
+                "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => arrowAnonymousFunction-grant.js-11-20",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-grant.js-11-20",
+                "status": "Removed"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => arrowAnonymousFunction-test/handler/handler.js-104-123",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/handler/handler.js-104-123",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => arrowAnonymousFunction-test/handler/handler.js-239-268",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/handler/handler.js-239-268",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => arrowAnonymousFunction-test/handler/handler.js-273-317",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/handler/handler.js-273-317",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => arrowAnonymousFunction-test/handler/handler.js-322-355",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/handler/handler.js-322-355",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => arrowAnonymousFunction-test/handler/handler.js-360-393",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/handler/handler.js-360-393",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => arrowAnonymousFunction-test/handler/handler.js-399-487",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/handler/handler.js-399-487",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => arrowAnonymousFunction-test/handler/handler.js-43-46",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/handler/handler.js-43-46",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => arrowAnonymousFunction-test/handler/handler.js-49-73",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/handler/handler.js-49-73",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => arrowAnonymousFunction-test/handler/handler.js-50-72",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/handler/handler.js-50-72",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => arrowAnonymousFunction-test/handler/handler.js-582-604",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/handler/handler.js-582-604",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => arrowAnonymousFunction-test/handler/handler.js-608-644",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/handler/handler.js-608-644",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => arrowAnonymousFunction-test/handler/handler.js-610-625",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/handler/handler.js-610-625",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => arrowAnonymousFunction-test/handler/handler.js-77-100",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/handler/handler.js-77-100",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => arrowAnonymousFunction-test/handler/session.js-44-213",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/handler/session.js-44-213",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => client.js-test/util/client.js-1-1602",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "client.js-test/util/client.js-1-1602",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => exports-lib/handler/hapi-16.js-7-60",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "exports-lib/handler/hapi-16.js-7-60",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => exports-lib/handler/koa-2.js-6-46",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "exports-lib/handler/koa-2.js-6-46",
+                "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => grant-grant.js-2-67",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "grant-grant.js-2-67",
+                "status": "common"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => handler-lib/handler/hapi-16.js-23-48",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "handler-lib/handler/hapi-16.js-23-48",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => handler-lib/handler/hapi-16.js-55-81",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "handler-lib/handler/hapi-16.js-55-81",
+                "status": "Removed"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => handler-lib/handler/hapi-17.js-22-39",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "handler-lib/handler/hapi-17.js-22-39",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => handler-lib/handler/hapi-17.js-45-63",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "handler-lib/handler/hapi-17.js-45-63",
+                "status": "Removed"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => handler.js-test/handler.js-1-195",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "handler.js-test/handler.js-1-195",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => handler.js-test/handler/handler.js-1-747",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "handler.js-test/handler/handler.js-1-747",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => hapi-16.js-lib/handler/hapi-16.js-1-61",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "hapi-16.js-lib/handler/hapi-16.js-1-61",
+                "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => hapi-17.js-lib/handler/hapi-17.js-1-48",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "hapi-17.js-lib/handler/hapi-17.js-1-48",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => hapi-grant.js-86-101",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "hapi-grant.js-86-101",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => koa-2.js-lib/handler/koa-2.js-1-47",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "koa-2.js-lib/handler/koa-2.js-1-47",
+                "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => oauth1.js-test/flow/oauth1.js-1-417",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "oauth1.js-test/flow/oauth1.js-1-417",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => oauth2.js-test/flow/oauth2.js-1-752",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "oauth2.js-test/flow/oauth2.js-1-752",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => register-lib/handler/hapi-16.js-10-52",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "register-lib/handler/hapi-16.js-10-52",
+                "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => register-lib/handler/hapi-17.js-9-41",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "register-lib/handler/hapi-17.js-9-41",
+                "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => session.js-test/handler/session.js-1-216",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "session.js-test/handler/session.js-1-216",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => version-grant.js-3-16",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "version-grant.js-3-16",
+                "status": "Removed"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => arrowAnonymousFunction-example/all/koa.js-60-89",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-example/all/koa.js-60-89",
+                "status": "Removed"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => arrowAnonymousFunction-example/all/koa.js-75-83",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-example/all/koa.js-75-83",
+                "status": "Removed"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => arrowAnonymousFunction-example/all/koa.js-91-93",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-example/all/koa.js-91-93",
+                "status": "Removed"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => arrowAnonymousFunction-lib/consumer/koa.js-57-69",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-lib/consumer/koa.js-57-69",
+                "status": "Removed"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => callback-lib/consumer/express.js-91-111",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "callback-lib/consumer/express.js-91-111",
+                "status": "Removed"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => callback-lib/consumer/koa.js-111-139",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "callback-lib/consumer/koa.js-111-139",
+                "status": "Removed"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => connect-lib/consumer/express.js-62-89",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "connect-lib/consumer/express.js-62-89",
+                "status": "Removed"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => connect-lib/request.js-34-55",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "connect-lib/request.js-34-55",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => example/package.json",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "example/package.json",
+                "status": "Removed"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => express.js-example/all/express.js-1-94",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "express.js-example/all/express.js-1-94",
+                "status": "Removed"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => index.js-index.js-1-7",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "index.js-index.js-1-7",
+                "status": "Removed"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => koa.js-example/all/koa.js-1-94",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "koa.js-example/all/koa.js-1-94",
+                "status": "Removed"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => p-lib/koa.js-52-62",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "p-lib/koa.js-52-62",
+                "status": "Removed"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => package.json",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "package.json",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => transform-example/all/koa.js-27-35",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "transform-example/all/koa.js-27-35",
+                "status": "Removed"
             }
         ],
         "reversed-FP": {
@@ -1394,7 +1799,7 @@
                     "consequent": "hapi-16.js-lib/handler/hapi-16.js-1-61",
                     "support": 9,
                     "FP-score": 0.6923076923076923,
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 }
             ],
@@ -1403,28 +1808,28 @@
                     "consequent": "koa-2.js-lib/handler/koa-2.js-1-47",
                     "support": 2,
                     "FP-score": 0.5,
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "exports-lib/handler/koa-2.js-6-46 | {\"id\":20 - \"parents\":[18]}",
                     "support": 2,
                     "FP-score": 0.5,
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "register-lib/handler/hapi-17.js-9-41 | {\"id\":14 - \"parents\":[10]}",
                     "support": 2,
                     "FP-score": 0.5,
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "register-lib/handler/hapi-16.js-10-52 | {\"id\":13 - \"parents\":[10]}",
                     "support": 2,
                     "FP-score": 0.5,
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 }
             ],
@@ -1433,14 +1838,14 @@
                     "consequent": "app-lib/handler/koa-2.js-18-43 | {\"id\":19 - \"parents\":[18-20-20-18]}",
                     "support": 2,
                     "FP-score": 0.5,
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "app-lib/handler/express-4.js-17-44 | {\"id\":24 - \"parents\":[25-25]}",
                     "support": 2,
                     "FP-score": 0.5,
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true children"
                 },
                 {
@@ -1495,7 +1900,7 @@
                 },
                 {
                     "consequent": "grant-grant.js-2-67",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
@@ -2715,7 +3120,7 @@
                     ]
                 ],
                 "status": "Berke Unique",
-                "FP-evaluation": "true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children"
+                "FP-evaluation": "true children"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/handler/handler.js-49-73 | {\"id\":6 - \"parents\":[4-4]}",
@@ -3149,7 +3554,7 @@
                     ]
                 ],
                 "status": "Berke Unique",
-                "FP-evaluation": "true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children"
+                "FP-evaluation": "true children"
             },
             {
                 "consequent": "authorize-lib/flow/oauth1.js-61-95 | {\"id\":66 - \"parents\":[63]}",
@@ -3643,7 +4048,7 @@
                     ]
                 ],
                 "status": "Berke Unique",
-                "FP-evaluation": "true children | true children | true children | true children"
+                "FP-evaluation": "true children"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/config.js-138-138 | {\"id\":75 - \"parents\":[32-76]}",
@@ -5022,7 +5427,7 @@
                     ]
                 ],
                 "status": "Berke Unique",
-                "FP-evaluation": "true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children | true children"
+                "FP-evaluation": "true children"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-35-48 | {\"id\":80 - \"parents\":[55-56]}",
@@ -6209,6 +6614,13 @@
                 "consequent": "session.js-test/handler/session.js-1-216",
                 "status": "common",
                 "FP-evaluation": "false"
+            },
+            {
+                "rule": "[app-lib/handler/express-4.js-17-44, app-lib/handler/koa-1.js-18-43, app-lib/handler/koa-2.js-18-43, exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, exports-lib/handler/koa-2.js-6-46, express-4.js-lib/handler/express-4.js-1-54, handler-lib/handler/hapi-16.js-23-48, handler-lib/handler/hapi-17.js-22-39, hapi-16.js-lib/handler/hapi-16.js-1-61, hapi-17.js-lib/handler/hapi-17.js-1-48, koa-1.js-lib/handler/koa-1.js-1-47, koa-2.js-lib/handler/koa-2.js-1-47, register-lib/handler/hapi-16.js-10-52, register-lib/handler/hapi-17.js-9-41] => version-grant.js-3-16",
+                "support": 1,
+                "confidence": 1,
+                "consequent": "version-grant.js-3-16",
+                "status": "Removed"
             }
         ],
         "reversed-FP": {
@@ -6495,7 +6907,7 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "evaluation result": "true children | true children | true children | true children | true children | true children"
+                    "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/config.js-365-386 | {\"id\":69 - \"parents\":[67-55-56]}",
@@ -6729,7 +7141,7 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "evaluation result": "true children | true children | true children | true children | true children | true children"
+                    "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/config.js-365-386 | {\"id\":69 - \"parents\":[67-55-56]}",
@@ -6956,7 +7368,7 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "evaluation result": "true children | true children | true children | true children | true children | true children"
+                    "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/config.js-365-386 | {\"id\":69 - \"parents\":[67-55-56]}",
@@ -7183,7 +7595,7 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "evaluation result": "true children | true children | true children | true children | true children | true children"
+                    "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/config.js-365-386 | {\"id\":69 - \"parents\":[67-55-56]}",
@@ -7410,7 +7822,7 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "evaluation result": "true children | true children | true children | true children | true children | true children"
+                    "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/config.js-365-386 | {\"id\":69 - \"parents\":[67-55-56]}",
@@ -7637,7 +8049,7 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "evaluation result": "true children | true children | true children | true children | true children | true children"
+                    "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/config.js-365-386 | {\"id\":69 - \"parents\":[67-55-56]}",
@@ -7910,7 +8322,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "Berke Unique",
-                    "evaluation result": "true children | true children | true children | true children | true children | true children | true children"
+                    "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/response.js-79-86 | {\"id\":151 - \"parents\":[52]}",
@@ -7938,7 +8350,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "Berke Unique",
-                    "evaluation result": "true children | true children | true children | true children | true children | true children | true children"
+                    "evaluation result": "true children"
                 },
                 {
                     "consequent": "authorize-lib/flow/oauth1.js-61-95 | {\"id\":66 - \"parents\":[63]}",
@@ -8059,7 +8471,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "Berke Unique",
-                    "evaluation result": "true children | true children | true children | true children | true children | true children | true children"
+                    "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/response.js-79-86 | {\"id\":151 - \"parents\":[52]}",
@@ -8087,7 +8499,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "Berke Unique",
-                    "evaluation result": "true children | true children | true children | true children | true children | true children | true children"
+                    "evaluation result": "true children"
                 },
                 {
                     "consequent": "authorize-lib/flow/oauth1.js-61-95 | {\"id\":66 - \"parents\":[63]}",
@@ -8208,7 +8620,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "Berke Unique",
-                    "evaluation result": "true children | true children | true children | true children | true children | true children | true children"
+                    "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/response.js-79-86 | {\"id\":151 - \"parents\":[52]}",
@@ -8236,7 +8648,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "Berke Unique",
-                    "evaluation result": "true children | true children | true children | true children | true children | true children | true children"
+                    "evaluation result": "true children"
                 },
                 {
                     "consequent": "authorize-lib/flow/oauth1.js-61-95 | {\"id\":66 - \"parents\":[63]}",
@@ -8357,7 +8769,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "Berke Unique",
-                    "evaluation result": "true children | true children | true children | true children | true children | true children | true children"
+                    "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/response.js-79-86 | {\"id\":151 - \"parents\":[52]}",
@@ -8385,7 +8797,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "Berke Unique",
-                    "evaluation result": "true children | true children | true children | true children | true children | true children | true children"
+                    "evaluation result": "true children"
                 },
                 {
                     "consequent": "authorize-lib/flow/oauth1.js-61-95 | {\"id\":66 - \"parents\":[63]}",
@@ -8506,7 +8918,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "Berke Unique",
-                    "evaluation result": "true children | true children | true children | true children | true children | true children | true children"
+                    "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/response.js-79-86 | {\"id\":151 - \"parents\":[52]}",
@@ -8534,7 +8946,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "Berke Unique",
-                    "evaluation result": "true children | true children | true children | true children | true children | true children | true children"
+                    "evaluation result": "true children"
                 },
                 {
                     "consequent": "authorize-lib/flow/oauth1.js-61-95 | {\"id\":66 - \"parents\":[63]}",
@@ -8655,7 +9067,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "Berke Unique",
-                    "evaluation result": "true children | true children | true children | true children | true children | true children | true children"
+                    "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/response.js-79-86 | {\"id\":151 - \"parents\":[52]}",
@@ -8683,7 +9095,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "Berke Unique",
-                    "evaluation result": "true children | true children | true children | true children | true children | true children | true children"
+                    "evaluation result": "true children"
                 },
                 {
                     "consequent": "authorize-lib/flow/oauth1.js-61-95 | {\"id\":66 - \"parents\":[63]}",
@@ -8804,7 +9216,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "Berke Unique",
-                    "evaluation result": "true children | true children | true children | true children | true children | true children | true children"
+                    "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/response.js-79-86 | {\"id\":151 - \"parents\":[52]}",
@@ -8832,7 +9244,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "Berke Unique",
-                    "evaluation result": "true children | true children | true children | true children | true children | true children | true children"
+                    "evaluation result": "true children"
                 },
                 {
                     "consequent": "authorize-lib/flow/oauth1.js-61-95 | {\"id\":66 - \"parents\":[63]}",
@@ -10032,7 +10444,7 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "evaluation result": "true children | true children"
+                    "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/util/client.js-463-465 | {\"id\":132 - \"parents\":[131-47-133]}",
@@ -10055,7 +10467,7 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "evaluation result": "true children | true children"
+                    "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/util/client.js-463-465 | {\"id\":132 - \"parents\":[131-47-133]}",
@@ -11062,7 +11474,7 @@
                         "authorize-lib/flow/oauth2.js-7-63 | {\"id\":126 - \"parents\":[127-127]}"
                     ]
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "FP-evaluation": "false"
             },
             {
@@ -11542,6 +11954,14 @@
                 "consequent": "transport-lib/response.js-102-122",
                 "status": "common",
                 "FP-evaluation": "false"
+            },
+            {
+                "rule": "[app-lib/handler/koa-1.js-18-43, authorize-lib/flow/oauth2.js-7-63] => util.js-lib/util.js-1-9",
+                "support": 1,
+                "confidence": 1,
+                "consequent": "util.js-lib/util.js-1-9",
+                "status": "common",
+                "FP-evaluation": "false"
             }
         ],
         "reversed-FP": {
@@ -11858,7 +12278,7 @@
                     "consequent": "util.js-lib/util.js-1-9 | {\"id\":140 - \"parents\":[]}",
                     "support": 1,
                     "FP-score": 1,
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "false"
                 },
                 {
@@ -11918,7 +12338,7 @@
                         "express.js-examples/static-overrides/express.js-1-17"
                     ]
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "FP-evaluation": "true"
             },
             {
@@ -12069,6 +12489,14 @@
                 "confidence": 1,
                 "consequent": "koa-session-store.js-examples/koa-session/koa-session-store.js-1-25",
                 "status": "Removed"
+            },
+            {
+                "rule": "[express.js-examples/dynamic-http/express.js-1-21, express.js-examples/static-overrides/express.js-1-17, express.js-examples/transport-session/express.js-1-17] => koa-session.js-examples/session-store/koa-session.js-1-23",
+                "support": 1,
+                "confidence": 1,
+                "consequent": "koa-session.js-examples/session-store/koa-session.js-1-23",
+                "status": "common",
+                "FP-evaluation": "true"
             }
         ],
         "reversed-FP": {
@@ -12084,7 +12512,7 @@
                     "consequent": "koa-session.js-examples/session-store/koa-session.js-1-23 | {\"id\":171 - \"parents\":[]}",
                     "support": 1,
                     "FP-score": 1,
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 }
             ],
