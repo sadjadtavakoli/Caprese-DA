@@ -28,7 +28,7 @@
                     "arrowAnonymousFunction-test/plugins/retry.js-896-915 | {\"id\":152 - \"parents\":[24-48-8-9]}"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "true | true | true | true | true | true | true | true | true"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "request-lib/client.js-266-385 | {\"id\":1 - \"parents\":[0-2]}",
@@ -44,7 +44,7 @@
                     "arrowAnonymousFunction-test/plugins/retry.js-896-915 | {\"id\":152 - \"parents\":[24-48-8-9]}"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "false | false | false | false | false | false | false | false | false"
+                "DA-evaluation": "false"
             },
             {
                 "consequent": "on-lib/passthroughduplex.js-69-81",
@@ -57,7 +57,7 @@
                     "arrowAnonymousFunction-test/plugins/retry.js-697-739 | {\"id\":29 - \"parents\":[6-7-8-9]}"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "false | false | false | false | false | false"
+                "DA-evaluation": "false"
             },
             {
                 "consequent": "pipe-lib/passthroughduplex.js-37-40",
@@ -68,7 +68,7 @@
                     "arrowAnonymousFunction-test/plugins/retry.js-636-695 | {\"id\":10 - \"parents\":[6-7-8-9]}"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "false | false | false | false"
+                "DA-evaluation": "false"
             },
             {
                 "consequent": "README.md",
@@ -92,7 +92,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false | false | false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-662-666 | {\"id\":5 - \"parents\":[6-7-8-9-10]}",
@@ -120,7 +120,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-285-287 | {\"id\":13 - \"parents\":[6-14-15-8-9]}",
@@ -228,7 +228,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false also detected false parent | false | false also detected false parent | false"
+                "FP-evaluation": "false also detected false parent | false also detected false parent | false"
             },
             {
                 "consequent": "RetryPlugin-plugins/retry.js-21-66 | {\"id\":35 - \"parents\":[38]}",
@@ -243,7 +243,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-1088-1095 | {\"id\":40 - \"parents\":[33-24-34-8-9]}",
@@ -260,7 +260,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true | true"
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-95-126",
@@ -275,7 +275,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-602-634 | {\"id\":41 - \"parents\":[6-7-8-9]}",
@@ -329,7 +329,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-530-537 | {\"id\":18 - \"parents\":[17-6-15-8-9]}",
@@ -357,7 +357,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-1027-1029 | {\"id\":54 - \"parents\":[33-24-8-9-55]}",
@@ -374,7 +374,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true | true"
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-71-860 | {\"id\":6 - \"parents\":[8-9]}",
@@ -404,7 +404,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true | true"
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-1336-1338 | {\"id\":111 - \"parents\":[24-25-112-8-9]}",
@@ -432,7 +432,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-224-227 | {\"id\":56 - \"parents\":[6-50-51-8-9]}",
@@ -499,7 +499,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-421-431 | {\"id\":59 - \"parents\":[6-15-8-9-109]}",
@@ -527,7 +527,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-204-215 | {\"id\":60 - \"parents\":[6-50-101-8-9]}",
@@ -568,7 +568,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "constructor-plugins/retry.js-22-37 | {\"id\":36 - \"parents\":[35-38]}",
@@ -609,7 +609,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true | true"
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-337-339 | {\"id\":61 - \"parents\":[6-87-15-8-9]}",
@@ -663,7 +663,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-246-264 | {\"id\":114 - \"parents\":[12]}",
@@ -678,7 +678,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-63-68 | {\"id\":138 - \"parents\":[139-8-9]}",
@@ -708,7 +708,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true | true"
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-285-288",
@@ -723,7 +723,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-571-575 | {\"id\":62 - \"parents\":[6-7-8-105-9]}",
@@ -764,7 +764,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/stream.js-110-137",
@@ -818,7 +818,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-1269-1273 | {\"id\":141 - \"parents\":[24-125-25-8-9]}",
@@ -874,7 +874,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true | true"
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-628-630 | {\"id\":42 - \"parents\":[41-6-7-8-9]}",
@@ -902,7 +902,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-51-69 | {\"id\":139 - \"parents\":[8-9]}",
@@ -971,7 +971,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true | true"
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-789-858 | {\"id\":68 - \"parents\":[6-7-8-9]}",
@@ -1103,7 +1103,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-670-673 | {\"id\":71 - \"parents\":[6-7-8-9-10]}",
@@ -1276,7 +1276,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true | true"
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "onResponse-test/fixtures/testplugins.js-83-92",
@@ -1434,7 +1434,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-72-262 | {\"id\":50 - \"parents\":[6-8-9]}",
@@ -1488,7 +1488,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-917-949 | {\"id\":145 - \"parents\":[24-48-8-9]}",
@@ -1529,7 +1529,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-888-903 | {\"id\":118 - \"parents\":[12]}",
@@ -1544,7 +1544,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-440-482 | {\"id\":84 - \"parents\":[6-15-8-9]}",
@@ -1572,7 +1572,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "api-migration.md",
@@ -1587,7 +1587,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-372-375 | {\"id\":85 - \"parents\":[6-15-8-9-108]}",
@@ -1615,7 +1615,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-157-171 | {\"id\":119 - \"parents\":[12]}",
@@ -1630,7 +1630,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "onBefore-test/legacy/plugin.js-48-73",
@@ -1671,7 +1671,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-523-526 | {\"id\":20 - \"parents\":[17-6-15-8-9]}",
@@ -1779,7 +1779,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true | true"
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-174-184 | {\"id\":91 - \"parents\":[6-50-8-9-107]}",
@@ -1861,7 +1861,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false also detected false parent | false | false also detected false parent | false"
+                "FP-evaluation": "false also detected false parent | false also detected false parent | false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-1233-1241 | {\"id\":146 - \"parents\":[24-25-8-9-26]}",
@@ -1902,7 +1902,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-425-433",
@@ -1917,7 +1917,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-795-798 | {\"id\":97 - \"parents\":[6-7-68-8-9]}",
@@ -2049,7 +2049,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-218-261 | {\"id\":51 - \"parents\":[6-50-8-9]}",
@@ -2090,7 +2090,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-187-216 | {\"id\":101 - \"parents\":[6-50-8-9]}",
@@ -2211,7 +2211,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "false also detected false parent | false | false also detected false parent | false"
+                "FP-evaluation": "false also detected false parent | false also detected false parent | false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-677-684 | {\"id\":104 - \"parents\":[6-7-8-9-10]}",
@@ -2262,7 +2262,7 @@
                         "arrowAnonymousFunction-test/plugins/retry.js-1126-1136 | {\"id\":134 - \"parents\":[33-24-128-8-9]}"
                     ]
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "FP-evaluation": "true parent"
             }
         ],
@@ -2273,7 +2273,7 @@
                 "confidence": 1,
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-1027-1029",
                 "status": "common",
-                "FP-evaluation": "true | true"
+                "FP-evaluation": "true"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/plugins/retry.js-1030-1033",
@@ -2281,7 +2281,7 @@
                 "confidence": 1,
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-1030-1033",
                 "status": "common",
-                "FP-evaluation": "true | true"
+                "FP-evaluation": "true"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/plugins/retry.js-1036-1039",
@@ -2296,7 +2296,7 @@
                 "confidence": 1,
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-1042-1050",
                 "status": "common",
-                "FP-evaluation": "true | true"
+                "FP-evaluation": "true"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/plugins/retry.js-1078-1080",
@@ -2304,7 +2304,7 @@
                 "confidence": 1,
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-1078-1080",
                 "status": "common",
-                "FP-evaluation": "false also detected false parent | false | false also detected false parent | false"
+                "FP-evaluation": "false also detected false parent | false also detected false parent | false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/plugins/retry.js-1081-1084",
@@ -2312,7 +2312,7 @@
                 "confidence": 1,
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-1081-1084",
                 "status": "common",
-                "FP-evaluation": "false also detected false parent | false | false also detected false parent | false"
+                "FP-evaluation": "false also detected false parent | false also detected false parent | false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/plugins/retry.js-1097-1105",
@@ -2320,7 +2320,7 @@
                 "confidence": 1,
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-1097-1105",
                 "status": "common",
-                "FP-evaluation": "false also detected false parent | false | false also detected false parent | false"
+                "FP-evaluation": "false also detected false parent | false also detected false parent | false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/plugins/retry.js-1129-1132",
@@ -2735,7 +2735,7 @@
                 "confidence": 0.5,
                 "consequent": "README.md",
                 "status": "common",
-                "FP-evaluation": "false | false | false | false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => RetryPlugin-plugins/retry.js-21-66",
@@ -2743,7 +2743,7 @@
                 "confidence": 0.5,
                 "consequent": "RetryPlugin-plugins/retry.js-21-66",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => _addPlugins-lib/client.js-78-140",
@@ -2751,7 +2751,7 @@
                 "confidence": 0.5,
                 "consequent": "_addPlugins-lib/client.js-78-140",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => api-migration.md",
@@ -2759,7 +2759,7 @@
                 "confidence": 0.5,
                 "consequent": "api-migration.md",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => api.js-test/legacy/api.js-1-966",
@@ -2767,7 +2767,7 @@
                 "confidence": 0.5,
                 "consequent": "api.js-test/legacy/api.js-1-966",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-lib/client.js-85-139",
@@ -2775,7 +2775,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-lib/client.js-85-139",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/client.js-35-69",
@@ -2783,7 +2783,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/client.js-35-69",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/client.js-71-89",
@@ -2791,7 +2791,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/client.js-71-89",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/cloudant.js-32-50",
@@ -2799,7 +2799,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/cloudant.js-32-50",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/cloudant.js-52-70",
@@ -2807,7 +2807,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/cloudant.js-52-70",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/legacy/api.js-1002-1017",
@@ -2822,7 +2822,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-115-133",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/legacy/api.js-137-155",
@@ -2830,7 +2830,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-137-155",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/legacy/api.js-157-171",
@@ -2838,7 +2838,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-157-171",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/legacy/api.js-177-194",
@@ -2846,7 +2846,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-177-194",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/legacy/api.js-246-264",
@@ -2854,7 +2854,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-246-264",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/legacy/api.js-356-374",
@@ -2862,7 +2862,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-356-374",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/legacy/api.js-472-490",
@@ -2870,7 +2870,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-472-490",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/legacy/api.js-613-631",
@@ -2878,7 +2878,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-613-631",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/legacy/api.js-756-774",
@@ -2886,7 +2886,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-756-774",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/legacy/api.js-888-903",
@@ -2894,7 +2894,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-888-903",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/legacy/api.js-922-933",
@@ -2902,7 +2902,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-922-933",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/legacy/api.js-945-964",
@@ -2910,7 +2910,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-945-964",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/legacy/api.js-969-983",
@@ -2932,7 +2932,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/legacy/plugin.js-96-110",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/legacy/readme-examples.js-214-266",
@@ -2940,7 +2940,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-214-266",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/legacy/readme-examples.js-285-288",
@@ -2948,7 +2948,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-285-288",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/legacy/readme-examples.js-331-334",
@@ -2963,7 +2963,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-343-351",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/legacy/readme-examples.js-425-433",
@@ -2971,7 +2971,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-425-433",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/legacy/readme-examples.js-56-68",
@@ -2979,7 +2979,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-56-68",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/legacy/readme-examples.js-78-93",
@@ -2987,7 +2987,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-78-93",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/legacy/readme-examples.js-95-126",
@@ -2995,7 +2995,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-95-126",
                 "status": "common",
-                "FP-evaluation": "false | false"
+                "FP-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/plugins/retry.js-1007-1192",
@@ -3003,7 +3003,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-1007-1192",
                 "status": "common",
-                "FP-evaluation": "true | true"
+                "FP-evaluation": "true"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/plugins/retry.js-1037-1040",
@@ -3011,7 +3011,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-1037-1040",
                 "status": "common",
-                "FP-evaluation": "true | true"
+                "FP-evaluation": "true"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/plugins/retry.js-1053-1106",
@@ -3019,7 +3019,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-1053-1106",
                 "status": "common",
-                "FP-evaluation": "true | true"
+                "FP-evaluation": "true"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/plugins/retry.js-1088-1095",
@@ -3027,7 +3027,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-1088-1095",
                 "status": "common",
-                "FP-evaluation": "true | true"
+                "FP-evaluation": "true"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/plugins/retry.js-109-114",
@@ -3035,7 +3035,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-109-114",
                 "status": "common",
-                "FP-evaluation": "true | true"
+                "FP-evaluation": "true"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/plugins/retry.js-1108-1143",
@@ -3043,7 +3043,7 @@
                 "confidence": 0.5,
                 "consequent": "arrowAnonymousFunction-test/plugins/retry.js-1108-1143",
                 "status": "common",
-                "FP-evaluation": "true | true"
+                "FP-evaluation": "true"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => arrowAnonymousFunction-test/plugins/retry.js-1133-1136",
@@ -3923,10 +3923,18 @@
                 "consequent": "retry.js-plugins/retry.js-1-71",
                 "status": "common",
                 "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-test/plugins/retry.js-1008-1051, arrowAnonymousFunction-test/plugins/retry.js-1126-1136, arrowAnonymousFunction-test/plugins/retry.js-117-151, arrowAnonymousFunction-test/plugins/retry.js-1195-1242, arrowAnonymousFunction-test/plugins/retry.js-1325-1335, arrowAnonymousFunction-test/plugins/retry.js-153-185, arrowAnonymousFunction-test/plugins/retry.js-342-397, arrowAnonymousFunction-test/plugins/retry.js-399-438, arrowAnonymousFunction-test/plugins/retry.js-636-695, arrowAnonymousFunction-test/plugins/retry.js-697-739, arrowAnonymousFunction-test/plugins/retry.js-896-915] => retry.js-test/plugins/retry.js-1-1395",
+                "support": 1,
+                "confidence": 0.5,
+                "consequent": "retry.js-test/plugins/retry.js-1-1395",
+                "status": "common",
+                "FP-evaluation": "true parent"
             }
         ],
         "reversed-FP": {
-            "arrowAnonymousFunction-test/plugins/retry.js-117-151 | {\"id\":106 - \" s\":[6-50-8-9]}": [
+            "arrowAnonymousFunction-test/plugins/retry.js-117-151 | {\"id\":106 - \"parents\":[6-50-8-9]}": [
                 {
                     "consequent": "README.md",
                     "support": 2,
@@ -4033,7 +4041,7 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "common",
-                    "evaluation result": "false also detected false parent | false"
+                    "evaluation result": "false also detected false parent | false also detected false parent | false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/plugins/retry.js-1088-1095 | {\"id\":40 - \"parents\":[33-24-34-8-9]}",
@@ -4691,7 +4699,7 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "common",
-                    "evaluation result": "false also detected false parent | false"
+                    "evaluation result": "false also detected false parent | false also detected false parent | false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/plugins/retry.js-1233-1241 | {\"id\":146 - \"parents\":[24-25-8-9-26]}",
@@ -4845,7 +4853,7 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "common",
-                    "evaluation result": "false also detected false parent | false"
+                    "evaluation result": "false also detected false parent | false also detected false parent | false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/plugins/retry.js-677-684 | {\"id\":104 - \"parents\":[6-7-8-9-10]}",
@@ -4872,7 +4880,7 @@
                     "consequent": "retry.js-test/plugins/retry.js-1-1395 | {\"id\":9 - \"parents\":[]}",
                     "support": 1,
                     "FP-score": 0.5,
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true parent"
                 }
             ],
@@ -5306,7 +5314,7 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "common",
-                    "evaluation result": "false also detected false parent | false"
+                    "evaluation result": "false also detected false parent | false also detected false parent | false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/plugins/retry.js-1088-1095 | {\"id\":40 - \"parents\":[33-24-34-8-9]}",
@@ -5369,14 +5377,14 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "common",
-                    "evaluation result": "false also detected false parent | false"
+                    "evaluation result": "false also detected false parent | false also detected false parent | false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/plugins/retry.js-1081-1084 | {\"id\":133 - \"parents\":[33-24-34-8-9]}",
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "common",
-                    "evaluation result": "false also detected false parent | false"
+                    "evaluation result": "false also detected false parent | false also detected false parent | false"
                 }
             ]
         },
@@ -5569,7 +5577,7 @@
                 ],
                 "status": "common",
                 "DA-evaluation": "true",
-                "FP-evaluation": "true children | true but another change-set function's child | true children | true but another change-set function's child"
+                "FP-evaluation": "true children | true but another change-set function's child"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-173-184 | {\"id\":168 - \"parents\":[154]}",
@@ -5590,14 +5598,14 @@
                 ],
                 "status": "common",
                 "DA-evaluation": "true",
-                "FP-evaluation": "true children | true but another change-set function's child | true children | true but another change-set function's child"
+                "FP-evaluation": "true children | true but another change-set function's child"
             },
             {
                 "consequent": "Cloudant-cloudant.js-46-450",
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -5613,7 +5621,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -5621,7 +5629,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -5629,7 +5637,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -5637,7 +5645,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -5645,7 +5653,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -5653,7 +5661,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -5661,7 +5669,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -5669,7 +5677,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -5677,7 +5685,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -5685,7 +5693,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -5693,7 +5701,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -5701,7 +5709,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -5709,7 +5717,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -5717,7 +5725,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -5725,7 +5733,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -5733,7 +5741,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -5741,7 +5749,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -5749,7 +5757,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -5757,7 +5765,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -5805,7 +5813,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -5813,7 +5821,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             }
         ],
@@ -5824,7 +5832,7 @@
                 "confidence": 0.6666666666666666,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-161-171",
                 "status": "common",
-                "FP-evaluation": "true children | true but another change-set function's child | true children | true but another change-set function's child"
+                "FP-evaluation": "true children | true but another change-set function's child"
             },
             {
                 "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-173-184",
@@ -5832,7 +5840,225 @@
                 "confidence": 0.6666666666666666,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-173-184",
                 "status": "common",
-                "FP-evaluation": "true children | true but another change-set function's child | true children | true but another change-set function's child"
+                "FP-evaluation": "true children | true but another change-set function's child"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-250-256",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-250-256",
+                "status": "common"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => README.md",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "README.md",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => Cloudant-cloudant.js-46-450",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "Cloudant-cloudant.js-46-450",
+                "status": "common"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-106-112",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-106-112",
+                "status": "common"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-114-120",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-114-120",
+                "status": "common"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-123-129",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-123-129",
+                "status": "common"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-132-138",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-132-138",
+                "status": "common"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-140-148",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-140-148",
+                "status": "common"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-150-159",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-150-159",
+                "status": "common"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-186-196",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-186-196",
+                "status": "common"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-198-209",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-198-209",
+                "status": "common"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-211-220",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-211-220",
+                "status": "common"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-222-233",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-222-233",
+                "status": "common"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-235-247",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-235-247",
+                "status": "common"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-270-278",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-270-278",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-288-294",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-288-294",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-296-302",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-296-302",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-300-300",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-300-300",
+                "status": "common"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-304-319",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-304-319",
+                "status": "common"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-33-39",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-33-39",
+                "status": "common"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-41-47",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-41-47",
+                "status": "common"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-49-55",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-49-55",
+                "status": "common"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-57-63",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-57-63",
+                "status": "common"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-82-88",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-82-88",
+                "status": "common"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-90-96",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-90-96",
+                "status": "common"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-98-104",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-98-104",
+                "status": "common"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => cloudant.js-cloudant.js-1-451",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "cloudant.js-cloudant.js-1-451",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true parent of da detected"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => constructor-lib/client.js-35-76",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "constructor-lib/client.js-35-76",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => reconfigure.js-lib/reconfigure.js-1-153",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "reconfigure.js-lib/reconfigure.js-1-153",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true parent"
+            },
+            {
+                "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => reconfigure.js-test/legacy/reconfigure.js-1-321",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "reconfigure.js-test/legacy/reconfigure.js-1-321",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true parent"
             }
         ],
         "reversed-FP": {
@@ -5919,7 +6145,7 @@
                 },
                 {
                     "consequent": "Cloudant-cloudant.js-46-450",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
@@ -5929,97 +6155,97 @@
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-33-39 | {\"id\":153 - \"parents\":[154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-41-47 | {\"id\":155 - \"parents\":[154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-49-55 | {\"id\":156 - \"parents\":[154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-57-63 | {\"id\":157 - \"parents\":[154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-82-88 | {\"id\":158 - \"parents\":[154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-90-96 | {\"id\":159 - \"parents\":[154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-98-104 | {\"id\":160 - \"parents\":[154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-106-112 | {\"id\":161 - \"parents\":[154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-114-120 | {\"id\":162 - \"parents\":[154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-123-129 | {\"id\":163 - \"parents\":[154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-132-138 | {\"id\":164 - \"parents\":[154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-140-148 | {\"id\":165 - \"parents\":[154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-150-159 | {\"id\":166 - \"parents\":[154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-186-196 | {\"id\":169 - \"parents\":[154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-198-209 | {\"id\":170 - \"parents\":[154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-211-220 | {\"id\":171 - \"parents\":[154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-222-233 | {\"id\":172 - \"parents\":[154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-235-247 | {\"id\":173 - \"parents\":[154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-250-256 | {\"id\":174 - \"parents\":[154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
@@ -6049,12 +6275,12 @@
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-300-300 | {\"id\":180 - \"parents\":[154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-304-319 | {\"id\":181 - \"parents\":[154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 }
             ]
@@ -6419,7 +6645,7 @@
                     "ping-cloudant.js-411-413 | {\"id\":268 - \"parents\":[211-212]}"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "true | true"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/readmeexamples.js-266-281",
@@ -6428,7 +6654,7 @@
                     "use-cloudant.js-95-401 | {\"id\":229 - \"parents\":[211-212]}"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "true | true"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/readmeexamples.js-343-386 | {\"id\":205 - \"parents\":[]}",
@@ -6437,7 +6663,7 @@
                     "generate_api_key-cloudant.js-416-418 | {\"id\":264 - \"parents\":[211-212]}"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "true | true"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/readmeexamples.js-442-464",
@@ -6446,7 +6672,7 @@
                     "set_cors-cloudant.js-426-430 | {\"id\":269 - \"parents\":[211-212]}"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "true | true"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/readmeexamples.js-466-489",
@@ -6455,7 +6681,7 @@
                     "get_cors-cloudant.js-421-423 | {\"id\":265 - \"parents\":[211-212]}"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "true | true"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "client.js-test/client.js-1-1465",
@@ -9270,6 +9496,13 @@
                 "consequent": "reconfigure.js-lib/reconfigure.js-1-153",
                 "status": "common",
                 "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, bulk_get-cloudant.js-97-101, generate_api_key-cloudant.js-416-418, get_cors-cloudant.js-421-423, get_security-cloudant.js-112-115, index_del-cloudant.js-151-161, ping-cloudant.js-411-413, set_cors-cloudant.js-426-430, set_security-cloudant.js-118-134] => set_permissions-cloudant.js-176-179",
+                "support": 1,
+                "confidence": 1,
+                "consequent": "set_permissions-cloudant.js-176-179",
+                "status": "Removed"
             }
         ],
         "reversed-FP": {
@@ -10951,6 +11184,189 @@
                 "consequent": "constructor-plugins/cookieauth.js-27-60",
                 "status": "common",
                 "FP-evaluation": "true"
+            },
+            {
+                "rule": "[BasePlugin-plugins/base.js-28-89] => CHANGES.md",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "CHANGES.md",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[BasePlugin-plugins/base.js-28-89] => Cloudant-cloudant.js-46-450",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "Cloudant-cloudant.js-46-450",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[BasePlugin-plugins/base.js-28-89] => arrowAnonymousFunction-lib/clientutils.js-132-146",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-lib/clientutils.js-132-146",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[BasePlugin-plugins/base.js-28-89] => arrowAnonymousFunction-test/client.js-319-388",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/client.js-319-388",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true parent of da detected"
+            },
+            {
+                "rule": "[BasePlugin-plugins/base.js-28-89] => arrowAnonymousFunction-test/client.js-320-351",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/client.js-320-351",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true parent of da detected"
+            },
+            {
+                "rule": "[BasePlugin-plugins/base.js-28-89] => arrowAnonymousFunction-test/client.js-338-350",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/client.js-338-350",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[BasePlugin-plugins/base.js-28-89] => arrowAnonymousFunction-test/client.js-34-1465",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/client.js-34-1465",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true parent of da detected"
+            },
+            {
+                "rule": "[BasePlugin-plugins/base.js-28-89] => arrowAnonymousFunction-test/client.js-353-387",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/client.js-353-387",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true parent of da detected"
+            },
+            {
+                "rule": "[BasePlugin-plugins/base.js-28-89] => arrowAnonymousFunction-test/client.js-375-386",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/client.js-375-386",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[BasePlugin-plugins/base.js-28-89] => arrowAnonymousFunction-test/plugins/cookieauth.js-155-176",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/plugins/cookieauth.js-155-176",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[BasePlugin-plugins/base.js-28-89] => arrowAnonymousFunction-test/plugins/cookieauth.js-164-175",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/plugins/cookieauth.js-164-175",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[BasePlugin-plugins/base.js-28-89] => arrowAnonymousFunction-test/plugins/cookieauth.js-178-187",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/plugins/cookieauth.js-178-187",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[BasePlugin-plugins/base.js-28-89] => arrowAnonymousFunction-test/plugins/cookieauth.js-180-183",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/plugins/cookieauth.js-180-183",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[BasePlugin-plugins/base.js-28-89] => arrowAnonymousFunction-test/plugins/cookieauth.js-81-401",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/plugins/cookieauth.js-81-401",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true parent of da detected"
+            },
+            {
+                "rule": "[BasePlugin-plugins/base.js-28-89] => constructor-lib/client.js-35-76",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "constructor-lib/client.js-35-76",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[BasePlugin-plugins/base.js-28-89] => disabled-plugins/base.js-40-42",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "disabled-plugins/base.js-40-42",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true children"
+            },
+            {
+                "rule": "[BasePlugin-plugins/base.js-28-89] => disabled-plugins/base.js-45-47",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "disabled-plugins/base.js-45-47",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true children"
+            },
+            {
+                "rule": "[BasePlugin-plugins/base.js-28-89] => arrowAnonymousFunction-plugins/base.js-78-85",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-plugins/base.js-78-85",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true children"
+            },
+            {
+                "rule": "[BasePlugin-plugins/base.js-28-89] => arrowAnonymousFunction-plugins/base.js-80-84",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-plugins/base.js-80-84",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true children"
+            },
+            {
+                "rule": "[BasePlugin-plugins/base.js-28-89] => base.js-plugins/base.js-1-95",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "base.js-plugins/base.js-1-95",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true parent"
+            },
+            {
+                "rule": "[BasePlugin-plugins/base.js-28-89] => cookieauth.js-plugins/cookieauth.js-1-93",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "cookieauth.js-plugins/cookieauth.js-1-93",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true parent of da detected"
+            },
+            {
+                "rule": "[BasePlugin-plugins/base.js-28-89] => refreshCookie-plugins/cookieauth.js-145-195",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "refreshCookie-plugins/cookieauth.js-145-195",
+                "status": "Removed"
+            },
+            {
+                "rule": "[BasePlugin-plugins/base.js-28-89] => withLock-plugins/base.js-67-88",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "withLock-plugins/base.js-67-88",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true children"
             }
         ],
         "reversed-FP": {
@@ -11353,7 +11769,7 @@
                 "DA-antecedents": [
                     "Cloudant-cloudant.js-46-450 | {\"id\":211 - \"parents\":[212-212]}"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true children"
             },
             {
@@ -11377,7 +11793,7 @@
                 "DA-antecedents": [
                     "Cloudant-cloudant.js-46-450 | {\"id\":211 - \"parents\":[212-212]}"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -11385,7 +11801,7 @@
                 "DA-antecedents": [
                     "Cloudant-cloudant.js-46-450 | {\"id\":211 - \"parents\":[212-212]}"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -11393,7 +11809,7 @@
                 "DA-antecedents": [
                     "Cloudant-cloudant.js-46-450 | {\"id\":211 - \"parents\":[212-212]}"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -11401,7 +11817,7 @@
                 "DA-antecedents": [
                     "Cloudant-cloudant.js-46-450 | {\"id\":211 - \"parents\":[212-212]}"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -11409,7 +11825,7 @@
                 "DA-antecedents": [
                     "Cloudant-cloudant.js-46-450 | {\"id\":211 - \"parents\":[212-212]}"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -11417,7 +11833,7 @@
                 "DA-antecedents": [
                     "Cloudant-cloudant.js-46-450 | {\"id\":211 - \"parents\":[212-212]}"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -11425,7 +11841,7 @@
                 "DA-antecedents": [
                     "Cloudant-cloudant.js-46-450 | {\"id\":211 - \"parents\":[212-212]}"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -11433,7 +11849,7 @@
                 "DA-antecedents": [
                     "Cloudant-cloudant.js-46-450 | {\"id\":211 - \"parents\":[212-212]}"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -11441,7 +11857,7 @@
                 "DA-antecedents": [
                     "Cloudant-cloudant.js-46-450 | {\"id\":211 - \"parents\":[212-212]}"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -11449,7 +11865,7 @@
                 "DA-antecedents": [
                     "Cloudant-cloudant.js-46-450 | {\"id\":211 - \"parents\":[212-212]}"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -11457,7 +11873,7 @@
                 "DA-antecedents": [
                     "Cloudant-cloudant.js-46-450 | {\"id\":211 - \"parents\":[212-212]}"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -11465,7 +11881,7 @@
                 "DA-antecedents": [
                     "Cloudant-cloudant.js-46-450 | {\"id\":211 - \"parents\":[212-212]}"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -11473,7 +11889,7 @@
                 "DA-antecedents": [
                     "Cloudant-cloudant.js-46-450 | {\"id\":211 - \"parents\":[212-212]}"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -11617,7 +12033,7 @@
                 "DA-antecedents": [
                     "Cloudant-cloudant.js-46-450 | {\"id\":211 - \"parents\":[212-212]}"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -11665,7 +12081,7 @@
                 "DA-antecedents": [
                     "Cloudant-cloudant.js-46-450 | {\"id\":211 - \"parents\":[212-212]}"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -11673,7 +12089,7 @@
                 "DA-antecedents": [
                     "Cloudant-cloudant.js-46-450 | {\"id\":211 - \"parents\":[212-212]}"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -12001,7 +12417,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144 | {\"id\":220 - \"parents\":[221-221]}"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -12009,7 +12425,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144 | {\"id\":220 - \"parents\":[221-221]}"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -12017,7 +12433,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144 | {\"id\":220 - \"parents\":[221-221]}"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -12025,7 +12441,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144 | {\"id\":220 - \"parents\":[221-221]}"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -12033,7 +12449,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144 | {\"id\":220 - \"parents\":[221-221]}"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -12089,7 +12505,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144 | {\"id\":220 - \"parents\":[221-221]}"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -12097,7 +12513,7 @@
                 "DA-antecedents": [
                     "exports-lib/reconfigure.js-28-144 | {\"id\":220 - \"parents\":[221-221]}"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "true"
             },
             {
@@ -12123,7 +12539,7 @@
                         "reconfigure.js-lib/reconfigure.js-1-153 | {\"id\":221 - \"parents\":[]}"
                     ]
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "FP-evaluation": "true but already reported children"
             },
             {
@@ -12318,6 +12734,959 @@
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-90-96",
                 "status": "common",
                 "FP-evaluation": "true"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => add_virtual_host-cloudant.js-196-200",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "add_virtual_host-cloudant.js-196-200",
+                "status": "Removed"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-cloudant.js-280-284",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-cloudant.js-280-284",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true children"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-example/crud.js-32-37",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-example/crud.js-32-37",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-example/crud.js-44-48",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-example/crud.js-44-48",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-example/crud.js-54-60",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-example/crud.js-54-60",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-example/crud.js-68-74",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-example/crud.js-68-74",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-example/crud.js-81-85",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-example/crud.js-81-85",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-example/crud.js-91-95",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-example/crud.js-91-95",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-1002-1017",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-1002-1017",
+                "status": "Removed"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-1007-1016",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-1007-1016",
+                "status": "Removed"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-102-111",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-102-111",
+                "status": "common"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-115-133",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-115-133",
+                "status": "common"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-120-132",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-120-132",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-137-155",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-137-155",
+                "status": "common"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-142-154",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-142-154",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-157-171",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-157-171",
+                "status": "common"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-162-170",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-162-170",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-177-194",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-177-194",
+                "status": "common"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-184-193",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-184-193",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-210-223",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-210-223",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-214-222",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-214-222",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-225-240",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-225-240",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-229-239",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-229-239",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-246-264",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-246-264",
+                "status": "common"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-253-263",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-253-263",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-266-290",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-266-290",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-278-289",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-278-289",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-316-332",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-316-332",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-334-350",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-334-350",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-338-349",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-338-349",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-356-374",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-356-374",
+                "status": "common"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-363-373",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-363-373",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-376-393",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-376-393",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-381-392",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-381-392",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-450-466",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-450-466",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-454-465",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-454-465",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-472-490",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-472-490",
+                "status": "common"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-479-489",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-479-489",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-492-509",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-492-509",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-497-508",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-497-508",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-564-589",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-564-589",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-591-607",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-591-607",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-595-606",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-595-606",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-613-631",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-613-631",
+                "status": "common"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-620-630",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-620-630",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-633-650",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-633-650",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-638-649",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-638-649",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-652-671",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-652-671",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-657-670",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-657-670",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-673-695",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-673-695",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-678-694",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-678-694",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-697-716",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-697-716",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-703-715",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-703-715",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-718-732",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-718-732",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-723-731",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-723-731",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-734-750",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-734-750",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-738-749",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-738-749",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-756-774",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-756-774",
+                "status": "common"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-763-773",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-763-773",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-801-812",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-801-812",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-820-832",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-820-832",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-840-855",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-840-855",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-858-874",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-858-874",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-862-873",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-862-873",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-880-886",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-880-886",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-881-884",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-881-884",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-888-903",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-888-903",
+                "status": "common"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-891-902",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-891-902",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-914-920",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-914-920",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-915-918",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-915-918",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-922-933",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-922-933",
+                "status": "common"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-925-932",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-925-932",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-945-964",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-945-964",
+                "status": "common"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-969-983",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-969-983",
+                "status": "Removed"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-974-982",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-974-982",
+                "status": "Removed"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-985-1000",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-985-1000",
+                "status": "Removed"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-990-999",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/api.js-990-999",
+                "status": "Removed"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/plugin.js-293-306",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/plugin.js-293-306",
+                "status": "Removed"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/readme-examples.js-146-157",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-146-157",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/readme-examples.js-168-175",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-168-175",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/readme-examples.js-177-187",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-177-187",
+                "status": "common"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/readme-examples.js-201-212",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-201-212",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/readme-examples.js-224-265",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-224-265",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/readme-examples.js-290-297",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-290-297",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/readme-examples.js-299-306",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-299-306",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/readme-examples.js-308-315",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-308-315",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/readme-examples.js-336-345",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-336-345",
+                "status": "Removed"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/readme-examples.js-358-367",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-358-367",
+                "status": "Removed"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/readme-examples.js-408-422",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-408-422",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/readme-examples.js-442-457",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-442-457",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/readme-examples.js-537-564",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-537-564",
+                "status": "common"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/readme-examples.js-566-588",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-566-588",
+                "status": "common"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/reconfigure.js-258-262",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-258-262",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/reconfigure.js-264-268",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-264-268",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/reconfigure.js-280-286",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-280-286",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => bulk_get-cloudant.js-97-101",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "bulk_get-cloudant.js-97-101",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true children"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => cookieRequest-plugins/cookieauth.js-36-176",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "cookieRequest-plugins/cookieauth.js-36-176",
+                "status": "Removed"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => createDocument-example/crud.js-41-49",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "createDocument-example/crud.js-41-49",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => delete_virtual_host-cloudant.js-203-207",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "delete_virtual_host-cloudant.js-203-207",
+                "status": "Removed"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => find-cloudant.js-164-168",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "find-cloudant.js-164-168",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true children"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => generate_api_key-cloudant.js-416-418",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "generate_api_key-cloudant.js-416-418",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true children"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => geo-cloudant.js-104-109",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "geo-cloudant.js-104-109",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true children"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => get_cors-cloudant.js-421-423",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "get_cors-cloudant.js-421-423",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true children"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => get_security-cloudant.js-112-115",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "get_security-cloudant.js-112-115",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true children"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => get_virtual_hosts-cloudant.js-190-193",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "get_virtual_hosts-cloudant.js-190-193",
+                "status": "Removed"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => index-cloudant.js-137-148",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "index-cloudant.js-137-148",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true children"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => index_del-cloudant.js-151-161",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "index_del-cloudant.js-151-161",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true children"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => ping-cloudant.js-411-413",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "ping-cloudant.js-411-413",
+                "status": "common"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => promises.js-plugins/promises.js-1-50",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "promises.js-plugins/promises.js-1-50",
+                "status": "Removed"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => readDocument-example/crud.js-52-61",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "readDocument-example/crud.js-52-61",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => set_cors-cloudant.js-426-430",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "set_cors-cloudant.js-426-430",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true children"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => set_permissions-cloudant.js-176-179",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "set_permissions-cloudant.js-176-179",
+                "status": "Removed"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => set_security-cloudant.js-118-134",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "set_security-cloudant.js-118-134",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true children"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => CHANGES.md",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "CHANGES.md",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/reconfigure.js-161-171",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-161-171",
+                "status": "common"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/reconfigure.js-173-184",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-173-184",
+                "status": "common"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/reconfigure.js-211-220",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-211-220",
+                "status": "common"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/reconfigure.js-222-233",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-222-233",
+                "status": "common"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/reconfigure.js-235-247",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-235-247",
+                "status": "common"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/reconfigure.js-296-302",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-296-302",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/reconfigure.js-300-300",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-300-300",
+                "status": "common"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/reconfigure.js-304-319",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-304-319",
+                "status": "common"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => constructor-lib/client.js-35-76",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "constructor-lib/client.js-35-76",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => reconfigure.js-test/legacy/reconfigure.js-1-321",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "reconfigure.js-test/legacy/reconfigure.js-1-321",
+                "status": "common",
+                "FP-evaluation": "true but already reported children"
             }
         ],
         "reversed-FP": {
@@ -12483,7 +13852,7 @@
                     "consequent": "reconfigure.js-test/legacy/reconfigure.js-1-321 | {\"id\":277 - \"parents\":[]}",
                     "support": 2,
                     "FP-score": 0.5,
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true but already reported children"
                 },
                 {
@@ -12723,27 +14092,27 @@
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-161-171 | {\"id\":167 - \"parents\":[154-277-154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-173-184 | {\"id\":168 - \"parents\":[154-277-154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-211-220 | {\"id\":171 - \"parents\":[154-277-154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-222-233 | {\"id\":172 - \"parents\":[154-277-154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-235-247 | {\"id\":173 - \"parents\":[154-277-154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
@@ -12778,12 +14147,12 @@
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-300-300 | {\"id\":180 - \"parents\":[154-277-154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-304-319 | {\"id\":181 - \"parents\":[154-277-154]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 }
             ],
@@ -12840,7 +14209,7 @@
                 },
                 {
                     "consequent": "ping-cloudant.js-411-413 | {\"id\":268 - \"parents\":[211-212-212-211]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true children"
                 },
                 {
@@ -12855,67 +14224,67 @@
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/api.js-102-111 | {\"id\":188 - \"parents\":[12]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/api.js-115-133 | {\"id\":52 - \"parents\":[12-12]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/api.js-137-155 | {\"id\":116 - \"parents\":[12-12]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/api.js-157-171 | {\"id\":119 - \"parents\":[12-12]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/api.js-177-194 | {\"id\":120 - \"parents\":[12-12]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/api.js-246-264 | {\"id\":114 - \"parents\":[12-12-194]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/api.js-356-374 | {\"id\":115 - \"parents\":[12-12]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/api.js-472-490 | {\"id\":11 - \"parents\":[12-12]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/api.js-613-631 | {\"id\":121 - \"parents\":[12-12]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/api.js-756-774 | {\"id\":113 - \"parents\":[12-12]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/api.js-888-903 | {\"id\":118 - \"parents\":[12-12]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/api.js-922-933 | {\"id\":117 - \"parents\":[12-12]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/api.js-945-964 | {\"id\":53 - \"parents\":[12-12]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
@@ -13005,7 +14374,7 @@
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-177-187",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
@@ -13035,12 +14404,12 @@
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-537-564",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-566-588",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
