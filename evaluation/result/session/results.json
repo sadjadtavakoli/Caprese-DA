@@ -1570,6 +1570,14 @@
                 "consequent": "set-test/session.js-1163-1165",
                 "status": "common",
                 "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-test/session.js-2302-2315, createRequestListener-test/session.js-2295-2317] => writeend-index.js-260-268",
+                "support": 1,
+                "confidence": 1,
+                "consequent": "writeend-index.js-260-268",
+                "status": "common",
+                "FP-evaluation": "true children"
             }
         ],
         "reversed-FP": {
@@ -3168,7 +3176,7 @@
                         "arrowAnonymousFunction-test/session.js-1574-1595 | {\"id\":193 - \"parents\":[11-147-9]}"
                     ]
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "FP-evaluation": "false"
             },
             {
@@ -3343,7 +3351,7 @@
                     ]
                 ],
                 "status": "Berke Unique",
-                "FP-evaluation": "true children | true children | true"
+                "FP-evaluation": "true children | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/session.js-826-833 | {\"id\":255 - \"parents\":[11-9]}",
@@ -3452,7 +3460,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true children | true children | true"
+                "FP-evaluation": "true children | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/session.js-1454-1461 | {\"id\":272 - \"parents\":[11-147-9]}",
@@ -3924,7 +3932,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true children | true children | true"
+                "FP-evaluation": "true children | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/session.js-444-466 | {\"id\":190 - \"parents\":[187-11-9]}",
@@ -4023,7 +4031,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true children | true children | true"
+                "FP-evaluation": "true children | true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/session.js-1870-1881 | {\"id\":222 - \"parents\":[11-147-9]}",
@@ -5983,7 +5991,7 @@
                 "confidence": 1,
                 "consequent": "arrowAnonymousFunction-test/session.js-1482-1501",
                 "status": "common",
-                "FP-evaluation": "true children | true children | true"
+                "FP-evaluation": "true children | true"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/session.js-1299-1328, arrowAnonymousFunction-test/session.js-1330-1348, arrowAnonymousFunction-test/session.js-1574-1595, arrowAnonymousFunction-test/session.js-2250-2270, arrowAnonymousFunction-test/session.js-26-35, arrowAnonymousFunction-test/session.js-73-90, arrowAnonymousFunction-test/session.js-878-895, arrowAnonymousFunction-test/session.js-897-914, session.js-test/session.js-1-2472] => arrowAnonymousFunction-test/session.js-1491-1500",
@@ -5991,7 +5999,7 @@
                 "confidence": 1,
                 "consequent": "arrowAnonymousFunction-test/session.js-1491-1500",
                 "status": "common",
-                "FP-evaluation": "true children | true children | true"
+                "FP-evaluation": "true children | true"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/session.js-1299-1328, arrowAnonymousFunction-test/session.js-1330-1348, arrowAnonymousFunction-test/session.js-1574-1595, arrowAnonymousFunction-test/session.js-2250-2270, arrowAnonymousFunction-test/session.js-26-35, arrowAnonymousFunction-test/session.js-73-90, arrowAnonymousFunction-test/session.js-878-895, arrowAnonymousFunction-test/session.js-897-914, session.js-test/session.js-1-2472] => arrowAnonymousFunction-test/session.js-152-156",
@@ -6014,7 +6022,7 @@
                 "confidence": 1,
                 "consequent": "arrowAnonymousFunction-test/session.js-1586-1594",
                 "status": "common",
-                "FP-evaluation": "true children | true children | true"
+                "FP-evaluation": "true children | true"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/session.js-1299-1328, arrowAnonymousFunction-test/session.js-1330-1348, arrowAnonymousFunction-test/session.js-1574-1595, arrowAnonymousFunction-test/session.js-2250-2270, arrowAnonymousFunction-test/session.js-26-35, arrowAnonymousFunction-test/session.js-73-90, arrowAnonymousFunction-test/session.js-878-895, arrowAnonymousFunction-test/session.js-897-914, session.js-test/session.js-1-2472] => arrowAnonymousFunction-test/session.js-1607-1619",
@@ -6602,6 +6610,14 @@
                 "consequent": "shouldSetCookie-test/session.js-2371-2378",
                 "status": "common",
                 "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-test/session.js-1299-1328, arrowAnonymousFunction-test/session.js-1330-1348, arrowAnonymousFunction-test/session.js-1574-1595, arrowAnonymousFunction-test/session.js-2250-2270, arrowAnonymousFunction-test/session.js-26-35, arrowAnonymousFunction-test/session.js-73-90, arrowAnonymousFunction-test/session.js-878-895, arrowAnonymousFunction-test/session.js-897-914, session.js-test/session.js-1-2472] => shouldSetCookieToValue-test/session.js-2398-2406",
+                "support": 1,
+                "confidence": 1,
+                "consequent": "shouldSetCookieToValue-test/session.js-2398-2406",
+                "status": "common",
+                "FP-evaluation": "false"
             }
         ],
         "reversed-FP": {
@@ -6612,6 +6628,88 @@
                     "FP-score": 1,
                     "status": "Berke Unique",
                     "DA": [
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
+                        "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}",
                         "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}"
                     ],
                     "evaluation result": "true"
@@ -6820,7 +6918,7 @@
                     "consequent": "shouldSetCookieToValue-test/session.js-2398-2406 | {\"id\":223 - \"parents\":[9]}",
                     "support": 1,
                     "FP-score": 1,
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "false"
                 },
                 {
@@ -7515,7 +7613,7 @@
                     "support": 1,
                     "FP-score": 1,
                     "status": "Berke Unique",
-                    "evaluation result": "false"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/session.js-2183-2203 | {\"id\":249 - \"parents\":[11-150-9]}",
@@ -8627,6 +8725,1072 @@
                     "evaluation result": "true"
                 },
                 {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "end-index.js-250-360 | {\"id\":2 - \"parents\":[0-5-6-7-0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 1,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "arrowAnonymousFunction-test/session.js-1441-2142 | {\"id\":147 - \"parents\":[11-9]}"
+                        ]
+                    ],
+                    "evaluation result": "true"
+                },
+                {
                     "consequent": "shouldTouch-index.js-453-461 | {\"id\":130 - \"parents\":[0-6-7-5]}",
                     "support": 1,
                     "FP-score": 1,
@@ -8809,6 +9973,26 @@
                     "consequent": "session-index.js-179-508 | {\"id\":0 - \"parents\":[5-6-6-5]}",
                     "status": "Berke Unique",
                     "evaluation result": "true parent"
+                },
+                {
+                    "consequent": "session-index.js-179-508 | {\"id\":0 - \"parents\":[5-6-6-5]}",
+                    "status": "Berke Unique",
+                    "evaluation result": "true parent"
+                },
+                {
+                    "consequent": "session-index.js-179-508 | {\"id\":0 - \"parents\":[5-6-6-5]}",
+                    "status": "Berke Unique",
+                    "evaluation result": "true parent"
+                },
+                {
+                    "consequent": "session-index.js-179-508 | {\"id\":0 - \"parents\":[5-6-6-5]}",
+                    "status": "Berke Unique",
+                    "evaluation result": "true parent"
+                },
+                {
+                    "consequent": "session-index.js-179-508 | {\"id\":0 - \"parents\":[5-6-6-5]}",
+                    "status": "Berke Unique",
+                    "evaluation result": "true parent"
                 }
             ],
             "shouldSetCookie-index.js-464-473 | {\"id\":138 - \"parents\":[0-6-7-5]}": [
@@ -8824,6 +10008,19 @@
                         ]
                     ],
                     "evaluation result": "true"
+                },
+                {
+                    "consequent": "isModified-index.js-425-427 | {\"id\":129 - \"parents\":[0-6-7-5]}",
+                    "support": 1,
+                    "FP-score": 0.5,
+                    "status": "Berke Unique",
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5]}",
+                            "shouldSave-index.js-440-450 | {\"id\":137 - \"parents\":[0-6-7-5]}"
+                        ]
+                    ],
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "isModified-index.js-425-427 | {\"id\":129 - \"parents\":[0-6-7-5]}",
@@ -9004,7 +10201,7 @@
                 "DA-antecedents": [
                     "arrowAnonymousFunction-index.js-220-244 | {\"id\":131 - \"parents\":[0-6-7-5-7-6-5]}"
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "DA-evaluation": "false"
             },
             {
@@ -9016,7 +10213,7 @@
                         "setcookie-index.js-655-665 | {\"id\":308 - \"parents\":[5]}"
                     ]
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "FP-evaluation": "true"
             },
             {
@@ -9040,7 +10237,7 @@
                         "arrowAnonymousFunction-index.js-220-244 | {\"id\":131 - \"parents\":[0-6-7-5-7-6-5]}"
                     ]
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "FP-evaluation": "true"
             },
             {
@@ -9076,7 +10273,7 @@
                         "index.js-index.js-1-686 | {\"id\":5 - \"parents\":[]}"
                     ]
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "FP-evaluation": "true"
             },
             {
@@ -9116,6 +10313,313 @@
                 "consequent": "session-index.js-87-509",
                 "status": "common",
                 "FP-evaluation": "true parent"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => HISTORY.md",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "HISTORY.md",
+                "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-1195-1261",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1195-1261",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-1196-1198",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1196-1198",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-1200-1260",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1200-1260",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-1201-1211",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1201-1211",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-1202-1205",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1202-1205",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-1213-1235",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1213-1235",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-1216-1219",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1216-1219",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-1221-1223",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1221-1223",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-1228-1234",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1228-1234",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-1237-1259",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1237-1259",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-1240-1243",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1240-1243",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-1245-1247",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1245-1247",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-1252-1258",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1252-1258",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-19-2272",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-19-2272",
+                "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => getcookie-index.js-529-586",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "getcookie-index.js-529-586",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => unsigncookie-index.js-675-685",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "unsigncookie-index.js-675-685",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => History.md",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "History.md",
+                "status": "Removed"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-100-113",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-100-113",
+                "status": "Removed"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-115-127",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-115-127",
+                "status": "Removed"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-131-144",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-131-144",
+                "status": "Removed"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-1444-1459",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1444-1459",
+                "status": "Removed"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-164-177",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-164-177",
+                "status": "Removed"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-562-566",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-562-566",
+                "status": "Removed"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-573-577",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-573-577",
+                "status": "Removed"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-583-587",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-583-587",
+                "status": "Removed"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-590-686",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-590-686",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-591-619",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-591-619",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-601-605",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-601-605",
+                "status": "Removed"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-617-621",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-617-621",
+                "status": "Removed"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-635-639",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-635-639",
+                "status": "Removed"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-645-671",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-645-671",
+                "status": "Removed"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-651-655",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-651-655",
+                "status": "Removed"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-659-670",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-659-670",
+                "status": "Removed"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-662-662",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-662-662",
+                "status": "Removed"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-673-699",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-673-699",
+                "status": "Removed"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-687-698",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-687-698",
+                "status": "Removed"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-690-690",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-690-690",
+                "status": "Removed"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-85-98",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-85-98",
+                "status": "Removed"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => issecure-index.js-623-647",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "issecure-index.js-623-647",
+                "status": "common"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => package.json",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "package.json",
+                "status": "common",
+                "FP-evaluation": "true"
             }
         ],
         "reversed-FP": {
@@ -9124,7 +10628,7 @@
                     "consequent": "HISTORY.md",
                     "support": 2,
                     "FP-score": 1,
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 }
             ],
@@ -9140,7 +10644,7 @@
                     "consequent": "arrowAnonymousFunction-test/session.js-19-2272 | {\"id\":11 - \"parents\":[9-9]}",
                     "support": 4,
                     "FP-score": 0.5,
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
@@ -9170,7 +10674,7 @@
                     "consequent": "package.json",
                     "support": 7,
                     "FP-score": 0.5,
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 }
             ]
@@ -9184,7 +10688,7 @@
                 },
                 {
                     "consequent": "issecure-index.js-623-647 | {\"id\":307 - \"parents\":[5]}",
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "false"
                 }
             ]
@@ -9389,7 +10893,7 @@
                         "arrowAnonymousFunction-test/session.js-19-2272 | {\"id\":11 - \"parents\":[9-9]}"
                     ]
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "FP-evaluation": "true"
             }
         ],
@@ -9408,6 +10912,195 @@
                 "consequent": "arrowAnonymousFunction-index.js-179-508",
                 "status": "common",
                 "FP-evaluation": "true parent"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-335-341, arrowAnonymousFunction-test/session.js-19-2272, end-index.js-250-360, writeend-index.js-260-268] => arrowAnonymousFunction-test/session.js-1294-1308",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1294-1308",
+                "status": "Removed"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-335-341, arrowAnonymousFunction-test/session.js-19-2272, end-index.js-250-360, writeend-index.js-260-268] => arrowAnonymousFunction-test/session.js-1310-1324",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1310-1324",
+                "status": "Removed"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-335-341, arrowAnonymousFunction-test/session.js-19-2272, end-index.js-250-360, writeend-index.js-260-268] => arrowAnonymousFunction-test/session.js-1374-1439",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1374-1439",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-335-341, arrowAnonymousFunction-test/session.js-19-2272, end-index.js-250-360, writeend-index.js-260-268] => arrowAnonymousFunction-test/session.js-2266-2284",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-2266-2284",
+                "status": "Removed"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-335-341, arrowAnonymousFunction-test/session.js-19-2272, end-index.js-250-360, writeend-index.js-260-268] => createRequestListener-test/session.js-2295-2317",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "createRequestListener-test/session.js-2295-2317",
+                "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-335-341, arrowAnonymousFunction-test/session.js-19-2272, end-index.js-250-360, writeend-index.js-260-268] => createSession-test/session.js-2319-2331",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "createSession-test/session.js-2319-2331",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-335-341, arrowAnonymousFunction-test/session.js-19-2272, end-index.js-250-360, writeend-index.js-260-268] => end-test/support/utils.js-30-33",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "end-test/support/utils.js-30-33",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-335-341, arrowAnonymousFunction-test/session.js-19-2272, end-index.js-250-360, writeend-index.js-260-268] => respond-test/session.js-1380-1384",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "respond-test/session.js-1380-1384",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-335-341, arrowAnonymousFunction-test/session.js-19-2272, end-index.js-250-360, writeend-index.js-260-268] => respond-test/session.js-1392-1397",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "respond-test/session.js-1392-1397",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-335-341, arrowAnonymousFunction-test/session.js-19-2272, end-index.js-250-360, writeend-index.js-260-268] => write-test/support/utils.js-35-41",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "write-test/support/utils.js-35-41",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-335-341, arrowAnonymousFunction-test/session.js-19-2272, end-index.js-250-360, writeend-index.js-260-268] => writePatch-test/support/utils.js-25-42",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "writePatch-test/support/utils.js-25-42",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-335-341, arrowAnonymousFunction-test/session.js-19-2272, end-index.js-250-360, writeend-index.js-260-268] => SyncStore-test/support/sync-store.js-8-11",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "SyncStore-test/support/sync-store.js-8-11",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-335-341, arrowAnonymousFunction-test/session.js-19-2272, end-index.js-250-360, writeend-index.js-260-268] => arrowAnonymousFunction-test/session.js-2144-2180",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-2144-2180",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-335-341, arrowAnonymousFunction-test/session.js-19-2272, end-index.js-250-360, writeend-index.js-260-268] => arrowAnonymousFunction-test/session.js-2145-2156",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-2145-2156",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-335-341, arrowAnonymousFunction-test/session.js-19-2272, end-index.js-250-360, writeend-index.js-260-268] => arrowAnonymousFunction-test/session.js-2147-2151",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-2147-2151",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-335-341, arrowAnonymousFunction-test/session.js-19-2272, end-index.js-250-360, writeend-index.js-260-268] => arrowAnonymousFunction-test/session.js-2158-2179",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-2158-2179",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-335-341, arrowAnonymousFunction-test/session.js-19-2272, end-index.js-250-360, writeend-index.js-260-268] => arrowAnonymousFunction-test/session.js-2160-2168",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-2160-2168",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-335-341, arrowAnonymousFunction-test/session.js-19-2272, end-index.js-250-360, writeend-index.js-260-268] => arrowAnonymousFunction-test/session.js-2172-2178",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-2172-2178",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-335-341, arrowAnonymousFunction-test/session.js-19-2272, end-index.js-250-360, writeend-index.js-260-268] => destroy-test/support/sync-store.js-15-18",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "destroy-test/support/sync-store.js-15-18",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-335-341, arrowAnonymousFunction-test/session.js-19-2272, end-index.js-250-360, writeend-index.js-260-268] => get-test/support/sync-store.js-20-22",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "get-test/support/sync-store.js-20-22",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-335-341, arrowAnonymousFunction-test/session.js-19-2272, end-index.js-250-360, writeend-index.js-260-268] => session.js-test/session.js-1-2472",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "session.js-test/session.js-1-2472",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-335-341, arrowAnonymousFunction-test/session.js-19-2272, end-index.js-250-360, writeend-index.js-260-268] => set-test/support/sync-store.js-24-27",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "set-test/support/sync-store.js-24-27",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-335-341, arrowAnonymousFunction-test/session.js-19-2272, end-index.js-250-360, writeend-index.js-260-268] => arrowAnonymousFunction-test/session.js-179-190",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-179-190",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-335-341, arrowAnonymousFunction-test/session.js-19-2272, end-index.js-250-360, writeend-index.js-260-268] => arrowAnonymousFunction-test/session.js-180-184",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-180-184",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
             }
         ],
         "reversed-FP": {
@@ -9497,7 +11190,7 @@
                     "consequent": "createRequestListener-test/session.js-2295-2317 | {\"id\":120 - \"parents\":[9-9]}",
                     "support": 2,
                     "FP-score": 0.5,
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 }
             ]
@@ -9603,7 +11296,7 @@
                         "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5-6-5-6-5]}"
                     ]
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "FP-evaluation": "true"
             },
             {
@@ -9615,7 +11308,7 @@
                         "arrowAnonymousFunction-index.js-179-508 | {\"id\":7 - \"parents\":[0-5-6-0-6-5-6-5-6-5]}"
                     ]
                 ],
-                "status": "Berke Unique",
+                "status": "common",
                 "FP-evaluation": "true"
             }
         ],
@@ -9635,6 +11328,173 @@
                 "consequent": "package.json",
                 "status": "common",
                 "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-179-508, index.js-index.js-1-686] => HISTORY.md",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "HISTORY.md",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-179-508, index.js-index.js-1-686] => README.md",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "README.md",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-179-508, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-1195-1261",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1195-1261",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-179-508, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-1196-1198",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1196-1198",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-179-508, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-1200-1260",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1200-1260",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-179-508, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-1201-1211",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1201-1211",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-179-508, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-1202-1205",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1202-1205",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-179-508, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-1213-1235",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1213-1235",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-179-508, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-1216-1219",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1216-1219",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-179-508, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-1221-1223",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1221-1223",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-179-508, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-1228-1234",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1228-1234",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-179-508, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-1237-1259",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1237-1259",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-179-508, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-1240-1243",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1240-1243",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-179-508, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-1245-1247",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1245-1247",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-179-508, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-1252-1258",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-1252-1258",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-179-508, index.js-index.js-1-686] => arrowAnonymousFunction-test/session.js-19-2272",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "arrowAnonymousFunction-test/session.js-19-2272",
+                "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-179-508, index.js-index.js-1-686] => getcookie-index.js-529-586",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "getcookie-index.js-529-586",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-179-508, index.js-index.js-1-686] => session-index.js-87-509",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "session-index.js-87-509",
+                "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-179-508, index.js-index.js-1-686] => unsigncookie-index.js-675-685",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "unsigncookie-index.js-675-685",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-179-508, index.js-index.js-1-686] => History.md",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "History.md",
+                "status": "Removed"
+            },
+            {
+                "rule": "[arrowAnonymousFunction-index.js-179-508, index.js-index.js-1-686] => session.js-test/session.js-1-2472",
+                "support": 1,
+                "confidence": 0.3333333333333333,
+                "consequent": "session.js-test/session.js-1-2472",
+                "status": "TARMAQ Unique",
+                "FP-evaluation": "true"
             }
         ],
         "reversed-FP": {
@@ -9659,14 +11519,14 @@
                     "consequent": "arrowAnonymousFunction-test/session.js-19-2272 | {\"id\":11 - \"parents\":[9-9]}",
                     "support": 9,
                     "FP-score": 0.5,
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "session-index.js-87-509 | {\"id\":6 - \"parents\":[5-5-5-5]}",
                     "support": 9,
                     "FP-score": 0.5,
-                    "status": "Berke Unique",
+                    "status": "common",
                     "evaluation result": "true"
                 }
             ]
