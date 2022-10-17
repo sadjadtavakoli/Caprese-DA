@@ -389,7 +389,8 @@
                 "support": 1,
                 "confidence": 1,
                 "consequent": "arrowAnonymousFunction-lib/rules/no-unused-state.js-384-389",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[addStateFields-lib/rules/no-unused-state.js-149-159, addUsedStateField-lib/rules/no-unused-state.js-163-171, arrowAnonymousFunction-tests/lib/rules/no-unused-state.js-24-27, handleAssignment-lib/rules/no-unused-state.js-190-218, handleStateDestructuring-lib/rules/no-unused-state.js-175-186, isStateReference-lib/rules/no-unused-state.js-133-145, no-unused-state.js-lib/rules/no-unused-state.js-1-521, no-unused-state.js-tests/lib/rules/no-unused-state.js-1-1606] => getInitialClassInfo-lib/rules/no-unused-state.js-49-64",
@@ -2025,7 +2026,7 @@
                 "confidence": 0.6,
                 "consequent": "sort-comp.js-tests/lib/rules/sort-comp.js-1-1287",
                 "status": "common",
-                "FP-evaluation": "true parent"
+                "FP-evaluation": "true"
             },
             {
                 "rule": "[arrowAnonymousFunction-lib/util/components.js-144-163] => list-lib/util/components.js-138-174",
@@ -3084,7 +3085,8 @@
                 "confidence": 0.2,
                 "consequent": "get-lib/util/components.js-94-101",
                 "status": "common",
-                "FP-evaluation": "false"
+                "FP-evaluation": "false",
+                "DA-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-lib/util/components.js-144-163] => set-lib/util/components.js-109-130",
@@ -3660,7 +3662,8 @@
                 "support": 1,
                 "confidence": 0.1,
                 "consequent": "isFunctionLikeExpression-lib/util/ast.js-222-224",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[arrowAnonymousFunction-lib/rules/sort-comp.js-386-405] => no-array-index-key.js-lib/rules/no-array-index-key.js-1-288",

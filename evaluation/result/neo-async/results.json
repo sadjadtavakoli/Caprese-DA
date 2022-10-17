@@ -762,7 +762,7 @@
                 "confidence": 0.25,
                 "consequent": "arrowAnonymousFunction-test/collections/test.each.js-471-859",
                 "status": "common",
-                "FP-evaluation": "false"
+                "FP-evaluation": "true"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/collections/test.map.js-782-1246, async.js-lib/async.js-1-9185, mapLimit-lib/async.js-3751-3854] => arrowAnonymousFunction-test/collections/test.each.js-48-469",
@@ -1056,7 +1056,7 @@
                 "confidence": 0.25,
                 "consequent": "arrowAnonymousFunction-test/collections/test.reduce.js-64-454",
                 "status": "common",
-                "FP-evaluation": "false"
+                "FP-evaluation": "true"
             },
             {
                 "rule": "[arrowAnonymousFunction-test/collections/test.map.js-782-1246, async.js-lib/async.js-1-9185, mapLimit-lib/async.js-3751-3854] => arrowAnonymousFunction-test/collections/test.reduce.js-811-822",
@@ -1590,7 +1590,8 @@
                 "confidence": 0.25,
                 "consequent": "arrowAnonymousFunction-test/collections/test.map.js-false-1207",
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "true",
+                "not-evaluated": ""
             },
             {
                 "rule": "[arrowAnonymousFunction-test/collections/test.map.js-782-1246, async.js-lib/async.js-1-9185, mapLimit-lib/async.js-3751-3854] => arrowAnonymousFunction-test/collections/test.map.js-1209-1221",
@@ -12002,7 +12003,8 @@
                 "support": 1,
                 "confidence": 0.25,
                 "consequent": "arrowAnonymousFunction-test/controlflow/test.waterfall.js-169-171",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[async.js-lib/async.js-1-9185, waterfallIterator-lib/async.js-7269-7289] => arrowAnonymousFunction-test/controlflow/test.waterfall.js-183-186",

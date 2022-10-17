@@ -3,7 +3,11 @@ const path = require("path")
 const resultDirPath = `evaluation${path.sep}result${path.sep}`
 const { STATUS } = require('./evaluation')
 
-addEvaluationResult(process.argv[2])
+let projects_list = ["eslint-plugin-react", "ws", "cla-assistant", "grant", "markdown-it", "environment", "nodejs-cloudant", "assemble", "express", "session", "jhipster-uml", "neo-async"]
+
+projects_list.forEach(filename => {
+    addEvaluationResult(filename)
+})
 
 function addEvaluationResult(filename) {
     const RESULT_PATH = `${resultDirPath}${filename}${path.sep}results.json`
@@ -36,11 +40,16 @@ function addEvaluationResult(filename) {
         for (let consequentInfo of tarmaq) {
             let consequent = getConsequenceKey(consequentInfo['consequent'])
             if (consequentInfo['status'] != STATUS.removed) {
-                consequentInfo['FP-evaluation'] = FPEvaluation[consequent]
+                if (FPEvaluation[consequent] != undefined) {
+                    consequentInfo['FP-evaluation'] = FPEvaluation[consequent]
+                }else if (DAEvaluation[consequent] != undefined){
+                    consequentInfo['DA-evaluation'] = DAEvaluation[consequent]
+                }else if(consequentInfo['status'] != STATUS.tarmaq_unique){
+                    consequentInfo['not-evaluated'] = ""
+                }
             }
         }
     }
-
     fs.writeFileSync(RESULT_PATH, JSON.stringify(result));
 }
 
@@ -55,7 +64,7 @@ function collectEvaluationResult(reversedData) {
             if (result[consequent] == undefined) {
                 result[consequent] = evaluationResult
             } else {
-                result[consequent] += " | " + evaluationResult
+                result[consequent] == "true" ?  (result[consequent] + evaluationResult).toLowerCase().includes('true') : "false"
             }
         }
     }

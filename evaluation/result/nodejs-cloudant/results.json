@@ -5847,7 +5847,8 @@
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-250-256",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => README.md",
@@ -5862,84 +5863,96 @@
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "Cloudant-cloudant.js-46-450",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-106-112",
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-106-112",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-114-120",
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-114-120",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-123-129",
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-123-129",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-132-138",
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-132-138",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-140-148",
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-140-148",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-150-159",
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-150-159",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-186-196",
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-186-196",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-198-209",
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-198-209",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-211-220",
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-211-220",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-222-233",
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-222-233",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-235-247",
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-235-247",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-270-278",
@@ -5970,63 +5983,72 @@
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-300-300",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-304-319",
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-304-319",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-33-39",
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-33-39",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-41-47",
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-41-47",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-49-55",
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-49-55",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-57-63",
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-57-63",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-82-88",
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-82-88",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-90-96",
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-90-96",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-98-104",
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-98-104",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => cloudant.js-cloudant.js-1-451",
@@ -12817,14 +12839,16 @@
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-102-111",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-115-133",
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-115-133",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-120-132",
@@ -12839,7 +12863,8 @@
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-137-155",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-142-154",
@@ -12854,7 +12879,8 @@
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-157-171",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-162-170",
@@ -12869,7 +12895,8 @@
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-177-194",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-184-193",
@@ -12916,7 +12943,8 @@
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-246-264",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-253-263",
@@ -12971,7 +12999,8 @@
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-356-374",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-363-373",
@@ -13018,7 +13047,8 @@
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-472-490",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-479-489",
@@ -13073,7 +13103,8 @@
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-613-631",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-620-630",
@@ -13184,7 +13215,8 @@
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-756-774",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-763-773",
@@ -13255,7 +13287,8 @@
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-888-903",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-891-902",
@@ -13286,7 +13319,8 @@
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-922-933",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-925-932",
@@ -13301,7 +13335,8 @@
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/api.js-945-964",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/api.js-969-983",
@@ -13359,7 +13394,8 @@
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-177-187",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/readme-examples.js-201-212",
@@ -13436,14 +13472,16 @@
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-537-564",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/readme-examples.js-566-588",
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/readme-examples.js-566-588",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/reconfigure.js-258-262",
@@ -13567,7 +13605,8 @@
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "ping-cloudant.js-411-413",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true children"
             },
             {
                 "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => promises.js-plugins/promises.js-1-50",
@@ -13620,35 +13659,40 @@
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-161-171",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/reconfigure.js-173-184",
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-173-184",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/reconfigure.js-211-220",
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-211-220",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/reconfigure.js-222-233",
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-222-233",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/reconfigure.js-235-247",
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-235-247",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/reconfigure.js-296-302",
@@ -13663,14 +13707,16 @@
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-300-300",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => arrowAnonymousFunction-test/legacy/reconfigure.js-304-319",
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-304-319",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Cloudant-cloudant.js-46-450, exports-lib/reconfigure.js-28-144, reconfigure.js-lib/reconfigure.js-1-153] => constructor-lib/client.js-35-76",

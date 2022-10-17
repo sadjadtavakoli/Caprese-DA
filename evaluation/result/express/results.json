@@ -311,7 +311,8 @@
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "View-test/app.render.js-210-213",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[defaultConfiguration-lib/application.js-77-134, render-lib/application.js-548-610] => arrowAnonymousFunction-examples/view-constructor/github-view.js-45-52",

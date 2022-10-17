@@ -1539,7 +1539,8 @@
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "grant-grant.js-2-67",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[exports-lib/handler/express-4.js-5-47, exports-lib/handler/koa-1.js-6-46, express-4.js-lib/handler/express-4.js-1-54, koa-1.js-lib/handler/koa-1.js-1-47] => handler-lib/handler/hapi-16.js-23-48",
@@ -11584,14 +11585,16 @@
                 "support": 1,
                 "confidence": 1,
                 "consequent": "arrowAnonymousFunction-lib/request.js-34-55",
-                "status": "common"
+                "status": "common",
+                "not-evaluated": ""
             },
             {
                 "rule": "[app-lib/handler/koa-1.js-18-43, authorize-lib/flow/oauth2.js-7-63] => arrowAnonymousFunction-lib/request.js-57-67",
                 "support": 1,
                 "confidence": 1,
                 "consequent": "arrowAnonymousFunction-lib/request.js-57-67",
-                "status": "common"
+                "status": "common",
+                "not-evaluated": ""
             },
             {
                 "rule": "[app-lib/handler/koa-1.js-18-43, authorize-lib/flow/oauth2.js-7-63] => arrowAnonymousFunction-lib/request.js-8-32",

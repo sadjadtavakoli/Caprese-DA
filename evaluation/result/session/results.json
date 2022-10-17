@@ -10611,7 +10611,8 @@
                 "support": 1,
                 "confidence": 0.3333333333333333,
                 "consequent": "issecure-index.js-623-647",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-index.js-220-244, index.js-index.js-1-686] => package.json",

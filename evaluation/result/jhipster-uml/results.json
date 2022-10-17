@@ -279,7 +279,8 @@
                 "support": 2,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/entitiescreator_test.js-13-20",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[createEntities-lib/entitiescreator.js-68-81, entitiescreator.js-lib/entitiescreator.js-1-419, initializeEntities-lib/entitiescreator.js-107-130] => arrowAnonymousFunction-test/entitiescreator_test.js-9-446",
@@ -899,7 +900,8 @@
                 "support": 1,
                 "confidence": 0.1,
                 "consequent": "arrowAnonymousFunction-test/entitiescreator_test.js-23-30",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[createEntities-lib/entitiescreator.js-68-81, entitiescreator.js-lib/entitiescreator.js-1-419, initializeEntities-lib/entitiescreator.js-107-130] => arrowAnonymousFunction-test/entitiescreator_test.js-32-41",
@@ -914,7 +916,8 @@
                 "support": 1,
                 "confidence": 0.1,
                 "consequent": "arrowAnonymousFunction-test/entitiescreator_test.js-33-40",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[createEntities-lib/entitiescreator.js-68-81, entitiescreator.js-lib/entitiescreator.js-1-419, initializeEntities-lib/entitiescreator.js-107-130] => arrowAnonymousFunction-test/entitiescreator_test.js-383-395",
@@ -945,7 +948,8 @@
                 "support": 1,
                 "confidence": 0.1,
                 "consequent": "arrowAnonymousFunction-test/entitiescreator_test.js-397-412",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[createEntities-lib/entitiescreator.js-68-81, entitiescreator.js-lib/entitiescreator.js-1-419, initializeEntities-lib/entitiescreator.js-107-130] => arrowAnonymousFunction-test/entitiescreator_test.js-42-53",
@@ -960,7 +964,8 @@
                 "support": 1,
                 "confidence": 0.1,
                 "consequent": "arrowAnonymousFunction-test/entitiescreator_test.js-43-52",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[createEntities-lib/entitiescreator.js-68-81, entitiescreator.js-lib/entitiescreator.js-1-419, initializeEntities-lib/entitiescreator.js-107-130] => arrowAnonymousFunction-test/entitiescreator_test.js-54-70",
@@ -975,7 +980,8 @@
                 "support": 1,
                 "confidence": 0.1,
                 "consequent": "arrowAnonymousFunction-test/entitiescreator_test.js-62-69",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[createEntities-lib/entitiescreator.js-68-81, entitiescreator.js-lib/entitiescreator.js-1-419, initializeEntities-lib/entitiescreator.js-107-130] => arrowAnonymousFunction-test/entitiescreator_test.js-72-444",
@@ -990,7 +996,8 @@
                 "support": 1,
                 "confidence": 0.1,
                 "consequent": "arrowAnonymousFunction-test/entitiescreator_test.js-87-91",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[createEntities-lib/entitiescreator.js-68-81, entitiescreator.js-lib/entitiescreator.js-1-419, initializeEntities-lib/entitiescreator.js-107-130] => checkNoSQLModeling-lib/entitiescreator.js-100-105",

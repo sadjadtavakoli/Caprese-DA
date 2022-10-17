@@ -10304,7 +10304,7 @@
                     "close-lib/websocket.js-281-324 | {\"id\":305 - \"parents\":[]}"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "ttruerue"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/websocket.test.js-2037-2063",
@@ -10352,7 +10352,7 @@
                     "close-lib/websocket.js-281-324 | {\"id\":305 - \"parents\":[]}"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "ttruerue"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/websocket.test.js-2206-2232",
@@ -10408,7 +10408,7 @@
                     "close-lib/websocket.js-281-324 | {\"id\":305 - \"parents\":[]}"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "ttruerue"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/websocket.test.js-2427-2453",
@@ -10496,7 +10496,7 @@
                     "close-lib/websocket.js-281-324 | {\"id\":305 - \"parents\":[]}"
                 ],
                 "status": "common",
-                "DA-evaluation": "ttruerue"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/websocket.test.js-2750-2750",
@@ -10504,7 +10504,7 @@
                     "close-lib/websocket.js-281-324 | {\"id\":305 - \"parents\":[]}"
                 ],
                 "status": "common",
-                "DA-evaluation": "ttruerue"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/websocket.test.js-2782-2785",
@@ -10512,7 +10512,7 @@
                     "close-lib/websocket.js-281-324 | {\"id\":305 - \"parents\":[]}"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "ttruerue"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/websocket.test.js-2807-2812",
@@ -10520,7 +10520,7 @@
                     "close-lib/websocket.js-281-324 | {\"id\":305 - \"parents\":[]}"
                 ],
                 "status": "common",
-                "DA-evaluation": "ttruerue"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/websocket.test.js-2845-2847",
@@ -10528,7 +10528,7 @@
                     "close-lib/websocket.js-281-324 | {\"id\":305 - \"parents\":[]}"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "ttruerue"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/websocket.test.js-2864-2864",
@@ -10536,7 +10536,7 @@
                     "close-lib/websocket.js-281-324 | {\"id\":305 - \"parents\":[]}"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "ttruerue"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/websocket.test.js-2880-2895",
@@ -10568,7 +10568,7 @@
                     "close-lib/websocket.js-281-324 | {\"id\":305 - \"parents\":[]}"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "ttruerue"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/websocket.test.js-2973-2973",
@@ -10600,7 +10600,7 @@
                     "close-lib/websocket.js-281-324 | {\"id\":305 - \"parents\":[]}"
                 ],
                 "status": "Berke Unique",
-                "DA-evaluation": "ttruerue"
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/websocket.test.js-3014-3031",
@@ -11104,7 +11104,8 @@
                 "support": 2,
                 "confidence": 0.13333333333333333,
                 "consequent": "abortHandshake-lib/websocket.js-1044-1069",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "false"
             },
             {
                 "rule": "[close-lib/websocket.js-281-324, terminate-lib/websocket.js-476-487] => arrowAnonymousFunction-lib/websocket.js-395-400",
@@ -11126,7 +11127,8 @@
                 "support": 2,
                 "confidence": 0.13333333333333333,
                 "consequent": "receiverOnError-lib/websocket.js-1143-1159",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[close-lib/websocket.js-281-324, terminate-lib/websocket.js-476-487] => socketOnClose-lib/websocket.js-1219-1263",
@@ -11460,7 +11462,8 @@
                 "support": 2,
                 "confidence": 0.13333333333333333,
                 "consequent": "close-lib/sender.js-156-199",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "false"
             },
             {
                 "rule": "[close-lib/websocket.js-281-324, terminate-lib/websocket.js-476-487] => arrowAnonymousFunction-lib/websocket.js-201-201",
@@ -12218,7 +12221,8 @@
                 "support": 1,
                 "confidence": 0.06666666666666667,
                 "consequent": "receiverOnConclude-lib/websocket.js-1110-1124",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[close-lib/websocket.js-281-324, terminate-lib/websocket.js-476-487] => receiverOnMessage-lib/websocket.js-1177-1179",
@@ -12805,7 +12809,8 @@
                 "support": 1,
                 "confidence": 0.06666666666666667,
                 "consequent": "arrowAnonymousFunction-test/websocket.test.js-4324-4327",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[close-lib/websocket.js-281-324, terminate-lib/websocket.js-476-487] => arrowAnonymousFunction-test/websocket.test.js-4330-4335",
@@ -12829,7 +12834,8 @@
                 "confidence": 0.06666666666666667,
                 "consequent": "arrowAnonymousFunction-test/websocket.test.js-596-610",
                 "status": "common",
-                "FP-evaluation": "ts"
+                "FP-evaluation": "ts",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[close-lib/websocket.js-281-324, terminate-lib/websocket.js-476-487] => constructor-lib/event-target.js-66-72",
@@ -12890,7 +12896,8 @@
                 "support": 1,
                 "confidence": 0.06666666666666667,
                 "consequent": "arrowAnonymousFunction-test/websocket.test.js-2807-2812",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[close-lib/websocket.js-281-324, terminate-lib/websocket.js-476-487] => arrowAnonymousFunction-test/websocket.test.js-3036-3156",
@@ -12913,7 +12920,8 @@
                 "support": 1,
                 "confidence": 0.06666666666666667,
                 "consequent": "arrowAnonymousFunction-test/websocket.test.js-3081-3086",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[close-lib/websocket.js-281-324, terminate-lib/websocket.js-476-487] => arrowAnonymousFunction-test/websocket.test.js-552-563",
@@ -13027,7 +13035,8 @@
                 "support": 1,
                 "confidence": 0.06666666666666667,
                 "consequent": "arrowAnonymousFunction-test/websocket.test.js-2716-2729",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[close-lib/websocket.js-281-324, terminate-lib/websocket.js-476-487] => arrowAnonymousFunction-test/websocket.test.js-2726-2726",
@@ -13050,7 +13059,8 @@
                 "support": 1,
                 "confidence": 0.06666666666666667,
                 "consequent": "arrowAnonymousFunction-test/websocket.test.js-2750-2750",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[close-lib/websocket.js-281-324, terminate-lib/websocket.js-476-487] => arrowAnonymousFunction-test/websocket.test.js-2862-2862",
@@ -13073,7 +13083,8 @@
                 "support": 1,
                 "confidence": 0.06666666666666667,
                 "consequent": "arrowAnonymousFunction-test/websocket.test.js-3038-3051",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[close-lib/websocket.js-281-324, terminate-lib/websocket.js-476-487] => arrowAnonymousFunction-test/websocket.test.js-3054-3075",
@@ -13104,7 +13115,8 @@
                 "support": 1,
                 "confidence": 0.06666666666666667,
                 "consequent": "arrowAnonymousFunction-test/websocket.test.js-3072-3072",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[close-lib/websocket.js-281-324, terminate-lib/websocket.js-476-487] => arrowAnonymousFunction-test/websocket.test.js-450-450",
@@ -13143,14 +13155,16 @@
                 "confidence": 0.06666666666666667,
                 "consequent": "arrowAnonymousFunction-test/websocket.test.js-512-512",
                 "status": "common",
-                "FP-evaluation": "ts"
+                "FP-evaluation": "ts",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[close-lib/websocket.js-281-324, terminate-lib/websocket.js-476-487] => arrowAnonymousFunction-test/websocket.test.js-525-525",
                 "support": 1,
                 "confidence": 0.06666666666666667,
                 "consequent": "arrowAnonymousFunction-test/websocket.test.js-525-525",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[close-lib/websocket.js-281-324, terminate-lib/websocket.js-476-487] => arrowAnonymousFunction-test/websocket.test.js-543-548",
@@ -13589,7 +13603,8 @@
                 "confidence": 0.06666666666666667,
                 "consequent": "arrowAnonymousFunction-test/websocket.test.js-2141-2143",
                 "status": "common",
-                "FP-evaluation": "ts"
+                "FP-evaluation": "ts",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[close-lib/websocket.js-281-324, terminate-lib/websocket.js-476-487] => arrowAnonymousFunction-test/websocket.test.js-2300-2343",
@@ -13969,7 +13984,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-1995-2030",
                     "status": "Berke Unique",
-                    "evaluation result": "ttruerue"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2037-2063",
@@ -13999,7 +14014,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2164-2199",
                     "status": "Berke Unique",
-                    "evaluation result": "ttruerue"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2206-2232",
@@ -14034,7 +14049,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2385-2420",
                     "status": "Berke Unique",
-                    "evaluation result": "ttruerue"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2427-2453",
@@ -14089,32 +14104,32 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2716-2729 | {\"id\":91 - \"parents\":[90-7-20]}",
                     "status": "common",
-                    "evaluation result": "ttruerue"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2750-2750",
                     "status": "common",
-                    "evaluation result": "ttruerue"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2782-2785",
                     "status": "Berke Unique",
-                    "evaluation result": "ttruerue"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2807-2812",
                     "status": "common",
-                    "evaluation result": "ttruerue"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2845-2847",
                     "status": "Berke Unique",
-                    "evaluation result": "ttruerue"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2864-2864",
                     "status": "Berke Unique",
-                    "evaluation result": "ttruerue"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2880-2895",
@@ -14134,7 +14149,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2952-2960",
                     "status": "Berke Unique",
-                    "evaluation result": "ttruerue"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2973-2973",
@@ -14154,7 +14169,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2993-2998",
                     "status": "Berke Unique",
-                    "evaluation result": "ttruerue"
+                    "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3014-3031",
@@ -14700,7 +14715,8 @@
                 "support": 9,
                 "confidence": 0.42857142857142855,
                 "consequent": "setSocket-lib/websocket.js-203-238",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[arrowAnonymousFunction-lib/websocket.js-894-988, initAsClient-lib/websocket.js-637-991, websocket.js-lib/websocket.js-1-1306] => completeUpgrade-lib/websocket-server.js-356-432",
@@ -14723,7 +14739,8 @@
                 "support": 6,
                 "confidence": 0.2857142857142857,
                 "consequent": "arrowAnonymousFunction-lib/websocket.js-857-892",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true parent"
             },
             {
                 "rule": "[arrowAnonymousFunction-lib/websocket.js-894-988, initAsClient-lib/websocket.js-637-991, websocket.js-lib/websocket.js-1-1306] => close-lib/websocket.js-281-324",
@@ -14979,7 +14996,8 @@
                 "support": 2,
                 "confidence": 0.09523809523809523,
                 "consequent": "WebSocket-lib/websocket.js-44-488",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-lib/websocket.js-894-988, initAsClient-lib/websocket.js-637-991, websocket.js-lib/websocket.js-1-1306] => arrowAnonymousFunction-test/receiver.test.js-11-1086",
@@ -15041,7 +15059,8 @@
                 "support": 2,
                 "confidence": 0.09523809523809523,
                 "consequent": "netConnect-lib/websocket.js-1013-1016",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-lib/websocket.js-894-988, initAsClient-lib/websocket.js-637-991, websocket.js-lib/websocket.js-1-1306] => arrowAnonymousFunction-test/websocket.test.js-75-170",
@@ -15660,7 +15679,8 @@
                 "support": 2,
                 "confidence": 0.09523809523809523,
                 "consequent": "parse-lib/extension.js-27-170",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-lib/websocket.js-894-988, initAsClient-lib/websocket.js-637-991, websocket.js-lib/websocket.js-1-1306] => pause-lib/websocket.js-233-242",
@@ -16196,7 +16216,8 @@
                 "confidence": 0.047619047619047616,
                 "consequent": "arrowAnonymousFunction-test/websocket.test.js-2852-2865",
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "true",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[arrowAnonymousFunction-lib/websocket.js-894-988, initAsClient-lib/websocket.js-637-991, websocket.js-lib/websocket.js-1-1306] => arrowAnonymousFunction-test/websocket.test.js-3038-3051",
@@ -16212,7 +16233,8 @@
                 "confidence": 0.047619047619047616,
                 "consequent": "arrowAnonymousFunction-test/websocket.test.js-3126-3139",
                 "status": "common",
-                "FP-evaluation": "true"
+                "FP-evaluation": "true",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[arrowAnonymousFunction-lib/websocket.js-894-988, initAsClient-lib/websocket.js-637-991, websocket.js-lib/websocket.js-1-1306] => arrowAnonymousFunction-test/websocket.test.js-3383-3404",
@@ -16283,7 +16305,8 @@
                 "support": 1,
                 "confidence": 0.047619047619047616,
                 "consequent": "tlsConnect-lib/websocket.js-1025-1033",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-lib/websocket.js-894-988, initAsClient-lib/websocket.js-637-991, websocket.js-lib/websocket.js-1-1306] => _write-lib/receiver.js-78-84",
@@ -16298,7 +16321,8 @@
                 "support": 1,
                 "confidence": 0.047619047619047616,
                 "consequent": "abortHandshake-lib/websocket.js-1044-1069",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-lib/websocket.js-894-988, initAsClient-lib/websocket.js-637-991, websocket.js-lib/websocket.js-1-1306] => arrowAnonymousFunction-lib/receiver.js-459-483",
@@ -18818,7 +18842,8 @@
                 "support": 1,
                 "confidence": 0.047619047619047616,
                 "consequent": "accept-lib/permessage-deflate.js-114-122",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "false"
             },
             {
                 "rule": "[arrowAnonymousFunction-lib/websocket.js-894-988, initAsClient-lib/websocket.js-637-991, websocket.js-lib/websocket.js-1-1306] => acceptExtensions-lib/websocketserver.js-293-309",
@@ -19123,7 +19148,8 @@
                 "support": 1,
                 "confidence": 0.047619047619047616,
                 "consequent": "format-lib/extension.js-179-201",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[arrowAnonymousFunction-lib/websocket.js-894-988, initAsClient-lib/websocket.js-637-991, websocket.js-lib/websocket.js-1-1306] => frame-lib/sender.js-68-145",
@@ -24240,28 +24266,32 @@
                 "support": 2,
                 "confidence": 0.4,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-437-455",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-457-469",
                 "support": 2,
                 "confidence": 0.4,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-457-469",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-471-485",
                 "support": 2,
                 "confidence": 0.4,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-471-485",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-487-507",
                 "support": 2,
                 "confidence": 0.4,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-487-507",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-984-1008",
@@ -24416,35 +24446,40 @@
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-110-142",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-12-22",
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-12-22",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-144-164",
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-144-164",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-166-175",
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-166-175",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-177-225",
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-177-225",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-227-285",
@@ -24459,42 +24494,48 @@
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-24-34",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-287-308",
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-287-308",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-310-331",
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-310-331",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-333-354",
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-333-354",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-356-377",
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-356-377",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-379-402",
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-379-402",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-396-401",
@@ -24509,7 +24550,8 @@
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-404-435",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-422-434",
@@ -24532,21 +24574,24 @@
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-460-465",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-474-479",
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-474-479",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-49-61",
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-49-61",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-491-494",
@@ -24561,14 +24606,16 @@
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-495-501",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-509-535",
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-509-535",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-522-530",
@@ -24583,7 +24630,8 @@
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-537-552",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-540-549",
@@ -24598,7 +24646,8 @@
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-554-576",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-564-573",
@@ -24645,7 +24694,8 @@
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-612-627",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-615-624",
@@ -24660,14 +24710,16 @@
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-629-645",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-63-85",
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-63-85",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[ v] => arrowAnonymousFunction-test/receiver.test.js-632-641",
@@ -24682,7 +24734,8 @@
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-647-663",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-650-659",
@@ -24697,7 +24750,8 @@
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-665-680",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-668-677",
@@ -24712,7 +24766,8 @@
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-682-704",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-692-701",
@@ -24727,7 +24782,8 @@
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-706-721",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-709-718",
@@ -24742,7 +24798,8 @@
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-759-774",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-762-771",
@@ -24813,7 +24870,8 @@
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-845-860",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-848-857",
@@ -24828,7 +24886,8 @@
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-862-877",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-865-874",
@@ -24843,21 +24902,24 @@
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-87-108",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-879-896",
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-879-896",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-898-921",
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-898-921",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-912-918",
@@ -24872,7 +24934,8 @@
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-923-948",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-934-940",
@@ -24895,7 +24958,8 @@
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-950-982",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-961-967",
@@ -24957,7 +25021,8 @@
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "error-lib/receiver.js-609-618",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "false"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => inflateOnData-lib/permessage-deflate.js-479-495",
@@ -25012,7 +25077,8 @@
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "receiverOnMessage-lib/websocket.js-1177-1179",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => receiverOnPing-lib/websocket.js-1187-1192",
@@ -25090,7 +25156,8 @@
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-1018-1023",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-910-910",
@@ -25104,7 +25171,8 @@
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-993-997",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/websocket.test.js-212-253",
@@ -25229,7 +25297,8 @@
                 "support": 1,
                 "confidence": 0.2,
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-448-452",
-                "status": "common"
+                "status": "common",
+                "DA-evaluation": "true"
             },
             {
                 "rule": "[Receiver-lib/receiver.js-27-593, constructor-lib/receiver.js-41-68, dataMessage-lib/receiver.js-492-533, receiver.js-lib/receiver.js-1-619] => arrowAnonymousFunction-test/receiver.test.js-823-839",
