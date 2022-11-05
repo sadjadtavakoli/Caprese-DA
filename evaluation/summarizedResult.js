@@ -71,7 +71,7 @@ function approachSummary(result, approach) {
                 confidence += parseFloat(impacted[fpKey])
                 fpCount += 1
             }
-            if (impacted["status"] != STATUS.common && impacted["status"] != STATUS.removed) {
+            if (impacted["status"] != STATUS.common) {
                 uniquesCount += 1
             }
         })

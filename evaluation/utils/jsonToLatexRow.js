@@ -5,7 +5,8 @@ const unitsContributionColumnOrdeing = {
     },
     'True Positives': {
         DA: ["avg", "precision"],
-        FP: ["avg", "precision"]
+        FP: ["avg", "precision"],
+        total: ["precision"]
     }
 }
 
@@ -30,11 +31,10 @@ const approachesDataColumnOrdeing = {
 }
 
 const menaAveragePrecisionOrdering = {
-    "berke": [5, 10, 20, 30, 60, 10000],
-    "tarmaq": [5, 10, 20, 30, 60, 10000],
-    "FP": [5, 10, 20, 30, 60, 10000]
+    "berke": [10, 20, 30, 60, "all"],
+    "tarmaq": [10, 20, 30, 60, "all"]
 }
-const benchmarksInfoOrdering = ["# Commits", "# Change-sequences", "Unique #functions", "Avg # functions in commit", "History (in yrs)", "LOC", "JavaScript Percentage"]
+const benchmarksInfoOrdering = ["# Commits", "# Change-sequences", "Unique #functions","LOC", "JavaScript Percentage"]
 const changeSetInfoOrdering = ["min", "max", "avg"]
 
 
@@ -77,7 +77,6 @@ function toLatex(data, columnOrdering) {
 function toLatexOneLevel(data, columnOrdering) {
     let result = ``
     for (let tableName in columnOrdering) {
-        console.log(tableName)
         result += `${subtableOneLevel(data, tableName, columnOrdering)} & `
     }
 
@@ -97,7 +96,6 @@ function subtableOneLevel(data, tableName, columnOrdering) {
     let result = ``
 
     columnOrdering[tableName].forEach(element => {
-        console.log(data[tableName][element])
         result += `${data[tableName][element]} & `
     });
 

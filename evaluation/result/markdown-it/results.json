@@ -6,6 +6,18 @@
         ],
         "berke": [
             {
+                "consequent": "package.json",
+                "FP-score": 0.4,
+                "support": 10,
+                "FP-antecedents": [
+                    [
+                        "index.js-support/demo_template/index.js-1-495 | {\"id\":1 - \"parents\":[]}"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "false"
+            },
+            {
                 "consequent": "updateResult-support/demo_template/index.js-192-227 | {\"id\":0 - \"parents\":[1]}",
                 "FP-score": 0.5,
                 "support": 3,
@@ -99,7 +111,7 @@
                 "support": 1,
                 "confidence": 0.16666666666666666,
                 "consequent": "package.json",
-                "status": "TARMAQ Unique",
+                "status": "common",
                 "FP-evaluation": "false"
             },
             {
@@ -210,6 +222,15 @@
             }
         ],
         "reversed-FP": {
+            "index.js-support/demo_template/index.js-1-495 | {\"id\":1 - \"parents\":[]}": [
+                {
+                    "consequent": "package.json",
+                    "support": 10,
+                    "FP-score": 0.4,
+                    "status": "common",
+                    "evaluation result": "false"
+                }
+            ],
             "index.js-support/demo_template/index.js-1-495 | {\"id\":1 - \"parents\":[]},mdInit-support/demo_template/index.js-129-182 | {\"id\":3 - \"parents\":[1]}": [
                 {
                     "consequent": "updateResult-support/demo_template/index.js-192-227 | {\"id\":0 - \"parents\":[1]}",
@@ -255,8 +276,8 @@
                     ]
                 ],
                 "status": "common",
-                "DA-evaluation": "false",
-                "FP-evaluation": "false"
+                "FP-evaluation": "false",
+                "DA-evaluation": "false"
             },
             {
                 "consequent": "arrowAnonymousFunction-test/misc.js-187-190 | {\"id\":7 - \"parents\":[8-9-10]}",
@@ -326,6 +347,18 @@
                 ],
                 "status": "Berke Unique",
                 "DA-evaluation": "true"
+            },
+            {
+                "consequent": "package.json",
+                "FP-score": 0.6423357664233577,
+                "support": 88,
+                "FP-antecedents": [
+                    [
+                        "CHANGELOG.md"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "block.js-lib/rules_core/block.js-1-17 | {\"id\":13 - \"parents\":[]}",
@@ -851,18 +884,6 @@
                 ],
                 "status": "common",
                 "FP-evaluation": "true parent"
-            },
-            {
-                "consequent": "package.json",
-                "FP-score": 0.6423357664233577,
-                "support": 88,
-                "FP-antecedents": [
-                    [
-                        "CHANGELOG.md"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": "true"
             },
             {
                 "consequent": "exports-lib/rules_inline/escape.js-15-71 | {\"id\":11 - \"parents\":[12]}",
@@ -2340,6 +2361,15 @@
                     "evaluation result": "true"
                 }
             ],
+            "CHANGELOG.md": [
+                {
+                    "consequent": "package.json",
+                    "support": 88,
+                    "FP-score": 0.6423357664233577,
+                    "status": "Berke Unique",
+                    "evaluation result": "true"
+                }
+            ],
             "exports-lib/rules_core/inline.js-3-13 | {\"id\":74 - \"parents\":[73]}": [
                 {
                     "consequent": "block.js-lib/rules_core/block.js-1-17 | {\"id\":13 - \"parents\":[]}",
@@ -2525,15 +2555,6 @@
                     "FP-score": 1,
                     "status": "common",
                     "evaluation result": "true parent"
-                }
-            ],
-            "CHANGELOG.md": [
-                {
-                    "consequent": "package.json",
-                    "support": 88,
-                    "FP-score": 0.6423357664233577,
-                    "status": "Berke Unique",
-                    "evaluation result": "true"
                 }
             ],
             "StateInline-lib/rules_inline/state_inline.js-12-42 | {\"id\":40 - \"parents\":[36]},tokenize-lib/parser_inline.js-129-166 | {\"id\":25 - \"parents\":[21]}": [
@@ -3001,6 +3022,18 @@
                 ],
                 "status": "Berke Unique",
                 "DA-evaluation": "false"
+            },
+            {
+                "consequent": "skipToken-lib/parser_inline.js-79-124 | {\"id\":22 - \"parents\":[21]}",
+                "FP-score": 0.6666666666666666,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-test/misc.js-350-376 | {\"id\":100 - \"parents\":[]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "renderer.js-lib/renderer.js-1-342 | {\"id\":49 - \"parents\":[]}",
@@ -3613,18 +3646,6 @@
                 ],
                 "status": "common",
                 "FP-evaluation": "false"
-            },
-            {
-                "consequent": "skipToken-lib/parser_inline.js-79-124 | {\"id\":22 - \"parents\":[21]}",
-                "FP-score": 0.6666666666666666,
-                "support": 2,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-test/misc.js-350-376 | {\"id\":100 - \"parents\":[]}"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": "true"
             }
         ],
         "tarmaq": [
@@ -4036,6 +4057,15 @@
             }
         ],
         "reversed-FP": {
+            "arrowAnonymousFunction-test/misc.js-350-376 | {\"id\":100 - \"parents\":[]}": [
+                {
+                    "consequent": "skipToken-lib/parser_inline.js-79-124 | {\"id\":22 - \"parents\":[21]}",
+                    "support": 2,
+                    "FP-score": 0.6666666666666666,
+                    "status": "Berke Unique",
+                    "evaluation result": "true"
+                }
+            ],
             "arrowAnonymousFunction-test/misc.js-272-274 | {\"id\":99 - \"parents\":[65-98]}": [
                 {
                     "consequent": "renderer.js-lib/renderer.js-1-342 | {\"id\":49 - \"parents\":[]}",
@@ -4438,15 +4468,6 @@
                     "status": "common",
                     "evaluation result": "false"
                 }
-            ],
-            "arrowAnonymousFunction-test/misc.js-350-376 | {\"id\":100 - \"parents\":[]}": [
-                {
-                    "consequent": "skipToken-lib/parser_inline.js-79-124 | {\"id\":22 - \"parents\":[21]}",
-                    "support": 2,
-                    "FP-score": 0.6666666666666666,
-                    "status": "Berke Unique",
-                    "evaluation result": "true"
-                }
             ]
         },
         "reversed-DA": {
@@ -4506,16 +4527,39 @@
                 "DA-evaluation": "false"
             },
             {
-                "consequent": "exports-lib/rules_block/blockquote.js-8-226 | {\"id\":102 - \"parents\":[103]}",
-                "FP-score": 0.6666666666666666,
-                "support": 2,
+                "consequent": "exports-lib/rules_block/list.js-100-362",
+                "FP-score": 0.5416666666666666,
+                "support": 13,
                 "FP-antecedents": [
                     [
-                        "StateBlock-lib/rules_block/state_block.js-9-106 | {\"id\":105 - \"parents\":[85]}",
-                        "state_block.js-lib/rules_block/state_block.js-1-232 | {\"id\":85 - \"parents\":[]}"
+                        "StateBlock-lib/rules_block/state_block.js-9-106 | {\"id\":105 - \"parents\":[85]}"
                     ]
                 ],
                 "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "exports-lib/rules_block/blockquote.js-8-226 | {\"id\":102 - \"parents\":[103]}",
+                "FP-score": 0.4583333333333333,
+                "support": 11,
+                "FP-antecedents": [
+                    [
+                        "StateBlock-lib/rules_block/state_block.js-9-106 | {\"id\":105 - \"parents\":[85]}"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "state_inline.js-lib/rules_inline/state_inline.js-1-159 | {\"id\":36 - \"parents\":[]}",
+                "FP-score": 0.5,
+                "support": 4,
+                "FP-antecedents": [
+                    [
+                        "state_block.js-lib/rules_block/state_block.js-1-232 | {\"id\":85 - \"parents\":[]}"
+                    ]
+                ],
+                "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
@@ -4568,30 +4612,6 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": "true"
-            },
-            {
-                "consequent": "exports-lib/rules_block/list.js-100-362",
-                "FP-score": 0.5416666666666666,
-                "support": 13,
-                "FP-antecedents": [
-                    [
-                        "StateBlock-lib/rules_block/state_block.js-9-106 | {\"id\":105 - \"parents\":[85]}"
-                    ]
-                ],
-                "status": "common",
-                "FP-evaluation": "true"
-            },
-            {
-                "consequent": "state_inline.js-lib/rules_inline/state_inline.js-1-159 | {\"id\":36 - \"parents\":[]}",
-                "FP-score": 0.5,
-                "support": 4,
-                "FP-antecedents": [
-                    [
-                        "state_block.js-lib/rules_block/state_block.js-1-232 | {\"id\":85 - \"parents\":[]}"
-                    ]
-                ],
-                "status": "Berke Unique",
                 "FP-evaluation": "true"
             }
         ],
@@ -4954,14 +4974,32 @@
             }
         ],
         "reversed-FP": {
-            "StateBlock-lib/rules_block/state_block.js-9-106 | {\"id\":105 - \"parents\":[85]},state_block.js-lib/rules_block/state_block.js-1-232 | {\"id\":85 - \"parents\":[]}": [
+            "StateBlock-lib/rules_block/state_block.js-9-106 | {\"id\":105 - \"parents\":[85]}": [
                 {
-                    "consequent": "exports-lib/rules_block/blockquote.js-8-226 | {\"id\":102 - \"parents\":[103]}",
-                    "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "consequent": "exports-lib/rules_block/list.js-100-362",
+                    "support": 13,
+                    "FP-score": 0.5416666666666666,
                     "status": "common",
                     "evaluation result": "true"
                 },
+                {
+                    "consequent": "exports-lib/rules_block/blockquote.js-8-226 | {\"id\":102 - \"parents\":[103]}",
+                    "support": 11,
+                    "FP-score": 0.4583333333333333,
+                    "status": "common",
+                    "evaluation result": "true"
+                }
+            ],
+            "state_block.js-lib/rules_block/state_block.js-1-232 | {\"id\":85 - \"parents\":[]}": [
+                {
+                    "consequent": "state_inline.js-lib/rules_inline/state_inline.js-1-159 | {\"id\":36 - \"parents\":[]}",
+                    "support": 4,
+                    "FP-score": 0.5,
+                    "status": "Berke Unique",
+                    "evaluation result": "true"
+                }
+            ],
+            "StateBlock-lib/rules_block/state_block.js-9-106 | {\"id\":105 - \"parents\":[85]},state_block.js-lib/rules_block/state_block.js-1-232 | {\"id\":85 - \"parents\":[]}": [
                 {
                     "consequent": "blockquote.js-lib/rules_block/blockquote.js-1-227 | {\"id\":103 - \"parents\":[]}",
                     "support": 2,
@@ -4988,24 +5026,6 @@
                     "support": 2,
                     "FP-score": 0.6666666666666666,
                     "status": "common",
-                    "evaluation result": "true"
-                }
-            ],
-            "StateBlock-lib/rules_block/state_block.js-9-106 | {\"id\":105 - \"parents\":[85]}": [
-                {
-                    "consequent": "exports-lib/rules_block/list.js-100-362",
-                    "support": 13,
-                    "FP-score": 0.5416666666666666,
-                    "status": "common",
-                    "evaluation result": "true"
-                }
-            ],
-            "state_block.js-lib/rules_block/state_block.js-1-232 | {\"id\":85 - \"parents\":[]}": [
-                {
-                    "consequent": "state_inline.js-lib/rules_inline/state_inline.js-1-159 | {\"id\":36 - \"parents\":[]}",
-                    "support": 4,
-                    "FP-score": 0.5,
-                    "status": "Berke Unique",
                     "evaluation result": "true"
                 }
             ]
@@ -5083,6 +5103,30 @@
                 ],
                 "status": "Berke Unique",
                 "DA-evaluation": "true"
+            },
+            {
+                "consequent": "exports-lib/rules_block/html_block.js-23-74",
+                "FP-score": 0.5,
+                "support": 3,
+                "FP-antecedents": [
+                    [
+                        "html_blocks.js-lib/common/html_blocks.js-1-71"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "processDelimiters-lib/rules_inline/balance_pairs.js-6-115 | {\"id\":111 - \"parents\":[112]}",
+                "FP-score": 0.6666666666666666,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "postProcess-lib/rules_inline/emphasis.js-55-113 | {\"id\":122 - \"parents\":[120]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "benchmark/samples/inline-html.md",
@@ -5565,30 +5609,6 @@
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "processDelimiters-lib/rules_inline/balance_pairs.js-6-115 | {\"id\":111 - \"parents\":[112]}",
-                "FP-score": 0.6666666666666666,
-                "support": 2,
-                "FP-antecedents": [
-                    [
-                        "postProcess-lib/rules_inline/emphasis.js-55-113 | {\"id\":122 - \"parents\":[120]}"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": "true"
-            },
-            {
-                "consequent": "exports-lib/rules_block/html_block.js-23-74",
-                "FP-score": 0.5,
-                "support": 3,
-                "FP-antecedents": [
-                    [
-                        "html_blocks.js-lib/common/html_blocks.js-1-71"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": "true"
-            },
-            {
                 "consequent": "parse_link_destination.js-lib/helpers/parse_link_destination.js-1-81 | {\"id\":47 - \"parents\":[]}",
                 "FP-score": 0.5,
                 "support": 1,
@@ -5891,6 +5911,24 @@
                     "evaluation result": "false"
                 }
             ],
+            "html_blocks.js-lib/common/html_blocks.js-1-71": [
+                {
+                    "consequent": "exports-lib/rules_block/html_block.js-23-74",
+                    "support": 3,
+                    "FP-score": 0.5,
+                    "status": "Berke Unique",
+                    "evaluation result": "true"
+                }
+            ],
+            "postProcess-lib/rules_inline/emphasis.js-55-113 | {\"id\":122 - \"parents\":[120]}": [
+                {
+                    "consequent": "processDelimiters-lib/rules_inline/balance_pairs.js-6-115 | {\"id\":111 - \"parents\":[112]}",
+                    "support": 2,
+                    "FP-score": 0.6666666666666666,
+                    "status": "Berke Unique",
+                    "evaluation result": "true"
+                }
+            ],
             "html_blocks.js-lib/common/html_blocks.js-1-71,test/fixtures/commonmark/good.txt": [
                 {
                     "consequent": "benchmark/samples/inline-html.md",
@@ -6014,24 +6052,6 @@
                     "FP-score": 1,
                     "status": "common",
                     "evaluation result": "false"
-                }
-            ],
-            "postProcess-lib/rules_inline/emphasis.js-55-113 | {\"id\":122 - \"parents\":[120]}": [
-                {
-                    "consequent": "processDelimiters-lib/rules_inline/balance_pairs.js-6-115 | {\"id\":111 - \"parents\":[112]}",
-                    "support": 2,
-                    "FP-score": 0.6666666666666666,
-                    "status": "Berke Unique",
-                    "evaluation result": "true"
-                }
-            ],
-            "html_blocks.js-lib/common/html_blocks.js-1-71": [
-                {
-                    "consequent": "exports-lib/rules_block/html_block.js-23-74",
-                    "support": 3,
-                    "FP-score": 0.5,
-                    "status": "Berke Unique",
-                    "evaluation result": "true"
                 }
             ],
             "exports-lib/helpers/parse_link_destination.js-9-80 | {\"id\":46 - \"parents\":[47-47]},test/fixtures/commonmark/good.txt": [

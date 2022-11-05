@@ -32,7 +32,7 @@ function getProjectsInfo(filename) {
         "Unique #functions": numberOfUniqueFunctions,
         "Avg # functions in commit": functionsInCommit,
         "History (in yrs)": undefined,
-        "LOC": totalLines,
+        "LOC": Math.round(totalLines/1000),
         "languages": allLanguagesInfo,
         "JavaScript Percentage": JsPercentage
     }

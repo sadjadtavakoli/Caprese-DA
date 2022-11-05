@@ -67,8 +67,8 @@
                     ]
                 ],
                 "status": "common",
-                "DA-evaluation": "true",
-                "FP-evaluation": "true"
+                "FP-evaluation": "true",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "CallExpression-lib/rules/no-unused-state.js-289-324",
@@ -146,6 +146,18 @@
                 ],
                 "status": "Berke Unique",
                 "DA-evaluation": "true"
+            },
+            {
+                "consequent": "README.md",
+                "FP-score": 0.680327868852459,
+                "support": 83,
+                "FP-antecedents": [
+                    [
+                        "index.js-index.js-1-188"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "isPropTypesUsageByMemberExpression-lib/util/usedproptypes.js-224-247",
@@ -231,18 +243,6 @@
                 "FP-antecedents": [
                     [
                         "isThisExpression-lib/rules/no-unused-state.js-45-47"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": "true"
-            },
-            {
-                "consequent": "README.md",
-                "FP-score": 0.680327868852459,
-                "support": 83,
-                "FP-antecedents": [
-                    [
-                        "index.js-index.js-1-188"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -496,6 +496,15 @@
                     "evaluation result": "false"
                 }
             ],
+            "index.js-index.js-1-188": [
+                {
+                    "consequent": "README.md",
+                    "support": 83,
+                    "FP-score": 0.680327868852459,
+                    "status": "Berke Unique",
+                    "evaluation result": "true"
+                }
+            ],
             "isThisExpression-lib/rules/no-unused-state.js-45-47": [
                 {
                     "consequent": "ast.js-lib/util/ast.js-1-462 | {\"id\":3 - \"parents\":[]}",
@@ -508,15 +517,6 @@
                     "consequent": "exports-lib/util/usedproptypes.js-289-567",
                     "support": 1,
                     "FP-score": 1,
-                    "status": "Berke Unique",
-                    "evaluation result": "true"
-                }
-            ],
-            "index.js-index.js-1-188": [
-                {
-                    "consequent": "README.md",
-                    "support": 83,
-                    "FP-score": 0.680327868852459,
                     "status": "Berke Unique",
                     "evaluation result": "true"
                 }
@@ -759,14 +759,27 @@
             "no-did-mount-set-state.js-tests/lib/rules/no-did-mount-set-state.js-1-301",
             "no-did-update-set-state.js-tests/lib/rules/no-did-update-set-state.js-1-302"
         ],
-        "berke": [],
+        "berke": [
+            {
+                "consequent": "exports-lib/util/makenomethodsetstaterule.js-44-119",
+                "FP-score": 0.4166666666666667,
+                "support": 5,
+                "FP-antecedents": [
+                    [
+                        "no-did-update-set-state.js-tests/lib/rules/no-did-update-set-state.js-1-302 | {\"id\":17 - \"parents\":[]}"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "true"
+            }
+        ],
         "tarmaq": [
             {
                 "rule": "[no-did-mount-set-state.js-tests/lib/rules/no-did-mount-set-state.js-1-301, no-did-update-set-state.js-tests/lib/rules/no-did-update-set-state.js-1-302] => exports-lib/util/makenomethodsetstaterule.js-44-119",
                 "support": 4,
                 "confidence": 0.36363636363636365,
                 "consequent": "exports-lib/util/makenomethodsetstaterule.js-44-119",
-                "status": "TARMAQ Unique",
+                "status": "common",
                 "FP-evaluation": "true"
             },
             {
@@ -1220,7 +1233,17 @@
                 "FP-evaluation": "false"
             }
         ],
-        "reversed-FP": {},
+        "reversed-FP": {
+            "no-did-update-set-state.js-tests/lib/rules/no-did-update-set-state.js-1-302 | {\"id\":17 - \"parents\":[]}": [
+                {
+                    "consequent": "exports-lib/util/makenomethodsetstaterule.js-44-119",
+                    "support": 5,
+                    "FP-score": 0.4166666666666667,
+                    "status": "common",
+                    "evaluation result": "true"
+                }
+            ]
+        },
         "reversed-DA": {}
     },
     "941a67d90583b523ba4508e67cf4ee79ac818924": {
@@ -1242,8 +1265,20 @@
                     ]
                 ],
                 "status": "common",
-                "DA-evaluation": "false",
-                "FP-evaluation": "false"
+                "FP-evaluation": "false",
+                "DA-evaluation": "false"
+            },
+            {
+                "consequent": "CHANGELOG.md",
+                "FP-score": 0.4444444444444444,
+                "support": 4,
+                "FP-antecedents": [
+                    [
+                        "no-array-index-key.js-tests/lib/rules/no-array-index-key.js-1-376 | {\"id\":22 - \"parents\":[]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/rules/no-array-index-key.js-179-183 | {\"id\":19 - \"parents\":[18]}",
@@ -1539,6 +1574,15 @@
                     "status": "common",
                     "evaluation result": "true parent"
                 }
+            ],
+            "no-array-index-key.js-tests/lib/rules/no-array-index-key.js-1-376 | {\"id\":22 - \"parents\":[]}": [
+                {
+                    "consequent": "CHANGELOG.md",
+                    "support": 4,
+                    "FP-score": 0.4444444444444444,
+                    "status": "Berke Unique",
+                    "evaluation result": "true"
+                }
             ]
         },
         "reversed-DA": {
@@ -1583,8 +1627,8 @@
                     ]
                 ],
                 "status": "common",
-                "DA-evaluation": "true parent",
-                "FP-evaluation": "true parent"
+                "FP-evaluation": "true parent",
+                "DA-evaluation": "true parent"
             },
             {
                 "consequent": "getPropertyName-lib/rules/sort-comp.js-236-246",
@@ -1605,7 +1649,7 @@
             {
                 "consequent": "get-lib/util/components.js-94-101 | {\"id\":25 - \"parents\":[26]}",
                 "DA-antecedents": [
-                    "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":39 - \"parents\":[37-26]}"
+                    "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":43 - \"parents\":[39-26]}"
                 ],
                 "status": "common",
                 "DA-evaluation": "false"
@@ -1613,7 +1657,7 @@
             {
                 "consequent": "getId-lib/util/components.js-23-25 | {\"id\":27 - \"parents\":[26]}",
                 "DA-antecedents": [
-                    "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":39 - \"parents\":[37-26]}"
+                    "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":43 - \"parents\":[39-26]}"
                 ],
                 "status": "Berke Unique",
                 "DA-evaluation": "false"
@@ -1621,7 +1665,7 @@
             {
                 "consequent": "mergeUsedPropTypes-lib/util/components.js-40-47 | {\"id\":28 - \"parents\":[26]}",
                 "DA-antecedents": [
-                    "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":39 - \"parents\":[37-26]}"
+                    "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":43 - \"parents\":[39-26]}"
                 ],
                 "status": "Berke Unique",
                 "DA-evaluation": "true"
@@ -1629,10 +1673,358 @@
             {
                 "consequent": "geteslintcorerule.js-tests/helpers/geteslintcorerule.js-1-11",
                 "DA-antecedents": [
-                    "create-lib/rules/void-dom-elements-no-children.js-66-164 | {\"id\":46 - \"parents\":[]}"
+                    "create-lib/rules/void-dom-elements-no-children.js-66-164 | {\"id\":48 - \"parents\":[]}"
                 ],
                 "status": "Berke Unique",
                 "DA-evaluation": "false"
+            },
+            {
+                "consequent": "sort-comp.js-tests/lib/rules/sort-comp.js-1-1287",
+                "FP-score": 0.6,
+                "support": 6,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/rules/sort-comp.js-386-405"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "docs/rules/sort-comp.md",
+                "FP-score": 0.4,
+                "support": 4,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/rules/sort-comp.js-386-405"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "getRefPropIndexes-lib/rules/sort-comp.js-139-229",
+                "FP-score": 0.4,
+                "support": 4,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/rules/sort-comp.js-386-405"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "checkIdentifiers-lib/rules/style-prop-object.js-63-75",
+                "FP-score": 0.6666666666666666,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/rules/style-prop-object.js-94-94"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "style-prop-object.js-tests/lib/rules/style-prop-object.js-1-308",
+                "FP-score": 0.6666666666666666,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/rules/style-prop-object.js-94-94"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "hasSecureRel-lib/rules/jsx-no-target-blank.js-88-105 | {\"id\":29 - \"parents\":[]}",
+                "FP-score": 0.5,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-53-53 | {\"id\":24 - \"parents\":[23]}"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-59-62 | {\"id\":33 - \"parents\":[34]}",
+                "FP-score": 0.5,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-53-53 | {\"id\":24 - \"parents\":[23]}"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "jsx-no-target-blank.js-tests/lib/rules/jsx-no-target-blank.js-1-404 | {\"id\":37 - \"parents\":[]}",
+                "FP-score": 0.5,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-53-53 | {\"id\":24 - \"parents\":[23]}"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "jsx-no-target-blank.js-lib/rules/jsx-no-target-blank.js-1-268 | {\"id\":38 - \"parents\":[37]}",
+                "FP-score": 0.5,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-53-53 | {\"id\":24 - \"parents\":[23]}"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "true parent"
+            },
+            {
+                "consequent": "docs/rules/jsx-no-target-blank.md",
+                "FP-score": 0.5,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-53-53 | {\"id\":24 - \"parents\":[23]}"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "CHANGELOG.md",
+                "FP-score": 0.5,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-53-53 | {\"id\":24 - \"parents\":[23]}"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-89-89 | {\"id\":30 - \"parents\":[29]}",
+                "FP-score": 0.5,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-53-53 | {\"id\":24 - \"parents\":[23]}"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "hasDynamicLink-lib/rules/jsx-no-target-blank.js-58-66 | {\"id\":34 - \"parents\":[]}",
+                "FP-score": 0.5,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-53-53 | {\"id\":24 - \"parents\":[23]}"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-lib/rules/display-name.js-258-260",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":43 - \"parents\":[39-26]}"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "length-lib/util/components.js-182-185 | {\"id\":35 - \"parents\":[26]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":43 - \"parents\":[39-26]}"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-lib/util/usedproptypes.js-562-564",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":43 - \"parents\":[39-26]}"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "no-unused-prop-types.js-lib/rules/no-unused-prop-types.js-1-174",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":43 - \"parents\":[39-26]}"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "list-lib/util/components.js-138-174 | {\"id\":39 - \"parents\":[26]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":43 - \"parents\":[39-26]}"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "true parent"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-lib/util/components.js-184-184 | {\"id\":36 - \"parents\":[35-26]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":43 - \"parents\":[39-26]}"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-lib/rules/no-multi-comp.js-69-75",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":43 - \"parents\":[39-26]}"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-lib/rules/no-set-state.js-79-81",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":43 - \"parents\":[39-26]}"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-lib/util/components.js-166-172 | {\"id\":40 - \"parents\":[39-26]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":43 - \"parents\":[39-26]}"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-lib/rules/prop-types.js-191-193",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":43 - \"parents\":[39-26]}"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-lib/rules/require-optimization.js-231-233",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":43 - \"parents\":[39-26]}"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-lib/util/components.js-144-144 | {\"id\":41 - \"parents\":[39-26-43]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":43 - \"parents\":[39-26]}"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-lib/util/components.js-166-166 | {\"id\":42 - \"parents\":[39-26-40]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":43 - \"parents\":[39-26]}"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-lib/rules/boolean-prop-naming.js-367-393",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":43 - \"parents\":[39-26]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "markPropTypesAsUsed-lib/util/usedproptypes.js-301-416",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":43 - \"parents\":[39-26]}"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-lib/rules/require-default-props.js-180-193",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":43 - \"parents\":[39-26]}"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "jsx-filename-extension.js-tests/lib/rules/jsx-filename-extension.js-1-154 | {\"id\":31 - \"parents\":[]}",
@@ -1647,7 +2039,7 @@
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "forbid-foreign-prop-types.js-lib/rules/forbid-foreign-prop-types.js-1-135 | {\"id\":40 - \"parents\":[41]}",
+                "consequent": "forbid-foreign-prop-types.js-lib/rules/forbid-foreign-prop-types.js-1-135 | {\"id\":44 - \"parents\":[45]}",
                 "FP-score": 1,
                 "support": 1,
                 "FP-antecedents": [
@@ -1707,7 +2099,7 @@
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "forbid-foreign-prop-types.js-tests/lib/rules/forbid-foreign-prop-types.js-1-225 | {\"id\":41 - \"parents\":[]}",
+                "consequent": "forbid-foreign-prop-types.js-tests/lib/rules/forbid-foreign-prop-types.js-1-225 | {\"id\":45 - \"parents\":[]}",
                 "FP-score": 1,
                 "support": 1,
                 "FP-antecedents": [
@@ -1719,120 +2111,12 @@
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "list-lib/util/components.js-138-174 | {\"id\":37 - \"parents\":[26]}",
-                "FP-score": 0.8,
-                "support": 4,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":39 - \"parents\":[37-26]}"
-                    ]
-                ],
-                "status": "common",
-                "FP-evaluation": "true parent"
-            },
-            {
-                "consequent": "checkIdentifiers-lib/rules/style-prop-object.js-63-75",
-                "FP-score": 0.6666666666666666,
-                "support": 2,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-lib/rules/style-prop-object.js-94-94"
-                    ]
-                ],
-                "status": "common",
-                "FP-evaluation": "false"
-            },
-            {
-                "consequent": "style-prop-object.js-tests/lib/rules/style-prop-object.js-1-308",
-                "FP-score": 0.6666666666666666,
-                "support": 2,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-lib/rules/style-prop-object.js-94-94"
-                    ]
-                ],
-                "status": "common",
-                "FP-evaluation": "true"
-            },
-            {
-                "consequent": "arrowAnonymousFunction-lib/util/components.js-166-172 | {\"id\":38 - \"parents\":[37-26]}",
-                "FP-score": 0.6,
-                "support": 3,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":39 - \"parents\":[37-26]}"
-                    ]
-                ],
-                "status": "common",
-                "FP-evaluation": "true"
-            },
-            {
-                "consequent": "sort-comp.js-tests/lib/rules/sort-comp.js-1-1287",
-                "FP-score": 0.6,
-                "support": 6,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-lib/rules/sort-comp.js-386-405"
-                    ]
-                ],
-                "status": "common",
-                "FP-evaluation": "true"
-            },
-            {
-                "consequent": "hasSecureRel-lib/rules/jsx-no-target-blank.js-88-105 | {\"id\":29 - \"parents\":[]}",
-                "FP-score": 0.5,
-                "support": 2,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-53-53 | {\"id\":24 - \"parents\":[23]}"
-                    ]
-                ],
-                "status": "common",
-                "FP-evaluation": "false"
-            },
-            {
-                "consequent": "arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-59-62 | {\"id\":33 - \"parents\":[34]}",
-                "FP-score": 0.5,
-                "support": 2,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-53-53 | {\"id\":24 - \"parents\":[23]}"
-                    ]
-                ],
-                "status": "common",
-                "FP-evaluation": "true"
-            },
-            {
-                "consequent": "jsx-no-target-blank.js-tests/lib/rules/jsx-no-target-blank.js-1-404 | {\"id\":35 - \"parents\":[]}",
-                "FP-score": 0.5,
-                "support": 2,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-53-53 | {\"id\":24 - \"parents\":[23]}"
-                    ]
-                ],
-                "status": "common",
-                "FP-evaluation": "true"
-            },
-            {
-                "consequent": "jsx-no-target-blank.js-lib/rules/jsx-no-target-blank.js-1-268 | {\"id\":36 - \"parents\":[35]}",
-                "FP-score": 0.5,
-                "support": 2,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-53-53 | {\"id\":24 - \"parents\":[23]}"
-                    ]
-                ],
-                "status": "common",
-                "FP-evaluation": "true parent"
-            },
-            {
                 "consequent": "index.js-index.js-1-188",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "create-lib/rules/void-dom-elements-no-children.js-66-164 | {\"id\":46 - \"parents\":[]}"
+                        "create-lib/rules/void-dom-elements-no-children.js-66-164 | {\"id\":48 - \"parents\":[]}"
                     ]
                 ],
                 "status": "common",
@@ -1851,12 +2135,12 @@
                 "FP-evaluation": "true parent"
             },
             {
-                "consequent": "componentRule-lib/util/components.js-283-943 | {\"id\":42 - \"parents\":[26]}",
+                "consequent": "componentRule-lib/util/components.js-283-943 | {\"id\":46 - \"parents\":[26]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "create-lib/rules/void-dom-elements-no-children.js-66-164 | {\"id\":46 - \"parents\":[]}"
+                        "create-lib/rules/void-dom-elements-no-children.js-66-164 | {\"id\":48 - \"parents\":[]}"
                     ]
                 ],
                 "status": "common",
@@ -1868,47 +2152,23 @@
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "create-lib/rules/void-dom-elements-no-children.js-66-164 | {\"id\":46 - \"parents\":[]}"
+                        "create-lib/rules/void-dom-elements-no-children.js-66-164 | {\"id\":48 - \"parents\":[]}"
                     ]
                 ],
                 "status": "common",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "arrowAnonymousFunction-lib/rules/void-dom-elements-no-children.js-87-93 | {\"id\":45 - \"parents\":[46]}",
+                "consequent": "arrowAnonymousFunction-lib/rules/void-dom-elements-no-children.js-87-93 | {\"id\":47 - \"parents\":[48]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "create-lib/rules/void-dom-elements-no-children.js-66-164 | {\"id\":46 - \"parents\":[]}"
+                        "create-lib/rules/void-dom-elements-no-children.js-66-164 | {\"id\":48 - \"parents\":[]}"
                     ]
                 ],
                 "status": "common",
                 "FP-evaluation": "true children"
-            },
-            {
-                "consequent": "docs/rules/jsx-no-target-blank.md",
-                "FP-score": 0.5,
-                "support": 2,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-53-53 | {\"id\":24 - \"parents\":[23]}"
-                    ]
-                ],
-                "status": "common",
-                "FP-evaluation": "true"
-            },
-            {
-                "consequent": "CHANGELOG.md",
-                "FP-score": 0.5,
-                "support": 2,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-53-53 | {\"id\":24 - \"parents\":[23]}"
-                    ]
-                ],
-                "status": "common",
-                "FP-evaluation": "true"
             },
             {
                 "consequent": "README.md",
@@ -1916,7 +2176,7 @@
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "create-lib/rules/void-dom-elements-no-children.js-66-164 | {\"id\":46 - \"parents\":[]}"
+                        "create-lib/rules/void-dom-elements-no-children.js-66-164 | {\"id\":48 - \"parents\":[]}"
                     ]
                 ],
                 "status": "common",
@@ -1928,59 +2188,47 @@
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "create-lib/rules/void-dom-elements-no-children.js-66-164 | {\"id\":46 - \"parents\":[]}"
+                        "create-lib/rules/void-dom-elements-no-children.js-66-164 | {\"id\":48 - \"parents\":[]}"
                     ]
                 ],
                 "status": "common",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "void-dom-elements-no-children.js-lib/rules/void-dom-elements-no-children.js-1-166 | {\"id\":47 - \"parents\":[48]}",
+                "consequent": "void-dom-elements-no-children.js-lib/rules/void-dom-elements-no-children.js-1-166 | {\"id\":49 - \"parents\":[50]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "create-lib/rules/void-dom-elements-no-children.js-66-164 | {\"id\":46 - \"parents\":[]}"
+                        "create-lib/rules/void-dom-elements-no-children.js-66-164 | {\"id\":48 - \"parents\":[]}"
                     ]
                 ],
                 "status": "common",
                 "FP-evaluation": "true parent"
             },
             {
-                "consequent": "void-dom-elements-no-children.js-tests/lib/rules/void-dom-elements-no-children.js-1-196 | {\"id\":48 - \"parents\":[]}",
+                "consequent": "void-dom-elements-no-children.js-tests/lib/rules/void-dom-elements-no-children.js-1-196 | {\"id\":50 - \"parents\":[]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "create-lib/rules/void-dom-elements-no-children.js-66-164 | {\"id\":46 - \"parents\":[]}"
+                        "create-lib/rules/void-dom-elements-no-children.js-66-164 | {\"id\":48 - \"parents\":[]}"
                     ]
                 ],
                 "status": "common",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-lib/rules/void-dom-elements-no-children.js-146-152 | {\"id\":49 - \"parents\":[46]}",
+                "consequent": "arrowAnonymousFunction-lib/rules/void-dom-elements-no-children.js-146-152 | {\"id\":51 - \"parents\":[48]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "create-lib/rules/void-dom-elements-no-children.js-66-164 | {\"id\":46 - \"parents\":[]}"
+                        "create-lib/rules/void-dom-elements-no-children.js-66-164 | {\"id\":48 - \"parents\":[]}"
                     ]
                 ],
                 "status": "common",
                 "FP-evaluation": "true children"
-            },
-            {
-                "consequent": "arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-89-89 | {\"id\":30 - \"parents\":[29]}",
-                "FP-score": 0.5,
-                "support": 2,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-53-53 | {\"id\":24 - \"parents\":[23]}"
-                    ]
-                ],
-                "status": "common",
-                "FP-evaluation": "true"
             },
             {
                 "consequent": "prop-types.js-tests/lib/rules/prop-types.js-1-8205",
@@ -1989,18 +2237,6 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-lib/util/componentutil.js-87-87"
-                    ]
-                ],
-                "status": "common",
-                "FP-evaluation": "true"
-            },
-            {
-                "consequent": "hasDynamicLink-lib/rules/jsx-no-target-blank.js-58-66 | {\"id\":34 - \"parents\":[]}",
-                "FP-score": 0.5,
-                "support": 2,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-lib/rules/jsx-no-target-blank.js-53-53 | {\"id\":24 - \"parents\":[23]}"
                     ]
                 ],
                 "status": "common",
@@ -2041,7 +2277,7 @@
                 "support": 4,
                 "confidence": 0.4,
                 "consequent": "docs/rules/sort-comp.md",
-                "status": "TARMAQ Unique",
+                "status": "common",
                 "FP-evaluation": "true"
             },
             {
@@ -2049,7 +2285,7 @@
                 "support": 4,
                 "confidence": 0.4,
                 "consequent": "getRefPropIndexes-lib/rules/sort-comp.js-139-229",
-                "status": "TARMAQ Unique",
+                "status": "common",
                 "FP-evaluation": "true"
             },
             {
@@ -2226,7 +2462,7 @@
                 "support": 2,
                 "confidence": 0.4,
                 "consequent": "markPropTypesAsUsed-lib/util/usedproptypes.js-301-416",
-                "status": "TARMAQ Unique",
+                "status": "common",
                 "FP-evaluation": "true"
             },
             {
@@ -2234,7 +2470,7 @@
                 "support": 2,
                 "confidence": 0.4,
                 "consequent": "no-unused-prop-types.js-lib/rules/no-unused-prop-types.js-1-174",
-                "status": "TARMAQ Unique",
+                "status": "common",
                 "FP-evaluation": "true"
             },
             {
@@ -2250,7 +2486,7 @@
                 "support": 2,
                 "confidence": 0.4,
                 "consequent": "arrowAnonymousFunction-lib/util/components.js-144-144",
-                "status": "TARMAQ Unique",
+                "status": "common",
                 "FP-evaluation": "true"
             },
             {
@@ -2258,7 +2494,7 @@
                 "support": 2,
                 "confidence": 0.4,
                 "consequent": "arrowAnonymousFunction-lib/util/components.js-166-166",
-                "status": "TARMAQ Unique",
+                "status": "common",
                 "FP-evaluation": "false"
             },
             {
@@ -2266,7 +2502,7 @@
                 "support": 2,
                 "confidence": 0.4,
                 "consequent": "arrowAnonymousFunction-lib/util/components.js-184-184",
-                "status": "TARMAQ Unique",
+                "status": "common",
                 "FP-evaluation": "false"
             },
             {
@@ -2274,7 +2510,7 @@
                 "support": 2,
                 "confidence": 0.4,
                 "consequent": "length-lib/util/components.js-182-185",
-                "status": "TARMAQ Unique",
+                "status": "common",
                 "FP-evaluation": "false"
             },
             {
@@ -2289,7 +2525,7 @@
                 "support": 2,
                 "confidence": 0.4,
                 "consequent": "arrowAnonymousFunction-lib/rules/display-name.js-258-260",
-                "status": "TARMAQ Unique",
+                "status": "common",
                 "FP-evaluation": "false"
             },
             {
@@ -2304,7 +2540,7 @@
                 "support": 2,
                 "confidence": 0.4,
                 "consequent": "arrowAnonymousFunction-lib/rules/no-multi-comp.js-69-75",
-                "status": "TARMAQ Unique",
+                "status": "common",
                 "FP-evaluation": "false"
             },
             {
@@ -2319,7 +2555,7 @@
                 "support": 2,
                 "confidence": 0.4,
                 "consequent": "arrowAnonymousFunction-lib/rules/no-set-state.js-79-81",
-                "status": "TARMAQ Unique",
+                "status": "common",
                 "FP-evaluation": "false"
             },
             {
@@ -2334,7 +2570,7 @@
                 "support": 2,
                 "confidence": 0.4,
                 "consequent": "arrowAnonymousFunction-lib/rules/prop-types.js-191-193",
-                "status": "TARMAQ Unique",
+                "status": "common",
                 "FP-evaluation": "false"
             },
             {
@@ -2342,7 +2578,7 @@
                 "support": 2,
                 "confidence": 0.4,
                 "consequent": "arrowAnonymousFunction-lib/rules/require-default-props.js-180-193",
-                "status": "TARMAQ Unique",
+                "status": "common",
                 "FP-evaluation": "false"
             },
             {
@@ -2364,7 +2600,7 @@
                 "support": 2,
                 "confidence": 0.4,
                 "consequent": "arrowAnonymousFunction-lib/rules/require-optimization.js-231-233",
-                "status": "TARMAQ Unique",
+                "status": "common",
                 "FP-evaluation": "false"
             },
             {
@@ -2379,7 +2615,7 @@
                 "support": 2,
                 "confidence": 0.4,
                 "consequent": "arrowAnonymousFunction-lib/util/usedproptypes.js-562-564",
-                "status": "TARMAQ Unique",
+                "status": "common",
                 "FP-evaluation": "false"
             },
             {
@@ -3678,7 +3914,7 @@
                 "support": 1,
                 "confidence": 0.1,
                 "consequent": "no-unused-prop-types.js-lib/rules/no-unused-prop-types.js-1-174",
-                "status": "TARMAQ Unique",
+                "status": "common",
                 "FP-evaluation": "true"
             },
             {
@@ -3733,14 +3969,14 @@
                     "evaluation result": "true"
                 },
                 {
-                    "consequent": "jsx-no-target-blank.js-tests/lib/rules/jsx-no-target-blank.js-1-404 | {\"id\":35 - \"parents\":[]}",
+                    "consequent": "jsx-no-target-blank.js-tests/lib/rules/jsx-no-target-blank.js-1-404 | {\"id\":37 - \"parents\":[]}",
                     "support": 2,
                     "FP-score": 0.5,
                     "status": "common",
                     "evaluation result": "true"
                 },
                 {
-                    "consequent": "jsx-no-target-blank.js-lib/rules/jsx-no-target-blank.js-1-268 | {\"id\":36 - \"parents\":[35]}",
+                    "consequent": "jsx-no-target-blank.js-lib/rules/jsx-no-target-blank.js-1-268 | {\"id\":38 - \"parents\":[37]}",
                     "support": 2,
                     "FP-score": 0.5,
                     "status": "common",
@@ -3775,6 +4011,159 @@
                     "evaluation result": "true"
                 }
             ],
+            "arrowAnonymousFunction-lib/rules/sort-comp.js-386-405": [
+                {
+                    "consequent": "sort-comp.js-tests/lib/rules/sort-comp.js-1-1287",
+                    "support": 6,
+                    "FP-score": 0.6,
+                    "status": "common",
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "docs/rules/sort-comp.md",
+                    "support": 4,
+                    "FP-score": 0.4,
+                    "status": "common",
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "getRefPropIndexes-lib/rules/sort-comp.js-139-229",
+                    "support": 4,
+                    "FP-score": 0.4,
+                    "status": "common",
+                    "evaluation result": "true"
+                }
+            ],
+            "arrowAnonymousFunction-lib/rules/style-prop-object.js-94-94": [
+                {
+                    "consequent": "checkIdentifiers-lib/rules/style-prop-object.js-63-75",
+                    "support": 2,
+                    "FP-score": 0.6666666666666666,
+                    "status": "common",
+                    "evaluation result": "false"
+                },
+                {
+                    "consequent": "style-prop-object.js-tests/lib/rules/style-prop-object.js-1-308",
+                    "support": 2,
+                    "FP-score": 0.6666666666666666,
+                    "status": "common",
+                    "evaluation result": "true"
+                }
+            ],
+            "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":43 - \"parents\":[39-26]}": [
+                {
+                    "consequent": "arrowAnonymousFunction-lib/rules/display-name.js-258-260",
+                    "support": 2,
+                    "FP-score": 0.4,
+                    "status": "common",
+                    "evaluation result": "false"
+                },
+                {
+                    "consequent": "length-lib/util/components.js-182-185 | {\"id\":35 - \"parents\":[26]}",
+                    "support": 2,
+                    "FP-score": 0.4,
+                    "status": "common",
+                    "evaluation result": "false"
+                },
+                {
+                    "consequent": "arrowAnonymousFunction-lib/util/usedproptypes.js-562-564",
+                    "support": 2,
+                    "FP-score": 0.4,
+                    "status": "common",
+                    "evaluation result": "false"
+                },
+                {
+                    "consequent": "no-unused-prop-types.js-lib/rules/no-unused-prop-types.js-1-174",
+                    "support": 2,
+                    "FP-score": 0.4,
+                    "status": "common",
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "list-lib/util/components.js-138-174 | {\"id\":39 - \"parents\":[26]}",
+                    "support": 2,
+                    "FP-score": 0.4,
+                    "status": "common",
+                    "evaluation result": "true parent"
+                },
+                {
+                    "consequent": "arrowAnonymousFunction-lib/util/components.js-184-184 | {\"id\":36 - \"parents\":[35-26]}",
+                    "support": 2,
+                    "FP-score": 0.4,
+                    "status": "common",
+                    "evaluation result": "false"
+                },
+                {
+                    "consequent": "arrowAnonymousFunction-lib/rules/no-multi-comp.js-69-75",
+                    "support": 2,
+                    "FP-score": 0.4,
+                    "status": "common",
+                    "evaluation result": "false"
+                },
+                {
+                    "consequent": "arrowAnonymousFunction-lib/rules/no-set-state.js-79-81",
+                    "support": 2,
+                    "FP-score": 0.4,
+                    "status": "common",
+                    "evaluation result": "false"
+                },
+                {
+                    "consequent": "arrowAnonymousFunction-lib/util/components.js-166-172 | {\"id\":40 - \"parents\":[39-26]}",
+                    "support": 2,
+                    "FP-score": 0.4,
+                    "status": "common",
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "arrowAnonymousFunction-lib/rules/prop-types.js-191-193",
+                    "support": 2,
+                    "FP-score": 0.4,
+                    "status": "common",
+                    "evaluation result": "false"
+                },
+                {
+                    "consequent": "arrowAnonymousFunction-lib/rules/require-optimization.js-231-233",
+                    "support": 2,
+                    "FP-score": 0.4,
+                    "status": "common",
+                    "evaluation result": "false"
+                },
+                {
+                    "consequent": "arrowAnonymousFunction-lib/util/components.js-144-144 | {\"id\":41 - \"parents\":[39-26-43]}",
+                    "support": 2,
+                    "FP-score": 0.4,
+                    "status": "common",
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "arrowAnonymousFunction-lib/util/components.js-166-166 | {\"id\":42 - \"parents\":[39-26-40]}",
+                    "support": 2,
+                    "FP-score": 0.4,
+                    "status": "common",
+                    "evaluation result": "false"
+                },
+                {
+                    "consequent": "arrowAnonymousFunction-lib/rules/boolean-prop-naming.js-367-393",
+                    "support": 2,
+                    "FP-score": 0.4,
+                    "status": "Berke Unique",
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "markPropTypesAsUsed-lib/util/usedproptypes.js-301-416",
+                    "support": 2,
+                    "FP-score": 0.4,
+                    "status": "common",
+                    "evaluation result": "true"
+                },
+                {
+                    "consequent": "arrowAnonymousFunction-lib/rules/require-default-props.js-180-193",
+                    "support": 2,
+                    "FP-score": 0.4,
+                    "status": "common",
+                    "evaluation result": "false"
+                }
+            ],
             "arrowAnonymousFunction-lib/rules/jsx-filename-extension.js-70-70": [
                 {
                     "consequent": "jsx-filename-extension.js-tests/lib/rules/jsx-filename-extension.js-1-154 | {\"id\":31 - \"parents\":[]}",
@@ -3807,7 +4196,7 @@
             ],
             "arrowAnonymousFunction-lib/rules/forbid-foreign-prop-types.js-124-124": [
                 {
-                    "consequent": "forbid-foreign-prop-types.js-lib/rules/forbid-foreign-prop-types.js-1-135 | {\"id\":40 - \"parents\":[41]}",
+                    "consequent": "forbid-foreign-prop-types.js-lib/rules/forbid-foreign-prop-types.js-1-135 | {\"id\":44 - \"parents\":[45]}",
                     "support": 1,
                     "FP-score": 1,
                     "status": "common",
@@ -3821,55 +4210,14 @@
                     "evaluation result": "true"
                 },
                 {
-                    "consequent": "forbid-foreign-prop-types.js-tests/lib/rules/forbid-foreign-prop-types.js-1-225 | {\"id\":41 - \"parents\":[]}",
+                    "consequent": "forbid-foreign-prop-types.js-tests/lib/rules/forbid-foreign-prop-types.js-1-225 | {\"id\":45 - \"parents\":[]}",
                     "support": 1,
                     "FP-score": 1,
                     "status": "common",
                     "evaluation result": "true"
                 }
             ],
-            "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":39 - \"parents\":[37-26]}": [
-                {
-                    "consequent": "list-lib/util/components.js-138-174 | {\"id\":37 - \"parents\":[26]}",
-                    "support": 4,
-                    "FP-score": 0.8,
-                    "status": "common",
-                    "evaluation result": "true parent"
-                },
-                {
-                    "consequent": "arrowAnonymousFunction-lib/util/components.js-166-172 | {\"id\":38 - \"parents\":[37-26]}",
-                    "support": 3,
-                    "FP-score": 0.6,
-                    "status": "common",
-                    "evaluation result": "true"
-                }
-            ],
-            "arrowAnonymousFunction-lib/rules/style-prop-object.js-94-94": [
-                {
-                    "consequent": "checkIdentifiers-lib/rules/style-prop-object.js-63-75",
-                    "support": 2,
-                    "FP-score": 0.6666666666666666,
-                    "status": "common",
-                    "evaluation result": "false"
-                },
-                {
-                    "consequent": "style-prop-object.js-tests/lib/rules/style-prop-object.js-1-308",
-                    "support": 2,
-                    "FP-score": 0.6666666666666666,
-                    "status": "common",
-                    "evaluation result": "true"
-                }
-            ],
-            "arrowAnonymousFunction-lib/rules/sort-comp.js-386-405": [
-                {
-                    "consequent": "sort-comp.js-tests/lib/rules/sort-comp.js-1-1287",
-                    "support": 6,
-                    "FP-score": 0.6,
-                    "status": "common",
-                    "evaluation result": "true"
-                }
-            ],
-            "create-lib/rules/void-dom-elements-no-children.js-66-164 | {\"id\":46 - \"parents\":[]}": [
+            "create-lib/rules/void-dom-elements-no-children.js-66-164 | {\"id\":48 - \"parents\":[]}": [
                 {
                     "consequent": "index.js-index.js-1-188",
                     "support": 1,
@@ -3878,7 +4226,7 @@
                     "evaluation result": "false"
                 },
                 {
-                    "consequent": "componentRule-lib/util/components.js-283-943 | {\"id\":42 - \"parents\":[26]}",
+                    "consequent": "componentRule-lib/util/components.js-283-943 | {\"id\":46 - \"parents\":[26]}",
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "common",
@@ -3892,7 +4240,7 @@
                     "evaluation result": "false"
                 },
                 {
-                    "consequent": "arrowAnonymousFunction-lib/rules/void-dom-elements-no-children.js-87-93 | {\"id\":45 - \"parents\":[46]}",
+                    "consequent": "arrowAnonymousFunction-lib/rules/void-dom-elements-no-children.js-87-93 | {\"id\":47 - \"parents\":[48]}",
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "common",
@@ -3913,21 +4261,21 @@
                     "evaluation result": "true"
                 },
                 {
-                    "consequent": "void-dom-elements-no-children.js-lib/rules/void-dom-elements-no-children.js-1-166 | {\"id\":47 - \"parents\":[48]}",
+                    "consequent": "void-dom-elements-no-children.js-lib/rules/void-dom-elements-no-children.js-1-166 | {\"id\":49 - \"parents\":[50]}",
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "common",
                     "evaluation result": "true parent"
                 },
                 {
-                    "consequent": "void-dom-elements-no-children.js-tests/lib/rules/void-dom-elements-no-children.js-1-196 | {\"id\":48 - \"parents\":[]}",
+                    "consequent": "void-dom-elements-no-children.js-tests/lib/rules/void-dom-elements-no-children.js-1-196 | {\"id\":50 - \"parents\":[]}",
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "common",
                     "evaluation result": "true"
                 },
                 {
-                    "consequent": "arrowAnonymousFunction-lib/rules/void-dom-elements-no-children.js-146-152 | {\"id\":49 - \"parents\":[46]}",
+                    "consequent": "arrowAnonymousFunction-lib/rules/void-dom-elements-no-children.js-146-152 | {\"id\":51 - \"parents\":[48]}",
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "common",
@@ -3985,7 +4333,7 @@
                     "evaluation result": "true"
                 }
             ],
-            "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":39 - \"parents\":[37-26]}": [
+            "arrowAnonymousFunction-lib/util/components.js-144-163 | {\"id\":43 - \"parents\":[39-26]}": [
                 {
                     "consequent": "get-lib/util/components.js-94-101 | {\"id\":25 - \"parents\":[26]}",
                     "status": "common",
@@ -4002,7 +4350,7 @@
                     "evaluation result": "true"
                 }
             ],
-            "create-lib/rules/void-dom-elements-no-children.js-66-164 | {\"id\":46 - \"parents\":[]}": [
+            "create-lib/rules/void-dom-elements-no-children.js-66-164 | {\"id\":48 - \"parents\":[]}": [
                 {
                     "consequent": "geteslintcorerule.js-tests/helpers/geteslintcorerule.js-1-11",
                     "status": "Berke Unique",

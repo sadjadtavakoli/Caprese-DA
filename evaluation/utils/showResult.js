@@ -45,6 +45,7 @@ function getStandardDeviation(array) {
 }
 
 function summarizeResult(filename) {
+    console.log(filename)
     let result = JSON.parse(fs.readFileSync(`${resultDirPath}${filename}${path.sep}results.json`));
     let summarizedResult = {}
     let changeSetInfo = averageCommitSize(result)
@@ -63,6 +64,7 @@ function summarizeResult(filename) {
 }
 
 function unitsContributionSummary(result) {
+    console.log(" * * * * * * * ")
     let uniqueDA = [];
     let uniqueFP = [];
     let commons = [];
@@ -109,11 +111,11 @@ function unitsContributionSummary(result) {
         let FPcounter = uniqueFPCounter + commonCounter
         let totalCounter = uniqueFPCounter + commonCounter + uniqueDACounter
 
-        let DAprecision = DAcounter ? DATruePositiveCounter / DAcounter : 0 // @TODO not sure it's the right way to have an average of ratios. 
+        let DAprecision = DATruePositiveCounter / DAcounter // @TODO not sure it's the right way to have an average of ratios. 
         if (DAcounter) DAPrecisions.push(DAprecision)
-        let FPprecision = FPcounter ? FPTruePositiveCounter / FPcounter : 0
-        if (DAcounter) FPPrecisions.push(FPprecision)
-        let totalPrecision = totalCounter ? TotalTruePositiveCounter / totalCounter : 0
+        let FPprecision = FPTruePositiveCounter / FPcounter
+        if (FPcounter) FPPrecisions.push(FPprecision)
+        let totalPrecision = TotalTruePositiveCounter / totalCounter
         if (totalCounter) totalPrecisions.push(totalPrecision)
 
     }
@@ -170,7 +172,6 @@ function approachesResultSummary(result, projectName) {
 }
 
 function approachSummary(result, approach) {
-    let totalImpactSetSize = 0
     let supports = []
     let confidences = []
     let impactSetSizes = []
@@ -259,7 +260,7 @@ function getExecutionTimes(projectName) {
     executionTimes[projectName][capreseName]['average'] = (executionTimes[projectName][capreseName]['average'] / 1000).toFixed(2)
     return executionTimes[projectName]
 }
-module.exports = { averageCommitSize }
+module.exports = { averageCommitSize, average }
 
 function rankResult() {
     return function (a, b) {
