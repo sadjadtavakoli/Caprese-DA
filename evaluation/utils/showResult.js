@@ -9,10 +9,11 @@ const tarmaqName = "tarmaq"
 
 if (process.argv[1].endsWith(path.basename(__filename))) {
     if (process.argv[2]) {
-        console.log(summarizeResult(process.argv[2]).summarizedResult)
-        console.log(summarizeResult(process.argv[2]).unitsContributionLatexRow)
-        console.log(summarizeResult(process.argv[2]).approachesLatexRow)
-        console.log(summarizeResult(process.argv[2]).changeSetInfoLatexRow)
+        let { summarizedResult, unitsContributionLatexRow, approachesLatexRow, changeSetInfoLatexRow } = summarizeResult(process.argv[2])
+        console.log(summarizedResult)
+        console.log(unitsContributionLatexRow)
+        console.log(approachesLatexRow)
+        console.log(changeSetInfoLatexRow)
     } else {
         let projects_list = ["eslint-plugin-react", "ws", "cla-assistant", "grant", "markdown-it", "environment", "nodejs-cloudant", "assemble", "express", "session", "jhipster-uml", "neo-async"]
 

@@ -29,11 +29,19 @@ const approachesDataColumnOrdeing = {
         tarmaq: ["average"]
     }
 }
+const executionTimeColumnOrdeing = {
+    DA: ["average"],
+    FP: ["average"],
+    berke: ["average"],
+    tarmaq: ["average"]
+}
 
 const menaAveragePrecisionOrdering = {
     "berke": [10, 20, 30, 60, "all"],
-    "tarmaq": [10, 20, 30, 60, "all"]
+    "tarmaq": [10, 20, 30, 60, "all"],
+    "fp": [10, 20, 30, 60, "all"]
 }
+
 const benchmarksInfoOrdering = ["# Commits", "# Change-sequences", "Unique #functions","LOC", "JavaScript Percentage"]
 const changeSetInfoOrdering = ["min", "max", "avg"]
 
@@ -44,6 +52,10 @@ function unitsContributionToLatex(data) {
 
 function approachesComparisonToLatex(data) {
     return toLatex(data, approachesDataColumnOrdeing)
+}
+
+function executionTimeToLatex(data) {
+    return toLatexOneLevel(data, executionTimeColumnOrdeing)
 }
 
 function benchmarksInfoLatexRow(data) {
@@ -119,4 +131,5 @@ function getFullTable(projectsData) {
     return finalTable
 }
 
-module.exports = { unitsContributionToLatex, approachesComparisonToLatex, getFullTable, benchmarksInfoLatexRow, changeSetLatexRow, meanAveragePrecisionLatexRow}
+module.exports = { unitsContributionToLatex, approachesComparisonToLatex, getFullTable, 
+    benchmarksInfoLatexRow, changeSetLatexRow, meanAveragePrecisionLatexRow, executionTimeToLatex}

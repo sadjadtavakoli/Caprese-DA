@@ -108,14 +108,6 @@
                 "DA-evaluation": "true"
             },
             {
-                "consequent": "geteslintcorerule.js-tests/helpers/geteslintcorerule.js-1-11",
-                "DA-antecedents": [
-                    "getErrorMessages-tests/lib/rules/no-unused-state.js-23-28 | {\"id\":15 - \"parents\":[]}"
-                ],
-                "status": "Berke Unique",
-                "DA-evaluation": "false"
-            },
-            {
                 "consequent": "arrowAnonymousFunction-lib/rules/no-unused-state.js-150-156 | {\"id\":0 - \"parents\":[1]}",
                 "DA-antecedents": [
                     "getName-lib/rules/no-unused-state.js-29-43"
@@ -743,13 +735,6 @@
                     "consequent": "isStateParameterReference-lib/rules/no-unused-state.js-101-129",
                     "status": "Berke Unique",
                     "evaluation result": "true"
-                }
-            ],
-            "getErrorMessages-tests/lib/rules/no-unused-state.js-23-28 | {\"id\":15 - \"parents\":[]}": [
-                {
-                    "consequent": "geteslintcorerule.js-tests/helpers/geteslintcorerule.js-1-11",
-                    "status": "Berke Unique",
-                    "evaluation result": "false"
                 }
             ]
         }
@@ -1669,14 +1654,6 @@
                 ],
                 "status": "Berke Unique",
                 "DA-evaluation": "true"
-            },
-            {
-                "consequent": "geteslintcorerule.js-tests/helpers/geteslintcorerule.js-1-11",
-                "DA-antecedents": [
-                    "create-lib/rules/void-dom-elements-no-children.js-66-164 | {\"id\":48 - \"parents\":[]}"
-                ],
-                "status": "Berke Unique",
-                "DA-evaluation": "false"
             },
             {
                 "consequent": "sort-comp.js-tests/lib/rules/sort-comp.js-1-1287",
@@ -4348,13 +4325,6 @@
                     "consequent": "mergeUsedPropTypes-lib/util/components.js-40-47 | {\"id\":28 - \"parents\":[26]}",
                     "status": "Berke Unique",
                     "evaluation result": "true"
-                }
-            ],
-            "create-lib/rules/void-dom-elements-no-children.js-66-164 | {\"id\":48 - \"parents\":[]}": [
-                {
-                    "consequent": "geteslintcorerule.js-tests/helpers/geteslintcorerule.js-1-11",
-                    "status": "Berke Unique",
-                    "evaluation result": "false"
                 }
             ]
         }

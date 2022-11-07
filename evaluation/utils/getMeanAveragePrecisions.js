@@ -12,14 +12,14 @@ projects_list.forEach(filename => {
     const RESULT_PATH = `${resultDirPath}${filename}${path.sep}results.json`
     // console.log(RESULT_PATH)
     let evaluationResult = JSON.parse(fs.readFileSync(RESULT_PATH));
-    let benchResult = { "FP": {}, "tarmaq": {}, "berke": {} }
-    console.log(filename)
+    let benchResult = { "fp": {}, "tarmaq": {}, "berke": {} }
+    // console.log(filename)
     for (let threshold of thresholds) {
         // console.log("* * * * *")
         // console.log(threshold)
-        benchResult["FP"][threshold] = getFPAveragePrecision(evaluationResult, threshold)
-        benchResult["tarmaq"][threshold] = approachSummary(evaluationResult, "tarmaq", threshold)
-        benchResult["berke"][threshold] = approachSummary(evaluationResult, "berke", threshold)
+        benchResult["fp"][threshold] = getFPMeanPrecision(evaluationResult, threshold)
+        benchResult["tarmaq"][threshold] = approachMeanPrecision(evaluationResult, "tarmaq", threshold)
+        benchResult["berke"][threshold] = approachMeanPrecision(evaluationResult, "berke", threshold)
     }
     result[filename] = benchResult
     latexRows[filename] = meanAveragePrecisionLatexRow(benchResult)
@@ -27,7 +27,7 @@ projects_list.forEach(filename => {
 
 console.log(getFullTable(latexRows))
 
-function getFPAveragePrecision(result, threshold) {
+function getFPMeanPrecision(result, threshold) {
     let precisions = []
 
     for (let commit in result) {
@@ -53,7 +53,7 @@ function getFPAveragePrecision(result, threshold) {
     return "-"
 }
 
-function approachSummary(result, approach, threshold) {
+function approachMeanPrecision(result, approach, threshold) {
     let precisions = []
 
     for (let commit in result) {
@@ -65,11 +65,20 @@ function approachSummary(result, approach, threshold) {
         }
 
         let truePositiveCounter = 0;
+        // let maxItem = 0
         for (let index = 0; index < _threshold; index += 1) {
+            // maxItem = index + 1
             let consequentInfo = impactset[index]
-            console.log(consequentInfo)
+            // if(consequentInfo['confidence']!=undefined && consequentInfo['confidence']<0.4){
+                // break;
+            // }
             truePositiveCounter = increaseIfIsTruePositive(truePositiveCounter, consequentInfo['DA-evaluation'] + " " + consequentInfo['FP-evaluation'])
         }
+        // console.log(approach, _threshold, maxItem)
+        // if(maxItem != 0){
+        //     let precision = truePositiveCounter / maxItem
+        //     precisions.push(precision);
+        // } 
         if(_threshold != 0){
             let precision = truePositiveCounter / _threshold
             precisions.push(precision);

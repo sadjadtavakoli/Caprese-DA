@@ -12,13 +12,24 @@ function computeBerkeResult(changes) {
 
     intrepretFPData(impactSet);
 
-    findFunctionsRelations(impactSet, changes)
+    // findFunctionsRelations(impactSet, changes)
 
     let impactSetOrderedList = sort(impactSet);
 
-    impactSetOrderedList = replaceKeysWithObjects(impactSetOrderedList)
+    // impactSetOrderedList = replaceKeysWithObjects(impactSetOrderedList)
 
     fs.writeFileSync(constants.Berke_RESULT_PATH, JSON.stringify(impactSetOrderedList));
+}
+
+
+function computeBerkeResultNoDA(changes) {
+    let impactSet = new Map()
+
+    intrepretFPDataNoDA(impactSet);
+
+    let impactSetOrderedList = sort(impactSet);
+
+    fs.writeFileSync(constants.Berke_RESULT_PATH+"NoDA.json", JSON.stringify(impactSetOrderedList));
 }
 
 function sort(impactSet) {
@@ -113,6 +124,17 @@ function intrepretFPData(impactSet) {
             } else {
                 impactSet.set(impacted, info);
             }
+        }
+    }
+}
+
+function intrepretFPDataNoDA(impactSet) {
+    let FPimapctSet = JSON.parse(fs.readFileSync(constants.FP_RESULT_PATH));
+    let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(" ");
+    for (let impacted in FPimapctSet) {
+        let info = FPimapctSet[impacted];
+        if (!removed.includes(impacted)) {
+            impactSet.set(impacted, info);
         }
     }
 }
@@ -226,4 +248,4 @@ function stringifyFunctionObject(object) {
 
     return ` | {"id":${object['id']} - "parents":[${object['parents'].join("-")}]}`
 }
-module.exports = { computeBerkeResult , anonymouseName}
+module.exports = { computeBerkeResult , anonymouseName, computeBerkeResultNoDA}

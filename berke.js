@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const { exec } = require('child_process');
 const constants = require('./constants.js');
-const { computeBerkeResult } = require("./computeBerkeResult");
+const { computeBerkeResult, computeBerkeResultNoDA } = require("./computeBerkeResult");
 
 let changeSet = []
 
@@ -38,6 +38,13 @@ async function evaluationAnalyzer(changes) {
     changeSet = changes
     await runFP()
     computeBerkeResult(changes)
+}
+
+async function tempFP(changes){
+    changeSet = changes
+    await runFP()
+    computeBerkeResultNoDA(changes)
+
 }
 
 async function getParentCommit(commit) {
@@ -100,4 +107,4 @@ function getChangeSet() {
     return changeSet
 }
 
-module.exports = { evaluationAnalyzer, evaluationGetMainData }
+module.exports = { evaluationAnalyzer, evaluationGetMainData, tempFP, runDynamicAnalysis }

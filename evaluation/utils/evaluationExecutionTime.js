@@ -1,14 +1,14 @@
 const constants = require('../../constants.js');
 const fs = require('fs');
 const path = require('path')
-const { evaluationAnalyzer } = require('../../berke');
+const { evaluationAnalyzer, tempFP, runDynamicAnalysis} = require('../../berke');
 const { runTARMAQ } = require('../evaluation')
 const { performance } = require('perf_hooks');
 
 const RESULT_DIR_PATH = `${path.dirname(__dirname)}${path.sep}result${path.sep}${constants.PROJECT_NAME}`;
 
 const RESULT_PATH = `${RESULT_DIR_PATH}${path.sep}results.json`
-const EXECUTION_TIMES_PATH = `${path.dirname(__dirname)}${path.sep}result${path.sep}executionTime.json`
+const EXECUTION_TIMES_PATH = `${path.dirname(__dirname)}${path.sep}result${path.sep}executionTimeAll.json`
 
 if (process.argv[1].endsWith(path.basename(__filename))) {
 
@@ -19,14 +19,18 @@ if (process.argv[1].endsWith(path.basename(__filename))) {
     }
     let tarmaqExecutionTime = [];
     let capreseExectionTime = [];
+    let FPExectionTime = [];
+    let DAExectionTime = [];
     let executionTimes = JSON.parse(fs.readFileSync(EXECUTION_TIMES_PATH))
-    testSetGenerator()
+    getEvaluationTime(runDynamicAnalysis, undefined, DAExectionTime)
+    .then(() => testSetGenerator()
         .then((candidatedCommits) => {
             let testSet = [...candidatedCommits.keys()]
             testSet = testSet.reduce(
                 (p, x) => p.then(() => {
                     candidatedCommits.get(x)
                     return getEvaluationTime(evaluationAnalyzer, x, capreseExectionTime)
+                        .then(() => getEvaluationTime(tempFP, x, FPExectionTime))
                         .then(() => getEvaluationTime(runTARMAQ, x, tarmaqExecutionTime))
 
                 }),
@@ -40,6 +44,12 @@ if (process.argv[1].endsWith(path.basename(__filename))) {
                 },
                 "berke": {
                     "all": capreseExectionTime, "average": average(capreseExectionTime),
+                },
+                "FP": {
+                    "all": FPExectionTime, "average": average(FPExectionTime),
+                },
+                "DA": {
+                    "all": average(DAExectionTime)
                 }
             }
             executionTimes[constants.PROJECT_NAME] = executionTime
@@ -49,7 +59,7 @@ if (process.argv[1].endsWith(path.basename(__filename))) {
         })
         .catch(error => {
             console.log(error)
-        })
+        }))
 }
 
 function testSetGenerator() {
