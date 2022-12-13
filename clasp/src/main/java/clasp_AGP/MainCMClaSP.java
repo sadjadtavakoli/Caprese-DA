@@ -24,7 +24,7 @@ public class MainCMClaSP {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        double minumumConfidence = 0.5;
+        double minumumConfidence = 0.4;
         double enoughConfidence = minumumConfidence;
         String filePath = args[0];
         String distFilePath = args[1];
@@ -32,15 +32,7 @@ public class MainCMClaSP {
         if ("-".equals(itemConstraint.get(0))) {
             itemConstraint = new ArrayList<>();
         }
-        Runtime rt = Runtime.getRuntime();
-        long totalMem = rt.totalMemory();
-        long maxMem = rt.maxMemory();
-        long freeMem = rt.freeMemory();
-        double megs = 1048576.0;
 
-        System.out.println("Total Memory: " + totalMem + " (" + (totalMem / megs) + " MiB)");
-        System.out.println("Max Memory:   " + maxMem + " (" + (maxMem / megs) + " MiB)");
-        System.out.println("Free Memory:  " + freeMem + " (" + (freeMem / megs) + " MiB)");
         System.out.println(runFile(itemConstraint, minumumConfidence, enoughConfidence, filePath, distFilePath));
     }
 
@@ -63,11 +55,9 @@ public class MainCMClaSP {
 
         sequenceDatabase.loadFile(filePath);
 
-        AlgoCM_ClaSP algorithm = new AlgoCM_ClaSP(minimumConfidence, enoughConfidence, abstractionCreator);
+        AlgoCMClaSP algorithm = new AlgoCMClaSP(minimumConfidence, enoughConfidence, abstractionCreator);
 
         algorithm.runAlgorithm(sequenceDatabase, outputPath);
-
-        // System.out.println(algorithm.printStatistics());
 
         return algorithm.getResut();
     }

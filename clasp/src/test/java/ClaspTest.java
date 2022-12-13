@@ -226,7 +226,6 @@ public class ClaspTest {
                 Map<String, ImpactInformation> result = MainCMClaSP.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
 
-                Integer expectedSize = 1;
                 Map<String, Object[]> expectedValues = new HashMap<>();
                 Object[] values = {1.0, 3, "[[\"f\", \"g\"]]"};
                 expectedValues.put("h", values);
@@ -267,7 +266,6 @@ public class ClaspTest {
                 Map<String, ImpactInformation> result = MainCMClaSP.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
 
-                Integer expectedSize = 2;
                 Map<String, Object[]> expectedValues = new HashMap<>();
                 Object[] values = {1.0, 3, "[[\"f\", \"g\"]]"};
                 expectedValues.put("a", values);
@@ -312,7 +310,6 @@ public class ClaspTest {
                 System.out.println(result);
 
 
-                Integer expectedSize = 1;
                 Map<String, Object[]> expectedValues = new HashMap<>();
                 Object[] values = {0.5, 7, "[[\"f\"]]"};
                 expectedValues.put("a", values);
@@ -355,7 +352,6 @@ public class ClaspTest {
                 Map<String, ImpactInformation> result = MainCMClaSP.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
 
-                Integer expectedSize = 1;
                 Map<String, Object[]> expectedValues = new HashMap<>();
                 Object[] values = {0.5, 7, "[[\"f\"]]"};
                 expectedValues.put("a", values);
@@ -398,7 +394,6 @@ public class ClaspTest {
                 Map<String, ImpactInformation> result = MainCMClaSP.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
                 System.out.println(result);
 
-                Integer expectedSize = 1;
                 Map<String, Object[]> expectedValues = new HashMap<>();
                 Object[] values = {0.5, 7, "[[\"f\"]]"};
                 expectedValues.put("i", values);
