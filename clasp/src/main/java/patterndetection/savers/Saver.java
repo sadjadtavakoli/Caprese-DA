@@ -35,12 +35,6 @@ public interface Saver {
     
     public void finish();
 
-    public void clear();
-
-    public Integer resultSize();
-
-    public String print();
-
     public Map<String, ImpactInformation> getList();
     
 }

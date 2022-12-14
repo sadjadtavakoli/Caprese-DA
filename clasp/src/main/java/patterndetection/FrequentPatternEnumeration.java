@@ -167,6 +167,12 @@ public class FrequentPatternEnumeration {
                     patternIntersection, patternRegularFunctions,
                     itemConstraintsExtension, regularFunctionsExtension);
         }
+
+        for (Entry<String, ImpactInformation> impactedFunction : detectedFunctions.entrySet()) {
+            if (impactedFunction.getValue().getConfidence() >= minimumConfidence) { // @TODO do we really need that?
+                saver.saveImpactedFunctions(impactedFunction);
+            }
+        }
     }
 
     private void exploreChildren(Pattern pattern, TrieNode currentNode, List<TrieNode> extensions,
@@ -610,17 +616,6 @@ public class FrequentPatternEnumeration {
      */
     private static int keyStandardAndSupport(IDList projection, Trie trie) {
         return projection.getTotalElementsAfterPrefixes() + trie.getSupport();
-    }
-
-    /**
-     * it removes infrequent detected functions
-     */
-    void pruneImpactSet() {
-        for (Entry<String, ImpactInformation> impactedFunction : detectedFunctions.entrySet()) {
-            if (impactedFunction.getValue().getConfidence() >= minimumConfidence) { // @TODO do we really need that?
-                saver.saveImpactedFunctions(impactedFunction);
-            }
-        }
     }
 
     public void clear() {

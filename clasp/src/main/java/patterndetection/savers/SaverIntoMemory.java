@@ -37,17 +37,7 @@ import patterndetection.dataStructures.Sequences;
  */
 public class SaverIntoMemory implements Saver {
 
-    private Sequences patterns = null;
     private List<Entry<String, ImpactInformation>> detectedFunction;
-
-    public SaverIntoMemory() {
-        patterns = new Sequences("FREQUENT SEQUENTIAL PATTERNS");
-        detectedFunction = new ArrayList<>();
-    }
-
-    public SaverIntoMemory(String name) {
-        patterns = new Sequences(name);
-    }
 
     public void saveImpactedFunctions(Entry<String, ImpactInformation> impactedFunction){
         detectedFunction.add(impactedFunction);
@@ -55,23 +45,7 @@ public class SaverIntoMemory implements Saver {
 
     @Override
     public void finish() {
-        patterns.sort();
-    }
-
-    @Override
-    public void clear() {
-        patterns.clear();
-        patterns = null;
-    }
-
-    @Override
-    public Integer resultSize(){
-        return detectedFunction.size();
-    }
-
-    @Override
-    public String print() {
-        return detectedFunction.toString();
+        // empty
     }
 
     public Map<String, ImpactInformation> getList(){

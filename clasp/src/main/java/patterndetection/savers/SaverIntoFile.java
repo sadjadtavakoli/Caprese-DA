@@ -78,21 +78,6 @@ public class SaverIntoFile implements Saver {
         }
     }
 
-    @Override
-    public void clear() {
-        writer = null;
-    }
-
-    @Override
-    public Integer resultSize(){
-        return resultSize;
-    }
-
-    @Override
-    public String print() {
-        return "Content at file " + path;
-    }
-
     public Map<String, ImpactInformation> getList() {
         Map<String, ImpactInformation> empty = new HashMap<>();
         empty.put("Content at file " + path, ImpactInformation.nullObject());
