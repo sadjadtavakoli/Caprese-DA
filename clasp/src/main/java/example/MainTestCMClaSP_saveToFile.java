@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import clasp_AGP.MainCMClaSP;
+import clasp_AGP.MainAlgorithm;
 
 /**
  * Example of how to use the algorithm ClaSP, saving the results in a given file
@@ -45,6 +45,6 @@ public class MainTestCMClaSP_saveToFile {
             //  checkUniqueness -1 checkEmailUniqueness emailValidator -1 #SUP: 2"
         // AlgoCM_ClaSPExecutor.runFile(itemConstraint, support,
         // "contextPrefixSpan.txt", null);
-        System.out.println(MainCMClaSP.runList(itemConstraint, minimumConfidence, minimumConfidenceToStop, sequences, null));
+        System.out.println(MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidenceToStop, sequences, null));
     }
 }

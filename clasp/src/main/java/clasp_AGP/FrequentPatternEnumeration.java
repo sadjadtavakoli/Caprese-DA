@@ -48,7 +48,7 @@ import clasp_AGP.tries.TrieNode;
  *
  * @author agomariz
  */
-public class FrequentPatternEnumeration_ClaSP {
+public class FrequentPatternEnumeration {
 
     /**
      * The abstraction creator.
@@ -92,7 +92,7 @@ public class FrequentPatternEnumeration_ClaSP {
      * @param findClosedPatterns flag to indicate if we are interesting in only
      *                           finding the closed sequences
      */
-    public FrequentPatternEnumeration_ClaSP(AbstractionCreator abstractionCreator, double minimumConfidence,
+    public FrequentPatternEnumeration(AbstractionCreator abstractionCreator, double minimumConfidence,
             double enoughConfidence,
             Saver saver, Map<String, TrieNode> itemConstraints, Map<String, Set<String>> coocMap) {
         this.abstractionCreator = abstractionCreator;
@@ -596,7 +596,7 @@ public class FrequentPatternEnumeration_ClaSP {
          * If you are interested in changing the method, just comment the line of below
          * and uncomment one of the others
          */
-        return FrequentPatternEnumeration_ClaSP.keyStandardAndSupport(idlist, t);
+        return FrequentPatternEnumeration.keyStandardAndSupport(idlist, t);
     }
 
     /**
