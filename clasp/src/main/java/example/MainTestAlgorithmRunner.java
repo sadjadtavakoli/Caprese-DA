@@ -11,7 +11,7 @@ import patterndetection.MainAlgorithm;
  *
  * @author agomariz
  */
-public class MainTestCMClaSP_saveToFile {
+public class MainTestAlgorithmRunner {
 
     /**
      * @param args the command line arguments
@@ -35,7 +35,7 @@ public class MainTestCMClaSP_saveToFile {
             "g -1",
             "g -1"
         };
-            //  "checkUniqueness usernameValidator -1 #SUP: 1, 
+            //  "checkUniqueness usernameValidator -1 #SUP: 1,
             //  emailValidator usernameValidator -1 #SUP: 2, 
             //  random usernameValidator -1 #SUP: 0, 
             //  random -1 usernameValidator -1 #SUP: 2, 
@@ -45,6 +45,6 @@ public class MainTestCMClaSP_saveToFile {
             //  checkUniqueness -1 checkEmailUniqueness emailValidator -1 #SUP: 2"
         // AlgoCM_ClaSPExecutor.runFile(itemConstraint, support,
         // "contextPrefixSpan.txt", null);
-        System.out.println(MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidenceToStop, sequences, null));
+        MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidenceToStop, sequences, "outputOO_OO.txt");
     }
 }

@@ -69,13 +69,14 @@ public class SequenceDatabase {
      * Standard constructor
      * 
      * @param abstractionCreator
-     * @param IdListCreator
+     * @param idListCreator
      */
-    public SequenceDatabase(AbstractionCreator abstractionCreator, IdListCreator IdListCreator,
-            List<String> itemConstraintStrings) {
+    public SequenceDatabase(AbstractionCreator abstractionCreator, IdListCreator idListCreator,
+            List<String> itemConstraintStrings, String path) throws IOException {
         this.abstractionCreator = abstractionCreator;
-        this.idListCreator = IdListCreator;
+        this.idListCreator = idListCreator;
         this.itemConstraintStrings = itemConstraintStrings;
+        loadFile(path);
     }
 
     /**
@@ -108,7 +109,8 @@ public class SequenceDatabase {
                 nodo.getChild().getIdList().setAppearingIn(nodo.getChild());
             }
             // And from the original database
-            // reduceDatabase(frequentItems.keySet()); //@SADJAD we removed this step as well
+            // reduceDatabase(frequentItems.keySet()); //@SADJAD we removed this step as
+            // well
 
             /*
              * We initialize all the maps

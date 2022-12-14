@@ -72,11 +72,6 @@ public class FrequentPatternEnumeration {
      * be skipped because can be summarized by other ones (the closed patterns)
      */
     private Map<Integer, Map<Integer, List<Entry<Pattern, Trie>>>> matchingMap;
-    /**
-     * Saver variable to decide where the user want to save the results, if it the
-     * case
-     */
-    private Saver saver;
 
     private Map<String, Set<String>> coocMap;
     private Map<String, TrieNode> itemConstraints;
@@ -87,18 +82,15 @@ public class FrequentPatternEnumeration {
      *
      * @param abstractionCreator the abstraction creator
      * @param minimumConfidence  The minimum confidence
-     * @param saver              The saver for correctly save the results where the
      *                           user wants
      * @param findClosedPatterns flag to indicate if we are interesting in only
      *                           finding the closed sequences
      */
     public FrequentPatternEnumeration(AbstractionCreator abstractionCreator, double minimumConfidence,
-            double enoughConfidence,
-            Saver saver, Map<String, TrieNode> itemConstraints, Map<String, Set<String>> coocMap) {
+            double enoughConfidence, Map<String, TrieNode> itemConstraints, Map<String, Set<String>> coocMap) {
         this.abstractionCreator = abstractionCreator;
         this.minimumConfidence = minimumConfidence;
         this.enoughConfidence = enoughConfidence;
-        this.saver = saver;
         this.matchingMap = new HashMap<>();
         this.detectedFunctions = new HashMap<>();
         this.itemConstraints = itemConstraints;
@@ -114,7 +106,7 @@ public class FrequentPatternEnumeration {
      * @param verbose
      */
 
-    public void dfsPruning(Trie trie) {
+    public Map<String, ImpactInformation> dfsPruning(Trie trie) {
         int tam = trie.levelSize();
 
         List<TrieNode> firstSequenceExtensions = trie.getNodes();
@@ -158,24 +150,26 @@ public class FrequentPatternEnumeration {
             }
 
             /*
-             * The algorithm calls exploreChildren to produce new patterns and find the
+             * The algorithm calls patternExtension to produce new patterns and find the
              * impacted function.
              * This function gets a pattern of length one and the extension nodes after the
              * current item to create new patterns.
              */
-            exploreChildren(new Pattern(eq.getPair()), eq, firstSequenceExtensions, i + 1,
+            patternExtension(new Pattern(eq.getPair()), eq, firstSequenceExtensions, i + 1,
                     patternIntersection, patternRegularFunctions,
                     itemConstraintsExtension, regularFunctionsExtension);
         }
 
         for (Entry<String, ImpactInformation> impactedFunction : detectedFunctions.entrySet()) {
-            if (impactedFunction.getValue().getConfidence() >= minimumConfidence) { // @TODO do we really need that?
-                saver.saveImpactedFunctions(impactedFunction);
+            if (impactedFunction.getValue().getConfidence() < minimumConfidence) { // @TODO do we really need that?
+                detectedFunctions.remove(impactedFunction.getKey());
             }
         }
+        return detectedFunctions;
+
     }
 
-    private void exploreChildren(Pattern pattern, TrieNode currentNode, List<TrieNode> extensions,
+    private void patternExtension(Pattern pattern, TrieNode currentNode, List<TrieNode> extensions,
             int beginning, List<TrieNode> patternIntersection, List<String> patternRegularFunctions,
             List<Integer> extensionsIntersection,
             List<Integer> extensionsRegularFunctions) {
@@ -434,7 +428,7 @@ public class FrequentPatternEnumeration {
              * with extension nodes greater
              * than its last function
              */
-            exploreChildren(newPattern, nodeToExtend, newExtensions, lastNodeIndex + 1, newPatternIntersection,
+            patternExtension(newPattern, nodeToExtend, newExtensions, lastNodeIndex + 1, newPatternIntersection,
                     newPatternsRegularFunctions, newExtensionIntersection, newExtensionRegularFunctions);
 
             nodeToExtend.getChild().setIdList(null);

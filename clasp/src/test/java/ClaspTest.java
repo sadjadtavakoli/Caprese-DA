@@ -32,7 +32,6 @@ public class ClaspTest {
 
 
                 Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
-                System.out.println(result);
                 
                 Map<String, Object[]> expectedValues = new HashMap<>();
                 Object[] values = {0.6666666666666666, 2, "[[\"f\"]]"};
@@ -64,7 +63,6 @@ public class ClaspTest {
                 };
 
                 Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
-                System.out.println(result);
                 
                 Map<String, Object[]> expectedValues = new HashMap<>();
                 Object[] values = {0.6666666666666666, 2, "[[\"f\"]]"};
@@ -94,7 +92,6 @@ public class ClaspTest {
                                 "e f g -1" };
 
                 Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
-                System.out.println(result.toString());
                 
                 Map<String, Object[]> expectedValues = new HashMap<>();
                 Object[] values = {1.0, 1, "[[\"f\"]]"};
@@ -125,7 +122,6 @@ public class ClaspTest {
 
                 int expectedSize = 0;
                 Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
-                System.out.println(result.toString());
 
                 assertEquals(expectedSize, result.size());
         }
@@ -160,7 +156,7 @@ public class ClaspTest {
                 Integer expectedSize = 0;
 
                 Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
-                System.out.println(result);
+
                 assertEquals(expectedSize, result.size());
         }
 
@@ -185,7 +181,6 @@ public class ClaspTest {
                 };
 
                 Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
-                System.out.println(result);
 
                 Map<String, Object[]> expectedValues = new HashMap<>();
                 Object[] values = {1.0, 3, "[[\"f\", \"g\"]]"};
@@ -225,7 +220,6 @@ public class ClaspTest {
                 };
 
                 Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
-                System.out.println(result);
 
                 Map<String, Object[]> expectedValues = new HashMap<>();
                 Object[] values = {1.0, 3, "[[\"f\", \"g\"]]"};
@@ -265,7 +259,6 @@ public class ClaspTest {
                 };
 
                 Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
-                System.out.println(result);
 
                 Map<String, Object[]> expectedValues = new HashMap<>();
                 Object[] values = {1.0, 3, "[[\"f\", \"g\"]]"};
@@ -308,8 +301,6 @@ public class ClaspTest {
                 };
 
                 Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
-                System.out.println(result);
-
 
                 Map<String, Object[]> expectedValues = new HashMap<>();
                 Object[] values = {0.5, 7, "[[\"f\"]]"};
@@ -351,7 +342,6 @@ public class ClaspTest {
                 };
 
                 Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
-                System.out.println(result);
 
                 Map<String, Object[]> expectedValues = new HashMap<>();
                 Object[] values = {0.5, 7, "[[\"f\"]]"};
@@ -393,7 +383,6 @@ public class ClaspTest {
                 };
 
                 Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
-                System.out.println(result);
 
                 Map<String, Object[]> expectedValues = new HashMap<>();
                 Object[] values = {0.5, 7, "[[\"f\"]]"};
@@ -429,7 +418,6 @@ public class ClaspTest {
 
 
                 Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
-                System.out.println(result);
 
                 Map<String, Object[]> expectedValues = new HashMap<>();
                 Object[] values1 = {1.0, 4, "[[\"f\"]]"};
