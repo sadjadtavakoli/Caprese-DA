@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
-import clasp_AGP.MainAlgorithm;
-import clasp_AGP.dataStructures.ImpactInformation;
+
+import patterndetection.MainAlgorithm;
+import patterndetection.dataStructures.ImpactInformation;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;

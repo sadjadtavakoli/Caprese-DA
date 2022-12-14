@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import clasp_AGP.MainAlgorithm;
+import patterndetection.MainAlgorithm;
 
 /**
  * Example of how to use the algorithm ClaSP, saving the results in a given file
