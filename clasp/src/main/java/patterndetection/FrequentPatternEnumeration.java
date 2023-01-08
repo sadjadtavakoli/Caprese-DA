@@ -16,24 +16,13 @@ import patterndetection.dataStructures.creators.ItemAbstractionPairCreator;
 import patterndetection.dataStructures.patterns.Pattern;
 import patterndetection.idlists.IDList;
 import patterndetection.idlists.creators.IdListCreatorStandard_Map;
-import patterndetection.savers.Saver;
 import patterndetection.tries.Trie;
 import patterndetection.tries.TrieNode;
 
 /**
- * This is an implementation of the main method of ClaSP algorithm. We can use
- * different kind of IdList although we only makes a implementation:
- * IDListStandard_Mapkeep. However, if we make another new IdList implementing
- * the IDList interface, we can define another different.
- *
- * NOTE: This implementation saves the pattern to a file as soon as they are
- * found or can keep the pattern into memory, depending on what the user choose.
- *
- * Copyright Antonio Gomariz Peñalver 2013
- *
- * This file is part of the SPMF DATA MINING SOFTWARE
- * (http://www.philippe-fournier-viger.com/spmf).
- *
+ * This is an implementation of the main method of Caprese's pattern detection algorithm. 
+ * This implementation is based on SPMF. 
+
  * SPMF is free software: you can redistribute it and/or modify it under the
  * terms of the GNU General Public License as published by the Free Software
  * Foundation, either version 3 of the License, or (at your option) any later
@@ -46,7 +35,6 @@ import patterndetection.tries.TrieNode;
  * You should have received a copy of the GNU General Public License along with
  * If not, see <http://www.gnu.org/licenses/>.
  *
- * @author agomariz
  */
 public class FrequentPatternEnumeration {
 
@@ -182,7 +170,8 @@ public class FrequentPatternEnumeration {
          * subpattern or backward superpattern of the patterns that have been extended
          * so far.
          */
-        if (isAvoidable(pattern, currentTrie)) {
+        if (!checkNewEntitiesPossibility(pattern, currentTrie, patternRegularFunctions, patternIntersection, beginning,
+                extensions, extensionsRegularFunctions, extensionsIntersection)) {
             return;
         }
 
@@ -360,8 +349,9 @@ public class FrequentPatternEnumeration {
         }
 
         // The index of the last item constraint function existed in the extension nodes
-        Integer newLastExtensionIntersection = newExtensionIntersection.isEmpty() ? -1
-                : newExtensionIntersection.get(newExtensionIntersection.size() - 1);
+        // Integer newLastExtensionIntersection = newExtensionIntersection.isEmpty() ?
+        // -1
+        // : newExtensionIntersection.get(newExtensionIntersection.size() - 1);
 
         Integer extensionSize = newPatterns.size();
 
@@ -397,31 +387,32 @@ public class FrequentPatternEnumeration {
             // The algorithm get's the new pattern's undetected regular functions
             newPatternsRegularFunctions = getUndetectedRegularFunctionsInPattern(newPatternsRegularFunctions);
 
-            /*
-             * If newPattern does not have any functions with confidence less than enough,
-             * and no functions with not enough confidence remain
-             * in the nex extensionNodes, the algorithm breaks the iteration and stops any
-             * further extensions.
-             */
-            boolean noRegularFunctionToDetect = newPatternsRegularFunctions.isEmpty()
-                    && !hasUndetectedRegularFunctionsExtensions(lastNodeIndex + 1, newExtensions,
-                            newExtensionRegularFunctions);
-            if (noRegularFunctionToDetect) {
-                break;
-            }
+            // /*
+            // * If newPattern does not have any functions with confidence less than enough,
+            // * and no functions with not enough confidence remain
+            // * in the nex extensionNodes, the algorithm breaks the iteration and stops any
+            // * further extensions.
+            // */
+            // boolean noRegularFunctionToDetect = newPatternsRegularFunctions.isEmpty()
+            // && !hasUndetectedRegularFunctionsExtensions(lastNodeIndex + 1, newExtensions,
+            // newExtensionRegularFunctions);
+            // if (noRegularFunctionToDetect) {
+            // break;
+            // }
 
-            /*
-             * If newPattern does not include any item constraints functions, and also its
-             * last function
-             * is greater than the last item constraints, the algorithm breaks the iteration
-             * and
-             * stops any further extensions.
-             */
-            boolean noChangeSetFunctionToExtendWith = newPatternIntersection.isEmpty()
-                    && lastNodeIndex > newLastExtensionIntersection;
-            if (noChangeSetFunctionToExtendWith) {
-                break;
-            }
+            // /*
+            // * If newPattern does not include any item constraints functions, and also its
+            // * last function
+            // * is greater than the last item constraints, the algorithm breaks the
+            // iteration
+            // * and
+            // * stops any further extensions.
+            // */
+            // boolean noChangeSetFunctionToExtendWith = newPatternIntersection.isEmpty()
+            // && lastNodeIndex > newLastExtensionIntersection;
+            // if (noChangeSetFunctionToExtendWith) {
+            // break;
+            // }
 
             /*
              * The algorithm recursively calls exploreChildren function on the new pattern
@@ -493,9 +484,84 @@ public class FrequentPatternEnumeration {
      * @param trie   Trie associated with prefix
      * @return
      */
-    private boolean isAvoidable(Pattern prefix, Trie trie) {
-        // We get the support of the pattern
+    private boolean checkNewEntitiesPossibility(Pattern prefix, Trie trie, List<String> patternRegularFunctions,
+            List<TrieNode> patternIntersection,
+            int beginning, List<TrieNode> extensions, List<Integer> extensionsRegularFunctions,
+            List<Integer> extensionsIntersection) {
+
+        Integer newLastExtensionIntersection = extensionsIntersection.isEmpty() ? -1
+                : extensionsIntersection.get(extensionsIntersection.size() - 1);
+        /*
+         * If newPattern does not have any functions with confidence less than enough,
+         * and no functions with not enough confidence remain
+         * in the nex extensionNodes, the algorithm breaks the iteration and stops any
+         * further extensions.
+         */
+        boolean noRegularFunctionToDetect = patternRegularFunctions.isEmpty()
+                && !hasUndetectedRegularFunctionsExtensions(beginning, extensions,
+                        extensionsRegularFunctions);
+        if (noRegularFunctionToDetect) {
+            return false;
+        }
+
+        /*
+         * If newPattern does not include any item constraints functions, and also its
+         * last function
+         * is greater than the last item constraints, the algorithm breaks the iteration
+         * and
+         * stops any further extensions.
+         */
+        int lastNodeIndex = beginning - 1;
+        boolean noChangeSetFunctionToExtendWith = patternIntersection.isEmpty()
+                && lastNodeIndex > newLastExtensionIntersection;
+        if (noChangeSetFunctionToExtendWith) {
+            return false;
+        }
+        List<Entry<Pattern, Trie>> associatedList = findSimilarPatterns(trie);
+
         int support = trie.getSupport();
+        int prefixSize = prefix.size();
+
+        /*
+         * We make a new entry associating the current prefix with its corresponding
+         * prefixTrie
+         */
+        Entry<Pattern, Trie> newEntry = new AbstractMap.SimpleEntry<>(prefix, trie);
+
+        int i = 0;
+        for (i = 0; i < associatedList.size(); i++) {
+            // For all the elements of the associated list
+            Entry<Pattern, Trie> storedEntry = associatedList.get(i);
+            // We get both pattern and trie from the entry
+            Pattern p = storedEntry.getKey();
+            Trie t = storedEntry.getValue();
+            // If the support of the current prefix and the p pattern are equal
+            // And if the prefix size is less than the size of p and prefix is a subpattern
+            // of p
+            if (support == t.getSupport() && prefixSize < p.size()
+                    && prefix.isSubpattern(abstractionCreator, p)) {
+                /*
+                 * We dfsPruning backward subpattern pruning and establish as new nodes the
+                 * nodes of the trie of p
+                 */
+                trie.setNodes(t.getNodes());
+                /*
+                 * We end the method since we have already done the prune
+                 */
+                return false;
+            }
+        }
+        // In this point we add the new entry of the current prefix
+        associatedList.add(newEntry);
+        /*
+         * We did not find any subpattern or supperpattern in order to skip the
+         * generation of the current prefix
+         */
+        return true;
+    }
+
+    private List<Entry<Pattern, Trie>> findSimilarPatterns(Trie trie) {
+
         // We get the IdList of the pattern
         IDList idList = trie.getIdList();
         /*
@@ -503,18 +569,10 @@ public class FrequentPatternEnumeration {
          * prefix appear
          */
         int key1 = trie.getSumIdSequences();
-        int prefixSize = prefix.size();
-
         /*
          * Different approaches for the key2 can be used
          */
         int key2 = key2(idList, trie);
-
-        /*
-         * We make a new entry associating the current prefix with its corresponding
-         * prefixTrie
-         */
-        Entry<Pattern, Trie> newEntry = new AbstractMap.SimpleEntry<>(prefix, trie);
 
         /*
          * Map where there appear all the patterns with the same key1 of the current
@@ -526,62 +584,21 @@ public class FrequentPatternEnumeration {
          * If there is not any pattern with the same key2 value, we add the current
          * prefix as a new entry, and we also insert it in the matching map
          */
+
+        List<Entry<Pattern, Trie>> associatedList;
         if (associatedMap == null) {
             associatedMap = new HashMap<>();
             /*
              * Tin modifies:
              */
-            List<Entry<Pattern, Trie>> entryList = new ArrayList<>();
-            entryList.add(newEntry);
-            associatedMap.put(key2, entryList);
+            associatedList = new ArrayList<>();
+            associatedMap.put(key2, associatedList);
             matchingMap.put(key1, associatedMap);
         } else {
-            /*
-             * If, conversely, there are some patterns with the same key2 value (and
-             * extensively with the same key1 value) we check if we can apply backward
-             * subpattern or backward superpattern pruning
-             */
-
-            // We get the list of entries
-            List<Entry<Pattern, Trie>> associatedList = associatedMap.get(key2);
-            // If is still empty, we create one
-            if (associatedList == null) {
-                associatedList = new ArrayList<>();
-                associatedList.add(newEntry);
-                associatedMap.put(key2, associatedList);
-            } else {
-                int i = 0;
-                for (i = 0; i < associatedList.size(); i++) {
-                    // For all the elements of the associated list
-                    Entry<Pattern, Trie> storedEntry = associatedList.get(i);
-                    // We get both pattern and trie from the entry
-                    Pattern p = storedEntry.getKey();
-                    Trie t = storedEntry.getValue();
-                    // If the support of the current prefix and the p pattern are equal
-                    // And if the prefix size is less than the size of p and prefix is a subpattern
-                    // of p
-                    if (support == t.getSupport() && prefixSize < p.size()
-                            && prefix.isSubpattern(abstractionCreator, p)) {
-                        /*
-                         * We dfsPruning backward subpattern pruning and establish as new nodes the
-                         * nodes of the trie of p
-                         */
-                        trie.setNodes(t.getNodes());
-                        /*
-                         * We end the method since we have already done the prune
-                         */
-                        return true;
-                    }
-                }
-                // In this point we add the new entry of the current prefix
-                associatedList.add(newEntry);
-            }
+            // We get the list of entries => If is still empty, we create one
+            associatedList = associatedMap.computeIfAbsent(key2, k -> new ArrayList<>());
         }
-        /*
-         * We did not find any subpattern or supperpattern in order to skip the
-         * generation of the current prefix
-         */
-        return false;
+        return associatedList;
     }
 
     /**

@@ -139,7 +139,7 @@ public class MainAlgorithm {
 
         Map<String, TrieNode> itemConstraints = database.itemConstraints();
 
-        Map<String, Set<String>> coocMap = recordCoOccurrences(database);
+        Map<String, Set<String>> coocMap = coChangeDetection(database);
 
         database.clear();
 
@@ -151,7 +151,7 @@ public class MainAlgorithm {
         return frequentPatternEnumeration.dfsPruning(frequentAtomsTrie);
     }
 
-    private static Map<String, Set<String>> recordCoOccurrences(SequenceDatabase database) {
+    private static Map<String, Set<String>> coChangeDetection(SequenceDatabase database) {
         Map<String, Set<String>> coocMap = new HashMap<>(1000);
 
         /**
