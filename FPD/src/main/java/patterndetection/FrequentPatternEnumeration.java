@@ -348,11 +348,6 @@ public class FrequentPatternEnumeration {
             }
         }
 
-        // The index of the last item constraint function existed in the extension nodes
-        // Integer newLastExtensionIntersection = newExtensionIntersection.isEmpty() ?
-        // -1
-        // : newExtensionIntersection.get(newExtensionIntersection.size() - 1);
-
         Integer extensionSize = newPatterns.size();
 
         /*
@@ -386,33 +381,6 @@ public class FrequentPatternEnumeration {
 
             // The algorithm get's the new pattern's undetected regular functions
             newPatternsRegularFunctions = getUndetectedRegularFunctionsInPattern(newPatternsRegularFunctions);
-
-            // /*
-            // * If newPattern does not have any functions with confidence less than enough,
-            // * and no functions with not enough confidence remain
-            // * in the nex extensionNodes, the algorithm breaks the iteration and stops any
-            // * further extensions.
-            // */
-            // boolean noRegularFunctionToDetect = newPatternsRegularFunctions.isEmpty()
-            // && !hasUndetectedRegularFunctionsExtensions(lastNodeIndex + 1, newExtensions,
-            // newExtensionRegularFunctions);
-            // if (noRegularFunctionToDetect) {
-            // break;
-            // }
-
-            // /*
-            // * If newPattern does not include any item constraints functions, and also its
-            // * last function
-            // * is greater than the last item constraints, the algorithm breaks the
-            // iteration
-            // * and
-            // * stops any further extensions.
-            // */
-            // boolean noChangeSetFunctionToExtendWith = newPatternIntersection.isEmpty()
-            // && lastNodeIndex > newLastExtensionIntersection;
-            // if (noChangeSetFunctionToExtendWith) {
-            // break;
-            // }
 
             /*
              * The algorithm recursively calls exploreChildren function on the new pattern

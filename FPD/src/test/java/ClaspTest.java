@@ -16,7 +16,7 @@ import java.util.Map.Entry;
 /**
  * Unit test for simple App.
  */
-public class ClaspTest {
+public class FPDTest {
 
         @Test
         void testItemConstraintsOneLengthPatternNotIncluded() throws IOException {

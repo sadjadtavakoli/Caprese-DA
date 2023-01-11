@@ -7,7 +7,7 @@ import java.util.List;
 import patterndetection.MainAlgorithm;
 
 /**
- * Example of how to use the algorithm ClaSP, saving the results in a given file
+ * Example of how to use the algorithm, saving the results in a given file
  *
  * @author agomariz
  */
@@ -43,7 +43,7 @@ public class MainTestAlgorithmRunner {
             //  usernameGenerator usernameValidator -1 #SUP: 1, 
             //  usernameValidator -1 emailValidator -1 #SUP: 2, 
             //  checkUniqueness -1 checkEmailUniqueness emailValidator -1 #SUP: 2"
-        // AlgoCM_ClaSPExecutor.runFile(itemConstraint, support,
+        // dadada.runFile(itemConstraint, support,
         // "contextPrefixSpan.txt", null);
         MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidenceToStop, sequences, "outputOO_OO.txt");
     }
