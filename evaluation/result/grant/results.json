@@ -249,6 +249,19 @@
                 "FP-evaluation": "true"
             },
             {
+                "consequent": "arrowAnonymousFunction-lib/config.js-153-159 | {\"id\":40 - \"parents\":[32]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "register-lib/handler/hapi-16.js-10-52 | {\"id\":37 - \"parents\":[34]}",
+                        "register-lib/handler/hapi-17.js-9-41 | {\"id\":38 - \"parents\":[34]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": ""
+            },
+            {
                 "consequent": "arrowAnonymousFunction-test/config.js-320-339 | {\"id\":42 - \"parents\":[8]}",
                 "FP-score": 0.4,
                 "support": 2,
@@ -286,6 +299,19 @@
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-lib/config.js-156-162 | {\"id\":41 - \"parents\":[32]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "register-lib/handler/hapi-16.js-10-52 | {\"id\":37 - \"parents\":[34]}",
+                        "register-lib/handler/hapi-17.js-9-41 | {\"id\":38 - \"parents\":[34]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": ""
             },
             {
                 "consequent": "arrowAnonymousFunction-test/config.js-6-584 | {\"id\":8 - \"parents\":[]}",
@@ -1211,6 +1237,13 @@
                     "evaluation result": "true"
                 },
                 {
+                    "consequent": "arrowAnonymousFunction-lib/config.js-153-159 | {\"id\":40 - \"parents\":[32]}",
+                    "support": 2,
+                    "FP-score": 0.4,
+                    "status": "Berke Unique",
+                    "evaluation result": ""
+                },
+                {
                     "consequent": "arrowAnonymousFunction-test/config.js-320-339 | {\"id\":42 - \"parents\":[8]}",
                     "support": 2,
                     "FP-score": 0.4,
@@ -1230,6 +1263,13 @@
                     "FP-score": 0.4,
                     "status": "Berke Unique",
                     "evaluation result": "true"
+                },
+                {
+                    "consequent": "arrowAnonymousFunction-lib/config.js-156-162 | {\"id\":41 - \"parents\":[32]}",
+                    "support": 2,
+                    "FP-score": 0.4,
+                    "status": "Berke Unique",
+                    "evaluation result": ""
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/config.js-6-584 | {\"id\":8 - \"parents\":[]}",

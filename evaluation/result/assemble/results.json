@@ -5298,89 +5298,56 @@
                 {
                     "consequent": "_suite.js-test/_suite.js-1-16",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Assemble-index.js-24-31 | {\"id\":14 - \"parents\":[9-9]}"
-                    ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.cli.js-9-11",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Assemble-index.js-24-31 | {\"id\":14 - \"parents\":[9-9]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.layout.js-9-14 | {\"id\":35 - \"parents\":[36-37]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Assemble-index.js-24-31 | {\"id\":14 - \"parents\":[9-9]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.layouts.js-9-14 | {\"id\":59 - \"parents\":[60-61]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Assemble-index.js-24-31 | {\"id\":14 - \"parents\":[9-9]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.page.js-9-14 | {\"id\":65 - \"parents\":[57-58]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Assemble-index.js-24-31 | {\"id\":14 - \"parents\":[9-9]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.pages.js-9-14 | {\"id\":67 - \"parents\":[31-32]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Assemble-index.js-24-31 | {\"id\":14 - \"parents\":[9-9]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.partial.js-9-14 | {\"id\":51 - \"parents\":[40-42]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Assemble-index.js-24-31 | {\"id\":14 - \"parents\":[9-9]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.partials.js-9-14 | {\"id\":45 - \"parents\":[43-47]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Assemble-index.js-24-31 | {\"id\":14 - \"parents\":[9-9]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.store.js-13-17 | {\"id\":74 - \"parents\":[28]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Assemble-index.js-24-31 | {\"id\":14 - \"parents\":[9-9]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.store.js-154-161",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Assemble-index.js-24-31 | {\"id\":14 - \"parents\":[9-9]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.store.js-225-229",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Assemble-index.js-24-31 | {\"id\":14 - \"parents\":[9-9]}"
-                    ],
                     "evaluation result": "true"
                 }
             ]

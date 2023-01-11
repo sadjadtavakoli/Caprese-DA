@@ -13799,834 +13799,527 @@
                     "support": 6,
                     "FP-score": 0.4,
                     "status": "common",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
+                    "FP": [
+                        [
+                            "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}",
+                            "terminate-lib/websocket.js-476-487 | {\"id\":314 - \"parents\":[302]}"
+                        ]
                     ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "abortHandshake-lib/websocket.js-1044-1069 | {\"id\":305 - \"parents\":[302]}",
                     "status": "common",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}",
-                        "terminate-lib/websocket.js-476-487 | {\"id\":314 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/create-websocket-stream.test.js-42-45",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "close-lib/sender.js-156-199",
                     "status": "common",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "receiverOnConclude-lib/websocket.js-1110-1124 | {\"id\":301 - \"parents\":[302]}",
                     "status": "common",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/create-websocket-stream.test.js-61-73",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/create-websocket-stream.test.js-101-103",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/create-websocket-stream.test.js-129-131",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/stream.js-111-137",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "receiverOnError-lib/websocket.js-1143-1159 | {\"id\":303 - \"parents\":[302]}",
                     "status": "common",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/create-websocket-stream.test.js-344-347",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/extension.js-181-199",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/create-websocket-stream.test.js-566-569",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket-server.test.js-199-211 | {\"id\":267 - \"parents\":[39-268]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket-server.test.js-392-392",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket-server.test.js-421-421",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket-server.test.js-456-459 | {\"id\":75 - \"parents\":[23-24]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket-server.test.js-533-535",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket-server.test.js-940-943",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket-server.test.js-1214-1216 | {\"id\":98 - \"parents\":[96]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket-server.test.js-1279-1281 | {\"id\":292 - \"parents\":[291]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.integration.js-24-29",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.integration.js-48-53",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-119-121 | {\"id\":186 - \"parents\":[7-160]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-159-167",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-286-288 | {\"id\":198 - \"parents\":[7-229]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-318-320 | {\"id\":196 - \"parents\":[7-93]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-328-343 | {\"id\":104 - \"parents\":[102-7]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-372-375",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-396-399",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-420-429",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-462-465",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-494-497",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-512-512",
                     "status": "common",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-623-625 | {\"id\":208 - \"parents\":[7-138]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-634-637 | {\"id\":131 - \"parents\":[7-128]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-646-649 | {\"id\":218 - \"parents\":[7-177]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-659-661",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-1127-1132",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-1209-1212",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-1476-1479",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-1527-1536",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-1558-1564",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-1626-1632",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-1688-1697",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-1808-1816",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-1892-1896",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-1912-1914 | {\"id\":227 - \"parents\":[7-225]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-1927-1929 | {\"id\":89 - \"parents\":[87-7]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-1944-1955",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-1995-2030",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2037-2063",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2071-2074 | {\"id\":168 - \"parents\":[7-209-217]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2093-2096 | {\"id\":110 - \"parents\":[109-7-111]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2113-2116 | {\"id\":151 - \"parents\":[7-146-224]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2141-2143",
                     "status": "common",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2164-2199",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2206-2232",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2240-2243 | {\"id\":66 - \"parents\":[65-7-67]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2262-2265 | {\"id\":69 - \"parents\":[68-7-70]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2282-2285 | {\"id\":30 - \"parents\":[29-7-31]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2310-2312 | {\"id\":184 - \"parents\":[7-169]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2350-2364",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2385-2420",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2427-2453",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2475-2479 | {\"id\":105 - \"parents\":[7-106]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2496-2499 | {\"id\":42 - \"parents\":[40-7]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2507-2511 | {\"id\":179 - \"parents\":[7-142-183]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2527-2530 | {\"id\":144 - \"parents\":[7-174-236]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2559-2562 | {\"id\":59 - \"parents\":[60-7-61]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2589-2592 | {\"id\":230 - \"parents\":[7-145-167]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2613-2616 | {\"id\":244 - \"parents\":[7-171-241]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2644-2646 | {\"id\":115 - \"parents\":[7-116]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2653-2656 | {\"id\":141 - \"parents\":[7-161-191]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2716-2729 | {\"id\":91 - \"parents\":[90-7-20]}",
                     "status": "common",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2750-2750",
                     "status": "common",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2782-2785",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2807-2812",
                     "status": "common",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2845-2847",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2864-2864",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2880-2895",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2902-2902",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2918-2918",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2952-2960",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2973-2973",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2986-2986",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3001-3001",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2993-2998",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3014-3031",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3516-3527",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3387-3390 | {\"id\":143 - \"parents\":[7-192-201]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3419-3419",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3435-3435",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3448-3453",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3484-3487 | {\"id\":133 - \"parents\":[7-124]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3502-3505 | {\"id\":180 - \"parents\":[7-108]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3535-3538 | {\"id\":119 - \"parents\":[117-7-118]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-4038-4054",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-4074-4080",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-4110-4113 | {\"id\":135 - \"parents\":[7-149-219]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-4147-4150 | {\"id\":101 - \"parents\":[99-7-100]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-4185-4188 | {\"id\":222 - \"parents\":[7-200-228]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-4212-4215 | {\"id\":204 - \"parents\":[7-176-212]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-4426-4437",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 }
             ],
@@ -14634,138 +14327,86 @@
                 {
                     "consequent": "abortHandshake-lib/websocket.js-1044-1069 | {\"id\":305 - \"parents\":[302]}",
                     "status": "common",
-                    "DA": [
-                        "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302]}",
-                        "terminate-lib/websocket.js-476-487 | {\"id\":314 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/stream.js-89-109",
                     "status": "Berke Unique",
-                    "DA": [
-                        "terminate-lib/websocket.js-476-487 | {\"id\":314 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket-server.test.js-406-406",
                     "status": "Berke Unique",
-                    "DA": [
-                        "terminate-lib/websocket.js-476-487 | {\"id\":314 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-525-525",
                     "status": "common",
-                    "DA": [
-                        "terminate-lib/websocket.js-476-487 | {\"id\":314 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-596-610",
                     "status": "common",
-                    "DA": [
-                        "terminate-lib/websocket.js-476-487 | {\"id\":314 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-1964-1974",
                     "status": "Berke Unique",
-                    "DA": [
-                        "terminate-lib/websocket.js-476-487 | {\"id\":314 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2327-2341",
                     "status": "Berke Unique",
-                    "DA": [
-                        "terminate-lib/websocket.js-476-487 | {\"id\":314 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3038-3051 | {\"id\":125 - \"parents\":[7-122]}",
                     "status": "common",
-                    "DA": [
-                        "terminate-lib/websocket.js-476-487 | {\"id\":314 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3072-3072",
                     "status": "common",
-                    "DA": [
-                        "terminate-lib/websocket.js-476-487 | {\"id\":314 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3081-3086",
                     "status": "common",
-                    "DA": [
-                        "terminate-lib/websocket.js-476-487 | {\"id\":314 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3119-3121",
                     "status": "Berke Unique",
-                    "DA": [
-                        "terminate-lib/websocket.js-476-487 | {\"id\":314 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3138-3138",
                     "status": "Berke Unique",
-                    "DA": [
-                        "terminate-lib/websocket.js-476-487 | {\"id\":314 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3154-3154",
                     "status": "Berke Unique",
-                    "DA": [
-                        "terminate-lib/websocket.js-476-487 | {\"id\":314 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3146-3151",
                     "status": "Berke Unique",
-                    "DA": [
-                        "terminate-lib/websocket.js-476-487 | {\"id\":314 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3963-3967",
                     "status": "Berke Unique",
-                    "DA": [
-                        "terminate-lib/websocket.js-476-487 | {\"id\":314 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-4290-4304",
                     "status": "Berke Unique",
-                    "DA": [
-                        "terminate-lib/websocket.js-476-487 | {\"id\":314 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-4324-4327",
                     "status": "common",
-                    "DA": [
-                        "terminate-lib/websocket.js-476-487 | {\"id\":314 - \"parents\":[302]}"
-                    ],
                     "evaluation result": "true"
                 }
             ]
@@ -14792,8 +14433,8 @@
                     ]
                 ],
                 "status": "common",
-                "DA-evaluation": "true",
-                "FP-evaluation": "true"
+                "FP-evaluation": "true",
+                "DA-evaluation": "true"
             },
             {
                 "consequent": "autobahn-server.js-test/autobahn-server.js-1-17",
@@ -15407,13 +15048,6 @@
                 "support": 3,
                 "confidence": 0.14285714285714285,
                 "consequent": "onerror-lib/websocket.js-156-163",
-                "status": "Removed"
-            },
-            {
-                "rule": "[arrowAnonymousFunction-lib/websocket.js-894-988, initAsClient-lib/websocket.js-637-991, websocket.js-lib/websocket.js-1-1306] => stream-lib/websocket.js-253-299",
-                "support": 3,
-                "confidence": 0.14285714285714285,
-                "consequent": "stream-lib/websocket.js-253-299",
                 "status": "Removed"
             },
             {
@@ -19498,13 +19132,6 @@
                 "status": "Removed"
             },
             {
-                "rule": "[arrowAnonymousFunction-lib/websocket.js-894-988, initAsClient-lib/websocket.js-637-991, websocket.js-lib/websocket.js-1-1306] => arrowAnonymousFunction-lib/websocketserver.js-219-221",
-                "support": 1,
-                "confidence": 0.047619047619047616,
-                "consequent": "arrowAnonymousFunction-lib/websocketserver.js-219-221",
-                "status": "Removed"
-            },
-            {
                 "rule": "[arrowAnonymousFunction-lib/websocket.js-894-988, initAsClient-lib/websocket.js-637-991, websocket.js-lib/websocket.js-1-1306] => clone-lib/receiver.js-356-358",
                 "support": 1,
                 "confidence": 0.047619047619047616,
@@ -19673,121 +19300,82 @@
                     "support": 11,
                     "FP-score": 0.4074074074074074,
                     "status": "common",
-                    "DA": [
-                        "arrowAnonymousFunction-lib/websocket.js-894-988 | {\"id\":312 - \"parents\":[302-309-309-302]}"
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-lib/websocket.js-894-988 | {\"id\":312 - \"parents\":[302-309-309-302]}",
+                            "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "autobahn-server.js-test/autobahn-server.js-1-17",
                     "status": "Berke Unique",
-                    "DA": [
-                        "arrowAnonymousFunction-lib/websocket.js-894-988 | {\"id\":312 - \"parents\":[302-309-309-302]}"
-                    ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/create-websocket-stream.test.js-167-204 | {\"id\":316 - \"parents\":[]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "arrowAnonymousFunction-lib/websocket.js-894-988 | {\"id\":312 - \"parents\":[302-309-309-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/create-websocket-stream.test.js-199-203 | {\"id\":317 - \"parents\":[316]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "arrowAnonymousFunction-lib/websocket.js-894-988 | {\"id\":312 - \"parents\":[302-309-309-302]}"
-                    ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "abortHandshake-lib/websocket.js-1044-1069 | {\"id\":305 - \"parents\":[302-302]}",
                     "status": "common",
-                    "DA": [
-                        "arrowAnonymousFunction-lib/websocket.js-894-988 | {\"id\":312 - \"parents\":[302-309-309-302]}"
-                    ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "parse-lib/extension.js-27-170",
                     "status": "common",
-                    "DA": [
-                        "arrowAnonymousFunction-lib/websocket.js-894-988 | {\"id\":312 - \"parents\":[302-309-309-302]}"
-                    ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "accept-lib/permessage-deflate.js-114-122 | {\"id\":318 - \"parents\":[319]}",
                     "status": "common",
-                    "DA": [
-                        "arrowAnonymousFunction-lib/websocket.js-894-988 | {\"id\":312 - \"parents\":[302-309-309-302]}"
-                    ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket-server.test.js-1265-1276 | {\"id\":320 - \"parents\":[]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "arrowAnonymousFunction-lib/websocket.js-894-988 | {\"id\":312 - \"parents\":[302-309-309-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket-server.test.js-1268-1275 | {\"id\":321 - \"parents\":[320]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "arrowAnonymousFunction-lib/websocket.js-894-988 | {\"id\":312 - \"parents\":[302-309-309-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-615-621 | {\"id\":162 - \"parents\":[7-138]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "arrowAnonymousFunction-lib/websocket.js-894-988 | {\"id\":312 - \"parents\":[302-309-309-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-617-620 | {\"id\":322 - \"parents\":[162]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "arrowAnonymousFunction-lib/websocket.js-894-988 | {\"id\":312 - \"parents\":[302-309-309-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2852-2865 | {\"id\":248 - \"parents\":[7-20-134]}",
                     "status": "common",
-                    "DA": [
-                        "arrowAnonymousFunction-lib/websocket.js-894-988 | {\"id\":312 - \"parents\":[302-309-309-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2864-2864 | {\"id\":323 - \"parents\":[248]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "arrowAnonymousFunction-lib/websocket.js-894-988 | {\"id\":312 - \"parents\":[302-309-309-302]}"
-                    ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3126-3139 | {\"id\":17 - \"parents\":[7-18]}",
                     "status": "common",
-                    "DA": [
-                        "arrowAnonymousFunction-lib/websocket.js-894-988 | {\"id\":312 - \"parents\":[302-309-309-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3138-3138 | {\"id\":324 - \"parents\":[17]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "arrowAnonymousFunction-lib/websocket.js-894-988 | {\"id\":312 - \"parents\":[302-309-309-302]}"
-                    ],
                     "evaluation result": "false"
                 }
             ],
@@ -19795,241 +19383,151 @@
                 {
                     "consequent": "WebSocket-lib/websocket.js-44-488 | {\"id\":315 - \"parents\":[302]}",
                     "status": "common",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "PerMessageDeflate-lib/permessage-deflate.js-28-458 | {\"id\":319 - \"parents\":[]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "format-lib/extension.js-179-201",
                     "status": "common",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "netConnect-lib/websocket.js-1013-1016 | {\"id\":325 - \"parents\":[302]}",
                     "status": "common",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "tlsConnect-lib/websocket.js-1025-1033 | {\"id\":326 - \"parents\":[302]}",
                     "status": "common",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-81-87",
                     "status": "Berke Unique",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "addRequest-test/websocket.test.js-27-27",
                     "status": "Berke Unique",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/websocket.js-857-892 | {\"id\":308 - \"parents\":[302-309-309-302]}",
                     "status": "common",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "true parent"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-665-681 | {\"id\":327 - \"parents\":[]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-671-680 | {\"id\":328 - \"parents\":[327]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "emitErrorAndClose-lib/websocket.js-1000-1004 | {\"id\":329 - \"parents\":[302]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-1763-1806 | {\"id\":330 - \"parents\":[]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-1790-1805 | {\"id\":331 - \"parents\":[330]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-1822-1850 | {\"id\":332 - \"parents\":[]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-1832-1849 | {\"id\":333 - \"parents\":[332]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-1853-1890 | {\"id\":334 - \"parents\":[]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-1873-1889 | {\"id\":335 - \"parents\":[334]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2822-2848 | {\"id\":336 - \"parents\":[]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-2845-2847 | {\"id\":337 - \"parents\":[336]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3096-3122 | {\"id\":338 - \"parents\":[]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3119-3121 | {\"id\":339 - \"parents\":[338]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3734-3740",
                     "status": "Berke Unique",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3749-3755",
                     "status": "Berke Unique",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3765-3771",
                     "status": "Berke Unique",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3779-3782",
                     "status": "Berke Unique",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3808-3811",
                     "status": "Berke Unique",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3819-3822",
                     "status": "Berke Unique",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3833-3839",
                     "status": "Berke Unique",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3867-3873",
                     "status": "Berke Unique",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3889-3892",
                     "status": "Berke Unique",
-                    "DA": [
-                        "initAsClient-lib/websocket.js-637-991 | {\"id\":309 - \"parents\":[302-302]}"
-                    ],
                     "evaluation result": "true"
                 }
             ]
@@ -20526,6 +20024,14 @@
                 ],
                 "status": "Berke Unique",
                 "DA-evaluation": "true"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-test/websocket-server.test.js-829-845",
+                "DA-antecedents": [
+                    "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
+                ],
+                "status": "Berke Unique",
+                "DA-evaluation": ""
             },
             {
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-287-308",
@@ -23228,46 +22734,32 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "DA": [
-                        "arrowAnonymousFunction-lib/sender.js-408-431 | {\"id\":421 - \"parents\":[357-425-358]}",
-                        "close-lib/sender.js-156-199 | {\"id\":422 - \"parents\":[357-358]}",
-                        "dispatch-lib/sender.js-398-432 | {\"id\":425 - \"parents\":[357-358]}",
-                        "ping-lib/sender.js-209-242 | {\"id\":427 - \"parents\":[357-358]}",
-                        "pong-lib/sender.js-252-285 | {\"id\":428 - \"parents\":[357-358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
+                    "FP": [
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "arrowAnonymousFunction-bench/sender.benchmark.js-31-31 | {\"id\":430 - \"parents\":[412]}"
+                        ]
                     ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/permessage-deflate.js-323-326 | {\"id\":354 - \"parents\":[355-319]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "arrowAnonymousFunction-lib/sender.js-408-431 | {\"id\":421 - \"parents\":[357-425-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-4242-4251",
                     "status": "Berke Unique",
-                    "DA": [
-                        "arrowAnonymousFunction-lib/sender.js-408-431 | {\"id\":421 - \"parents\":[357-425-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-4253-4262",
                     "status": "Berke Unique",
-                    "DA": [
-                        "arrowAnonymousFunction-lib/sender.js-408-431 | {\"id\":421 - \"parents\":[357-425-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-4291-4302",
                     "status": "Berke Unique",
-                    "DA": [
-                        "arrowAnonymousFunction-lib/sender.js-408-431 | {\"id\":421 - \"parents\":[357-425-358]}"
-                    ],
                     "evaluation result": "true"
                 }
             ],
@@ -23277,13 +22769,11 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "DA": [
-                        "arrowAnonymousFunction-lib/sender.js-408-431 | {\"id\":421 - \"parents\":[357-425-358]}",
-                        "close-lib/sender.js-156-199 | {\"id\":422 - \"parents\":[357-358]}",
-                        "dispatch-lib/sender.js-398-432 | {\"id\":425 - \"parents\":[357-358]}",
-                        "ping-lib/sender.js-209-242 | {\"id\":427 - \"parents\":[357-358]}",
-                        "pong-lib/sender.js-252-285 | {\"id\":428 - \"parents\":[357-358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
+                    "FP": [
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "arrowAnonymousFunction-bench/sender.benchmark.js-31-31 | {\"id\":430 - \"parents\":[412]}"
+                        ]
                     ],
                     "evaluation result": "false"
                 },
@@ -23292,11 +22782,13 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/sender.js-156-199 | {\"id\":422 - \"parents\":[357-358]}",
-                        "ping-lib/sender.js-209-242 | {\"id\":427 - \"parents\":[357-358]}",
-                        "pong-lib/sender.js-252-285 | {\"id\":428 - \"parents\":[357-358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
+                    "FP": [
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "arrowAnonymousFunction-lib/sender.js-408-431 | {\"id\":421 - \"parents\":[357-425-358]}",
+                            "close-lib/sender.js-156-199 | {\"id\":422 - \"parents\":[357-358]}",
+                            "dequeue-lib/sender.js-439-446 | {\"id\":424 - \"parents\":[357-358]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -23305,51 +22797,37 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "common",
-                    "DA": [
-                        "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
-                        "close-lib/sender.js-156-199 | {\"id\":422 - \"parents\":[357-358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
+                    "FP": [
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "arrowAnonymousFunction-bench/sender.benchmark.js-31-31 | {\"id\":430 - \"parents\":[412]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "close-lib/websocket.js-281-324 | {\"id\":313 - \"parents\":[302-315-302]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/sender.js-156-199 | {\"id\":422 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "isValidStatusCode-lib/validation.js-33-42",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/sender.js-156-199 | {\"id\":422 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/sender.test.js-324-324 | {\"id\":285 - \"parents\":[77-286-78-286-341-77]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/sender.js-156-199 | {\"id\":422 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/sender.test.js-329-329 | {\"id\":284 - \"parents\":[77-286-78-286-341-77]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/sender.js-156-199 | {\"id\":422 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/sender.test.js-339-339 | {\"id\":79 - \"parents\":[76-77-78-341-77]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/sender.js-156-199 | {\"id\":422 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 }
             ],
@@ -23359,22 +22837,17 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "DA": [
-                        "arrowAnonymousFunction-lib/sender.js-408-431 | {\"id\":421 - \"parents\":[357-425-358]}",
-                        "close-lib/sender.js-156-199 | {\"id\":422 - \"parents\":[357-358]}",
-                        "dispatch-lib/sender.js-398-432 | {\"id\":425 - \"parents\":[357-358]}",
-                        "ping-lib/sender.js-209-242 | {\"id\":427 - \"parents\":[357-358]}",
-                        "pong-lib/sender.js-252-285 | {\"id\":428 - \"parents\":[357-358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
+                    "FP": [
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "arrowAnonymousFunction-bench/sender.benchmark.js-31-31 | {\"id\":430 - \"parents\":[412]}"
+                        ]
                     ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "compress-lib/permessage-deflate.js-321-328 | {\"id\":355 - \"parents\":[319]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "dispatch-lib/sender.js-398-432 | {\"id\":425 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "false"
                 }
             ],
@@ -23384,13 +22857,11 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "DA": [
-                        "arrowAnonymousFunction-lib/sender.js-408-431 | {\"id\":421 - \"parents\":[357-425-358]}",
-                        "close-lib/sender.js-156-199 | {\"id\":422 - \"parents\":[357-358]}",
-                        "dispatch-lib/sender.js-398-432 | {\"id\":425 - \"parents\":[357-358]}",
-                        "ping-lib/sender.js-209-242 | {\"id\":427 - \"parents\":[357-358]}",
-                        "pong-lib/sender.js-252-285 | {\"id\":428 - \"parents\":[357-358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
+                    "FP": [
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "arrowAnonymousFunction-bench/sender.benchmark.js-31-31 | {\"id\":430 - \"parents\":[412]}"
+                        ]
                     ],
                     "evaluation result": "false"
                 },
@@ -23399,11 +22870,13 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/sender.js-156-199 | {\"id\":422 - \"parents\":[357-358]}",
-                        "ping-lib/sender.js-209-242 | {\"id\":427 - \"parents\":[357-358]}",
-                        "pong-lib/sender.js-252-285 | {\"id\":428 - \"parents\":[357-358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
+                    "FP": [
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "arrowAnonymousFunction-lib/sender.js-408-431 | {\"id\":421 - \"parents\":[357-425-358]}",
+                            "close-lib/sender.js-156-199 | {\"id\":422 - \"parents\":[357-358]}",
+                            "dequeue-lib/sender.js-439-446 | {\"id\":424 - \"parents\":[357-358]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -23412,10 +22885,17 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "DA": [
-                        "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
-                        "ping-lib/sender.js-209-242 | {\"id\":427 - \"parents\":[357-358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
+                    "FP": [
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "constructor-lib/sender.js-29-45 | {\"id\":423 - \"parents\":[357-358]}",
+                            "ping-lib/sender.js-209-242 | {\"id\":427 - \"parents\":[357-358]}"
+                        ],
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "constructor-lib/sender.js-29-45 | {\"id\":423 - \"parents\":[357-358]}",
+                            "pong-lib/sender.js-252-285 | {\"id\":428 - \"parents\":[357-358]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -23424,19 +22904,18 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "DA": [
-                        "ping-lib/sender.js-209-242 | {\"id\":427 - \"parents\":[357-358]}"
+                    "FP": [
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "constructor-lib/sender.js-29-45 | {\"id\":423 - \"parents\":[357-358]}",
+                            "ping-lib/sender.js-209-242 | {\"id\":427 - \"parents\":[357-358]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "toBuffer-lib/buffer-util.js-83-100",
                     "status": "Berke Unique",
-                    "DA": [
-                        "ping-lib/sender.js-209-242 | {\"id\":427 - \"parents\":[357-358]}",
-                        "pong-lib/sender.js-252-285 | {\"id\":428 - \"parents\":[357-358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "false"
                 }
             ],
@@ -23446,13 +22925,11 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "DA": [
-                        "arrowAnonymousFunction-lib/sender.js-408-431 | {\"id\":421 - \"parents\":[357-425-358]}",
-                        "close-lib/sender.js-156-199 | {\"id\":422 - \"parents\":[357-358]}",
-                        "dispatch-lib/sender.js-398-432 | {\"id\":425 - \"parents\":[357-358]}",
-                        "ping-lib/sender.js-209-242 | {\"id\":427 - \"parents\":[357-358]}",
-                        "pong-lib/sender.js-252-285 | {\"id\":428 - \"parents\":[357-358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
+                    "FP": [
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "arrowAnonymousFunction-bench/sender.benchmark.js-31-31 | {\"id\":430 - \"parents\":[412]}"
+                        ]
                     ],
                     "evaluation result": "false"
                 },
@@ -23461,11 +22938,13 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/sender.js-156-199 | {\"id\":422 - \"parents\":[357-358]}",
-                        "ping-lib/sender.js-209-242 | {\"id\":427 - \"parents\":[357-358]}",
-                        "pong-lib/sender.js-252-285 | {\"id\":428 - \"parents\":[357-358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
+                    "FP": [
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "arrowAnonymousFunction-lib/sender.js-408-431 | {\"id\":421 - \"parents\":[357-425-358]}",
+                            "close-lib/sender.js-156-199 | {\"id\":422 - \"parents\":[357-358]}",
+                            "dequeue-lib/sender.js-439-446 | {\"id\":424 - \"parents\":[357-358]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -23474,10 +22953,22 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "DA": [
-                        "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
-                        "pong-lib/sender.js-252-285 | {\"id\":428 - \"parents\":[357-358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
+                    "FP": [
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "constructor-lib/sender.js-29-45 | {\"id\":423 - \"parents\":[357-358]}",
+                            "dequeue-lib/sender.js-439-446 | {\"id\":424 - \"parents\":[357-358]}"
+                        ],
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "constructor-lib/sender.js-29-45 | {\"id\":423 - \"parents\":[357-358]}",
+                            "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
+                        ],
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "constructor-lib/sender.js-29-45 | {\"id\":423 - \"parents\":[357-358]}",
+                            "ping-lib/sender.js-209-242 | {\"id\":427 - \"parents\":[357-358]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -23486,19 +22977,18 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "DA": [
-                        "pong-lib/sender.js-252-285 | {\"id\":428 - \"parents\":[357-358]}"
+                    "FP": [
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "constructor-lib/sender.js-29-45 | {\"id\":423 - \"parents\":[357-358]}",
+                            "ping-lib/sender.js-209-242 | {\"id\":427 - \"parents\":[357-358]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "toBuffer-lib/buffer-util.js-83-100",
                     "status": "Berke Unique",
-                    "DA": [
-                        "ping-lib/sender.js-209-242 | {\"id\":427 - \"parents\":[357-358]}",
-                        "pong-lib/sender.js-252-285 | {\"id\":428 - \"parents\":[357-358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "false"
                 }
             ],
@@ -23508,13 +22998,11 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "DA": [
-                        "arrowAnonymousFunction-lib/sender.js-408-431 | {\"id\":421 - \"parents\":[357-425-358]}",
-                        "close-lib/sender.js-156-199 | {\"id\":422 - \"parents\":[357-358]}",
-                        "dispatch-lib/sender.js-398-432 | {\"id\":425 - \"parents\":[357-358]}",
-                        "ping-lib/sender.js-209-242 | {\"id\":427 - \"parents\":[357-358]}",
-                        "pong-lib/sender.js-252-285 | {\"id\":428 - \"parents\":[357-358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
+                    "FP": [
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "arrowAnonymousFunction-bench/sender.benchmark.js-31-31 | {\"id\":430 - \"parents\":[412]}"
+                        ]
                     ],
                     "evaluation result": "false"
                 },
@@ -23523,11 +23011,13 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "DA": [
-                        "close-lib/sender.js-156-199 | {\"id\":422 - \"parents\":[357-358]}",
-                        "ping-lib/sender.js-209-242 | {\"id\":427 - \"parents\":[357-358]}",
-                        "pong-lib/sender.js-252-285 | {\"id\":428 - \"parents\":[357-358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
+                    "FP": [
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "arrowAnonymousFunction-lib/sender.js-408-431 | {\"id\":421 - \"parents\":[357-425-358]}",
+                            "close-lib/sender.js-156-199 | {\"id\":422 - \"parents\":[357-358]}",
+                            "dequeue-lib/sender.js-439-446 | {\"id\":424 - \"parents\":[357-358]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -23536,10 +23026,17 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "DA": [
-                        "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
-                        "ping-lib/sender.js-209-242 | {\"id\":427 - \"parents\":[357-358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
+                    "FP": [
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "constructor-lib/sender.js-29-45 | {\"id\":423 - \"parents\":[357-358]}",
+                            "ping-lib/sender.js-209-242 | {\"id\":427 - \"parents\":[357-358]}"
+                        ],
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "constructor-lib/sender.js-29-45 | {\"id\":423 - \"parents\":[357-358]}",
+                            "pong-lib/sender.js-252-285 | {\"id\":428 - \"parents\":[357-358]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -23548,10 +23045,22 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "DA": [
-                        "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
-                        "pong-lib/sender.js-252-285 | {\"id\":428 - \"parents\":[357-358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
+                    "FP": [
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "constructor-lib/sender.js-29-45 | {\"id\":423 - \"parents\":[357-358]}",
+                            "dequeue-lib/sender.js-439-446 | {\"id\":424 - \"parents\":[357-358]}"
+                        ],
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "constructor-lib/sender.js-29-45 | {\"id\":423 - \"parents\":[357-358]}",
+                            "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
+                        ],
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "constructor-lib/sender.js-29-45 | {\"id\":423 - \"parents\":[357-358]}",
+                            "ping-lib/sender.js-209-242 | {\"id\":427 - \"parents\":[357-358]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -23560,10 +23069,11 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "common",
-                    "DA": [
-                        "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
-                        "close-lib/sender.js-156-199 | {\"id\":422 - \"parents\":[357-358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
+                    "FP": [
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "arrowAnonymousFunction-bench/sender.benchmark.js-31-31 | {\"id\":430 - \"parents\":[412]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -23572,9 +23082,11 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "common",
-                    "DA": [
-                        "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
+                    "FP": [
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "arrowAnonymousFunction-bench/sender.benchmark.js-31-31 | {\"id\":430 - \"parents\":[412]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -23583,64 +23095,44 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "DA": [
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-lib/sender.js-408-431 | {\"id\":421 - \"parents\":[357-425-358]}",
+                            "close-lib/sender.js-156-199 | {\"id\":422 - \"parents\":[357-358]}",
+                            "dequeue-lib/sender.js-439-446 | {\"id\":424 - \"parents\":[357-358]}",
+                            "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "toBuffer-lib/buffer-util.js-83-100",
                     "status": "Berke Unique",
-                    "DA": [
-                        "ping-lib/sender.js-209-242 | {\"id\":427 - \"parents\":[357-358]}",
-                        "pong-lib/sender.js-252-285 | {\"id\":428 - \"parents\":[357-358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/sender.test.js-66-97 | {\"id\":340 - \"parents\":[341-77]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/sender.test.js-126-155 | {\"id\":344 - \"parents\":[341-77]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/sender.test.js-157-186 | {\"id\":345 - \"parents\":[341-77]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/sender.test.js-188-217 | {\"id\":346 - \"parents\":[341-77]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/sender.test.js-219-248 | {\"id\":347 - \"parents\":[341-77]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 }
             ],
@@ -23650,10 +23142,17 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "DA": [
-                        "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
-                        "ping-lib/sender.js-209-242 | {\"id\":427 - \"parents\":[357-358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
+                    "FP": [
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "constructor-lib/sender.js-29-45 | {\"id\":423 - \"parents\":[357-358]}",
+                            "ping-lib/sender.js-209-242 | {\"id\":427 - \"parents\":[357-358]}"
+                        ],
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "constructor-lib/sender.js-29-45 | {\"id\":423 - \"parents\":[357-358]}",
+                            "pong-lib/sender.js-252-285 | {\"id\":428 - \"parents\":[357-358]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -23662,10 +23161,22 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "DA": [
-                        "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
-                        "pong-lib/sender.js-252-285 | {\"id\":428 - \"parents\":[357-358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
+                    "FP": [
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "constructor-lib/sender.js-29-45 | {\"id\":423 - \"parents\":[357-358]}",
+                            "dequeue-lib/sender.js-439-446 | {\"id\":424 - \"parents\":[357-358]}"
+                        ],
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "constructor-lib/sender.js-29-45 | {\"id\":423 - \"parents\":[357-358]}",
+                            "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
+                        ],
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "constructor-lib/sender.js-29-45 | {\"id\":423 - \"parents\":[357-358]}",
+                            "ping-lib/sender.js-209-242 | {\"id\":427 - \"parents\":[357-358]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -23674,10 +23185,11 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "common",
-                    "DA": [
-                        "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
-                        "close-lib/sender.js-156-199 | {\"id\":422 - \"parents\":[357-358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
+                    "FP": [
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "arrowAnonymousFunction-bench/sender.benchmark.js-31-31 | {\"id\":430 - \"parents\":[412]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -23686,9 +23198,11 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "common",
-                    "DA": [
-                        "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
+                    "FP": [
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "arrowAnonymousFunction-bench/sender.benchmark.js-31-31 | {\"id\":430 - \"parents\":[412]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -23697,70 +23211,49 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "DA": [
-                        "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}"
+                    "FP": [
+                        [
+                            "arrowAnonymousFunction-lib/sender.js-408-431 | {\"id\":421 - \"parents\":[357-425-358]}",
+                            "close-lib/sender.js-156-199 | {\"id\":422 - \"parents\":[357-358]}",
+                            "dequeue-lib/sender.js-439-446 | {\"id\":424 - \"parents\":[357-358]}",
+                            "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/sender.test.js-66-97 | {\"id\":340 - \"parents\":[341-77]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/sender.test.js-126-155 | {\"id\":344 - \"parents\":[341-77]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/sender.test.js-157-186 | {\"id\":345 - \"parents\":[341-77]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/sender.test.js-188-217 | {\"id\":346 - \"parents\":[341-77]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/sender.test.js-219-248 | {\"id\":347 - \"parents\":[341-77]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
-                        "send-lib/sender.js-303-373 | {\"id\":429 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/sender.test.js-319-332 | {\"id\":286 - \"parents\":[77-78-341-77]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-596-610",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}"
-                    ],
                     "evaluation result": "true"
                 }
             ],
@@ -23770,193 +23263,146 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "Berke Unique",
-                    "DA": [
-                        "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
+                    "FP": [
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "arrowAnonymousFunction-lib/sender.js-408-431 | {\"id\":421 - \"parents\":[357-425-358]}",
+                            "close-lib/sender.js-156-199 | {\"id\":422 - \"parents\":[357-358]}",
+                            "dequeue-lib/sender.js-439-446 | {\"id\":424 - \"parents\":[357-358]}"
+                        ],
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "arrowAnonymousFunction-lib/sender.js-408-431 | {\"id\":421 - \"parents\":[357-425-358]}",
+                            "close-lib/sender.js-156-199 | {\"id\":422 - \"parents\":[357-358]}",
+                            "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
+                        ],
+                        [
+                            "Sender-lib/sender.js-20-476 | {\"id\":357 - \"parents\":[358]}",
+                            "arrowAnonymousFunction-lib/sender.js-408-431 | {\"id\":421 - \"parents\":[357-425-358]}",
+                            "close-lib/sender.js-156-199 | {\"id\":422 - \"parents\":[357-358]}",
+                            "sender.js-lib/sender.js-1-479 | {\"id\":358 - \"parents\":[]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/buffer-util.js-115-118",
                     "status": "Berke Unique",
-                    "DA": [
-                        "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/create-websocket-stream.test.js-242-286",
                     "status": "Berke Unique",
-                    "DA": [
-                        "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/create-websocket-stream.test.js-426-452",
                     "status": "Berke Unique",
-                    "DA": [
-                        "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/create-websocket-stream.test.js-479-499",
                     "status": "Berke Unique",
-                    "DA": [
-                        "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-63-85",
                     "status": "Berke Unique",
-                    "DA": [
-                        "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-87-108",
                     "status": "Berke Unique",
-                    "DA": [
-                        "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-110-142",
                     "status": "Berke Unique",
-                    "DA": [
-                        "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-144-164",
                     "status": "Berke Unique",
-                    "DA": [
-                        "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-177-225",
                     "status": "Berke Unique",
-                    "DA": [
-                        "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
+                },
+                {
+                    "consequent": "arrowAnonymousFunction-test/websocket-server.test.js-829-845",
+                    "status": "Berke Unique",
+                    "evaluation result": ""
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-287-308",
                     "status": "Berke Unique",
-                    "DA": [
-                        "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-310-331",
                     "status": "Berke Unique",
-                    "DA": [
-                        "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-333-354",
                     "status": "Berke Unique",
-                    "DA": [
-                        "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-356-377",
                     "status": "Berke Unique",
-                    "DA": [
-                        "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-898-921",
                     "status": "Berke Unique",
-                    "DA": [
-                        "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-999-1007",
                     "status": "Berke Unique",
-                    "DA": [
-                        "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-1025-1033 | {\"id\":360 - \"parents\":[361]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-1052-1060 | {\"id\":362 - \"parents\":[363]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "onMessage-lib/event-target.js-193-200",
                     "status": "Berke Unique",
-                    "DA": [
-                        "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket-server.test.js-1163-1184",
                     "status": "Berke Unique",
-                    "DA": [
-                        "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "generateMask-test/websocket.test.js-137-137 | {\"id\":366 - \"parents\":[367-368-369]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-3952-3996",
                     "status": "Berke Unique",
-                    "DA": [
-                        "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-4466-4489",
                     "status": "Berke Unique",
-                    "DA": [
-                        "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-4497-4511",
                     "status": "Berke Unique",
-                    "DA": [
-                        "frame-lib/sender.js-68-145 | {\"id\":426 - \"parents\":[357-358]}"
-                    ],
                     "evaluation result": "true"
                 }
             ]
@@ -24217,6 +23663,15 @@
                 "DA-evaluation": "true"
             },
             {
+                "consequent": "arrowAnonymousFunction-test/websocket-server.test.js-829-845",
+                "DA-antecedents": [
+                    "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
+                    "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
+                ],
+                "status": "Berke Unique",
+                "DA-evaluation": ""
+            },
+            {
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-287-308 | {\"id\":458 - \"parents\":[442-443]}",
                 "DA-antecedents": [
                     "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
@@ -24337,6 +23792,22 @@
                 "DA-evaluation": "true"
             },
             {
+                "consequent": "arrowAnonymousFunction-test/websocket-server.test.js-1187-1191",
+                "DA-antecedents": [
+                    "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
+                ],
+                "status": "Berke Unique",
+                "DA-evaluation": ""
+            },
+            {
+                "consequent": "arrowAnonymousFunction-test/websocket-server.test.js-1227-1237",
+                "DA-antecedents": [
+                    "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
+                ],
+                "status": "Berke Unique",
+                "DA-evaluation": ""
+            },
+            {
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-612-627 | {\"id\":482 - \"parents\":[442-443]}",
                 "DA-antecedents": [
                     "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
@@ -24407,6 +23878,22 @@
                 ],
                 "status": "common",
                 "DA-evaluation": "true"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-test/websocket-server.test.js-1214-1216 | {\"id\":98 - \"parents\":[96]}",
+                "DA-antecedents": [
+                    "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
+                ],
+                "status": "Berke Unique",
+                "DA-evaluation": ""
+            },
+            {
+                "consequent": "arrowAnonymousFunction-test/websocket-server.test.js-1208-1211",
+                "DA-antecedents": [
+                    "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
+                ],
+                "status": "Berke Unique",
+                "DA-evaluation": ""
             },
             {
                 "consequent": "arrowAnonymousFunction-test/receiver.test.js-815-843 | {\"id\":491 - \"parents\":[442-443]}",
@@ -26443,9 +25930,11 @@
                     "support": 3,
                     "FP-score": 0.42857142857142855,
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
+                    "FP": [
+                        [
+                            "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
+                            "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -26454,9 +25943,11 @@
                     "support": 3,
                     "FP-score": 0.42857142857142855,
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
+                    "FP": [
+                        [
+                            "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
+                            "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -26465,9 +25956,11 @@
                     "support": 3,
                     "FP-score": 0.42857142857142855,
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
+                    "FP": [
+                        [
+                            "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
+                            "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -26476,9 +25969,13 @@
                     "support": 2,
                     "FP-score": 0.4,
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
+                    "FP": [
+                        [
+                            "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
+                            "constructor-lib/receiver.js-41-68 | {\"id\":380 - \"parents\":[378-504-378]}",
+                            "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}",
+                            "receiver.js-lib/receiver.js-1-619 | {\"id\":378 - \"parents\":[]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -26487,9 +25984,13 @@
                     "support": 2,
                     "FP-score": 0.4,
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
+                    "FP": [
+                        [
+                            "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
+                            "constructor-lib/receiver.js-41-68 | {\"id\":380 - \"parents\":[378-504-378]}",
+                            "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}",
+                            "receiver.js-lib/receiver.js-1-619 | {\"id\":378 - \"parents\":[]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -26498,9 +25999,13 @@
                     "support": 2,
                     "FP-score": 0.4,
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
+                    "FP": [
+                        [
+                            "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
+                            "constructor-lib/receiver.js-41-68 | {\"id\":380 - \"parents\":[378-504-378]}",
+                            "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}",
+                            "receiver.js-lib/receiver.js-1-619 | {\"id\":378 - \"parents\":[]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -26509,9 +26014,13 @@
                     "support": 2,
                     "FP-score": 0.4,
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
+                    "FP": [
+                        [
+                            "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
+                            "constructor-lib/receiver.js-41-68 | {\"id\":380 - \"parents\":[378-504-378]}",
+                            "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}",
+                            "receiver.js-lib/receiver.js-1-619 | {\"id\":378 - \"parents\":[]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -26520,320 +26029,224 @@
                     "support": 2,
                     "FP-score": 0.4,
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
+                    "FP": [
+                        [
+                            "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
+                            "constructor-lib/receiver.js-41-68 | {\"id\":380 - \"parents\":[378-504-378]}",
+                            "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}",
+                            "receiver.js-lib/receiver.js-1-619 | {\"id\":378 - \"parents\":[]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-12-22 | {\"id\":440 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-49-61 | {\"id\":446 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-63-85 | {\"id\":448 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-87-108 | {\"id\":450 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-110-142 | {\"id\":452 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-177-225 | {\"id\":456 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
+                },
+                {
+                    "consequent": "arrowAnonymousFunction-test/websocket-server.test.js-829-845",
+                    "status": "Berke Unique",
+                    "evaluation result": ""
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-287-308 | {\"id\":458 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-310-331 | {\"id\":460 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-333-354 | {\"id\":462 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-356-377 | {\"id\":464 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-379-402 | {\"id\":466 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-404-435 | {\"id\":468 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-509-535 | {\"id\":478 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-1063-1073 | {\"id\":502 - \"parents\":[442-443]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-24-34 | {\"id\":444 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-36-47 | {\"id\":445 - \"parents\":[442-443]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-144-164 | {\"id\":454 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-166-175 | {\"id\":455 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-537-552 | {\"id\":480 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-554-576 | {\"id\":481 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
-                    ],
                     "evaluation result": "true"
+                },
+                {
+                    "consequent": "arrowAnonymousFunction-test/websocket-server.test.js-1187-1191",
+                    "status": "Berke Unique",
+                    "evaluation result": ""
+                },
+                {
+                    "consequent": "arrowAnonymousFunction-test/websocket-server.test.js-1227-1237",
+                    "status": "Berke Unique",
+                    "evaluation result": ""
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-612-627 | {\"id\":482 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-629-645 | {\"id\":483 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-647-663 | {\"id\":484 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-665-680 | {\"id\":485 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-682-704 | {\"id\":486 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-706-721 | {\"id\":487 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-723-738 | {\"id\":488 - \"parents\":[442-443]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-740-757 | {\"id\":489 - \"parents\":[442-443]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-759-774 | {\"id\":490 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
-                    ],
                     "evaluation result": "true"
+                },
+                {
+                    "consequent": "arrowAnonymousFunction-test/websocket-server.test.js-1214-1216 | {\"id\":98 - \"parents\":[96]}",
+                    "status": "Berke Unique",
+                    "evaluation result": ""
+                },
+                {
+                    "consequent": "arrowAnonymousFunction-test/websocket-server.test.js-1208-1211",
+                    "status": "Berke Unique",
+                    "evaluation result": ""
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-815-843 | {\"id\":491 - \"parents\":[442-443]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-845-860 | {\"id\":492 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-862-877 | {\"id\":493 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-879-896 | {\"id\":494 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-898-921 | {\"id\":495 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-923-948 | {\"id\":496 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-950-982 | {\"id\":497 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/websocket.test.js-66-70",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}"
-                    ],
                     "evaluation result": "false"
                 }
             ],
@@ -26843,9 +26256,11 @@
                     "support": 3,
                     "FP-score": 0.42857142857142855,
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
+                    "FP": [
+                        [
+                            "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
+                            "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -26854,9 +26269,11 @@
                     "support": 3,
                     "FP-score": 0.42857142857142855,
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
+                    "FP": [
+                        [
+                            "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
+                            "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -26865,9 +26282,11 @@
                     "support": 3,
                     "FP-score": 0.42857142857142855,
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
+                    "FP": [
+                        [
+                            "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
+                            "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -26876,9 +26295,13 @@
                     "support": 2,
                     "FP-score": 0.4,
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
+                    "FP": [
+                        [
+                            "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
+                            "constructor-lib/receiver.js-41-68 | {\"id\":380 - \"parents\":[378-504-378]}",
+                            "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}",
+                            "receiver.js-lib/receiver.js-1-619 | {\"id\":378 - \"parents\":[]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -26887,9 +26310,13 @@
                     "support": 2,
                     "FP-score": 0.4,
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
+                    "FP": [
+                        [
+                            "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
+                            "constructor-lib/receiver.js-41-68 | {\"id\":380 - \"parents\":[378-504-378]}",
+                            "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}",
+                            "receiver.js-lib/receiver.js-1-619 | {\"id\":378 - \"parents\":[]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -26898,9 +26325,13 @@
                     "support": 2,
                     "FP-score": 0.4,
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
+                    "FP": [
+                        [
+                            "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
+                            "constructor-lib/receiver.js-41-68 | {\"id\":380 - \"parents\":[378-504-378]}",
+                            "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}",
+                            "receiver.js-lib/receiver.js-1-619 | {\"id\":378 - \"parents\":[]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -26909,9 +26340,13 @@
                     "support": 2,
                     "FP-score": 0.4,
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
+                    "FP": [
+                        [
+                            "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
+                            "constructor-lib/receiver.js-41-68 | {\"id\":380 - \"parents\":[378-504-378]}",
+                            "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}",
+                            "receiver.js-lib/receiver.js-1-619 | {\"id\":378 - \"parents\":[]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -26920,9 +26355,13 @@
                     "support": 2,
                     "FP-score": 0.4,
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
+                    "FP": [
+                        [
+                            "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
+                            "constructor-lib/receiver.js-41-68 | {\"id\":380 - \"parents\":[378-504-378]}",
+                            "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}",
+                            "receiver.js-lib/receiver.js-1-619 | {\"id\":378 - \"parents\":[]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -26931,8 +26370,13 @@
                     "support": 2,
                     "FP-score": 0.4,
                     "status": "common",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
+                    "FP": [
+                        [
+                            "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
+                            "constructor-lib/receiver.js-41-68 | {\"id\":380 - \"parents\":[378-504-378]}",
+                            "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}",
+                            "receiver.js-lib/receiver.js-1-619 | {\"id\":378 - \"parents\":[]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
@@ -26941,351 +26385,224 @@
                     "support": 2,
                     "FP-score": 0.4,
                     "status": "common",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
+                    "FP": [
+                        [
+                            "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
+                            "constructor-lib/receiver.js-41-68 | {\"id\":380 - \"parents\":[378-504-378]}",
+                            "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}",
+                            "receiver.js-lib/receiver.js-1-619 | {\"id\":378 - \"parents\":[]}"
+                        ]
                     ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-12-22 | {\"id\":440 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-49-61 | {\"id\":446 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-63-85 | {\"id\":448 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-87-108 | {\"id\":450 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-110-142 | {\"id\":452 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-177-225 | {\"id\":456 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
+                },
+                {
+                    "consequent": "arrowAnonymousFunction-test/websocket-server.test.js-829-845",
+                    "status": "Berke Unique",
+                    "evaluation result": ""
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-287-308 | {\"id\":458 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-310-331 | {\"id\":460 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-333-354 | {\"id\":462 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-356-377 | {\"id\":464 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-379-402 | {\"id\":466 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-404-435 | {\"id\":468 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-509-535 | {\"id\":478 - \"parents\":[442-443]}",
                     "status": "common",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-1063-1073 | {\"id\":502 - \"parents\":[442-443]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "Receiver-lib/receiver.js-27-593 | {\"id\":504 - \"parents\":[378]}",
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "concat-lib/buffer-util.js-13-29",
                     "status": "Berke Unique",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "receiverOnMessage-lib/websocket.js-1177-1179",
                     "status": "common",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/validation.js-119-121",
                     "status": "Berke Unique",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-15-19 | {\"id\":441 - \"parents\":[440-442-443]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-52-56 | {\"id\":447 - \"parents\":[446-442-443]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-77-81 | {\"id\":449 - \"parents\":[448-442-443]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-101-105 | {\"id\":451 - \"parents\":[450-442-443]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-134-138 | {\"id\":453 - \"parents\":[452-442-443]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-211-216 | {\"id\":457 - \"parents\":[456-442-443]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-271-276 | {\"id\":506 - \"parents\":[442-443]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-301-305 | {\"id\":459 - \"parents\":[458-442-443]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-324-328 | {\"id\":461 - \"parents\":[460-442-443]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-347-351 | {\"id\":463 - \"parents\":[462-442-443]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-370-374 | {\"id\":465 - \"parents\":[464-442-443]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-390-394 | {\"id\":467 - \"parents\":[466-442-443]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-416-420 | {\"id\":469 - \"parents\":[468-442-443]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-448-452 | {\"id\":471 - \"parents\":[470-442-443]}",
                     "status": "common",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-460-465 | {\"id\":473 - \"parents\":[472-442-443]}",
                     "status": "common",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-474-479 | {\"id\":475 - \"parents\":[474-442-443]}",
                     "status": "common",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-495-501 | {\"id\":477 - \"parents\":[476-442-443]}",
                     "status": "common",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "bound push-test/receiver.test.js-521-521 | {\"id\":479 - \"parents\":[478-442-443]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "error-lib/receiver.js-609-618 | {\"id\":507 - \"parents\":[378]}",
                     "status": "common",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-993-997 | {\"id\":499 - \"parents\":[498-442-443]}",
                     "status": "common",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "toArrayBuffer-lib/buffer-util.js-67-73",
                     "status": "Berke Unique",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-1018-1023 | {\"id\":500 - \"parents\":[361-442-443]}",
                     "status": "common",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-1046-1050 | {\"id\":501 - \"parents\":[363-442-443]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/receiver.test.js-1066-1070 | {\"id\":503 - \"parents\":[502-442-443]}",
                     "status": "Berke Unique",
-                    "DA": [
-                        "dataMessage-lib/receiver.js-492-533 | {\"id\":416 - \"parents\":[378-504-378]}"
-                    ],
                     "evaluation result": "true"
                 }
             ]

@@ -3272,172 +3272,531 @@
         ],
         "berke": [
             {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-455-457 | {\"id\":101 - \"parents\":[93-102-95-103-96]}",
-                "FP-score": 1,
-                "support": 1,
+                "consequent": "gistArgs-src/client/src/controller/settings.js-32-41 | {\"id\":73 - \"parents\":[74-75]}",
+                "FP-score": 0.4,
+                "support": 2,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":103 - \"parents\":[93-102-95-96]}"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": "true children"
-            },
-            {
-                "consequent": "arrowAnonymousFunction-src/client/src/modals/badge.js-34-57 | {\"id\":165 - \"parents\":[167]}",
-                "FP-score": 1,
-                "support": 1,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":103 - \"parents\":[93-102-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "link-src/client/src/modals/badge.js-41-55 | {\"id\":166 - \"parents\":[165-167]}",
-                "FP-score": 1,
-                "support": 1,
+                "consequent": "arrowAnonymousFunction-src/client/src/controller/settings.js-183-191 | {\"id\":89 - \"parents\":[90-74-75]}",
+                "FP-score": 0.4,
+                "support": 2,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":103 - \"parents\":[93-102-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "badge.js-src/client/src/modals/badge.js-1-58 | {\"id\":167 - \"parents\":[]}",
-                "FP-score": 1,
-                "support": 1,
+                "consequent": "getRepos-src/client/src/controller/home.js-141-157 | {\"id\":99 - \"parents\":[42]}",
+                "FP-score": 0.4,
+                "support": 2,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":103 - \"parents\":[93-102-95-96]}"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": "true"
-            },
-            {
-                "consequent": "arrowAnonymousFunction-src/client/src/modals/badge.js-44-48 | {\"id\":168 - \"parents\":[165-166-167]}",
-                "FP-score": 1,
-                "support": 1,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":103 - \"parents\":[93-102-95-96]}"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": "true"
-            },
-            {
-                "consequent": "arrowAnonymousFunction-src/client/src/modals/badge.js-50-54 | {\"id\":169 - \"parents\":[165-166-167]}",
-                "FP-score": 1,
-                "support": 1,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":103 - \"parents\":[93-102-95-96]}"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": "true"
-            },
-            {
-                "consequent": "cancel-src/client/src/modals/badge.js-29-31 | {\"id\":193 - \"parents\":[167-194]}",
-                "FP-score": 1,
-                "support": 1,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":103 - \"parents\":[93-102-95-96]}"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": "true"
-            },
-            {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-450-463 | {\"id\":102 - \"parents\":[93-95-96]}",
-                "FP-score": 1,
-                "support": 1,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":103 - \"parents\":[93-102-95-96]}"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": "true"
-            },
-            {
-                "consequent": "getBadge-src/client/src/controller/settings.js-285-297 | {\"id\":218 - \"parents\":[74-75]}",
-                "FP-score": 1,
-                "support": 1,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":103 - \"parents\":[93-102-95-96]}"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": "true"
-            },
-            {
-                "consequent": "arrowAnonymousFunction-src/client/src/modals/badge.js-5-32 | {\"id\":194 - \"parents\":[167]}",
-                "FP-score": 1,
-                "support": 1,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":103 - \"parents\":[93-102-95-96]}"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": "true"
-            },
-            {
-                "consequent": "repo-src/client/src/controller/settings.js-292-294 | {\"id\":219 - \"parents\":[218-74-75]}",
-                "FP-score": 1,
-                "support": 1,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":103 - \"parents\":[93-102-95-96]}"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": "true childrentrue"
-            },
-            {
-                "consequent": "arrowAnonymousFunction-src/client/src/controller/home.js-146-155 | {\"id\":191 - \"parents\":[42]}",
-                "FP-score": 0.6,
-                "support": 3,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "gistArgs-src/client/src/controller/settings.js-32-41 | {\"id\":73 - \"parents\":[74-75]}",
-                "FP-score": 0.5,
-                "support": 1,
+                "consequent": "validateLinkedItem-src/client/src/controller/settings.js-177-193 | {\"id\":90 - \"parents\":[74-75]}",
+                "FP-score": 0.4,
+                "support": 2,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":210 - \"parents\":[93-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "common",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/client/src/controller/home.js-220-223 | {\"id\":115 - \"parents\":[42]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/homectrl.spec.js-582-613 | {\"id\":139 - \"parents\":[77-78]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/homectrl.spec.js-437-443 | {\"id\":153 - \"parents\":[77-78]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "selected-src/client/src/controller/home.js-235-237 | {\"id\":162 - \"parents\":[42]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "selected-src/client/src/controller/home.js-257-261 | {\"id\":175 - \"parents\":[42]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/homectrl.spec.js-738-750 | {\"id\":164 - \"parents\":[77-78]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/client/src/controller/settings.js-336-363 | {\"id\":178 - \"parents\":[75]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
+            },
+            {
+                "consequent": "groupOrgs-src/client/src/controller/home.js-480-482 | {\"id\":188 - \"parents\":[42]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "ok-src/client/src/modals/confirm.js-10-12 | {\"id\":200 - \"parents\":[201]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-351-359 | {\"id\":193 - \"parents\":[156-93-95-96]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "link-src/client/src/controller/home.js-410-446 | {\"id\":204 - \"parents\":[42]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/homectrl.spec.js-137-312 | {\"id\":165 - \"parents\":[77-78]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "isRepo-src/client/src/controller/home.js-352-354 | {\"id\":208 - \"parents\":[42]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "selected-src/client/src/controller/home.js-214-216 | {\"id\":211 - \"parents\":[42]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/client/src/controller/home.js-146-155 | {\"id\":100 - \"parents\":[99-42]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/homectrl.spec.js-314-324 | {\"id\":167 - \"parents\":[77-78]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/homectrl.spec.js-555-580 | {\"id\":168 - \"parents\":[77-78]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/client/src/modals/confirm.js-6-17 | {\"id\":201 - \"parents\":[]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "linkCla-src/client/src/controller/home.js-356-358 | {\"id\":234 - \"parents\":[42]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "getLinkedRepos-src/client/src/controller/home.js-99-119 | {\"id\":235 - \"parents\":[42]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "clear-src/client/src/controller/home.js-335-342 | {\"id\":237 - \"parents\":[42]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/homectrl.spec.js-426-435 | {\"id\":169 - \"parents\":[77-78]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/homectrl.spec.js-724-736 | {\"id\":170 - \"parents\":[77-78]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/homectrl.spec.js-514-553 | {\"id\":171 - \"parents\":[77-78]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "getOrgs-src/client/src/controller/home.js-180-196 | {\"id\":246 - \"parents\":[42]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "getGist-src/client/src/controller/settings.js-151-166 | {\"id\":240 - \"parents\":[74-75]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/homectrl.spec.js-211-278 | {\"id\":172 - \"parents\":[77-78-165]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/client/src/controller/home.js-223-226 | {\"id\":247 - \"parents\":[42]}",
+                "FP-score": 0.4,
+                "support": 2,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-455-457 | {\"id\":103 - \"parents\":[93-104-95-105-96]}",
+                "FP-score": 1,
+                "support": 1,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":105 - \"parents\":[93-104-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "true children"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/client/src/modals/badge.js-34-57 | {\"id\":181 - \"parents\":[183]}",
+                "FP-score": 1,
+                "support": 1,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":105 - \"parents\":[93-104-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "link-src/client/src/modals/badge.js-41-55 | {\"id\":182 - \"parents\":[181-183]}",
+                "FP-score": 1,
+                "support": 1,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":105 - \"parents\":[93-104-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "badge.js-src/client/src/modals/badge.js-1-58 | {\"id\":183 - \"parents\":[]}",
+                "FP-score": 1,
+                "support": 1,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":105 - \"parents\":[93-104-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/client/src/modals/badge.js-44-48 | {\"id\":184 - \"parents\":[181-182-183]}",
+                "FP-score": 1,
+                "support": 1,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":105 - \"parents\":[93-104-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/client/src/modals/badge.js-50-54 | {\"id\":185 - \"parents\":[181-182-183]}",
+                "FP-score": 1,
+                "support": 1,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":105 - \"parents\":[93-104-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "cancel-src/client/src/modals/badge.js-29-31 | {\"id\":214 - \"parents\":[183-215]}",
+                "FP-score": 1,
+                "support": 1,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":105 - \"parents\":[93-104-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-450-463 | {\"id\":104 - \"parents\":[93-95-96]}",
+                "FP-score": 1,
+                "support": 1,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":105 - \"parents\":[93-104-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "getBadge-src/client/src/controller/settings.js-285-297 | {\"id\":242 - \"parents\":[74-75]}",
+                "FP-score": 1,
+                "support": 1,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":105 - \"parents\":[93-104-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/client/src/modals/badge.js-5-32 | {\"id\":215 - \"parents\":[183]}",
+                "FP-score": 1,
+                "support": 1,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":105 - \"parents\":[93-104-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "repo-src/client/src/controller/settings.js-292-294 | {\"id\":243 - \"parents\":[242-74-75]}",
+                "FP-score": 1,
+                "support": 1,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":105 - \"parents\":[93-104-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "true childrentrue"
             },
             {
                 "consequent": "arrowAnonymousFunction-src/tests/client/controller/homectrl.spec.js-336-352 | {\"id\":76 - \"parents\":[77-78]}",
@@ -3446,7 +3805,7 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -3459,7 +3818,7 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -3472,24 +3831,11 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
-            },
-            {
-                "consequent": "arrowAnonymousFunction-src/client/src/controller/settings.js-183-191 | {\"id\":89 - \"parents\":[90-74-75]}",
-                "FP-score": 0.5,
-                "support": 1,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-435-447 | {\"id\":184 - \"parents\":[93-94-95-96]}"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": "true"
             },
             {
                 "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-420-433 | {\"id\":91 - \"parents\":[93-94-95-96]}",
@@ -3497,8 +3843,8 @@
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":210 - \"parents\":[93-96]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-435-447 | {\"id\":203 - \"parents\":[93-94-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -3511,7 +3857,7 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -3524,46 +3870,46 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1549-1568 | {\"id\":99 - \"parents\":[100-88]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1549-1568 | {\"id\":101 - \"parents\":[102-88]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "getSignatures-src/client/src/controller/settings.js-50-60 | {\"id\":104 - \"parents\":[74-75]}",
+                "consequent": "getSignatures-src/client/src/controller/settings.js-50-60 | {\"id\":106 - \"parents\":[74-75]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "common",
                 "FP-evaluation": "true children"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1719-1721 | {\"id\":105 - \"parents\":[86-87-88]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1719-1721 | {\"id\":107 - \"parents\":[86-87-88]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -3576,7 +3922,7 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":143 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":147 - \"parents\":[93-96]}",
                         "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-8-485 | {\"id\":96 - \"parents\":[93]}",
                         "settings.js-src/client/src/controller/settings.js-1-364 | {\"id\":75 - \"parents\":[]}"
                     ]
@@ -3585,26 +3931,26 @@
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/client/src/controller/settings.js-275-281 | {\"id\":106 - \"parents\":[74-75]}",
+                "consequent": "arrowAnonymousFunction-src/client/src/controller/settings.js-275-281 | {\"id\":108 - \"parents\":[74-75]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-435-447 | {\"id\":184 - \"parents\":[93-94-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-435-447 | {\"id\":203 - \"parents\":[93-94-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/clactrl.spec.js-330-336 | {\"id\":107 - \"parents\":[9]}",
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/clactrl.spec.js-330-336 | {\"id\":109 - \"parents\":[9]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -3617,162 +3963,149 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "validateLinkedItem-src/client/src/controller/settings.js-177-193 | {\"id\":90 - \"parents\":[74-75]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/api/cla.js-1387-1399 | {\"id\":112 - \"parents\":[113-82-83]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-435-447 | {\"id\":184 - \"parents\":[93-94-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "redirect-src/client/src/controller/cla.js-136-145 | {\"id\":114 - \"parents\":[5]}",
+                "FP-score": 0.5,
+                "support": 1,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/clactrl.spec.js-262-275 | {\"id\":116 - \"parents\":[9]}",
+                "FP-score": 0.5,
+                "support": 1,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1473-1644 | {\"id\":102 - \"parents\":[88]}",
+                "FP-score": 0.5,
+                "support": 1,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1154-1310 | {\"id\":123 - \"parents\":[88]}",
+                "FP-score": 0.5,
+                "support": 1,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":231 - \"parents\":[93-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-370-380 | {\"id\":130 - \"parents\":[88]}",
+                "FP-score": 0.5,
+                "support": 1,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-311-323 | {\"id\":131 - \"parents\":[93-133-95-96]}",
+                "FP-score": 0.5,
+                "support": 1,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "common",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/api/cla.js-1387-1399 | {\"id\":110 - \"parents\":[111-82-83]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/api/cla.js-462-470 | {\"id\":134 - \"parents\":[135-82-83]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "redirect-src/client/src/controller/cla.js-136-145 | {\"id\":112 - \"parents\":[5]}",
+                "consequent": "validateOrgPr-src/client/src/controller/settings.js-244-249 | {\"id\":136 - \"parents\":[74-75]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": "false"
-            },
-            {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/clactrl.spec.js-262-275 | {\"id\":113 - \"parents\":[9]}",
-                "FP-score": 0.5,
-                "support": 1,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":105 - \"parents\":[93-104-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1473-1644 | {\"id\":100 - \"parents\":[88]}",
+                "consequent": "arrowAnonymousFunction-src/client/src/app.js-32-109 | {\"id\":137 - \"parents\":[138]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":231 - \"parents\":[93-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1154-1310 | {\"id\":120 - \"parents\":[88]}",
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-244-267 | {\"id\":140 - \"parents\":[93-95-96]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":210 - \"parents\":[93-96]}"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": "false"
-            },
-            {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-370-380 | {\"id\":127 - \"parents\":[88]}",
-                "FP-score": 0.5,
-                "support": 1,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": "false"
-            },
-            {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-311-323 | {\"id\":128 - \"parents\":[93-130-95-96]}",
-                "FP-score": 0.5,
-                "support": 1,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
-                    ]
-                ],
-                "status": "common",
-                "FP-evaluation": "true"
-            },
-            {
-                "consequent": "arrowAnonymousFunction-src/tests/server/api/cla.js-462-470 | {\"id\":131 - \"parents\":[132-82-83]}",
-                "FP-score": 0.5,
-                "support": 1,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": "false"
-            },
-            {
-                "consequent": "validateOrgPr-src/client/src/controller/settings.js-244-249 | {\"id\":133 - \"parents\":[74-75]}",
-                "FP-score": 0.5,
-                "support": 1,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":103 - \"parents\":[93-102-95-96]}"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": "true"
-            },
-            {
-                "consequent": "arrowAnonymousFunction-src/client/src/app.js-32-109 | {\"id\":134 - \"parents\":[135]}",
-                "FP-score": 0.5,
-                "support": 1,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":210 - \"parents\":[93-96]}"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": "true"
-            },
-            {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-244-267 | {\"id\":136 - \"parents\":[93-95-96]}",
-                "FP-score": 0.5,
-                "support": 1,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":143 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":147 - \"parents\":[93-96]}",
                         "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-8-485 | {\"id\":96 - \"parents\":[93]}",
                         "settings.js-src/client/src/controller/settings.js-1-364 | {\"id\":75 - \"parents\":[]}"
                     ]
@@ -3781,117 +4114,117 @@
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/client/src/controller/cla.js-178-183 | {\"id\":137 - \"parents\":[5]}",
+                "consequent": "arrowAnonymousFunction-src/client/src/controller/cla.js-178-183 | {\"id\":141 - \"parents\":[5]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1535-1547 | {\"id\":114 - \"parents\":[100-88]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1535-1547 | {\"id\":117 - \"parents\":[102-88]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/pullrequest.js-607-617 | {\"id\":138 - \"parents\":[139]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/pullrequest.js-607-617 | {\"id\":142 - \"parents\":[143]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "report.js-src/client/src/modals/report.js-1-17 | {\"id\":140 - \"parents\":[]}",
+                "consequent": "report.js-src/client/src/modals/report.js-1-17 | {\"id\":144 - \"parents\":[]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":210 - \"parents\":[93-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":231 - \"parents\":[93-96]}"
                     ]
                 ],
                 "status": "common",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "createCtrl-src/tests/client/controller/settingsctrl.spec.js-140-148 | {\"id\":142 - \"parents\":[93-143-96]}",
+                "consequent": "createCtrl-src/tests/client/controller/settingsctrl.spec.js-140-148 | {\"id\":146 - \"parents\":[93-147-96]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":210 - \"parents\":[93-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":231 - \"parents\":[93-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true children"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-393-400 | {\"id\":144 - \"parents\":[93-95-96]}",
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-393-400 | {\"id\":148 - \"parents\":[93-95-96]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":210 - \"parents\":[93-96]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":231 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "sign-src/server/src/api/cla.js-305-338 | {\"id\":145 - \"parents\":[146]}",
+                "consequent": "sign-src/server/src/api/cla.js-305-338 | {\"id\":149 - \"parents\":[150]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-192-198 | {\"id\":147 - \"parents\":[93-95-96]}",
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-192-198 | {\"id\":151 - \"parents\":[93-95-96]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/api/cla.js-225-235 | {\"id\":148 - \"parents\":[82-83]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/api/cla.js-225-235 | {\"id\":152 - \"parents\":[82-83]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -3904,7 +4237,7 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -3917,33 +4250,33 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-372-379 | {\"id\":150 - \"parents\":[151-93-95-96]}",
-                "FP-score": 0.5,
-                "support": 1,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":210 - \"parents\":[93-96]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": "true"
-            },
-            {
-                "consequent": "arrowAnonymousFunction-src/tests/server/api/webhook.js-267-300 | {\"id\":152 - \"parents\":[153-154]}",
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-372-379 | {\"id\":155 - \"parents\":[156-93-95-96]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-435-447 | {\"id\":203 - \"parents\":[93-94-95-96]}"
+                    ]
+                ],
+                "status": "Berke Unique",
+                "FP-evaluation": "true"
+            },
+            {
+                "consequent": "arrowAnonymousFunction-src/tests/server/api/webhook.js-267-300 | {\"id\":157 - \"parents\":[158-159]}",
+                "FP-score": 0.5,
+                "support": 1,
+                "FP-antecedents": [
+                    [
+                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -3956,20 +4289,20 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "report-src/client/src/controller/settings.js-215-228 | {\"id\":157 - \"parents\":[74-75]}",
+                "consequent": "report-src/client/src/controller/settings.js-215-228 | {\"id\":163 - \"parents\":[74-75]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-435-447 | {\"id\":184 - \"parents\":[93-94-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-435-447 | {\"id\":203 - \"parents\":[93-94-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -3982,7 +4315,7 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":143 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":147 - \"parents\":[93-96]}",
                         "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-8-485 | {\"id\":96 - \"parents\":[93]}",
                         "settings.js-src/client/src/controller/settings.js-1-364 | {\"id\":75 - \"parents\":[]}"
                     ]
@@ -3997,33 +4330,33 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-629-645 | {\"id\":159 - \"parents\":[7-88]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-629-645 | {\"id\":173 - \"parents\":[7-88]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-200-204 | {\"id\":160 - \"parents\":[93-95-96]}",
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-200-204 | {\"id\":174 - \"parents\":[93-95-96]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":143 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":147 - \"parents\":[93-96]}",
                         "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-8-485 | {\"id\":96 - \"parents\":[93]}",
                         "settings.js-src/client/src/controller/settings.js-1-364 | {\"id\":75 - \"parents\":[]}"
                     ]
@@ -4032,65 +4365,65 @@
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/clactrl.spec.js-428-435 | {\"id\":155 - \"parents\":[9]}",
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/clactrl.spec.js-428-435 | {\"id\":160 - \"parents\":[9]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/api/cla.js-210-218 | {\"id\":161 - \"parents\":[162-82-83]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/api/cla.js-210-218 | {\"id\":176 - \"parents\":[177-82-83]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1237-1247 | {\"id\":121 - \"parents\":[120-88]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1237-1247 | {\"id\":124 - \"parents\":[123-88]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-478-483 | {\"id\":163 - \"parents\":[164-93-96]}",
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-478-483 | {\"id\":179 - \"parents\":[180-93-96]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":210 - \"parents\":[93-96]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":231 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/client/src/modals/report.js-5-16 | {\"id\":141 - \"parents\":[140]}",
+                "consequent": "arrowAnonymousFunction-src/client/src/modals/report.js-5-16 | {\"id\":145 - \"parents\":[144]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":143 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":147 - \"parents\":[93-96]}",
                         "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-8-485 | {\"id\":96 - \"parents\":[93]}",
                         "settings.js-src/client/src/controller/settings.js-1-364 | {\"id\":75 - \"parents\":[]}"
                     ]
@@ -4099,39 +4432,39 @@
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/pullrequest.js-517-618 | {\"id\":139 - \"parents\":[]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/pullrequest.js-517-618 | {\"id\":143 - \"parents\":[]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-647-657 | {\"id\":170 - \"parents\":[7-88]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-647-657 | {\"id\":186 - \"parents\":[7-88]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "getContributors-src/client/src/controller/settings.js-95-129 | {\"id\":171 - \"parents\":[74-75]}",
+                "consequent": "getContributors-src/client/src/controller/settings.js-95-129 | {\"id\":187 - \"parents\":[74-75]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":143 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":147 - \"parents\":[93-96]}",
                         "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-8-485 | {\"id\":96 - \"parents\":[93]}",
                         "settings.js-src/client/src/controller/settings.js-1-364 | {\"id\":75 - \"parents\":[]}"
                     ]
@@ -4140,65 +4473,65 @@
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/client/src/controller/home.js-65-71 | {\"id\":172 - \"parents\":[173-42]}",
+                "consequent": "arrowAnonymousFunction-src/client/src/controller/home.js-65-71 | {\"id\":189 - \"parents\":[190-42]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "renderHtml-src/client/src/controller/settings.js-211-213 | {\"id\":174 - \"parents\":[74-75]}",
+                "consequent": "renderHtml-src/client/src/controller/settings.js-211-213 | {\"id\":191 - \"parents\":[74-75]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":210 - \"parents\":[93-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":231 - \"parents\":[93-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "getLinkedItem-src/server/src/api/cla.js-114-116 | {\"id\":175 - \"parents\":[146]}",
+                "consequent": "getLinkedItem-src/server/src/api/cla.js-114-116 | {\"id\":192 - \"parents\":[150]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-341-390 | {\"id\":151 - \"parents\":[93-95-96]}",
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-341-390 | {\"id\":156 - \"parents\":[93-95-96]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":210 - \"parents\":[93-96]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-435-447 | {\"id\":203 - \"parents\":[93-94-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/client/src/controller/home.js-77-84 | {\"id\":180 - \"parents\":[42]}",
+                "consequent": "arrowAnonymousFunction-src/client/src/controller/home.js-77-84 | {\"id\":197 - \"parents\":[42]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -4211,97 +4544,84 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "info-src/client/src/controller/home.js-269-275 | {\"id\":181 - \"parents\":[42]}",
+                "consequent": "info-src/client/src/controller/home.js-269-275 | {\"id\":198 - \"parents\":[42]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":210 - \"parents\":[93-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":231 - \"parents\":[93-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "getWebhook-src/client/src/controller/settings.js-82-93 | {\"id\":182 - \"parents\":[74-75]}",
+                "consequent": "getWebhook-src/client/src/controller/settings.js-82-93 | {\"id\":199 - \"parents\":[74-75]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-351-359 | {\"id\":176 - \"parents\":[151-93-95-96]}",
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-440-442 | {\"id\":202 - \"parents\":[93-94-95-203-96]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-435-447 | {\"id\":184 - \"parents\":[93-94-95-96]}"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": "true"
-            },
-            {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-440-442 | {\"id\":183 - \"parents\":[93-94-95-184-96]}",
-                "FP-score": 0.5,
-                "support": 1,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":210 - \"parents\":[93-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":231 - \"parents\":[93-96]}"
                     ]
                 ],
                 "status": "common",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1727-1731 | {\"id\":108 - \"parents\":[86-88]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1727-1731 | {\"id\":110 - \"parents\":[86-88]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "validateOrgPullRequests-src/server/src/api/cla.js-185-217 | {\"id\":185 - \"parents\":[146]}",
+                "consequent": "validateOrgPullRequests-src/server/src/api/cla.js-185-217 | {\"id\":205 - \"parents\":[150]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":103 - \"parents\":[93-102-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":105 - \"parents\":[93-104-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-467-476 | {\"id\":186 - \"parents\":[164-93-96]}",
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-467-476 | {\"id\":206 - \"parents\":[180-93-96]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":143 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":147 - \"parents\":[93-96]}",
                         "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-8-485 | {\"id\":96 - \"parents\":[93]}",
                         "settings.js-src/client/src/controller/settings.js-1-364 | {\"id\":75 - \"parents\":[]}"
                     ]
@@ -4316,7 +4636,7 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":143 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":147 - \"parents\":[93-96]}",
                         "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-8-485 | {\"id\":96 - \"parents\":[93]}",
                         "settings.js-src/client/src/controller/settings.js-1-364 | {\"id\":75 - \"parents\":[]}"
                     ]
@@ -4325,26 +4645,26 @@
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-613-627 | {\"id\":187 - \"parents\":[7-88]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-613-627 | {\"id\":207 - \"parents\":[7-88]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "mixOrgData-src/client/src/controller/home.js-64-72 | {\"id\":173 - \"parents\":[42]}",
+                "consequent": "mixOrgData-src/client/src/controller/home.js-64-72 | {\"id\":190 - \"parents\":[42]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -4356,72 +4676,72 @@
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":103 - \"parents\":[93-102-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":105 - \"parents\":[93-104-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/homectrl.spec.js-392-405 | {\"id\":158 - \"parents\":[77-78]}",
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/homectrl.spec.js-392-405 | {\"id\":166 - \"parents\":[77-78]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-90-138 | {\"id\":188 - \"parents\":[93-143-96]}",
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-90-138 | {\"id\":209 - \"parents\":[93-147-96]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "common",
                 "FP-evaluation": "true children"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1229-1235 | {\"id\":122 - \"parents\":[120-88]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1229-1235 | {\"id\":125 - \"parents\":[123-88]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "getCLA-src/client/src/controller/cla.js-76-91 | {\"id\":189 - \"parents\":[5]}",
+                "consequent": "getCLA-src/client/src/controller/cla.js-76-91 | {\"id\":210 - \"parents\":[5]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-185-190 | {\"id\":190 - \"parents\":[93-95-96]}",
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-185-190 | {\"id\":212 - \"parents\":[93-95-96]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":143 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":147 - \"parents\":[93-96]}",
                         "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-8-485 | {\"id\":96 - \"parents\":[93]}",
                         "settings.js-src/client/src/controller/settings.js-1-364 | {\"id\":75 - \"parents\":[]}"
                     ]
@@ -4430,26 +4750,26 @@
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/api/webhook.js-367-398 | {\"id\":192 - \"parents\":[153-154]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/api/webhook.js-367-398 | {\"id\":213 - \"parents\":[158-159]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1515-1533 | {\"id\":115 - \"parents\":[100-88]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1515-1533 | {\"id\":118 - \"parents\":[102-88]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -4462,7 +4782,7 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -4475,58 +4795,58 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1157-1222 | {\"id\":123 - \"parents\":[120-88]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1157-1222 | {\"id\":126 - \"parents\":[123-88]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1494-1494 | {\"id\":116 - \"parents\":[100-88]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1494-1494 | {\"id\":119 - \"parents\":[102-88]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "validateAllPullRequests-src/server/src/api/cla.js-232-281 | {\"id\":195 - \"parents\":[146]}",
+                "consequent": "validateAllPullRequests-src/server/src/api/cla.js-232-281 | {\"id\":216 - \"parents\":[150]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":103 - \"parents\":[93-102-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":105 - \"parents\":[93-104-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "restore-src/tests/server/services/cla.js-107-119 | {\"id\":196 - \"parents\":[88]}",
+                "consequent": "restore-src/tests/server/services/cla.js-107-119 | {\"id\":217 - \"parents\":[88]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -4539,7 +4859,7 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -4552,84 +4872,84 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/client/src/controller/cla.js-112-117 | {\"id\":199 - \"parents\":[200-5]}",
+                "consequent": "arrowAnonymousFunction-src/client/src/controller/cla.js-112-117 | {\"id\":220 - \"parents\":[221-5]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "getLinkedItem-src/client/src/controller/cla.js-108-118 | {\"id\":200 - \"parents\":[5]}",
+                "consequent": "getLinkedItem-src/client/src/controller/cla.js-108-118 | {\"id\":221 - \"parents\":[5]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-317-322 | {\"id\":129 - \"parents\":[128-93-130-95-96]}",
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-317-322 | {\"id\":132 - \"parents\":[131-93-133-95-96]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1475-1491 | {\"id\":117 - \"parents\":[100-88-119]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1475-1491 | {\"id\":120 - \"parents\":[102-88-122]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/api/cla.js-39-223 | {\"id\":162 - \"parents\":[82-83]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/api/cla.js-39-223 | {\"id\":177 - \"parents\":[82-83]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":103 - \"parents\":[93-102-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":105 - \"parents\":[93-104-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "webhook.js-src/tests/server/api/webhook.js-1-528 | {\"id\":153 - \"parents\":[]}",
+                "consequent": "webhook.js-src/tests/server/api/webhook.js-1-528 | {\"id\":158 - \"parents\":[]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -4642,49 +4962,49 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/github.js-72-78 | {\"id\":202 - \"parents\":[203]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/github.js-72-78 | {\"id\":223 - \"parents\":[224]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":103 - \"parents\":[93-102-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":105 - \"parents\":[93-104-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-168-170 | {\"id\":204 - \"parents\":[93-95-96]}",
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-168-170 | {\"id\":225 - \"parents\":[93-95-96]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":210 - \"parents\":[93-96]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":231 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ],
                     [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":210 - \"parents\":[93-96]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-435-447 | {\"id\":184 - \"parents\":[93-94-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":231 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-435-447 | {\"id\":203 - \"parents\":[93-94-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-597-611 | {\"id\":197 - \"parents\":[7-88]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-597-611 | {\"id\":218 - \"parents\":[7-88]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -4697,7 +5017,7 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":143 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":147 - \"parents\":[93-96]}",
                         "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-8-485 | {\"id\":96 - \"parents\":[93]}",
                         "settings.js-src/client/src/controller/settings.js-1-364 | {\"id\":75 - \"parents\":[]}"
                     ]
@@ -4706,39 +5026,39 @@
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-381-389 | {\"id\":177 - \"parents\":[151-93-95-96]}",
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-381-389 | {\"id\":194 - \"parents\":[156-93-95-96]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":210 - \"parents\":[93-96]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-435-447 | {\"id\":203 - \"parents\":[93-94-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-466-484 | {\"id\":164 - \"parents\":[93-96]}",
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-466-484 | {\"id\":180 - \"parents\":[93-96]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":210 - \"parents\":[93-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":231 - \"parents\":[93-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/api/webhook.js-266-399 | {\"id\":154 - \"parents\":[153]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/api/webhook.js-266-399 | {\"id\":159 - \"parents\":[158]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -4751,7 +5071,7 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":143 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":147 - \"parents\":[93-96]}",
                         "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-8-485 | {\"id\":96 - \"parents\":[93]}",
                         "settings.js-src/client/src/controller/settings.js-1-364 | {\"id\":75 - \"parents\":[]}"
                     ]
@@ -4766,59 +5086,59 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/api/cla.js-391-460 | {\"id\":212 - \"parents\":[132-82-83]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/api/cla.js-391-460 | {\"id\":233 - \"parents\":[135-82-83]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1711-1718 | {\"id\":109 - \"parents\":[86-87-88]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1711-1718 | {\"id\":111 - \"parents\":[86-87-88]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "createCtrl-src/tests/client/controller/clactrl.spec.js-91-104 | {\"id\":149 - \"parents\":[11-9]}",
+                "consequent": "createCtrl-src/tests/client/controller/clactrl.spec.js-91-104 | {\"id\":154 - \"parents\":[11-9]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-361-370 | {\"id\":178 - \"parents\":[151-93-95-96]}",
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-361-370 | {\"id\":195 - \"parents\":[156-93-95-96]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":143 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":147 - \"parents\":[93-96]}",
                         "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-8-485 | {\"id\":96 - \"parents\":[93]}",
                         "settings.js-src/client/src/controller/settings.js-1-364 | {\"id\":75 - \"parents\":[]}"
                     ]
@@ -4827,37 +5147,37 @@
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "OctokitMock-src/tests/server/services/github.js-29-34 | {\"id\":213 - \"parents\":[203]}",
+                "consequent": "OctokitMock-src/tests/server/services/github.js-29-34 | {\"id\":236 - \"parents\":[224]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":103 - \"parents\":[93-102-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":105 - \"parents\":[93-104-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/api/cla.js-389-682 | {\"id\":132 - \"parents\":[82-83]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/api/cla.js-389-682 | {\"id\":135 - \"parents\":[82-83]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":103 - \"parents\":[93-102-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":105 - \"parents\":[93-104-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "buildContributor-src/client/src/controller/settings.js-131-149 | {\"id\":214 - \"parents\":[74-75]}",
+                "consequent": "buildContributor-src/client/src/controller/settings.js-131-149 | {\"id\":238 - \"parents\":[74-75]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":143 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":147 - \"parents\":[93-96]}",
                         "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-8-485 | {\"id\":96 - \"parents\":[93]}",
                         "settings.js-src/client/src/controller/settings.js-1-364 | {\"id\":75 - \"parents\":[]}"
                     ]
@@ -4872,33 +5192,33 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-435-447 | {\"id\":184 - \"parents\":[93-94-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-435-447 | {\"id\":203 - \"parents\":[93-94-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/client/src/controller/settings.js-156-165 | {\"id\":215 - \"parents\":[216-74-75]}",
+                "consequent": "arrowAnonymousFunction-src/client/src/controller/settings.js-156-165 | {\"id\":239 - \"parents\":[240-74-75]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":210 - \"parents\":[93-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":231 - \"parents\":[93-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "app.js-src/client/src/app.js-1-111 | {\"id\":135 - \"parents\":[]}",
+                "consequent": "app.js-src/client/src/app.js-1-111 | {\"id\":138 - \"parents\":[]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":143 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":147 - \"parents\":[93-96]}",
                         "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-8-485 | {\"id\":96 - \"parents\":[93]}",
                         "settings.js-src/client/src/controller/settings.js-1-364 | {\"id\":75 - \"parents\":[]}"
                     ]
@@ -4907,24 +5227,24 @@
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "github.js-src/tests/server/services/github.js-1-239 | {\"id\":203 - \"parents\":[]}",
+                "consequent": "github.js-src/tests/server/services/github.js-1-239 | {\"id\":224 - \"parents\":[]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":103 - \"parents\":[93-102-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":105 - \"parents\":[93-104-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "cla.js-src/server/src/api/cla.js-1-722 | {\"id\":146 - \"parents\":[]}",
+                "consequent": "cla.js-src/server/src/api/cla.js-1-722 | {\"id\":150 - \"parents\":[]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":103 - \"parents\":[93-102-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":105 - \"parents\":[93-104-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -4937,101 +5257,101 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-580-595 | {\"id\":198 - \"parents\":[7-88]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-580-595 | {\"id\":219 - \"parents\":[7-88]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-299-308 | {\"id\":205 - \"parents\":[93-95-96]}",
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-299-308 | {\"id\":226 - \"parents\":[93-95-96]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":210 - \"parents\":[93-96]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":231 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ],
                     [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":210 - \"parents\":[93-96]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-435-447 | {\"id\":184 - \"parents\":[93-94-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":231 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-435-447 | {\"id\":203 - \"parents\":[93-94-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "getGist-src/server/src/api/cla.js-45-72 | {\"id\":220 - \"parents\":[146]}",
+                "consequent": "getGist-src/server/src/api/cla.js-45-72 | {\"id\":244 - \"parents\":[150]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/client/src/controller/home.js-317-329 | {\"id\":221 - \"parents\":[42]}",
+                "consequent": "arrowAnonymousFunction-src/client/src/controller/home.js-317-329 | {\"id\":245 - \"parents\":[42]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1496-1513 | {\"id\":118 - \"parents\":[100-88]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1496-1513 | {\"id\":121 - \"parents\":[102-88]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1277-1287 | {\"id\":124 - \"parents\":[120-88]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1277-1287 | {\"id\":127 - \"parents\":[123-88]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/github.js-134-145 | {\"id\":217 - \"parents\":[203]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/github.js-134-145 | {\"id\":241 - \"parents\":[224]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":103 - \"parents\":[93-102-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":105 - \"parents\":[93-104-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -5044,7 +5364,7 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":143 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":147 - \"parents\":[93-96]}",
                         "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-8-485 | {\"id\":96 - \"parents\":[93]}",
                         "settings.js-src/client/src/controller/settings.js-1-364 | {\"id\":75 - \"parents\":[]}"
                     ]
@@ -5058,20 +5378,20 @@
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":103 - \"parents\":[93-102-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":105 - \"parents\":[93-104-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-172-183 | {\"id\":206 - \"parents\":[93-95-96]}",
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-172-183 | {\"id\":227 - \"parents\":[93-95-96]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":143 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":147 - \"parents\":[93-96]}",
                         "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-8-485 | {\"id\":96 - \"parents\":[93]}",
                         "settings.js-src/client/src/controller/settings.js-1-364 | {\"id\":75 - \"parents\":[]}"
                     ]
@@ -5080,69 +5400,69 @@
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-164-166 | {\"id\":207 - \"parents\":[93-95-96]}",
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-164-166 | {\"id\":228 - \"parents\":[93-95-96]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":210 - \"parents\":[93-96]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":231 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ],
                     [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":210 - \"parents\":[93-96]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-435-447 | {\"id\":184 - \"parents\":[93-94-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":231 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-435-447 | {\"id\":203 - \"parents\":[93-94-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-342-349 | {\"id\":179 - \"parents\":[151-93-95-96]}",
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-342-349 | {\"id\":196 - \"parents\":[156-93-95-96]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":210 - \"parents\":[93-96]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":231 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-332-337 | {\"id\":208 - \"parents\":[93-130-95-211-96]}",
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-332-337 | {\"id\":229 - \"parents\":[93-133-95-232-96]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":210 - \"parents\":[93-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":231 - \"parents\":[93-96]}"
                     ]
                 ],
                 "status": "common",
                 "FP-evaluation": "true children"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1262-1275 | {\"id\":125 - \"parents\":[120-88]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1262-1275 | {\"id\":128 - \"parents\":[123-88]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "getReport-src/client/src/controller/settings.js-230-235 | {\"id\":222 - \"parents\":[74-75]}",
+                "consequent": "getReport-src/client/src/controller/settings.js-230-235 | {\"id\":248 - \"parents\":[74-75]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":143 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":147 - \"parents\":[93-96]}",
                         "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-8-485 | {\"id\":96 - \"parents\":[93]}",
                         "settings.js-src/client/src/controller/settings.js-1-364 | {\"id\":75 - \"parents\":[]}"
                     ]
@@ -5151,38 +5471,38 @@
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-402-408 | {\"id\":209 - \"parents\":[93-95-96]}",
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-402-408 | {\"id\":230 - \"parents\":[93-95-96]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":103 - \"parents\":[93-102-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":105 - \"parents\":[93-104-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/api/cla.js-1386-1400 | {\"id\":111 - \"parents\":[82-83]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/api/cla.js-1386-1400 | {\"id\":113 - \"parents\":[82-83]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/clactrl.spec.js-437-450 | {\"id\":156 - \"parents\":[9]}",
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/clactrl.spec.js-437-450 | {\"id\":161 - \"parents\":[9]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -5195,37 +5515,24 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1474-1492 | {\"id\":119 - \"parents\":[100-88]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1474-1492 | {\"id\":122 - \"parents\":[102-88]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "false"
-            },
-            {
-                "consequent": "getGist-src/client/src/controller/settings.js-151-166 | {\"id\":216 - \"parents\":[74-75]}",
-                "FP-score": 0.5,
-                "support": 1,
-                "FP-antecedents": [
-                    [
-                        "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-157-161 | {\"id\":210 - \"parents\":[93-96]}"
-                    ]
-                ],
-                "status": "Berke Unique",
-                "FP-evaluation": "true"
             },
             {
                 "consequent": "cla.js-src/tests/server/api/cla.js-1-1867 | {\"id\":82 - \"parents\":[]}",
@@ -5234,7 +5541,7 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -5247,7 +5554,7 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -5260,45 +5567,45 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1207-1221 | {\"id\":126 - \"parents\":[120-123-88]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1207-1221 | {\"id\":129 - \"parents\":[123-126-88]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-310-339 | {\"id\":130 - \"parents\":[93-95-96]}",
+                "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-310-339 | {\"id\":133 - \"parents\":[93-95-96]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
                 "FP-evaluation": "true but already reported children"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/api/cla.js-155-201 | {\"id\":201 - \"parents\":[162-82-83]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/api/cla.js-155-201 | {\"id\":222 - \"parents\":[177-82-83]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":103 - \"parents\":[93-102-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":105 - \"parents\":[93-104-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -5311,7 +5618,7 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":211 - \"parents\":[93-130-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-325-338 | {\"id\":232 - \"parents\":[93-133-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -5324,7 +5631,7 @@
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":143 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":147 - \"parents\":[93-96]}",
                         "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-8-485 | {\"id\":96 - \"parents\":[93]}",
                         "settings.js-src/client/src/controller/settings.js-1-364 | {\"id\":75 - \"parents\":[]}"
                     ]
@@ -5333,13 +5640,13 @@
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "getGistName-src/client/src/controller/settings.js-168-175 | {\"id\":224 - \"parents\":[74-75]}",
+                "consequent": "getGistName-src/client/src/controller/settings.js-168-175 | {\"id\":250 - \"parents\":[74-75]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
                         "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":143 - \"parents\":[93-96]}",
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-62-155 | {\"id\":147 - \"parents\":[93-96]}",
                         "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-8-485 | {\"id\":96 - \"parents\":[93]}",
                         "settings.js-src/client/src/controller/settings.js-1-364 | {\"id\":75 - \"parents\":[]}"
                     ]
@@ -5348,12 +5655,12 @@
                 "FP-evaluation": "true"
             },
             {
-                "consequent": "arrowAnonymousFunction-src/tests/server/api/cla.js-1199-1213 | {\"id\":223 - \"parents\":[82-83]}",
+                "consequent": "arrowAnonymousFunction-src/tests/server/api/cla.js-1199-1213 | {\"id\":249 - \"parents\":[82-83]}",
                 "FP-score": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
-                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":103 - \"parents\":[93-102-95-96]}"
+                        "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-451-462 | {\"id\":105 - \"parents\":[93-104-95-96]}"
                     ]
                 ],
                 "status": "Berke Unique",
@@ -9800,7 +10107,7 @@
                     "support": 2,
                     "FP-score": 0.4,
                     "status": "common",
-                    "evaluation result": false
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333 | {\"id\":74 - \"parents\":[75]}",
@@ -9821,14 +10128,14 @@
                     "support": 2,
                     "FP-score": 0.4,
                     "status": "common",
-                    "evaluation result": false
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1473-1644 | {\"id\":102 - \"parents\":[88]}",
                     "support": 2,
                     "FP-score": 0.4,
                     "status": "common",
-                    "evaluation result": false
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "cla.js-src/tests/server/api/cla.js-1-1867 | {\"id\":82 - \"parents\":[]}",
@@ -9849,35 +10156,35 @@
                     "support": 2,
                     "FP-score": 0.4,
                     "status": "common",
-                    "evaluation result": false
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-src/tests/server/api/cla.js-225-235 | {\"id\":152 - \"parents\":[82-83-82-83]}",
                     "support": 2,
                     "FP-score": 0.4,
                     "status": "common",
-                    "evaluation result": false
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-163-464 | {\"id\":95 - \"parents\":[93-96]}",
                     "support": 2,
                     "FP-score": 0.4,
                     "status": "common",
-                    "evaluation result": false
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-src/tests/client/controller/settingsctrl.spec.js-90-138 | {\"id\":209 - \"parents\":[93-147-96]}",
                     "support": 2,
                     "FP-score": 0.4,
                     "status": "common",
-                    "evaluation result": false
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "buildContributor-src/client/src/controller/settings.js-131-149 | {\"id\":238 - \"parents\":[74-75-74]}",
                     "support": 2,
                     "FP-score": 0.4,
                     "status": "common",
-                    "evaluation result": false
+                    "evaluation result": "false"
                 },
                 {
                     "consequent": "getCLA-src/client/src/controller/cla.js-76-91 | {\"id\":210 - \"parents\":[5-264-5]}",
@@ -13548,7 +13855,7 @@
                     ]
                 ],
                 "status": "common",
-                "FP-evaluation": " |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | "
+                "FP-evaluation": ""
             },
             {
                 "consequent": "arrowAnonymousFunction-src/tests/server/webhooks/pull_request.js-369-385 | {\"id\":444 - \"parents\":[290-292]}",
@@ -14921,7 +15228,7 @@
                 "confidence": 1,
                 "consequent": "arrowAnonymousFunction-src/server/api/cla.js-331-331",
                 "status": "common",
-                "FP-evaluation": " |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | "
+                "FP-evaluation": ""
             },
             {
                 "rule": "[arrowAnonymousFunction-src/server/src/api/cla.js-268-277, arrowAnonymousFunction-src/tests/server/api/cla.js-1330-1337, arrowAnonymousFunction-src/tests/server/api/cla.js-1339-1348, arrowAnonymousFunction-src/tests/server/api/cla.js-1350-1359, arrowAnonymousFunction-src/tests/server/api/cla.js-1555-1576, arrowAnonymousFunction-src/tests/server/api/cla.js-1578-1589, arrowAnonymousFunction-src/tests/server/api/cla.js-1591-1602, arrowAnonymousFunction-src/tests/server/api/cla.js-1658-1664, arrowAnonymousFunction-src/tests/server/api/cla.js-510-525, validatePR-src/server/src/api/cla.js-512-541] => arrowAnonymousFunction-src/server/src/api/cla.js-197-212",
@@ -17564,7 +17871,7 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "common",
-                    "evaluation result": " |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | "
+                    "evaluation result": ""
                 },
                 {
                     "consequent": "arrowAnonymousFunction-src/server/src/api/cla.js-668-668 | {\"id\":336 - \"parents\":[330-150]}",
@@ -17653,7 +17960,7 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "common",
-                    "evaluation result": " |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | "
+                    "evaluation result": ""
                 },
                 {
                     "consequent": ".eslintrc.js-.eslintrc.js-1-73",
@@ -17721,7 +18028,7 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "common",
-                    "evaluation result": " |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | "
+                    "evaluation result": ""
                 },
                 {
                     "consequent": ".eslintrc.js-.eslintrc.js-1-73",
@@ -17789,7 +18096,7 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "common",
-                    "evaluation result": " |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | "
+                    "evaluation result": ""
                 },
                 {
                     "consequent": ".eslintrc.js-.eslintrc.js-1-73",
@@ -17892,7 +18199,7 @@
                     "support": 1,
                     "FP-score": 0.5,
                     "status": "common",
-                    "evaluation result": " |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | "
+                    "evaluation result": ""
                 },
                 {
                     "consequent": "arrowAnonymousFunction-src/tests/server/services/cla.js-1303-1309 | {\"id\":349 - \"parents\":[123-88]}",
@@ -19896,6 +20203,11 @@
                         ]
                     ],
                     "evaluation result": "true"
+                },
+                {
+                    "consequent": "karma.config.js-src/tests/karma.config.js-1-107",
+                    "status": "Berke Unique",
+                    "evaluation result": ""
                 },
                 {
                     "consequent": "check-src/server/src/services/cla.js-585-592",

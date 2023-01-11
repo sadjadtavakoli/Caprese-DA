@@ -5571,6 +5571,7 @@
                     ]
                 ],
                 "status": "common",
+                "FP-evaluation": "true",
                 "DA-evaluation": "true"
             },
             {
@@ -5586,6 +5587,7 @@
                     ]
                 ],
                 "status": "common",
+                "FP-evaluation": "true",
                 "DA-evaluation": "true"
             },
             {
@@ -5847,7 +5849,8 @@
                         "CHANGES.md"
                     ]
                 ],
-                "status": "Berke Unique"
+                "status": "Berke Unique",
+                "FP-evaluation": "false"
             },
             {
                 "consequent": "reconfigure.js-test/legacy/reconfigure.js-1-321 | {\"id\":154 - \"parents\":[]}",
@@ -5901,7 +5904,8 @@
                 "confidence": 0.3333333333333333,
                 "consequent": "Cloudant-cloudant.js-46-450",
                 "status": "common",
-                "DA-evaluation": "true"
+                "DA-evaluation": "true",
+                "FP-evaluation": "true"
             },
             {
                 "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-106-112",
@@ -5925,7 +5929,8 @@
                 "confidence": 0.3333333333333333,
                 "consequent": "arrowAnonymousFunction-test/legacy/reconfigure.js-123-129",
                 "status": "common",
-                "DA-evaluation": "true"
+                "DA-evaluation": "true",
+                "FP-evaluation": "true"
             },
             {
                 "rule": "[CHANGES.md, arrowAnonymousFunction-test/legacy/reconfigure.js-22-320, exports-lib/reconfigure.js-28-144] => arrowAnonymousFunction-test/legacy/reconfigure.js-132-138",

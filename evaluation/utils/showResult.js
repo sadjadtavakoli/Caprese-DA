@@ -208,8 +208,7 @@ function approachSummary(result, approach) {
         let impactSetSize = impactset.length;
         impactSetSizes.push(impactSetSize)
 
-        let averagePrecision = impactSetSize ? sumOfPrecisions / impactSetSize : 0;
-        if(impactSetSize) averagePrecisions.push(averagePrecision);
+        if(impactSetSize) averagePrecisions.push(sumOfPrecisions / impactSetSize);
         totalTruePositives.push(truePositiveCounter);
     }
     let length = Object.keys(result).length
