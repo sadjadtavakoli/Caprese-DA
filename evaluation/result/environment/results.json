@@ -12,7 +12,7 @@
                     "findPackagesIn-lib/resolver.js-162-198 | {\"id\":2 - \"parents\":[1]}",
                     "lookup-lib/resolver.js-55-94 | {\"id\":3 - \"parents\":[1]}"
                 ],
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 3,
                 "FP-antecedents": [
                     [
@@ -30,7 +30,7 @@
                 "DA-antecedents": [
                     "findPackagesIn-lib/resolver.js-162-198 | {\"id\":2 - \"parents\":[1]}"
                 ],
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 3,
                 "FP-antecedents": [
                     [
@@ -197,7 +197,7 @@
             },
             {
                 "consequent": "package.json",
-                "FP-score": 0.4166666666666667,
+                "confidence": 0.4166666666666667,
                 "support": 5,
                 "FP-antecedents": [
                     [
@@ -455,7 +455,7 @@
                 {
                     "consequent": "sync-lib/resolver.js-112-147 | {\"id\":0 - \"parents\":[1]}",
                     "support": 3,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "DA": [
                         "findPackagesIn-lib/resolver.js-162-198 | {\"id\":2 - \"parents\":[1]}",
@@ -466,7 +466,7 @@
                 {
                     "consequent": "lookupGenerator-lib/environment.js-231-261",
                     "support": 3,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "DA": [
                         "findPackagesIn-lib/resolver.js-162-198 | {\"id\":2 - \"parents\":[1]}"
@@ -478,7 +478,7 @@
                 {
                     "consequent": "package.json",
                     "support": 5,
-                    "FP-score": 0.4166666666666667,
+                    "confidence": 0.4166666666666667,
                     "status": "common",
                     "evaluation result": "false"
                 }
@@ -489,7 +489,7 @@
                 {
                     "consequent": "sync-lib/resolver.js-112-147 | {\"id\":0 - \"parents\":[1]}",
                     "support": 3,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "FP": [
                         [
@@ -503,7 +503,7 @@
                 {
                     "consequent": "lookupGenerator-lib/environment.js-231-261",
                     "support": 3,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "FP": [
                         [
@@ -529,7 +529,7 @@
                 {
                     "consequent": "sync-lib/resolver.js-112-147 | {\"id\":0 - \"parents\":[1]}",
                     "support": 3,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "FP": [
                         [
@@ -650,7 +650,7 @@
                     "findPackagesIn-lib/resolver.js-162-198 | {\"id\":2 - \"parents\":[1-1]}",
                     "lookup-lib/resolver.js-55-94 | {\"id\":3 - \"parents\":[1-1]}"
                 ],
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -667,7 +667,7 @@
                 "DA-antecedents": [
                     "findPackagesIn-lib/resolver.js-162-198 | {\"id\":2 - \"parents\":[1-1]}"
                 ],
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -833,7 +833,7 @@
             },
             {
                 "consequent": "package-lock.json",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -846,7 +846,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/resolver.js-127-127 | {\"id\":22 - \"parents\":[0-1]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -863,7 +863,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/resolver.js-115-115 | {\"id\":25 - \"parents\":[0-1]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -880,7 +880,7 @@
             },
             {
                 "consequent": "package.json",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -893,7 +893,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/resolver.js-77-91 | {\"id\":26 - \"parents\":[3-1]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -910,7 +910,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-466-470 | {\"id\":6 - \"parents\":[7-8]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -923,7 +923,7 @@
             },
             {
                 "consequent": "DummyTsGenerator-test/fixtures/generator-ts/generators/app/index.ts-3-11 | {\"id\":9 - \"parents\":[12]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -936,7 +936,7 @@
             },
             {
                 "consequent": "exec-test/fixtures/generator-ts/generators/app/index.ts-8-10 | {\"id\":10 - \"parents\":[9-12]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -949,7 +949,7 @@
             },
             {
                 "consequent": "index.ts-test/fixtures/generator-ts-js/generators/app/index.ts-1-8 | {\"id\":15 - \"parents\":[12]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -962,7 +962,7 @@
             },
             {
                 "consequent": "test/fixtures/generator-ts/package.json",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -975,7 +975,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-476-480 | {\"id\":23 - \"parents\":[7-8]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -988,7 +988,7 @@
             },
             {
                 "consequent": "exports-test/fixtures/generator-ts-js/generators/app/index.ts-1-3 | {\"id\":16 - \"parents\":[15-12-18-19-20]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1001,7 +1001,7 @@
             },
             {
                 "consequent": "exports-test/fixtures/generator-ts-js/generators/app/index.js-1-3 | {\"id\":17 - \"parents\":[15-16-12-18-19-20]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1014,7 +1014,7 @@
             },
             {
                 "consequent": "test/fixtures/generator-ts/tsconfig.json",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1027,7 +1027,7 @@
             },
             {
                 "consequent": "constructor-test/fixtures/generator-ts/generators/app/index.ts-4-6 | {\"id\":11 - \"parents\":[9-15-12-18-19-20]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1040,7 +1040,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-21-976 | {\"id\":7 - \"parents\":[]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1053,7 +1053,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/environment.js-234-234 | {\"id\":5 - \"parents\":[4]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1066,7 +1066,7 @@
             },
             {
                 "consequent": "test/fixtures/generator-ts-js/package.json",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1079,7 +1079,7 @@
             },
             {
                 "consequent": "index.ts-test/fixtures/generator-ts/generators/app/index.ts-1-14 | {\"id\":12 - \"parents\":[]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1092,7 +1092,7 @@
             },
             {
                 "consequent": "index.js-test/fixtures/generator-ts-js/generators/app/index.js-1-8 | {\"id\":18 - \"parents\":[15-12]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1105,7 +1105,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-465-481 | {\"id\":8 - \"parents\":[7]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1118,7 +1118,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-472-474 | {\"id\":24 - \"parents\":[7-8]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1214,7 +1214,7 @@
                 {
                     "consequent": "sync-lib/resolver.js-112-147 | {\"id\":0 - \"parents\":[1-1]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "findPackagesIn-lib/resolver.js-162-198 | {\"id\":2 - \"parents\":[1-1]}",
@@ -1225,7 +1225,7 @@
                 {
                     "consequent": "lookupGenerator-lib/environment.js-231-261 | {\"id\":4 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "findPackagesIn-lib/resolver.js-162-198 | {\"id\":2 - \"parents\":[1-1]}"
@@ -1235,35 +1235,35 @@
                 {
                     "consequent": "package-lock.json",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false and unnecessary"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/resolver.js-127-127 | {\"id\":22 - \"parents\":[0-1]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true but already reported its parent | true but already reported its parent | true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/resolver.js-115-115 | {\"id\":25 - \"parents\":[0-1]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "package.json",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false and unnecessary"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/resolver.js-77-91 | {\"id\":26 - \"parents\":[3-1]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true children"
                 }
@@ -1272,21 +1272,21 @@
                 {
                     "consequent": "arrowAnonymousFunction-lib/resolver.js-127-127 | {\"id\":22 - \"parents\":[0-1]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true but already reported its parent | true but already reported its parent | true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/resolver.js-115-115 | {\"id\":25 - \"parents\":[0-1]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/resolver.js-77-91 | {\"id\":26 - \"parents\":[3-1]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true children"
                 }
@@ -1295,119 +1295,119 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-466-470 | {\"id\":6 - \"parents\":[7-8]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "DummyTsGenerator-test/fixtures/generator-ts/generators/app/index.ts-3-11 | {\"id\":9 - \"parents\":[12]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "exec-test/fixtures/generator-ts/generators/app/index.ts-8-10 | {\"id\":10 - \"parents\":[9-12]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "index.ts-test/fixtures/generator-ts-js/generators/app/index.ts-1-8 | {\"id\":15 - \"parents\":[12]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "test/fixtures/generator-ts/package.json",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "false and unnecessary"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-476-480 | {\"id\":23 - \"parents\":[7-8]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "exports-test/fixtures/generator-ts-js/generators/app/index.ts-1-3 | {\"id\":16 - \"parents\":[15-12-18-19-20]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "exports-test/fixtures/generator-ts-js/generators/app/index.js-1-3 | {\"id\":17 - \"parents\":[15-16-12-18-19-20]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "true but already reported its parent"
                 },
                 {
                     "consequent": "test/fixtures/generator-ts/tsconfig.json",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "false and unnecessary"
                 },
                 {
                     "consequent": "constructor-test/fixtures/generator-ts/generators/app/index.ts-4-6 | {\"id\":11 - \"parents\":[9-15-12-18-19-20]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "true but already reported its parent"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-21-976 | {\"id\":7 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "true but already reported its parent"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/environment.js-234-234 | {\"id\":5 - \"parents\":[4]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "test/fixtures/generator-ts-js/package.json",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "true but unnecessary"
                 },
                 {
                     "consequent": "index.ts-test/fixtures/generator-ts/generators/app/index.ts-1-14 | {\"id\":12 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "true but already reported its children"
                 },
                 {
                     "consequent": "index.js-test/fixtures/generator-ts-js/generators/app/index.js-1-8 | {\"id\":18 - \"parents\":[15-12]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "true but already reported its parent"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-465-481 | {\"id\":8 - \"parents\":[7]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "true but already reported its parent"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-472-474 | {\"id\":24 - \"parents\":[7-8]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "true but already reported its parent"
                 }
@@ -1418,7 +1418,7 @@
                 {
                     "consequent": "sync-lib/resolver.js-112-147 | {\"id\":0 - \"parents\":[1-1]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -1431,7 +1431,7 @@
                 {
                     "consequent": "lookupGenerator-lib/environment.js-231-261 | {\"id\":4 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -1456,7 +1456,7 @@
                 {
                     "consequent": "sync-lib/resolver.js-112-147 | {\"id\":0 - \"parents\":[1-1]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -1567,7 +1567,7 @@
                 "DA-antecedents": [
                     "arrowAnonymousFunction-lib/environment.js-1018-1072 | {\"id\":36 - \"parents\":[31-32-37]}"
                 ],
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1584,7 +1584,7 @@
                 "DA-antecedents": [
                     "arrowAnonymousFunction-lib/environment.js-1018-1072 | {\"id\":36 - \"parents\":[31-32-37]}"
                 ],
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1602,7 +1602,7 @@
                 "DA-antecedents": [
                     "arrowAnonymousFunction-lib/environment.js-1053-1055 | {\"id\":136 - \"parents\":[31-32-36-37]}"
                 ],
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1620,7 +1620,7 @@
                 "DA-antecedents": [
                     "start-lib/environment.js-1017-1073 | {\"id\":37 - \"parents\":[31-32]}"
                 ],
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1638,7 +1638,7 @@
                 "DA-antecedents": [
                     "start-lib/environment.js-1017-1073 | {\"id\":37 - \"parents\":[31-32]}"
                 ],
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1669,7 +1669,7 @@
             },
             {
                 "consequent": "error-lib/environment.js-401-403 | {\"id\":131 - \"parents\":[31-32]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1682,7 +1682,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-127-132 | {\"id\":60 - \"parents\":[7-61]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1695,7 +1695,7 @@
             },
             {
                 "consequent": "splitArgsFromString-lib/environment.js-41-55 | {\"id\":65 - \"parents\":[31]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1708,7 +1708,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-270-273 | {\"id\":66 - \"parents\":[7-67-68]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1721,7 +1721,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-476-480 | {\"id\":23 - \"parents\":[7-8-7]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1734,7 +1734,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-277-302 | {\"id\":87 - \"parents\":[7-67]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1747,7 +1747,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/environment.js-1061-1063 | {\"id\":95 - \"parents\":[31-32-36-37]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1760,7 +1760,7 @@
             },
             {
                 "consequent": "run-lib/environment.js-977-1011 | {\"id\":96 - \"parents\":[31-32]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1773,7 +1773,7 @@
             },
             {
                 "consequent": "composeWith-lib/environment.js-834-848 | {\"id\":105 - \"parents\":[31-32]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1786,7 +1786,7 @@
             },
             {
                 "consequent": "instantiate-lib/environment.js-789-823 | {\"id\":107 - \"parents\":[31-32]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1799,7 +1799,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-280-285 | {\"id\":88 - \"parents\":[87-7-67-90]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1812,7 +1812,7 @@
             },
             {
                 "consequent": "instantiateAndRun-lib/environment.js-992-1003 | {\"id\":97 - \"parents\":[96-31-32]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1825,7 +1825,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-290-292 | {\"id\":89 - \"parents\":[87-7-67-92]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1838,7 +1838,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-121-125 | {\"id\":108 - \"parents\":[7-61]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1851,7 +1851,7 @@
             },
             {
                 "consequent": "getFeatures-test/environment.js-223-225 | {\"id\":113 - \"parents\":[7-67-114-115]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1864,7 +1864,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-21-976 | {\"id\":7 - \"parents\":[]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1877,7 +1877,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-104-218 | {\"id\":61 - \"parents\":[7]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1890,7 +1890,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-220-303 | {\"id\":67 - \"parents\":[7]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1903,7 +1903,7 @@
             },
             {
                 "consequent": "create-lib/environment.js-724-779 | {\"id\":125 - \"parents\":[31-32]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1916,7 +1916,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-252-259 | {\"id\":116 - \"parents\":[7-67]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1929,7 +1929,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-279-287 | {\"id\":90 - \"parents\":[87-7-67]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1942,7 +1942,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-261-267 | {\"id\":117 - \"parents\":[7-67]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1955,7 +1955,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-293-295 | {\"id\":91 - \"parents\":[87-7-67-92]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1968,7 +1968,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-393-396 | {\"id\":118 - \"parents\":[7-119-122]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1981,7 +1981,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/environment.js-942-942 | {\"id\":29 - \"parents\":[28-30-31-32]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1994,7 +1994,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-305-463 | {\"id\":119 - \"parents\":[7]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2007,7 +2007,7 @@
             },
             {
                 "consequent": "queueGenerator-lib/environment.js-897-966 | {\"id\":30 - \"parents\":[31-32]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2020,7 +2020,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-391-393 | {\"id\":120 - \"parents\":[7-119-122]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2033,7 +2033,7 @@
             },
             {
                 "consequent": "NewGenerator-test/environment.js-222-226 | {\"id\":114 - \"parents\":[7-67-115]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2045,7 +2045,7 @@
             },
             {
                 "consequent": "environment.js-lib/environment.js-1-1350 | {\"id\":31 - \"parents\":[]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2058,7 +2058,7 @@
             },
             {
                 "consequent": "Environment-lib/environment.js-77-1335 | {\"id\":32 - \"parents\":[31]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2070,7 +2070,7 @@
             },
             {
                 "consequent": "queues-lib/environment.js-86-100 | {\"id\":135 - \"parents\":[31-32]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2083,7 +2083,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-221-231 | {\"id\":115 - \"parents\":[7-67]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2096,7 +2096,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-233-235 | {\"id\":121 - \"parents\":[7-67]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2109,7 +2109,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-289-297 | {\"id\":92 - \"parents\":[87-7-67]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2122,7 +2122,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/environment.js-937-937 | {\"id\":33 - \"parents\":[28-30-31-32]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2135,7 +2135,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/environment.js-938-938 | {\"id\":34 - \"parents\":[28-30-31-32]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2148,7 +2148,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/environment.js-950-957 | {\"id\":132 - \"parents\":[30-31-32]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2161,7 +2161,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-299-301 | {\"id\":93 - \"parents\":[87-7-67]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2174,7 +2174,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-389-397 | {\"id\":122 - \"parents\":[7-119]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2187,7 +2187,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-253-257 | {\"id\":123 - \"parents\":[7-67-116]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2200,7 +2200,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-269-275 | {\"id\":68 - \"parents\":[7-67]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2213,7 +2213,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-262-265 | {\"id\":124 - \"parents\":[7-67-117]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2226,7 +2226,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-118-120 | {\"id\":43 - \"parents\":[44-45-46-47-48]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2240,7 +2240,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-cli/index.js-34-38 | {\"id\":49 - \"parents\":[50]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2254,7 +2254,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-20-36 | {\"id\":51 - \"parents\":[44-52-54-47]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2268,7 +2268,7 @@
             },
             {
                 "consequent": "empty-test/fixtures/generator-commands/generators/arguments/index.js-12-12 | {\"id\":56 - \"parents\":[57-58-59]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2282,7 +2282,7 @@
             },
             {
                 "consequent": "createCommand-lib/util/command.js-4-6 | {\"id\":62 - \"parents\":[63-64]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2296,7 +2296,7 @@
             },
             {
                 "consequent": "command.js-test/command.js-1-189 | {\"id\":44 - \"parents\":[]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2310,7 +2310,7 @@
             },
             {
                 "consequent": "test/fixtures/generator-commands/package.json",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2324,7 +2324,7 @@
             },
             {
                 "consequent": "addGeneratorOptions-lib/util/command.js-55-61 | {\"id\":94 - \"parents\":[63-64]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2338,7 +2338,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-148-150 | {\"id\":69 - \"parents\":[44-78-47-85-86]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2352,7 +2352,7 @@
             },
             {
                 "consequent": "exports-lib/command.js-6-70 | {\"id\":99 - \"parents\":[102]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2366,7 +2366,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-40-53 | {\"id\":70 - \"parents\":[44-76-52-54-47]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2380,7 +2380,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-94-126 | {\"id\":45 - \"parents\":[44-47-48]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2394,7 +2394,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-138-146 | {\"id\":71 - \"parents\":[44-78-47-85-86]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2408,7 +2408,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-64-81 | {\"id\":72 - \"parents\":[44-52-54-47]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2422,7 +2422,7 @@
             },
             {
                 "consequent": "printGroupedGenerator-cli/utils.js-6-18 | {\"id\":103 - \"parents\":[104]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2436,7 +2436,7 @@
             },
             {
                 "consequent": "environmentAction-cli/utils.js-20-30 | {\"id\":106 - \"parents\":[104]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2450,7 +2450,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-97-102 | {\"id\":73 - \"parents\":[44-45-84-47-48]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2464,7 +2464,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-cli/index.js-26-30 | {\"id\":109 - \"parents\":[50]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2478,7 +2478,7 @@
             },
             {
                 "consequent": "package-lock.json",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2492,7 +2492,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-111-116 | {\"id\":74 - \"parents\":[44-45-46-47-48]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2506,7 +2506,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-122-124 | {\"id\":75 - \"parents\":[44-45-46-47-48]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2520,7 +2520,7 @@
             },
             {
                 "consequent": "addGeneratorArguments-lib/util/command.js-35-47 | {\"id\":110 - \"parents\":[63-64]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2534,7 +2534,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/environment.js-164-164 | {\"id\":41 - \"parents\":[40-42-31-32]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2548,7 +2548,7 @@
             },
             {
                 "consequent": "index.js-test/fixtures/generator-commands/generators/arguments/index.js-1-13 | {\"id\":57 - \"parents\":[59]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2562,7 +2562,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-38-62 | {\"id\":76 - \"parents\":[44-52-54-47]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2576,7 +2576,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-10-83 | {\"id\":52 - \"parents\":[44-47]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2590,7 +2590,7 @@
             },
             {
                 "consequent": "parseAsync-lib/util/command.js-94-102 | {\"id\":126 - \"parents\":[63-64]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2604,7 +2604,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-88-92 | {\"id\":77 - \"parents\":[44-47-48]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2618,7 +2618,7 @@
             },
             {
                 "consequent": "addOption-lib/util/command.js-13-28 | {\"id\":128 - \"parents\":[63-64]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2632,7 +2632,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-109-125 | {\"id\":46 - \"parents\":[44-45-47-48]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2646,7 +2646,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-133-152 | {\"id\":78 - \"parents\":[44-47-86]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2660,7 +2660,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-77-80 | {\"id\":79 - \"parents\":[44-72-52-54-47]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2674,7 +2674,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-104-106 | {\"id\":80 - \"parents\":[44-45-84-47-48]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2688,7 +2688,7 @@
             },
             {
                 "consequent": "empty-test/fixtures/generator-commands/generators/options/index.js-29-29 | {\"id\":129 - \"parents\":[59]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2702,7 +2702,7 @@
             },
             {
                 "consequent": "index.js-cli/index.js-1-45 | {\"id\":50 - \"parents\":[]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2716,7 +2716,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-66-75 | {\"id\":81 - \"parents\":[44-72-52-54-47]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2730,7 +2730,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/util/command.js-40-43 | {\"id\":111 - \"parents\":[110-63-64]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2744,7 +2744,7 @@
             },
             {
                 "consequent": "constructor-test/fixtures/generator-commands/generators/options/index.js-3-27 | {\"id\":58 - \"parents\":[59]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2758,7 +2758,7 @@
             },
             {
                 "consequent": "addEnvironmentOptions-lib/command.js-7-27 | {\"id\":100 - \"parents\":[99-102]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2772,7 +2772,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-cli/index.js-41-44 | {\"id\":130 - \"parents\":[50]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2786,7 +2786,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-22-27 | {\"id\":53 - \"parents\":[51-44-52-54-47]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2800,7 +2800,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-19-82 | {\"id\":54 - \"parents\":[44-52-47]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2814,7 +2814,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-55-61 | {\"id\":82 - \"parents\":[44-76-52-54-47]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2828,7 +2828,7 @@
             },
             {
                 "consequent": "index.js-test/fixtures/generator-commands/generators/options/index.js-1-30 | {\"id\":59 - \"parents\":[]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2842,7 +2842,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/environment.js-1049-1051 | {\"id\":133 - \"parents\":[31-32-36-37]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2856,7 +2856,7 @@
             },
             {
                 "consequent": "execute-lib/command.js-48-69 | {\"id\":101 - \"parents\":[99-102]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2870,7 +2870,7 @@
             },
             {
                 "consequent": "prepareGeneratorCommand-lib/environment.js-150-171 | {\"id\":42 - \"parents\":[31-32]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2884,7 +2884,7 @@
             },
             {
                 "consequent": "loadSharedOptions-lib/environment.js-377-389 | {\"id\":134 - \"parents\":[31-32]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2898,7 +2898,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/util/command.js-101-101 | {\"id\":127 - \"parents\":[126-63-64]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2912,7 +2912,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-13-17 | {\"id\":83 - \"parents\":[44-52-47]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2926,7 +2926,7 @@
             },
             {
                 "consequent": "command.js-lib/util/command.js-1-106 | {\"id\":63 - \"parents\":[]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2940,7 +2940,7 @@
             },
             {
                 "consequent": "constructor-test/fixtures/generator-commands/generators/arguments/index.js-3-10 | {\"id\":112 - \"parents\":[57-58-59]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2954,7 +2954,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-29-35 | {\"id\":55 - \"parents\":[51-44-52-54-47]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2968,7 +2968,7 @@
             },
             {
                 "consequent": "utils.js-cli/utils.js-1-33 | {\"id\":104 - \"parents\":[]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2982,7 +2982,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-95-107 | {\"id\":84 - \"parents\":[44-45-47-48]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2996,7 +2996,7 @@
             },
             {
                 "consequent": "command.js-lib/command.js-1-71 | {\"id\":102 - \"parents\":[]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3010,7 +3010,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-9-187 | {\"id\":47 - \"parents\":[44]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3024,7 +3024,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-134-151 | {\"id\":85 - \"parents\":[44-78-47-86]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3038,7 +3038,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-85-127 | {\"id\":48 - \"parents\":[44-47]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3052,7 +3052,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/command.js-129-186 | {\"id\":86 - \"parents\":[44-47]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3066,7 +3066,7 @@
             },
             {
                 "consequent": "_addGeneratorOption-lib/util/command.js-63-88 | {\"id\":138 - \"parents\":[63-64]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3080,7 +3080,7 @@
             },
             {
                 "consequent": "YeomanCommand-lib/util/command.js-3-103 | {\"id\":64 - \"parents\":[63]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3094,7 +3094,7 @@
             },
             {
                 "consequent": "package.json",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -4074,7 +4074,7 @@
                 {
                     "consequent": "runGenerator-lib/environment.js-934-945 | {\"id\":28 - \"parents\":[30-31-32]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "arrowAnonymousFunction-lib/environment.js-1018-1072 | {\"id\":36 - \"parents\":[31-32-37]}"
@@ -4084,280 +4084,280 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-127-132 | {\"id\":60 - \"parents\":[7-61]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "splitArgsFromString-lib/environment.js-41-55 | {\"id\":65 - \"parents\":[31]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-270-273 | {\"id\":66 - \"parents\":[7-67-68]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-476-480 | {\"id\":23 - \"parents\":[7-8-7]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-277-302 | {\"id\":87 - \"parents\":[7-67]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/environment.js-1061-1063 | {\"id\":95 - \"parents\":[31-32-36-37]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "run-lib/environment.js-977-1011 | {\"id\":96 - \"parents\":[31-32]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "composeWith-lib/environment.js-834-848 | {\"id\":105 - \"parents\":[31-32]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "instantiate-lib/environment.js-789-823 | {\"id\":107 - \"parents\":[31-32]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-280-285 | {\"id\":88 - \"parents\":[87-7-67-90]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "instantiateAndRun-lib/environment.js-992-1003 | {\"id\":97 - \"parents\":[96-31-32]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-290-292 | {\"id\":89 - \"parents\":[87-7-67-92]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-121-125 | {\"id\":108 - \"parents\":[7-61]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "getFeatures-test/environment.js-223-225 | {\"id\":113 - \"parents\":[7-67-114-115]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-21-976 | {\"id\":7 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-104-218 | {\"id\":61 - \"parents\":[7]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-220-303 | {\"id\":67 - \"parents\":[7]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "create-lib/environment.js-724-779 | {\"id\":125 - \"parents\":[31-32]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-252-259 | {\"id\":116 - \"parents\":[7-67]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-279-287 | {\"id\":90 - \"parents\":[87-7-67]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-261-267 | {\"id\":117 - \"parents\":[7-67]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-293-295 | {\"id\":91 - \"parents\":[87-7-67-92]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-393-396 | {\"id\":118 - \"parents\":[7-119-122]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/environment.js-942-942 | {\"id\":29 - \"parents\":[28-30-31-32]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-305-463 | {\"id\":119 - \"parents\":[7]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "queueGenerator-lib/environment.js-897-966 | {\"id\":30 - \"parents\":[31-32]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-391-393 | {\"id\":120 - \"parents\":[7-119-122]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "environment.js-lib/environment.js-1-1350 | {\"id\":31 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "queues-lib/environment.js-86-100 | {\"id\":135 - \"parents\":[31-32]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-221-231 | {\"id\":115 - \"parents\":[7-67]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-233-235 | {\"id\":121 - \"parents\":[7-67]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-289-297 | {\"id\":92 - \"parents\":[87-7-67]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/environment.js-937-937 | {\"id\":33 - \"parents\":[28-30-31-32]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/environment.js-938-938 | {\"id\":34 - \"parents\":[28-30-31-32]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/environment.js-950-957 | {\"id\":132 - \"parents\":[30-31-32]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-299-301 | {\"id\":93 - \"parents\":[87-7-67]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-389-397 | {\"id\":122 - \"parents\":[7-119]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-253-257 | {\"id\":123 - \"parents\":[7-67-116]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-269-275 | {\"id\":68 - \"parents\":[7-67]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-262-265 | {\"id\":124 - \"parents\":[7-67-117]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 }
@@ -4366,7 +4366,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-lib/environment.js-1066-1068 | {\"id\":35 - \"parents\":[31-32-36-37]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "DA": [
                         "arrowAnonymousFunction-lib/environment.js-1018-1072 | {\"id\":36 - \"parents\":[31-32-37]}"
@@ -4376,7 +4376,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-lib/environment.js-1038-1040 | {\"id\":38 - \"parents\":[31-32-36-37]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "DA": [
                         "arrowAnonymousFunction-lib/environment.js-1053-1055 | {\"id\":136 - \"parents\":[31-32-36-37]}"
@@ -4386,7 +4386,7 @@
                 {
                     "consequent": "runGenerator-lib/environment.js-1081-1093 | {\"id\":39 - \"parents\":[31-32]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "DA": [
                         "start-lib/environment.js-1017-1073 | {\"id\":37 - \"parents\":[31-32]}"
@@ -4396,7 +4396,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-lib/environment.js-154-169 | {\"id\":40 - \"parents\":[42-31-32]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "DA": [
                         "start-lib/environment.js-1017-1073 | {\"id\":37 - \"parents\":[31-32]}"
@@ -4406,441 +4406,441 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-118-120 | {\"id\":43 - \"parents\":[44-45-46-47-48]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-cli/index.js-34-38 | {\"id\":49 - \"parents\":[50]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-20-36 | {\"id\":51 - \"parents\":[44-52-54-47]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "empty-test/fixtures/generator-commands/generators/arguments/index.js-12-12 | {\"id\":56 - \"parents\":[57-58-59]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "createCommand-lib/util/command.js-4-6 | {\"id\":62 - \"parents\":[63-64]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "command.js-test/command.js-1-189 | {\"id\":44 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "test/fixtures/generator-commands/package.json",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "addGeneratorOptions-lib/util/command.js-55-61 | {\"id\":94 - \"parents\":[63-64]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-148-150 | {\"id\":69 - \"parents\":[44-78-47-85-86]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "exports-lib/command.js-6-70 | {\"id\":99 - \"parents\":[102]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-40-53 | {\"id\":70 - \"parents\":[44-76-52-54-47]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-94-126 | {\"id\":45 - \"parents\":[44-47-48]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-138-146 | {\"id\":71 - \"parents\":[44-78-47-85-86]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-64-81 | {\"id\":72 - \"parents\":[44-52-54-47]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "printGroupedGenerator-cli/utils.js-6-18 | {\"id\":103 - \"parents\":[104]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "environmentAction-cli/utils.js-20-30 | {\"id\":106 - \"parents\":[104]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-97-102 | {\"id\":73 - \"parents\":[44-45-84-47-48]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-cli/index.js-26-30 | {\"id\":109 - \"parents\":[50]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "package-lock.json",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-111-116 | {\"id\":74 - \"parents\":[44-45-46-47-48]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-122-124 | {\"id\":75 - \"parents\":[44-45-46-47-48]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "addGeneratorArguments-lib/util/command.js-35-47 | {\"id\":110 - \"parents\":[63-64]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/environment.js-164-164 | {\"id\":41 - \"parents\":[40-42-31-32]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "index.js-test/fixtures/generator-commands/generators/arguments/index.js-1-13 | {\"id\":57 - \"parents\":[59]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-38-62 | {\"id\":76 - \"parents\":[44-52-54-47]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-10-83 | {\"id\":52 - \"parents\":[44-47]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "parseAsync-lib/util/command.js-94-102 | {\"id\":126 - \"parents\":[63-64]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-88-92 | {\"id\":77 - \"parents\":[44-47-48]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "addOption-lib/util/command.js-13-28 | {\"id\":128 - \"parents\":[63-64]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-109-125 | {\"id\":46 - \"parents\":[44-45-47-48]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-133-152 | {\"id\":78 - \"parents\":[44-47-86]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-77-80 | {\"id\":79 - \"parents\":[44-72-52-54-47]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-104-106 | {\"id\":80 - \"parents\":[44-45-84-47-48]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "empty-test/fixtures/generator-commands/generators/options/index.js-29-29 | {\"id\":129 - \"parents\":[59]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "index.js-cli/index.js-1-45 | {\"id\":50 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-66-75 | {\"id\":81 - \"parents\":[44-72-52-54-47]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/util/command.js-40-43 | {\"id\":111 - \"parents\":[110-63-64]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "constructor-test/fixtures/generator-commands/generators/options/index.js-3-27 | {\"id\":58 - \"parents\":[59]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "addEnvironmentOptions-lib/command.js-7-27 | {\"id\":100 - \"parents\":[99-102]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-cli/index.js-41-44 | {\"id\":130 - \"parents\":[50]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-22-27 | {\"id\":53 - \"parents\":[51-44-52-54-47]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-19-82 | {\"id\":54 - \"parents\":[44-52-47]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-55-61 | {\"id\":82 - \"parents\":[44-76-52-54-47]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "index.js-test/fixtures/generator-commands/generators/options/index.js-1-30 | {\"id\":59 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/environment.js-1049-1051 | {\"id\":133 - \"parents\":[31-32-36-37]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "execute-lib/command.js-48-69 | {\"id\":101 - \"parents\":[99-102]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "prepareGeneratorCommand-lib/environment.js-150-171 | {\"id\":42 - \"parents\":[31-32]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "loadSharedOptions-lib/environment.js-377-389 | {\"id\":134 - \"parents\":[31-32]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/util/command.js-101-101 | {\"id\":127 - \"parents\":[126-63-64]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-13-17 | {\"id\":83 - \"parents\":[44-52-47]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "command.js-lib/util/command.js-1-106 | {\"id\":63 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "constructor-test/fixtures/generator-commands/generators/arguments/index.js-3-10 | {\"id\":112 - \"parents\":[57-58-59]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-29-35 | {\"id\":55 - \"parents\":[51-44-52-54-47]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "utils.js-cli/utils.js-1-33 | {\"id\":104 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-95-107 | {\"id\":84 - \"parents\":[44-45-47-48]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "command.js-lib/command.js-1-71 | {\"id\":102 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-9-187 | {\"id\":47 - \"parents\":[44]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-134-151 | {\"id\":85 - \"parents\":[44-78-47-86]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-85-127 | {\"id\":48 - \"parents\":[44-47]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/command.js-129-186 | {\"id\":86 - \"parents\":[44-47]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "_addGeneratorOption-lib/util/command.js-63-88 | {\"id\":138 - \"parents\":[63-64]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "YeomanCommand-lib/util/command.js-3-103 | {\"id\":64 - \"parents\":[63]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "package.json",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 }
@@ -4849,7 +4849,7 @@
                 {
                     "consequent": "error-lib/environment.js-401-403 | {\"id\":131 - \"parents\":[31-32]}",
                     "support": 2,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "false"
                 }
@@ -4858,14 +4858,14 @@
                 {
                     "consequent": "NewGenerator-test/environment.js-222-226 | {\"id\":114 - \"parents\":[7-67-115]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "Environment-lib/environment.js-77-1335 | {\"id\":32 - \"parents\":[31]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 }
@@ -4876,7 +4876,7 @@
                 {
                     "consequent": "runGenerator-lib/environment.js-934-945 | {\"id\":28 - \"parents\":[30-31-32]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -4889,7 +4889,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-lib/environment.js-1066-1068 | {\"id\":35 - \"parents\":[31-32-36-37]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "FP": [
                         [
@@ -4910,7 +4910,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-lib/environment.js-1038-1040 | {\"id\":38 - \"parents\":[31-32-36-37]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "FP": [
                         [
@@ -4931,7 +4931,7 @@
                 {
                     "consequent": "runGenerator-lib/environment.js-1081-1093 | {\"id\":39 - \"parents\":[31-32]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "FP": [
                         [
@@ -4945,7 +4945,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-lib/environment.js-154-169 | {\"id\":40 - \"parents\":[42-31-32]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "FP": [
                         [
@@ -4974,7 +4974,7 @@
                 "DA-antecedents": [
                     "create-lib/environment.js-724-779 | {\"id\":125 - \"parents\":[31-32-31]}"
                 ],
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -4997,7 +4997,7 @@
                 "DA-antecedents": [
                     "create-lib/environment.js-724-779 | {\"id\":125 - \"parents\":[31-32-31]}"
                 ],
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5307,7 +5307,7 @@
             },
             {
                 "consequent": "constructor-lib/environment.js-292-356 | {\"id\":137 - \"parents\":[31-32-31]}",
-                "FP-score": 0.4444444444444444,
+                "confidence": 0.4444444444444444,
                 "support": 4,
                 "FP-antecedents": [
                     [
@@ -5320,7 +5320,7 @@
             },
             {
                 "consequent": "run-lib/environment.js-977-1011 | {\"id\":96 - \"parents\":[31-32-31]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5334,7 +5334,7 @@
             },
             {
                 "consequent": "prompt-lib/adapter.js-54-64 | {\"id\":164 - \"parents\":[165]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5348,7 +5348,7 @@
             },
             {
                 "consequent": "_storeAsModule-lib/store.js-54-65 | {\"id\":166 - \"parents\":[167]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5365,7 +5365,7 @@
             },
             {
                 "consequent": "log-lib/util/log.js-54-184 | {\"id\":161 - \"parents\":[162]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5384,7 +5384,7 @@
             },
             {
                 "consequent": "namespaceToName-lib/environment.js-215-217 | {\"id\":173 - \"parents\":[31]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5398,7 +5398,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/adapter.js-66-69 | {\"id\":179 - \"parents\":[177-178]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5415,7 +5415,7 @@
             },
             {
                 "consequent": "add-lib/store.js-29-36 | {\"id\":180 - \"parents\":[167]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5432,7 +5432,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/adapter.js-164-167 | {\"id\":181 - \"parents\":[177-178]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5449,7 +5449,7 @@
             },
             {
                 "consequent": "environment.js-test/environment.js-1-977 | {\"id\":141 - \"parents\":[]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5468,7 +5468,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/adapter.js-142-146 | {\"id\":182 - \"parents\":[177-178]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5485,7 +5485,7 @@
             },
             {
                 "consequent": "_colorLines-lib/adapter.js-36-38 | {\"id\":183 - \"parents\":[165]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5502,7 +5502,7 @@
             },
             {
                 "consequent": "createEnv-lib/environment.js-183-189 | {\"id\":185 - \"parents\":[31]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5519,7 +5519,7 @@
             },
             {
                 "consequent": "store.js-test/store.js-1-61",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5533,7 +5533,7 @@
             },
             {
                 "consequent": "namespace-lib/environment.js-1124-1170 | {\"id\":186 - \"parents\":[31]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5547,7 +5547,7 @@
             },
             {
                 "consequent": "readme.md",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5561,7 +5561,7 @@
             },
             {
                 "consequent": "formatter-lib/util/log.js-23-36 | {\"id\":187 - \"parents\":[162]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5580,7 +5580,7 @@
             },
             {
                 "consequent": "store.js-lib/store.js-1-155 | {\"id\":167 - \"parents\":[]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5594,7 +5594,7 @@
             },
             {
                 "consequent": "help-lib/environment.js-411-449 | {\"id\":190 - \"parents\":[31]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5613,7 +5613,7 @@
             },
             {
                 "consequent": "util.js-lib/util/util.js-1-38 | {\"id\":191 - \"parents\":[]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5627,7 +5627,7 @@
             },
             {
                 "consequent": "_storeAsPath-lib/store.js-38-52 | {\"id\":188 - \"parents\":[167]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5644,7 +5644,7 @@
             },
             {
                 "consequent": "env.js-benchmark/env.js-1-9",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5661,7 +5661,7 @@
             },
             {
                 "consequent": "findPackagesIn-lib/resolver.js-162-198 | {\"id\":2 - \"parents\":[1-1]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5680,7 +5680,7 @@
             },
             {
                 "consequent": "getByPath-lib/environment.js-664-671 | {\"id\":193 - \"parents\":[31]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5699,7 +5699,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/adapter.js-27-32 | {\"id\":195 - \"parents\":[177-178]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5716,7 +5716,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/util.js-11-16 | {\"id\":196 - \"parents\":[197]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5733,7 +5733,7 @@
             },
             {
                 "consequent": "table-lib/util/log.js-170-181 | {\"id\":168 - \"parents\":[161-162]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5747,7 +5747,7 @@
             },
             {
                 "consequent": "_tryRegistering-lib/resolver.js-210-226",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5764,7 +5764,7 @@
             },
             {
                 "consequent": "adapter.js-test/adapter.js-1-199 | {\"id\":177 - \"parents\":[]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5781,7 +5781,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/util/log.js-121-123 | {\"id\":169 - \"parents\":[161-162]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5798,7 +5798,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/adapter.js-118-130 | {\"id\":198 - \"parents\":[177-178-199]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5815,7 +5815,7 @@
             },
             {
                 "consequent": "get-lib/store.js-72-85 | {\"id\":189 - \"parents\":[167]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5834,7 +5834,7 @@
             },
             {
                 "consequent": "register-lib/environment.js-460-486 | {\"id\":201 - \"parents\":[31]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5848,7 +5848,7 @@
             },
             {
                 "consequent": "adapter.js-lib/adapter.js-1-105 | {\"id\":165 - \"parents\":[]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5865,7 +5865,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/adapter.js-72-131 | {\"id\":199 - \"parents\":[177-178]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5882,7 +5882,7 @@
             },
             {
                 "consequent": "pad-lib/util/log.js-16-20 | {\"id\":203 - \"parents\":[162]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5896,7 +5896,7 @@
             },
             {
                 "consequent": "util.js-test/util.js-1-19 | {\"id\":197 - \"parents\":[]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5910,7 +5910,7 @@
             },
             {
                 "consequent": "diff-lib/adapter.js-73-101 | {\"id\":202 - \"parents\":[165]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5927,7 +5927,7 @@
             },
             {
                 "consequent": "lookup-lib/resolver.js-55-94 | {\"id\":3 - \"parents\":[1-1]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5941,7 +5941,7 @@
             },
             {
                 "consequent": "package.json",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5955,7 +5955,7 @@
             },
             {
                 "consequent": "duplicateEnv-lib/util/util.js-15-21 | {\"id\":192 - \"parents\":[191]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5972,7 +5972,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/adapter.js-37-37 | {\"id\":184 - \"parents\":[183-165]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -5989,7 +5989,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/adapter.js-159-162 | {\"id\":200 - \"parents\":[177-178]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -6006,7 +6006,7 @@
             },
             {
                 "consequent": "initParameters-lib/util/log.js-48-52 | {\"id\":163 - \"parents\":[162]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -6019,7 +6019,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/conflicter.js-215-218",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -6031,7 +6031,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/adapter.js-180-197 | {\"id\":174 - \"parents\":[177-178]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -6044,7 +6044,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/adapter.js-185-190 | {\"id\":175 - \"parents\":[174-177-178]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -6057,7 +6057,7 @@
             },
             {
                 "consequent": "getDefaultColors-lib/util/log.js-38-46 | {\"id\":194 - \"parents\":[162]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -6070,7 +6070,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/adapter.js-191-196 | {\"id\":176 - \"parents\":[174-177-178]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -6083,7 +6083,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/adapter.js-9-198 | {\"id\":178 - \"parents\":[177]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -6601,7 +6601,7 @@
                 {
                     "consequent": "instantiate-lib/environment.js-789-823 | {\"id\":107 - \"parents\":[31-32-31]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "create-lib/environment.js-724-779 | {\"id\":125 - \"parents\":[31-32-31]}"
@@ -6611,7 +6611,7 @@
                 {
                     "consequent": "get-lib/environment.js-619-657 | {\"id\":157 - \"parents\":[31]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "create-lib/environment.js-724-779 | {\"id\":125 - \"parents\":[31-32-31]}"
@@ -6621,147 +6621,147 @@
                 {
                     "consequent": "run-lib/environment.js-977-1011 | {\"id\":96 - \"parents\":[31-32-31]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "prompt-lib/adapter.js-54-64 | {\"id\":164 - \"parents\":[165]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "log-lib/util/log.js-54-184 | {\"id\":161 - \"parents\":[162]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "namespaceToName-lib/environment.js-215-217 | {\"id\":173 - \"parents\":[31]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "environment.js-test/environment.js-1-977 | {\"id\":141 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "store.js-test/store.js-1-61",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "namespace-lib/environment.js-1124-1170 | {\"id\":186 - \"parents\":[31]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "readme.md",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "formatter-lib/util/log.js-23-36 | {\"id\":187 - \"parents\":[162]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "store.js-lib/store.js-1-155 | {\"id\":167 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "help-lib/environment.js-411-449 | {\"id\":190 - \"parents\":[31]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "util.js-lib/util/util.js-1-38 | {\"id\":191 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "findPackagesIn-lib/resolver.js-162-198 | {\"id\":2 - \"parents\":[1-1]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "getByPath-lib/environment.js-664-671 | {\"id\":193 - \"parents\":[31]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "table-lib/util/log.js-170-181 | {\"id\":168 - \"parents\":[161-162]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "get-lib/store.js-72-85 | {\"id\":189 - \"parents\":[167]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "register-lib/environment.js-460-486 | {\"id\":201 - \"parents\":[31]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "pad-lib/util/log.js-16-20 | {\"id\":203 - \"parents\":[162]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "util.js-test/util.js-1-19 | {\"id\":197 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "lookup-lib/resolver.js-55-94 | {\"id\":3 - \"parents\":[1-1]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "package.json",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false and unnecessary"
                 }
@@ -6770,7 +6770,7 @@
                 {
                     "consequent": "instantiate-lib/environment.js-789-823 | {\"id\":107 - \"parents\":[31-32-31]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "create-lib/environment.js-724-779 | {\"id\":125 - \"parents\":[31-32-31]}"
@@ -6780,7 +6780,7 @@
                 {
                     "consequent": "get-lib/environment.js-619-657 | {\"id\":157 - \"parents\":[31]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "create-lib/environment.js-724-779 | {\"id\":125 - \"parents\":[31-32-31]}"
@@ -6790,49 +6790,49 @@
                 {
                     "consequent": "log-lib/util/log.js-54-184 | {\"id\":161 - \"parents\":[162]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "environment.js-test/environment.js-1-977 | {\"id\":141 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "formatter-lib/util/log.js-23-36 | {\"id\":187 - \"parents\":[162]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "help-lib/environment.js-411-449 | {\"id\":190 - \"parents\":[31]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "findPackagesIn-lib/resolver.js-162-198 | {\"id\":2 - \"parents\":[1-1]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "getByPath-lib/environment.js-664-671 | {\"id\":193 - \"parents\":[31]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "get-lib/store.js-72-85 | {\"id\":189 - \"parents\":[167]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 }
@@ -6841,7 +6841,7 @@
                 {
                     "consequent": "constructor-lib/environment.js-292-356 | {\"id\":137 - \"parents\":[31-32-31]}",
                     "support": 4,
-                    "FP-score": 0.4444444444444444,
+                    "confidence": 0.4444444444444444,
                     "status": "Berke Unique",
                     "evaluation result": "true"
                 }
@@ -6850,147 +6850,147 @@
                 {
                     "consequent": "_storeAsModule-lib/store.js-54-65 | {\"id\":166 - \"parents\":[167]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/adapter.js-66-69 | {\"id\":179 - \"parents\":[177-178]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "add-lib/store.js-29-36 | {\"id\":180 - \"parents\":[167]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/adapter.js-164-167 | {\"id\":181 - \"parents\":[177-178]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/adapter.js-142-146 | {\"id\":182 - \"parents\":[177-178]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "_colorLines-lib/adapter.js-36-38 | {\"id\":183 - \"parents\":[165]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "createEnv-lib/environment.js-183-189 | {\"id\":185 - \"parents\":[31]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "_storeAsPath-lib/store.js-38-52 | {\"id\":188 - \"parents\":[167]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "env.js-benchmark/env.js-1-9",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/adapter.js-27-32 | {\"id\":195 - \"parents\":[177-178]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/util.js-11-16 | {\"id\":196 - \"parents\":[197]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "_tryRegistering-lib/resolver.js-210-226",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "adapter.js-test/adapter.js-1-199 | {\"id\":177 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/util/log.js-121-123 | {\"id\":169 - \"parents\":[161-162]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/adapter.js-118-130 | {\"id\":198 - \"parents\":[177-178-199]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "adapter.js-lib/adapter.js-1-105 | {\"id\":165 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/adapter.js-72-131 | {\"id\":199 - \"parents\":[177-178]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "diff-lib/adapter.js-73-101 | {\"id\":202 - \"parents\":[165]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "duplicateEnv-lib/util/util.js-15-21 | {\"id\":192 - \"parents\":[191]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/adapter.js-37-37 | {\"id\":184 - \"parents\":[183-165]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/adapter.js-159-162 | {\"id\":200 - \"parents\":[177-178]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 }
@@ -6999,147 +6999,147 @@
                 {
                     "consequent": "_storeAsModule-lib/store.js-54-65 | {\"id\":166 - \"parents\":[167]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/adapter.js-66-69 | {\"id\":179 - \"parents\":[177-178]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "add-lib/store.js-29-36 | {\"id\":180 - \"parents\":[167]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/adapter.js-164-167 | {\"id\":181 - \"parents\":[177-178]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/adapter.js-142-146 | {\"id\":182 - \"parents\":[177-178]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "_colorLines-lib/adapter.js-36-38 | {\"id\":183 - \"parents\":[165]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "createEnv-lib/environment.js-183-189 | {\"id\":185 - \"parents\":[31]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "_storeAsPath-lib/store.js-38-52 | {\"id\":188 - \"parents\":[167]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "env.js-benchmark/env.js-1-9",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/adapter.js-27-32 | {\"id\":195 - \"parents\":[177-178]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/util.js-11-16 | {\"id\":196 - \"parents\":[197]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "_tryRegistering-lib/resolver.js-210-226",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "adapter.js-test/adapter.js-1-199 | {\"id\":177 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/util/log.js-121-123 | {\"id\":169 - \"parents\":[161-162]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/adapter.js-118-130 | {\"id\":198 - \"parents\":[177-178-199]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "adapter.js-lib/adapter.js-1-105 | {\"id\":165 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/adapter.js-72-131 | {\"id\":199 - \"parents\":[177-178]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "diff-lib/adapter.js-73-101 | {\"id\":202 - \"parents\":[165]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "duplicateEnv-lib/util/util.js-15-21 | {\"id\":192 - \"parents\":[191]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/adapter.js-37-37 | {\"id\":184 - \"parents\":[183-165]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/adapter.js-159-162 | {\"id\":200 - \"parents\":[177-178]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 }
@@ -7148,42 +7148,42 @@
                 {
                     "consequent": "initParameters-lib/util/log.js-48-52 | {\"id\":163 - \"parents\":[162]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/adapter.js-180-197 | {\"id\":174 - \"parents\":[177-178]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/adapter.js-185-190 | {\"id\":175 - \"parents\":[174-177-178]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "true but already reported its parent"
                 },
                 {
                     "consequent": "getDefaultColors-lib/util/log.js-38-46 | {\"id\":194 - \"parents\":[162]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/adapter.js-191-196 | {\"id\":176 - \"parents\":[174-177-178]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "true but already reported its parent"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/adapter.js-9-198 | {\"id\":178 - \"parents\":[177]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "true but already reported its children"
                 }
@@ -7192,7 +7192,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/conflicter.js-215-218",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "false"
                 }
@@ -7203,7 +7203,7 @@
                 {
                     "consequent": "instantiate-lib/environment.js-789-823 | {\"id\":107 - \"parents\":[31-32-31]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -7222,7 +7222,7 @@
                 {
                     "consequent": "get-lib/environment.js-619-657 | {\"id\":157 - \"parents\":[31]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -7446,7 +7446,7 @@
                 "DA-antecedents": [
                     "enforceUpdate-lib/environment.js-112-130 | {\"id\":212 - \"parents\":[31]}"
                 ],
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -7463,7 +7463,7 @@
                 "DA-antecedents": [
                     "enforceUpdate-lib/environment.js-112-130 | {\"id\":212 - \"parents\":[31]}"
                 ],
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -7493,7 +7493,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-57-59 | {\"id\":209 - \"parents\":[210]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -7506,7 +7506,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-934-961 | {\"id\":205 - \"parents\":[]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -7519,7 +7519,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-935-940 | {\"id\":211 - \"parents\":[205]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -7532,7 +7532,7 @@
             },
             {
                 "consequent": "constructor-lib/environment.js-292-356 | {\"id\":137 - \"parents\":[31-32-31-31]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -7545,7 +7545,7 @@
             },
             {
                 "consequent": "package.json",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -7558,7 +7558,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/environment.js-41-60 | {\"id\":210 - \"parents\":[]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -7655,7 +7655,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-952-955 | {\"id\":207 - \"parents\":[205]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "DA": [
                         "enforceUpdate-lib/environment.js-112-130 | {\"id\":212 - \"parents\":[31]}"
@@ -7665,7 +7665,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-957-960 | {\"id\":208 - \"parents\":[205]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "DA": [
                         "enforceUpdate-lib/environment.js-112-130 | {\"id\":212 - \"parents\":[31]}"
@@ -7675,42 +7675,42 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-57-59 | {\"id\":209 - \"parents\":[210]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-934-961 | {\"id\":205 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-935-940 | {\"id\":211 - \"parents\":[205]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "constructor-lib/environment.js-292-356 | {\"id\":137 - \"parents\":[31-32-31-31]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "package.json",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false and unnecessary"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-41-60 | {\"id\":210 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "true but unnecessary"
                 }
@@ -7721,7 +7721,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-952-955 | {\"id\":207 - \"parents\":[205]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "FP": [
                         [
@@ -7734,7 +7734,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/environment.js-957-960 | {\"id\":208 - \"parents\":[205]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "FP": [
                         [

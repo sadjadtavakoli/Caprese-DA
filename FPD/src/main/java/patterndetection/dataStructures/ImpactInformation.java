@@ -62,7 +62,7 @@ public class ImpactInformation {
     public String toString() {
         StringBuilder r = new StringBuilder(200);
         r.append("{");
-        r.append("\"FP-score\":");
+        r.append("\"confidence\":");
         r.append(this.confidence);
         r.append(", \"support\":");
         r.append(this.support);

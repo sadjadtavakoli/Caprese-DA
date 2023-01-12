@@ -21,7 +21,7 @@
             },
             {
                 "consequent": "count-examples/cookie-sessions/index.js-19-22",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -33,7 +33,7 @@
             },
             {
                 "consequent": "package.json",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -59,7 +59,7 @@
                 {
                     "consequent": "count-examples/cookie-sessions/index.js-19-22",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true"
                 }
@@ -68,7 +68,7 @@
                 {
                     "consequent": "package.json",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "Berke Unique",
                     "evaluation result": "false"
                 }
@@ -95,7 +95,7 @@
                 "DA-antecedents": [
                     "decode_param-lib/router/layer.js-166-181 | {\"id\":9 - \"parents\":[7]}"
                 ],
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -109,7 +109,7 @@
             },
             {
                 "consequent": "index.js-lib/router/index.js-1-674",
-                "FP-score": 0.6,
+                "confidence": 0.6,
                 "support": 6,
                 "FP-antecedents": [
                     [
@@ -121,7 +121,7 @@
             },
             {
                 "consequent": "route.js-lib/router/route.js-1-226",
-                "FP-score": 0.6,
+                "confidence": 0.6,
                 "support": 6,
                 "FP-antecedents": [
                     [
@@ -133,7 +133,7 @@
             },
             {
                 "consequent": "Layer-lib/router/layer.js-33-50 | {\"id\":8 - \"parents\":[7]}",
-                "FP-score": 0.4,
+                "confidence": 0.4,
                 "support": 4,
                 "FP-antecedents": [
                     [
@@ -145,7 +145,7 @@
             },
             {
                 "consequent": "History.md",
-                "FP-score": 0.4,
+                "confidence": 0.4,
                 "support": 4,
                 "FP-antecedents": [
                     [
@@ -157,7 +157,7 @@
             },
             {
                 "consequent": "utils.js-lib/utils.js-1-305",
-                "FP-score": 0.4,
+                "confidence": 0.4,
                 "support": 4,
                 "FP-antecedents": [
                     [
@@ -183,7 +183,7 @@
                 {
                     "consequent": "match-lib/router/layer.js-110-156 | {\"id\":6 - \"parents\":[7]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "decode_param-lib/router/layer.js-166-181 | {\"id\":9 - \"parents\":[7]}"
@@ -195,35 +195,35 @@
                 {
                     "consequent": "index.js-lib/router/index.js-1-674",
                     "support": 6,
-                    "FP-score": 0.6,
+                    "confidence": 0.6,
                     "status": "Berke Unique",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "route.js-lib/router/route.js-1-226",
                     "support": 6,
-                    "FP-score": 0.6,
+                    "confidence": 0.6,
                     "status": "Berke Unique",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "Layer-lib/router/layer.js-33-50 | {\"id\":8 - \"parents\":[7]}",
                     "support": 4,
-                    "FP-score": 0.4,
+                    "confidence": 0.4,
                     "status": "Berke Unique",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "History.md",
                     "support": 4,
-                    "FP-score": 0.4,
+                    "confidence": 0.4,
                     "status": "Berke Unique",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "utils.js-lib/utils.js-1-305",
                     "support": 4,
-                    "FP-score": 0.4,
+                    "confidence": 0.4,
                     "status": "Berke Unique",
                     "evaluation result": "false"
                 }
@@ -234,7 +234,7 @@
                 {
                     "consequent": "match-lib/router/layer.js-110-156 | {\"id\":6 - \"parents\":[7]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -343,7 +343,7 @@
             },
             {
                 "consequent": "application.js-lib/application.js-1-662 | {\"id\":11 - \"parents\":[]}",
-                "FP-score": 0.5263157894736842,
+                "confidence": 0.5263157894736842,
                 "support": 10,
                 "FP-antecedents": [
                     [
@@ -520,7 +520,7 @@
                 {
                     "consequent": "application.js-lib/application.js-1-662 | {\"id\":11 - \"parents\":[]}",
                     "support": 10,
-                    "FP-score": 0.5263157894736842,
+                    "confidence": 0.5263157894736842,
                     "status": "common",
                     "evaluation result": "true parent"
                 }
@@ -612,7 +612,7 @@
             },
             {
                 "consequent": "view.js-lib/view.js-1-183 | {\"id\":16 - \"parents\":[]}",
-                "FP-score": 0.5555555555555556,
+                "confidence": 0.5555555555555556,
                 "support": 5,
                 "FP-antecedents": [
                     [
@@ -624,7 +624,7 @@
             },
             {
                 "consequent": "render-lib/view.js-133-136 | {\"id\":17 - \"parents\":[16]}",
-                "FP-score": 0.4444444444444444,
+                "confidence": 0.4444444444444444,
                 "support": 4,
                 "FP-antecedents": [
                     [
@@ -658,14 +658,14 @@
                 {
                     "consequent": "view.js-lib/view.js-1-183 | {\"id\":16 - \"parents\":[]}",
                     "support": 5,
-                    "FP-score": 0.5555555555555556,
+                    "confidence": 0.5555555555555556,
                     "status": "common",
                     "evaluation result": "true parent"
                 },
                 {
                     "consequent": "render-lib/view.js-133-136 | {\"id\":17 - \"parents\":[16]}",
                     "support": 4,
-                    "FP-score": 0.4444444444444444,
+                    "confidence": 0.4444444444444444,
                     "status": "common",
                     "evaluation result": "false"
                 }
@@ -718,7 +718,7 @@
                     "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}",
                     "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}"
                 ],
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -740,7 +740,7 @@
                     "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}",
                     "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}"
                 ],
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -762,7 +762,7 @@
                     "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}",
                     "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}"
                 ],
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -784,7 +784,7 @@
                     "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}",
                     "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}"
                 ],
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -806,7 +806,7 @@
                     "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}",
                     "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}"
                 ],
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -828,7 +828,7 @@
                     "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}",
                     "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}"
                 ],
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -850,7 +850,7 @@
                     "arrowAnonymousFunction-test/router.js-19-29 | {\"id\":162 - \"parents\":[45-47]}",
                     "next-lib/router/index.js-177-291 | {\"id\":56 - \"parents\":[51-55]}"
                 ],
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -872,7 +872,7 @@
                     "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
                     "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}"
                 ],
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -894,7 +894,7 @@
                     "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
                     "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}"
                 ],
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -915,7 +915,7 @@
                 "DA-antecedents": [
                     "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}"
                 ],
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -936,7 +936,7 @@
                 "DA-antecedents": [
                     "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}"
                 ],
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -957,7 +957,7 @@
                 "DA-antecedents": [
                     "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}"
                 ],
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -978,7 +978,7 @@
                 "DA-antecedents": [
                     "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}"
                 ],
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -999,7 +999,7 @@
                 "DA-antecedents": [
                     "method-lib/router/index.js-519-523 | {\"id\":170 - \"parents\":[55-169]}"
                 ],
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1020,7 +1020,7 @@
                 "DA-antecedents": [
                     "next-lib/router/index.js-177-291 | {\"id\":56 - \"parents\":[51-55]}"
                 ],
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1041,7 +1041,7 @@
                 "DA-antecedents": [
                     "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}"
                 ],
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1062,7 +1062,7 @@
                 "DA-antecedents": [
                     "use-lib/router/index.js-439-487 | {\"id\":172 - \"parents\":[55]}"
                 ],
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1083,7 +1083,7 @@
                 "DA-antecedents": [
                     "use-lib/router/index.js-439-487 | {\"id\":172 - \"parents\":[55]}"
                 ],
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1107,7 +1107,7 @@
                     "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}",
                     "use-lib/router/index.js-439-487 | {\"id\":172 - \"parents\":[55]}"
                 ],
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1124,7 +1124,7 @@
                 "DA-antecedents": [
                     "next-lib/router/index.js-177-291 | {\"id\":56 - \"parents\":[51-55]}"
                 ],
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1141,7 +1141,7 @@
                 "DA-antecedents": [
                     "next-lib/router/index.js-177-291 | {\"id\":56 - \"parents\":[51-55]}"
                 ],
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1158,7 +1158,7 @@
                 "DA-antecedents": [
                     "next-lib/router/index.js-177-291 | {\"id\":56 - \"parents\":[51-55]}"
                 ],
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1175,7 +1175,7 @@
                 "DA-antecedents": [
                     "next-lib/router/index.js-177-291 | {\"id\":56 - \"parents\":[51-55]}"
                 ],
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1192,7 +1192,7 @@
                 "DA-antecedents": [
                     "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}"
                 ],
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -1209,7 +1209,7 @@
                 "DA-antecedents": [
                     "use-lib/router/index.js-439-487 | {\"id\":172 - \"parents\":[55]}"
                 ],
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2077,7 +2077,7 @@
             },
             {
                 "consequent": "History.md",
-                "FP-score": 0.7692307692307693,
+                "confidence": 0.7692307692307693,
                 "support": 10,
                 "FP-antecedents": [
                     [
@@ -2089,7 +2089,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/router.js-171-173 | {\"id\":128 - \"parents\":[127-45-131-47]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2106,7 +2106,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/router.js-375-377 | {\"id\":59 - \"parents\":[58-45-47]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2123,7 +2123,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.router.js-139-162 | {\"id\":108 - \"parents\":[106]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2140,7 +2140,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/route.js-175-178 | {\"id\":37 - \"parents\":[36-21-22]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2157,7 +2157,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/route.js-143-146 | {\"id\":32 - \"parents\":[31-33-21-22]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2174,7 +2174,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.js-59-69 | {\"id\":148 - \"parents\":[149]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2191,7 +2191,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/req.route.js-16-19",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2208,7 +2208,7 @@
             },
             {
                 "consequent": "_options-lib/router/route.js-77-91 | {\"id\":155 - \"parents\":[73]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2225,7 +2225,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.router.js-716-726 | {\"id\":156 - \"parents\":[106]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2242,7 +2242,7 @@
             },
             {
                 "consequent": "dispatch-lib/router/route.js-98-149 | {\"id\":76 - \"parents\":[73]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2259,7 +2259,7 @@
             },
             {
                 "consequent": "handle-lib/application.js-165-182 | {\"id\":157 - \"parents\":[11]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2276,7 +2276,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.router.js-402-412 | {\"id\":158 - \"parents\":[106]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2293,7 +2293,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/route.js-97-159 | {\"id\":33 - \"parents\":[21-22]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2310,7 +2310,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/router/route.js-201-225 | {\"id\":159 - \"parents\":[73]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2327,7 +2327,7 @@
             },
             {
                 "consequent": "Router.js-test/router.js-1-596 | {\"id\":45 - \"parents\":[]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2344,7 +2344,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/route.js-9-265 | {\"id\":21 - \"parents\":[22]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2361,7 +2361,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/router.js-131-157 | {\"id\":46 - \"parents\":[45-47]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2378,7 +2378,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/req.route.js-11-14",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2395,7 +2395,7 @@
             },
             {
                 "consequent": "exports-lib/router/index.js-43-61 | {\"id\":164 - \"parents\":[55]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2412,7 +2412,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/route.js-138-141 | {\"id\":34 - \"parents\":[31-33-21-22]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2429,7 +2429,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.router.js-766-776 | {\"id\":166 - \"parents\":[106]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2446,7 +2446,7 @@
             },
             {
                 "consequent": "index.js-examples/error/index.js-1-54",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2463,7 +2463,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/route.js-69-72 | {\"id\":26 - \"parents\":[25-21-24-22]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2480,7 +2480,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/route.js-64-67 | {\"id\":27 - \"parents\":[25-21-24-22]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2497,7 +2497,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/router.js-371-371 | {\"id\":60 - \"parents\":[58-45-47]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2514,7 +2514,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/router.js-10-17 | {\"id\":161 - \"parents\":[45-47]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2529,7 +2529,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.router.js-469-481 | {\"id\":167 - \"parents\":[106]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2546,7 +2546,7 @@
             },
             {
                 "consequent": "index.js-examples/error-pages/index.js-1-104",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2563,7 +2563,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/route.js-38-95 | {\"id\":24 - \"parents\":[21-22]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2580,7 +2580,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.router.js-989-1021 | {\"id\":168 - \"parents\":[106]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2597,7 +2597,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/router/index.js-165-168 | {\"id\":54 - \"parents\":[51-55]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2614,7 +2614,7 @@
             },
             {
                 "consequent": "index.js-examples/web-service/index.js-1-118 | {\"id\":102 - \"parents\":[]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2631,7 +2631,7 @@
             },
             {
                 "consequent": "index.js-lib/router/index.js-1-674 | {\"id\":55 - \"parents\":[]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2648,7 +2648,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/router.js-163-165 | {\"id\":129 - \"parents\":[127-45-131-47]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2665,7 +2665,7 @@
             },
             {
                 "consequent": "createApplication-lib/express.js-37-57 | {\"id\":173 - \"parents\":[175]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2682,7 +2682,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.router.js-9-1111 | {\"id\":106 - \"parents\":[]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2699,7 +2699,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.js-42-56 | {\"id\":183 - \"parents\":[149]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2716,7 +2716,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.router.js-680-690 | {\"id\":177 - \"parents\":[106]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2733,7 +2733,7 @@
             },
             {
                 "consequent": "app-lib/express.js-38-40 | {\"id\":174 - \"parents\":[173-175]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2750,7 +2750,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.router.js-525-537 | {\"id\":178 - \"parents\":[106]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2767,7 +2767,7 @@
             },
             {
                 "consequent": "get-lib/application.js-130-132 | {\"id\":185 - \"parents\":[11-13]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2784,7 +2784,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/route.js-166-168 | {\"id\":38 - \"parents\":[36-21-22]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2801,7 +2801,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/router.js-167-169 | {\"id\":130 - \"parents\":[127-45-131-47]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2818,7 +2818,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/route.js-84-87 | {\"id\":29 - \"parents\":[28-21-24-22]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2835,7 +2835,7 @@
             },
             {
                 "consequent": "express.js-lib/express.js-1-117 | {\"id\":175 - \"parents\":[]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2852,7 +2852,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/route.js-170-173 | {\"id\":39 - \"parents\":[36-21-22]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2869,7 +2869,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.router.js-754-764 | {\"id\":179 - \"parents\":[106]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2886,7 +2886,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/router/index.js-518-524 | {\"id\":169 - \"parents\":[55]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2903,7 +2903,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.options.js-62-74",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2918,7 +2918,7 @@
             },
             {
                 "consequent": "application.js-lib/application.js-1-662 | {\"id\":11 - \"parents\":[]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2935,7 +2935,7 @@
             },
             {
                 "consequent": "app.js-test/app.js-1-133 | {\"id\":149 - \"parents\":[]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2952,7 +2952,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.router.js-415-427 | {\"id\":180 - \"parents\":[106]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2969,7 +2969,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/route.js-180-185 | {\"id\":40 - \"parents\":[36-21-22]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -2986,7 +2986,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/route.js-79-82 | {\"id\":30 - \"parents\":[28-21-24-22]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3003,7 +3003,7 @@
             },
             {
                 "consequent": "router-lib/router/index.js-46-48 | {\"id\":165 - \"parents\":[164-55]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3015,7 +3015,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/application.js-235-242 | {\"id\":123 - \"parents\":[10-11-122]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3032,7 +3032,7 @@
             },
             {
                 "consequent": "Route.js-test/route.js-1-266 | {\"id\":22 - \"parents\":[]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3049,7 +3049,7 @@
             },
             {
                 "consequent": "defaultConfiguration-lib/application.js-77-134 | {\"id\":13 - \"parents\":[11-11]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3066,7 +3066,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/router.js-159-242 | {\"id\":131 - \"parents\":[45-47]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3083,7 +3083,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.router.js-539-551 | {\"id\":181 - \"parents\":[106]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3100,7 +3100,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/router.js-9-595 | {\"id\":47 - \"parents\":[45]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3117,7 +3117,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/router.js-175-178 | {\"id\":132 - \"parents\":[127-45-131-47]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3134,7 +3134,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/route.js-148-151 | {\"id\":35 - \"parents\":[31-33-21-22]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3151,7 +3151,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.router.js-851-862 | {\"id\":182 - \"parents\":[106]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3168,7 +3168,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.js-60-68 | {\"id\":150 - \"parents\":[148-149]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3185,7 +3185,7 @@
             },
             {
                 "consequent": "param-lib/router/index.js-97-129 | {\"id\":147 - \"parents\":[55]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3198,7 +3198,7 @@
             },
             {
                 "consequent": "path-lib/application.js-417-421 | {\"id\":151 - \"parents\":[11]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3211,7 +3211,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/router.js-470-484 | {\"id\":152 - \"parents\":[45-100-47]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3224,7 +3224,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/router.js-473-476 | {\"id\":153 - \"parents\":[152-45-100-47]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3237,7 +3237,7 @@
             },
             {
                 "consequent": "param-lib/router/index.js-359-396 | {\"id\":71 - \"parents\":[70-55]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3250,7 +3250,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/router.js-478-481 | {\"id\":154 - \"parents\":[152-45-100-47]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3263,7 +3263,7 @@
             },
             {
                 "consequent": "param-lib/application.js-328-342 | {\"id\":176 - \"parents\":[11]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3276,7 +3276,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/router.js-489-492 | {\"id\":143 - \"parents\":[99-45-100-47]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3289,7 +3289,7 @@
             },
             {
                 "consequent": "utils.js-lib/utils.js-1-305",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3302,7 +3302,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/router.js-469-556 | {\"id\":100 - \"parents\":[45-47]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3315,7 +3315,7 @@
             },
             {
                 "consequent": "route.js-lib/router/route.js-1-226 | {\"id\":73 - \"parents\":[]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3328,7 +3328,7 @@
             },
             {
                 "consequent": "use-lib/application.js-194-249 | {\"id\":122 - \"parents\":[11]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3341,7 +3341,7 @@
             },
             {
                 "consequent": "layer.js-lib/router/layer.js-1-182 | {\"id\":7 - \"parents\":[]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -3354,7 +3354,7 @@
             },
             {
                 "consequent": "send-test/router.js-122-125 | {\"id\":67 - \"parents\":[66-45-47]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -4213,7 +4213,7 @@
                 {
                     "consequent": "method-lib/application.js-490-501 | {\"id\":186 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
@@ -4236,7 +4236,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-134-158 | {\"id\":31 - \"parents\":[33-21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}",
@@ -4247,7 +4247,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-133-136 | {\"id\":44 - \"parents\":[45-46-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}",
@@ -4258,7 +4258,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-140-143 | {\"id\":48 - \"parents\":[45-46-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}",
@@ -4269,7 +4269,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-147-150 | {\"id\":49 - \"parents\":[45-46-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}",
@@ -4280,7 +4280,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-153-156 | {\"id\":50 - \"parents\":[45-46-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}",
@@ -4291,7 +4291,7 @@
                 {
                     "consequent": "handle-lib/router/index.js-136-331 | {\"id\":51 - \"parents\":[55]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "arrowAnonymousFunction-test/router.js-19-29 | {\"id\":162 - \"parents\":[45-47]}",
@@ -4302,7 +4302,7 @@
                 {
                     "consequent": "all-lib/application.js-514-525 | {\"id\":62 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
@@ -4313,7 +4313,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-114-128 | {\"id\":66 - \"parents\":[45-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
@@ -4324,7 +4324,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-55-73 | {\"id\":25 - \"parents\":[21-24-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}"
@@ -4334,7 +4334,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-75-94 | {\"id\":28 - \"parents\":[21-24-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}"
@@ -4344,7 +4344,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-162-186 | {\"id\":36 - \"parents\":[21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}"
@@ -4354,7 +4354,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-188-212 | {\"id\":41 - \"parents\":[21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}"
@@ -4364,7 +4364,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-367-381 | {\"id\":58 - \"parents\":[45-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "method-lib/router/index.js-519-523 | {\"id\":170 - \"parents\":[55-169]}"
@@ -4374,7 +4374,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-lib/router/index.js-280-290 | {\"id\":52 - \"parents\":[51-55-56]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "next-lib/router/index.js-177-291 | {\"id\":56 - \"parents\":[51-55]}"
@@ -4384,7 +4384,7 @@
                 {
                     "consequent": "Route-lib/router/route.js-43-51 | {\"id\":119 - \"parents\":[73]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}"
@@ -4394,7 +4394,7 @@
                 {
                     "consequent": "lazyrouter-lib/application.js-144-154 | {\"id\":121 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "use-lib/router/index.js-439-487 | {\"id\":172 - \"parents\":[55]}"
@@ -4404,7 +4404,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-160-181 | {\"id\":127 - \"parents\":[45-131-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "use-lib/router/index.js-439-487 | {\"id\":172 - \"parents\":[55]}"
@@ -4414,434 +4414,434 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-171-173 | {\"id\":128 - \"parents\":[127-45-131-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-375-377 | {\"id\":59 - \"parents\":[58-45-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.router.js-139-162 | {\"id\":108 - \"parents\":[106]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-175-178 | {\"id\":37 - \"parents\":[36-21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-143-146 | {\"id\":32 - \"parents\":[31-33-21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.js-59-69 | {\"id\":148 - \"parents\":[149]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/req.route.js-16-19",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "_options-lib/router/route.js-77-91 | {\"id\":155 - \"parents\":[73]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.router.js-716-726 | {\"id\":156 - \"parents\":[106]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "dispatch-lib/router/route.js-98-149 | {\"id\":76 - \"parents\":[73]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "handle-lib/application.js-165-182 | {\"id\":157 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.router.js-402-412 | {\"id\":158 - \"parents\":[106]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-97-159 | {\"id\":33 - \"parents\":[21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/router/route.js-201-225 | {\"id\":159 - \"parents\":[73]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true parent"
                 },
                 {
                     "consequent": "Router.js-test/router.js-1-596 | {\"id\":45 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-9-265 | {\"id\":21 - \"parents\":[22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-131-157 | {\"id\":46 - \"parents\":[45-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/req.route.js-11-14",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "exports-lib/router/index.js-43-61 | {\"id\":164 - \"parents\":[55]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-138-141 | {\"id\":34 - \"parents\":[31-33-21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.router.js-766-776 | {\"id\":166 - \"parents\":[106]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "index.js-examples/error/index.js-1-54",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-69-72 | {\"id\":26 - \"parents\":[25-21-24-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-64-67 | {\"id\":27 - \"parents\":[25-21-24-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-371-371 | {\"id\":60 - \"parents\":[58-45-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.router.js-469-481 | {\"id\":167 - \"parents\":[106]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "index.js-examples/error-pages/index.js-1-104",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-38-95 | {\"id\":24 - \"parents\":[21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.router.js-989-1021 | {\"id\":168 - \"parents\":[106]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/router/index.js-165-168 | {\"id\":54 - \"parents\":[51-55]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "index.js-examples/web-service/index.js-1-118 | {\"id\":102 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "index.js-lib/router/index.js-1-674 | {\"id\":55 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true parent"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-163-165 | {\"id\":129 - \"parents\":[127-45-131-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "createApplication-lib/express.js-37-57 | {\"id\":173 - \"parents\":[175]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.router.js-9-1111 | {\"id\":106 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.js-42-56 | {\"id\":183 - \"parents\":[149]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.router.js-680-690 | {\"id\":177 - \"parents\":[106]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "app-lib/express.js-38-40 | {\"id\":174 - \"parents\":[173-175]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.router.js-525-537 | {\"id\":178 - \"parents\":[106]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "get-lib/application.js-130-132 | {\"id\":185 - \"parents\":[11-13]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-166-168 | {\"id\":38 - \"parents\":[36-21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-167-169 | {\"id\":130 - \"parents\":[127-45-131-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-84-87 | {\"id\":29 - \"parents\":[28-21-24-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "express.js-lib/express.js-1-117 | {\"id\":175 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-170-173 | {\"id\":39 - \"parents\":[36-21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.router.js-754-764 | {\"id\":179 - \"parents\":[106]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/router/index.js-518-524 | {\"id\":169 - \"parents\":[55]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "application.js-lib/application.js-1-662 | {\"id\":11 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "app.js-test/app.js-1-133 | {\"id\":149 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.router.js-415-427 | {\"id\":180 - \"parents\":[106]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-180-185 | {\"id\":40 - \"parents\":[36-21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-79-82 | {\"id\":30 - \"parents\":[28-21-24-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/application.js-235-242 | {\"id\":123 - \"parents\":[10-11-122]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "Route.js-test/route.js-1-266 | {\"id\":22 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "defaultConfiguration-lib/application.js-77-134 | {\"id\":13 - \"parents\":[11-11]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-159-242 | {\"id\":131 - \"parents\":[45-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.router.js-539-551 | {\"id\":181 - \"parents\":[106]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-9-595 | {\"id\":47 - \"parents\":[45]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-175-178 | {\"id\":132 - \"parents\":[127-45-131-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-148-151 | {\"id\":35 - \"parents\":[31-33-21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.router.js-851-862 | {\"id\":182 - \"parents\":[106]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.js-60-68 | {\"id\":150 - \"parents\":[148-149]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 }
@@ -4850,7 +4850,7 @@
                 {
                     "consequent": "method-lib/application.js-490-501 | {\"id\":186 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
@@ -4873,7 +4873,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-134-158 | {\"id\":31 - \"parents\":[33-21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}",
@@ -4884,7 +4884,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-133-136 | {\"id\":44 - \"parents\":[45-46-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}",
@@ -4895,7 +4895,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-140-143 | {\"id\":48 - \"parents\":[45-46-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}",
@@ -4906,7 +4906,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-147-150 | {\"id\":49 - \"parents\":[45-46-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}",
@@ -4917,7 +4917,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-153-156 | {\"id\":50 - \"parents\":[45-46-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}",
@@ -4928,7 +4928,7 @@
                 {
                     "consequent": "handle-lib/router/index.js-136-331 | {\"id\":51 - \"parents\":[55]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "arrowAnonymousFunction-test/router.js-19-29 | {\"id\":162 - \"parents\":[45-47]}",
@@ -4939,7 +4939,7 @@
                 {
                     "consequent": "all-lib/application.js-514-525 | {\"id\":62 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
@@ -4950,7 +4950,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-114-128 | {\"id\":66 - \"parents\":[45-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
@@ -4961,7 +4961,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-55-73 | {\"id\":25 - \"parents\":[21-24-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}"
@@ -4971,7 +4971,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-75-94 | {\"id\":28 - \"parents\":[21-24-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}"
@@ -4981,7 +4981,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-162-186 | {\"id\":36 - \"parents\":[21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}"
@@ -4991,7 +4991,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-188-212 | {\"id\":41 - \"parents\":[21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}"
@@ -5001,7 +5001,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-367-381 | {\"id\":58 - \"parents\":[45-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "method-lib/router/index.js-519-523 | {\"id\":170 - \"parents\":[55-169]}"
@@ -5011,7 +5011,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-lib/router/index.js-280-290 | {\"id\":52 - \"parents\":[51-55-56]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "next-lib/router/index.js-177-291 | {\"id\":56 - \"parents\":[51-55]}"
@@ -5021,7 +5021,7 @@
                 {
                     "consequent": "Route-lib/router/route.js-43-51 | {\"id\":119 - \"parents\":[73]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}"
@@ -5031,7 +5031,7 @@
                 {
                     "consequent": "lazyrouter-lib/application.js-144-154 | {\"id\":121 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "use-lib/router/index.js-439-487 | {\"id\":172 - \"parents\":[55]}"
@@ -5041,7 +5041,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-160-181 | {\"id\":127 - \"parents\":[45-131-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "DA": [
                         "use-lib/router/index.js-439-487 | {\"id\":172 - \"parents\":[55]}"
@@ -5051,434 +5051,434 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-171-173 | {\"id\":128 - \"parents\":[127-45-131-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-375-377 | {\"id\":59 - \"parents\":[58-45-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.router.js-139-162 | {\"id\":108 - \"parents\":[106]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-175-178 | {\"id\":37 - \"parents\":[36-21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-143-146 | {\"id\":32 - \"parents\":[31-33-21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.js-59-69 | {\"id\":148 - \"parents\":[149]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/req.route.js-16-19",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "_options-lib/router/route.js-77-91 | {\"id\":155 - \"parents\":[73]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.router.js-716-726 | {\"id\":156 - \"parents\":[106]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "dispatch-lib/router/route.js-98-149 | {\"id\":76 - \"parents\":[73]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "handle-lib/application.js-165-182 | {\"id\":157 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.router.js-402-412 | {\"id\":158 - \"parents\":[106]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-97-159 | {\"id\":33 - \"parents\":[21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/router/route.js-201-225 | {\"id\":159 - \"parents\":[73]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true parent"
                 },
                 {
                     "consequent": "Router.js-test/router.js-1-596 | {\"id\":45 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-9-265 | {\"id\":21 - \"parents\":[22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-131-157 | {\"id\":46 - \"parents\":[45-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/req.route.js-11-14",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "exports-lib/router/index.js-43-61 | {\"id\":164 - \"parents\":[55]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-138-141 | {\"id\":34 - \"parents\":[31-33-21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.router.js-766-776 | {\"id\":166 - \"parents\":[106]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "index.js-examples/error/index.js-1-54",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-69-72 | {\"id\":26 - \"parents\":[25-21-24-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-64-67 | {\"id\":27 - \"parents\":[25-21-24-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-371-371 | {\"id\":60 - \"parents\":[58-45-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.router.js-469-481 | {\"id\":167 - \"parents\":[106]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "index.js-examples/error-pages/index.js-1-104",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-38-95 | {\"id\":24 - \"parents\":[21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.router.js-989-1021 | {\"id\":168 - \"parents\":[106]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/router/index.js-165-168 | {\"id\":54 - \"parents\":[51-55]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "index.js-examples/web-service/index.js-1-118 | {\"id\":102 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "index.js-lib/router/index.js-1-674 | {\"id\":55 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true parent"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-163-165 | {\"id\":129 - \"parents\":[127-45-131-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "createApplication-lib/express.js-37-57 | {\"id\":173 - \"parents\":[175]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.router.js-9-1111 | {\"id\":106 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.js-42-56 | {\"id\":183 - \"parents\":[149]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.router.js-680-690 | {\"id\":177 - \"parents\":[106]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "app-lib/express.js-38-40 | {\"id\":174 - \"parents\":[173-175]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.router.js-525-537 | {\"id\":178 - \"parents\":[106]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "get-lib/application.js-130-132 | {\"id\":185 - \"parents\":[11-13]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-166-168 | {\"id\":38 - \"parents\":[36-21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-167-169 | {\"id\":130 - \"parents\":[127-45-131-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-84-87 | {\"id\":29 - \"parents\":[28-21-24-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "express.js-lib/express.js-1-117 | {\"id\":175 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-170-173 | {\"id\":39 - \"parents\":[36-21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.router.js-754-764 | {\"id\":179 - \"parents\":[106]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/router/index.js-518-524 | {\"id\":169 - \"parents\":[55]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "application.js-lib/application.js-1-662 | {\"id\":11 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "app.js-test/app.js-1-133 | {\"id\":149 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.router.js-415-427 | {\"id\":180 - \"parents\":[106]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-180-185 | {\"id\":40 - \"parents\":[36-21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-79-82 | {\"id\":30 - \"parents\":[28-21-24-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/application.js-235-242 | {\"id\":123 - \"parents\":[10-11-122]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "Route.js-test/route.js-1-266 | {\"id\":22 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "defaultConfiguration-lib/application.js-77-134 | {\"id\":13 - \"parents\":[11-11]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-159-242 | {\"id\":131 - \"parents\":[45-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.router.js-539-551 | {\"id\":181 - \"parents\":[106]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-9-595 | {\"id\":47 - \"parents\":[45]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-175-178 | {\"id\":132 - \"parents\":[127-45-131-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-148-151 | {\"id\":35 - \"parents\":[31-33-21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.router.js-851-862 | {\"id\":182 - \"parents\":[106]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.js-60-68 | {\"id\":150 - \"parents\":[148-149]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 }
@@ -5487,7 +5487,7 @@
                 {
                     "consequent": "Layer-lib/router/layer.js-33-50 | {\"id\":8 - \"parents\":[7-7]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "DA": [
                         "all-lib/router/route.js-179-199 | {\"id\":184 - \"parents\":[73]}",
@@ -5500,7 +5500,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-494-498 | {\"id\":98 - \"parents\":[99-45-100-47]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "DA": [
                         "next-lib/router/index.js-177-291 | {\"id\":56 - \"parents\":[51-55]}"
@@ -5510,7 +5510,7 @@
                 {
                     "consequent": "trim_prefix-lib/router/index.js-293-330 | {\"id\":53 - \"parents\":[51-55]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "DA": [
                         "next-lib/router/index.js-177-291 | {\"id\":56 - \"parents\":[51-55]}"
@@ -5520,7 +5520,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-486-501 | {\"id\":99 - \"parents\":[45-100-47]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "DA": [
                         "use-lib/router/index.js-439-487 | {\"id\":172 - \"parents\":[55]}"
@@ -5530,49 +5530,49 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-470-484 | {\"id\":152 - \"parents\":[45-100-47]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-473-476 | {\"id\":153 - \"parents\":[152-45-100-47]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-478-481 | {\"id\":154 - \"parents\":[152-45-100-47]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-489-492 | {\"id\":143 - \"parents\":[99-45-100-47]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "utils.js-lib/utils.js-1-305",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-469-556 | {\"id\":100 - \"parents\":[45-47]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "layer.js-lib/router/layer.js-1-182 | {\"id\":7 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "false"
                 }
@@ -5581,7 +5581,7 @@
                 {
                     "consequent": "process_params-lib/router/index.js-338-422 | {\"id\":70 - \"parents\":[55]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "DA": [
                         "next-lib/router/index.js-177-291 | {\"id\":56 - \"parents\":[51-55]}"
@@ -5591,7 +5591,7 @@
                 {
                     "consequent": "next-lib/router/route.js-116-148 | {\"id\":75 - \"parents\":[76-73]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "DA": [
                         "next-lib/router/index.js-177-291 | {\"id\":56 - \"parents\":[51-55]}"
@@ -5601,7 +5601,7 @@
                 {
                     "consequent": "route-lib/application.js-261-264 | {\"id\":120 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "DA": [
                         "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}"
@@ -5611,49 +5611,49 @@
                 {
                     "consequent": "param-lib/router/index.js-97-129 | {\"id\":147 - \"parents\":[55]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "path-lib/application.js-417-421 | {\"id\":151 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "param-lib/router/index.js-359-396 | {\"id\":71 - \"parents\":[70-55]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "param-lib/application.js-328-342 | {\"id\":176 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "route.js-lib/router/route.js-1-226 | {\"id\":73 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "true parent"
                 },
                 {
                     "consequent": "use-lib/application.js-194-249 | {\"id\":122 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "true"
                 },
                 {
                     "consequent": "send-test/router.js-122-125 | {\"id\":67 - \"parents\":[66-45-47]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 }
@@ -5662,7 +5662,7 @@
                 {
                     "consequent": "History.md",
                     "support": 10,
-                    "FP-score": 0.7692307692307693,
+                    "confidence": 0.7692307692307693,
                     "status": "common",
                     "evaluation result": "true"
                 }
@@ -5671,21 +5671,21 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-10-17 | {\"id\":161 - \"parents\":[45-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "Berke Unique",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.options.js-62-74",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "Berke Unique",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "router-lib/router/index.js-46-48 | {\"id\":165 - \"parents\":[164-55]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "Berke Unique",
                     "evaluation result": "false"
                 }
@@ -5694,14 +5694,14 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-10-17 | {\"id\":161 - \"parents\":[45-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "Berke Unique",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.options.js-62-74",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "Berke Unique",
                     "evaluation result": "false"
                 }
@@ -5712,7 +5712,7 @@
                 {
                     "consequent": "method-lib/application.js-490-501 | {\"id\":186 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -5729,7 +5729,7 @@
                 {
                     "consequent": "method-lib/application.js-490-501 | {\"id\":186 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -5746,7 +5746,7 @@
                 {
                     "consequent": "method-lib/application.js-490-501 | {\"id\":186 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -5763,7 +5763,7 @@
                 {
                     "consequent": "method-lib/application.js-490-501 | {\"id\":186 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -5780,7 +5780,7 @@
                 {
                     "consequent": "method-lib/application.js-490-501 | {\"id\":186 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -5797,7 +5797,7 @@
                 {
                     "consequent": "method-lib/application.js-490-501 | {\"id\":186 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -5814,7 +5814,7 @@
                 {
                     "consequent": "method-lib/application.js-490-501 | {\"id\":186 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -5831,7 +5831,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-134-158 | {\"id\":31 - \"parents\":[33-21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -5848,7 +5848,7 @@
                 {
                     "consequent": "all-lib/application.js-514-525 | {\"id\":62 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -5865,7 +5865,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-114-128 | {\"id\":66 - \"parents\":[45-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -5882,7 +5882,7 @@
                 {
                     "consequent": "Layer-lib/router/layer.js-33-50 | {\"id\":8 - \"parents\":[7-7]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "FP": [
                         [
@@ -5932,7 +5932,7 @@
                 {
                     "consequent": "method-lib/application.js-490-501 | {\"id\":186 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -5949,7 +5949,7 @@
                 {
                     "consequent": "method-lib/application.js-490-501 | {\"id\":186 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -5966,7 +5966,7 @@
                 {
                     "consequent": "method-lib/application.js-490-501 | {\"id\":186 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -5983,7 +5983,7 @@
                 {
                     "consequent": "method-lib/application.js-490-501 | {\"id\":186 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -6000,7 +6000,7 @@
                 {
                     "consequent": "method-lib/application.js-490-501 | {\"id\":186 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -6017,7 +6017,7 @@
                 {
                     "consequent": "method-lib/application.js-490-501 | {\"id\":186 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -6034,7 +6034,7 @@
                 {
                     "consequent": "method-lib/application.js-490-501 | {\"id\":186 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -6051,7 +6051,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-133-136 | {\"id\":44 - \"parents\":[45-46-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -6068,7 +6068,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-140-143 | {\"id\":48 - \"parents\":[45-46-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -6085,7 +6085,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-147-150 | {\"id\":49 - \"parents\":[45-46-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -6102,7 +6102,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-153-156 | {\"id\":50 - \"parents\":[45-46-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -6119,7 +6119,7 @@
                 {
                     "consequent": "all-lib/application.js-514-525 | {\"id\":62 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -6136,7 +6136,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-114-128 | {\"id\":66 - \"parents\":[45-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -6153,7 +6153,7 @@
                 {
                     "consequent": "Route-lib/router/route.js-43-51 | {\"id\":119 - \"parents\":[73]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -6170,7 +6170,7 @@
                 {
                     "consequent": "Layer-lib/router/layer.js-33-50 | {\"id\":8 - \"parents\":[7-7]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "FP": [
                         [
@@ -6183,7 +6183,7 @@
                 {
                     "consequent": "route-lib/application.js-261-264 | {\"id\":120 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "FP": [
                         [
@@ -6198,7 +6198,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-134-158 | {\"id\":31 - \"parents\":[33-21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -6215,7 +6215,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-133-136 | {\"id\":44 - \"parents\":[45-46-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -6232,7 +6232,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-140-143 | {\"id\":48 - \"parents\":[45-46-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -6249,7 +6249,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-147-150 | {\"id\":49 - \"parents\":[45-46-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -6266,7 +6266,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-153-156 | {\"id\":50 - \"parents\":[45-46-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -6283,7 +6283,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-55-73 | {\"id\":25 - \"parents\":[21-24-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -6300,7 +6300,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-75-94 | {\"id\":28 - \"parents\":[21-24-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -6317,7 +6317,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-162-186 | {\"id\":36 - \"parents\":[21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -6334,7 +6334,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/route.js-188-212 | {\"id\":41 - \"parents\":[21-22]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -6351,7 +6351,7 @@
                 {
                     "consequent": "Layer-lib/router/layer.js-33-50 | {\"id\":8 - \"parents\":[7-7]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "FP": [
                         [
@@ -6391,7 +6391,7 @@
                 {
                     "consequent": "handle-lib/router/index.js-136-331 | {\"id\":51 - \"parents\":[55]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -6410,7 +6410,7 @@
                 {
                     "consequent": "handle-lib/router/index.js-136-331 | {\"id\":51 - \"parents\":[55]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -6427,7 +6427,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-lib/router/index.js-280-290 | {\"id\":52 - \"parents\":[51-55-56]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -6444,7 +6444,7 @@
                 {
                     "consequent": "process_params-lib/router/index.js-338-422 | {\"id\":70 - \"parents\":[55]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "FP": [
                         [
@@ -6457,7 +6457,7 @@
                 {
                     "consequent": "next-lib/router/route.js-116-148 | {\"id\":75 - \"parents\":[76-73]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "FP": [
                         [
@@ -6470,7 +6470,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-494-498 | {\"id\":98 - \"parents\":[99-45-100-47]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "FP": [
                         [
@@ -6483,7 +6483,7 @@
                 {
                     "consequent": "trim_prefix-lib/router/index.js-293-330 | {\"id\":53 - \"parents\":[51-55]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "FP": [
                         [
@@ -6843,7 +6843,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-367-381 | {\"id\":58 - \"parents\":[45-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -6867,7 +6867,7 @@
                 {
                     "consequent": "lazyrouter-lib/application.js-144-154 | {\"id\":121 - \"parents\":[11]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -6884,7 +6884,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-160-181 | {\"id\":127 - \"parents\":[45-131-47]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "FP": [
                         [
@@ -6901,7 +6901,7 @@
                 {
                     "consequent": "Layer-lib/router/layer.js-33-50 | {\"id\":8 - \"parents\":[7-7]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "FP": [
                         [
@@ -6914,7 +6914,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/router.js-486-501 | {\"id\":99 - \"parents\":[45-100-47]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "FP": [
                         [

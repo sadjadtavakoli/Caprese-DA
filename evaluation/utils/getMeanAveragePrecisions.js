@@ -100,7 +100,7 @@ function increaseIfIsTruePositive(totalTruePositives, evaluationResult) {
 function rankFPresult() {
     return function (a, b) {
         if (b['support'] == a['support']) {
-            return b['FP-score'] - a['FP-score'];
+            return b['confidence'] - a['confidence'];
         } else {
             return b['support'] - a['support'];
         }
@@ -124,8 +124,8 @@ function rankCapreseResult() {
 
         let aSupport = a['support'] || 0;
         let bSupport = b['support'] || 0;
-        let aFP = a['FP-score'] || 0;
-        let bFP = b['FP-score'] || 0;
+        let aFP = a['confidence'] || 0;
+        let bFP = b['confidence'] || 0;
 
         if (aSupport == bSupport) {
             if (bFP != aFP) {

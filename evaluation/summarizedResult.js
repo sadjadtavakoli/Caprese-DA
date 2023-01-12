@@ -61,14 +61,13 @@ function approachSummary(result, approach) {
     let confidence = 0
     let fpCount = 0;
     let uniquesCount = 0;
-    let fpKey = approach == "berke" ? "FP-score" : "confidence"
     for (let commit in result) {
         let berke = result[commit][approach]
         impactSetSize += berke.length
         berke.forEach(impacted => {
-            if (impacted[fpKey]) {
+            if (impacted["confidence"]) {
                 support += parseInt(impacted["support"])
-                confidence += parseFloat(impacted[fpKey])
+                confidence += parseFloat(impacted["confidence"])
                 fpCount += 1
             }
             if (impacted["status"] != STATUS.common) {

@@ -180,8 +180,6 @@ function approachSummary(result, approach) {
     let totalTruePositives = [];
     let uniquesCount = 0;
 
-    let fpSearchKey = approach == capreseName ? "FP-score" : "confidence"
-
     for (let commit in result) {
         let truePositiveCounter = 0;
         let sumOfPrecisions = 0;
@@ -190,9 +188,9 @@ function approachSummary(result, approach) {
         impactset.sort(rankResult())
 
         impactset.forEach((consequentInfo, index) => {
-            if (consequentInfo[fpSearchKey]) {
+            if (consequentInfo["confidence"]) {
                 supports.push(parseInt(consequentInfo["support"]))
-                confidences.push(parseFloat(consequentInfo[fpSearchKey]))
+                confidences.push(parseFloat(consequentInfo["confidence"]))
             }
             if (consequentInfo["status"] != STATUS.common) {
                 uniquesCount += 1
@@ -240,18 +238,13 @@ function increaseIfIsTruePositive(totalTruePositives, evaluationResult) {
 }
 
 function averageCommitSize(result) {
-    let counter = 0;
-    let min = Infinity;
-    let max = 0;
+    let commitSizes = []
     for (let commit in result) {
         let commits = result[commit]["commits"]
         let functionsCount = commits.length
-        counter += functionsCount
-        min = Math.min(min, functionsCount)
-        max = Math.max(max, functionsCount)
+        commitSizes.push(functionsCount)
     }
-    let length = Object.keys(result).length
-    return { "avg": (counter / length).toFixed(1), "min": min, "max": max }
+    return { "avg": average(commitSizes), "min": Math.min(...commitSizes), "max": Math.max(...commitSizes)}
 }
 
 function getExecutionTimes(projectName) {
@@ -279,8 +272,8 @@ function rankResult() {
 
         let aSupport = a['support'] || 0;
         let bSupport = b['support'] || 0;
-        let aFP = a['FP-score'] || 0;
-        let bFP = b['FP-score'] || 0;
+        let aFP = a['confidence'] || 0;
+        let bFP = b['confidence'] || 0;
 
         if (aSupport == bSupport) {
             if (bFP != aFP) {

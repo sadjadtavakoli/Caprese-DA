@@ -12,11 +12,11 @@ function computeBerkeResult(changes) {
 
     intrepretFPData(impactSet);
 
-    // findFunctionsRelations(impactSet, changes)
+    findFunctionsRelations(impactSet, changes)
 
     let impactSetOrderedList = sort(impactSet);
 
-    // impactSetOrderedList = replaceKeysWithObjects(impactSetOrderedList)
+    impactSetOrderedList = replaceKeysWithObjects(impactSetOrderedList)
 
     fs.writeFileSync(constants.Berke_RESULT_PATH, JSON.stringify(impactSetOrderedList));
 }
@@ -61,8 +61,8 @@ function impactSetSorter() {
 
         let aSupport = a['support'] || 0;
         let bSupport = b['support'] || 0;
-        let aFP = a['FP-score'] || 0;
-        let bFP = b['FP-score'] || 0;
+        let aFP = a['confidence'] || 0;
+        let bFP = b['confidence'] || 0;
 
         if (aSupport == bSupport) {
             if (bFP != aFP) {

@@ -9,7 +9,7 @@
         "berke": [
             {
                 "consequent": "arrowAnonymousFunction-bin/cli.js-132-153 | {\"id\":16 - \"parents\":[]}",
-                "FP-score": 0.47368421052631576,
+                "confidence": 0.47368421052631576,
                 "support": 9,
                 "FP-antecedents": [
                     [
@@ -21,7 +21,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-bin/cli.js-148-151 | {\"id\":15 - \"parents\":[16]}",
-                "FP-score": 0.4444444444444444,
+                "confidence": 0.4444444444444444,
                 "support": 4,
                 "FP-antecedents": [
                     [
@@ -34,7 +34,7 @@
             },
             {
                 "consequent": "success-lib/plugins.js-51-53 | {\"id\":0 - \"parents\":[1-2-3-4]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -46,7 +46,7 @@
             },
             {
                 "consequent": "path-lib/plugins.js-42-44 | {\"id\":5 - \"parents\":[1-2-3-4]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -58,7 +58,7 @@
             },
             {
                 "consequent": "warn-lib/plugins.js-48-50 | {\"id\":6 - \"parents\":[1-2-3-4]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -70,7 +70,7 @@
             },
             {
                 "consequent": "log-lib/plugins.js-39-41 | {\"id\":7 - \"parents\":[1-2-3-4]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -82,7 +82,7 @@
             },
             {
                 "consequent": "get-lib/plugins.js-38-64 | {\"id\":1 - \"parents\":[2-3-4]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -94,7 +94,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/plugins.js-24-66 | {\"id\":2 - \"parents\":[3-4]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -106,7 +106,7 @@
             },
             {
                 "consequent": "error-lib/plugins.js-59-61 | {\"id\":10 - \"parents\":[1-2-3-4]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -118,7 +118,7 @@
             },
             {
                 "consequent": "logger-lib/plugins.js-23-67 | {\"id\":3 - \"parents\":[4]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -130,7 +130,7 @@
             },
             {
                 "consequent": "info-lib/plugins.js-55-57 | {\"id\":11 - \"parents\":[1-2-3-4]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -142,7 +142,7 @@
             },
             {
                 "consequent": "logger-lib/plugins.js-26-34 | {\"id\":12 - \"parents\":[2-3-4]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -154,7 +154,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/plugins.js-28-33 | {\"id\":13 - \"parents\":[2-3-12-4]}",
-                "FP-score": 1,
+                "confidence": 1,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -166,7 +166,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-index.js-77-88 | {\"id\":8 - \"parents\":[9]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -178,7 +178,7 @@
             },
             {
                 "consequent": "Assemble-index.js-24-31 | {\"id\":14 - \"parents\":[9]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -190,7 +190,7 @@
             },
             {
                 "consequent": "exports-lib/generator.js-5-112 | {\"id\":17 - \"parents\":[]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -202,7 +202,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/generator.js-43-50 | {\"id\":18 - \"parents\":[17]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -214,7 +214,7 @@
             },
             {
                 "consequent": "enable-index.js-112-117 | {\"id\":19 - \"parents\":[9-20]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -226,7 +226,7 @@
             },
             {
                 "consequent": "index.js-index.js-1-156 | {\"id\":9 - \"parents\":[]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -238,7 +238,7 @@
             },
             {
                 "consequent": "plugins.js-lib/plugins.js-1-74 | {\"id\":4 - \"parents\":[]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -250,7 +250,7 @@
             },
             {
                 "consequent": "initPlugins-index.js-105-118 | {\"id\":20 - \"parents\":[9]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 1,
                 "FP-antecedents": [
                     [
@@ -393,7 +393,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-bin/cli.js-132-153 | {\"id\":16 - \"parents\":[]}",
                     "support": 9,
-                    "FP-score": 0.47368421052631576,
+                    "confidence": 0.47368421052631576,
                     "status": "Berke Unique",
                     "evaluation result": "true"
                 }
@@ -402,7 +402,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-bin/cli.js-148-151 | {\"id\":15 - \"parents\":[16]}",
                     "support": 4,
-                    "FP-score": 0.4444444444444444,
+                    "confidence": 0.4444444444444444,
                     "status": "Berke Unique",
                     "evaluation result": "false"
                 }
@@ -411,77 +411,77 @@
                 {
                     "consequent": "success-lib/plugins.js-51-53 | {\"id\":0 - \"parents\":[1-2-3-4]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "path-lib/plugins.js-42-44 | {\"id\":5 - \"parents\":[1-2-3-4]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "warn-lib/plugins.js-48-50 | {\"id\":6 - \"parents\":[1-2-3-4]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "log-lib/plugins.js-39-41 | {\"id\":7 - \"parents\":[1-2-3-4]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "get-lib/plugins.js-38-64 | {\"id\":1 - \"parents\":[2-3-4]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/plugins.js-24-66 | {\"id\":2 - \"parents\":[3-4]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "error-lib/plugins.js-59-61 | {\"id\":10 - \"parents\":[1-2-3-4]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "logger-lib/plugins.js-23-67 | {\"id\":3 - \"parents\":[4]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "info-lib/plugins.js-55-57 | {\"id\":11 - \"parents\":[1-2-3-4]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "logger-lib/plugins.js-26-34 | {\"id\":12 - \"parents\":[2-3-4]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/plugins.js-28-33 | {\"id\":13 - \"parents\":[2-3-12-4]}",
                     "support": 1,
-                    "FP-score": 1,
+                    "confidence": 1,
                     "status": "common",
                     "evaluation result": "false"
                 }
@@ -490,56 +490,56 @@
                 {
                     "consequent": "arrowAnonymousFunction-index.js-77-88 | {\"id\":8 - \"parents\":[9]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "Assemble-index.js-24-31 | {\"id\":14 - \"parents\":[9]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "exports-lib/generator.js-5-112 | {\"id\":17 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/generator.js-43-50 | {\"id\":18 - \"parents\":[17]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "enable-index.js-112-117 | {\"id\":19 - \"parents\":[9-20]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "index.js-index.js-1-156 | {\"id\":9 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "plugins.js-lib/plugins.js-1-74 | {\"id\":4 - \"parents\":[]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "initPlugins-index.js-105-118 | {\"id\":20 - \"parents\":[9]}",
                     "support": 1,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "Berke Unique",
                     "evaluation result": "false"
                 }
@@ -555,7 +555,7 @@
         "berke": [
             {
                 "consequent": "utils.js-lib/utils.js-1-102 | {\"id\":22 - \"parents\":[]}",
-                "FP-score": 0.75,
+                "confidence": 0.75,
                 "support": 3,
                 "FP-antecedents": [
                     [
@@ -567,7 +567,7 @@
             },
             {
                 "consequent": "generator.js-lib/generator.js-1-126 | {\"id\":25 - \"parents\":[]}",
-                "FP-score": 0.75,
+                "confidence": 0.75,
                 "support": 3,
                 "FP-antecedents": [
                     [
@@ -579,7 +579,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/generator.js-46-49 | {\"id\":24 - \"parents\":[25-18-17]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -591,7 +591,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-lib/generator.js-79-90 | {\"id\":26 - \"parents\":[25-17]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -767,28 +767,28 @@
                 {
                     "consequent": "utils.js-lib/utils.js-1-102 | {\"id\":22 - \"parents\":[]}",
                     "support": 3,
-                    "FP-score": 0.75,
+                    "confidence": 0.75,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "generator.js-lib/generator.js-1-126 | {\"id\":25 - \"parents\":[]}",
                     "support": 3,
-                    "FP-score": 0.75,
+                    "confidence": 0.75,
                     "status": "common",
                     "evaluation result": "true parent"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/generator.js-46-49 | {\"id\":24 - \"parents\":[25-18-17]}",
                     "support": 2,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-lib/generator.js-79-90 | {\"id\":26 - \"parents\":[25-17]}",
                     "support": 2,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "true"
                 }
@@ -812,7 +812,7 @@
         "berke": [
             {
                 "consequent": "arrowAnonymousFunction-test/app.store.js-237-245 | {\"id\":27 - \"parents\":[28]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -824,7 +824,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.pages.js-16-25 | {\"id\":29 - \"parents\":[31-32]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -836,7 +836,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.store.js-293-303 | {\"id\":33 - \"parents\":[28]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -848,7 +848,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.layout.js-9-14 | {\"id\":35 - \"parents\":[36-37]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -860,7 +860,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.store.js-269-279 | {\"id\":38 - \"parents\":[28]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -872,7 +872,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.partial.js-16-23 | {\"id\":39 - \"parents\":[40-42]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -884,7 +884,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.partials.js-8-27 | {\"id\":43 - \"parents\":[47]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -896,7 +896,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.store.js-143-149 | {\"id\":48 - \"parents\":[28]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -908,7 +908,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.store.js-247-256 | {\"id\":49 - \"parents\":[28]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -920,7 +920,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.store.js-258-267 | {\"id\":50 - \"parents\":[28]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -932,7 +932,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.partial.js-9-14 | {\"id\":51 - \"parents\":[40-42]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -944,7 +944,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.store.js-121-124 | {\"id\":52 - \"parents\":[28]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -956,7 +956,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.layout.js-16-23 | {\"id\":53 - \"parents\":[36-37]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -968,7 +968,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.partials.js-17-25 | {\"id\":44 - \"parents\":[43-46-47]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -980,7 +980,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.page.js-17-22 | {\"id\":55 - \"parents\":[56-57-58]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -992,7 +992,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.layouts.js-9-14 | {\"id\":59 - \"parents\":[60-61]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1004,7 +1004,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.layout.js-17-22 | {\"id\":54 - \"parents\":[53-36-37]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1016,7 +1016,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.store.js-30-34 | {\"id\":62 - \"parents\":[28]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1028,7 +1028,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.layouts.js-16-25 | {\"id\":63 - \"parents\":[60-61]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1040,7 +1040,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.pages.js-17-24 | {\"id\":30 - \"parents\":[29-31-32]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1052,7 +1052,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.page.js-9-14 | {\"id\":65 - \"parents\":[57-58]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1064,7 +1064,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.store.js-54-63 | {\"id\":66 - \"parents\":[28]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1076,7 +1076,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.page.js-16-23 | {\"id\":56 - \"parents\":[57-58]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1088,7 +1088,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.pages.js-9-14 | {\"id\":67 - \"parents\":[31-32]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1100,7 +1100,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.store.js-305-320 | {\"id\":68 - \"parents\":[28]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1112,7 +1112,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.layouts.js-17-24 | {\"id\":64 - \"parents\":[63-60-61]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1124,7 +1124,7 @@
             },
             {
                 "consequent": "app.store.js-test/app.store.js-1-336 | {\"id\":28 - \"parents\":[]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1136,7 +1136,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.store.js-46-52 | {\"id\":69 - \"parents\":[28]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1148,7 +1148,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.layout.js-8-24 | {\"id\":36 - \"parents\":[37]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1160,7 +1160,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.partials.js-9-14 | {\"id\":45 - \"parents\":[43-47]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1172,7 +1172,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.pages.js-8-33 | {\"id\":31 - \"parents\":[32]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1184,7 +1184,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.partial.js-8-24 | {\"id\":40 - \"parents\":[42]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1196,7 +1196,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.store.js-294-298 | {\"id\":34 - \"parents\":[33-28]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1208,7 +1208,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.store.js-41-44 | {\"id\":70 - \"parents\":[28]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1220,7 +1220,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.store.js-322-334 | {\"id\":71 - \"parents\":[28]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1232,7 +1232,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.layouts.js-8-26 | {\"id\":60 - \"parents\":[61]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1244,7 +1244,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.store.js-126-129 | {\"id\":72 - \"parents\":[28]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1256,7 +1256,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.store.js-36-39 | {\"id\":73 - \"parents\":[28]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1268,7 +1268,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.page.js-8-31 | {\"id\":57 - \"parents\":[58]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1280,7 +1280,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.store.js-13-17 | {\"id\":74 - \"parents\":[28]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1292,7 +1292,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.partial.js-17-22 | {\"id\":41 - \"parents\":[39-40-42]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1304,7 +1304,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.partials.js-16-26 | {\"id\":46 - \"parents\":[43-47]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1316,7 +1316,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-test/app.store.js-25-28 | {\"id\":75 - \"parents\":[28]}",
-                "FP-score": 0.6666666666666666,
+                "confidence": 0.6666666666666666,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -1328,7 +1328,7 @@
             },
             {
                 "consequent": "arrowAnonymousFunction-gulpfile.js-27-30 | {\"id\":76 - \"parents\":[77]}",
-                "FP-score": 0.4,
+                "confidence": 0.4,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -4119,301 +4119,301 @@
                 {
                     "consequent": "arrowAnonymousFunction-test/app.store.js-237-245 | {\"id\":27 - \"parents\":[28]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.pages.js-16-25 | {\"id\":29 - \"parents\":[31-32]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.store.js-293-303 | {\"id\":33 - \"parents\":[28]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.layout.js-9-14 | {\"id\":35 - \"parents\":[36-37]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.store.js-269-279 | {\"id\":38 - \"parents\":[28]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.partial.js-16-23 | {\"id\":39 - \"parents\":[40-42]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.partials.js-8-27 | {\"id\":43 - \"parents\":[47]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.store.js-143-149 | {\"id\":48 - \"parents\":[28]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.store.js-247-256 | {\"id\":49 - \"parents\":[28]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.store.js-258-267 | {\"id\":50 - \"parents\":[28]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.partial.js-9-14 | {\"id\":51 - \"parents\":[40-42]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.store.js-121-124 | {\"id\":52 - \"parents\":[28]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.layout.js-16-23 | {\"id\":53 - \"parents\":[36-37]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.partials.js-17-25 | {\"id\":44 - \"parents\":[43-46-47]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.page.js-17-22 | {\"id\":55 - \"parents\":[56-57-58]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.layouts.js-9-14 | {\"id\":59 - \"parents\":[60-61]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.layout.js-17-22 | {\"id\":54 - \"parents\":[53-36-37]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.store.js-30-34 | {\"id\":62 - \"parents\":[28]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.layouts.js-16-25 | {\"id\":63 - \"parents\":[60-61]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.pages.js-17-24 | {\"id\":30 - \"parents\":[29-31-32]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.page.js-9-14 | {\"id\":65 - \"parents\":[57-58]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.store.js-54-63 | {\"id\":66 - \"parents\":[28]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.page.js-16-23 | {\"id\":56 - \"parents\":[57-58]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.pages.js-9-14 | {\"id\":67 - \"parents\":[31-32]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.store.js-305-320 | {\"id\":68 - \"parents\":[28]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.layouts.js-17-24 | {\"id\":64 - \"parents\":[63-60-61]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "true children"
                 },
                 {
                     "consequent": "app.store.js-test/app.store.js-1-336 | {\"id\":28 - \"parents\":[]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.store.js-46-52 | {\"id\":69 - \"parents\":[28]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.layout.js-8-24 | {\"id\":36 - \"parents\":[37]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.partials.js-9-14 | {\"id\":45 - \"parents\":[43-47]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.pages.js-8-33 | {\"id\":31 - \"parents\":[32]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.partial.js-8-24 | {\"id\":40 - \"parents\":[42]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.store.js-294-298 | {\"id\":34 - \"parents\":[33-28]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.store.js-41-44 | {\"id\":70 - \"parents\":[28]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.store.js-322-334 | {\"id\":71 - \"parents\":[28]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.layouts.js-8-26 | {\"id\":60 - \"parents\":[61]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.store.js-126-129 | {\"id\":72 - \"parents\":[28]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.store.js-36-39 | {\"id\":73 - \"parents\":[28]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.page.js-8-31 | {\"id\":57 - \"parents\":[58]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.store.js-13-17 | {\"id\":74 - \"parents\":[28]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "false"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.partial.js-17-22 | {\"id\":41 - \"parents\":[39-40-42]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.partials.js-16-26 | {\"id\":46 - \"parents\":[43-47]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "true children"
                 },
                 {
                     "consequent": "arrowAnonymousFunction-test/app.store.js-25-28 | {\"id\":75 - \"parents\":[28]}",
                     "support": 2,
-                    "FP-score": 0.6666666666666666,
+                    "confidence": 0.6666666666666666,
                     "status": "common",
                     "evaluation result": "false"
                 }
@@ -4422,7 +4422,7 @@
                 {
                     "consequent": "arrowAnonymousFunction-gulpfile.js-27-30 | {\"id\":76 - \"parents\":[77]}",
                     "support": 2,
-                    "FP-score": 0.4,
+                    "confidence": 0.4,
                     "status": "Berke Unique",
                     "evaluation result": "true"
                 }
@@ -5363,7 +5363,7 @@
         "berke": [
             {
                 "consequent": "arrowAnonymousFunction-support/docs/src/assets/js/docs.js-2-146 | {\"id\":81 - \"parents\":[82]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -5375,7 +5375,7 @@
             },
             {
                 "consequent": "docs.js-support/docs/src/assets/js/docs.js-1-147 | {\"id\":82 - \"parents\":[]}",
-                "FP-score": 0.5,
+                "confidence": 0.5,
                 "support": 2,
                 "FP-antecedents": [
                     [
@@ -6101,14 +6101,14 @@
                 {
                     "consequent": "arrowAnonymousFunction-support/docs/src/assets/js/docs.js-2-146 | {\"id\":81 - \"parents\":[82]}",
                     "support": 2,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "true parent"
                 },
                 {
                     "consequent": "docs.js-support/docs/src/assets/js/docs.js-1-147 | {\"id\":82 - \"parents\":[]}",
                     "support": 2,
-                    "FP-score": 0.5,
+                    "confidence": 0.5,
                     "status": "common",
                     "evaluation result": "true parent"
                 }

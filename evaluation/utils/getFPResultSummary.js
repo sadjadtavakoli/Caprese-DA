@@ -54,21 +54,21 @@ function increaseIfIsTruePositive(totalTruePositives, evaluationResult) {
 function rankFPresult() {
     return function (a, b) {
         // only confidence
-        // return b['FP-score'] - a['FP-score'];
+        // return b['confidence'] - a['confidence'];
 
         // only support then confidence
         if (b['support'] == a['support']) {
-            return b['FP-score'] - a['FP-score'];
+            return b['confidence'] - a['confidence'];
         } else {
             return b['support'] - a['support'];
         }
 
         // only confidence then support
 
-        // if (b['FP-score'] == a['FP-score']) {
+        // if (b['confidence'] == a['confidence']) {
         //     return b['support'] - a['support'];
         // } else {
-        //     return b['FP-score'] - a['FP-score'];
+        //     return b['confidence'] - a['confidence'];
         // }
     };
 }
