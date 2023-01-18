@@ -37,9 +37,10 @@ const executionTimeColumnOrdeing = {
 }
 
 const menaAveragePrecisionOrdering = {
-    "berke": [10, 20, 30, 60, "all"],
     "tarmaq": [10, 20, 30, 60, "all"],
-    "fp": [10, 20, 30, 60, "all"]
+    "berke": [10, 20, 30, 60, "all"],
+    "fp": [10, 20, 30, 60, "all"],
+    "da": [3, 5, 10, 20, 30, 60, "all"]
 }
 
 const benchmarksInfoOrdering = ["# Commits", "# Change-sequences", "Unique #functions","LOC", "JavaScript Percentage"]

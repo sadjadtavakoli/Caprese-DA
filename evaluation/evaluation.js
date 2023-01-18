@@ -106,7 +106,9 @@ function collectResult(commit) {
         commitsInfo[commit]['tarmaq'] = tarmaqResult
 
         commitsInfo[commit]['reversed-FP'] = reverseFP(commitsInfo[commit]['berke']);
+        // add TARMAQ's results to Reversed-FP
         commitsInfo[commit]['reversed-DA'] = reverseDA(commitsInfo[commit]['berke']);
+        // Merge reversed-FP and reversed-DA into a single list
 
         fs.writeFileSync(RESULT_PATH, JSON.stringify(commitsInfo));
         resolve();
@@ -141,6 +143,10 @@ function tarmaqAndBerkeConsequentStatusUpdate(berkeResult, tarmaqResult) {
         if (tarmaqItems.length != 0) {
             tarmaqItems.forEach(tarmaqItem => tarmaqItem['status'] = STATUS.common)
             item["status"] = STATUS.common;
+            // item["FP-evaluation"] = "true" ? tarmaqItems.some(item => {
+            //     if(item["FP-evaluation"]) return item["FP-evaluation"].includes("true")
+            //     if(item["DA-evaluation"]) return item["DA-evaluation"].includes("true")
+            // }) : "false"
         } else {
             item["status"] = STATUS.berke_unique;
         }
@@ -158,8 +164,11 @@ function reverseFP(impactSet) {
                 if (result[id] == undefined) {
                     result[id] = []
                 }
-                result[id].push({ 'consequent': consequent, 'support': impacted['support'], 'FP-score': impacted['FP-score'], 'status': impacted['status'], 'DA': impacted['DA-antecedents'], 'evaluation result': '' })
-
+                let value = { 'consequent': consequent, 'support': impacted['support'], 'confidence': impacted['confidence'], 'status': impacted['status'], 'DA': impacted['DA-antecedents'], 'evaluation result': '' }
+                if(impacted['FP-evaluation'] != undefined){
+                    value['evaluation result'] = impacted['FP-evaluation']
+                }
+                result[id].push(value)
             });
         }
     })
@@ -176,8 +185,12 @@ function reverseDA(impactSet) {
                 if (result[id] == undefined) {
                     result[id] = []
                 }
-                result[id].push({ 'consequent': consequent, 'support': impacted['support'], 'FP-score': impacted['FP-score'], 'status': impacted['status'], 'FP': impacted['FP-antecedents'], 'evaluation result': '' })
-
+                let value = { 'consequent': consequent, 'support': impacted['support'], 'confidence': impacted['confidence'], 'status': impacted['status'], 'FP': impacted['FP-antecedents'], 'evaluation result': '' }
+                
+                if(impacted['DA-evaluation'] != undefined){
+                    value['evaluation result'] = impacted['DA-evaluation']
+                }
+                result[id].push(value)
             });
         }
     })
@@ -209,10 +222,10 @@ function stringfy(listOfFunctions) {
 function runTARMAQ(changeSet) {
     console.log(" = = = Run TARMAQ = = = ")
     return new Promise(function (resolve, reject) {
-        if (fs.existsSync(TARMAQ_RESULT_PATH)) {
-            fs.unlinkSync(TARMAQ_RESULT_PATH)
-        }
-        fs.writeFileSync(TARMAQ_RESULT_PATH, "")
+        // if (fs.existsSync(TARMAQ_RESULT_PATH)) {
+        //     fs.unlinkSync(TARMAQ_RESULT_PATH)
+        // }
+        // fs.writeFileSync(TARMAQ_RESULT_PATH, "")
         exec(`${TARMAQ_COMMAND}"${constants.SEQUENCES_PATH} ${TARMAQ_RESULT_PATH} ${changeSet}"`, (err, stdout, stderr) => {
             if (!err) {
                 resolve()
@@ -224,4 +237,4 @@ function runTARMAQ(changeSet) {
     })
 }
 
-module.exports = { STATUS, runTARMAQ, reverseDA, reverseFP, getBerkeResult, tarmaqAndBerkeConsequentStatusUpdate}
+module.exports = { STATUS, runTARMAQ, reverseDA, reverseFP, getBerkeResult, tarmaqAndBerkeConsequentStatusUpdate, getTarmaqResult }

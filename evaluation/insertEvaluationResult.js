@@ -14,6 +14,7 @@ function addEvaluationResult(filename) {
     let result = JSON.parse(fs.readFileSync(RESULT_PATH));
 
     for (let commit in result) {
+        // read the single list of items and update berke and tarmaq's results 
         let reversedFP = result[commit]['reversed-FP']
         let reversedDA = result[commit]['reversed-DA']
         let berke = result[commit]['berke']
