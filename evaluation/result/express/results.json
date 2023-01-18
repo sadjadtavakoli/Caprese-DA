@@ -704,18 +704,6 @@
                 "consequent": "method-lib/application.js-490-501 | {\"id\":186 - \"parents\":[11]}",
                 "DA-antecedents": [
                     "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
-                    "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
-                    "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
-                    "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
-                    "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
-                    "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
-                    "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
-                    "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}",
-                    "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}",
-                    "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}",
-                    "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}",
-                    "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}",
-                    "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}",
                     "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}"
                 ],
                 "confidence": 1,
@@ -1224,9 +1212,6 @@
             {
                 "consequent": "arrowAnonymousFunction-lib/router/index.js-640-647 | {\"id\":74 - \"parents\":[55]}",
                 "DA-antecedents": [
-                    "next-lib/router/index.js-177-291 | {\"id\":56 - \"parents\":[51-55]}",
-                    "next-lib/router/index.js-177-291 | {\"id\":56 - \"parents\":[51-55]}",
-                    "next-lib/router/index.js-177-291 | {\"id\":56 - \"parents\":[51-55]}",
                     "next-lib/router/index.js-177-291 | {\"id\":56 - \"parents\":[51-55]}"
                 ],
                 "status": "Berke Unique",
@@ -4217,18 +4202,6 @@
                     "status": "common",
                     "DA": [
                         "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
-                        "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
-                        "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
-                        "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
-                        "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
-                        "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
-                        "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
-                        "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}",
-                        "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}",
-                        "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}",
-                        "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}",
-                        "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}",
-                        "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}",
                         "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}"
                     ],
                     "evaluation result": "true"
@@ -4854,18 +4827,6 @@
                     "status": "common",
                     "DA": [
                         "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
-                        "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
-                        "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
-                        "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
-                        "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
-                        "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
-                        "method-lib/router/route.js-202-224 | {\"id\":160 - \"parents\":[159-73]}",
-                        "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}",
-                        "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}",
-                        "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}",
-                        "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}",
-                        "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}",
-                        "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}",
                         "route-lib/router/index.js-502-515 | {\"id\":171 - \"parents\":[55]}"
                     ],
                     "evaluation result": "true"

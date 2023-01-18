@@ -55,7 +55,6 @@
             {
                 "consequent": "reportUnusedFields-lib/rules/no-unused-state.js-220-233",
                 "DA-antecedents": [
-                    "getName-lib/rules/no-unused-state.js-29-43",
                     "getName-lib/rules/no-unused-state.js-29-43"
                 ],
                 "confidence": 0.5,
@@ -468,7 +467,6 @@
                     "confidence": 0.5,
                     "status": "common",
                     "DA": [
-                        "getName-lib/rules/no-unused-state.js-29-43",
                         "getName-lib/rules/no-unused-state.js-29-43"
                     ],
                     "evaluation result": "true"
