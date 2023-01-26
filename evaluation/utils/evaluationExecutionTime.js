@@ -83,8 +83,6 @@ function testSetGenerator() {
         for (let commit in commitsInfo) {
             reversedList.set(commitsInfo[commit]['commits'], commit)
         }
-        // reverse commits' info and pass the list of candidate changes and commits to resolve.
-        // or simply pass it as a list of 2-length lists which the first item is the commit sha and the second one is its changes
         detailedSequences = detailedSequences.map(item => item.split(" : ")[1])
         fs.writeFileSync(constants.SEQUENCES_PATH, detailedSequences.join("\n"));
 

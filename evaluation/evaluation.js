@@ -60,7 +60,7 @@ function testSetGenerator() {
         let maxIndex = detailedSequences.length - 1
         let useLessFiles = [
             "history.md", "HISTORY.md", "History.md", "CHANGELOG.md",
-            "README.md", "readme.md", "Readme.md",
+            "README.md", "readme.md", "Readme.md", "CHANGES.md",
             "package.json", "package-lock.json",
             "appveyor.yml", ".travis.yml"]
 
@@ -102,13 +102,27 @@ function collectResult(commit) {
 
         tarmaqAndBerkeConsequentStatusUpdate(berkeResult, tarmaqResult);
 
+        let functionsObjectList = {};
+        functionsObjectList = findFunctionsRelations(berkeResult, commitsInfo[commit]['commits'], functionsObjectList)
+        functionsObjectList = findFunctionsRelations(tarmaqResult, commitsInfo[commit]['commits'], functionsObjectList)
+
+        berkeResult = replaceKeysWithObjects(berkeResult, functionsObjectList)
+        tarmaqResult = replaceKeysWithObjects(tarmaqResult, functionsObjectList)
+
         commitsInfo[commit]['berke'] = berkeResult
         commitsInfo[commit]['tarmaq'] = tarmaqResult
 
-        commitsInfo[commit]['reversed-FP'] = reverseFP(commitsInfo[commit]['berke']);
-        // add TARMAQ's results to Reversed-FP
+        let reversedList = {}
+        reversedList = reverseFPTARMAQ(reversedList, commitsInfo[commit]['berke']);
+        reversedList = reverseFPTARMAQ(reversedList, commitsInfo[commit]['tarmaq']);
+
+        commitsInfo[commit]['reversed-FP-TARMAQ'] = reversedList
+
         commitsInfo[commit]['reversed-DA'] = reverseDA(commitsInfo[commit]['berke']);
-        // Merge reversed-FP and reversed-DA into a single list
+
+        //  for loop over change-sets and impact-sets and call the following function
+        // findFunctionsRelations(impactSet, changes, functionsObjectList)
+        // impactSetOrderedList = replaceKeysWithObjects(impactSetOrderedList, functionsObjectList)
 
         fs.writeFileSync(RESULT_PATH, JSON.stringify(commitsInfo));
         resolve();
@@ -121,6 +135,7 @@ function getTarmaqResult() {
     tarmaqResult = tarmaqResult.map(item => {
         let consequent = item['rule'].split(" => ")[1];
         item['consequent'] = consequent;
+        item['FP-antecedents'] = [item['rule'].split(" => ")[0].slice(1, -1).split(", ")]
         item['status'] = STATUS.tarmaq_unique;
 
         if (removed.includes(consequent)) {
@@ -133,46 +148,43 @@ function getTarmaqResult() {
 
 function getBerkeResult() {
     return JSON.parse(fs.readFileSync(constants.Berke_RESULT_PATH));
-
 }
-function tarmaqAndBerkeConsequentStatusUpdate(berkeResult, tarmaqResult) {
 
+function tarmaqAndBerkeConsequentStatusUpdate(berkeResult, tarmaqResult) {
     berkeResult.forEach(item => {
-        let consequent = item["consequent"].split(" | ")[0]
+        let consequent = item["consequent"]
         let tarmaqItems = tarmaqResult.filter(element => element['consequent'] == consequent || element['consequent'] == anonymouseName(consequent))
         if (tarmaqItems.length != 0) {
             tarmaqItems.forEach(tarmaqItem => tarmaqItem['status'] = STATUS.common)
             item["status"] = STATUS.common;
-            // item["FP-evaluation"] = "true" ? tarmaqItems.some(item => {
-            //     if(item["FP-evaluation"]) return item["FP-evaluation"].includes("true")
-            //     if(item["DA-evaluation"]) return item["DA-evaluation"].includes("true")
-            // }) : "false"
         } else {
             item["status"] = STATUS.berke_unique;
         }
     });
 }
 
-function reverseFP(impactSet) {
-    let result = {};
+function reverseFPTARMAQ(reversedList, impactSet) {
     impactSet.forEach(impacted => {
-        let consequent = impacted['consequent']
         let antecedents = impacted['FP-antecedents']
         if (antecedents != undefined) {
             antecedents.forEach(element => {
-                let id = stringfy(element)
-                if (result[id] == undefined) {
-                    result[id] = []
+                let id = stringfy(element);
+
+                if (reversedList[id] == undefined) {
+                    reversedList[id] = [];
                 }
-                let value = { 'consequent': consequent, 'support': impacted['support'], 'confidence': impacted['confidence'], 'status': impacted['status'], 'DA': impacted['DA-antecedents'], 'evaluation result': '' }
-                if(impacted['FP-evaluation'] != undefined){
-                    value['evaluation result'] = impacted['FP-evaluation']
+
+                let value = { 'consequent': impacted['consequent'], 'support': impacted['support'], 'confidence': impacted['confidence'], 'DA': impacted['DA-antecedents'], 'evaluation result': '' };
+
+                if (impacted['FP-evaluation'] != undefined) {
+                    value['evaluation result'] = impacted['FP-evaluation'];
                 }
-                result[id].push(value)
+
+                reversedList[id].push(value);
             });
         }
     })
-    return result
+    return reversedList
 }
 
 function reverseDA(impactSet) {
@@ -185,11 +197,12 @@ function reverseDA(impactSet) {
                 if (result[id] == undefined) {
                     result[id] = []
                 }
-                let value = { 'consequent': consequent, 'support': impacted['support'], 'confidence': impacted['confidence'], 'status': impacted['status'], 'FP': impacted['FP-antecedents'], 'evaluation result': '' }
-                
-                if(impacted['DA-evaluation'] != undefined){
+                let value = { 'consequent': consequent, 'evaluation result': '' }
+
+                if (impacted['DA-evaluation'] != undefined) {
                     value['evaluation result'] = impacted['DA-evaluation']
                 }
+
                 result[id].push(value)
             });
         }
@@ -237,4 +250,113 @@ function runTARMAQ(changeSet) {
     })
 }
 
-module.exports = { STATUS, runTARMAQ, reverseDA, reverseFP, getBerkeResult, tarmaqAndBerkeConsequentStatusUpdate, getTarmaqResult }
+function findFunctionsRelations(impactSet, changes, functionsObjectList) {
+    let impactSetKeys = impactSet.map(item => item['consequent'])
+    for (let i = 0; i < impactSetKeys.length; i += 1) {
+        let itemi = impactSetKeys[i]
+        for (let j = i + 1; j < impactSetKeys.length; j += 1) {
+            let itemj = impactSetKeys[j]
+            functionsObjectList = setRelations(itemi, itemj, functionsObjectList)
+        }
+
+        for (let itemj of changes) {
+            functionsObjectList = setRelations(itemi, itemj, functionsObjectList)
+        }
+    }
+
+    for (let i = 0; i < changes.length; i++) {
+        let itemi = changes[i]
+        for (let j = i + 1; j < changes.length; j++) {
+            functionsObjectList = setRelations(itemi, changes[j], functionsObjectList)
+        }
+    }
+    return functionsObjectList
+}
+
+function setRelations(item1, item2, functionsObjectList) {
+    let item1_brokenName = item1.split('-')
+    let item2_brokenName = item2.split('-')
+    let item1_length = item1_brokenName.length
+    let item2_length = item2_brokenName.length
+    if (item1_brokenName[1] == item2_brokenName[1]) {
+        let item1_beginning = parseInt(item1_brokenName[item1_length - 2])
+        let item1_end = parseInt(item1_brokenName[item1_length - 1])
+
+        let item2_beginning = parseInt(item2_brokenName[item2_length - 2])
+        let item2_end = parseInt(item2_brokenName[item2_length - 1])
+
+        if (item1_beginning <= item2_beginning && item1_end >= item2_end) {
+            let item1_object = getOrCreateFunctionObject(item1, functionsObjectList)
+            let item2_object = getOrCreateFunctionObject(item2, functionsObjectList)
+            item2_object['parents'].push(item1_object['id'])
+            functionsObjectList[item2] = item2_object
+
+        } else if (item2_beginning <= item1_beginning && item2_end >= item1_end) {
+            let item1_object = getOrCreateFunctionObject(item1, functionsObjectList)
+            let item2_object = getOrCreateFunctionObject(item2, functionsObjectList)
+            item1_object['parents'].push(item2_object['id'])
+            functionsObjectList[item1] = item1_object
+        }
+    }
+    return functionsObjectList
+}
+
+function getOrCreateFunctionObject(f, functionsObjectList) {
+    if (functionsObjectList[f]) {
+        return functionsObjectList[f]
+    }
+
+    let object = { "id": Object.keys(functionsObjectList).length, "parents": [] }
+    functionsObjectList[f] = object
+    return object
+}
+
+function replaceKeysWithObjects(impactSetList, functionsObjectList) {
+    for (let item of impactSetList) {
+        item['consequent'] = getObjectifiedKey(item['consequent'], functionsObjectList)
+
+        let FPAntecedents = item['FP-antecedents']
+        if (FPAntecedents != undefined) {
+            let objectifiedAntecedents = []
+            for (let antecedent of FPAntecedents) {
+                objectifiedAntecedents.push(getObjectifiedList(antecedent, functionsObjectList))
+            }
+            item['FP-antecedents'] = objectifiedAntecedents
+        }
+
+        let DAAntecedents = item['DA-antecedents']
+        if (DAAntecedents != undefined) {
+            item['DA-antecedents'] = getObjectifiedList(DAAntecedents, functionsObjectList);
+        }
+    }
+    return impactSetList
+}
+
+function getObjectifiedList(list, functionsObjectList) {
+    let objectifiedList = [];
+    for (let sub of list) {
+        objectifiedList.push(getObjectifiedKey(sub, functionsObjectList));
+    }
+    return objectifiedList;
+}
+
+function getObjectifiedKey(sub, functionsObjectList) {
+    let subObject = functionsObjectList[sub];
+    let newSub = sub;
+    if (subObject != undefined) {
+        newSub += stringifyFunctionObject(subObject);
+    }
+    return newSub;
+}
+
+function stringifyFunctionObject(object) {
+    function removeDuplicates(arr) {
+        return arr.filter((item,
+            index) => arr.indexOf(item) === index);
+    }
+
+    object['parents'] = removeDuplicates(object['parents'])
+    return ` | {"id":${object['id']} - "parents":[${object['parents'].join("-")}]}`
+}
+
+module.exports = { STATUS, runTARMAQ, reverseDA, reverseFP: reverseFPTARMAQ, getBerkeResult, tarmaqAndBerkeConsequentStatusUpdate, getTarmaqResult }

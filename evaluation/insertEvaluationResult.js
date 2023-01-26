@@ -3,28 +3,38 @@ const path = require("path")
 const resultDirPath = `evaluation${path.sep}result${path.sep}`
 const { STATUS } = require('./evaluation')
 
-let projects_list = ["eslint-plugin-react", "ws", "cla-assistant", "grant", "markdown-it", "environment", "nodejs-cloudant", "assemble", "express", "session", "jhipster-uml", "neo-async"]
+// let projects_list = ["eslint-plugin-react", "ws", "cla-assistant", "grant", "markdown-it", "environment", "nodejs-cloudant", "assemble", "express", "session", "jhipster-uml", "neo-async"]
+let projects_list = ["ws"]
 
-projects_list.forEach(filename => {
-    addEvaluationResult(filename)
-})
-
+if (process.argv[1].endsWith(path.basename(__filename))) {
+    projects_list.forEach(filename => {
+        addEvaluationResult(filename)
+    })
+}
 function addEvaluationResult(filename) {
     const RESULT_PATH = `${resultDirPath}${filename}${path.sep}results.json`
     let result = JSON.parse(fs.readFileSync(RESULT_PATH));
 
     for (let commit in result) {
-        // read the single list of items and update berke and tarmaq's results 
-        let reversedFP = result[commit]['reversed-FP']
+        let reversedFPTARMAQ = result[commit]['reversed-FP-TARMAQ']
         let reversedDA = result[commit]['reversed-DA']
         let berke = result[commit]['berke']
         let tarmaq = result[commit]['tarmaq']
 
-        let FPEvaluation = collectEvaluationResult(reversedFP)
+        let FPTARMAQEvaluation = collectEvaluationResult(reversedFPTARMAQ)
         let DAEvaluation = collectEvaluationResult(reversedDA)
 
-        for (let consequentInfo of berke) {
-            let consequent = getConsequenceKey(consequentInfo['consequent'])
+        insertEvaluationResult(berke, FPTARMAQEvaluation, DAEvaluation)
+        insertEvaluationResult(tarmaq, FPTARMAQEvaluation, DAEvaluation)
+
+    }
+    fs.writeFileSync(RESULT_PATH, JSON.stringify(result));
+}
+
+function insertEvaluationResult(approachResult, FPEvaluation, DAEvaluation) {
+    for (let consequentInfo of approachResult) {
+        let consequent = getConsequenceKey(consequentInfo['consequent'])
+        if (consequentInfo['status'] != STATUS.removed) {
             if (FPEvaluation[consequent] != undefined) {
                 consequentInfo['FP-evaluation'] = FPEvaluation[consequent]
             }
@@ -33,25 +43,11 @@ function addEvaluationResult(filename) {
                 consequentInfo['DA-evaluation'] = DAEvaluation[consequent]
             }
 
-            if(FPEvaluation[consequent] == undefined && DAEvaluation[consequent] == undefined){
+            if (FPEvaluation[consequent] == undefined && DAEvaluation[consequent] == undefined) {
                 consequentInfo['not-evaluated'] = ""
             }
         }
-
-        for (let consequentInfo of tarmaq) {
-            let consequent = getConsequenceKey(consequentInfo['consequent'])
-            if (consequentInfo['status'] != STATUS.removed) {
-                if (FPEvaluation[consequent] != undefined) {
-                    consequentInfo['FP-evaluation'] = FPEvaluation[consequent]
-                }else if (DAEvaluation[consequent] != undefined){
-                    consequentInfo['DA-evaluation'] = DAEvaluation[consequent]
-                }else if(consequentInfo['status'] != STATUS.tarmaq_unique){
-                    consequentInfo['not-evaluated'] = ""
-                }
-            }
-        }
     }
-    fs.writeFileSync(RESULT_PATH, JSON.stringify(result));
 }
 
 function collectEvaluationResult(reversedData) {
@@ -65,7 +61,7 @@ function collectEvaluationResult(reversedData) {
             if (result[consequent] == undefined) {
                 result[consequent] = evaluationResult
             } else {
-                result[consequent] == "true" ?  (result[consequent] + evaluationResult).toLowerCase().includes('true') : "false"
+                result[consequent] == "true" ? (result[consequent] + evaluationResult).toLowerCase().includes('true') : "false"
             }
         }
     }
@@ -75,3 +71,5 @@ function collectEvaluationResult(reversedData) {
 function getConsequenceKey(consequentString) {
     return consequentString.split(" | ")[0]
 }
+
+module.exports = { collectEvaluationResult, getConsequenceKey }
