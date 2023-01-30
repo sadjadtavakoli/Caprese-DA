@@ -11,6 +11,7 @@ describe('Test callbackNonBlockingFunctions.js', () => runTest('callbackNonBlock
 describe('Test callbackSingleAnonymousFunction.js', () => runTest('callbackSingleAnonymousFunction.js'));
 describe('Test callbackSingleKnownFunction.js', () => runTest('callbackSingleKnownFunction.js'));
 describe('Test callbackSingleKnownFunctionReturnValue.js', () => runTest('callbackSingleKnownFunctionReturnValue.js'));
+describe('Test classInnerFunctionEvent.js', () => runTest('classInnerFunctionEvent.js'));
 describe('Test classInnerFunctionForEach.js', () => runTest('classInnerFunctionForEach.js'));
 describe('Test classInnerFunctionFunctionCall.js', () => runTest('classInnerFunctionFunctionCall.js'));
 describe('Test classInnerFunctionTimeout.js', () => runTest('classInnerFunctionTimeout.js'));
@@ -27,7 +28,8 @@ describe('Test eventsOnceListener.js', () => runTest('eventsOnceListener.js'));
 describe('Test eventsPrependListener.js', () => runTest('eventsPrependListener.js'));
 describe('Test eventsPrependOnceListener.js', () => runTest('eventsPrependOnceListener.js'));
 describe('Test eventsSingleListener.js', () => runTest('eventsSingleListener.js'));
-describe('Test fetch.js', () => runTest('fetch.js'));
+describe('Test fieldPutAndGet.js', () => runTest('fieldPutAndGet.js'));
+describe('Test fieldPutAndGetAnotherObject.js', () => runTest('fieldPutAndGetAnotherObject.js'));
 describe('Test functionCallNestedRequireModule.js', () => runTest('functionCallNestedRequireModule.js'));
 describe('Test functionCallNestedRequireModuleNoArgs.js', () => runTest('functionCallNestedRequireModuleNoArgs.js'));
 describe('Test functionCallRequireModule.js', () => runTest('functionCallRequireModule.js'));
@@ -45,7 +47,6 @@ describe('Test immediateSingleKnownFunction.js', () => runTest('immediateSingleK
 describe('Test immediateSingleKnownFunctionNoArgs.js', () => runTest('immediateSingleKnownFunctionNoArgs.js'));
 describe('Test intervalSingleKnownFunction.js', () => runTest('intervalSingleKnownFunction.js'));
 describe('Test intervalSingleKnownFunctionNoArgs.js', () => runTest('intervalSingleKnownFunctionNoArgs.js'));
-describe('Test promise.js', () => runTest('promise.js'));
 describe('Test timeoutFakeKnownFunction.js', () => runTest('timeoutFakeKnownFunction.js'));
 describe('Test timeoutMultipleNestedTimeouts.js', () => runTest('timeoutMultipleNestedTimeouts.js'));
 describe('Test timeoutMultipleTimeouts.js', () => runTest('timeoutMultipleTimeouts.js'));
@@ -56,6 +57,7 @@ describe('Test timeoutSingleKnownFunctionGetArgsNoArgs.js', () => runTest('timeo
 describe('Test timeoutZero.js', () => runTest('timeoutZero.js'));
 describe('Test callbackOnCallableFunctionEarlyCall.js', () => runTest('callbackOnCallableFunctionEarlyCall.js'));
 describe('Test callbackOnCallableFunctionLateCall.js', () => runTest('callbackOnCallableFunctionLateCall.js'));
+describe('Test variablesGlobal.js', () => runTest('variablesGlobal.js'));
 describe('Test variablesGlobalAndLocalLet.js', () => runTest('variablesGlobalAndLocalLet.js'));
 describe('Test variablesGlobalAndLocalThis.js', () => runTest('variablesGlobalAndLocalThis.js'));
 describe('Test variablesGlobalLet.js', () => runTest('variablesGlobalLet.js'));
@@ -69,28 +71,28 @@ describe('Test variablesGlobalThisAndLocalThis.js', () => runTest('variablesGlob
 const nodeprofCommand = '$GRAAL_HOME/bin/node --jvm --experimental-options --vm.Dtruffle.class.path.append=$NODEPROF_HOME/nodeprof.jar --nodeprof $NODEPROF_HOME/jalangi.js --analysis utils.js --analysis analyser.js test/unit_tests/'
 
 function runTest(item) {
-  it('Run nodeprof', function (done) {
-    this.timeout(15000);
-    execute(nodeprofCommand + item + " testMode", done)
-  });
-  it('Compare dependencies', function (done) {
-    compairDependencies(item);
-    done();
-  });
+    it('Run nodeprof', function (done) {
+        this.timeout(15000);
+        execute(nodeprofCommand + item + " testMode", done)
+    });
+    it('Compare dependencies', function (done) {
+        compairDependencies(item);
+        done();
+    });
 
 }
 
 
 function execute(command, done) {
-  exec(command, (err, stdout, stderr) => {
-    process.stdout.write(stdout)
-    done()
-  })
+    exec(command, (err, stdout, stderr) => {
+        process.stdout.write(stdout)
+        done()
+    })
 }
 
 function compairDependencies(fileName) {
-  let expectedOutput = JSON.parse(fs.readFileSync(path.join(__dirname, 'expectedOutputs' + path.sep + fileName + ".json"), { encoding: 'utf8' }))
-  let analyzerOutput = JSON.parse(fs.readFileSync(path.join(__dirname, 'analyzerOutputs' + path.sep + fileName + ".json"), { encoding: 'utf8' }))
-  assert.deepEqual(expectedOutput, analyzerOutput)
+    let expectedOutput = JSON.parse(fs.readFileSync(path.join(__dirname, 'expectedOutputs' + path.sep + fileName + ".json"), { encoding: 'utf8' }))
+    let analyzerOutput = JSON.parse(fs.readFileSync(path.join(__dirname, 'analyzerOutputs' + path.sep + fileName + ".json"), { encoding: 'utf8' }))
+    assert.deepEqual(expectedOutput, analyzerOutput)
 }
 

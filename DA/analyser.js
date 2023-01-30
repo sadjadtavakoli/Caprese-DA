@@ -14,6 +14,7 @@ let functionsDependency = {}
 let tempIDsMap = {};
 let listOfVariables = new Map();
 let readAndDeclarations = new Map();
+let fields = new Map();
 
 // functions if return value can affect their caller and it they have arguments, 
 // the caller affects them. The same scenario goes for timeout functions. 
@@ -53,8 +54,8 @@ let readAndDeclarations = new Map();
 
                     // We add setter and adder to each other's impactSet
                     setters.forEach(setter => {
-                        addDependency(setter, callerFunction.fID)
-                        addDependency(callerFunction.fID, setter)
+                        addImpact(setter, callerFunction.fID)
+                        addImpact(callerFunction.fID, setter)
                     })
 
                     /*
@@ -63,7 +64,7 @@ let readAndDeclarations = new Map();
                     */
                     if (args[1] != undefined) {
                         listeners.forEach(listener => {
-                            addDependency(callerFunction.fID, listener)
+                            addImpact(callerFunction.fID, listener)
                         })
                     }
                 }
@@ -71,11 +72,11 @@ let readAndDeclarations = new Map();
             } else {
                 if (utils.isSetTimeout(f) || utils.isSetInterval(f)) {
                     if (args[2] != undefined) {
-                        addDependency(callerFunction.fID, getID(args[0], iid))
+                        addImpact(callerFunction.fID, getID(args[0], iid))
                     }
                 } else if (utils.isSetImmediate(f)) {
                     if (args[1] != undefined) {
-                        addDependency(callerFunction.fID, getID(args[0], iid))
+                        addImpact(callerFunction.fID, getID(args[0], iid))
                     }
                 } else {
                     let fID = getID(f, iid)
@@ -125,9 +126,9 @@ let readAndDeclarations = new Map();
                     let caller;
                     if (argCheck == undefined) {
                         caller = functionEnterStack[functionEnterStack.length - 1]
-                        addDependency(fID, caller.fID) // adds the caller function to the callee's impact-list 
+                        addImpact(fID, caller.fID) // adds the caller function to the callee's impact-list 
                         if (args.length) { // adds a function to its caller impact-list if its signature accepts arguments 
-                            addDependency(caller.fID, fID)
+                            addImpact(caller.fID, fID)
                         }
                     }
                 }
@@ -262,7 +263,6 @@ let readAndDeclarations = new Map();
          * At the end it deletes any unnecessary data related to them
          **/
         function manageVarAccess(fID) {
-            // console.log(func)
             if (readAndDeclarations.has(fID)) {
 
                 let accessedVars = readAndDeclarations.get(fID)
@@ -295,7 +295,7 @@ let readAndDeclarations = new Map();
                 }
 
                 for (let writer of writers) {
-                    addDependency(writer, fID)
+                    addImpact(writer, fID)
                 }
             }
 
@@ -310,6 +310,44 @@ let readAndDeclarations = new Map();
             return []
         }
 
+        /**
+         * This callback is called before a property of an object is accessed
+         * For each non-function property, it adds the current function to all
+         * of its writers' impact set. 
+         **/
+        this.getField = function (iid, base, offset, val, isComputed, isOpAssign, isMethodCall) {
+            if (typeof val != "function") {
+                // console.log("getField...", base, offset, val, isComputed, isOpAssign, isMethodCall)
+                let fID = functionEnterStack[functionEnterStack.length - 1].fID
+                let key = offset + getID(base, "b" + iid);
+                if (fields.has(key)) {
+                    for (let writer of fields.get(key)) {
+                        addImpact(writer, fID)
+                    }
+                }
+            }
+            return { result: val };
+        };
+
+        /**
+         * This callback is called before a property of an object is written
+         * For each non-function property, it records all writers in a list
+         **/
+        this.putField = function (iid, base, offset, val, isComputed, isOpAssign, isMethodCall) {
+            if (typeof val != "function") {
+                // console.log("putField...", base, offset, val, isComputed, isOpAssign, isMethodCall)
+                let fID = functionEnterStack[functionEnterStack.length - 1].fID
+                let key = offset + getID(base, "b" + iid);
+                if (fields.has(key)) {
+                    let writers = fields.get(key)
+                    if (!writers.includes(fID)) writers.push(fID)
+                } else {
+                    fields.set(key, [fID])
+                }
+            }
+
+            return { result: val };
+        };
     }
 
     /**
@@ -359,7 +397,7 @@ let readAndDeclarations = new Map();
         }
     }
 
-    function addDependency(changed, impacted) {
+    function addImpact(changed, impacted) {
         if (!functionsDependency[changed]) {
             functionsDependency[changed] = { 'impacted': new Set([]) }
         }
@@ -425,6 +463,6 @@ let readAndDeclarations = new Map();
         let varName = `${name}-${ext}`
         return varName
     }
-    
+
     sandbox.analysis = new Analyser();
 })(J$);
