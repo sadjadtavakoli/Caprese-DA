@@ -8,28 +8,28 @@ __TESTS__
 const nodeprofCommand = '$GRAAL_HOME/bin/node --jvm --experimental-options --vm.Dtruffle.class.path.append=$NODEPROF_HOME/nodeprof.jar --nodeprof $NODEPROF_HOME/jalangi.js --analysis utils.js --analysis analyser.js test/unit_tests/'
 
 function runTest(item) {
-  it('Run nodeprof', function (done) {
-    this.timeout(15000);
-    execute(nodeprofCommand + item + " testMode", done)
-  });
-  it('Compare dependencies', function (done) {
-    compairDependencies(item);
-    done();
-  });
+    it('Run nodeprof', function (done) {
+        this.timeout(15000);
+        execute(nodeprofCommand + item + " testMode", done)
+    });
+    it('Compare dependencies', function (done) {
+        compairDependencies(item);
+        done();
+    });
 
 }
 
 
 function execute(command, done) {
-  exec(command, (err, stdout, stderr) => {
-    process.stdout.write(stdout)
-    done()
-  })
+    exec(command, (err, stdout, stderr) => {
+        process.stdout.write(stdout)
+        done()
+    })
 }
 
 function compairDependencies(fileName) {
-  let expectedOutput = JSON.parse(fs.readFileSync(path.join(__dirname, 'expectedOutputs' + path.sep + 'dependencies' + path.sep + fileName + ".json"), { encoding: 'utf8' }))
-  let analyzerOutput = JSON.parse(fs.readFileSync(path.join(__dirname, 'analyzerOutputs' + path.sep + 'dependencies' + path.sep + fileName + ".json"), { encoding: 'utf8' }))
-  assert.deepEqual(expectedOutput, analyzerOutput)
+    let expectedOutput = JSON.parse(fs.readFileSync(path.join(__dirname, 'expectedOutputs' + path.sep + fileName + ".json"), { encoding: 'utf8' }))
+    let analyzerOutput = JSON.parse(fs.readFileSync(path.join(__dirname, 'analyzerOutputs' + path.sep + fileName + ".json"), { encoding: 'utf8' }))
+    assert.deepEqual(expectedOutput, analyzerOutput)
 }
 

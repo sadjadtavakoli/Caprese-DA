@@ -12,6 +12,8 @@ let addedListeners = new Map();
 let functionIDs = new Map();
 let functionsDependency = {}
 let tempIDsMap = {};
+let listOfVariables = new Map();
+let readAndDeclarations = new Map();
 
 // functions if return value can affect their caller and it they have arguments, 
 // the caller affects them. The same scenario goes for timeout functions. 
@@ -100,20 +102,22 @@ let tempIDsMap = {};
          **/
         this.functionEnter = function (iid, f, dis, args) {
             let fID = getID(f, iid)
+            let data = { 'iid': iid, 'fID': fID }
+
             if (isMainFile(iid)) {
                 if (mainFilePath == "") {
                     mainFilePath = utils.getFilePath(iid)
                     accessedFiles.set(mainFilePath, iid)
                     tempIDsMap[fID] = utils.getIIDKey(utils.getIIDFileName(iid), iid)
                 }
-                functionEnterStack.push({ 'iid': iid, 'fID': fID })
+                functionEnterStack.push(data)
+                declarePost(fID)
             } else if (isImporting(iid)) {
                 tempIDsMap[fID] = utils.getIIDKey(utils.getIIDFileName(iid), iid)
                 accessedFiles.set(utils.getFilePath(iid), iid)
             } else {
                 let functionName = getFunctionName(f, iid)
                 tempIDsMap[fID] = utils.getIIDKey(functionName, iid)
-                let data = { 'iid': iid, 'fID': fID }
 
                 if (!utils.isCalledByCallBackRequiredFunctions(dis)) {
                     validateCallBackMap(fID)
@@ -128,20 +132,20 @@ let tempIDsMap = {};
                     }
                 }
                 functionEnterStack.push(data)
+                declarePost(fID)
             }
         };
-
 
         /**
          * These callbacks are called after the execution of a function body.
          **/
         this.functionExit = function (iid, returnVal, wrappedExceptionVal) {
             if (!(isImporting(iid) || isMainFile(iid))) {
-                functionEnterStack.pop()
+                let f = functionEnterStack.pop()
+                manageVarAccess(f.fID)
             }
             return { returnVal: returnVal, wrappedExceptionVal: wrappedExceptionVal, isBacktrack: false };
         };
-
 
         /**
          * This callback is called when an execution terminates in node.js.
@@ -174,6 +178,138 @@ let tempIDsMap = {};
                 console.log("Dependencies file was saved!");
             });
         };
+
+
+        let tempDeclarationList = []
+        /**
+         *  Declaration of a symbol, type can be `const, let, var`
+         *  Jalangi version: this.declare = function (iid, name, val, isArgument, argumentIndex, isCatchParam) {
+         **/
+        this.declare = function (iid, name, type, kind) {
+            if (kind == undefined) {
+                let varName = getVarName(name, false)
+                tempDeclarationList.push(varName)
+            }
+        };
+
+        /**
+         * Records declared variables inside a function after functionEnter method's execution
+         * @param fID as a function's ID
+         **/
+        function declarePost(fID) {
+            for (let variable of tempDeclarationList) {
+
+                if (listOfVariables.has(variable)) {
+                    listOfVariables.get(variable).push({ 'declare': fID, 'writers': [fID] })
+                } else {
+                    listOfVariables.set(variable, [{ 'declare': fID, 'writers': [fID] }])
+                }
+
+                if (readAndDeclarations.has(fID)) {
+                    readAndDeclarations.get(fID)['declareds'].push(variable)
+                } else {
+                    readAndDeclarations.set(fID, { 'reads': { true: [], false: [] }, 'declareds': [variable] })
+                }
+            }
+            tempDeclarationList = []
+        }
+
+        /**
+         * This callback is called after a variable is read
+         * It also records each function's read and declared variables
+         **/
+        this.read = function (iid, name, val, isGlobal, isScriptLocal) {
+            if (typeof val != "function" && typeof val != "object" && name != "this") {
+
+                let fID = functionEnterStack[functionEnterStack.length - 1].fID;
+                if (readAndDeclarations.has(fID)) {
+                    readAndDeclarations.get(fID)['reads'][isGlobal].push(name)
+                } else {
+                    let data = { 'reads': { true: [], false: [] } }
+                    data['reads'][isGlobal].push(name)
+                    readAndDeclarations.set(fID, data)
+                }
+                // console.log("read...", name, "line: ", utils.getLine(iid), isGlobal, isScriptLocal, "......................")
+
+            }
+            return { result: val };
+        };
+
+        /**
+         * This callback is called after a variable is writtern
+         * It also keeps a record of each variable's writers
+         **/
+        this.write = function (iid, name, val, lhs, isGlobal, isScriptLocal) {
+            if (typeof val != "function" && typeof val != "object" && name != "this") {
+                // console.log("write...", name, val, "line: ", utils.getLine(iid), isGlobal, isScriptLocal, "......................")
+
+                let fID = functionEnterStack[functionEnterStack.length - 1].fID;
+                let varName = getVarName(name, isGlobal)
+                if (listOfVariables.has(varName)) {
+                    let declrations = listOfVariables.get(varName)
+                    let closestDeclaration = declrations[declrations.length - 1]
+                    if (!closestDeclaration['writers'].includes(fID)) closestDeclaration['writers'].push(fID)
+                } else {
+                    listOfVariables.set(varName, [{ 'declare': NaN, 'writers': [fID] }])
+                }
+            }
+            return { result: val };
+        };
+
+        /**
+         * This method is called at the end of functionExit
+         * It updates each functions dependencies based on its read/declared variables
+         * At the end it deletes any unnecessary data related to them
+         **/
+        function manageVarAccess(fID) {
+            // console.log(func)
+            if (readAndDeclarations.has(fID)) {
+
+                let accessedVars = readAndDeclarations.get(fID)
+                let reads = accessedVars['reads'][false]
+                let declareds = accessedVars['declareds']
+                let readsGlobals = accessedVars['reads'][true]
+
+                let writers = []
+                for (let name of reads) {
+                    let varName = getVarName(name, false)
+                    if (!declareds.includes(varName)) {
+                        writers = writers.concat(getWritersOfVar(varName))
+                    }
+                }
+
+                for (let name of readsGlobals) {
+                    let varName = getVarName(name, true)
+                    writers = writers.concat(getWritersOfVar(varName))
+                }
+
+                readAndDeclarations.delete(fID)
+
+                for (let variable of declareds) {
+                    let declrations = listOfVariables.get(variable)
+                    if (declrations.length <= 1) {
+                        listOfVariables.delete(variable)
+                    } else {
+                        declrations.pop()
+                    }
+                }
+
+                for (let writer of writers) {
+                    addDependency(writer, fID)
+                }
+            }
+
+        }
+
+        function getWritersOfVar(varName) {
+            if (listOfVariables.has(varName)) {
+                let declrations = listOfVariables.get(varName);
+                let closestDeclaration = declrations[declrations.length - 1];
+                return closestDeclaration['writers'];
+            }
+            return []
+        }
+
     }
 
     /**
@@ -223,11 +359,11 @@ let tempIDsMap = {};
         }
     }
 
-    function addDependency(calleeFID, callerFID) {
-        if (!functionsDependency[calleeFID]) {
-            functionsDependency[calleeFID] = { 'impacted': new Set([]) }
+    function addDependency(changed, impacted) {
+        if (!functionsDependency[changed]) {
+            functionsDependency[changed] = { 'impacted': new Set([]) }
         }
-        functionsDependency[calleeFID]['impacted'].add(callerFID)
+        functionsDependency[changed]['impacted'].add(impacted)
     }
 
     /**
@@ -249,7 +385,7 @@ let tempIDsMap = {};
         return callbackMap.get(key)
     }
 
-    function removeFromCallbackMap(key){
+    function removeFromCallbackMap(key) {
         return callbackMap.delete(key)
     }
 
@@ -284,5 +420,11 @@ let tempIDsMap = {};
         return functionName
     }
 
+    function getVarName(name, isGlobal) {
+        let ext = isGlobal ? "t" : "f";
+        let varName = `${name}-${ext}`
+        return varName
+    }
+    
     sandbox.analysis = new Analyser();
 })(J$);
