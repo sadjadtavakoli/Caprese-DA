@@ -268,6 +268,7 @@ let fields = new Map();
                 let accessedVars = readAndDeclarations.get(fID)
                 let reads = accessedVars['reads'][false]
                 let declareds = accessedVars['declareds']
+                declareds = declareds != undefined ? declareds : []
                 let readsGlobals = accessedVars['reads'][true]
 
                 let writers = []

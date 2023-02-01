@@ -66,6 +66,7 @@ describe('Test variablesGlobalLetAndLocalThis.js', () => runTest('variablesGloba
 describe('Test variablesGlobalThis.js', () => runTest('variablesGlobalThis.js'));
 describe('Test variablesGlobalThisAndLocalLet.js', () => runTest('variablesGlobalThisAndLocalLet.js'));
 describe('Test variablesGlobalThisAndLocalThis.js', () => runTest('variablesGlobalThisAndLocalThis.js'));
+describe('Test variablesNoDeclareRead.js', () => runTest('variablesNoDeclareRead.js'));
 
 
 const nodeprofCommand = '$GRAAL_HOME/bin/node --jvm --experimental-options --vm.Dtruffle.class.path.append=$NODEPROF_HOME/nodeprof.jar --nodeprof $NODEPROF_HOME/jalangi.js --analysis utils.js --analysis analyser.js test/unit_tests/'
