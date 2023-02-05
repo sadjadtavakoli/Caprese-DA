@@ -1220,5 +1220,79 @@
             "comments": 5915,
             "linesOfCode": 100616
         }
+    ],
+    "git@github.com:MikeMcl/bignumber.js.git": [
+        {
+            "language": "JavaScript",
+            "files": 40,
+            "lines": 59681,
+            "blanks": 2691,
+            "comments": 13873,
+            "linesOfCode": 43117
+        },
+        {
+            "language": "HTML",
+            "files": 5,
+            "lines": 3990,
+            "blanks": 419,
+            "comments": 28,
+            "linesOfCode": 3543
+        },
+        {
+            "language": "Markdown",
+            "files": 4,
+            "lines": 650,
+            "blanks": 161,
+            "comments": 0,
+            "linesOfCode": 489
+        },
+        {
+            "language": "Plain Text",
+            "files": 2,
+            "lines": 235,
+            "blanks": 48,
+            "comments": 0,
+            "linesOfCode": 187
+        },
+        {
+            "language": "JSON",
+            "files": 1,
+            "lines": 50,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 50
+        },
+        {
+            "language": "Java",
+            "files": 1,
+            "lines": 60,
+            "blanks": 17,
+            "comments": 11,
+            "linesOfCode": 32
+        },
+        {
+            "language": "TypeScript Typings",
+            "files": 1,
+            "lines": 1831,
+            "blanks": 109,
+            "comments": 1595,
+            "linesOfCode": 127
+        },
+        {
+            "language": "YAML",
+            "files": 1,
+            "lines": 16,
+            "blanks": 0,
+            "comments": 0,
+            "linesOfCode": 16
+        },
+        {
+            "language": "Total",
+            "files": 55,
+            "lines": 66513,
+            "blanks": 3445,
+            "comments": 15507,
+            "linesOfCode": 47561
+        }
     ]
 }

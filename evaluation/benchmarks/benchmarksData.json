@@ -158,7 +158,16 @@
         "test": "test",
         "installer": "npm",
         "comment": "mongodb is required",
-        "seed_commit": "f192c068ef0aeb2e3a0f190825c9489047850914",
+        "seed_commit": "44d0d541e2fc3778625f34ea077e1be2c6571bc0",
+        "excluded_dirs": ["node_modules", "apos-build"],
+        "fp_excluded_dirs": []
+    },
+    "git@github.com:MikeMcl/bignumber.js.git": {
+        "install": "npm install",
+        "commit": "246",
+        "main_branch": "master",
+        "test": "test",
+        "seed_commit": "2603bfd93e0e51a090b138561a79249f8480156e",
         "excluded_dirs": [],
         "fp_excluded_dirs": []
     }

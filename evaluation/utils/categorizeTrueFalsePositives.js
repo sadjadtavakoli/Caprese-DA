@@ -1,14 +1,12 @@
 const fs = require("fs")
 const path = require("path")
 const resultDirPath = `evaluation${path.sep}result${path.sep}`
-const { STATUS } = require("../evaluation.js")
-const capreseName = "berke"
+const { benchmarkList } = require('../projects_confiqs')
 
 if (process.argv[2]) {
     getData(process.argv[2])
 } else {
-    let projects_list = ["ws", "jhipster-uml", "eslint-plugin-react", "grant", "markdown-it", "environment", "nodejs-cloudant", "assemble", "express", "session", "neo-async"]
-    getData(projects_list, "True Positives")
+    getData(benchmarkList, "True Positives")
 }
 
 function getData(projects_list, type) {

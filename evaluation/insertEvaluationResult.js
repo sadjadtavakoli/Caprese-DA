@@ -2,12 +2,10 @@ const fs = require("fs")
 const path = require("path")
 const resultDirPath = `evaluation${path.sep}result${path.sep}`
 const { STATUS } = require('./evaluation')
-
-// let projects_list = ["eslint-plugin-react", "ws", "cla-assistant", "grant", "markdown-it", "environment", "nodejs-cloudant", "assemble", "express", "session", "jhipster-uml", "neo-async"]
-let projects_list = ["ws"]
+const { benchmarkList } = require('./projects_confiqs')
 
 if (process.argv[1].endsWith(path.basename(__filename))) {
-    projects_list.forEach(filename => {
+    benchmarkList.forEach(filename => {
         addEvaluationResult(filename)
     })
 }

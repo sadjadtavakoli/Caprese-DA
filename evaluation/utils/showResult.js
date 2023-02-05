@@ -4,6 +4,7 @@ const { EXECUTION_TIMES_PATH } = require('./evaluationExecutionTime')
 const resultDirPath = `evaluation${path.sep}result${path.sep}`
 const { STATUS } = require("../evaluation.js")
 const { unitsContributionToLatex, approachesComparisonToLatex, getFullTable, changeSetLatexRow } = require("./jsonToLatexRow")
+const { benchmarkList } = require('../projects_confiqs')
 const capreseName = "berke"
 const tarmaqName = "tarmaq"
 
@@ -15,12 +16,10 @@ if (process.argv[1].endsWith(path.basename(__filename))) {
         console.log(approachesLatexRow)
         console.log(changeSetInfoLatexRow)
     } else {
-        let projects_list = ["eslint-plugin-react", "ws", "cla-assistant", "grant", "markdown-it", "environment", "nodejs-cloudant", "assemble", "express", "session", "jhipster-uml", "neo-async"]
-
         let unitsContributionLatexRows = {}
         let approachesLatexRows = {}
         let changeSetInfoLatexRows = {}
-        projects_list.forEach(filename => {
+        benchmarkList.forEach(filename => {
             if (fs.statSync(`${resultDirPath}${filename}`).isDirectory()) {
                 let { summarizedResult, unitsContributionLatexRow, approachesLatexRow, changeSetInfoLatexRow } = summarizeResult(filename)
                 // console.log(summarizedResult)

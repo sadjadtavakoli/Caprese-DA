@@ -3,12 +3,12 @@ const path = require("path")
 const resultDirPath = `evaluation${path.sep}result${path.sep}`
 const { meanAveragePrecisionLatexRow, getFullTable } = require("./jsonToLatexRow")
 const { average } = require("./showResult")
+const { benchmarkList } = require('../projects_confiqs')
 
-let projects_list = ["eslint-plugin-react", "ws", "cla-assistant", "grant", "markdown-it", "environment", "nodejs-cloudant", "assemble", "express", "session", "jhipster-uml", "neo-async"]
 let result = {}
 let thresholds = [3, 5, 10, 20, 30, 60, "all"]
 let latexRows = {}
-projects_list.forEach(filename => {
+benchmarkList.forEach(filename => {
     const RESULT_PATH = `${resultDirPath}${filename}${path.sep}results.json`
     // console.log(RESULT_PATH)
     let evaluationResult = JSON.parse(fs.readFileSync(RESULT_PATH));

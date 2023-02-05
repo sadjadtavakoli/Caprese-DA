@@ -2,20 +2,27 @@ const fs = require('fs');
 const path = require("path");
 const DATA_PATH = `data${path.sep}ProjectsData${path.sep}`
 const { benchmarksInfoLatexRow, getFullTable } = require("./jsonToLatexRow")
+const {benchmarkList} = require('../projects_confiqs')
 
 if (process.argv[2]) {
     console.log(getProjectsInfo(process.argv[2]).benchmarksInfo)
 } else {
-    let finalResult = {}
-    let projects_list = ["eslint-plugin-react", "ws", "cla-assistant", "grant", "markdown-it", "environment", "nodejs-cloudant", "assemble", "express", "session", "jhipster-uml", "neo-async"]
+    let finalResult = []
     let latexRows = {}
     projects_list.forEach(filename => {
         if (fs.statSync(`${DATA_PATH}${filename}`).isDirectory()) {
-            let { benchmarksInfo, latexRow } = finalResult[filename] = getProjectsInfo(filename)
-            console.log(benchmarksInfo)
-            latexRows[filename] = latexRow
+            let benchmarksInfo = getProjectsInfo(filename)
+            finalResult.push(benchmarksInfo)
         }
     });
+
+    finalResult.sort(benchmakrSorter())
+
+    for(let result of finalResult){
+        console.log(result)
+        latexRows[result['name']] = result['latexRow']
+    }
+
     console.log(getFullTable(latexRows))
 }
 
@@ -27,6 +34,7 @@ function getProjectsInfo(filename) {
     let { languagesInfo, totalLines } = readBenchmarkLanguagesData(filename);
     let { allLanguagesInfo, JsPercentage } = writtenLanguages(languagesInfo, totalLines)
     let benchmarksInfo = {
+        "name" : filename,
         "# Commits": changeSequences.length + eliminated.length,
         "# Change-sequences": changeSequences.length,
         "Unique #functions": numberOfUniqueFunctions,
@@ -37,7 +45,8 @@ function getProjectsInfo(filename) {
         "JavaScript Percentage": JsPercentage
     }
     let latexRow = benchmarksInfoLatexRow(benchmarksInfo)
-    return { benchmarksInfo, latexRow }
+    benchmarksInfo['latexRow'] = latexRow
+    return benchmarksInfo
 }
 
 function averageFunctionsInCommit(changeSequences) {
@@ -87,4 +96,19 @@ function readBenchmarkLanguagesData(filename) {
     let total = languagesInfo.pop();
     let totalLines = total['linesOfCode'];
     return { languagesInfo, totalLines };
+}
+
+function benchmakrSorter(){
+    return function (a, b) {
+        let aCommit = a['# Commits'];
+        let bCommit = b['# Commits'];
+        let aChangeSequences = a['# Change-sequences'];
+        let bChangeSequences = b['# Change-sequences'];
+
+        if (aCommit == bCommit) {
+            return aChangeSequences - bChangeSequences;
+        }
+         
+        return aCommit - bCommit;
+    };
 }

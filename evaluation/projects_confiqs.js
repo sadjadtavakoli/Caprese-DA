@@ -7,8 +7,8 @@ const confiqs = {
         "test": "test",
         "installer": "npm",
         "comment": "mongodb is required",
-        "seed_commit": "f192c068ef0aeb2e3a0f190825c9489047850914",
-        "excluded_dirs": [],
+        "seed_commit": "44d0d541e2fc3778625f34ea077e1be2c6571bc0",
+        "excluded_dirs": ["node_modules", "apos-build", "modules", "extra_node_modules", "data", "subdir-project", "test-bundle", "utils"],
         "fp_excluded_dirs": []
     },
     "git@github.com:apache/cordova-ios.git": {
@@ -342,7 +342,7 @@ const confiqs = {
         "main_branch": "v3.x",
         "seed_commit": "68a290d",
         "comment": "success",
-        "excluded_dirs": ["bundler","types","esm"],
+        "excluded_dirs": ["bundler", "types", "esm"],
         "fp_excluded_dirs": []
     },
     "git@github.com:simov/grant.git": {
@@ -516,9 +516,6 @@ const confiqs = {
         "excluded_dirs": [],
         "fp_excluded_dirs": []
     },
-
-
-
     "git@github.com:/PrismarineJS/mineflayer.git": {
         "install": "npm install",
         "commit": "2640",
@@ -688,7 +685,31 @@ const confiqs = {
         "excluded_dirs": ['acceptance_tests', 'client'],
         "fp_excluded_dirs": []
 
+    },
+    "git@github.com:MikeMcl/bignumber.js.git": {
+        "install": "npm install",
+        "commit": "246",
+        "main_branch": "master",
+        "test": "test",
+        "comment": "success",
+        "seed_commit": "2603bfd93e0e51a090b138561a79249f8480156e",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
+
+    },
+    "git@github.com:jashkenas/underscore.git": {
+        "install": "npm install",
+        "commit": "2830",
+        "main_branch": "master",
+        "test": "test",
+        "comment": "Qunit test",
+        "seed_commit": "383d9fad746ae8de1050db5f6abde64fb5a7889c",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
+
     }
 }
 
-module.exports = confiqs
+const benchmarkList = ["bignumber.js", "session", "jhipster-uml", "neo-async", "markdown-it", "grant", "environment", "cla-assistant", "nodejs-cloudant", "ws", "assemble", "nock", "eslint-plugin-react", "fastify", "express"] // in order 
+
+module.exports = { confiqs, benchmarkList }

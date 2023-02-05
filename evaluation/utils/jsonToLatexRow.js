@@ -43,7 +43,7 @@ const menaAveragePrecisionOrdering = {
     "da": [3, 5, 10, 20, 30, 60, "all"]
 }
 
-const benchmarksInfoOrdering = ["# Commits", "# Change-sequences", "Unique #functions","LOC", "JavaScript Percentage"]
+const benchmarksInfoOrdering = ["# Commits", "# Change-sequences", "Unique #functions", "Avg # functions in commit", "LOC", "JavaScript Percentage", "languages"]
 const changeSetInfoOrdering = ["min", "max", "avg"]
 
 
