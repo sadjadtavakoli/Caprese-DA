@@ -2,37 +2,17 @@ const constants = require('../constants.js');
 const fs = require('fs');
 const path = require('path')
 const { exec } = require('child_process');
-const { evaluationGetMainData, evaluationAnalyzer } = require('../berke');
+const { evaluationAnalyzer } = require('../berke');
 const { anonymouseName } = require('../computeBerkeResult');
-
-const NUMBER_OF_COMMITS_PER_PROJECT = 5;
-const RESULT_DIR_PATH = `${__dirname}${path.sep}result${path.sep}${constants.PROJECT_NAME}`;
+const { CHANGE_SET_PATH, STATUS, DETECTED_IMPACT_SETS_PATH, APPROACHES } = require('./evaluationConstants')
 
 const TARMAQ_PATH = path.dirname(path.dirname(__dirname)) + path.sep + "TARMAQ";
 const TARMAQ_COMMAND = "cd " + TARMAQ_PATH + " ; mvn exec:java -Dexec.mainClass='TARMAQ.MainTARMAQ' -Dexec.args=";
-
-const RESULT_PATH = `${RESULT_DIR_PATH}${path.sep}results.json`
 const TARMAQ_RESULT_PATH = `${RESULT_DIR_PATH}${path.sep}tarmaq.json`
-
-const STATUS = {
-    berke_unique: "Berke Unique",
-    tarmaq_unique: "TARMAQ Unique",
-    common: "common",
-    removed: "Removed"
-}
-
-//  NEW NAME FOR BERKE: Caprese: an italian food 
 
 if (process.argv[1].endsWith(path.basename(__filename))) {
 
-    if (!fs.existsSync(RESULT_DIR_PATH)) {
-        fs.mkdirSync(RESULT_DIR_PATH, {
-            recursive: true
-        });
-    }
-
-    evaluationGetMainData(constants.SEED_COMMIT)
-        .then(testSetGenerator)
+    readChangeSets()
         .then((candidatedCommits) => {
             let testSet = [...candidatedCommits.keys()]
             testSet = testSet.reduce(
@@ -51,43 +31,40 @@ if (process.argv[1].endsWith(path.basename(__filename))) {
         })
 }
 
-function testSetGenerator() {
+function readChangeSets() {
     return new Promise(resolve => {
-        console.log(" * * * testset Generator * * * ")
-        let detailedSequences = fs.readFileSync(constants.SEQUENCES_PATH + "details.txt").toString().trim().split("\n");
-        let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(" ");
-        let candidatedCommits = new Map()
-        let maxIndex = detailedSequences.length - 1
-        let useLessFiles = [
-            "history.md", "HISTORY.md", "History.md", "CHANGELOG.md",
-            "README.md", "readme.md", "Readme.md", "CHANGES.md",
-            "package.json", "package-lock.json",
-            "appveyor.yml", ".travis.yml"]
+        let commitsInfo = JSON.parse(fs.readFileSync(CHANGE_SET_PATH));
 
-        while (candidatedCommits.size < NUMBER_OF_COMMITS_PER_PROJECT) {
-            let i = getRandomNumbers(maxIndex)
-            maxIndex -= 1
-            console.log(`random i = ${i}`)
+        let detailedSequences = fs.readFileSync(constants.SEQUENCES_PATH + "details.txt").toString().trim().split("\n");
+        
+        for (let i = 0; i < detailedSequences.length; i += 1) {
             let sequence = detailedSequences[i]
             let commit = sequence.split(" : ")[0]
-            let commitChanges = sequence.split(" : ")[1].slice(0, -4).split(" ").filter(item => !removed.includes(item) & !useLessFiles.includes(item))
-            if (commitChanges.length <= 1 || includes(candidatedCommits, commitChanges)) {
-                continue
+            if (commitsInfo[commit] != undefined) {
+                console.log(commit)
+                detailedSequences.splice(i, 1)
+                i -= 1
             }
-            candidatedCommits.set(commitChanges, commit)
-            detailedSequences.splice(i, 1)
+        }
+        
+        let impactSetEmpty = new Map()
+        for(let commit in commitsInfo){
+            let emptyBody = new Map()
+            emptyBody.set(APPROACHES.caprese, [])
+            emptyBody.set(APPROACHES.tarmaq, [])
+            impactSetEmpty.set(commit, emptyBody)
         }
 
-        let reverseMap = new Map()
-        for (let entity of candidatedCommits) {
-            reverseMap.set(entity[1], { "commits": entity[0] })
+        let reversedList = new Map()
+        for (let commit in commitsInfo) {
+            reversedList.set(commitsInfo[commit]['changes'], commit)
         }
 
         detailedSequences = detailedSequences.map(item => item.split(" : ")[1])
-
-        fs.writeFileSync(RESULT_PATH, JSON.stringify(Object.fromEntries(reverseMap)))
         fs.writeFileSync(constants.SEQUENCES_PATH, detailedSequences.join("\n"));
-        resolve(candidatedCommits)
+        fs.writeFileSync(DETECTED_IMPACT_SETS_PATH, JSON.stringify(Object.fromEntries(impactSetEmpty)));
+
+        resolve(reversedList)
     })
 }
 
@@ -95,38 +72,34 @@ function collectResult(commit) {
     console.log(" = = = Collect Result = = = ")
     return new Promise(function (resolve, reject) {
 
-        let commitsInfo = JSON.parse(fs.readFileSync(RESULT_PATH));
+        let impactSet = JSON.parse(fs.readFileSync(DETECTED_IMPACT_SETS_PATH));
 
-        let tarmaqResult = getTarmaqResult();
-        let berkeResult = getBerkeResult();
+        let {capreseResult, tarmaqResult} = getBothApproachsResult()
 
-        tarmaqAndBerkeConsequentStatusUpdate(berkeResult, tarmaqResult);
+        impactSet[commit][APPROACHES.caprese] = capreseResult
+        impactSet[commit][APPROACHES.tarmaq] = tarmaqResult
 
-        let functionsObjectList = {};
-        functionsObjectList = findFunctionsRelations(berkeResult, commitsInfo[commit]['commits'], functionsObjectList)
-        functionsObjectList = findFunctionsRelations(tarmaqResult, commitsInfo[commit]['commits'], functionsObjectList)
-
-        berkeResult = replaceKeysWithObjects(berkeResult, functionsObjectList)
-        tarmaqResult = replaceKeysWithObjects(tarmaqResult, functionsObjectList)
-
-        commitsInfo[commit]['berke'] = berkeResult
-        commitsInfo[commit]['tarmaq'] = tarmaqResult
-
-        let reversedList = {}
-        reversedList = reverseFPTARMAQ(reversedList, commitsInfo[commit]['berke']);
-        reversedList = reverseFPTARMAQ(reversedList, commitsInfo[commit]['tarmaq']);
-
-        commitsInfo[commit]['reversed-FP-TARMAQ'] = reversedList
-
-        commitsInfo[commit]['reversed-DA'] = reverseDA(commitsInfo[commit]['berke']);
-
-        //  for loop over change-sets and impact-sets and call the following function
-        // findFunctionsRelations(impactSet, changes, functionsObjectList)
-        // impactSetOrderedList = replaceKeysWithObjects(impactSetOrderedList, functionsObjectList)
-
-        fs.writeFileSync(RESULT_PATH, JSON.stringify(commitsInfo));
+        fs.writeFileSync(CHANGE_SET_PATH, JSON.stringify(commitsInfo));
         resolve();
     })
+}
+
+function getBothApproachsResult(){
+
+    let tarmaqResult = getTarmaqResult();
+    let capreseResult = getBerkeResult();
+
+    tarmaqAndBerkeConsequentStatusUpdate(capreseResult, tarmaqResult);
+
+    let functionsObjectList = {};
+    functionsObjectList = findFunctionsRelations(capreseResult, commitsInfo[commit]['commits'], functionsObjectList)
+    functionsObjectList = findFunctionsRelations(tarmaqResult, commitsInfo[commit]['commits'], functionsObjectList)
+
+    capreseResult = replaceKeysWithObjects(capreseResult, functionsObjectList)
+    tarmaqResult = replaceKeysWithObjects(tarmaqResult, functionsObjectList)
+
+    return {capreseResult, tarmaqResult}
+
 }
 
 function getTarmaqResult() {
@@ -161,75 +134,6 @@ function tarmaqAndBerkeConsequentStatusUpdate(berkeResult, tarmaqResult) {
             item["status"] = STATUS.berke_unique;
         }
     });
-}
-
-function reverseFPTARMAQ(reversedList, impactSet) {
-    impactSet.forEach(impacted => {
-        let antecedents = impacted['FP-antecedents']
-        if (antecedents != undefined) {
-            antecedents.forEach(element => {
-                let id = stringfy(element);
-
-                if (reversedList[id] == undefined) {
-                    reversedList[id] = [];
-                }
-
-                let value = { 'consequent': impacted['consequent'], 'support': impacted['support'], 'confidence': impacted['confidence'], 'DA': impacted['DA-antecedents'], 'evaluation result': '' };
-
-                if (impacted['FP-evaluation'] != undefined) {
-                    value['evaluation result'] = impacted['FP-evaluation'];
-                }
-
-                reversedList[id].push(value);
-            });
-        }
-    })
-    return reversedList
-}
-
-function reverseDA(impactSet) {
-    let result = {};
-    impactSet.forEach(impacted => {
-        let consequent = impacted['consequent']
-        let antecedents = impacted['DA-antecedents']
-        if (antecedents != undefined) {
-            antecedents.forEach(id => {
-                if (result[id] == undefined) {
-                    result[id] = []
-                }
-                let value = { 'consequent': consequent, 'evaluation result': '' }
-
-                if (impacted['DA-evaluation'] != undefined) {
-                    value['evaluation result'] = impacted['DA-evaluation']
-                }
-
-                result[id].push(value)
-            });
-        }
-    })
-    return result
-}
-
-function getRandomNumbers(maximum) {
-    return Math.floor(Math.random() * maximum)
-}
-
-function areEquals(array1, array2) {
-    if (array1.length != array2.length) return false
-    return array2.filter(item => !array1.includes(item)).length == 0
-}
-
-function includes(mapArr, array) {
-    for (let item of mapArr) {
-        if (areEquals(item[0], array)) {
-            return true
-        }
-    }
-    return false
-}
-
-function stringfy(listOfFunctions) {
-    return listOfFunctions.join(",")
 }
 
 function runTARMAQ(changeSet) {
@@ -359,4 +263,4 @@ function stringifyFunctionObject(object) {
     return ` | {"id":${object['id']} - "parents":[${object['parents'].join("-")}]}`
 }
 
-module.exports = { STATUS, runTARMAQ, reverseDA, reverseFP: reverseFPTARMAQ, getBerkeResult, tarmaqAndBerkeConsequentStatusUpdate, getTarmaqResult }
+module.exports = { runTARMAQ, getBerkeResult, tarmaqAndBerkeConsequentStatusUpdate, getTarmaqResult }

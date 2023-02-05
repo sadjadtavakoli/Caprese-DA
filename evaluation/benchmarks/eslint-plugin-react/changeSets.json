@@ -1,0 +1,77 @@
+{
+    "cc7b98bae951a44217929d94258890f981327000": {
+        "changes": [
+            "detectFlowVersion-lib/util/version.js-102-117",
+            "getFlowVersionFromContext-lib/util/version.js-119-141"
+        ]
+    },
+    "8ef28247254f78b1c32bea2d3e70482de6ef4f17": {
+        "changes": [
+            "docs/rules/jsx-one-expression-per-line.md",
+            "jsx-one-expression-per-line.js-lib/rules/jsx-one-expression-per-line.js-1-234"
+        ]
+    },
+    "9b2db61fd8218fd003c513be9b63a207606e461a": {
+        "changes": [
+            "arrowAnonymousFunction-lib/rules/jsx-curly-brace-presence.js-319-319",
+            "arrowAnonymousFunction-lib/rules/jsx-curly-brace-presence.js-322-322",
+            "getAdjacentSiblings-lib/rules/jsx-curly-brace-presence.js-299-313",
+            "hasAdjacentJsxExpressionContainers-lib/rules/jsx-curly-brace-presence.js-315-323",
+            "isWhiteSpaceLiteral-lib/rules/jsx-curly-brace-presence.js-234-236",
+            "shouldCheckForUnnecessaryCurly-lib/rules/jsx-curly-brace-presence.js-333-366"
+        ]
+    },
+    "fd51133953002d4a79e985aa89b550ee479ea164": {
+        "changes": [
+            "getTokenBeforeClosingBracket.js-lib/util/gettokenbeforeclosingbracket.js-1-17",
+            "jsx-space-before-closing.js-lib/rules/jsx-space-before-closing.js-1-96",
+            "jsx-tag-spacing.js-lib/rules/jsx-tag-spacing.js-1-324"
+        ]
+    },
+    "3516a813e6f2e737fa7450cffcc891020a2bd36a": {
+        "changes": [
+            "arrowAnonymousFunction-lib/rules/prop-types.js-57-196",
+            "componentRule-lib/util/components.js-283-943"
+        ]
+    },
+    "ed4978c3651f82766902180bd07b94b58fe77962": {
+        "changes": [
+            "getErrorData-lib/rules/jsx-boolean-value.js-29-36",
+            "jsx-boolean-value.js-lib/rules/jsx-boolean-value.js-1-160"
+        ]
+    },
+    "56f177737784a4c112f3762ddd0c880d5589b68f": {
+        "changes": [
+            "arrowAnonymousFunction-lib/rules/jsx-indent.js-111-115",
+            "docs/rules/jsx-indent.md",
+            "getFixerFunction-lib/rules/jsx-indent.js-107-139",
+            "jsx-indent.js-lib/rules/jsx-indent.js-1-442",
+            "report-lib/rules/jsx-indent.js-148-161"
+        ]
+    },
+    "886a09add19adbb7b66451c696cf22c81291c336": {
+        "changes": [
+            "arrowAnonymousFunction-lib/rules/display-name.js-48-263",
+            "arrowAnonymousFunction-lib/rules/no-direct-mutation-state.js-34-153",
+            "arrowAnonymousFunction-lib/rules/prop-types.js-57-196",
+            "componentRule-lib/util/components.js-283-943"
+        ]
+    },
+    "36c7ade62280cd67ab679bb5b7c223991628bd45": {
+        "changes": [
+            "arrowAnonymousFunction-lib/rules/no-direct-mutation-state.js-146-150",
+            "arrowAnonymousFunction-lib/rules/no-direct-mutation-state.js-34-153",
+            "docs/rules/no-direct-mutation-state.md",
+            "no-direct-mutation-state.js-lib/rules/no-direct-mutation-state.js-1-155"
+        ]
+    },
+    "d02bb9aaa800b0a794c0caf8aca630d54979baba": {
+        "changes": [
+            "arrowAnonymousFunction-lib/util/proptypes.js-214-214",
+            "arrowAnonymousFunction-lib/util/proptypes.js-500-500",
+            "buildReactDeclarationTypes-lib/util/proptypes.js-390-514",
+            "exports-lib/util/proptypes.js-94-1248",
+            "lib/types.d.ts"
+        ]
+    }
+}

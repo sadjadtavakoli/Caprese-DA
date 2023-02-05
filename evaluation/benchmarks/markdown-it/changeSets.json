@@ -1,0 +1,83 @@
+{
+    "1676e10ee867450da12257c39bd9a26948c1efda": {
+        "changes": [
+            "exports-lib/helpers/parse_link_label.js-8-48",
+            "skipToken-lib/parser_inline.js-79-124"
+        ]
+    },
+    "828688087854b30b9163f4e09ced25edbd7ff172": {
+        "changes": [
+            "exports-lib/rules_block/lheading.js-6-83",
+            "exports-lib/rules_block/paragraph.js-6-51",
+            "skipCharsBack-lib/rules_block/state_block.js-165-172"
+        ]
+    },
+    "de43d7c5597ab25aa3bcb389755ca59bae4393d3": {
+        "changes": [
+            "index.js-support/demo_template/index.js-1-495",
+            "mdInit-support/demo_template/index.js-129-182"
+        ]
+    },
+    "4aa169634f4816069fbb91ab917d0da6850aa396": {
+        "changes": [
+            "StateBlock-lib/rules_block/state_block.js-9-106",
+            "exports-lib/rules_block/list.js-100-362",
+            "render-lib/renderer.js-321-339",
+            "tokenize-lib/parser_block.js-48-109"
+        ]
+    },
+    "79a25c777ffcbc9177880c4c5057c04e57f0adc0": {
+        "changes": [
+            "Renderer-lib/renderer.js-134-165",
+            "index.js-lib/index.js-1-583",
+            "render-lib/renderer.js-321-339",
+            "renderer.js-lib/renderer.js-1-342",
+            "set-lib/index.js-371-374"
+        ]
+    },
+    "ff4c7b72629defd603ee4729b4916210b9a7651c": {
+        "changes": [
+            "arrowAnonymousFunction-support/demo_template/index.js-410-494",
+            "arrowAnonymousFunction-support/demo_template/index.js-413-415",
+            "arrowAnonymousFunction-support/demo_template/index.js-472-476",
+            "index.js-support/demo_template/index.js-1-495",
+            "mdInit-support/demo_template/index.js-129-182",
+            "updateResult-support/demo_template/index.js-192-227"
+        ]
+    },
+    "e0a153fe090f25de30c45436a590f232718b08d3": {
+        "changes": [
+            "arrowAnonymousFunction-support/markdown-it.js-47-80",
+            "exports-lib/rules_block/fence.js-6-98",
+            "exports-lib/rules_block/heading.js-8-55",
+            "exports-lib/rules_block/lheading.js-6-83",
+            "exports-lib/rules_block/list.js-100-362",
+            "heading.js-lib/rules_block/heading.js-1-56",
+            "lheading.js-lib/rules_block/lheading.js-1-84",
+            "markdown-it.js-support/markdown-it.js-1-81",
+            "skipOrderedListMarker-lib/rules_block/list.js-38-84"
+        ]
+    },
+    "643d9f75a004b77fceb7975f1e44b108e9480d24": {
+        "changes": [
+            "exports-lib/rules_block/html_block.js-23-74",
+            "html_block.js-lib/rules_block/html_block.js-1-75",
+            "html_blocks.js-lib/common/html_blocks.js-1-71",
+            "html_re.js-lib/common/html_re.js-1-29"
+        ]
+    },
+    "14eba9197e5bd78f9f14b8832fefe410377d946b": {
+        "changes": [
+            "highlight-support/demo_template/index.js-83-111",
+            "injectLineNumbers-support/demo_template/index.js-171-179",
+            "mdInit-support/demo_template/index.js-129-182"
+        ]
+    },
+    "b9d3828a5d859b3e54a7ebee06fc325a2a962d9a": {
+        "changes": [
+            "exports-lib/rules_block/fence.js-6-98",
+            "parse-lib/parser_block.js-117-125",
+            "render-lib/renderer.js-321-339"
+        ]
+    }
+}

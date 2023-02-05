@@ -1,9 +1,12 @@
+// !!!!! DEPRECATED 
+// DOESN'T FOLLOW THE LATEST EVALUATION SETUP
+
 const fs = require("fs")
 const path = require("path")
 const resultDirPath = `evaluation${path.sep}result${path.sep}`
 const { meanAveragePrecisionLatexRow, getFullTable } = require("./jsonToLatexRow")
 const { average } = require("./showResult")
-const { benchmarkList } = require('../projects_confiqs')
+const { benchmarkList } = require('../evaluationConstants')
 
 let result = {}
 let thresholds = [3, 5, 10, 20, 30, 60, "all"]
@@ -12,7 +15,7 @@ benchmarkList.forEach(filename => {
     const RESULT_PATH = `${resultDirPath}${filename}${path.sep}results.json`
     // console.log(RESULT_PATH)
     let evaluationResult = JSON.parse(fs.readFileSync(RESULT_PATH));
-    let benchResult = { "da": {}, "fp": {}, "berke": {}, "tarmaq": {} }
+    let benchResult = { "da": {}, "fp": {}, "caprese": {}, "tarmaq": {} }
     // console.log(filename)
     for (let threshold of thresholds) {
         // console.log("* * * * *")
@@ -20,7 +23,7 @@ benchmarkList.forEach(filename => {
         benchResult["da"][threshold] = getUnitMeanPrecision(evaluationResult, "da", threshold)
         benchResult["fp"][threshold] = getUnitMeanPrecision(evaluationResult, "fp", threshold)
         benchResult["tarmaq"][threshold] = approachMeanPrecision(evaluationResult, "tarmaq", threshold)
-        benchResult["berke"][threshold] = approachMeanPrecision(evaluationResult, "berke", threshold)
+        benchResult["caprese"][threshold] = approachMeanPrecision(evaluationResult, "caprese", threshold)
     }
     result[filename] = benchResult
     latexRows[filename] = meanAveragePrecisionLatexRow(benchResult)
@@ -39,7 +42,7 @@ function getUnitMeanPrecision(result, unit, threshold) {
     let unitKey = unitKeys[unit]
 
     for (let commit in result) {
-        let berke = result[commit]['berke']
+        let berke = result[commit]["caprese"]
         let unitResults = berke.filter(item => item[unitKey] != undefined)
         let _threshold = threshold == "all" ? unitResults.length : Math.min(threshold, unitResults.length)
 
@@ -68,7 +71,7 @@ function approachMeanPrecision(result, approach, threshold) {
         let impactset = result[commit][approach]
         let _threshold = threshold == "all" ? impactset.length : Math.min(threshold, impactset.length)
 
-        if (approach == "berke") {
+        if (approach == "caprese") {
             impactset.sort(rankCapreseResult())
         }
 

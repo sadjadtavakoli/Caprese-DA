@@ -1,12 +1,15 @@
+// !!!!! DEPRECATED 
+// DOESN'T FOLLOW THE LATEST EVALUATION SETUP
+
 const fs = require("fs")
 const path = require("path")
-const { EXECUTION_TIMES_PATH } = require('./evaluationExecutionTime')
+const { EXECUTION_TIMES_PATH } = require('../evaluationConstants')
 const resultDirPath = `evaluation${path.sep}result${path.sep}`
 const { STATUS } = require("../evaluation.js")
 const { unitsContributionToLatex, approachesComparisonToLatex, getFullTable, changeSetLatexRow } = require("./jsonToLatexRow")
-const { benchmarkList } = require('../projects_confiqs')
-const capreseName = "berke"
-const tarmaqName = "tarmaq"
+const { benchmarkList, APPROACHES } = require('../evaluationConstants')
+const capreseName = APPROACHES.caprese
+const tarmaqName = APPROACHES.tarmaq
 
 if (process.argv[1].endsWith(path.basename(__filename))) {
     if (process.argv[2]) {

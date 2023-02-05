@@ -1,0 +1,78 @@
+{
+    "2ecc9967831bfc0879ee2449a825ab81d94fd379": {
+        "changes": [
+            "access-lib/flow/oauth2.js-65-220",
+            "config/oauth.json",
+            "tokens-lib/response.js-5-42"
+        ]
+    },
+    "7eab10a79bed4bdd37dec73dd178a3da53f36dd4": {
+        "changes": [
+            "access-lib/flow/oauth1.js-97-145",
+            "authorize-lib/flow/oauth1.js-61-95",
+            "config/oauth.json"
+        ]
+    },
+    "baa17797ae8d5d165e5751abe5db77cb9e0a1c62": {
+        "changes": [
+            "arrowAnonymousFunction-lib/config.js-153-159",
+            "config.js-lib/config.js-1-221",
+            "merge-lib/config.js-15-16",
+            "provider-lib/config.js-168-216"
+        ]
+    },
+    "1a1065aa27473dc8b95cbf540e71fb07c615fe3b": {
+        "changes": [
+            "config.js-lib/config.js-1-221",
+            "merge-lib/config.js-15-16"
+        ]
+    },
+    "b206f8260a454334861b6cd9741115fb884836f9": {
+        "changes": [
+            "arrowAnonymousFunction-lib/client.js-14-48",
+            "arrowAnonymousFunction-lib/client.js-8-12",
+            "client.js-lib/client.js-1-63",
+            "defaults-lib/client.js-8-12",
+            "log-lib/client.js-50-57",
+            "parse-lib/client.js-14-48",
+            "request-lib/flow/oauth1.js-6-59"
+        ]
+    },
+    "7d4a4c3bd2aa87f4f0504f31ff8854355e76b4e4": {
+        "changes": [
+            "grant-grant.js-2-67",
+            "grant.js-grant.js-1-140"
+        ]
+    },
+    "751438267b974e476347509fde8ab023cd7b3737": {
+        "changes": [
+            "access-lib/flow/oauth1.js-97-145",
+            "authorize-lib/flow/oauth1.js-61-95",
+            "request-lib/flow/oauth1.js-6-59"
+        ]
+    },
+    "2c656828773d9074bc89135a8d0fc5c1f4c9c82f": {
+        "changes": [
+            "connect-lib/request.js-34-55",
+            "request.js-lib/request.js-1-70"
+        ]
+    },
+    "ca77fc9972072783e67918c0a9a6f63086e6e503": {
+        "changes": [
+            "arrowAnonymousFunction-lib/config.js-153-159",
+            "provider-lib/config.js-168-216"
+        ]
+    },
+    "9a16fdbbc28f847aaea50974114c12f12ed89f31": {
+        "changes": [
+            "app-lib/handler/koa-1.js-18-43",
+            "connect-lib/request.js-34-55",
+            "exports-lib/handler/express-4.js-5-47",
+            "exports-lib/handler/koa-1.js-6-46",
+            "express-4.js-lib/handler/express-4.js-1-54",
+            "express-grant.js-69-72",
+            "koa-1.js-lib/handler/koa-1.js-1-47",
+            "koa-grant.js-74-84"
+        ]
+    }
+}

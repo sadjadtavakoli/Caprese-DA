@@ -1,0 +1,75 @@
+{
+    "2122598507a487d46a252be6050fad80a1afd33d": {
+        "changes": [
+            "app.js-src/client/src/app.js-1-111",
+            "arrowAnonymousFunction-src/client/src/app.js-32-109",
+            "arrowAnonymousFunction-src/client/src/controller/settings.js-13-333",
+            "getContributors-src/client/src/controller/settings.js-95-129"
+        ]
+    },
+    "65227402b63b4198004e1499afa7a99c0ab5a5c7": {
+        "changes": [
+            "arrowAnonymousFunction-src/server/src/app.js-208-225",
+            "cla.js-src/server/src/api/cla.js-1-722",
+            "logger.js-src/server/src/services/logger.js-1-63"
+        ]
+    },
+    "2cc71c0ca35e0de0583d6c231e1d7bf7cd86e4fc": {
+        "changes": [
+            "arrowAnonymousFunction-src/client/src/controller/home.js-522-532",
+            "home.js-src/client/src/controller/home.js-1-571"
+        ]
+    },
+    "5fdba86b92e989b71e26559395e386734c480eec": {
+        "changes": [
+            "getAll-src/server/src/services/repo.js-89-117",
+            "isTransferredRenamed-src/server/src/services/repo.js-21-21"
+        ]
+    },
+    "04a71f78ea98fca353758dfe8bf9fcfba71a39ef": {
+        "changes": [
+            "arrowAnonymousFunction-src/client/src/controller/settings.js-156-165",
+            "arrowAnonymousFunction-src/client/src/controller/settings.js-160-162"
+        ]
+    },
+    "d25c923a9a5c8811f072c3d0b6ff3f936d6e7d32": {
+        "changes": [
+            "CONTRIBUTING.md",
+            "ping.js-src/server/src/webhooks/ping.js-1-17",
+            "pull_request.js-src/server/src/webhooks/pull_request.js-1-172"
+        ]
+    },
+    "0b3b39e3230b487c5a865d73b868565823f86a8d": {
+        "changes": [
+            "app.js-src/server/src/app.js-1-312",
+            "arrowAnonymousFunction-src/server/src/controller/counts.js-19-19",
+            "arrowAnonymousFunction-src/server/src/controller/counts.js-21-32",
+            "arrowAnonymousFunction-src/server/src/controller/counts.js-48-76",
+            "config.js-src/server/src/config.js-1-163",
+            "counts.js-src/server/src/controller/counts.js-1-99"
+        ]
+    },
+    "a718aa8a02cbfb3dca19d7629c8e88a257743425": {
+        "changes": [
+            "arrowAnonymousFunction-src/client/src/controller/my-cla.js-13-185",
+            "arrowAnonymousFunction-src/client/src/controller/my-cla.js-41-49",
+            "arrowAnonymousFunction-src/client/src/controller/my-cla.js-60-64",
+            "arrowAnonymousFunction-src/client/src/controller/my-cla.js-71-73",
+            "getGist-src/client/src/controller/my-cla.js-52-65",
+            "getGistName-src/client/src/controller/my-cla.js-67-69",
+            "my-cla.js-src/client/src/controller/my-cla.js-1-187"
+        ]
+    },
+    "fbffd74112c476332c0acb3a092cba2b878fdb5e": {
+        "changes": [
+            "arrowAnonymousFunction-src/server/src/documents/utils.js-22-31",
+            "checkPatternWildcard-src/server/src/documents/utils.js-16-32"
+        ]
+    },
+    "d9677f668f1286ff9c43a00d5bc4deb2e36a3dd8": {
+        "changes": [
+            "config.js-src/server/src/config.js-1-163",
+            "github.js-src/server/src/services/github.js-1-176"
+        ]
+    }
+}

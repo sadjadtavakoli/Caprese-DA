@@ -2,14 +2,14 @@ const fs = require('fs');
 const path = require("path");
 const DATA_PATH = `data${path.sep}ProjectsData${path.sep}`
 const { benchmarksInfoLatexRow, getFullTable } = require("./jsonToLatexRow")
-const {benchmarkList} = require('../projects_confiqs')
+const { benchmarkList } = require('../evaluationConstants')
 
 if (process.argv[2]) {
     console.log(getProjectsInfo(process.argv[2]).benchmarksInfo)
 } else {
     let finalResult = []
     let latexRows = {}
-    projects_list.forEach(filename => {
+    benchmarkList.forEach(filename => {
         if (fs.statSync(`${DATA_PATH}${filename}`).isDirectory()) {
             let benchmarksInfo = getProjectsInfo(filename)
             finalResult.push(benchmarksInfo)
@@ -18,7 +18,7 @@ if (process.argv[2]) {
 
     finalResult.sort(benchmakrSorter())
 
-    for(let result of finalResult){
+    for (let result of finalResult) {
         console.log(result)
         latexRows[result['name']] = result['latexRow']
     }
@@ -34,13 +34,13 @@ function getProjectsInfo(filename) {
     let { languagesInfo, totalLines } = readBenchmarkLanguagesData(filename);
     let { allLanguagesInfo, JsPercentage } = writtenLanguages(languagesInfo, totalLines)
     let benchmarksInfo = {
-        "name" : filename,
+        "name": filename,
         "# Commits": changeSequences.length + eliminated.length,
         "# Change-sequences": changeSequences.length,
         "Unique #functions": numberOfUniqueFunctions,
         "Avg # functions in commit": functionsInCommit,
         "History (in yrs)": undefined,
-        "LOC": Math.round(totalLines/1000),
+        "LOC": Math.round(totalLines / 1000),
         "languages": allLanguagesInfo,
         "JavaScript Percentage": JsPercentage
     }
@@ -98,7 +98,7 @@ function readBenchmarkLanguagesData(filename) {
     return { languagesInfo, totalLines };
 }
 
-function benchmakrSorter(){
+function benchmakrSorter() {
     return function (a, b) {
         let aCommit = a['# Commits'];
         let bCommit = b['# Commits'];
@@ -108,7 +108,7 @@ function benchmakrSorter(){
         if (aCommit == bCommit) {
             return aChangeSequences - bChangeSequences;
         }
-         
+
         return aCommit - bCommit;
     };
 }

@@ -12,33 +12,33 @@ const unitsContributionColumnOrdeing = {
 
 const approachesDataColumnOrdeing = {
     'Impact-set size': {
-        berke: ["avg", "min", "max"],
+        caprese: ["avg", "min", "max"],
         tarmaq: ["avg", "min", "max"]
     },
     // 'Impact-set size': {
-    //     berke: ["avg", "min", "max", "unique"],
+    //     caprese: ["avg", "min", "max", "unique"],
     //     tarmaq: ["avg", "min", "max", "unique"]
     // },
 
     'True Positives': {
-        berke: ["Average True Positives", "Average Precision"],
+        caprese: ["Average True Positives", "Average Precision"],
         tarmaq: ["Average True Positives", "Average Precision"]
     },
     'Execution Time': {
-        berke: ["average"],
+        caprese: ["average"],
         tarmaq: ["average"]
     }
 }
 const executionTimeColumnOrdeing = {
     DA: ["average"],
     FP: ["average"],
-    berke: ["average"],
+    caprese: ["average"],
     tarmaq: ["average"]
 }
 
 const menaAveragePrecisionOrdering = {
     "tarmaq": [10, 20, 30, 60, "all"],
-    "berke": [10, 20, 30, 60, "all"],
+    "caprese": [10, 20, 30, 60, "all"],
     "fp": [10, 20, 30, 60, "all"],
     "da": [3, 5, 10, 20, 30, 60, "all"]
 }

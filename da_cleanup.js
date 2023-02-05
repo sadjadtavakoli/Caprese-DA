@@ -7,7 +7,6 @@ function cleanup() {
         fs.mkdirSync(constants.DATA_PATH);
     }
     console.log(" = = = = cleanup = = = = = ")
-    clearFile(constants.DA_CALL_SEQUENCE_PATH)
     clearFile(constants.Berke_RESULT_PATH)
     clearFile(constants.DA_DEPENDENCIES_PATH)
 

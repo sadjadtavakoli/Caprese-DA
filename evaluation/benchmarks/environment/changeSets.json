@@ -1,0 +1,88 @@
+{
+    "73637a66bae8f9be31438d974170fc5b0e5c0ab7": {
+        "changes": [
+            "arrowAnonymousFunction-lib/environment.js-46-46",
+            "constructor-lib/environment.js-292-356",
+            "environment.js-lib/environment.js-1-1350",
+            "instantiate-lib/environment.js-789-823",
+            "run-lib/environment.js-977-1011",
+            "splitArgsFromString-lib/environment.js-41-55"
+        ]
+    },
+    "8058ef129d0e96e29526acf49ceb9f7a2f0b1697": {
+        "changes": [
+            "environment.js-lib/environment.js-1-1350",
+            "register-lib/environment.js-460-486",
+            "resolveModulePath-lib/environment.js-1177-1198",
+            "set-lib/env.js-229-236"
+        ]
+    },
+    "322d7c88d701cc2f2ca555f348fdf55421a7109a": {
+        "changes": [
+            ".github/workflows/ci.yml",
+            ".github/workflows/integration.yml"
+        ]
+    },
+    "18e5323610348ede5b8ffbbb8fd7bca65a487f4e": {
+        "changes": [
+            "_colorLines-lib/adapter.js-36-38",
+            "adapter.js-lib/adapter.js-1-105",
+            "arrowAnonymousFunction-lib/adapter.js-37-37",
+            "arrowAnonymousFunction-lib/adapter.js-78-88",
+            "createEnv-lib/environment.js-183-189",
+            "diff-lib/adapter.js-73-101",
+            "environment.js-lib/environment.js-1-1350"
+        ]
+    },
+    "ed210a2cfc70d6507652773e320c53efeef38627": {
+        "changes": [
+            "_getGlobalNpmPaths-lib/resolver.js-309-367",
+            "arrowAnonymousFunction-lib/resolver.js-77-91",
+            "findGeneratorsIn-lib/resolver.js-169-178",
+            "findPackagesIn-lib/resolver.js-162-198",
+            "getNpmPaths-lib/resolver.js-240-250",
+            "lookup-lib/resolver.js-55-94",
+            "resolver.js-lib/resolver.js-1-417",
+            "sync-lib/resolver.js-112-147"
+        ]
+    },
+    "52151132d0cfd05fd48adfa321d4dc1c64592155": {
+        "changes": [
+            "arrowAnonymousFunction-lib/adapter.js-78-88",
+            "diff-lib/adapter.js-73-101"
+        ]
+    },
+    "72330da5f0c53f2490b5aea31c945a94c14c0c65": {
+        "changes": [
+            "arrowAnonymousFunction-lib/environment.js-234-234",
+            "arrowAnonymousFunction-lib/resolver.js-69-69",
+            "lookup-lib/resolver.js-55-94"
+        ]
+    },
+    "14d0580808be1e231f6087c8c629dbed14884326": {
+        "changes": [
+            "Environment-lib/environment.js-77-1335",
+            "arrowAnonymousFunction-lib/util/repository.js-175-175",
+            "arrowAnonymousFunction-lib/util/repository.js-89-89",
+            "arrowAnonymousFunction-lib/util/repository.js-90-90",
+            "createEnvWithVersion-lib/environment.js-199-207",
+            "environment.js-lib/environment.js-1-1350",
+            "repository.js-lib/util/repository.js-1-231"
+        ]
+    },
+    "462deee8402fd63b54ccfbfbc308a37c031b3389": {
+        "changes": [
+            "arrowAnonymousFunction-lib/environment.js-1271-1278",
+            "arrowAnonymousFunction-lib/util/transform.js-222-222",
+            "commitSharedFs-lib/environment.js-1246-1280",
+            "createCommitTransform-lib/util/transform.js-221-223",
+            "environment.js-lib/environment.js-1-1350"
+        ]
+    },
+    "4f6206cb1f9953fbf4b7d6254c7c5560e32e01e5": {
+        "changes": [
+            "arrowAnonymousFunction-lib/environment.js-1018-1072",
+            "arrowAnonymousFunction-lib/environment.js-1045-1047"
+        ]
+    }
+}

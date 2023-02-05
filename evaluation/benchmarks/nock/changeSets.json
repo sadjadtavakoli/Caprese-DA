@@ -1,0 +1,87 @@
+{
+    "35fdba5d1415a126f9065ced7fb64bdad3ad31bb": {
+        "changes": [
+            "common.js-lib/common.js-1-698",
+            "headersFieldNamesToLowerCase-lib/common.js-198-221"
+        ]
+    },
+    "ac6ebbb1b7fac06fd160055505c1e784cdd5917b": {
+        "changes": [
+            "arrowAnonymousFunction-lib/common.js-598-598",
+            "dataEqual-lib/common.js-561-569",
+            "deepEqual-lib/common.js-587-610"
+        ]
+    },
+    "1cb4880730621eabc918dbc0dac8713de894290a": {
+        "changes": [
+            "assertScopesFinished-lib/back.js-262-262",
+            "back.js-lib/back.js-1-337",
+            "finish-lib/back.js-203-216",
+            "removeFixture-lib/back.js-259-271",
+            "setup-lib/back.js-220-226",
+            "start-lib/back.js-187-201"
+        ]
+    },
+    "2d6470aa52695e585ec2ff2e5ff3684ca569a4d7": {
+        "changes": [
+            "intercept.js-lib/intercept.js-1-452",
+            "removeAll-lib/intercept.js-129-136",
+            "scope.js-lib/scope.js-1-374"
+        ]
+    },
+    "c0d01e154359a7d7405704e3bc8da8b5535f4510": {
+        "changes": [
+            "activate-lib/intercept.js-364-434",
+            "arrowAnonymousFunction-lib/intercept.js-373-433",
+            "intercept.js-lib/intercept.js-1-452",
+            "match-lib/interceptor.js-244-378",
+            "start-lib/playback_interceptor.js-126-229"
+        ]
+    },
+    "f28dc3c973651830b930793932b4006577260dc1": {
+        "changes": [
+            "delayBody-lib/interceptor.js-616-619",
+            "intercepted_request_router.js-lib/intercepted_request_router.js-1-356",
+            "scope.js-lib/scope.js-1-374",
+            "start-lib/playback_interceptor.js-126-229"
+        ]
+    },
+    "8f94916fcf5e485cc22f2946bf02aa5b19e6c469": {
+        "changes": [
+            "common.js-lib/common.js-1-698",
+            "getBodyFromChunks-lib/recorder.js-23-59",
+            "start-lib/playback_interceptor.js-126-229"
+        ]
+    },
+    "b5d634ce29d048bd36ae19c22f71bd778a20f344": {
+        "changes": [
+            "back.js-lib/back.js-1-337",
+            "fixtureExists-lib/back.js-285-291",
+            "start-lib/back.js-141-158"
+        ]
+    },
+    "c1f70829688d59ff1adf976164ba2d7ac2aded1d": {
+        "changes": [
+            "arrowAnonymousFunction-lib/common.js-580-580",
+            "arrowAnonymousFunction-lib/common.js-606-606",
+            "common.js-lib/common.js-1-698",
+            "dataEqual-lib/common.js-561-569",
+            "deepEqual-lib/common.js-587-610",
+            "expand-lib/common.js-579-580",
+            "exports-lib/match_body.js-8-63",
+            "interceptor.js-lib/interceptor.js-1-632",
+            "match-lib/interceptor.js-244-378",
+            "matchOrigin-lib/interceptor.js-384-417",
+            "matchQuery-lib/interceptor.js-429-443",
+            "matchStringOrRegexp-lib/common.js-422-432",
+            "match_body.js-lib/match_body.js-1-78",
+            "query-lib/interceptor.js-492-529"
+        ]
+    },
+    "fcdbd70e3037c09c6ddfd07ad7d2ecd14ea1f9f4": {
+        "changes": [
+            "arrowAnonymousFunction-lib/recorder.js-230-323",
+            "generateRequestAndResponse-lib/recorder.js-91-159"
+        ]
+    }
+}

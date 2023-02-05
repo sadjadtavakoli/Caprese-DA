@@ -150,18 +150,6 @@
         "excluded_dirs": ["fixtures"],
         "fp_excluded_dirs": []
     },
-    "git@github.com:apostrophecms/apostrophe.git": {
-        "Commits": 9631,
-        "LOC": 65279,
-        "Language": "javaScript,Vue,HTML",
-        "branch": "main",
-        "test": "test",
-        "installer": "npm",
-        "comment": "mongodb is required",
-        "seed_commit": "44d0d541e2fc3778625f34ea077e1be2c6571bc0",
-        "excluded_dirs": ["node_modules", "apos-build"],
-        "fp_excluded_dirs": []
-    },
     "git@github.com:MikeMcl/bignumber.js.git": {
         "install": "npm install",
         "commit": "246",
