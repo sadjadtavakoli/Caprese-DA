@@ -22,8 +22,8 @@ function readChangeSets() {
             changedEntity = cells[0]
             impactSetList[changedEntity] = []
         }
-        let impact1 = cells.splice(1, 3)
-        let impact2 = cells.splice(1, 3)
+        let impact1 = cells.splice(1, 4)
+        let impact2 = cells.splice(1, 4)
         addImpacted(impact1, changedEntity)
         addImpacted(impact2, changedEntity)
     }
@@ -33,11 +33,16 @@ function readChangeSets() {
 
     function addImpacted(impactedEntity, changedEntity) {
         if (impactedEntity[1] != "") {
+            impactedEntity[3] = parseInt(impactedEntity[3])                
             impactedEntity[2] = parseInt(impactedEntity[2])
-            if (impactedEntity[0] == "0") {
+            if(impactedEntity[0] == ""){
+                console.log(impactedEntity[1])
+            }
+            if (impactedEntity[0] == "0" || impactedEntity[0] == "") {
                 impactedEntity[0] = "arrowAnonymousFunction"
             } else if (impactedEntity[0] == "1") {
                 impactedEntity[0] = impactedEntity[1]
+                impactedEntity[2] = 1
             }
 
             impactSetList[changedEntity].push(impactedEntity)

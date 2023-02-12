@@ -19,6 +19,9 @@ const CHANGE_SET_PATH = `${PROJECT_DIR}${path.sep}changeSets.json`
 const ACTUAL_IMPACT_SET_PATH = `${PROJECT_DIR}${path.sep}actualImpactSets.json`
 const ALL_IMPACTED_ENTITIES_CSV = `${PROJECT_DIR}${path.sep}allImpactedEntities.csv`
 const DETECTED_IMPACT_SETS_PATH = `${PROJECT_DIR}${path.sep}detectedImpactSets.json`
+const TARMAQ_RESULT_PATH = `${PROJECT_DIR}${path.sep}tarmaq.json.json`
+const TARMAQ_PATH = path.dirname(path.dirname(__dirname)) + path.sep + "TARMAQ";
+const TARMAQ_COMMAND = "cd " + TARMAQ_PATH + " ; mvn exec:java -Dexec.mainClass='TARMAQ.MainTARMAQ' -Dexec.args=";
 
 function getActualImpactSetPath(benchmark) {
     if (benchmark != undefined) {
@@ -53,5 +56,6 @@ const APPROACHES = {
 
 module.exports = {
     benchmarkList, NUMBER_OF_COMMITS_PER_PROJECT, CHANGE_SET_PATH, STATUS, ALL_IMPACTED_ENTITIES_CSV,
-    APPROACHES, EXECUTION_TIMES_PATH, getActualImpactSetPath, getDetectedImpactSetPath
+    APPROACHES, EXECUTION_TIMES_PATH, getActualImpactSetPath, getDetectedImpactSetPath, TARMAQ_PATH, 
+    TARMAQ_RESULT_PATH, TARMAQ_COMMAND
 }

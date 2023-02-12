@@ -1,0 +1,27 @@
+{
+    "9020fea5326879b089b6fd4ffb4f8640b020d14c": {
+        "changes": [
+            "arrowAnonymousFunction-index.js-179-508"
+        ],
+        "impacted": [
+            [
+                "secondFile.js",
+                "secondFile.js",
+                1,
+                null
+            ],
+            [
+                "issecure",
+                "random.js",
+                623,
+                634
+            ],
+            [
+                "README.md",
+                "README.md",
+                1,
+                null
+            ]
+        ]
+    }
+}

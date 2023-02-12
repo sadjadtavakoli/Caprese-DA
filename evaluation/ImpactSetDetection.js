@@ -4,11 +4,9 @@ const path = require('path')
 const { exec } = require('child_process');
 const { evaluationAnalyzer } = require('../berke');
 const { anonymouseName } = require('../computeBerkeResult');
-const { CHANGE_SET_PATH, STATUS, DETECTED_IMPACT_SETS_PATH, APPROACHES } = require('./evaluationConstants')
+const { CHANGE_SET_PATH, STATUS, getDetectedImpactSetPath, APPROACHES, TARMAQ_RESULT_PATH, TARMAQ_COMMAND } = require('./evaluationConstants')
 
-const TARMAQ_PATH = path.dirname(path.dirname(__dirname)) + path.sep + "TARMAQ";
-const TARMAQ_COMMAND = "cd " + TARMAQ_PATH + " ; mvn exec:java -Dexec.mainClass='TARMAQ.MainTARMAQ' -Dexec.args=";
-const TARMAQ_RESULT_PATH = `${RESULT_DIR_PATH}${path.sep}tarmaq.json`
+const DETECTED_IMPACT_SETS_PATH = getDetectedImpactSetPath()
 
 if (process.argv[1].endsWith(path.basename(__filename))) {
 
@@ -36,7 +34,7 @@ function readChangeSets() {
         let commitsInfo = JSON.parse(fs.readFileSync(CHANGE_SET_PATH));
 
         let detailedSequences = fs.readFileSync(constants.SEQUENCES_PATH + "details.txt").toString().trim().split("\n");
-        
+
         for (let i = 0; i < detailedSequences.length; i += 1) {
             let sequence = detailedSequences[i]
             let commit = sequence.split(" : ")[0]
@@ -46,9 +44,9 @@ function readChangeSets() {
                 i -= 1
             }
         }
-        
+
         let impactSetEmpty = new Map()
-        for(let commit in commitsInfo){
+        for (let commit in commitsInfo) {
             let emptyBody = new Map()
             emptyBody.set(APPROACHES.caprese, [])
             emptyBody.set(APPROACHES.tarmaq, [])
@@ -74,32 +72,24 @@ function collectResult(commit) {
 
         let impactSet = JSON.parse(fs.readFileSync(DETECTED_IMPACT_SETS_PATH));
 
-        let {capreseResult, tarmaqResult} = getBothApproachsResult()
+        let { capreseResult, tarmaqResult } = getBothApproachsResult()
 
         impactSet[commit][APPROACHES.caprese] = capreseResult
         impactSet[commit][APPROACHES.tarmaq] = tarmaqResult
 
-        fs.writeFileSync(CHANGE_SET_PATH, JSON.stringify(commitsInfo));
+        fs.writeFileSync(DETECTED_IMPACT_SETS_PATH, JSON.stringify(impactSet));
         resolve();
     })
 }
 
-function getBothApproachsResult(){
+function getBothApproachsResult() {
 
     let tarmaqResult = getTarmaqResult();
     let capreseResult = getBerkeResult();
 
     tarmaqAndBerkeConsequentStatusUpdate(capreseResult, tarmaqResult);
 
-    let functionsObjectList = {};
-    functionsObjectList = findFunctionsRelations(capreseResult, commitsInfo[commit]['commits'], functionsObjectList)
-    functionsObjectList = findFunctionsRelations(tarmaqResult, commitsInfo[commit]['commits'], functionsObjectList)
-
-    capreseResult = replaceKeysWithObjects(capreseResult, functionsObjectList)
-    tarmaqResult = replaceKeysWithObjects(tarmaqResult, functionsObjectList)
-
-    return {capreseResult, tarmaqResult}
-
+    return { capreseResult, tarmaqResult }
 }
 
 function getTarmaqResult() {
@@ -152,115 +142,6 @@ function runTARMAQ(changeSet) {
             }
         })
     })
-}
-
-function findFunctionsRelations(impactSet, changes, functionsObjectList) {
-    let impactSetKeys = impactSet.map(item => item['consequent'])
-    for (let i = 0; i < impactSetKeys.length; i += 1) {
-        let itemi = impactSetKeys[i]
-        for (let j = i + 1; j < impactSetKeys.length; j += 1) {
-            let itemj = impactSetKeys[j]
-            functionsObjectList = setRelations(itemi, itemj, functionsObjectList)
-        }
-
-        for (let itemj of changes) {
-            functionsObjectList = setRelations(itemi, itemj, functionsObjectList)
-        }
-    }
-
-    for (let i = 0; i < changes.length; i++) {
-        let itemi = changes[i]
-        for (let j = i + 1; j < changes.length; j++) {
-            functionsObjectList = setRelations(itemi, changes[j], functionsObjectList)
-        }
-    }
-    return functionsObjectList
-}
-
-function setRelations(item1, item2, functionsObjectList) {
-    let item1_brokenName = item1.split('-')
-    let item2_brokenName = item2.split('-')
-    let item1_length = item1_brokenName.length
-    let item2_length = item2_brokenName.length
-    if (item1_brokenName[1] == item2_brokenName[1]) {
-        let item1_beginning = parseInt(item1_brokenName[item1_length - 2])
-        let item1_end = parseInt(item1_brokenName[item1_length - 1])
-
-        let item2_beginning = parseInt(item2_brokenName[item2_length - 2])
-        let item2_end = parseInt(item2_brokenName[item2_length - 1])
-
-        if (item1_beginning <= item2_beginning && item1_end >= item2_end) {
-            let item1_object = getOrCreateFunctionObject(item1, functionsObjectList)
-            let item2_object = getOrCreateFunctionObject(item2, functionsObjectList)
-            item2_object['parents'].push(item1_object['id'])
-            functionsObjectList[item2] = item2_object
-
-        } else if (item2_beginning <= item1_beginning && item2_end >= item1_end) {
-            let item1_object = getOrCreateFunctionObject(item1, functionsObjectList)
-            let item2_object = getOrCreateFunctionObject(item2, functionsObjectList)
-            item1_object['parents'].push(item2_object['id'])
-            functionsObjectList[item1] = item1_object
-        }
-    }
-    return functionsObjectList
-}
-
-function getOrCreateFunctionObject(f, functionsObjectList) {
-    if (functionsObjectList[f]) {
-        return functionsObjectList[f]
-    }
-
-    let object = { "id": Object.keys(functionsObjectList).length, "parents": [] }
-    functionsObjectList[f] = object
-    return object
-}
-
-function replaceKeysWithObjects(impactSetList, functionsObjectList) {
-    for (let item of impactSetList) {
-        item['consequent'] = getObjectifiedKey(item['consequent'], functionsObjectList)
-
-        let FPAntecedents = item['FP-antecedents']
-        if (FPAntecedents != undefined) {
-            let objectifiedAntecedents = []
-            for (let antecedent of FPAntecedents) {
-                objectifiedAntecedents.push(getObjectifiedList(antecedent, functionsObjectList))
-            }
-            item['FP-antecedents'] = objectifiedAntecedents
-        }
-
-        let DAAntecedents = item['DA-antecedents']
-        if (DAAntecedents != undefined) {
-            item['DA-antecedents'] = getObjectifiedList(DAAntecedents, functionsObjectList);
-        }
-    }
-    return impactSetList
-}
-
-function getObjectifiedList(list, functionsObjectList) {
-    let objectifiedList = [];
-    for (let sub of list) {
-        objectifiedList.push(getObjectifiedKey(sub, functionsObjectList));
-    }
-    return objectifiedList;
-}
-
-function getObjectifiedKey(sub, functionsObjectList) {
-    let subObject = functionsObjectList[sub];
-    let newSub = sub;
-    if (subObject != undefined) {
-        newSub += stringifyFunctionObject(subObject);
-    }
-    return newSub;
-}
-
-function stringifyFunctionObject(object) {
-    function removeDuplicates(arr) {
-        return arr.filter((item,
-            index) => arr.indexOf(item) === index);
-    }
-
-    object['parents'] = removeDuplicates(object['parents'])
-    return ` | {"id":${object['id']} - "parents":[${object['parents'].join("-")}]}`
 }
 
 module.exports = { runTARMAQ, getBerkeResult, tarmaqAndBerkeConsequentStatusUpdate, getTarmaqResult }

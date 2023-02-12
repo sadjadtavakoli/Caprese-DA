@@ -23,7 +23,7 @@ function readChangeSets() {
 
 function getCSVTemplate(allChangedEntities) {
     let body = `,repo:,${REPO_URL},,branch:,${REPO_MAIN_BRANCH}\n,,,,commit:,${SEED_COMMIT}\n
-    ,impacted entities,,,,\nchanges,entity_name,file_name,entity_first_line_number,,\n`
+    ,impacted entities,,,,\nchanges,entity_name,file_name,entity_first_line_number,entity_last_line_number,entity_name,file_name,entity_first_line_number,entity_last_line_number,\n`
 
     for (let change of allChangedEntities) {
         body += `${change},,,,,\n`
