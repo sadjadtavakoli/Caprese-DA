@@ -18,7 +18,6 @@ public class MainTestAlgorithmRunner {
      */
     public static void main(String[] args) throws IOException {
         double minimumConfidence = 0.5;
-        double minimumConfidenceToStop = minimumConfidence;
         List<String> itemConstraint = Arrays.asList("f", "g");
         String[] sequences = {
             "f -1",       
@@ -45,6 +44,6 @@ public class MainTestAlgorithmRunner {
             //  checkUniqueness -1 checkEmailUniqueness emailValidator -1 #SUP: 2"
         // dadada.runFile(itemConstraint, support,
         // "contextPrefixSpan.txt", null);
-        MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidenceToStop, sequences, "outputOO_OO.txt");
+        MainAlgorithm.runList(itemConstraint, minimumConfidence, sequences, "outputOO_OO.txt");
     }
 }

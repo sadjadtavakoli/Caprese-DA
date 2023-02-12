@@ -31,7 +31,7 @@ public class FPDTest {
                 };
 
 
-                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, sequences, null);
                 
                 Map<String, Object[]> expectedValues = new HashMap<>();
                 Object[] values = {0.6666666666666666, 2, "[[\"f\"]]"};
@@ -62,7 +62,7 @@ public class FPDTest {
                                 "e f g -1",
                 };
 
-                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, sequences, null);
                 
                 Map<String, Object[]> expectedValues = new HashMap<>();
                 Object[] values = {0.6666666666666666, 2, "[[\"f\"]]"};
@@ -91,7 +91,7 @@ public class FPDTest {
                                 "a b g -1",
                                 "e f g -1" };
 
-                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, sequences, null);
                 
                 Map<String, Object[]> expectedValues = new HashMap<>();
                 Object[] values = {1.0, 1, "[[\"f\"]]"};
@@ -121,7 +121,7 @@ public class FPDTest {
                                 "e f g -1" };
 
                 int expectedSize = 0;
-                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, sequences, null);
 
                 assertEquals(expectedSize, result.size());
         }
@@ -138,7 +138,7 @@ public class FPDTest {
 
                 Integer expectedSize = 0;
 
-                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, sequences, null);
                 System.out.println(result);
                 assertEquals(expectedSize, result.size());
         }
@@ -155,7 +155,7 @@ public class FPDTest {
 
                 Integer expectedSize = 0;
 
-                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, sequences, null);
 
                 assertEquals(expectedSize, result.size());
         }
@@ -180,7 +180,7 @@ public class FPDTest {
                                 "g -1"
                 };
 
-                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, sequences, null);
 
                 Map<String, Object[]> expectedValues = new HashMap<>();
                 Object[] values = {1.0, 3, "[[\"f\", \"g\"]]"};
@@ -219,7 +219,7 @@ public class FPDTest {
                                 "g -1"
                 };
 
-                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, sequences, null);
 
                 Map<String, Object[]> expectedValues = new HashMap<>();
                 Object[] values = {1.0, 3, "[[\"f\", \"g\"]]"};
@@ -258,7 +258,7 @@ public class FPDTest {
                                 "g -1"
                 };
 
-                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, sequences, null);
 
                 Map<String, Object[]> expectedValues = new HashMap<>();
                 Object[] values = {1.0, 3, "[[\"f\", \"g\"]]"};
@@ -300,7 +300,7 @@ public class FPDTest {
                                 "g -1",
                 };
 
-                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, sequences, null);
 
                 Map<String, Object[]> expectedValues = new HashMap<>();
                 Object[] values = {0.5, 7, "[[\"f\"]]"};
@@ -341,7 +341,7 @@ public class FPDTest {
                                 "g -1",
                 };
 
-                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, sequences, null);
 
                 Map<String, Object[]> expectedValues = new HashMap<>();
                 Object[] values = {0.5, 7, "[[\"f\"]]"};
@@ -382,7 +382,7 @@ public class FPDTest {
                                 "g -1",
                 };
 
-                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, sequences, null);
 
                 Map<String, Object[]> expectedValues = new HashMap<>();
                 Object[] values = {0.5, 7, "[[\"f\"]]"};
@@ -417,7 +417,7 @@ public class FPDTest {
                 };
 
 
-                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, sequences, null);
 
                 Map<String, Object[]> expectedValues = new HashMap<>();
                 Object[] values1 = {1.0, 4, "[[\"f\"]]"};
@@ -446,7 +446,7 @@ public class FPDTest {
                 String[] sequences = { "a b c f g -1", "a b c f g -1",
                                 "a b c f g -1", "a b c f g -1" };
 
-                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, sequences, null);
 
                 Map<String, Object[]> expectedValues = new HashMap<>();
                 Object[] values = {1.0, 4, "[[\"f\"]]"};
@@ -475,7 +475,7 @@ public class FPDTest {
                 String[] sequences = { "a b g c f -1", "a b c f g -1",
                                 "a b c g f -1" };
 
-                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, minimumConfidence, sequences, null);
+                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, sequences, null);
 
                 Map<String, Object[]> expectedValues = new HashMap<>();
                 Object[] values = {1.0, 3, "[[\"f\"]]"};

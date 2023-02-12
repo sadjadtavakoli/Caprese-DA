@@ -20,9 +20,10 @@ import patterndetection.tries.Trie;
 import patterndetection.tries.TrieNode;
 
 /**
- * This is an implementation of the main method of Caprese's pattern detection algorithm. 
- * This implementation is based on SPMF. 
-
+ * This is an implementation of the main method of Caprese's pattern detection
+ * algorithm.
+ * This implementation is based on SPMF.
+ * 
  * SPMF is free software: you can redistribute it and/or modify it under the
  * terms of the GNU General Public License as published by the Free Software
  * Foundation, either version 3 of the License, or (at your option) any later
@@ -50,12 +51,6 @@ public class FrequentPatternEnumeration {
     private double minimumConfidence;
 
     /**
-     * The absolute minimum confidence threshold, i.e. the minimum number of
-     * sequences
-     * where the patterns have to be, to be considered as detected
-     */
-    private double enoughConfidence;
-    /**
      * Map in which we store the different patterns in order to know which ones can
      * be skipped because can be summarized by other ones (the closed patterns)
      */
@@ -75,10 +70,9 @@ public class FrequentPatternEnumeration {
      *                           finding the closed sequences
      */
     public FrequentPatternEnumeration(AbstractionCreator abstractionCreator, double minimumConfidence,
-            double enoughConfidence, Map<String, TrieNode> itemConstraints, Map<String, Set<String>> coocMap) {
+            Map<String, TrieNode> itemConstraints, Map<String, Set<String>> coocMap) {
         this.abstractionCreator = abstractionCreator;
         this.minimumConfidence = minimumConfidence;
-        this.enoughConfidence = enoughConfidence;
         this.matchingMap = new HashMap<>();
         this.detectedFunctions = new HashMap<>();
         this.itemConstraints = itemConstraints;
@@ -119,11 +113,11 @@ public class FrequentPatternEnumeration {
 
             /*
              * If node is already detected with a confidence greather than the given
-             * enoughConfidence,
+             * minimumConfidence,
              * the algorithm skips it and continues the iteration with the next node.
              */
             if (detectedFunctions.getOrDefault(eqID, ImpactInformation.nullObject())
-                    .getConfidence() >= enoughConfidence) {
+                    .getConfidence() >= minimumConfidence) {
                 continue;
             }
 
@@ -224,7 +218,7 @@ public class FrequentPatternEnumeration {
                 Set<String> map = this.coocMap.get(lastAppendedID);
                 if (map != null && !map.contains(extensionNodeID) || (!extensionNodeInItemConstraints
                         && detectedFunctions.getOrDefault(extensionNodeID, ImpactInformation.nullObject())
-                                .getConfidence() >= enoughConfidence)) {
+                                .getConfidence() >= minimumConfidence)) {
                     continue;
                 }
             }
@@ -329,12 +323,12 @@ public class FrequentPatternEnumeration {
              * First, if its in item constraints.
              * Second, if there is at leat one changeSet function in the given extension
              * nodes, and the new pattern's
-             * confidence is less the enoughConfidence.
+             * confidence is less the minimumConfidence.
              */
             if (extensionNodeInItemConstraints) {
                 newExtensions.add(newTrieNode);
                 newExtensionIntersection.add(newExtensions.size() - 1);
-            } else if (!notAnyItemConstraintsToExend && newPatternScore < enoughConfidence) {
+            } else if (!notAnyItemConstraintsToExend && newPatternScore < minimumConfidence) {
                 newExtensions.add(newTrieNode);
                 newExtensionRegularFunctions.add(newExtensions.size() - 1);
             }
@@ -343,7 +337,7 @@ public class FrequentPatternEnumeration {
              * remain to detect,
              * the algorithm ceases the iteration and goes to the next step.
              */
-            if (k >= lastExtensionRegularFunction && newPatternScore >= enoughConfidence) {
+            if (k >= lastExtensionRegularFunction && newPatternScore >= minimumConfidence) {
                 break;
             }
         }
@@ -371,7 +365,7 @@ public class FrequentPatternEnumeration {
             if (itemConstraints.containsKey(nodeToExtend.getPair().getItem().getId())) {
                 newPatternIntersection = new ArrayList<>(patternIntersection);
                 newPatternIntersection.add(itemConstraints.get(nodeToExtend.getPair().getItem().getId()));
-            } else if (nodeToExtend.getConfidence() < enoughConfidence) {
+            } else if (nodeToExtend.getConfidence() < minimumConfidence) {
                 newPatternsRegularFunctions = new ArrayList<>(patternRegularFunctions);
                 newPatternsRegularFunctions.add((String) nodeToExtend.getPair().getItem().getId());
             }
@@ -417,7 +411,7 @@ public class FrequentPatternEnumeration {
             int nodeIndex = extensionsRegularFunctions.get(i);
             if (nodeIndex >= beginning && detectedFunctions
                     .getOrDefault(extensions.get(nodeIndex).getPair().getItem().getId(), ImpactInformation.nullObject())
-                    .getConfidence() < enoughConfidence) {
+                    .getConfidence() < minimumConfidence) {
                 return true;
             }
         }
@@ -431,7 +425,7 @@ public class FrequentPatternEnumeration {
         for (int i = 0; i < patternRegularFunctions.size(); i++) {
             String nodeID = patternRegularFunctions.get(i);
             if (detectedFunctions.getOrDefault(nodeID, ImpactInformation.nullObject())
-                    .getConfidence() >= enoughConfidence) {
+                    .getConfidence() >= minimumConfidence) {
                 patternRegularFunctions.remove(i);
                 i--;
             }

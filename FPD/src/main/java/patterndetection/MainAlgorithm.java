@@ -23,7 +23,6 @@ import patterndetection.idlists.creators.IdListCreatorStandard_Map;
 import patterndetection.tries.Trie;
 import patterndetection.tries.TrieNode;
 
-
 public class MainAlgorithm {
 
     /**
@@ -31,7 +30,6 @@ public class MainAlgorithm {
      */
     public static void main(String[] args) throws IOException {
         double minumumConfidence = 0.4;
-        double enoughConfidence = minumumConfidence;
         String filePath = args[0];
         String distFilePath = args[1];
         List<String> itemConstraint = Arrays.asList(args[2].split(","));
@@ -39,7 +37,7 @@ public class MainAlgorithm {
             itemConstraint = new ArrayList<>();
         }
 
-        runFile(itemConstraint, minumumConfidence, enoughConfidence, filePath, distFilePath);
+        runFile(itemConstraint, minumumConfidence, filePath, distFilePath);
     }
 
     /**
@@ -55,7 +53,7 @@ public class MainAlgorithm {
      *                             stored
      */
     public static Map<String, ImpactInformation> runFile(List<String> itemConstraint, double minimumConfidence,
-            double enoughConfidence, String filePath, String outputPath)
+            String filePath, String outputPath)
             throws IOException {
 
         AbstractionCreator abstractionCreator = AbstractionCreator_Qualitative.getInstance();
@@ -64,8 +62,7 @@ public class MainAlgorithm {
         SequenceDatabase sequenceDatabase = new SequenceDatabase(abstractionCreator, idListCreator, itemConstraint,
                 filePath);
 
-        Map<String, ImpactInformation> result = runAlgorithm(abstractionCreator, minimumConfidence, enoughConfidence,
-                sequenceDatabase);
+        Map<String, ImpactInformation> result = runAlgorithm(abstractionCreator, minimumConfidence, sequenceDatabase);
 
         if (outputPath == null || outputPath.equals("-")) {
             // The user wants to save the results in memory
@@ -99,7 +96,7 @@ public class MainAlgorithm {
     }
 
     public static Map<String, ImpactInformation> runList(List<String> itemConstraint, double minumumConfidence,
-            double enoughConfidence, String[] sequences,
+            String[] sequences,
             String outputPath) throws IOException {
 
         String filePath = "input.txt";
@@ -113,22 +110,20 @@ public class MainAlgorithm {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return runFile(itemConstraint, minumumConfidence, enoughConfidence, filePath, outputPath);
+        return runFile(itemConstraint, minumumConfidence, filePath, outputPath);
     }
 
     /**
      * @param abstractionCreator the abstraction creator
      * @param minimumConfidence  minimum confidence
-     * @param enoughConfidence   enough confidence
      * @param database           Original database in where we want to search
      *                           for the frequent patterns.
      */
     private static Map<String, ImpactInformation> runAlgorithm(AbstractionCreator abstractionCreator,
-            double minimumConfidence,
-            double enoughConfidence, SequenceDatabase database) throws IOException {
+            double minimumConfidence, SequenceDatabase database) throws IOException {
         /**
          * Trie root that starts with the empty pattern and from which we will be able
-         * to access to all the generated frequent patterns 
+         * to access to all the generated frequent patterns
          * We get the initial trie whose children are the frequent 1-patterns
          */
         Trie frequentAtomsTrie = database.frequentItems();
@@ -141,7 +136,7 @@ public class MainAlgorithm {
 
         // Inizialitation of the class that is in charge of find the frequent patterns
         FrequentPatternEnumeration frequentPatternEnumeration = new FrequentPatternEnumeration(
-                abstractionCreator, minimumConfidence, enoughConfidence, itemConstraints, coocMap);
+                abstractionCreator, minimumConfidence, itemConstraints, coocMap);
 
         // We dfsPruning the search
         return frequentPatternEnumeration.dfsPruning(frequentAtomsTrie);
