@@ -7,6 +7,10 @@
                 "status": "TARMAQ Unique"
             },
             {
+                "consequent": "README2.md",
+                "status": "TARMAQ Unique"
+            },
+            {
                 "consequent": "issecure-random.js-623-634",
                 "status": "TARMAQ Unique"
             },
@@ -36,6 +40,10 @@
             },
             {
                 "consequent": "parentOfChangeSet-index.js-100-800",
+                "status": "TARMAQ Unique"
+            },
+            {
+                "consequent": "aNewEntity-index.js-250-259",
                 "status": "TARMAQ Unique"
             }
         ]

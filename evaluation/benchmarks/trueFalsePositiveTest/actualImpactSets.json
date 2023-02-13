@@ -21,6 +21,12 @@
                 "README.md",
                 1,
                 null
+            ],
+            [
+                "aNewEntity",
+                "index.js",
+                250,
+                259
             ]
         ]
     }

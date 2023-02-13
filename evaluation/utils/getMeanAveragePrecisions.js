@@ -8,19 +8,16 @@ const { benchmarkList, getActualImpactSetPath, getDetectedImpactSetPath } = requ
 let result = {}
 let thresholds = [3, 5, 10, 20, 30, 60, "all"]
 let latexRows = {}
+
 benchmarkList.forEach(filename => {
     let actualImpactSets = JSON.parse(fs.readFileSync(getActualImpactSetPath(filename)));
-    let detectedImpactSets = JSON.parse(fs.readFileSync(getDetectedImpactSetPath(filename)));
-
     let benchResult = { "da": {}, "fp": {}, "caprese": {}, "tarmaq": {} }
 
-    insertTruePositives(actualImpactSets, detectedImpactSets)
-
     for (let threshold of thresholds) {
-        benchResult["da"][threshold] = getMeanPrecision(detectedImpactSets, actualImpactSets, "da", threshold, getUnitsResult)
-        benchResult["fp"][threshold] = getMeanPrecision(detectedImpactSets, actualImpactSets, "fp", threshold, getUnitsResult)
-        benchResult["tarmaq"][threshold] = getMeanPrecision(detectedImpactSets, actualImpactSets, "tarmaq", threshold, getApproachResult)
-        benchResult["caprese"][threshold] = getMeanPrecision(detectedImpactSets, actualImpactSets, "caprese", threshold, getApproachResult)
+        benchResult["da"][threshold] = getMeanPrecision(filename, actualImpactSets, "da", threshold, getUnitsResult)
+        benchResult["fp"][threshold] = getMeanPrecision(filename, actualImpactSets, "fp", threshold, getUnitsResult)
+        benchResult["tarmaq"][threshold] = getMeanPrecision(filename, actualImpactSets, "tarmaq", threshold, getApproachResult)
+        benchResult["caprese"][threshold] = getMeanPrecision(filename, actualImpactSets, "caprese", threshold, getApproachResult)
     }
     console.log(benchResult)
     result[filename] = benchResult
@@ -29,115 +26,38 @@ benchmarkList.forEach(filename => {
 
 // console.log(getFullTable(latexRows))
 
-function insertTruePositives(actualImpactSet, detectedImpactSet) {
-    // Not tested
-    for (let commit in detectedImpactSet) {
-        let groundTruth = actualImpactSet[commit]['impacted']
-        let changeSet = actualImpactSet[commit]['changes']
-        let detectedEntities = detectedImpactSet[commit]
-
-        for (let key in detectedEntities) {
-            let impactSet = detectedEntities[key]
-            for (let entityInfo of impactSet) {
-                let entity = entityInfo['consequent']
-                let entitySecs = entity.split("-")
-                // the actual impactSets
-
-                if (entitySecs.length == 1 || (entitySecs[0] == entitySecs[1] && entitySecs[2] == 1)) {
-                    matchFile(entity, groundTruth, entityInfo)
-
-                } else {
-                    matchNonFiles(entity, groundTruth, entityInfo)
-                }
-
-                // true positive if the reported entities in nested or wrapped by a change set entity
-                for (let change of changeSet) {
-                    if (areNested(entity, change)) {
-                        entityInfo['evaluation'] = "TP - NESTED/PARENT"
-                        // TODO for these entities we must add them to the actual impact set as well for the sake of recall computation
-                    }
-                }
-            }
-        }
-    }
-
-
-    function matchNonFiles(entity, groundTruth, entityInfo) {
-        let entitySecs = entity.split("-")
-        let enFilePath = entitySecs[1]
-        let enFirstLine = entitySecs[entitySecs.length - 2]
-        let enLastLine = entitySecs[entitySecs.length - 1]
-
-        let samefile = groundTruth.filter(item => item[1] == enFilePath)
-
-        if (samefile.length == 0 && groundTruth.some(item => enFilePath.includes(item[1]) || (item[1].includes(enFilePath)))) {
-            console.error("suspicious path!")
-        }
-
-        entityInfo['evaluation'] = "FP"
-
-        for (let groundTruthEntity of samefile) {
-            if (enFirstLine == groundTruthEntity[2] && enLastLine == groundTruthEntity[3]) {
-                // True posive if exact match
-                entityInfo['evaluation'] = "TP"
-                break
-            } else if (areNested(groundTruthEntity.join("-"), entity)) {
-                // true positive if the reported entities in nested or wraps by an actually impacted entity
-                entityInfo['evaluation'] = "TP - INDIRECT"
-
-                // TODO for these entities we must add them to the actual impact set as well for the sake of recall computation
-            }
-        }
-    }
-
-    function matchFile(entity, groundTruth, entityInfo) {
-        let entitySecs = entity.split("-")
-        let filePath = entitySecs[0]
-
-        entityInfo['evaluation'] = "FP"
-
-        let groundTruthFiles = groundTruth.filter(item => item[0] == item[1])
-
-        if (groundTruthFiles.length == 0 && groundTruth.some(item => item[1] == filePath)) {
-            // true positive if the reported entities wraps an actually impacted entity   
-            entityInfo['evaluation'] = "TP - indirect"
-
-            // TODO for these entities we must add them to the actual impact set as well for the sake of recall computation
-
-        }
-
-        for (let groundTruthEntity of groundTruthFiles) {
-            // match files
-            if (filePath == groundTruthEntity[1]) {
-                // True posive if exact match
-                entityInfo['evaluation'] = "TP"
-                break
-            } else if (filePath.includes(groundTruthEntity[1]) || (groundTruthEntity[1].includes(filePath))) {
-                entityInfo['evaluation'] = "FP - RMV"
-            }
-        }
-    }
-}
-
-function getMeanPrecision(detectedImpactSet, actualImpactSet, approach, threshold, getResult) {
+function getMeanPrecision(filename, actualImpactSet, approach, threshold, getResult) {
     // Not tested
     let precisions = []
     let recalls = []
 
+    let detectedImpactSet = JSON.parse(fs.readFileSync(getDetectedImpactSetPath(filename)));
+
     for (let commit in detectedImpactSet) {
-        let allPositives = actualImpactSet[commit]['impacted'].length
         let impactset = getResult(detectedImpactSet[commit], approach)
+
         let _threshold = threshold == "all" ? impactset.length : Math.min(threshold, impactset.length)
+
+        impactset = impactset.splice(0, _threshold)
+        let totalRecalled = insertTruePositives(actualImpactSet[commit], impactset)
+        let allPositives = actualImpactSet[commit]['impacted'].length
+        
+        console.log(_threshold)
+        console.log(totalRecalled)
+        console.log(actualImpactSet[commit]['impacted'])
+        console.log(" - - - - ")
         let truePositiveCounter = 0;
+
         for (let index = 0; index < _threshold; index += 1) {
             let consequentInfo = impactset[index]
             if (consequentInfo['evaluation'].toUpperCase().includes('TP')) {
                 truePositiveCounter += 1
             }
         }
+
         if (_threshold != 0) {
             let precision = truePositiveCounter / _threshold
-            let recall = truePositiveCounter / allPositives
+            let recall = totalRecalled.length / allPositives
             precisions.push(precision);
             recalls.push(recall);
         }
@@ -158,6 +78,119 @@ function getMeanPrecision(detectedImpactSet, actualImpactSet, approach, threshol
 
     return result
 
+}
+
+function insertTruePositives(actualImpactSet, detectedImpactSet) {
+    // Not tested
+
+    let groundTruth = actualImpactSet['impacted']
+    let changeSet = actualImpactSet['changes']
+    let actuallyRecalledEntities = []
+    for (let entityInfo of detectedImpactSet) {
+        let entity = entityInfo['consequent']
+        let entitySecs = entity.split("-")
+
+        // the actual impactSets
+        if (entitySecs.length == 1 || (entitySecs[0] == entitySecs[1] && entitySecs[2] == 1)) {
+            matchFile(entity, groundTruth, entityInfo, actuallyRecalledEntities)
+
+        } else {
+            matchNonFiles(entity, groundTruth, entityInfo, actuallyRecalledEntities)
+        }
+
+        // TODO I need to put some moth thoughts on this one!
+        // true positive if the reported entities in nested or wrapped by a change set entity
+        for (let change of changeSet) {
+            if (areNested(entity, change)) {
+                entityInfo['evaluation'] = "TP - NESTED/PARENT"
+                if (!includes(actuallyRecalledEntities, entitySecs)) {
+                    actuallyRecalledEntities.push(entitySecs)
+                }
+                if (!includes(groundTruth, entitySecs)) {
+                    groundTruth.push(entitySecs)
+                }
+            }
+        }
+    }
+    return actuallyRecalledEntities
+
+
+    function matchNonFiles(entity, groundTruth, entityInfo, actuallyRecalledEntities) {
+        let entitySecs = entity.split("-")
+        let enFilePath = entitySecs[1]
+        let enFirstLine = entitySecs[entitySecs.length - 2]
+        let enLastLine = entitySecs[entitySecs.length - 1]
+
+        let samefile = groundTruth.filter(item => item[1] == enFilePath)
+
+        if (samefile.length == 0 && groundTruth.some(item => enFilePath.includes(item[1]) || (item[1].includes(enFilePath)))) {
+            console.error("suspicious path!")
+        }
+
+        entityInfo['evaluation'] = "FP"
+
+        for (let groundTruthEntity of samefile) {
+            if (enFirstLine == groundTruthEntity[2] && enLastLine == groundTruthEntity[3]) {
+                // True posive if exact match
+                entityInfo['evaluation'] = "TP"
+                
+                if (!includes(actuallyRecalledEntities, groundTruthEntity)) {
+                    actuallyRecalledEntities.push(groundTruthEntity)
+                }
+
+                break
+            }
+        }
+        // !! not sure
+        if (entityInfo['evaluation'] != "TP") {
+            for (let groundTruthEntity of samefile) {
+                if (areNested(groundTruthEntity.join("-"), entity)) {
+                    // true positive if the reported entities in nested or wraps by an actually impacted entity
+                    // entityInfo['evaluation'] = "TP - INDIRECT"
+                    entityInfo['evaluation'] = "FP - INDIRECT"
+                    // if (!includes(actuallyRecalledEntities, groundTruthEntity)) {
+                    //     actuallyRecalledEntities.push(groundTruthEntity)
+                    // }
+                    break;
+                }
+            }
+        }
+    }
+
+    function matchFile(entity, groundTruth, entityInfo, actuallyRecalledEntities) {
+        let entitySecs = entity.split("-")
+        let filePath = entitySecs[0]
+
+        entityInfo['evaluation'] = "FP"
+
+        let groundTruthFiles = groundTruth.filter(item => item[0] == item[1])
+
+        if (groundTruthFiles.length == 0 && groundTruth.some(item => item[1] == filePath)) {
+            // true positive if the reported entities wraps an actually impacted entity   
+            entityInfo['evaluation'] = "FP - INDIRECT"
+            // groundTruth.forEach(item => {
+            //     if (item[1] == filePath) {
+            //         if (!includes(actuallyRecalledEntities, item)) {
+            //             actuallyRecalledEntities.push(item)
+            //         }
+            //     }
+            // })
+        }
+
+        for (let groundTruthEntity of groundTruthFiles) {
+            // match files
+            if (filePath == groundTruthEntity[1]) {
+                // True posive if exact match
+                entityInfo['evaluation'] = "TP"
+                if (!includes(actuallyRecalledEntities, groundTruthEntity)) {
+                    actuallyRecalledEntities.push(groundTruthEntity)
+                }
+                break
+            } else if (filePath.includes(groundTruthEntity[1]) || (groundTruthEntity[1].includes(filePath))) {
+                entityInfo['evaluation'] = "FP - RMV"
+            }
+        }
+    }
 }
 
 function getApproachResult(commitResult, approach) {
@@ -243,3 +276,6 @@ function areNested(item1, item2) {
     }
 }
 
+function includes(arr, newItem) {
+    return arr.some(item => item[0] == newItem[0] && item[1] == newItem[1] && item[2] == newItem[2] && item[3] == newItem[3])
+}
