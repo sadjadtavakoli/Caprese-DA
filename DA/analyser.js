@@ -109,12 +109,12 @@ let fields = new Map();
                 if (mainFilePath == "") {
                     mainFilePath = utils.getFilePath(iid)
                     accessedFiles.set(mainFilePath, iid)
-                    tempIDsMap[fID] = utils.getIIDKey(utils.getIIDFileName(iid), iid)
+                    tempIDsMap[fID] = utils.getFileIIDKey(iid)
                 }
                 functionEnterStack.push(data)
                 declarePost(fID)
             } else if (isImporting(iid)) {
-                tempIDsMap[fID] = utils.getIIDKey(utils.getIIDFileName(iid), iid)
+                tempIDsMap[fID] = utils.getFileIIDKey(iid)
                 accessedFiles.set(utils.getFilePath(iid), iid)
             } else {
                 let functionName = getFunctionName(f, iid)
@@ -227,6 +227,7 @@ let fields = new Map();
                     readAndDeclarations.get(fID)['reads'][isGlobal].push(name)
                 } else {
                     let data = { 'reads': { true: [], false: [] } }
+                    // let data = { 'reads': { true: [], false: [] }, 'declareds': [] }
                     data['reads'][isGlobal].push(name)
                     readAndDeclarations.set(fID, data)
                 }

@@ -3,6 +3,7 @@
 const path = require('path');
 const events = require('events');
 const { REPO_PATH } = require('../constants');
+
 const CALLBACK_REQUIRED_FUNCTIONS =
     [Array.prototype.every,
     Array.prototype.some,
@@ -47,6 +48,12 @@ const EVENT_LISTENER_FUNCTIONS = [EventEmmiter.addListener, EventEmmiter.once, E
         let line = locationList[1]
         let Endline = locationList[3]
         return `${functionName}-${filePath}-${line}-${Endline}`
+    }
+
+    Utils.getFileIIDKey = function (iid) {
+        let locationList = J$.iidToLocation(iid).split(':')
+        let filePath = locationList[0].substring(1).replace(REPO_PATH + path.sep, '').toLowerCase() // should get rid of path from the root of the system!
+        return `${filePath}`
     }
 
     Utils.isEmitEvent = function (func) {
