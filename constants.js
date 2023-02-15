@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-let benchmakrsConfig = JSON.parse(fs.readFileSync('./evaluation/benchmarks/benchmarksData.json'));
+let benchmakrsConfig = JSON.parse(fs.readFileSync(`${__dirname}/evaluation/benchmarks/benchmarksData.json`));
 /*
  ****** ! ** ! ** ! ** ! ** ! ** ! ** ! ** ! ** ! ** ! ** ! *******
  ****                                                        ******
