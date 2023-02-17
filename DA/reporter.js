@@ -3,7 +3,6 @@
 "use strict";
 
 const Mocha = require("mocha");
-const fs = require("fs");
 const {
   EVENT_RUN_BEGIN,
   EVENT_RUN_END,
@@ -17,7 +16,7 @@ class Reporter {
   
       runner
         .once(EVENT_RUN_BEGIN, () => {
-          console.log('start');
+            console.log('start');
         })
         .on(EVENT_TEST_PASS, test => {
           console.log(test.state + ": " + test.title + " => " + test.parent.title); // an object containing the test details with `state: passed`

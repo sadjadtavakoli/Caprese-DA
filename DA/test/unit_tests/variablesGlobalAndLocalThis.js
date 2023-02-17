@@ -22,8 +22,5 @@ function big2(){
 big()
 big2()
 
-console.log(variable)
-
-
 // main impacts caller1 and caller2
 // caller1 impacts caller2

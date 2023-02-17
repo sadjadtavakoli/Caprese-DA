@@ -36,8 +36,9 @@ const EVENT_LISTENER_FUNCTIONS = [EventEmmiter.addListener, EventEmmiter.once, E
     }
 
     Utils.getFilePath = function (iid) {
-        return J$.iidToLocation(iid).split(':')[0].substring(1);
+        return J$.iidToLocation(iid).split(':')[0].substring(1).replace(REPO_PATH + path.sep, '').toLowerCase();
     }
+
     Utils.getLine = function (iid) {
         return J$.iidToLocation(iid).split(':')[1]
     }
@@ -45,6 +46,9 @@ const EVENT_LISTENER_FUNCTIONS = [EventEmmiter.addListener, EventEmmiter.once, E
     Utils.getIIDKey = function (functionName, iid) {
         let locationList = J$.iidToLocation(iid).split(':')
         let filePath = locationList[0].substring(1).replace(REPO_PATH + path.sep, '').toLowerCase() // should get rid of path from the root of the system!
+        if (functionName == undefined) {
+            return `${filePath}`
+        }
         let line = locationList[1]
         let Endline = locationList[3]
         return `${functionName}-${filePath}-${line}-${Endline}`
@@ -88,7 +92,7 @@ const EVENT_LISTENER_FUNCTIONS = [EventEmmiter.addListener, EventEmmiter.once, E
      * @param base from Analyzer's functionEnter method 
      * @returns True if it's a timing or regular event
      */
-     Utils.isCalledByCallBackRequiredFunctions = function (base) {
+    Utils.isCalledByCallBackRequiredFunctions = function (base) {
         return base != undefined && (base._onImmediate || base._onTimeout || (base.constructor && base.constructor.prototype == EventEmmiter) || base._repeat)
     }
 
