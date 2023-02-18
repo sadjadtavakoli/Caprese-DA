@@ -1,0 +1,1 @@
+{"big-test/unit_tests/variablesinscope.js-3-11":{"impacted":["test/unit_tests/variablesinscope.js","nested-test/unit_tests/variablesinscope.js-6-8"]},"nested-test/unit_tests/variablesinscope.js-6-8":{"impacted":["big-test/unit_tests/variablesinscope.js-3-11"]}}

@@ -13,6 +13,7 @@ let functionIDs = new Map();
 let functionsDependency = {}
 let tempIDsMap = {};
 let listOfVariables = new Map();
+let listOfGlobalVariables = new Map();
 let readAndDeclarations = new Map();
 let fields = new Map();
 
@@ -101,7 +102,6 @@ let fields = new Map();
          **/
         this.functionEnter = function (iid, f, dis, args) {
             let fID = getFID(f, iid)
-            console.log(fID, "emtered")
             let baseID = getSetBaseID(f, iid)
             let filePath = utils.getFilePath(iid)
             tempIDsMap[baseID] = fID
@@ -141,9 +141,7 @@ let fields = new Map();
         this.functionExit = function (iid, returnVal, wrappedExceptionVal) {
             if (!(isImporting(iid))) { // new
                 let f = functionEnterStack.pop()
-                console.log(f.fID, "existed")
                 manageVarAccess(f, iid)
-                // console.log(f.fID, "existed!")
             }
             if (isMainFile(iid)) {// new
                 mainFilePath = ""
@@ -190,11 +188,8 @@ let fields = new Map();
          *  Jalangi version: this.declare = function (iid, name, val, isArgument, argumentIndex, isCatchParam) {
          **/
         this.declare = function (iid, name, type, kind) {
-            // console.log(name)
-            // console.log(utils.getLine(iid))
             if (kind == undefined) {
-                let varName = getVarName(name, false)
-                tempDeclarationList.push(varName)
+                tempDeclarationList.push(getVarData(name, iid))
             }
         };
 
@@ -203,31 +198,45 @@ let fields = new Map();
          * @param fID as a function's ID
          **/
         function declarePost(fID, filePath) {
-            console.log(fID)
-            console.log(tempDeclarationList)
-            console.log("= = = = = =")
             let localListOfVariables = listOfVariables.get(filePath)
             for (let variable of tempDeclarationList) {
+
+                let name = variable['name']
+                let lines = variable['lines']
+                let varData = { "lines": lines, "writers": [fID] }
+
                 if (localListOfVariables != undefined) {
-                    if (localListOfVariables.has(variable)) {
-                        localListOfVariables.get(variable).set(fID, [fID])
+                    if (localListOfVariables.has(name)) {
+                        let declarations = localListOfVariables.get(name)
+                        if (declarations.has(fID)) {
+                            declarations.get(fID).push(varData)
+                        } else {
+                            declarations.set(fID, [varData])
+                        }
                     } else {
                         let declarationsMap = new Map()
-                        declarationsMap.set(fID, [fID])
-                        localListOfVariables.set(variable, declarationsMap)
+                        declarationsMap.set(fID, [varData])
+                        localListOfVariables.set(name, declarationsMap)
                     }
                 } else {
                     localListOfVariables = new Map()
                     let declarationsMap = new Map()
-                    declarationsMap.set(fID, [fID])
-                    localListOfVariables.set(variable, declarationsMap)
+                    declarationsMap.set(fID, [varData])
+                    localListOfVariables.set(name, declarationsMap)
                     listOfVariables.set(filePath, localListOfVariables)
                 }
 
                 if (readAndDeclarations.has(fID)) {
-                    readAndDeclarations.get(fID)['declareds'].push(variable)
+                    let declareds = readAndDeclarations.get(fID)['declareds']
+                    if (declareds.has(name)) {
+                        declareds.get(name).push(lines)
+                    } else {
+                        declareds.set(name, [lines])
+                    }
                 } else {
-                    readAndDeclarations.set(fID, { 'reads': { true: [], false: [] }, 'declareds': [variable] })
+                    let declradsMap = new Map()
+                    declradsMap.set(name, [lines])
+                    readAndDeclarations.set(fID, { 'reads': { true: [], false: [] }, 'declareds': declradsMap })
                 }
             }
             tempDeclarationList = []
@@ -239,13 +248,14 @@ let fields = new Map();
          **/
         this.read = function (iid, name, val, isGlobal, isScriptLocal) {
             if (typeof val != "function" && typeof val != "object" && name != "this") {
-
+                let varData = getVarData(name, iid)
                 let fID = functionEnterStack[functionEnterStack.length - 1].fID;
+                declarePost(fID, utils.getFilePath(iid))
                 if (readAndDeclarations.has(fID)) {
-                    readAndDeclarations.get(fID)['reads'][isGlobal].push(name)
+                    readAndDeclarations.get(fID)['reads'][isGlobal].push(varData)
                 } else {
                     let data = { 'reads': { true: [], false: [] } }
-                    data['reads'][isGlobal].push(name)
+                    data['reads'][isGlobal].push(varData)
                     readAndDeclarations.set(fID, data)
                 }
 
@@ -260,53 +270,25 @@ let fields = new Map();
         this.write = function (iid, name, val, lhs, isGlobal, isScriptLocal) {
             if (typeof val != "function" && typeof val != "object" && name != "this") {
                 let filePath = utils.getFilePath(iid)
-                let localListOfVariables = listOfVariables.get(filePath)
                 let fID = functionEnterStack[functionEnterStack.length - 1].fID;
-                let varName = getVarName(name, isGlobal)
-
+                declarePost(fID, filePath)
                 if (isGlobal) {
-                    let writings = localListOfVariables.get(varName)
+                    let localListOfVariables = listOfGlobalVariables.get(filePath)
+                    let writings = localListOfVariables.get(name)
                     if (writings != undefined) {
                         if (!writings.includes(fID)) writings.push(fID)
                     } else {
-                        localListOfVariables.set(varName, [fID])
+                        localListOfVariables.set(name, [fID])
                     }
                 } else {
-                    let closestDeclaration = getClosestDeclaration(localListOfVariables, varName, fID, filePath);
+                    let localListOfVariables = listOfVariables.get(filePath)
+                    let varData = getVarData(name, iid)
+                    let closestDeclaration = getClosestDeclaration(localListOfVariables, varData, fID, filePath);
                     if (closestDeclaration != undefined && !closestDeclaration.includes(fID)) closestDeclaration.push(fID);
                 }
             }
             return { result: val };
         };
-
-        function getClosestDeclaration(localListOfVariables, varName, fID, filePath) {
-            let declrations = localListOfVariables.get(varName);
-            console.log("getClosestDeclaration")
-            console.log(varName, fID, localListOfVariables)
-            if (!declrations.has(fID)) {
-                let closest = undefined;
-                let minDif = Infinity;
-                let CurrentSecs = fID.split("-");
-                let currentFirstLine = parseInt(CurrentSecs[CurrentSecs.length - 2]);
-                let currentLastLine = parseInt(CurrentSecs[CurrentSecs.length - 1]);
-
-                for (let declaredfID of declrations.keys()) {
-                    if (declaredfID == filePath && closest == undefined) {
-                        closest = filePath;
-                    } else {
-                        let fIDsecs = declaredfID.split("-");
-                        let firstLine = parseInt(fIDsecs[fIDsecs.length - 2]);
-                        let lastLine = parseInt(fIDsecs[fIDsecs.length - 1]);
-                        if (firstLine <= currentFirstLine && lastLine >= currentLastLine && (lastLine - firstLine) < minDif) {
-                            minDif = (lastLine - firstLine)
-                            closest = declaredfID;
-                        }
-                    }
-                }
-                let closestDeclaration = declrations.get(closest);
-                return closestDeclaration
-            }
-        }
 
         /**
          * This method is called at the end of functionExit
@@ -321,21 +303,23 @@ let fields = new Map();
                 let accessedVars = readAndDeclarations.get(fID)
                 let reads = accessedVars['reads'][false]
                 let declareds = accessedVars['declareds']
-                declareds = declareds != undefined ? declareds : []
+                declareds = declareds != undefined ? declareds : new Map()
                 let readsGlobals = accessedVars['reads'][true]
 
                 let allWriters = []
-                for (let name of reads) {
-                    let varName = getVarName(name, false)
-                    if (!declareds.includes(varName)) {
-                        let writers = getClosestDeclaration(localListOfVariables, varName, fID, filePath)
+                for (let varData of reads) {
+                    let name = varData['name']
+                    let lines = varData['lines']
+                    if (!declareds.has(name) || !isDeclared(declareds, name, lines)) {
+                        let writers = getClosestDeclaration(localListOfVariables, varData, fID, filePath)
                         if (writers != undefined) allWriters = allWriters.concat(writers)
                     }
                 }
 
-                for (let name of readsGlobals) {
-                    let varName = getVarName(name, true)
-                    let writers = localListOfVariables.get(varName)
+                let localListOfGlobalVariables = listOfGlobalVariables.get(filePath)
+                for (let varData of readsGlobals) {
+                    let name = varData['name']
+                    let writers = localListOfGlobalVariables.get(name)
                     if (writers != undefined) {
                         allWriters = allWriters.concat(writers)
                     }
@@ -348,6 +332,16 @@ let fields = new Map();
                 }
             }
 
+
+            function isDeclared(declarations, name, lines) {
+                let locations = declarations.get(name);
+                for (let location of locations) {
+                    if (firstNestedBySecond(lines, location)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
         }
 
         /**
@@ -357,7 +351,6 @@ let fields = new Map();
          **/
         this.getField = function (iid, base, offset, val, isComputed, isOpAssign, isMethodCall) {
             if (typeof val != "function" && typeof val != "object") {
-                // console.log("getField...", base, offset, val, isComputed, isOpAssign, isMethodCall)
                 let baseID = functionEnterStack[functionEnterStack.length - 1].baseID
                 let key = offset.toString() + getSetBaseID(base, "b" + iid);
                 if (fields.has(key)) {
@@ -375,7 +368,6 @@ let fields = new Map();
          **/
         this.putField = function (iid, base, offset, val, isComputed, isOpAssign, isMethodCall) {
             if (typeof val != "function" && typeof val != "object") {
-                // console.log("putField...", base, offset, val, isComputed, isOpAssign, isMethodCall)
                 let fID = functionEnterStack[functionEnterStack.length - 1].fID
                 let key = offset.toString() + getSetBaseID(base, "b" + iid);
                 if (fields.has(key)) {
@@ -388,6 +380,56 @@ let fields = new Map();
 
             return { result: val };
         };
+
+    }
+
+    function firstNestedBySecond(lines, location) {
+        return lines['firstLine'] >= location['firstLine'] && lines['lastLine'] <= location['lastLine'];
+    }
+
+    function getClosestDeclaration(localListOfVariables, varData, fID, filePath) {
+        let varName = varData['name']
+        let lines = varData['lines']
+
+        let declrations = localListOfVariables.get(varName);
+        if (!declrations.has(fID) || !isDeclared(declrations, fID, lines)) {
+            let closest = undefined;
+            let minDif = Infinity;
+            let currentFirstLine = lines['firstLine'];
+            let currentLastLine = lines['lastLine'];
+
+            for (let declaredfID of declrations.values()) {
+                for (let item of declaredfID) {
+                    let itemLines = item['lines']
+                    let firstLine = itemLines['firstLine']
+                    let lastLine = itemLines['lastLine']
+                    if (firstLine <= currentFirstLine && lastLine >= currentLastLine && (lastLine - firstLine) < minDif) {
+                        minDif = (lastLine - firstLine)
+                        closest = item;
+                    }
+                }
+            }
+            return closest['writers']
+        } else {
+            let locations = declrations.get(fID)
+            for (let location of locations) {
+                if (firstNestedBySecond(lines, location)) {
+                    isDefined = true;
+                    break;
+                }
+            }
+        }
+
+        function isDeclared(declarations, fID, lines) {
+            let fDeclarations = declarations.get(fID);
+            for (let fDeclaration of fDeclarations) {
+                let location = fDeclaration['lines']
+                if (firstNestedBySecond(lines, location)) {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 
     /**
@@ -499,11 +541,8 @@ let fields = new Map();
         return func
     }
 
-    function getVarName(name, isGlobal) {
-        let ext = isGlobal ? "t" : "f";
-        let varName = `${name}-${ext}`
-        return varName
+    function getVarData(name, iid) {
+        return { "name": name, "lines": utils.getLines(iid) }
     }
-
     sandbox.analysis = new Analyser();
 })(J$);

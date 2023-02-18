@@ -49,15 +49,16 @@ const EVENT_LISTENER_FUNCTIONS = [EventEmmiter.addListener, EventEmmiter.once, E
         if (functionName == undefined) {
             return `${filePath}`
         }
-        let line = locationList[1]
-        let Endline = locationList[3]
-        return `${functionName}-${filePath}-${line}-${Endline}`
+        let firstLine = locationList[1]
+        let lastLine = locationList[3]
+        return `${functionName}-${filePath}-${firstLine}-${lastLine}`
     }
 
-    Utils.getFileIIDKey = function (iid) {
+    Utils.getLines = function (iid) {
         let locationList = J$.iidToLocation(iid).split(':')
-        let filePath = locationList[0].substring(1).replace(REPO_PATH + path.sep, '').toLowerCase() // should get rid of path from the root of the system!
-        return `${filePath}`
+        let firstLine = parseInt(locationList[1])
+        let lastLine = parseInt(locationList[3])
+        return { "firstLine": firstLine, "lastLine": lastLine }
     }
 
     Utils.isEmitEvent = function (func) {

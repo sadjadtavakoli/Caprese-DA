@@ -8,6 +8,8 @@ describe('Test callbackAnonymousChain.js', () => runTest('callbackAnonymousChain
 describe('Test callbackChainDifferentCalls.js', () => runTest('callbackChainDifferentCalls.js'));
 describe('Test callbackChainForLoop.js', () => runTest('callbackChainForLoop.js'));
 describe('Test callbackNonBlockingFunctions.js', () => runTest('callbackNonBlockingFunctions.js'));
+describe('Test callbackOnCallableFunctionEarlyCall.js', () => runTest('callbackOnCallableFunctionEarlyCall.js'));
+describe('Test callbackOnCallableFunctionLateCall.js', () => runTest('callbackOnCallableFunctionLateCall.js'));
 describe('Test callbackSingleAnonymousFunction.js', () => runTest('callbackSingleAnonymousFunction.js'));
 describe('Test callbackSingleKnownFunction.js', () => runTest('callbackSingleKnownFunction.js'));
 describe('Test callbackSingleKnownFunctionReturnValue.js', () => runTest('callbackSingleKnownFunctionReturnValue.js'));
@@ -55,8 +57,6 @@ describe('Test timeoutSingleAnonymousFunctionNoArgs.js', () => runTest('timeoutS
 describe('Test timeoutSingleKnownFunction.js', () => runTest('timeoutSingleKnownFunction.js'));
 describe('Test timeoutSingleKnownFunctionGetArgsNoArgs.js', () => runTest('timeoutSingleKnownFunctionGetArgsNoArgs.js'));
 describe('Test timeoutZero.js', () => runTest('timeoutZero.js'));
-describe('Test callbackOnCallableFunctionEarlyCall.js', () => runTest('callbackOnCallableFunctionEarlyCall.js'));
-describe('Test callbackOnCallableFunctionLateCall.js', () => runTest('callbackOnCallableFunctionLateCall.js'));
 describe('Test variablesGlobal.js', () => runTest('variablesGlobal.js'));
 describe('Test variablesGlobalAndLocalLet.js', () => runTest('variablesGlobalAndLocalLet.js'));
 describe('Test variablesGlobalAndLocalThis.js', () => runTest('variablesGlobalAndLocalThis.js'));
@@ -66,6 +66,8 @@ describe('Test variablesGlobalLetAndLocalThis.js', () => runTest('variablesGloba
 describe('Test variablesGlobalThis.js', () => runTest('variablesGlobalThis.js'));
 describe('Test variablesGlobalThisAndLocalLet.js', () => runTest('variablesGlobalThisAndLocalLet.js'));
 describe('Test variablesGlobalThisAndLocalThis.js', () => runTest('variablesGlobalThisAndLocalThis.js'));
+describe('Test variablesInScope.js', () => runTest('variablesInScope.js'));
+describe('Test variablesInScopeSiblings.js', () => runTest('variablesInScopeSiblings.js'));
 describe('Test variablesNoDeclareRead.js', () => runTest('variablesNoDeclareRead.js'));
 
 
