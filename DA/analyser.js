@@ -101,19 +101,20 @@ let fields = new Map();
          **/
         this.functionEnter = function (iid, f, dis, args) {
             let fID = getFID(f, iid)
+            console.log(fID, "emtered")
             let baseID = getSetBaseID(f, iid)
+            let filePath = utils.getFilePath(iid)
             tempIDsMap[baseID] = fID
             let data = { 'baseID': baseID, 'fID': fID }
 
             if (isMainFile(iid)) {
                 if (mainFilePath == "") {
-                    mainFilePath = utils.getFilePath(iid)
+                    mainFilePath = filePath
                     accessedFiles.set(mainFilePath, { 'iid': iid, 'fID': fID, 'baseID': baseID })
                 }
                 functionEnterStack.push(data)
-                declarePost(fID)
             } else if (isImporting(iid)) {
-                accessedFiles.set(utils.getFilePath(iid), { 'iid': iid, 'fID': fID, 'baseID': baseID })
+                accessedFiles.set(filePath, { 'iid': iid, 'fID': fID, 'baseID': baseID })
             } else {
 
                 if (!utils.isCalledByCallBackRequiredFunctions(dis)) {
@@ -121,7 +122,6 @@ let fields = new Map();
                     if (!isACallBack(f, iid)) {
                         let caller = functionEnterStack[functionEnterStack.length - 1]
                         if (caller == undefined) {
-                            let filePath = utils.getFilePath(iid)
                             caller = accessedFiles.get(filePath)
                         }
                         addImpact(fID, caller.baseID) // adds the caller function to the callee's impact-list 
@@ -131,8 +131,8 @@ let fields = new Map();
                     }
                 }
                 functionEnterStack.push(data)
-                declarePost(fID)
             }
+            declarePost(fID, filePath)
         };
 
         /**
@@ -141,7 +141,8 @@ let fields = new Map();
         this.functionExit = function (iid, returnVal, wrappedExceptionVal) {
             if (!(isImporting(iid))) { // new
                 let f = functionEnterStack.pop()
-                manageVarAccess(f)
+                console.log(f.fID, "existed")
+                manageVarAccess(f, iid)
                 // console.log(f.fID, "existed!")
             }
             if (isMainFile(iid)) {// new
@@ -167,9 +168,13 @@ let fields = new Map();
             }
 
             for (const item in functionsDependency) {
-                functionsDependency[item]['impacted'] = [...functionsDependency[item]['impacted']]
+                let impactedKeys = new Set()
+                let impactedIDs = functionsDependency[item]['impacted']
+                for (let id of impactedIDs) {
+                    impactedKeys.add(tempIDsMap[id])
+                }
+                functionsDependency[item]['impacted'] = [...impactedKeys]
             }
-            functionsDependency['keyMap'] = tempIDsMap
 
             fs.writeFileSync(depdendenciesPath, JSON.stringify(functionsDependency), function (err) {
                 if (err) {
@@ -179,13 +184,14 @@ let fields = new Map();
             });
         };
 
-
         let tempDeclarationList = []
         /**
          *  Declaration of a symbol, type can be `const, let, var`
          *  Jalangi version: this.declare = function (iid, name, val, isArgument, argumentIndex, isCatchParam) {
          **/
         this.declare = function (iid, name, type, kind) {
+            // console.log(name)
+            // console.log(utils.getLine(iid))
             if (kind == undefined) {
                 let varName = getVarName(name, false)
                 tempDeclarationList.push(varName)
@@ -196,13 +202,26 @@ let fields = new Map();
          * Records declared variables inside a function after functionEnter method's execution
          * @param fID as a function's ID
          **/
-        function declarePost(fID) {
+        function declarePost(fID, filePath) {
+            console.log(fID)
+            console.log(tempDeclarationList)
+            console.log("= = = = = =")
+            let localListOfVariables = listOfVariables.get(filePath)
             for (let variable of tempDeclarationList) {
-
-                if (listOfVariables.has(variable)) {
-                    listOfVariables.get(variable).push({ 'declare': fID, 'writers': [fID] })
+                if (localListOfVariables != undefined) {
+                    if (localListOfVariables.has(variable)) {
+                        localListOfVariables.get(variable).set(fID, [fID])
+                    } else {
+                        let declarationsMap = new Map()
+                        declarationsMap.set(fID, [fID])
+                        localListOfVariables.set(variable, declarationsMap)
+                    }
                 } else {
-                    listOfVariables.set(variable, [{ 'declare': fID, 'writers': [fID] }])
+                    localListOfVariables = new Map()
+                    let declarationsMap = new Map()
+                    declarationsMap.set(fID, [fID])
+                    localListOfVariables.set(variable, declarationsMap)
+                    listOfVariables.set(filePath, localListOfVariables)
                 }
 
                 if (readAndDeclarations.has(fID)) {
@@ -226,11 +245,9 @@ let fields = new Map();
                     readAndDeclarations.get(fID)['reads'][isGlobal].push(name)
                 } else {
                     let data = { 'reads': { true: [], false: [] } }
-                    // let data = { 'reads': { true: [], false: [] }, 'declareds': [] }
                     data['reads'][isGlobal].push(name)
                     readAndDeclarations.set(fID, data)
                 }
-                // console.log("read...", name, "line: ", utils.getLine(iid), isGlobal, isScriptLocal, "......................")
 
             }
             return { result: val };
@@ -242,74 +259,95 @@ let fields = new Map();
          **/
         this.write = function (iid, name, val, lhs, isGlobal, isScriptLocal) {
             if (typeof val != "function" && typeof val != "object" && name != "this") {
-                // console.log("write...", name, val, "line: ", utils.getLine(iid), isGlobal, isScriptLocal, "......................")
-
+                let filePath = utils.getFilePath(iid)
+                let localListOfVariables = listOfVariables.get(filePath)
                 let fID = functionEnterStack[functionEnterStack.length - 1].fID;
                 let varName = getVarName(name, isGlobal)
-                if (listOfVariables.has(varName)) {
-                    let declrations = listOfVariables.get(varName)
-                    let closestDeclaration = declrations[declrations.length - 1]
-                    if (!closestDeclaration['writers'].includes(fID)) closestDeclaration['writers'].push(fID)
+
+                if (isGlobal) {
+                    let writings = localListOfVariables.get(varName)
+                    if (writings != undefined) {
+                        if (!writings.includes(fID)) writings.push(fID)
+                    } else {
+                        localListOfVariables.set(varName, [fID])
+                    }
                 } else {
-                    listOfVariables.set(varName, [{ 'declare': NaN, 'writers': [fID] }])
+                    let closestDeclaration = getClosestDeclaration(localListOfVariables, varName, fID, filePath);
+                    if (closestDeclaration != undefined && !closestDeclaration.includes(fID)) closestDeclaration.push(fID);
                 }
             }
             return { result: val };
         };
+
+        function getClosestDeclaration(localListOfVariables, varName, fID, filePath) {
+            let declrations = localListOfVariables.get(varName);
+            console.log("getClosestDeclaration")
+            console.log(varName, fID, localListOfVariables)
+            if (!declrations.has(fID)) {
+                let closest = undefined;
+                let minDif = Infinity;
+                let CurrentSecs = fID.split("-");
+                let currentFirstLine = parseInt(CurrentSecs[CurrentSecs.length - 2]);
+                let currentLastLine = parseInt(CurrentSecs[CurrentSecs.length - 1]);
+
+                for (let declaredfID of declrations.keys()) {
+                    if (declaredfID == filePath && closest == undefined) {
+                        closest = filePath;
+                    } else {
+                        let fIDsecs = declaredfID.split("-");
+                        let firstLine = parseInt(fIDsecs[fIDsecs.length - 2]);
+                        let lastLine = parseInt(fIDsecs[fIDsecs.length - 1]);
+                        if (firstLine <= currentFirstLine && lastLine >= currentLastLine && (lastLine - firstLine) < minDif) {
+                            minDif = (lastLine - firstLine)
+                            closest = declaredfID;
+                        }
+                    }
+                }
+                let closestDeclaration = declrations.get(closest);
+                return closestDeclaration
+            }
+        }
 
         /**
          * This method is called at the end of functionExit
          * It updates each functions dependencies based on its read/declared variables
          * At the end it deletes any unnecessary data related to them
          **/
-        function manageVarAccess(f) {
+        function manageVarAccess(f, iid) {
+            let filePath = utils.getFilePath(iid)
+            let localListOfVariables = listOfVariables.get(filePath)
             let fID = f.fID
             if (readAndDeclarations.has(fID)) {
-
                 let accessedVars = readAndDeclarations.get(fID)
                 let reads = accessedVars['reads'][false]
                 let declareds = accessedVars['declareds']
                 declareds = declareds != undefined ? declareds : []
                 let readsGlobals = accessedVars['reads'][true]
 
-                let writers = []
+                let allWriters = []
                 for (let name of reads) {
                     let varName = getVarName(name, false)
                     if (!declareds.includes(varName)) {
-                        writers = writers.concat(getWritersOfVar(varName))
+                        let writers = getClosestDeclaration(localListOfVariables, varName, fID, filePath)
+                        if (writers != undefined) allWriters = allWriters.concat(writers)
                     }
                 }
 
                 for (let name of readsGlobals) {
                     let varName = getVarName(name, true)
-                    writers = writers.concat(getWritersOfVar(varName))
+                    let writers = localListOfVariables.get(varName)
+                    if (writers != undefined) {
+                        allWriters = allWriters.concat(writers)
+                    }
                 }
 
                 readAndDeclarations.delete(fID)
 
-                for (let variable of declareds) {
-                    let declrations = listOfVariables.get(variable)
-                    if (declrations.length <= 1) {
-                        listOfVariables.delete(variable)
-                    } else {
-                        declrations.pop()
-                    }
-                }
-
-                for (let writer of writers) {
+                for (let writer of allWriters) {
                     addImpact(writer, f.baseID)
                 }
             }
 
-        }
-
-        function getWritersOfVar(varName) {
-            if (listOfVariables.has(varName)) {
-                let declrations = listOfVariables.get(varName);
-                let closestDeclaration = declrations[declrations.length - 1];
-                return closestDeclaration['writers'];
-            }
-            return []
         }
 
         /**
