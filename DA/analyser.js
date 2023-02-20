@@ -315,13 +315,14 @@ let fields = new Map();
                         if (writers != undefined) allWriters = allWriters.concat(writers)
                     }
                 }
-
                 let localListOfGlobalVariables = listOfGlobalVariables.get(filePath)
-                for (let varData of readsGlobals) {
-                    let name = varData['name']
-                    let writers = localListOfGlobalVariables.get(name)
-                    if (writers != undefined) {
-                        allWriters = allWriters.concat(writers)
+                if (localListOfGlobalVariables != undefined) {
+                    for (let varData of readsGlobals) {
+                        let name = varData['name']
+                        let writers = localListOfGlobalVariables.get(name)
+                        if (writers != undefined) {
+                            allWriters = allWriters.concat(writers)
+                        }
                     }
                 }
 

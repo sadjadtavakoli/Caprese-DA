@@ -46,6 +46,17 @@
         "excluded_dirs": [],
         "fp_excluded_dirs": []
     },
+    "git@github.com:berke/testProject.git": {
+        "Commits": 686,
+        "LOC": 4267,
+        "Language": "JavaScript,md",
+        "main_branch": "master",
+        "test": "test",
+        "installer": "npm",
+        "seed_commit": "5df613c481bc7c5979aeaeac691b64ef0a5c4948",
+        "excluded_dirs": [],
+        "fp_excluded_dirs": []
+    },
     "git@github.com:suguru03/neo-async.git": {
         "install": "npm install",
         "commit": "948",
@@ -72,7 +83,7 @@
         "commits": "1476",
         "main_branch": "main",
         "comment": "needs false re-evaluation",
-        "seed_commit": "",
+        "seed_commit": "332459ed9961d2ee0893b6fde9445787ac652294",
         "excluded_dirs": [
             "fixtures"
         ],
@@ -154,7 +165,7 @@
         "install": "npm install",
         "commit": "246",
         "main_branch": "master",
-        "test": "test",
+        "test": "test/test.js",
         "seed_commit": "2603bfd93e0e51a090b138561a79249f8480156e",
         "excluded_dirs": [],
         "fp_excluded_dirs": []
