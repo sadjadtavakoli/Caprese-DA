@@ -61,6 +61,14 @@ const EVENT_LISTENER_FUNCTIONS = [EventEmmiter.addListener, EventEmmiter.once, E
         return { "firstLine": firstLine, "lastLine": lastLine }
     }
 
+    Utils.getLocation = function (iid) {
+        let locationList = J$.iidToLocation(iid).split(':')
+        let filePath = locationList[0].substring(1).replace(REPO_PATH + path.sep, '').toLowerCase() // should get rid of path from the root of the system!
+        let firstLine = parseInt(locationList[1])
+        let lastLine = parseInt(locationList[3])
+        return { "firstLine": firstLine, "lastLine": lastLine, "filePath": filePath }
+    }
+
     Utils.isEmitEvent = function (func) {
         return func == EventEmmiter.emit
     }

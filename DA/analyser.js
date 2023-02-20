@@ -32,12 +32,12 @@ let fields = new Map();
          * These callbacks are called before and after a function, method, or constructor invocation.
         **/
         this.invokeFunPre = function (iid, f, base, args) {
-            if (isImporting(iid)) {
+            if (f == undefined || isImporting(iid)) {
                 return { f: f, base: base, args: args, skip: false };
             }
 
             // The last function of the functionEnterStack is the caller function 
-            let callerFunction = functionEnterStack[functionEnterStack.length - 1]
+            let callerFunction = getCurrentFunction()
             if (utils.isAddEventlistener(f)) {
                 let listenerBaseID = getSetBaseID(args[1], iid)
                 addToAddedListener(getSetBaseID(base, "b" + iid), args[0], listenerBaseID, callerFunction)
@@ -120,7 +120,7 @@ let fields = new Map();
                 if (!utils.isCalledByCallBackRequiredFunctions(dis)) {
                     removeStoredFuncInputs(fID)
                     if (!isACallBack(f, iid)) {
-                        let caller = functionEnterStack[functionEnterStack.length - 1]
+                        let caller = getCurrentFunction()
                         if (caller == undefined) {
                             caller = accessedFiles.get(filePath)
                         }
@@ -182,14 +182,19 @@ let fields = new Map();
             });
         };
 
-        let tempDeclarationList = []
+        let tempDeclarationList = new Map()
         /**
          *  Declaration of a symbol, type can be `const, let, var`
          *  Jalangi version: this.declare = function (iid, name, val, isArgument, argumentIndex, isCatchParam) {
          **/
         this.declare = function (iid, name, type, kind) {
+            let location = utils.getLocation(iid)
             if (kind == undefined) {
-                tempDeclarationList.push(getVarData(name, iid))
+                if (tempDeclarationList.has(location['filePath'])) {
+                    tempDeclarationList.get(location['filePath']).push(getVarDataLinesGiven(name, location['firstLine'], location['lastLine']))
+                } else {
+                    tempDeclarationList.set(location['filePath'], [getVarDataLinesGiven(name, location['firstLine'], location['lastLine'])])
+                }
             }
         };
 
@@ -197,49 +202,55 @@ let fields = new Map();
          * Records declared variables inside a function after functionEnter method's execution
          * @param fID as a function's ID
          **/
-        function declarePost(fID, filePath) {
-            let localListOfVariables = listOfVariables.get(filePath)
-            for (let variable of tempDeclarationList) {
+        function declarePost(fID) {
+            for (let [filePath, declarationsList] of tempDeclarationList.entries()) {
+                let localListOfVariables = listOfVariables.get(filePath)
+                for (let variable of declarationsList) {
+                    let name = variable['name']
+                    let lines = variable['lines']
+                    let varData = { "lines": lines, "writers": [fID] }
 
-                let name = variable['name']
-                let lines = variable['lines']
-                let varData = { "lines": lines, "writers": [fID] }
-
-                if (localListOfVariables != undefined) {
-                    if (localListOfVariables.has(name)) {
-                        let declarations = localListOfVariables.get(name)
-                        if (declarations.has(fID)) {
-                            declarations.get(fID).push(varData)
+                    if (localListOfVariables != undefined) {
+                        if (localListOfVariables.has(name)) {
+                            let declarations = localListOfVariables.get(name)
+                            if (declarations.has(fID)) {
+                                declarations.get(fID).push(varData)
+                            } else {
+                                declarations.set(fID, [varData])
+                            }
                         } else {
-                            declarations.set(fID, [varData])
+                            let declarationsMap = new Map()
+                            declarationsMap.set(fID, [varData])
+                            localListOfVariables.set(name, declarationsMap)
                         }
                     } else {
+                        localListOfVariables = new Map()
                         let declarationsMap = new Map()
                         declarationsMap.set(fID, [varData])
                         localListOfVariables.set(name, declarationsMap)
+                        listOfVariables.set(filePath, localListOfVariables)
                     }
-                } else {
-                    localListOfVariables = new Map()
-                    let declarationsMap = new Map()
-                    declarationsMap.set(fID, [varData])
-                    localListOfVariables.set(name, declarationsMap)
-                    listOfVariables.set(filePath, localListOfVariables)
-                }
 
-                if (readAndDeclarations.has(fID)) {
-                    let declareds = readAndDeclarations.get(fID)['declareds']
-                    if (declareds.has(name)) {
-                        declareds.get(name).push(lines)
+                    if (readAndDeclarations.has(fID)) {
+                        let declareds = readAndDeclarations.get(fID)['declareds']
+                        if (declareds == undefined) {
+                            declareds = new Map()
+                            declareds.set(name, [lines])
+                            readAndDeclarations.get(fID)['declareds'] = declareds
+                        } else if (declareds.has(name)) {
+                            declareds.get(name).push(lines)
+                        } else {
+                            declareds.set(name, [lines])
+                        }
                     } else {
-                        declareds.set(name, [lines])
+                        let declradsMap = new Map()
+                        declradsMap.set(name, [lines])
+                        readAndDeclarations.set(fID, { 'reads': { true: [], false: [] }, 'declareds': declradsMap })
                     }
-                } else {
-                    let declradsMap = new Map()
-                    declradsMap.set(name, [lines])
-                    readAndDeclarations.set(fID, { 'reads': { true: [], false: [] }, 'declareds': declradsMap })
                 }
             }
-            tempDeclarationList = []
+
+            tempDeclarationList = new Map()
         }
 
         /**
@@ -249,8 +260,8 @@ let fields = new Map();
         this.read = function (iid, name, val, isGlobal, isScriptLocal) {
             if (typeof val != "function" && typeof val != "object" && name != "this") {
                 let varData = getVarData(name, iid)
-                let fID = functionEnterStack[functionEnterStack.length - 1].fID;
-                declarePost(fID, utils.getFilePath(iid))
+                let fID = getCurrentFunction().fID;
+                declarePost(fID)
                 if (readAndDeclarations.has(fID)) {
                     readAndDeclarations.get(fID)['reads'][isGlobal].push(varData)
                 } else {
@@ -269,22 +280,36 @@ let fields = new Map();
          **/
         this.write = function (iid, name, val, lhs, isGlobal, isScriptLocal) {
             if (typeof val != "function" && typeof val != "object" && name != "this") {
-                let filePath = utils.getFilePath(iid)
-                let fID = functionEnterStack[functionEnterStack.length - 1].fID;
-                declarePost(fID, filePath)
-                if (isGlobal) {
-                    let localListOfVariables = listOfGlobalVariables.get(filePath)
-                    let writings = localListOfVariables.get(name)
-                    if (writings != undefined) {
-                        if (!writings.includes(fID)) writings.push(fID)
+                if (getCurrentFunction() != undefined) {
+                    let filePath = utils.getFilePath(iid)
+                    let fID = getCurrentFunction().fID;
+                    declarePost(fID)
+                    if (isGlobal) {
+                        let localListOfVariables = listOfGlobalVariables.get(filePath)
+                        if (localListOfVariables != undefined) {
+                            let writings = localListOfVariables.get(name)
+                            if (writings != undefined) {
+                                if (!writings.includes(fID)) writings.push(fID)
+                            } else {
+                                localListOfVariables.set(name, [fID])
+                            }
+                        } else {
+                            let localListOfVariables = new Map()
+                            localListOfVariables.set(name, [fID])
+                            listOfGlobalVariables.set(filePath, localListOfVariables)
+                        }
                     } else {
-                        localListOfVariables.set(name, [fID])
+                        let localListOfVariables = listOfVariables.get(filePath)
+                        let varData = getVarData(name, iid)
+                        let closestDeclaration = getClosestDeclaration(localListOfVariables, varData, fID);
+                        if (closestDeclaration != undefined && !closestDeclaration.includes(fID)) closestDeclaration.push(fID);
                     }
                 } else {
-                    let localListOfVariables = listOfVariables.get(filePath)
-                    let varData = getVarData(name, iid)
-                    let closestDeclaration = getClosestDeclaration(localListOfVariables, varData, fID, filePath);
-                    if (closestDeclaration != undefined && !closestDeclaration.includes(fID)) closestDeclaration.push(fID);
+                    console.log("write!")
+                    console.log(functionEnterStack)
+                    console.log(name, val)
+                    console.log(utils.getLocation(iid))
+                    console.log(mainFilePath)
                 }
             }
             return { result: val };
@@ -311,7 +336,7 @@ let fields = new Map();
                     let name = varData['name']
                     let lines = varData['lines']
                     if (!declareds.has(name) || !isDeclared(declareds, name, lines)) {
-                        let writers = getClosestDeclaration(localListOfVariables, varData, fID, filePath)
+                        let writers = getClosestDeclaration(localListOfVariables, varData, fID)
                         if (writers != undefined) allWriters = allWriters.concat(writers)
                     }
                 }
@@ -352,12 +377,20 @@ let fields = new Map();
          **/
         this.getField = function (iid, base, offset, val, isComputed, isOpAssign, isMethodCall) {
             if (typeof val != "function" && typeof val != "object") {
-                let baseID = functionEnterStack[functionEnterStack.length - 1].baseID
-                let key = offset.toString() + getSetBaseID(base, "b" + iid);
-                if (fields.has(key)) {
-                    for (let writer of fields.get(key)) {
-                        addImpact(writer, baseID)
+                if (getCurrentFunction() != undefined) {
+                    let baseID = getCurrentFunction().baseID
+                    let key = offset.toString() + getSetBaseID(base, "b" + iid);
+                    if (fields.has(key)) {
+                        for (let writer of fields.get(key)) {
+                            addImpact(writer, baseID)
+                        }
                     }
+                } else {
+                    console.log("getField!")
+                    console.log(functionEnterStack)
+                    console.log(offset, val)
+                    console.log(utils.getLocation(iid))
+                    console.log(mainFilePath)
                 }
             }
             return { result: val };
@@ -369,7 +402,7 @@ let fields = new Map();
          **/
         this.putField = function (iid, base, offset, val, isComputed, isOpAssign, isMethodCall) {
             if (typeof val != "function" && typeof val != "object") {
-                let fID = functionEnterStack[functionEnterStack.length - 1].fID
+                let fID = getCurrentFunction().fID
                 let key = offset.toString() + getSetBaseID(base, "b" + iid);
                 if (fields.has(key)) {
                     let writers = fields.get(key)
@@ -388,13 +421,12 @@ let fields = new Map();
         return lines['firstLine'] >= location['firstLine'] && lines['lastLine'] <= location['lastLine'];
     }
 
-    function getClosestDeclaration(localListOfVariables, varData, fID, filePath) {
+    function getClosestDeclaration(localListOfVariables, varData, fID) {
         let varName = varData['name']
         let lines = varData['lines']
-
         let declrations = localListOfVariables.get(varName);
-        if (!declrations.has(fID) || !isDeclared(declrations, fID, lines)) {
-            let closest = undefined;
+        if (declrations != undefined && (!declrations.has(fID) || !isDeclared(declrations, fID, lines))) {
+            let closest = { 'writers': undefined };
             let minDif = Infinity;
             let currentFirstLine = lines['firstLine'];
             let currentLastLine = lines['lastLine'];
@@ -411,14 +443,6 @@ let fields = new Map();
                 }
             }
             return closest['writers']
-        } else {
-            let locations = declrations.get(fID)
-            for (let location of locations) {
-                if (firstNestedBySecond(lines, location)) {
-                    isDefined = true;
-                    break;
-                }
-            }
         }
 
         function isDeclared(declarations, fID, lines) {
@@ -433,6 +457,9 @@ let fields = new Map();
         }
     }
 
+    function getCurrentFunction() {
+        return functionEnterStack[functionEnterStack.length - 1]
+    }
     /**
      * this function checks wheather iid is for mainFile enterance or else 
      */
@@ -544,6 +571,11 @@ let fields = new Map();
 
     function getVarData(name, iid) {
         return { "name": name, "lines": utils.getLines(iid) }
+    }
+
+    function getVarDataLinesGiven(name, firstLine, lastLine) {
+        return { "name": name, "lines": { "firstLine": firstLine, "lastLine": lastLine } }
+
     }
     sandbox.analysis = new Analyser();
 })(J$);
