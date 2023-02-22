@@ -5,7 +5,7 @@ const { evaluationAnalyzer, tempFP, runDynamicAnalysis } = require('../berke');
 const { runTARMAQ } = require('./ImpactSetDetection')
 const { performance } = require('perf_hooks');
 
-const { CHANGE_SET_PATH, EXECUTION_TIMES_PATH } = require('./evaluationConstants')
+const { getChangeSetPath, EXECUTION_TIMES_PATH } = require('./evaluationConstants')
 
 if (process.argv[1].endsWith(path.basename(__filename))) {
 
@@ -56,7 +56,7 @@ if (process.argv[1].endsWith(path.basename(__filename))) {
 
 function readChangeSets() {
     return new Promise(resolve => {
-        let commitsInfo = JSON.parse(fs.readFileSync(CHANGE_SET_PATH));
+        let commitsInfo = JSON.parse(fs.readFileSync(getChangeSetPath()));
 
         let detailedSequences = fs.readFileSync(constants.SEQUENCES_PATH + "details.txt").toString().trim().split("\n");
 

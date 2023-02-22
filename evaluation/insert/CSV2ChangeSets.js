@@ -1,15 +1,16 @@
 const fs = require('fs');
 const path = require('path')
-const { ALL_IMPACTED_ENTITIES_CSV, CHANGE_SET_PATH, getActualImpactSetPath } = require('../evaluationConstants')
+const { getImpactSetCSVs, getChangeSetPath, getActualImpactSetPath, benchmarkList } = require('../evaluationConstants')
 
 if (process.argv[1].endsWith(path.basename(__filename))) {
-
-    readChangeSets()
+    benchmarkList.forEach(benchmark => {
+        readCSVs(benchmark)
+    })
 }
 
-function readChangeSets() {
-    let impactSetCSV = fs.readFileSync(ALL_IMPACTED_ENTITIES_CSV).toString();
-    let changeSets = JSON.parse(fs.readFileSync(CHANGE_SET_PATH).toString());
+function readCSVs(benchmark) {
+    let impactSetCSV = fs.readFileSync(getImpactSetCSVs(benchmark)).toString();
+    let changeSets = JSON.parse(fs.readFileSync(getChangeSetPath(benchmark)).toString());
     let lines = impactSetCSV.split('\n')
     lines.splice(0, 5)
     let changedEntity = lines[0].split(',')[0]
@@ -28,16 +29,14 @@ function readChangeSets() {
         addImpacted(impact2, changedEntity)
     }
 
+    fs.writeFileSync(getActualImpactSetPath(benchmark)+"pure list.json", JSON.stringify(impactSetList))
     insertImpactedEntities()
-    fs.writeFileSync(getActualImpactSetPath(), JSON.stringify(changeSets))
+    fs.writeFileSync(getActualImpactSetPath(benchmark), JSON.stringify(changeSets))
 
     function addImpacted(impactedEntity, changedEntity) {
         if (impactedEntity[1] != "") {
-            impactedEntity[3] = parseInt(impactedEntity[3])                
+            impactedEntity[3] = parseInt(impactedEntity[3])
             impactedEntity[2] = parseInt(impactedEntity[2])
-            if(impactedEntity[0] == ""){
-                console.log(impactedEntity[1])
-            }
             if (impactedEntity[0] == "0" || impactedEntity[0] == "") {
                 impactedEntity[0] = "arrowAnonymousFunction"
             } else if (impactedEntity[0] == "1") {
@@ -53,13 +52,32 @@ function readChangeSets() {
         for (let commit in changeSets) {
             let changes = changeSets[commit]['changes']
             let allImpactedEntities = []
-
+            console.log("--")
+            console.log(commit)
             for (let change of changes) {
+                console.log(change)
                 let impactSet = impactSetList[change]
-                allImpactedEntities = allImpactedEntities.concat(impactSet)
+                if(impactSet==undefined){
+                    console.error("\nERROR!!!! \n impactSet is not detected for", change, "\nERRRRROOOORRRR!!!!\n")
+                }else{
+                    console.log(impactSet.length)
+                    if (!allImpactedEntities.length) {
+                        allImpactedEntities = impactSet
+                    } else {
+                        for (let impact of impactSet) {
+                            if (!includes(allImpactedEntities, impact)) {
+                                allImpactedEntities.push(impact)
+                            }
+                        }
+                    }
+                }
             }
 
             changeSets[commit]['impacted'] = allImpactedEntities
         }
+    }
+
+    function includes(arr, newItem) {
+        return arr.some(item => item[0] == newItem[0] && item[1] == newItem[1] && item[2] == newItem[2] && item[3] == newItem[3])
     }
 }

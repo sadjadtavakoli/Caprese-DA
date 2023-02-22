@@ -1,7 +1,7 @@
 const constants = require('../constants.js');
 const fs = require('fs');
 const path = require('path')
-const { NUMBER_OF_COMMITS_PER_PROJECT, CHANGE_SET_PATH } = require('./evaluationConstants')
+const { NUMBER_OF_COMMITS_PER_PROJECT, getChangeSetPath } = require('./evaluationConstants')
 
 const useLessFiles = [
     "history.md", "HISTORY.md", "History.md", "CHANGELOG.md",
@@ -35,7 +35,7 @@ function testSetGenerator() {
     }
 
     detailedSequences = detailedSequences.map(item => item.split(" : ")[1])
-    fs.writeFileSync(CHANGE_SET_PATH, JSON.stringify(Object.fromEntries(candidatedCommits)))
+    fs.writeFileSync(getChangeSetPath(), JSON.stringify(Object.fromEntries(candidatedCommits)))
     fs.writeFileSync(constants.SEQUENCES_PATH, detailedSequences.join("\n"));
 }
 

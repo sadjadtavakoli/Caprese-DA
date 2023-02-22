@@ -1,32 +1,14 @@
 const unitsContributionColumnOrdeing = {
     'Impact-set size': {
-        DA: ["avg", "min", "max", "std", "unique", "unique/total"],
-        FP: ["avg", "min", "max", "std", "unique", "unique/total"]
-    },
-    'True Positives': {
-        DA: ["avg", "precision"],
-        FP: ["avg", "precision"],
-        total: ["precision"]
+        DA: ["avg", "min", "max", "unique", "unique/total"],
+        FP: ["avg", "min", "max", "unique", "unique/total"]
     }
 }
 
 const approachesDataColumnOrdeing = {
     'Impact-set size': {
-        caprese: ["avg", "min", "max"],
-        tarmaq: ["avg", "min", "max"]
-    },
-    // 'Impact-set size': {
-    //     caprese: ["avg", "min", "max", "unique"],
-    //     tarmaq: ["avg", "min", "max", "unique"]
-    // },
-
-    'True Positives': {
-        caprese: ["Average True Positives", "Average Precision"],
-        tarmaq: ["Average True Positives", "Average Precision"]
-    },
-    'Execution Time': {
-        caprese: ["average"],
-        tarmaq: ["average"]
+        caprese: ["avg", "min", "max", "unique"],
+        tarmaq: ["avg", "min", "max", "unique"]
     }
 }
 const executionTimeColumnOrdeing = {
@@ -37,10 +19,10 @@ const executionTimeColumnOrdeing = {
 }
 
 const menaAveragePrecisionOrdering = {
-    "tarmaq": [10, 20, 30, 60, "all"],
-    "caprese": [10, 20, 30, 60, "all"],
-    "fp": [10, 20, 30, 60, "all"],
-    "da": [3, 5, 10, 20, 30, 60, "all"]
+    "tarmaq": { 5: ["P", "R"], 10: ["P", "R"], 20: ["P", "R"], 30: ["P", "R"], 60: ["P", "R"], "all": ["P", "R"] },
+    "caprese": { 5: ["P", "R"], 10: ["P", "R"], 20: ["P", "R"], 30: ["P", "R"], 60: ["P", "R"], "all": ["P", "R"] },
+    "fp": { 5: ["P", "R"], 10: ["P", "R"], 20: ["P", "R"], 30: ["P", "R"], 60: ["P", "R"], "all": ["P", "R"] },
+    "da": { 5: ["P", "R"], 10: ["P", "R"], 20: ["P", "R"], 30: ["P", "R"], 60: ["P", "R"], "all": ["P", "R"] }
 }
 
 const benchmarksInfoOrdering = ["# Commits", "# Change-sequences", "Unique #functions", "Avg # functions in commit", "LOC", "JavaScript Percentage", "languages"]
@@ -68,7 +50,7 @@ function changeSetLatexRow(data) {
 }
 
 function meanAveragePrecisionLatexRow(data) {
-    return toLatexOneLevel(data, menaAveragePrecisionOrdering)
+    return toLatex(data, menaAveragePrecisionOrdering)
 }
 
 function listToLatex(data, columnOrdering) {
@@ -132,5 +114,7 @@ function getFullTable(projectsData) {
     return finalTable
 }
 
-module.exports = { unitsContributionToLatex, approachesComparisonToLatex, getFullTable, 
-    benchmarksInfoLatexRow, changeSetLatexRow, meanAveragePrecisionLatexRow, executionTimeToLatex}
+module.exports = {
+    unitsContributionToLatex, approachesComparisonToLatex, getFullTable,
+    benchmarksInfoLatexRow, changeSetLatexRow, meanAveragePrecisionLatexRow, executionTimeToLatex
+}

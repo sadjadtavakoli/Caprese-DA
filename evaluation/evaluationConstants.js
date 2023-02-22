@@ -2,7 +2,11 @@ const path = require('path');
 const fs = require('fs');
 const constants = require('../constants.js');
 
-const benchmarkList = ["bignumber.js", "session", "jhipster-uml", "neo-async", "markdown-it", "grant", "environment", "cla-assistant", "nodejs-cloudant", "ws", "assemble", "nock", "eslint-plugin-react", "fastify", "express"] // in order 
+// const benchmarkList = ["bignumber.js", "session", "jhipster-uml", "neo-async", "markdown-it", "grant", "environment", "cla-assistant", "nodejs-cloudant", "ws", "assemble", "nock", "eslint-plugin-react", "fastify", "express"] // in order 
+// const benchmarkList = ["bignumber.js", "session", "jhipster-uml", "grant", "environment", "cla-assistant", "assemble", "nock", "fastify", "express"] // 10 selected benchmarks
+const benchmarkList = ["bignumber.js", "session", "assemble", "nock"] // 10 selected benchmarks
+// const benchmarkList = [constants.PROJECT_NAME] // done benchmarks
+// const benchmarkList = ["trueFalsePositiveTest"] // test
 
 const NUMBER_OF_COMMITS_PER_PROJECT = 10;
 const BENCHMARK_DIR = `${__dirname}${path.sep}benchmarks`
@@ -15,30 +19,33 @@ if (!fs.existsSync(PROJECT_DIR)) {
 }
 
 const EXECUTION_TIMES_PATH = `${BENCHMARK_DIR}${path.sep}executionTimeAll.json`
-const CHANGE_SET_PATH = `${PROJECT_DIR}${path.sep}changeSets.json`
-const ACTUAL_IMPACT_SET_PATH = `${PROJECT_DIR}${path.sep}actualImpactSets.json`
-const ALL_IMPACTED_ENTITIES_CSV = `${PROJECT_DIR}${path.sep}allImpactedEntities.csv`
-const DETECTED_IMPACT_SETS_PATH = `${PROJECT_DIR}${path.sep}detectedImpactSets.json`
 const TARMAQ_RESULT_PATH = `${PROJECT_DIR}${path.sep}tarmaq.json.json`
 const TARMAQ_PATH = path.dirname(path.dirname(__dirname)) + path.sep + "TARMAQ";
 const TARMAQ_COMMAND = "cd " + TARMAQ_PATH + " ; mvn exec:java -Dexec.mainClass='TARMAQ.MainTARMAQ' -Dexec.args=";
 
 function getActualImpactSetPath(benchmark) {
-    if (benchmark != undefined) {
-        let projectDir = `${BENCHMARK_DIR}${path.sep}${benchmark}`;
-        return `${projectDir}${path.sep}actualImpactSets.json`
-    } else {
-        return ACTUAL_IMPACT_SET_PATH
-    }
+    let projectDir = benchmark != undefined ? `${BENCHMARK_DIR}${path.sep}${benchmark}` : PROJECT_DIR
+    return `${projectDir}${path.sep}actualImpactSets.json`
 }
 
 function getDetectedImpactSetPath(benchmark) {
-    if (benchmark != undefined) {
-        let projectDir = `${BENCHMARK_DIR}${path.sep}${benchmark}`;
-        return `${projectDir}${path.sep}detectedImpactSets.json`
-    } else {
-        return DETECTED_IMPACT_SETS_PATH
-    }
+    let projectDir = benchmark != undefined ? `${BENCHMARK_DIR}${path.sep}${benchmark}` : PROJECT_DIR
+    return `${projectDir}${path.sep}detectedImpactSets.json`
+}
+
+function getOriginalImpactSetPath(benchmark) {
+    let projectDir = benchmark != undefined ? `${BENCHMARK_DIR}${path.sep}${benchmark}` : PROJECT_DIR
+    return `${projectDir}${path.sep}originalDetectedImpactSets.json`
+}
+
+function getImpactSetCSVs(benchmark) {
+    let projectDir = benchmark != undefined ? `${BENCHMARK_DIR}${path.sep}${benchmark}` : PROJECT_DIR
+    return `${projectDir}${path.sep}allImpactedEntities.csv`
+}
+
+function getChangeSetPath(benchmark) {
+    let projectDir = benchmark != undefined ? `${BENCHMARK_DIR}${path.sep}${benchmark}` : PROJECT_DIR
+    return `${projectDir}${path.sep}changeSets.json`
 }
 
 const STATUS = {
@@ -55,7 +62,7 @@ const APPROACHES = {
 
 
 module.exports = {
-    benchmarkList, NUMBER_OF_COMMITS_PER_PROJECT, CHANGE_SET_PATH, STATUS, ALL_IMPACTED_ENTITIES_CSV,
-    APPROACHES, EXECUTION_TIMES_PATH, getActualImpactSetPath, getDetectedImpactSetPath, TARMAQ_PATH, 
-    TARMAQ_RESULT_PATH, TARMAQ_COMMAND
+    benchmarkList, NUMBER_OF_COMMITS_PER_PROJECT, STATUS, TARMAQ_PATH, getOriginalImpactSetPath,
+    APPROACHES, EXECUTION_TIMES_PATH, getActualImpactSetPath, getDetectedImpactSetPath,
+    TARMAQ_RESULT_PATH, TARMAQ_COMMAND, getImpactSetCSVs, getChangeSetPath
 }

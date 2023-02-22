@@ -11,8 +11,6 @@ function computeBerkeResult(changes) {
 
     let impactSetOrderedList = sort(impactSet);
 
-    // console.log(impactSetOrderedList)
-
     fs.writeFileSync(constants.Berke_RESULT_PATH, JSON.stringify(impactSetOrderedList));
 }
 
@@ -74,12 +72,10 @@ function impactSetSorter() {
 
 function intrepretDAResult(changeSet, impactSet) {
     let dependenciesData = JSON.parse(fs.readFileSync(constants.DA_DEPENDENCIES_PATH));
-    let keyMap = dependenciesData['keyMap'];
 
     let dynamicImpactSet = getImpactSet(changeSet, new Map(), 1)
 
-    for (let [entryID, distance] of dynamicImpactSet.entries()) {
-        item = keyMap[entryID]
+    for (let [item, distance] of dynamicImpactSet.entries()) {
 
         if (!isChangeSetEntity(item)) {
             if (impactSet.has(item)) {
@@ -99,7 +95,6 @@ function intrepretDAResult(changeSet, impactSet) {
     function getImpactSet(changeSet, impactSet, distance) {
         nextLayer = []
         for (let change of changeSet) {
-
             let dependencies = dependenciesData[change];
             if (dependencies == undefined) {
                 dependencies = dependenciesData[anonymouseName(change)];
@@ -109,7 +104,7 @@ function intrepretDAResult(changeSet, impactSet) {
                 for (let dependency of dependencies['impacted']) {
                     if (!impactSet.has(dependency)) {
                         impactSet.set(dependency, distance)
-                        nextLayer.push(keyMap[dependency])
+                        nextLayer.push(dependency)
                     }
                 }
             }
@@ -122,8 +117,9 @@ function intrepretDAResult(changeSet, impactSet) {
     }
 
     function isChangeSetEntity(item) {
-        return changeSet.some(changedItem =>
-            changedItem == item || anonymouseName(changedItem) == item)
+        return changeSet.some(changedItem => {
+            return changedItem == item || anonymouseName(changedItem) == item
+        })
     }
 }
 
@@ -135,7 +131,6 @@ function intrepretFPData(impactSet) {
         let info = FPimapctSet[impacted];
 
         if (!removed.includes(impacted)) {
-
             if (impactSet.has(impacted)) {
                 console.error("NOPE!")
                 impactSet.set(impacted, { ...impactSet.get(impacted), ...info });

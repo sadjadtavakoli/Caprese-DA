@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require("path");
 const DATA_PATH = `data${path.sep}ProjectsData${path.sep}`
-const { benchmarksInfoLatexRow, getFullTable } = require("./jsonToLatexRow")
-const { benchmarkList } = require('../evaluationConstants')
+const { benchmarksInfoLatexRow, getFullTable } = require("./utils/jsonToLatexRow")
+const { benchmarkList } = require('./evaluationConstants')
 
 if (process.argv[2]) {
     console.log(getProjectsInfo(process.argv[2]).benchmarksInfo)

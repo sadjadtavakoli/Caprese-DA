@@ -1,7 +1,7 @@
 const { REPO_URL, REPO_MAIN_BRANCH, SEED_COMMIT, PROJECT_NAME } = require('../../constants');
 const fs = require('fs');
 const path = require('path')
-const { CHANGE_SET_PATH } = require('../evaluationConstants')
+const { getChangeSetPath } = require('../evaluationConstants')
 
 if (process.argv[1].endsWith(path.basename(__filename))) {
 
@@ -9,7 +9,7 @@ if (process.argv[1].endsWith(path.basename(__filename))) {
 }
 
 function readChangeSets() {
-    let changeSets = JSON.parse(fs.readFileSync(CHANGE_SET_PATH));
+    let changeSets = JSON.parse(fs.readFileSync(getChangeSetPath()));
 
     let allChangedEntities = []
     for (let commit of Object.keys(changeSets)) {

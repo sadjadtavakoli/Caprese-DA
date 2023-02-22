@@ -4,9 +4,9 @@ const path = require('path')
 const { exec } = require('child_process');
 const { evaluationAnalyzer } = require('../berke');
 const { anonymouseName } = require('../computeBerkeResult');
-const { CHANGE_SET_PATH, STATUS, getDetectedImpactSetPath, APPROACHES, TARMAQ_RESULT_PATH, TARMAQ_COMMAND } = require('./evaluationConstants')
+const { getChangeSetPath, STATUS, APPROACHES, TARMAQ_RESULT_PATH, TARMAQ_COMMAND, getOriginalImpactSetPath } = require('./evaluationConstants')
 
-const DETECTED_IMPACT_SETS_PATH = getDetectedImpactSetPath()
+const DETECTED_IMPACT_SETS_PATH = getOriginalImpactSetPath()
 
 if (process.argv[1].endsWith(path.basename(__filename))) {
 
@@ -31,7 +31,7 @@ if (process.argv[1].endsWith(path.basename(__filename))) {
 
 function readChangeSets() {
     return new Promise(resolve => {
-        let commitsInfo = JSON.parse(fs.readFileSync(CHANGE_SET_PATH));
+        let commitsInfo = JSON.parse(fs.readFileSync(getChangeSetPath()));
 
         let detailedSequences = fs.readFileSync(constants.SEQUENCES_PATH + "details.txt").toString().trim().split("\n");
 
@@ -129,10 +129,6 @@ function tarmaqAndBerkeConsequentStatusUpdate(berkeResult, tarmaqResult) {
 function runTARMAQ(changeSet) {
     console.log(" = = = Run TARMAQ = = = ")
     return new Promise(function (resolve, reject) {
-        // if (fs.existsSync(TARMAQ_RESULT_PATH)) {
-        //     fs.unlinkSync(TARMAQ_RESULT_PATH)
-        // }
-        // fs.writeFileSync(TARMAQ_RESULT_PATH, "")
         exec(`${TARMAQ_COMMAND}"${constants.SEQUENCES_PATH} ${TARMAQ_RESULT_PATH} ${changeSet}"`, (err, stdout, stderr) => {
             if (!err) {
                 resolve()
