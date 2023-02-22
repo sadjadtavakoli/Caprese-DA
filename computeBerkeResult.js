@@ -80,10 +80,10 @@ function intrepretDAResult(changeSet, impactSet) {
         if (!isChangeSetEntity(item)) {
             if (impactSet.has(item)) {
                 let imapctedItem = impactSet.get(item)
-                imapctedItem['DA-distance'] = distance
+                if (imapctedItem['DA-distance'] == undefined) imapctedItem['DA-distance'] = distance
             } else if (impactSet.has(anonymouseName(item))) {
                 let imapctedItem = impactSet.get(anonymouseName(item))
-                imapctedItem['DA-distance'] = distance
+                if (imapctedItem['DA-distance'] == undefined) imapctedItem['DA-distance'] = distance
                 impactSet.set(item, imapctedItem);
                 impactSet.delete(anonymouseName(item))
             } else {
@@ -92,8 +92,8 @@ function intrepretDAResult(changeSet, impactSet) {
         }
     }
 
-    function getImpactSet(changeSet, impactSet, distance) {
-        nextLayer = []
+    function getImpactSet(changeSet, dynamicImpactSet, distance) {
+        let nextLayer = []
         for (let change of changeSet) {
             let dependencies = dependenciesData[change];
             if (dependencies == undefined) {
@@ -102,18 +102,18 @@ function intrepretDAResult(changeSet, impactSet) {
 
             if (dependencies != undefined) {
                 for (let dependency of dependencies['impacted']) {
-                    if (!impactSet.has(dependency)) {
-                        impactSet.set(dependency, distance)
+                    if (!dynamicImpactSet.has(dependency)) {
+                        dynamicImpactSet.set(dependency, distance)
                         nextLayer.push(dependency)
                     }
                 }
             }
         }
         if (nextLayer.length) {
-            impactSet = getImpactSet(nextLayer, impactSet, distance + 1)
+            dynamicImpactSet = getImpactSet(nextLayer, dynamicImpactSet, distance + 1)
         }
 
-        return impactSet
+        return dynamicImpactSet
     }
 
     function isChangeSetEntity(item) {
