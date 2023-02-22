@@ -60,7 +60,7 @@ function getMeanPrecision(filename, approach, threshold, getResult) {
         result['TP'] = "-"
     }
 
-    return JSON.stringify(result)   
+    return JSON.stringify(result)
 
 }
 

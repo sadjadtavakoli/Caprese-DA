@@ -82,12 +82,6 @@ function computeTruePositives(filename) {
 
         let groundTruthFiles = groundTruth.filter(item => item[0] == item[1])
 
-        if (groundTruthFiles.length == 0 && groundTruth.some(item => item[1] == filePath)) {
-
-            return `FP - INDIRECT ${groundTruth.filter(item => item[1] == filePath).length}`
-
-        }
-
         for (let groundTruthEntity of groundTruthFiles) {
 
             if (filePath == groundTruthEntity[1]) {
@@ -99,6 +93,12 @@ function computeTruePositives(filename) {
                 result += ` - RMV ${groundTruthEntity[1]}`
 
             }
+        }
+
+        if (groundTruth.some(item => item[1] == filePath)) {
+
+            result += ` - INDIRECT ${groundTruth.filter(item => item[1] == filePath).length}`
+
         }
 
         return result

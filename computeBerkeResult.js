@@ -9,7 +9,7 @@ function computeBerkeResult(changes) {
 
     intrepretDAResult(changes, impactSet);
 
-    let impactSetOrderedList = sort(impactSet);
+    let impactSetOrderedList = getRankedResult(impactSet);
 
     fs.writeFileSync(constants.Berke_RESULT_PATH, JSON.stringify(impactSetOrderedList));
 }
@@ -19,12 +19,12 @@ function computeBerkeResultNoDA(changes) {
 
     intrepretFPDataNoDA(impactSet);
 
-    let impactSetOrderedList = sort(impactSet);
+    let impactSetOrderedList = getRankedResult(impactSet);
 
     fs.writeFileSync(constants.Berke_RESULT_PATH + "NoDA.json", JSON.stringify(impactSetOrderedList));
 }
 
-function sort(impactSet) {
+function getRankedResult(impactSet) {
 
     let sortableImpactSet = [];
     for (let item of impactSet) {
@@ -161,3 +161,88 @@ function anonymouseName(name) {
 }
 
 module.exports = { computeBerkeResult, anonymouseName, computeBerkeResultNoDA }
+
+// function getRankedResult(impactSet) {
+
+
+//     let commonImpactSet = [];
+//     let uniquelyByDA = [];
+//     let uniquelyByFP = [];
+//     for (let item of impactSet) {
+//         let info = item[1]
+//         let data = { ...{ "consequent": item[0] }, ...item[1] }
+//         if (info['DA-distance'] != undefined && info['FP-antecedents'] != undefined) {
+//             commonImpactSet.push(data)
+//         } else if (info['DA-distance'] != undefined) {
+//             uniquelyByDA.push(data)
+//         } else {
+//             uniquelyByFP.push(data)
+//         }
+//     }
+//     commonImpactSet.sort(commonImpactSetSorter())
+//     uniquelyByDA.sort(DASorter())
+//     uniquelyByFP.sort(FPSetSorter())
+
+//     let mergedDAandFP = mergeLists(uniquelyByDA, uniquelyByFP)
+//     return commonImpactSet.concat(mergedDAandFP)
+
+
+//     function mergeLists(list1, list2) {
+//         let max = Math.max(list1.length, list2.length)
+//         let min = Math.min(list1.length, list2.length)
+
+//         let newList = []
+
+//         for (let i = 0; i < min; i += 1) {
+//             newList.push(list1[i])
+//             newList.push(list2[i])
+//         }
+
+//         if (list1.length > min) {
+//             newList = newList.concat(list1.splice(min, max - min))
+//         }
+
+//         if (list2.length > min) {
+//             newList = newList.concat(list2.splice(min, max - min))
+//         }
+//         return newList
+//     }
+// }
+
+// function commonImpactSetSorter() {
+//     return function (a, b) {
+
+//         let aSupport = a['support'];
+//         let bSupport = b['support'];
+//         if (aSupport != bSupport) {
+//             return bSupport - aSupport;
+//         }
+
+//         let aFP = a['confidence'];
+//         let bFP = b['confidence'];
+//         if (bFP != aFP) {
+//             return bFP - aFP;
+//         }
+
+//         return a['DA-distance'] - b['DA-distance'];
+//     };
+// }
+
+// function FPSetSorter() {
+//     return function (a, b) {
+
+//         let aSupport = a['support'];
+//         let bSupport = b['support'];
+//         if (aSupport != bSupport) {
+//             return bSupport - aSupport;
+//         }
+
+//         return b['confidence'] - a['confidence'];
+//     };
+// }
+
+// function DASorter() {
+//     return function (a, b) {
+//         return a['DA-distance'] - b['DA-distance'];
+//     };
+// }
