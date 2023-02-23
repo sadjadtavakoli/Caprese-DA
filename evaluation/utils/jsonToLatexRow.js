@@ -25,6 +25,15 @@ const menaAveragePrecisionOrdering = {
     "da": { 5: ["P", "R"], 10: ["P", "R"], 20: ["P", "R"], 30: ["P", "R"], 60: ["P", "R"], "all": ["P", "R"] }
 }
 
+const unitContributionTrupositivesOrdering = {
+    5: ["da", "fp", "common"],
+    10: ["da", "fp", "common"],
+    20: ["da", "fp", "common"],
+    30: ["da", "fp", "common"],
+    60: ["da", "fp", "common"],
+    "all": ["da", "fp", "common"]
+}
+
 const benchmarksInfoOrdering = ["# Commits", "# Change-sequences", "Unique #functions", "Avg # functions in commit", "LOC", "JavaScript Percentage", "languages"]
 const changeSetInfoOrdering = ["min", "max", "avg"]
 
@@ -51,6 +60,10 @@ function changeSetLatexRow(data) {
 
 function meanAveragePrecisionLatexRow(data) {
     return toLatex(data, menaAveragePrecisionOrdering)
+}
+
+function unitContributionTruPositivesToLatex(data) {
+    return toLatexOneLevel(data, unitContributionTrupositivesOrdering)
 }
 
 function listToLatex(data, columnOrdering) {
@@ -115,6 +128,6 @@ function getFullTable(projectsData) {
 }
 
 module.exports = {
-    unitsContributionToLatex, approachesComparisonToLatex, getFullTable,
+    unitsContributionToLatex, approachesComparisonToLatex, getFullTable, unitContributionTruPositivesToLatex,
     benchmarksInfoLatexRow, changeSetLatexRow, meanAveragePrecisionLatexRow, executionTimeToLatex
 }
