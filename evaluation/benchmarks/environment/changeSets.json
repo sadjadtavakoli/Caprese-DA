@@ -11,16 +11,8 @@
     },
     "8058ef129d0e96e29526acf49ceb9f7a2f0b1697": {
         "changes": [
-            "environment.js-lib/environment.js-1-1350",
             "register-lib/environment.js-460-486",
-            "resolveModulePath-lib/environment.js-1177-1198",
-            "set-lib/env.js-229-236"
-        ]
-    },
-    "322d7c88d701cc2f2ca555f348fdf55421a7109a": {
-        "changes": [
-            ".github/workflows/ci.yml",
-            ".github/workflows/integration.yml"
+            "resolveModulePath-lib/environment.js-1177-1198"
         ]
     },
     "18e5323610348ede5b8ffbbb8fd7bca65a487f4e": {
@@ -38,7 +30,6 @@
         "changes": [
             "_getGlobalNpmPaths-lib/resolver.js-309-367",
             "arrowAnonymousFunction-lib/resolver.js-77-91",
-            "findGeneratorsIn-lib/resolver.js-169-178",
             "findPackagesIn-lib/resolver.js-162-198",
             "getNpmPaths-lib/resolver.js-240-250",
             "lookup-lib/resolver.js-55-94",

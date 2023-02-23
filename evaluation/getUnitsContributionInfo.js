@@ -15,58 +15,26 @@ console.log(getFullTable(latexRows))
 
 function getContribution(filename) {
     let lapsesOnThresholds = {}
-    for (let threshold of thresholds) {
-        lapsesOnThresholds[threshold] = { "da": [], "fp": [], "common": [] }
-    }
-
     let detectedImpactSets = JSON.parse(fs.readFileSync(getDetectedImpactSetPath(filename)));
-
-    for (let commit in detectedImpactSets) {
-        let detectedImpactSet = getRankedResult(detectedImpactSets[commit]["caprese"])
-        let daTruePositives = 0
-        let fpTruePositives = 0
-        let commonTruePositives = 0
-        let allTruePositives = detectedImpactSet.filter(item => item['status'] != STATUS.removed && item['evaluation'].toUpperCase().includes("TP"))
-        for (let i = 0; i < allTruePositives.length; i++) {
-            let item = allTruePositives[i]
-            if (thresholds.includes(i)) {
-                lapsesOnThresholds[i]["da"].push(daTruePositives)
-                lapsesOnThresholds[i]["fp"].push(fpTruePositives)
-                lapsesOnThresholds[i]["common"].push(commonTruePositives)
-            }
-            if (item['DA-distance'] && item['FP-antecedents']) {
-                commonTruePositives++
-            } else if (item['FP-antecedents']) {
-                fpTruePositives++
-            } else {
-                daTruePositives++
+    for (let threshold of thresholds) {
+        let result = {}
+        for (let commit in detectedImpactSets) {
+            let detectedImpactSet = getRankedResult(detectedImpactSets[commit]["caprese"])
+            let _threshold = threshold == "all" ? detectedImpactSet.length : Math.min(threshold, detectedImpactSet.length)
+            if (_threshold != 0) {
+                let topDetectedImpactSet = detectedImpactSet.splice(0, _threshold)
+                let truePositives = topDetectedImpactSet.filter(item => item["evaluation"].toUpperCase().includes("TP"))
+                let commonTruePositives = truePositives.filter(item => item['DA-distance'] && item['FP-antecedents'])
+                let DATruePositives = truePositives.filter(item => item['DA-distance'] && !item['FP-antecedents'])
+                let FPTruePositives = truePositives.filter(item => !item['DA-distance'] && item['FP-antecedents'])
+                result['da'] = (DATruePositives.length / truePositives.length * 100).toFixed(2)
+                result['fp'] = (FPTruePositives.length / truePositives.length * 100).toFixed(2)
+                result['common'] = (commonTruePositives.length / truePositives.length * 100).toFixed(2)
             }
         }
-        for (let threshold of thresholds) {
-            if (threshold == "all" || threshold == allTruePositives.length) {
-                lapsesOnThresholds[threshold]["da"].push(daTruePositives)
-                lapsesOnThresholds[threshold]["fp"].push(fpTruePositives)
-                lapsesOnThresholds[threshold]["common"].push(commonTruePositives)
-            } else if (threshold > allTruePositives.length) {
-                lapsesOnThresholds[threshold]["da"].push("-")
-                lapsesOnThresholds[threshold]["fp"].push("-")
-                lapsesOnThresholds[threshold]["common"].push("-")
-            }
-        }
-    }
-
-    for (let [threshold, approaches] of Object.entries(lapsesOnThresholds)) {
-        for (let [approach, values] of Object.entries(approaches)) {
-            lapsesOnThresholds[threshold][approach] = average(values)
-        }
+        lapsesOnThresholds[threshold] = result
     }
     return lapsesOnThresholds
-}
-
-function average(array) {
-    let newArray = array.filter(item => item != "-")
-    if (!newArray.length) return "-"
-    return parseFloat((newArray.reduce((a, b) => a + b) / newArray.length).toFixed(2))
 }
 
 function rankFPResult() {
