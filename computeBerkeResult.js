@@ -26,48 +26,82 @@ function computeBerkeResultNoDA(changes) {
 
 function getRankedResult(impactSet) {
 
-    let sortableImpactSet = [];
+    let commonImpactSet = [];
+    let uniquelyByDA = [];
+    let uniquelyByFP = [];
     for (let item of impactSet) {
-        sortableImpactSet.push({ ...{ "consequent": item[0] }, ...item[1] });
+        info = item[1]
+        let data = { ...{ "consequent": item[0] }, ...item[1] }
+        if (info['DA-distance'] != undefined && info['FP-antecedents'] != undefined) {
+            commonImpactSet.push(data)
+        } else if (info['DA-distance'] != undefined) {
+            uniquelyByDA.push(data)
+        } else {
+            uniquelyByFP.push(data)
+        }
+    }
+    commonImpactSet.sort(commonImpactSetSorter())
+    uniquelyByDA.sort(rankDAResult())
+    uniquelyByFP.sort(rankFPResult())
+
+    let mergedDAandFP = mergeLists(uniquelyByDA, uniquelyByFP)
+    return commonImpactSet.concat(mergedDAandFP)
+
+    function mergeLists(list1, list2) {
+        let max = Math.max(list1.length, list2.length)
+        let min = Math.min(list1.length, list2.length)
+
+        let newList = []
+
+        for (let i = 0; i < min; i += 1) {
+            newList.push(list1[i])
+            newList.push(list2[i])
+        }
+
+        if (list1.length > min) {
+            newList = newList.concat(list1.splice(min, max - min))
+        }
+
+        if (list2.length > min) {
+            newList = newList.concat(list2.splice(min, max - min))
+        }
+        return newList
     }
 
-    sortableImpactSet.sort(impactSetSorter());
+    function commonImpactSetSorter() {
+        return function (a, b) {
 
-    return sortableImpactSet
-}
+            let aSupport = a['support'];
+            let bSupport = b['support'];
+            if (aSupport != bSupport) {
+                return bSupport - aSupport;
+            }
 
-function impactSetSorter() {
-    return function (a, b) {
-        if ((a['DA-distance'] && !b['DA-distance'])) {
-            return -1;
-        }
-        if (b['DA-distance'] && !a['DA-distance']) {
-            return 1;
-        }
-        if (a['FP-antecedents'] && !b['FP-antecedents']) {
-            return -1;
-        }
-        if (b['FP-antecedents'] && !a['FP-antecedents']) {
-            return 1;
-        }
-
-        let aSupport = a['support'] || 0;
-        let bSupport = b['support'] || 0;
-        let aFP = a['confidence'] || 0;
-        let bFP = b['confidence'] || 0;
-
-        if (aSupport == bSupport) {
+            let aFP = a['confidence'];
+            let bFP = b['confidence'];
             if (bFP != aFP) {
                 return bFP - aFP;
             }
-        } else {
-            return bSupport - aSupport;
-        }
 
-        let aDA = a['DA-distance'] || 0;
-        let bDA = b['DA-distance'] || 0;
-        return aDA - bDA;
-    };
+            return a['DA-distance'] - b['DA-distance'];
+        };
+    }
+
+    function rankFPResult() {
+        return function (a, b) {
+            if (b['support'] == a['support']) {
+                return b['confidence'] - a['confidence'];
+            } else {
+                return b['support'] - a['support'];
+            }
+        };
+    }
+
+    function rankDAResult() {
+        return function (a, b) {
+            return a['DA-distance'] - b['DA-distance']
+        };
+    }
 }
 
 function intrepretDAResult(changeSet, impactSet) {
@@ -161,88 +195,3 @@ function anonymouseName(name) {
 }
 
 module.exports = { computeBerkeResult, anonymouseName, computeBerkeResultNoDA }
-
-// function getRankedResult(impactSet) {
-
-
-//     let commonImpactSet = [];
-//     let uniquelyByDA = [];
-//     let uniquelyByFP = [];
-//     for (let item of impactSet) {
-//         let info = item[1]
-//         let data = { ...{ "consequent": item[0] }, ...item[1] }
-//         if (info['DA-distance'] != undefined && info['FP-antecedents'] != undefined) {
-//             commonImpactSet.push(data)
-//         } else if (info['DA-distance'] != undefined) {
-//             uniquelyByDA.push(data)
-//         } else {
-//             uniquelyByFP.push(data)
-//         }
-//     }
-//     commonImpactSet.sort(commonImpactSetSorter())
-//     uniquelyByDA.sort(DASorter())
-//     uniquelyByFP.sort(FPSetSorter())
-
-//     let mergedDAandFP = mergeLists(uniquelyByDA, uniquelyByFP)
-//     return commonImpactSet.concat(mergedDAandFP)
-
-
-//     function mergeLists(list1, list2) {
-//         let max = Math.max(list1.length, list2.length)
-//         let min = Math.min(list1.length, list2.length)
-
-//         let newList = []
-
-//         for (let i = 0; i < min; i += 1) {
-//             newList.push(list1[i])
-//             newList.push(list2[i])
-//         }
-
-//         if (list1.length > min) {
-//             newList = newList.concat(list1.splice(min, max - min))
-//         }
-
-//         if (list2.length > min) {
-//             newList = newList.concat(list2.splice(min, max - min))
-//         }
-//         return newList
-//     }
-// }
-
-// function commonImpactSetSorter() {
-//     return function (a, b) {
-
-//         let aSupport = a['support'];
-//         let bSupport = b['support'];
-//         if (aSupport != bSupport) {
-//             return bSupport - aSupport;
-//         }
-
-//         let aFP = a['confidence'];
-//         let bFP = b['confidence'];
-//         if (bFP != aFP) {
-//             return bFP - aFP;
-//         }
-
-//         return a['DA-distance'] - b['DA-distance'];
-//     };
-// }
-
-// function FPSetSorter() {
-//     return function (a, b) {
-
-//         let aSupport = a['support'];
-//         let bSupport = b['support'];
-//         if (aSupport != bSupport) {
-//             return bSupport - aSupport;
-//         }
-
-//         return b['confidence'] - a['confidence'];
-//     };
-// }
-
-// function DASorter() {
-//     return function (a, b) {
-//         return a['DA-distance'] - b['DA-distance'];
-//     };
-// }

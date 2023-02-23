@@ -27,10 +27,10 @@ function getMeanPrecision(filename, approach, threshold, getResult) {
     let actualImpactSet = JSON.parse(fs.readFileSync(getActualImpactSetPath(filename)));
 
     for (let commit in detectedImpactSets) {
+        let allPositives = actualImpactSet[commit]['impacted'].length
         let detectedImpactSet = getResult(detectedImpactSets[commit], approach)
 
         let _threshold = threshold == "all" ? detectedImpactSet.length : Math.min(threshold, detectedImpactSet.length)
-        let allPositives = actualImpactSet[commit]['impacted'].length
         if (_threshold != 0 && allPositives != 0) {
             let topDetectedImpactSet = detectedImpactSet.splice(0, _threshold)
             let truePositives = topDetectedImpactSet.filter(item => item['status'] != STATUS.removed && item['evaluation'].toUpperCase().includes("TP"))
@@ -65,6 +65,9 @@ function getMeanPrecision(filename, approach, threshold, getResult) {
 }
 
 function getApproachResult(commitResult, approach) {
+    if (approach == "caprese") {
+        getRankedResult(commitResult[approach])
+    }
     return commitResult[approach]
 }
 
@@ -91,8 +94,71 @@ function rankFPResult() {
 
 function rankDAResult() {
     return function (a, b) {
-        return a['DA-distance'] = b['DA-distance']
+        return a['DA-distance'] - b['DA-distance']
     };
+}
+
+function rankCommonImpactSet() {
+    return function (a, b) {
+
+        let aSupport = a['support'];
+        let bSupport = b['support'];
+        if (aSupport != bSupport) {
+            return bSupport - aSupport;
+        }
+
+        let aFP = a['confidence'];
+        let bFP = b['confidence'];
+        if (bFP != aFP) {
+            return bFP - aFP;
+        }
+
+        return a['DA-distance'] - b['DA-distance'];
+    };
+}
+
+function getRankedResult(impactSet) {
+
+    let commonImpactSet = [];
+    let uniquelyByDA = [];
+    let uniquelyByFP = [];
+    for (let info of impactSet) {
+        if (info['DA-distance'] != undefined && info['FP-antecedents'] != undefined) {
+            commonImpactSet.push(info)
+        } else if (info['DA-distance'] != undefined) {
+            uniquelyByDA.push(info)
+        } else {
+            uniquelyByFP.push(info)
+        }
+    }
+    commonImpactSet.sort(rankCommonImpactSet())
+    uniquelyByDA.sort(rankDAResult())
+    uniquelyByFP.sort(rankFPResult())
+
+    let mergedDAandFP = mergeLists(uniquelyByDA, uniquelyByFP)
+    return commonImpactSet.concat(mergedDAandFP)
+
+
+    function mergeLists(list1, list2) {
+        let max = Math.max(list1.length, list2.length)
+        let min = Math.min(list1.length, list2.length)
+
+        let newList = []
+
+        for (let i = 0; i < min; i += 1) {
+            newList.push(list1[i])
+            newList.push(list2[i])
+        }
+
+        if (list1.length > min) {
+            newList = newList.concat(list1.splice(min, max - min))
+        }
+
+        if (list2.length > min) {
+            newList = newList.concat(list2.splice(min, max - min))
+        }
+        return newList
+    }
 }
 
 function average(array) {
