@@ -1,10 +1,8 @@
-// !!!!! DEPRECATED 
-// DOESN'T FOLLOW THE LATEST EVALUATION SETUP
-
 const fs = require("fs")
 const { benchmarkList, getActualImpactSetPath, getDetectedImpactSetPath, getOriginalImpactSetPath, STATUS } = require('../evaluationConstants')
 
 benchmarkList.forEach(filename => {
+    console.log(filename)
     computeTruePositives(filename)
 })
 
@@ -22,13 +20,13 @@ function computeTruePositives(filename) {
                 if (entityInfo['status'] != STATUS.removed) {
                     let entity = entityInfo['consequent']
                     let entitySecs = entity.split("-")
-
-                    if (entitySecs.length == 1 || (entitySecs[0] == entitySecs[1] && entitySecs[2] == 1)) {
-
-                        entityInfo['evaluation'] = matchFile(entitySecs, groundTruth)
-
+                    if (!parseInt(entitySecs[entitySecs.length - 1])) {
+                        entityInfo['evaluation'] = matchFile(entity, groundTruth)
+                        console.log("file", entity)
+                    } else if ((entitySecs[0] == entitySecs[1] && entitySecs[2] == 1)) {
+                        console.log("unusual file!")
+                        entityInfo['evaluation'] = matchFile(entitySecs[0], groundTruth)
                     } else {
-
                         entityInfo['evaluation'] = matchNonFiles(entitySecs, groundTruth)
 
                     }
@@ -42,14 +40,14 @@ function computeTruePositives(filename) {
 
     function matchNonFiles(entitySecs, groundTruth) {
 
-        let enFilePath = entitySecs[1]
+        let enFilePath = entitySecs.slice().splice(1, entitySecs.length - 3).join("-")
         let enFirstLine = entitySecs[entitySecs.length - 2]
         let enLastLine = entitySecs[entitySecs.length - 1]
-
         let samefile = groundTruth.filter(item => item[1] == enFilePath)
         let result = "FP"
-
-        if (samefile.length == 0 && groundTruth.some(item => enFilePath.includes(item[1]) || (item[1].includes(enFilePath)))) {
+        if (samefile.length == 0 && groundTruth.some(item => {
+            enFilePath.includes(item[1]) || (item[1].includes(enFilePath))
+        })) {
             result += ` - SUSPICIOUS PATH`
         }
 
@@ -57,11 +55,10 @@ function computeTruePositives(filename) {
         for (let groundTruthEntity of samefile) {
             if (enFirstLine == groundTruthEntity[2]) {
                 if (enLastLine == groundTruthEntity[3]) {
-
                     return "TP"
 
                 } else {
-                    result += ` - RMV`
+                    result += ` - RMV different last line ${groundTruthEntity[0]} - ${groundTruthEntity[2]} - ${groundTruthEntity[3]}`
                 }
             }
         }
@@ -75,9 +72,7 @@ function computeTruePositives(filename) {
         return result
     }
 
-    function matchFile(entitySecs, groundTruth) {
-        let filePath = entitySecs[0]
-
+    function matchFile(filePath, groundTruth) {
         let result = "FP"
 
         let groundTruthFiles = groundTruth.filter(item => item[0] == item[1])
@@ -90,7 +85,7 @@ function computeTruePositives(filename) {
 
             } else if (filePath.includes(groundTruthEntity[1]) || (groundTruthEntity[1].includes(filePath))) {
 
-                result += ` - RMV ${groundTruthEntity[1]}`
+                result += ` - SUSPICIOUS PATH FOR FILE ${groundTruthEntity[1]}`
 
             }
         }
@@ -110,8 +105,8 @@ function getApproachResult(commitResult, approach) {
 }
 
 function areNested(item1, item2) {
-    let item1_info = getIndo(item1)
-    let item2_info = getIndo(item2)
+    let item1_info = getInfo(item1)
+    let item2_info = getInfo(item2)
 
     if (item1_info['path'] == item2_info['path']) {
         let item2_is_nested = item1_info.first_line <= item2_info.first_line && (!item1_info.last_line || item1_info.last_line >= item2_info.last_line)
@@ -120,8 +115,9 @@ function areNested(item1, item2) {
     }
     return false
 
-    function getIndo(item) {
+    function getInfo(item) {
         let secs = item.split('-')
-        return { name: secs[0], path: secs[1], first_line: parseInt(secs[secs.length - 2]), last_line: parseInt(secs[secs.length - 1]) }
+        let enFilePath = secs.slice().splice(1, secs.length - 3).join("-")
+        return { name: secs[0], path: enFilePath, first_line: parseInt(secs[secs.length - 2]), last_line: parseInt(secs[secs.length - 1]) }
     }
 }

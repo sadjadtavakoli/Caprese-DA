@@ -4,6 +4,7 @@ const { getImpactSetCSVs, getChangeSetPath, getActualImpactSetPath, benchmarkLis
 
 if (process.argv[1].endsWith(path.basename(__filename))) {
     benchmarkList.forEach(benchmark => {
+        console.log(filename)
         readCSVs(benchmark)
     })
 }
@@ -29,7 +30,7 @@ function readCSVs(benchmark) {
         addImpacted(impact2, changedEntity)
     }
 
-    fs.writeFileSync(getActualImpactSetPath(benchmark)+"pure list.json", JSON.stringify(impactSetList))
+    fs.writeFileSync(getActualImpactSetPath(benchmark) + "pure list.json", JSON.stringify(impactSetList))
     insertImpactedEntities()
     fs.writeFileSync(getActualImpactSetPath(benchmark), JSON.stringify(changeSets))
 
@@ -51,29 +52,20 @@ function readCSVs(benchmark) {
     function insertImpactedEntities() {
         for (let commit in changeSets) {
             let changes = changeSets[commit]['changes']
-            let allImpactedEntities = []
-            console.log("--")
+            changeSets[commit]['impacted'] = []
             console.log(commit)
             for (let change of changes) {
-                console.log(change)
                 let impactSet = impactSetList[change]
-                if(impactSet==undefined){
+                if (impactSet == undefined) {
                     console.error("\nERROR!!!! \n impactSet is not detected for", change, "\nERRRRROOOORRRR!!!!\n")
-                }else{
-                    console.log(impactSet.length)
-                    if (!allImpactedEntities.length) {
-                        allImpactedEntities = impactSet
-                    } else {
-                        for (let impact of impactSet) {
-                            if (!includes(allImpactedEntities, impact)) {
-                                allImpactedEntities.push(impact)
-                            }
+                } else {
+                    for (let impact of impactSet) {
+                        if (!includes(changeSets[commit]['impacted'], impact)) {
+                            changeSets[commit]['impacted'].push(impact)
                         }
                     }
                 }
             }
-
-            changeSets[commit]['impacted'] = allImpactedEntities
         }
     }
 

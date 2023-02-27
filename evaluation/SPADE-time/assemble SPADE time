@@ -1,0 +1,31 @@
+Relative Minimum support = 20.0
+706 frequent patterns.
+=============  CM-SPADE -- Algorithm - STATISTICS =============
+ Total time ~ 98 ms
+ Frequent sequences count : 706
+ Join count : 627
+ Max memory (mb):145.572265625
+Content at file .//assemble-patterns-20.0.txt
+===================================================
+
+1833
+Relative Minimum support = 10.0
+28469 frequent patterns.
+=============  CM-SPADE -- Algorithm - STATISTICS =============
+ Total time ~ 966 ms
+ Frequent sequences count : 28469
+ Join count : 28222
+ Max memory (mb):658.6159820556641
+Content at file .//assemble-patterns-10.0.txt
+===================================================
+
+1833
+Relative Minimum support = 5.0
+59174655 frequent patterns.
+=============  CM-SPADE -- Algorithm - STATISTICS =============
+ Total time ~ 1038294 ms
+ Frequent sequences count : 59174655
+ Join count : 59173945
+ Max memory (mb):758.9602737426758
+Content at file .//assemble-patterns-5.0.txt
+===================================================

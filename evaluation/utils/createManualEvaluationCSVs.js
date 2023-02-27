@@ -46,10 +46,11 @@ function sortEntitiesByLocation() {
         let b_splitted = b.split("-")
 
         let a_begin = parseInt(a_splitted[a_splitted.length - 2])
-        let a_file = a_splitted[1]
+        let a_file = a_splitted.splice(1, a_splitted.length - 3).join("-")
+
 
         let b_begin = parseInt(b_splitted[b_splitted.length - 2])
-        let b_file = b_splitted[1]
+        let b_file = b_splitted.splice(1, b_splitted.length - 3).join("-")
 
         if (a_file == b_file) {
             return a_begin - b_begin

@@ -1,0 +1,43 @@
+661
+Relative Minimum support = 20.0
+13 frequent patterns.
+=============  CM-SPADE -- Algorithm - STATISTICS =============
+ Total time ~ 6 ms
+ Frequent sequences count : 13
+ Join count : 2
+ Max memory (mb):25.58422088623047
+Content at file .//environment-patterns-20.0.txt
+===================================================
+
+661
+Relative Minimum support = 10.0
+75 frequent patterns.
+=============  CM-SPADE -- Algorithm - STATISTICS =============
+ Total time ~ 11 ms
+ Frequent sequences count : 75
+ Join count : 20
+ Max memory (mb):31.04596710205078
+Content at file .//environment-patterns-10.0.txt
+===================================================
+
+661
+Relative Minimum support = 5.0
+968 frequent patterns.
+=============  CM-SPADE -- Algorithm - STATISTICS =============
+ Total time ~ 91 ms
+ Frequent sequences count : 968
+ Join count : 775
+ Max memory (mb):42.11830139160156
+Content at file .//environment-patterns-5.0.txt
+===================================================
+
+661
+Relative Minimum support = 3.0
+20629 frequent patterns.
+=============  CM-SPADE -- Algorithm - STATISTICS =============
+ Total time ~ 234 ms
+ Frequent sequences count : 20629
+ Join count : 20090
+ Max memory (mb):162.81887817382812
+Content at file .//environment-patterns-3.0.txt
+===================================================

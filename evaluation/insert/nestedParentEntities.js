@@ -1,10 +1,8 @@
-// !!!!! DEPRECATED 
-// DOESN'T FOLLOW THE LATEST EVALUATION SETUP
-
 const fs = require("fs")
 const { benchmarkList, getActualImpactSetPath, getOriginalImpactSetPath } = require('../evaluationConstants')
 
 benchmarkList.forEach(filename => {
+    console.log(filename)
     insertNestedParentEntities(filename)
 })
 
@@ -24,8 +22,11 @@ function insertNestedParentEntities(filename) {
                 let entitySecs = entity.split("-")
                 for (let change of changeSet) {
                     if (areNested(entity, change)) {
-                        if (entitySecs.length == 1) {
-                            entitySecs = convertToFunc(entitySecs)
+                        if (!parseInt(entitySecs[entitySecs.length - 1])) {
+                            entitySecs = convertToFunc(entity)
+                            console.log("file", entity)
+                        } else if ((entitySecs[0] == entitySecs[1] && entitySecs[2] == 1)) {
+                            console.log("unusual file!", entity)
                         }
                         if (!includes(groundTruth, entitySecs)) {
                             groundTruth.push(entitySecs)
@@ -40,8 +41,8 @@ function insertNestedParentEntities(filename) {
 }
 
 function areNested(item1, item2) {
-    let item1_info = getIndo(item1)
-    let item2_info = getIndo(item2)
+    let item1_info = getInfo(item1)
+    let item2_info = getInfo(item2)
 
     if (item1_info['path'] == item2_info['path']) {
         let item2_is_nested = item1_info.first_line <= item2_info.first_line && (!item1_info.last_line || item1_info.last_line >= item2_info.last_line)
@@ -50,22 +51,21 @@ function areNested(item1, item2) {
     }
     return false
 
-    function getIndo(item) {
+    function getInfo(item) {
         let secs = item.split('-')
-        if (secs.length == 1) {
-            secs = convertToFunc(secs)
+        if (!parseInt(secs[secs.length - 1])) {
+            secs = node(item)
         }
-        return { name: secs[0], path: secs[1], first_line: parseInt(secs[secs.length - 2]), last_line: parseInt(secs[secs.length - 1]) }
+        let filePath = secs.splice(1, secs.length - 3).join("-")
+        return { name: secs[0], path: filePath, first_line: parseInt(secs[secs.length - 2]), last_line: parseInt(secs[secs.length - 1]) }
     }
 }
 
 function includes(arr, newItem) {
-    return arr.some(item => item[0] == newItem[0] && item[1] == newItem[1] && item[2] == newItem[2] && item[3] == newItem[3])
+    let filePath = newItem.slice().splice(1, newItem.length - 3).join("-")
+    return arr.some(item => item[0] == newItem[0] && item[1] == filePath && item[2] == newItem[2] && item[3] == newItem[3])
 }
 
-function convertToFunc(entitySecs) {
-    entitySecs[1] = entitySecs[0]
-    entitySecs[2] = 1
-    entitySecs[3] = null
-    return entitySecs
+function convertToFunc(entity) {
+    return [entity, entity, 1, null]
 }
