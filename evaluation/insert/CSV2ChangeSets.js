@@ -4,7 +4,7 @@ const { getImpactSetCSVs, getChangeSetPath, getActualImpactSetPath, benchmarkLis
 
 if (process.argv[1].endsWith(path.basename(__filename))) {
     benchmarkList.forEach(benchmark => {
-        console.log(filename)
+        console.log(benchmark)
         readCSVs(benchmark)
     })
 }

@@ -40,7 +40,7 @@ async function evaluationAnalyzer(changes) {
 async function tempFP(changes){
     changeSet = changes
     await runFP()
-    computeBerkeResultNoDA(changes)
+    computeBerkeResultNoDA()
 
 }
 

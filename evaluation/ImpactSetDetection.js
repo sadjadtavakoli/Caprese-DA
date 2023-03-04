@@ -1,10 +1,10 @@
 const constants = require('../constants.js');
 const fs = require('fs');
+const readline = require('readline')
 const path = require('path')
 const { exec } = require('child_process');
 const { evaluationAnalyzer } = require('../berke');
-const { anonymouseName } = require('../computeBerkeResult');
-const { getChangeSetPath, STATUS, APPROACHES, TARMAQ_RESULT_PATH, TARMAQ_COMMAND, getOriginalImpactSetPath } = require('./evaluationConstants')
+const { getChangeSetPath, STATUS, APPROACHES, TARMAQ_RESULT_PATH, TARMAQ_COMMAND, getOriginalImpactSetPath, getSPADEResultPath, SPADE_COMMAND, getSPADEPatternPath } = require('./evaluationConstants')
 
 const DETECTED_IMPACT_SETS_PATH = getOriginalImpactSetPath()
 
@@ -72,59 +72,35 @@ function collectResult(commit) {
 
         let impactSet = JSON.parse(fs.readFileSync(DETECTED_IMPACT_SETS_PATH));
 
-        let { capreseResult, tarmaqResult } = getBothApproachsResult()
-
-        impactSet[commit][APPROACHES.caprese] = capreseResult
-        impactSet[commit][APPROACHES.tarmaq] = tarmaqResult
+        impactSet[commit][APPROACHES.caprese] = getBerkeResult()
+        impactSet[commit][APPROACHES.tarmaq] = getTarmaqResult()
 
         fs.writeFileSync(DETECTED_IMPACT_SETS_PATH, JSON.stringify(impactSet));
         resolve();
     })
+
+    function getTarmaqResult() {
+        let tarmaqResult = JSON.parse(fs.readFileSync(TARMAQ_RESULT_PATH));
+        let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(" ");
+        tarmaqResult = tarmaqResult.map(item => {
+            let consequent = item['rule'].split(" => ")[1];
+            item['consequent'] = consequent;
+            item['FP-antecedents'] = [item['rule'].split(" => ")[0].slice(1, -1).split(", ")]
+            item['status'] = STATUS.tarmaq_unique;
+
+            if (removed.includes(consequent)) {
+                item['status'] = STATUS.removed;
+            }
+            return item;
+        });
+        return tarmaqResult;
+    }
+
+    function getBerkeResult() {
+        return JSON.parse(fs.readFileSync(constants.Berke_RESULT_PATH));
+    }
 }
 
-function getBothApproachsResult() {
-
-    let tarmaqResult = getTarmaqResult();
-    let capreseResult = getBerkeResult();
-
-    tarmaqAndBerkeConsequentStatusUpdate(capreseResult, tarmaqResult);
-
-    return { capreseResult, tarmaqResult }
-}
-
-function getTarmaqResult() {
-    let tarmaqResult = JSON.parse(fs.readFileSync(TARMAQ_RESULT_PATH));
-    let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(" ");
-    tarmaqResult = tarmaqResult.map(item => {
-        let consequent = item['rule'].split(" => ")[1];
-        item['consequent'] = consequent;
-        item['FP-antecedents'] = [item['rule'].split(" => ")[0].slice(1, -1).split(", ")]
-        item['status'] = STATUS.tarmaq_unique;
-
-        if (removed.includes(consequent)) {
-            item['status'] = STATUS.removed;
-        }
-        return item;
-    });
-    return tarmaqResult;
-}
-
-function getBerkeResult() {
-    return JSON.parse(fs.readFileSync(constants.Berke_RESULT_PATH));
-}
-
-function tarmaqAndBerkeConsequentStatusUpdate(berkeResult, tarmaqResult) {
-    berkeResult.forEach(item => {
-        let consequent = item["consequent"]
-        let tarmaqItems = tarmaqResult.filter(element => element['consequent'] == consequent || element['consequent'] == anonymouseName(consequent))
-        if (tarmaqItems.length != 0) {
-            tarmaqItems.forEach(tarmaqItem => tarmaqItem['status'] = STATUS.common)
-            item["status"] = STATUS.common;
-        } else {
-            item["status"] = STATUS.berke_unique;
-        }
-    });
-}
 
 function runTARMAQ(changeSet) {
     console.log(" = = = Run TARMAQ = = = ")
@@ -140,4 +116,85 @@ function runTARMAQ(changeSet) {
     })
 }
 
-module.exports = { runTARMAQ, getBerkeResult, tarmaqAndBerkeConsequentStatusUpdate, getTarmaqResult }
+function computeSPADEResultFotExecutionTime(changeSet, support) {
+    console.log(` = = = SPADE support=${support}= = = `)
+    return extractResultFromPatterns(changeSet, support, getSPADEPatternPath, getSPADEResultPath)
+        .finally((err) => fs.unlinkSync(getSPADEPatternPath(support)))
+}
+
+function getSPADEPatternsForExectionTime(support, benchmark) {
+    console.log(` = = = Run SPADE support=${support}= = = `)
+    let sequencePath = path.dirname(__dirname) + path.sep + 'data' + path.sep + "ProjectsData-SPADE" + path.sep + benchmark + path.sep + "sequences.txt"
+    let command = `${SPADE_COMMAND}"${sequencePath}" "${support}"`
+    return new Promise(function (resolve, reject) {
+        exec(command, (err, stdout, stderr) => {
+            if (!err) {
+                resolve(benchmark)
+            }
+            else {
+                reject(err)
+            }
+        })
+    })
+}
+
+function extractResultFromPatterns(changeSet, support, patternPath, resultPath) {
+    console.log(` = = = Compute Pattern support=${support} = = = `)
+    let sequences = fs.readFileSync(constants.SEQUENCES_PATH).toString().split("\n")
+
+    return new Promise((resolve, reject) => {
+        let impactSet = new Map()
+        var r = readline.createInterface({
+            input: fs.createReadStream(patternPath(support))
+        });
+        r.on('line', function (patternInfo) {
+            let patternInfos = patternInfo.split(" -1 ")
+            let pattern = patternInfos[0]
+            let items = pattern.split(" ")
+            let impactedItems = items.filter(item => !changeSet.includes(item))
+            if (impactedItems.length != items.length) {
+                let support = parseInt(patternInfos[1].split(" ")[1])
+                let includedChanges = items.filter(item => changeSet.includes(item))
+                let includedChangesSupport = getIntersectionSupport(includedChanges)
+                let confidence = support / includedChangesSupport
+                for (let impacted of impactedItems) {
+                    if (!impactSet.has(impacted)) {
+                        impactSet.set(impacted, { "confidence": confidence, "support": support })
+                    } else {
+                        let info = impactSet.get(impacted)
+                        if (info['support'] < support || (info['support'] == support && info['confidence'] < confidence)) {
+                            impactSet.set(impacted, { "confidence": confidence, "support": support })
+                        }
+                    }
+                }
+            }
+        })
+        r.on("close", () => {
+            let rankedImpactSet = []
+            for (let [impacted, info] of impactSet.entries()) {
+                rankedImpactSet.push({ "consequent": impacted, ...info })
+            }
+            rankedImpactSet.sort(rankImpactSet())
+            fs.writeFileSync(resultPath(support), JSON.stringify(rankedImpactSet));
+            resolve()
+        })
+    })
+
+    function getIntersectionSupport(changes) {
+        return sequences.filter(item => {
+            return changes.every(change => item.includes(change))
+        }).length
+
+    }
+
+    function rankImpactSet() {
+        return (a, b) => {
+            if (a['support'] != b['support']) {
+                return b['support'] - a['support']
+            }
+            return b['confidence'] - a['confidence']
+        }
+    }
+}
+
+module.exports = { runTARMAQ, getSPADEPatternsForExectionTime }

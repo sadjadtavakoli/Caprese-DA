@@ -24,9 +24,6 @@ function insertNestedParentEntities(filename) {
                     if (areNested(entity, change)) {
                         if (!parseInt(entitySecs[entitySecs.length - 1])) {
                             entitySecs = convertToFunc(entity)
-                            console.log("file", entity)
-                        } else if ((entitySecs[0] == entitySecs[1] && entitySecs[2] == 1)) {
-                            console.log("unusual file!", entity)
                         }
                         if (!includes(groundTruth, entitySecs)) {
                             groundTruth.push(entitySecs)
@@ -34,7 +31,6 @@ function insertNestedParentEntities(filename) {
                     }
                 }
             }
-
         }
     }
     fs.writeFileSync(getActualImpactSetPath(filename), JSON.stringify(actualImpactSets));
@@ -54,7 +50,7 @@ function areNested(item1, item2) {
     function getInfo(item) {
         let secs = item.split('-')
         if (!parseInt(secs[secs.length - 1])) {
-            secs = node(item)
+            secs = convertToFunc(item)
         }
         let filePath = secs.splice(1, secs.length - 3).join("-")
         return { name: secs[0], path: filePath, first_line: parseInt(secs[secs.length - 2]), last_line: parseInt(secs[secs.length - 1]) }

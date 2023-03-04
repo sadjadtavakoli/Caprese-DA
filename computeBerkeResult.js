@@ -14,12 +14,12 @@ function computeBerkeResult(changes) {
     fs.writeFileSync(constants.Berke_RESULT_PATH, JSON.stringify(impactSetOrderedList));
 }
 
-function computeBerkeResultNoDA(changes) {
+function computeBerkeResultNoDA() {
     let impactSet = new Map()
 
     intrepretFPDataNoDA(impactSet);
 
-    let impactSetOrderedList = getRankedResult(impactSet);
+    let impactSetOrderedList = getRankedResultNoDA(impactSet);
 
     fs.writeFileSync(constants.Berke_RESULT_PATH + "NoDA.json", JSON.stringify(impactSetOrderedList));
 }
@@ -47,67 +47,78 @@ function getRankedResult(impactSet) {
     let mergedDAandFP = mergeLists(uniquelyByDA, uniquelyByFP)
     return commonImpactSet.concat(mergedDAandFP)
 
-    function mergeLists(list1, list2) {
-        let max = Math.max(list1.length, list2.length)
-        let min = Math.min(list1.length, list2.length)
+    function mergeLists(da, fp) {
 
         let newList = []
+        let max = Math.max(da.length, fp.length)
+        let min = Math.min(da.length, fp.length)
 
         for (let i = 0; i < min; i += 1) {
-            newList.push(list1[i])
-            newList.push(list2[i])
+            newList.push(da[i])
+            newList.push(fp[i])
         }
 
-        if (list1.length > min) {
-            newList = newList.concat(list1.splice(min, max - min))
+        if (da.length > min) {
+            newList = newList.concat(da.splice(min, max - min))
         }
 
-        if (list2.length > min) {
-            newList = newList.concat(list2.splice(min, max - min))
+        if (fp.length > min) {
+            newList = newList.concat(fp.splice(min, max - min))
         }
         return newList
     }
+}
 
-    function commonImpactSetSorter() {
-        return function (a, b) {
-
-            let aSupport = a['support'];
-            let bSupport = b['support'];
-            if (aSupport != bSupport) {
-                return bSupport - aSupport;
-            }
-
-            let aFP = a['confidence'];
-            let bFP = b['confidence'];
-            if (bFP != aFP) {
-                return bFP - aFP;
-            }
-
+function commonImpactSetSorter() {
+    return function (a, b) {
+        if (a['DA-distance'] != b['DA-distance']) {
             return a['DA-distance'] - b['DA-distance'];
-        };
+        }
+
+        let aSupport = a['support'];
+        let bSupport = b['support'];
+        if (aSupport != bSupport) {
+            return bSupport - aSupport;
+        }
+
+        let aFP = a['confidence'];
+        let bFP = b['confidence'];
+        return bFP - aFP;
+    };
+}
+
+function rankFPResult() {
+    return function (a, b) {
+        if (b['support'] == a['support']) {
+            return b['confidence'] - a['confidence'];
+        } else {
+            return b['support'] - a['support'];
+        }
+    };
+}
+
+function rankDAResult() {
+    return function (a, b) {
+        return a['DA-distance'] - b['DA-distance']
+    };
+}
+
+function getRankedResultNoDA(impactSet) {
+    let uniquelyByFP = [];
+    for (let item of impactSet) {
+        info = item[1]
+        let data = { ...{ "consequent": item[0] }, ...item[1] }
+        uniquelyByFP.push(data)
     }
 
-    function rankFPResult() {
-        return function (a, b) {
-            if (b['support'] == a['support']) {
-                return b['confidence'] - a['confidence'];
-            } else {
-                return b['support'] - a['support'];
-            }
-        };
-    }
-
-    function rankDAResult() {
-        return function (a, b) {
-            return a['DA-distance'] - b['DA-distance']
-        };
-    }
+    uniquelyByFP.sort(rankFPResult())
+    return uniquelyByFP
 }
 
 function intrepretDAResult(changeSet, impactSet) {
     let dependenciesData = JSON.parse(fs.readFileSync(constants.DA_DEPENDENCIES_PATH));
 
-    let dynamicImpactSet = getImpactSet(changeSet, new Map(), 1)
+    let dynamicImpactSet = getDAImpactSet(changeSet, new Map(), 1)
 
     for (let [item, distance] of dynamicImpactSet.entries()) {
 
@@ -126,7 +137,7 @@ function intrepretDAResult(changeSet, impactSet) {
         }
     }
 
-    function getImpactSet(changeSet, dynamicImpactSet, distance) {
+    function getDAImpactSet(changeSet, dynamicImpactSet, distance) {
         let nextLayer = []
         for (let change of changeSet) {
             let dependencies = dependenciesData[change];
@@ -144,7 +155,7 @@ function intrepretDAResult(changeSet, impactSet) {
             }
         }
         if (nextLayer.length) {
-            dynamicImpactSet = getImpactSet(nextLayer, dynamicImpactSet, distance + 1)
+            dynamicImpactSet = getDAImpactSet(nextLayer, dynamicImpactSet, distance + 1)
         }
 
         return dynamicImpactSet
@@ -170,6 +181,7 @@ function intrepretFPData(impactSet) {
                 impactSet.set(impacted, { ...impactSet.get(impacted), ...info });
             } else if (impactSet.has(anonymouseName(impacted))) {
                 console.error("NOPE! Anonymous")
+                console.log(impacted)
                 impactSet.set(impacted, { ...impactSet.get(anonymouseName(impacted)), ...info });
                 impactSet.delete(anonymouseName(impacted))
             } else {
@@ -194,4 +206,4 @@ function anonymouseName(name) {
     return name.replace(/((?![.])([^-])*)/, "arrowAnonymousFunction");
 }
 
-module.exports = { computeBerkeResult, anonymouseName, computeBerkeResultNoDA }
+module.exports = { computeBerkeResult, anonymouseName, computeBerkeResultNoDA, rankDAResult, rankFPResult }

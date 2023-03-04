@@ -12,17 +12,24 @@ const approachesDataColumnOrdeing = {
     }
 }
 const executionTimeColumnOrdeing = {
-    DA: ["average"],
-    FP: ["average"],
+    DA: ["average", "original", "overHead"],
     caprese: ["average"],
+    FP: ["average"],
     tarmaq: ["average"]
 }
 
-const menaAveragePrecisionOrdering = {
+const menaAveragePrecisionAndRecallOrdering = {
+    "tarmaq-filtered": { 5: ["P", "R"], 10: ["P", "R"], 20: ["P", "R"], 30: ["P", "R"], 60: ["P", "R"], "all": ["P", "R"] },
     "tarmaq": { 5: ["P", "R"], 10: ["P", "R"], 20: ["P", "R"], 30: ["P", "R"], 60: ["P", "R"], "all": ["P", "R"] },
     "caprese": { 5: ["P", "R"], 10: ["P", "R"], 20: ["P", "R"], 30: ["P", "R"], 60: ["P", "R"], "all": ["P", "R"] },
     "fp": { 5: ["P", "R"], 10: ["P", "R"], 20: ["P", "R"], 30: ["P", "R"], 60: ["P", "R"], "all": ["P", "R"] },
     "da": { 5: ["P", "R"], 10: ["P", "R"], 20: ["P", "R"], 30: ["P", "R"], 60: ["P", "R"], "all": ["P", "R"] }
+}
+
+const menaAveragePrecisionOrdering = {
+    "caprese": [5, 10, 20, 30, 60, "all"],
+    "fp": [5, 10, 20, 30, 60, "all"],
+    "da": [5, 10, 20, 30, 60, "all"]
 }
 
 const unitContributionTrupositivesOrdering = {
@@ -58,8 +65,12 @@ function changeSetLatexRow(data) {
     return listToLatex(data, changeSetInfoOrdering)
 }
 
+function meanAveragePrecisionAndRecallLatexRow(data) {
+    return toLatex(data, menaAveragePrecisionAndRecallOrdering)
+}
+
 function meanAveragePrecisionLatexRow(data) {
-    return toLatex(data, menaAveragePrecisionOrdering)
+    return toLatexOneLevel(data, menaAveragePrecisionOrdering)
 }
 
 function unitContributionTruPositivesToLatex(data) {
@@ -73,6 +84,7 @@ function listToLatex(data, columnOrdering) {
     }
     return result.slice(0, -3)
 }
+
 function toLatex(data, columnOrdering) {
     let result = ``
     for (let tableName in columnOrdering) {
@@ -129,5 +141,5 @@ function getFullTable(projectsData) {
 
 module.exports = {
     unitsContributionToLatex, approachesComparisonToLatex, getFullTable, unitContributionTruPositivesToLatex,
-    benchmarksInfoLatexRow, changeSetLatexRow, meanAveragePrecisionLatexRow, executionTimeToLatex
+    benchmarksInfoLatexRow, changeSetLatexRow, meanAveragePrecisionAndRecallLatexRow, executionTimeToLatex, meanAveragePrecisionLatexRow
 }
