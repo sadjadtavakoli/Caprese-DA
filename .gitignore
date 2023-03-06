@@ -6,3 +6,5 @@ refdiff/*/mappings.json
 *.DS_Store
 hs_err*
 matching.json
+offIDs.txt
+**/actualImpactSets.json*
