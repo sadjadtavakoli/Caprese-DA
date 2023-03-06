@@ -36,7 +36,7 @@ function getRankedResult(impactSet) {
             commonImpactSet.push(data)
         } else if (info['DA-distance'] != undefined) {
             uniquelyByDA.push(data)
-        } else {
+        } else if (info['FP-antecedents'] != undefined) {
             uniquelyByFP.push(data)
         }
     }

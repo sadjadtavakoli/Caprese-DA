@@ -6,6 +6,4 @@ node evaluation/insert/nestedParentEntities.js // update ground truth based on t
 
 node evaluation/insert/trueFalsePositives.js // insert true false positive
 
-manually check "- RMV ";
-
 node getMeanAveragePrecision.js

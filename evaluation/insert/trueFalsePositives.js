@@ -56,9 +56,6 @@ function computeTruePositives(filename) {
             if (enFirstLine == groundTruthEntity[2]) {
                 if (enLastLine == groundTruthEntity[3]) {
                     return "TP"
-
-                } else {
-                    result += ` - RMV different last line ${groundTruthEntity[0]} - ${groundTruthEntity[2]} - ${groundTruthEntity[3]}`
                 }
             }
         }
