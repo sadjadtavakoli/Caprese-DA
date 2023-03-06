@@ -139,7 +139,7 @@ public class MainAlgorithm {
                 abstractionCreator, minimumConfidence, itemConstraints, coocMap);
 
         // We dfsPruning the search
-        return frequentPatternEnumeration.dfsPruning(frequentAtomsTrie);
+        return frequentPatternEnumeration.execute(frequentAtomsTrie);
     }
 
     private static Map<String, Set<String>> coChangeDetection(SequenceDatabase database) {

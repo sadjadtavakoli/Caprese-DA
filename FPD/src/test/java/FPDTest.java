@@ -440,6 +440,46 @@ public class FPDTest {
         }
 
         @Test
+        void testOnlyFrequentFunctions() throws IOException {
+                List<String> itemConstraint = Arrays.asList("f", "h");
+                double minimumConfidence = 0.5;
+                String[] sequences = {
+                                "f g h i -1",
+                                "f g h i -1",
+                                "f g h i -1",
+                                "f g h i -1",
+                                "f h z -1",
+                                "h i j -1",
+                                "h i j -1",
+                                "h i j -1",
+                                "h i j -1",
+                                "h i j -1"
+                };
+
+
+                Map<String, ImpactInformation> result = MainAlgorithm.runList(itemConstraint, minimumConfidence, sequences, null);
+
+                Map<String, Object[]> expectedValues = new HashMap<>();
+                Object[] values1 = {0.8, 4, "[[\"f\"]]"};
+                Object[] values2 = {0.5, 5, "[[\"h\"]]"};
+                
+                expectedValues.put("g", values1);
+                expectedValues.put("i", values1);
+                expectedValues.put("j", values2);
+
+                assertEquals(expectedValues.size(), result.size());
+                assertArrayEquals(expectedValues.keySet().toArray(), result.keySet().toArray());
+
+                for(Entry<String, Object[]> expectedValue: expectedValues.entrySet()){
+                        String key = expectedValue.getKey();
+                        Object[] value = expectedValue.getValue();
+                        assertEquals(value[0], result.get(key).getConfidence());
+                        assertEquals(value[1], result.get(key).getSupport());
+                        assertEquals(value[2], result.get(key).getAntecedents().toString());                        
+                }
+        }
+
+        @Test
         void testReptitivePattern() throws IOException {
                 List<String> itemConstraint = Arrays.asList("f");
                 double minimumConfidence = 0.5;

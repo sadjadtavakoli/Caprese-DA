@@ -88,7 +88,7 @@ public class FrequentPatternEnumeration {
      * @param verbose
      */
 
-    public Map<String, ImpactInformation> dfsPruning(Trie trie) {
+    public Map<String, ImpactInformation> execute(Trie trie) {
         int tam = trie.levelSize();
 
         List<TrieNode> firstSequenceExtensions = trie.getNodes();
@@ -116,8 +116,7 @@ public class FrequentPatternEnumeration {
              * minimumConfidence,
              * the algorithm skips it and continues the iteration with the next node.
              */
-            if (detectedFunctions.getOrDefault(eqID, ImpactInformation.nullObject())
-                    .getConfidence() >= minimumConfidence) {
+            if (detectedFunctions.containsKey(eqID)) {
                 continue;
             }
 
@@ -142,11 +141,6 @@ public class FrequentPatternEnumeration {
                     itemConstraintsExtension, regularFunctionsExtension);
         }
 
-        for (Entry<String, ImpactInformation> impactedFunction : detectedFunctions.entrySet()) {
-            if (impactedFunction.getValue().getConfidence() < minimumConfidence) { // @TODO do we really need that?
-                detectedFunctions.remove(impactedFunction.getKey());
-            }
-        }
         return detectedFunctions;
 
     }
@@ -164,13 +158,14 @@ public class FrequentPatternEnumeration {
          * subpattern or backward superpattern of the patterns that have been extended
          * so far.
          */
-        if (!checkNewEntitiesPossibility(pattern, currentTrie, patternRegularFunctions, patternIntersection, beginning,
+        if (!checkNewFunctionsPossibility(pattern, currentTrie, patternRegularFunctions, patternIntersection, beginning,
                 extensions, extensionsRegularFunctions, extensionsIntersection)) {
             return;
         }
 
         // Initialization of new sets
         List<Pattern> newPatterns = new ArrayList<>();
+        List<TrieNode> newExtensions = new ArrayList<>();
         List<TrieNode> newNodesToExtends = new ArrayList<>();
         List<Integer> newExtensionIntersection = new ArrayList<>();
         List<Integer> newExtensionRegularFunctions = new ArrayList<>();
@@ -179,15 +174,9 @@ public class FrequentPatternEnumeration {
         Integer lastExtensionIntersection = extensionsIntersection.isEmpty() ? -1
                 : extensionsIntersection.get(extensionsIntersection.size() - 1);
 
-        // This value indicates that whether there any item constraints in the extension
-        // nodes or not
-        boolean notAnyItemConstraintsToExend = lastExtensionIntersection < beginning;
-
         // The index of the last regular function's index in the extension nodes
         Integer lastExtensionRegularFunction = extensionsRegularFunctions.isEmpty() ? -1
                 : extensionsRegularFunctions.get(extensionsRegularFunctions.size() - 1);
-
-        List<TrieNode> newExtensions = new ArrayList<>();
 
         // Clone for the current pattern
         Pattern clone = pattern.clonePatron();
@@ -201,7 +190,7 @@ public class FrequentPatternEnumeration {
             String extensionNodeID = (String) extensionNode.getPair().getItem().getId();
 
             // This value indicates that the extension node is in the given ChangeSet
-            boolean extensionNodeInItemConstraints = this.itemConstraints
+            boolean extensionNodeIsInChangeSet = this.itemConstraints
                     .containsKey(extensionNode.getPair().getItem().getId());
 
             /*
@@ -213,14 +202,11 @@ public class FrequentPatternEnumeration {
              * the confidence more than the given enough confidence. If so, the algorithm
              * skips it.
              */
-            if (this.coocMap != null) {
-                String lastAppendedID = (String) clone.getIthElement(clone.size() - 1).getItem().getId();
-                Set<String> map = this.coocMap.get(lastAppendedID);
-                if (map != null && !map.contains(extensionNodeID) || (!extensionNodeInItemConstraints
-                        && detectedFunctions.getOrDefault(extensionNodeID, ImpactInformation.nullObject())
-                                .getConfidence() >= minimumConfidence)) {
-                    continue;
-                }
+            String lastFunction = (String) clone.getIthElement(clone.size() - 1).getItem().getId();
+            Set<String> lastFunctionCoocMap = this.coocMap.get(lastFunction);
+            if ((lastFunctionCoocMap != null && !lastFunctionCoocMap.contains(extensionNodeID))
+                    || (!extensionNodeIsInChangeSet && detectedFunctions.containsKey(extensionNodeID))) {
+                continue;
             }
 
             // The algorithm creates a new pattern with the elements of the current pattern
@@ -238,7 +224,7 @@ public class FrequentPatternEnumeration {
              * base pattern's intersection and the extension node
              */
             List<TrieNode> newPatternIntersection = patternIntersection;
-            if (extensionNodeInItemConstraints) {
+            if (extensionNodeIsInChangeSet) {
                 newPatternIntersection = new ArrayList<>(patternIntersection);
                 newPatternIntersection.add(itemConstraints.get(extensionNodeID));
             }
@@ -271,7 +257,7 @@ public class FrequentPatternEnumeration {
              * information.
              */
             if (newPatternScore >= minimumConfidence) {
-                if (!extensionNodeInItemConstraints) {
+                if (!extensionNodeIsInChangeSet) {
                     /*
                      * Since the extension node is not in the given changeSet, the new pattern's
                      * score is definitely less than the older one.
@@ -287,29 +273,7 @@ public class FrequentPatternEnumeration {
                 }
             }
 
-            boolean patternIsExtendable = false;
-
-            // If there is still at least one changeSet function to extend the new pattern
-            if (k < lastExtensionIntersection) {
-                /*
-                 * And if the extension node is in item constrains or it's score is less than
-                 * the given minimum confidence, the algorithm keeps the new pattern for furtuer
-                 * extensions.
-                 */
-                if (extensionNodeInItemConstraints || newPatternScore < minimumConfidence) {
-                    patternIsExtendable = true;
-                }
-                /*
-                 * Also, suppose the extension node is the last changeSet function. In that
-                 * case,
-                 * the algorithm keeps the new pattern for the further extension only if
-                 * its confidence exceeds the given minimum confidence.
-                 */
-            } else if (k == lastExtensionIntersection && newPatternScore >= minimumConfidence) {
-                patternIsExtendable = true;
-            }
-
-            if (patternIsExtendable) {
+            if (shouldKeepExtending(lastExtensionIntersection, k, extensionNodeIsInChangeSet, newPatternScore)) {
                 // The algorthms sets the new pattern's score as the extension node's
                 // confidence.
                 newTrieNode.setConfidence(newPatternScore);
@@ -325,12 +289,13 @@ public class FrequentPatternEnumeration {
              * nodes, and the new pattern's
              * confidence is less the minimumConfidence.
              */
-            if (extensionNodeInItemConstraints) {
+            if(checkFunctionValuability(beginning, lastExtensionIntersection, newPatternScore, extensionNodeIsInChangeSet)){
                 newExtensions.add(newTrieNode);
-                newExtensionIntersection.add(newExtensions.size() - 1);
-            } else if (!notAnyItemConstraintsToExend && newPatternScore < minimumConfidence) {
-                newExtensions.add(newTrieNode);
-                newExtensionRegularFunctions.add(newExtensions.size() - 1);
+                if (extensionNodeIsInChangeSet) {
+                    newExtensionIntersection.add(newExtensions.size() - 1);
+                } else {
+                    newExtensionRegularFunctions.add(newExtensions.size() - 1);
+                }
             }
             /*
              * If the new pattern's confidence is enough, and no more regular functions
@@ -388,6 +353,34 @@ public class FrequentPatternEnumeration {
         }
     }
 
+    private boolean checkFunctionValuability(int beginning, Integer lastExtensionIntersection, double newPatternScore, Boolean extensionNodeIsInChangeSet) {
+        return extensionNodeIsInChangeSet || (lastExtensionIntersection >= beginning && newPatternScore < minimumConfidence);
+    }
+
+    private boolean shouldKeepExtending(Integer lastExtensionIntersection, int k, boolean extensionNodeIsInChangeSet,
+            double newPatternScore) {
+        // If there is still at least one changeSet function to extend the new pattern
+        if (k < lastExtensionIntersection) {
+            /*
+             * And if the extension node is in item constrains or it's score is less than
+             * the given minimum confidence, the algorithm keeps the new pattern for furtuer
+             * extensions.
+             */
+            if (extensionNodeIsInChangeSet || newPatternScore < minimumConfidence) {
+                return true;
+            }
+            /*
+             * Also, suppose the extension node is the last changeSet function. In that
+             * case,
+             * the algorithm keeps the new pattern for the further extension only if
+             * its confidence exceeds the given minimum confidence.
+             */
+        } else if (k == lastExtensionIntersection && newPatternScore >= minimumConfidence) {
+            return true;
+        }
+        return false;
+    }
+
     /**
      * This function updates a function's info in the detected functions list.
      * this information include the confidence, supprt, and the changeSet functions
@@ -409,9 +402,8 @@ public class FrequentPatternEnumeration {
             List<Integer> extensionsRegularFunctions) {
         for (int i = 0; i < extensionsRegularFunctions.size(); i++) {
             int nodeIndex = extensionsRegularFunctions.get(i);
-            if (nodeIndex >= beginning && detectedFunctions
-                    .getOrDefault(extensions.get(nodeIndex).getPair().getItem().getId(), ImpactInformation.nullObject())
-                    .getConfidence() < minimumConfidence) {
+            if (nodeIndex >= beginning
+                    && !detectedFunctions.containsKey(extensions.get(nodeIndex).getPair().getItem().getId())) {
                 return true;
             }
         }
@@ -424,8 +416,7 @@ public class FrequentPatternEnumeration {
     private List<String> getUndetectedRegularFunctionsInPattern(List<String> patternRegularFunctions) {
         for (int i = 0; i < patternRegularFunctions.size(); i++) {
             String nodeID = patternRegularFunctions.get(i);
-            if (detectedFunctions.getOrDefault(nodeID, ImpactInformation.nullObject())
-                    .getConfidence() >= minimumConfidence) {
+            if (detectedFunctions.containsKey(nodeID)) {
                 patternRegularFunctions.remove(i);
                 i--;
             }
@@ -446,7 +437,7 @@ public class FrequentPatternEnumeration {
      * @param trie   Trie associated with prefix
      * @return
      */
-    private boolean checkNewEntitiesPossibility(Pattern prefix, Trie trie, List<String> patternRegularFunctions,
+    private boolean checkNewFunctionsPossibility(Pattern prefix, Trie trie, List<String> patternRegularFunctions,
             List<TrieNode> patternIntersection,
             int beginning, List<TrieNode> extensions, List<Integer> extensionsRegularFunctions,
             List<Integer> extensionsIntersection) {
