@@ -1,0 +1,62 @@
+{
+    "bignumber.js": {
+        "SPADE": {
+            "support": 2,
+            "time": 238.65591599047184
+        }
+    },
+    "nock": {
+        "SPADE": {
+            "support": 9,
+            "time": 26606.26537500322
+        }
+    },
+    "environment": {
+        "SPADE": {
+            "support": 3,
+            "time": 559.1645830124617
+        }
+    },
+    "fastify": {
+        "SPADE": {
+            "support": 5,
+            "time": 2030.4119160026312
+        }
+    },
+    "assemble": {
+        "SPADE": {
+            "support": 3,
+            "time": 127881.68320800364
+        }
+    },
+    "session": {
+        "SPADE": {
+            "support": 2,
+            "time": 90009.20220901072
+        }
+    },
+    "jhipster-uml": {
+        "SPADE": {
+            "support": 5,
+            "time": 645196.4905419946
+        }
+    },
+    "grant": {
+        "SPADE": {
+            "support": 4,
+            "time": 1817.9313329905272
+        }
+    },
+    "express": {
+        "SPADE": {
+            "support": 4,
+            "time": 603.2656669914722
+        }
+    },
+    "cla-assistant": {
+        "SPADE": {
+            "support": 3,
+            "time": 183807.61704199016
+        }
+    }
+}
