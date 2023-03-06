@@ -36,18 +36,18 @@
         "changes": [
             "buildRequestWithTrustProxy-lib/request.js-77-113",
             "req-lib/logger.js-49-58",
-            "request.js-lib/request.js-1-199",
+            "lib/request.js",
             "types/request.d.ts",
-            "warnings.js-lib/warnings.js-1-33"
+            "lib/warnings.js"
         ]
     },
     "8d06fda186ff455ff61a133e864cc00ee927675b": {
         "changes": [
             "Hooks-lib/hooks.js-33-46",
             "buildHooks-lib/hooks.js-61-76",
-            "exports-lib/pluginoverride.js-27-68",
+            "override-lib/pluginoverride.js-27-68",
             "fastify-fastify.js-94-681",
-            "hooks.js-lib/hooks.js-1-250"
+            "lib/hooks.js"
         ]
     },
     "caa3a725b6e0457ab9b8aadc0cab9b4d95da6d87": {
@@ -65,10 +65,10 @@
     },
     "f9102e7c34739734ab7cc877c5fe6a35a7e3bd95": {
         "changes": [
-            "handleRequest.js-lib/handlerequest.js-1-147",
+            "lib/handlerequest.js",
             "preValidationCallback-lib/handlerequest.js-79-111",
             "validateParam-lib/validation.js-70-76",
-            "validation.js-lib/validation.js-1-117",
+            "lib/validation.js",
             "wrapValidationError-lib/validation.js-99-109"
         ]
     }

@@ -1,45 +1,41 @@
 {
+    "cdf11ab5408cd661ac0f31097e7ef89b33c2169f": {
+        "changes": [
+            "clone-bignumber.js-76-2774",
+            "set-bignumber.js-430-575",
+            "toString-bignumber.js-2726-2757"
+        ]
+    },
     "4f93b20ea944fab2c928c16b692f7411f3d31805": {
         "changes": [
             "arrowAnonymousFunction-bignumber.js-1-2926",
             "arrowAnonymousFunction-bignumber.js-2912-2912",
             "arrowAnonymousFunction-bignumber.js-676-794",
-            "bignumber.js-bignumber.js-1-2927",
+            "bignumber.js",
             "set-bignumber.js-430-575"
         ]
     },
     "33e7d0a7cbb9bcd3d3e395d8efe46af17a73da66": {
         "changes": [
             "arrowAnonymousFunction-bignumber.js-1-2926",
-            "bignumber.d.ts",
-            "bignumber.js-bignumber.js-1-2927"
+            "bignumber.js"
         ]
     },
     "42d6b6d87b08c616d78ba68e9ec12e39edd72d65": {
         "changes": [
-            "arrowAnonymousFunction-bignumber.js-1-2926",
-            "bignumber.d.ts"
-        ]
-    },
-    "4473a6c888596f35643420be9997995691ca5e3e": {
-        "changes": [
-            "arrowAnonymousFunction-bignumber.js-1-2926",
-            "bignumber.js-bignumber.js-1-2927"
+            "arrowAnonymousFunction-bignumber.js-1-2926"
         ]
     },
     "7307f9f095a1a0e407e8558fe16a91341988443a": {
         "changes": [
-            "bignumber.d.ts",
             "clone-bignumber.js-76-2774",
-            "doc/API.html",
             "toFormat-bignumber.js-2555-2612"
         ]
     },
     "0eb7d206ec11f5e8c713e841b78c345214f2e6c3": {
         "changes": [
-            "bignumber.js-bignumber.js-1-2927",
+            "bignumber.js",
             "clone-bignumber.js-76-2774",
-            "doc/API.html",
             "toFraction-bignumber.js-2626-2687"
         ]
     },
@@ -53,22 +49,17 @@
         "changes": [
             "BigNumber-bignumber.js-182-376",
             "arrowAnonymousFunction-bignumber.js-1357-1395",
-            "bignumber.d.ts",
-            "doc/API.html",
             "pow-bignumber.js-1687-1804"
         ]
     },
     "690d9964fedeb9762e84ae233206292a23ea730a": {
         "changes": [
-            "LICENCE.md",
             "arrowAnonymousFunction-bignumber.js-1-2926",
-            "bignumber.mjs-bignumber.mjs-1-2890",
-            "doc/API.html"
+            "bignumber.mjs"
         ]
     },
     "fdd59bc4635bcc492fdbc0eab1e422c01cc008a4": {
         "changes": [
-            "BigNumber-bignumber.js-182-376",
             "clone-bignumber.js-76-2774",
             "set-bignumber.mjs-427-572"
         ]

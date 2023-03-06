@@ -15,27 +15,27 @@
     },
     "692097d6111d2624d3ccdd1328bb30c312081391": {
         "changes": [
-            "entitiescreator.js-lib/entitiescreator.js-1-419",
-            "file_writer.js-lib/export/file_writer.js-1-34"
+            "lib/entitiescreator.js",
+            "lib/export/file_writer.js"
         ]
     },
     "65daa63abeaf82aba6c7686975101c4684b68dbe": {
         "changes": [
-            "command_line_option_handler.js-lib/jhipsteruml/command_line_option_handler.js-1-118",
+            "lib/jhipsteruml/command_line_option_handler.js",
             "isNumberOfPassedArgumentsInvalid-lib/jhipsteruml/command_line_option_handler.js-36-38"
         ]
     },
     "892a7825d01a5326fa2a5e1301148ff3d8cfd3da": {
         "changes": [
-            "editor_detector.js-lib/editors/editor_detector.js-1-75",
-            "editors.js-lib/editors/editors.js-1-36",
+            "lib/editors/editor_detector.js",
+            "lib/editors/editors.js",
             "getXMIFileParser-lib/editors/parser_factory.js-57-61"
         ]
     },
     "cb44329b0f0732cc89fbfbd2196d24b18861d1c8": {
         "changes": [
             "addValidationToField-lib/data/parsed_data.js-68-71",
-            "parsed_data.js-lib/data/parsed_data.js-1-156"
+            "lib/data/parsed_data.js"
         ]
     },
     "84a9e11812503693352da94cb88a478b86b51649": {
@@ -47,19 +47,19 @@
     "df37c9ee57597c86d5eafd1524f0721336d8d6d3": {
         "changes": [
             "filterOutUnchangedEntities-lib/jhipsteruml.js-131-145",
-            "jhipsteruml.js-lib/jhipsteruml.js-1-153"
+            "lib/jhipsteruml.js"
         ]
     },
     "951b307e588db3f96bd8e2e78d3c64cb56e71897": {
         "changes": [
             "createAndInitCommandBuilder-lib/entity_generator.js-83-108",
-            "entity_generator.js-lib/entity_generator.js-1-109",
-            "jhipsteruml.js-lib/jhipsteruml.js-1-153"
+            "lib/entity_generator.js",
+            "lib/jhipsteruml.js"
         ]
     },
     "fb33055cd23af76482d4fdcd5888aaec05a60a7c": {
         "changes": [
-            "entitiescreator.js-lib/entitiescreator.js-1-419",
+            "lib/entitiescreator.js",
             "exports-lib/types/cassandra_types.js-29-31",
             "exports-lib/types/mongodb_types.js-29-31",
             "exports-lib/types/sql_types.js-29-31"

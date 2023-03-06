@@ -22,14 +22,14 @@
         "changes": [
             "generate-index.js-158-166",
             "generateSessionId-index.js-518-520",
-            "index.js-index.js-1-686",
+            "index.js",
             "session-index.js-87-509"
         ]
     },
     "9020fea5326879b089b6fd4ffb4f8640b020d14c": {
         "changes": [
             "arrowAnonymousFunction-index.js-179-508",
-            "index.js-index.js-1-686"
+            "index.js"
         ]
     },
     "ce2de6b30ff061cbb84fbc0634342f19a8128342": {
@@ -44,7 +44,7 @@
             "arrowAnonymousFunction-index.js-179-508",
             "arrowAnonymousFunction-index.js-347-354",
             "end-index.js-250-360",
-            "memory.js-session/memory.js-1-188",
+            "session/memory.js",
             "session-index.js-87-509",
             "shouldTouch-index.js-453-461",
             "touch-session/memory.js-147-157"
@@ -60,7 +60,7 @@
     },
     "ad717fe9aeaf9af016ab72cdaf25b490ebde8591": {
         "changes": [
-            "cookie.js-session/cookie.js-1-151",
+            "session/cookie.js",
             "exports-session/cookie.js-25-45"
         ]
     },
@@ -68,7 +68,7 @@
         "changes": [
             "arrowAnonymousFunction-index.js-335-341",
             "arrowAnonymousFunction-index.js-67-67",
-            "index.js-index.js-1-686",
+            "index.js",
             "writeend-index.js-260-268"
         ]
     }

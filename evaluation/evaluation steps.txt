@@ -1,0 +1,11 @@
+node evaluation/insert/CSV2ChangeSets.js // grount truth
+
+node evaluation/impactSetDetection.js  // impact set
+
+node evaluation/insert/nestedParentEntities.js // update ground truth based on the detected impact set
+
+node evaluation/insert/trueFalsePositives.js // insert true false positive
+
+manually check "- RMV ";
+
+node getMeanAveragePrecision.js

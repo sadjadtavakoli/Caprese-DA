@@ -2,7 +2,7 @@
     "e6851f0aeb52b871838367c94a9235ce52b7dbfa": {
         "changes": [
             "arrowAnonymousFunction-index.js-77-88",
-            "index.js-index.js-1-156",
+            "index.js",
             "initDefaults-index.js-64-89"
         ]
     },
@@ -10,13 +10,13 @@
         "changes": [
             "arrowAnonymousFunction-gulpfile.js-15-19",
             "arrowAnonymousFunction-gulpfile.js-21-25",
-            "gulpfile.js-gulpfile.js-1-33"
+            "gulpfile.js"
         ]
     },
     "26e706d01e70fca4ed31bdc7e23ad8417ab5e56e": {
         "changes": [
-            "gulpfile.js-gulpfile.js-1-33",
-            "index.js-support/docs/src/scaffolds/index.js-1-14"
+            "gulpfile.js",
+            "support/docs/src/scaffolds/index.js"
         ]
     },
     "710904566fef60910a2f8680ccb2928335bd2f31": {
@@ -31,7 +31,7 @@
             "Assemble-index.js-24-31",
             "homeRelative-lib/utils.js-85-93",
             "run-bin/cli.js-12-126",
-            "utils.js-lib/utils.js-1-102"
+            "lib/utils.js"
         ]
     },
     "0e4a09929ec5c4ab1a23cff63e36a4927fa709e8": {
@@ -39,7 +39,7 @@
             "Assemble-index.js-24-31",
             "arrowAnonymousFunction-index.js-77-88",
             "enable-index.js-112-117",
-            "index.js-index.js-1-156",
+            "index.js",
             "initDefaults-index.js-64-89",
             "initPlugins-index.js-105-118",
             "initViews-index.js-127-149"
@@ -47,7 +47,7 @@
     },
     "5e30ace7f10c6aadd3d5b26572a1eff4fa9d6dd0": {
         "changes": [
-            "cli.js-bin/cli.js-1-171",
+            "bin/cli.js",
             "run-bin/cli.js-12-126"
         ]
     },
@@ -56,7 +56,7 @@
             "arrowAnonymousFunction-gulpfile.js-15-19",
             "arrowAnonymousFunction-gulpfile.js-21-25",
             "arrowAnonymousFunction-gulpfile.js-9-13",
-            "gulpfile.js-gulpfile.js-1-33"
+            "gulpfile.js"
         ]
     },
     "2a2a31a673c402db602da57a671c16115615d51d": {
@@ -64,7 +64,7 @@
             "arrowAnonymousFunction-gulpfile.js-21-25",
             "arrowAnonymousFunction-gulpfile.js-27-30",
             "arrowAnonymousFunction-gulpfile.js-9-13",
-            "gulpfile.js-gulpfile.js-1-33"
+            "gulpfile.js"
         ]
     },
     "20ec5add4dd8885a5425bee65a7a15144c1e9386": {
@@ -73,12 +73,12 @@
             "arrayify-lib/utils.js-69-71",
             "arrowAnonymousFunction-bin/cli.js-132-153",
             "arrowAnonymousFunction-bin/cli.js-148-151",
-            "cli.js-bin/cli.js-1-171",
-            "errors.js-bin/errors.js-1-7",
-            "index.js-index.js-1-156",
+            "bin/cli.js",
+            "bin/errors.js",
+            "index.js",
             "initDefaults-index.js-64-89",
             "run-bin/cli.js-12-126",
-            "utils.js-lib/utils.js-1-102"
+            "lib/utils.js"
         ]
     }
 }
