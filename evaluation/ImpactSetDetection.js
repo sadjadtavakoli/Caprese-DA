@@ -1,10 +1,9 @@
 const constants = require('../constants.js');
 const fs = require('fs');
-const readline = require('readline')
 const path = require('path')
 const { exec } = require('child_process');
 const { evaluationAnalyzer } = require('../berke');
-const { getChangeSetPath, STATUS, APPROACHES, TARMAQ_RESULT_PATH, TARMAQ_COMMAND, getOriginalImpactSetPath, getSPADEResultPath, SPADE_COMMAND, getSPADEPatternPath } = require('./evaluationConstants')
+const { getChangeSetPath, STATUS, APPROACHES, TARMAQ_RESULT_PATH, TARMAQ_COMMAND, getOriginalImpactSetPath } = require('./evaluationConstants')
 
 const DETECTED_IMPACT_SETS_PATH = getOriginalImpactSetPath()
 
@@ -116,85 +115,4 @@ function runTARMAQ(changeSet) {
     })
 }
 
-function computeSPADEResultFotExecutionTime(changeSet, support) {
-    console.log(` = = = SPADE support=${support}= = = `)
-    return extractResultFromPatterns(changeSet, support, getSPADEPatternPath, getSPADEResultPath)
-        .finally((err) => fs.unlinkSync(getSPADEPatternPath(support)))
-}
-
-function getSPADEPatternsForExectionTime(support, benchmark) {
-    console.log(` = = = Run SPADE support=${support}= = = `)
-    let sequencePath = path.dirname(__dirname) + path.sep + 'data' + path.sep + "ProjectsData-SPADE" + path.sep + benchmark + path.sep + "sequences.txt"
-    let command = `${SPADE_COMMAND}"${sequencePath}" "${support}"`
-    return new Promise(function (resolve, reject) {
-        exec(command, (err, stdout, stderr) => {
-            if (!err) {
-                resolve(benchmark)
-            }
-            else {
-                reject(err)
-            }
-        })
-    })
-}
-
-function extractResultFromPatterns(changeSet, support, patternPath, resultPath) {
-    console.log(` = = = Compute Pattern support=${support} = = = `)
-    let sequences = fs.readFileSync(constants.SEQUENCES_PATH).toString().split("\n")
-
-    return new Promise((resolve, reject) => {
-        let impactSet = new Map()
-        var r = readline.createInterface({
-            input: fs.createReadStream(patternPath(support))
-        });
-        r.on('line', function (patternInfo) {
-            let patternInfos = patternInfo.split(" -1 ")
-            let pattern = patternInfos[0]
-            let items = pattern.split(" ")
-            let impactedItems = items.filter(item => !changeSet.includes(item))
-            if (impactedItems.length != items.length) {
-                let support = parseInt(patternInfos[1].split(" ")[1])
-                let includedChanges = items.filter(item => changeSet.includes(item))
-                let includedChangesSupport = getIntersectionSupport(includedChanges)
-                let confidence = support / includedChangesSupport
-                for (let impacted of impactedItems) {
-                    if (!impactSet.has(impacted)) {
-                        impactSet.set(impacted, { "confidence": confidence, "support": support })
-                    } else {
-                        let info = impactSet.get(impacted)
-                        if (info['support'] < support || (info['support'] == support && info['confidence'] < confidence)) {
-                            impactSet.set(impacted, { "confidence": confidence, "support": support })
-                        }
-                    }
-                }
-            }
-        })
-        r.on("close", () => {
-            let rankedImpactSet = []
-            for (let [impacted, info] of impactSet.entries()) {
-                rankedImpactSet.push({ "consequent": impacted, ...info })
-            }
-            rankedImpactSet.sort(rankImpactSet())
-            fs.writeFileSync(resultPath(support), JSON.stringify(rankedImpactSet));
-            resolve()
-        })
-    })
-
-    function getIntersectionSupport(changes) {
-        return sequences.filter(item => {
-            return changes.every(change => item.includes(change))
-        }).length
-
-    }
-
-    function rankImpactSet() {
-        return (a, b) => {
-            if (a['support'] != b['support']) {
-                return b['support'] - a['support']
-            }
-            return b['confidence'] - a['confidence']
-        }
-    }
-}
-
-module.exports = { runTARMAQ, getSPADEPatternsForExectionTime }
+module.exports = { runTARMAQ }
