@@ -1,15 +1,15 @@
 const fs = require("fs")
 const path = require("path")
 const { getFullTable, executionTimeToLatex } = require("./utils/jsonToLatexRow")
-const { benchmarkList, EXECUTION_TIMES_PATH, APPROACHES } = require('./evaluationConstants')
+const { benchmarkList, EXECUTION_TIMES_PATH } = require('./evaluationConstants')
 
 if (process.argv[1].endsWith(path.basename(__filename))) {
 
     let executionTimes = JSON.parse(fs.readFileSync(EXECUTION_TIMES_PATH));
     let executionTimeResult = {}
     benchmarkList.forEach(filename => {
-        executionTimes[filename][APPROACHES.caprese]['average'] = toFixed2(executionTimes[filename][APPROACHES.caprese]['average'])
-        executionTimes[filename][APPROACHES.tarmaq]['average'] = toFixed2(executionTimes[filename][APPROACHES.tarmaq]['average'])
+        executionTimes[filename]["caprese"]['average'] = toFixed2(executionTimes[filename]["caprese"]['average'])
+        executionTimes[filename]["tarmaq"]['average'] = toFixed2(executionTimes[filename]["tarmaq"]['average'])
         executionTimes[filename]["FP"]['average'] = toFixed2(executionTimes[filename]["FP"]['average'])
         executionTimes[filename]["DA"]['average'] = toFixed2(executionTimes[filename]["DA"]['all'])
         executionTimes[filename]["DA"]['original'] = toFixed2(executionTimes[filename]["DA"]['original'])

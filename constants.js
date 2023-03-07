@@ -12,8 +12,7 @@ let benchmakrsConfig = JSON.parse(fs.readFileSync(`${__dirname}/evaluation/bench
 /**
  * your repository SSH address
  */
-
-const REPO_URL = "git@github.com:simov/grant.git"
+const REPO_URL = "git@github.com:simov/grant.git" // data done + tarmaq and caprese impactSet 
 
 /**
  * the main branch of your repository; it is usually master or main.

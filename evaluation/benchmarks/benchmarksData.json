@@ -46,37 +46,6 @@
         "excluded_dirs": [],
         "fp_excluded_dirs": []
     },
-    "git@github.com:berke/testProject.git": {
-        "Commits": 686,
-        "LOC": 4267,
-        "Language": "JavaScript,md",
-        "main_branch": "master",
-        "test": "test",
-        "installer": "npm",
-        "seed_commit": "5df613c481bc7c5979aeaeac691b64ef0a5c4948",
-        "excluded_dirs": [],
-        "fp_excluded_dirs": []
-    },
-    "git@github.com:suguru03/neo-async.git": {
-        "install": "npm install",
-        "commit": "948",
-        "main_branch": "master",
-        "test": "test",
-        "seed_commit": "f91287a98228bde63bcd921aaab362d6ba42dfdb",
-        "comment": "",
-        "excluded_dirs": [],
-        "fp_excluded_dirs": []
-    },
-    "git@github.com:markdown-it/markdown-it.git": {
-        "test": "test",
-        "install": "npm install",
-        "commits": "1063",
-        "main_branch": "master",
-        "comment": "",
-        "seed_commit": "1529ff4",
-        "excluded_dirs": [],
-        "fp_excluded_dirs": ["dist/markdown-it.js"]
-    },
     "git@github.com:yeoman/environment.git": {
         "test": "test",
         "install": "npm install",
@@ -87,16 +56,6 @@
         "excluded_dirs": [
             "fixtures"
         ],
-        "fp_excluded_dirs": []
-    },
-    "git@github.com:cloudant/nodejs-cloudant.git": {
-        "test": "test",
-        "install": "npm install",
-        "commits": "1520",
-        "main_branch": "master",
-        "comment": "",
-        "seed_commit": "22c37b922f36d5dde4f7efa20b80f388823b7de9",
-        "excluded_dirs": [],
         "fp_excluded_dirs": []
     },
     "git@github.com:nock/nock.git": {
@@ -131,16 +90,6 @@
         ],
         "fp_excluded_dirs": []
     },
-    "git@github.com:websockets/ws.git": {
-        "install": "npm install",
-        "commit": "1810",
-        "main_branch": "master",
-        "test": "test",
-        "comment": "success",
-        "seed_commit": "975382178f8a9355a5a564bb29cb1566889da9ba",
-        "excluded_dirs": [],
-        "fp_excluded_dirs": []
-    },
     "git@github.com:fastify/fastify.git": {
         "test": "test",
         "install": "npm install",
@@ -149,16 +98,6 @@
         "seed_commit": "68a290d",
         "comment": "success",
         "excluded_dirs": ["bundler","types","esm"],
-        "fp_excluded_dirs": []
-    },
-    "git@github.com:jsx-eslint/eslint-plugin-react.git": {
-        "install": "npm install",
-        "commit": "2977",
-        "main_branch": "master",
-        "test": "tests",
-        "seed_commit": "8c9ec8a3929403ac34a22c11cb9bd2575ba766bd",
-        "comment": "success",
-        "excluded_dirs": ["fixtures"],
         "fp_excluded_dirs": []
     },
     "git@github.com:MikeMcl/bignumber.js.git": {

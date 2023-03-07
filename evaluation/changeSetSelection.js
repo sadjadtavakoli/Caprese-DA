@@ -3,12 +3,6 @@ const fs = require('fs');
 const path = require('path')
 const { NUMBER_OF_COMMITS_PER_PROJECT, getChangeSetPath } = require('./evaluationConstants')
 
-const useLessFiles = [
-    "history.md", "HISTORY.md", "History.md", "CHANGELOG.md",
-    "README.md", "readme.md", "Readme.md", "CHANGES.md",
-    "package.json", "package-lock.json",
-    "appveyor.yml", ".travis.yml"]
-
 if (process.argv[1].endsWith(path.basename(__filename))) {
     testSetGenerator()
 }
@@ -25,7 +19,7 @@ function testSetGenerator() {
         console.log(`random i = ${i}`)
         let sequence = detailedSequences[i]
         let commit = sequence.split(" : ")[0]
-        let commitChanges = sequence.split(" : ")[1].slice(0, -4).split(" ").filter(item => !removed.includes(item) & !useLessFiles.includes(item) & !item.includes("test"))
+        let commitChanges = sequence.split(" : ")[1].slice(0, -4).split(" ").filter(item => filter(item, removed))
         if (commitChanges.length <= 1 || includes(candidatedCommits, commitChanges)) {
             continue
         }
@@ -37,7 +31,12 @@ function testSetGenerator() {
     detailedSequences = detailedSequences.map(item => item.split(" : ")[1])
     fs.writeFileSync(getChangeSetPath(), JSON.stringify(Object.fromEntries(candidatedCommits)))
     fs.writeFileSync(constants.SEQUENCES_PATH, detailedSequences.join("\n"));
+    
+    function filter(item, removed) {
+        return !removed.includes(item) & !item.includes("test") & !item.includes(".md") & !item.includes(".yml") & !item.includes(".html") & !item.includes(".json")
+    }
 }
+
 
 function getRandomNumbers(maximum) {
     return Math.floor(Math.random() * maximum)

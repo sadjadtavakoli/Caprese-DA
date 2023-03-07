@@ -51,14 +51,9 @@ const STATUS = {
     removed: "Removed"
 }
 
-const APPROACHES = {
-    caprese: "caprese",
-    tarmaq: "tarmaq"
-}
-
 
 module.exports = {
     benchmarkList, NUMBER_OF_COMMITS_PER_PROJECT, STATUS, TARMAQ_PATH, getOriginalImpactSetPath,
-    APPROACHES, EXECUTION_TIMES_PATH, getActualImpactSetPath, getDetectedImpactSetPath,
+    EXECUTION_TIMES_PATH, getActualImpactSetPath, getDetectedImpactSetPath,
     TARMAQ_RESULT_PATH, TARMAQ_COMMAND, getImpactSetCSVs, getChangeSetPath
 }

@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path')
 const { exec } = require('child_process');
 const { evaluationAnalyzer } = require('../berke');
-const { getChangeSetPath, STATUS, APPROACHES, TARMAQ_RESULT_PATH, TARMAQ_COMMAND, getOriginalImpactSetPath } = require('./evaluationConstants')
+const { getChangeSetPath, STATUS, TARMAQ_RESULT_PATH, TARMAQ_COMMAND, getOriginalImpactSetPath } = require('./evaluationConstants')
 
 const DETECTED_IMPACT_SETS_PATH = getOriginalImpactSetPath()
 
@@ -47,8 +47,8 @@ function readChangeSets() {
         let impactSetEmpty = new Map()
         for (let commit in commitsInfo) {
             let emptyBody = new Map()
-            emptyBody.set(APPROACHES.caprese, [])
-            emptyBody.set(APPROACHES.tarmaq, [])
+            emptyBody.set("caprese", [])
+            emptyBody.set("tarmaq", [])
             impactSetEmpty.set(commit, emptyBody)
         }
 
@@ -71,8 +71,8 @@ function collectResult(commit) {
 
         let impactSet = JSON.parse(fs.readFileSync(DETECTED_IMPACT_SETS_PATH));
 
-        impactSet[commit][APPROACHES.caprese] = getBerkeResult()
-        impactSet[commit][APPROACHES.tarmaq] = getTarmaqResult()
+        impactSet[commit]["caprese"] = getBerkeResult()
+        impactSet[commit]["tarmaq"] = getTarmaqResult()
 
         fs.writeFileSync(DETECTED_IMPACT_SETS_PATH, JSON.stringify(impactSet));
         resolve();
