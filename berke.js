@@ -25,12 +25,6 @@ async function runBerke(commit) {
     computeBerkeResult(getChangeSet())
 }
 
-async function evaluationGetMainData(commit) {
-    await checkoutProject(commit)
-    await runRefDiff(commit)
-    await runDynamicAnalysis()
-}
-
 async function evaluationAnalyzer(changes) {
     changeSet = changes
     await runFP()
@@ -46,13 +40,13 @@ async function tempFP(changes){
 
 async function getCurrentCommit() {
     console.log(" = = = Get Current Commit = = = ")
-    const getOriginCommand = `cd ${constants.REPO_PATH} ; git rev-parse origin`
+    const getOriginCommand = `cd ${constants.REPO_PATH}\ngit rev-parse origin`
     return runCommand(getOriginCommand)
 }
 
 async function checkoutProject(commit) {
     console.log(" = = = Checkout Project = = = ")
-    const checkoutCommand = `cd ${constants.REPO_PATH} ; git checkout ${commit}`
+    const checkoutCommand = `cd ${constants.REPO_PATH}\ngit checkout ${commit}`
     return runCommand(checkoutCommand)
 }
 
@@ -95,4 +89,4 @@ function getChangeSet() {
     return changeSet
 }
 
-module.exports = { evaluationAnalyzer, evaluationGetMainData, tempFP, runDynamicAnalysis }
+module.exports = { evaluationAnalyzer, tempFP, runDynamicAnalysis }

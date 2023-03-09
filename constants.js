@@ -86,11 +86,11 @@ const DA_PATH = __dirname + path.sep + "DA";
 /**
  * refdiff, FPD, and DA execution commands
 */
-const REFDIFF_COMMAND = "cd " + REFDIFF_PATH + " ; ./gradlew run --args=";
-const FP_COMMAND = "cd " + FP_PATH + " ; mvn exec:java -Dexec.mainClass='patterndetection.MainAlgorithm' -Dexec.args=";
+const REFDIFF_COMMAND = "cd " + REFDIFF_PATH + "\n./gradlew run --args=";
+const FP_COMMAND = "cd " + FP_PATH + "\nmvn exec:java -Dexec.mainClass='patterndetection.MainAlgorithm' -Dexec.args=";
 const GRAAL_HOME = `${__dirname}${path.sep}DA${path.sep}libraries${path.sep}graalvm-ce-java8-20.2.0${path.sep}Contents${path.sep}Home`
 const NODEPROF_HOME = `${GRAAL_HOME}${path.sep}jre${path.sep}tools${path.sep}nodeprof`
-const DA_COMMAND = `cd ${DA_PATH}; ${GRAAL_HOME}/bin/node --nodeprof.Scope=app --jvm --experimental-options --vm.Dtruffle.class.path.append=${NODEPROF_HOME}/nodeprof.jar --nodeprof ${NODEPROF_HOME}/jalangi.js --analysis utils.js --analysis analyser.js runner.mjs`;
+const DA_COMMAND = `cd ${DA_PATH}\n${GRAAL_HOME}${path.sep}bin${path.sep}node --nodeprof.Scope=app --jvm --experimental-options --vm.Dtruffle.class.path.append=${NODEPROF_HOME}${path.sep}nodeprof.jar --nodeprof ${NODEPROF_HOME}${path.sep}jalangi.js --analysis utils.js --analysis analyser.js runner.mjs`;
 /**
  * reported data paths
  */
