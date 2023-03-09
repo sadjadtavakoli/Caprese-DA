@@ -40,11 +40,12 @@ public class RefDiffBerkak {
 		}
 
 		new File("data").mkdir();
-		String commitFolderPath = "data/" + repoLink + "/" + commitSha;
-		String tempMappingsDir = commitFolderPath + "/" + "mappings/";
+        String sep = System.getProperty("file.separator");
+		String commitFolderPath = "data" + sep + repoLink + sep + commitSha;
 		
 		File commitFolder = new File(commitFolderPath);
-		new File(tempMappingsDir).mkdir();
+        commitFolder.mkdir();
+
 		Integer counter = depth;
 
 		try (JsPlugin jsPlugin = new JsPlugin(filesToExclude)) {
@@ -55,7 +56,10 @@ public class RefDiffBerkak {
 
 			List<RevCommit> mainBranchCommits = new ArrayList<>();
 			List<RevCommit> commitsWithTwoParents = new ArrayList<>();
-			
+
+            String tempMappingsDir = commitFolderPath + sep + "mappings" + sep;
+            new File(tempMappingsDir).mkdirs();
+    
 			if (depth == 0) {
 				findCurrentVersionChanges(commit);
 			} else {
