@@ -12,7 +12,8 @@ let benchmakrsConfig = JSON.parse(fs.readFileSync(`${__dirname}/evaluation/bench
 /**
  * your repository SSH address
  */
-const REPO_URL = "git@github.com:simov/grant.git" // data done + tarmaq and caprese impactSet 
+const REPO_URL = "git@github.com:MikeMcl/bignumber.js.git" // data done + tarmaq and caprese impactSet 
+// const REPO_URL = "git@github.com:fastify/fastify.git"
 
 /**
  * the main branch of your repository; it is usually master or main.
@@ -88,9 +89,7 @@ const DA_PATH = __dirname + path.sep + "DA";
 */
 const REFDIFF_COMMAND = "cd " + REFDIFF_PATH + "\n./gradlew run --args=";
 const FP_COMMAND = "cd " + FP_PATH + "\nmvn exec:java -Dexec.mainClass='patterndetection.MainAlgorithm' -Dexec.args=";
-const GRAAL_HOME = `${__dirname}${path.sep}DA${path.sep}libraries${path.sep}graalvm-ce-java8-20.2.0${path.sep}Contents${path.sep}Home`
-const NODEPROF_HOME = `${GRAAL_HOME}${path.sep}jre${path.sep}tools${path.sep}nodeprof`
-const DA_COMMAND = `cd ${DA_PATH}\n${GRAAL_HOME}${path.sep}bin${path.sep}node --nodeprof.Scope=app --jvm --experimental-options --vm.Dtruffle.class.path.append=${NODEPROF_HOME}${path.sep}nodeprof.jar --nodeprof ${NODEPROF_HOME}${path.sep}jalangi.js --analysis utils.js --analysis analyser.js runner.mjs`;
+const DA_COMMAND = `cd ${DA_PATH}\n$GRAAL_HOME${path.sep}bin${path.sep}node --nodeprof.Scope=app --jvm --experimental-options --vm.Dtruffle.class.path.append=$NODEPROF_HOME${path.sep}nodeprof.jar --nodeprof $NODEPROF_HOME${path.sep}jalangi.js --analysis utils.js --analysis analyser.js runner.mjs`;
 /**
  * reported data paths
  */
