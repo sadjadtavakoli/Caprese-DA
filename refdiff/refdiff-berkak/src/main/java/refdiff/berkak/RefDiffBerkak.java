@@ -138,7 +138,8 @@ public class RefDiffBerkak {
 
 			write(resultPath, changesString + " -1 \n",true);
 			
-			write(resultPath + "details.txt", commitName + " : " + changesString + " -1 \n",true);// for evaluation purposes
+            // for evaluation
+			write(resultPath + "details.txt", commitName + " : " + changesString + " -1 \n",true);
 
 		} else {
 			if (isALargeCommit) {
