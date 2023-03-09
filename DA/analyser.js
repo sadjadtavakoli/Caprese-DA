@@ -304,12 +304,6 @@ let fields = new Map();
                         let closestDeclaration = getClosestDeclaration(localListOfVariables, varData, fID);
                         if (closestDeclaration != undefined && !closestDeclaration.includes(fID)) closestDeclaration.push(fID);
                     }
-                } else {
-                    console.log("write!")
-                    console.log(functionEnterStack)
-                    console.log(name, val)
-                    console.log(utils.getLocation(iid))
-                    console.log(mainFilePath)
                 }
             }
             return { result: val };
@@ -385,12 +379,6 @@ let fields = new Map();
                             addImpact(writer, baseID)
                         }
                     }
-                } else {
-                    console.log("getField!")
-                    console.log(functionEnterStack)
-                    console.log(offset, val)
-                    console.log(utils.getLocation(iid))
-                    console.log(mainFilePath)
                 }
             }
             return { result: val };

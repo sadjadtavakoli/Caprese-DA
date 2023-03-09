@@ -1,0 +1,6 @@
+Bundle-Name=Graal.js
+Bundle-Symbolic-Name=js
+Bundle-Version=20.2.0
+
+x-GraalVM-Polyglot-Part=True
+x-GraalVM-Component-Distribution=bundled

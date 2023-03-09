@@ -1,0 +1,5 @@
+/.DS_Store
+/patterns.json
+/sequences.txt
+*.DS_Store
+target/

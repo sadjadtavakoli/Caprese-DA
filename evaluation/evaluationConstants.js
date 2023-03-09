@@ -16,7 +16,7 @@ if (!fs.existsSync(PROJECT_DIR)) {
 
 const EXECUTION_TIMES_PATH = `${BENCHMARK_DIR}${path.sep}executionTimeAll.json`
 const TARMAQ_RESULT_PATH = `${PROJECT_DIR}${path.sep}tarmaq.json`
-const TARMAQ_PATH = path.dirname(path.dirname(__dirname)) + path.sep + "TARMAQ";
+const TARMAQ_PATH = `${__dirname}${path.sep}TARMAQ`;
 const TARMAQ_COMMAND = "cd " + TARMAQ_PATH + " ; mvn exec:java -Dexec.mainClass='TARMAQ.MainTARMAQ' -Dexec.args=";
 
 function getActualImpactSetPath(benchmark) {
