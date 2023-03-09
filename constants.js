@@ -104,17 +104,16 @@ const Berke_RESULT_PATH = DATA_PATH + path.sep + "berke.json"; // berke result
 
 if (!fs.existsSync(DATA_PATH)) {
     fs.mkdirSync(DATA_PATH);
+    addFile(SEQUENCES_PATH, "")
+    addFile(SEQUENCES_PATH+"details.txt", "")
+    addFile(SEQUENCES_PATH+"-eliminated.txt", "")
+    addFile(REMOVED_PATH, "")
+    addFile(FP_RESULT_PATH, "")
+    addFile(MAPPINGS_PATH, "{}")
+    addFile(DA_DEPENDENCIES_PATH, "{}")
+    addFile(CURRENT_CHANGES_PATH, "")
+    addFile(Berke_RESULT_PATH, "")
 }
-
-addFile(SEQUENCES_PATH, "")
-addFile(SEQUENCES_PATH+"details.txt", "")
-addFile(SEQUENCES_PATH+"-eliminated.txt", "")
-addFile(REMOVED_PATH, "")
-addFile(FP_RESULT_PATH, "")
-addFile(MAPPINGS_PATH, "{}")
-addFile(DA_DEPENDENCIES_PATH, "{}")
-addFile(CURRENT_CHANGES_PATH, "")
-addFile(Berke_RESULT_PATH, "")
 
 function addFile(filePath, data){
     if(fs.existsSync(filePath)){
