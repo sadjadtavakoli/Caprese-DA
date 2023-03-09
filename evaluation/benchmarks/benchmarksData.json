@@ -1,5 +1,5 @@
 {
-    "git@github.com:assemble/assemble.git": {
+    "https://github.com/assemble/assemble.git": {
         "test": "test",
         "install": "npm install",
         "commits": "2421",
@@ -11,7 +11,7 @@
             "/assets/js/jquery.js"
         ]
     },
-    "git@github.com:expressjs/express.git": {
+    "https://github.com/expressjs/express.git": {
         "test": "test",
         "install": "npm install",
         "commits": "5694",
@@ -20,7 +20,7 @@
         "excluded_dirs": [],
         "fp_excluded_dirs": []
     },
-    "git@github.com:jhipster/jhipster-uml.git": {
+    "https://github.com/jhipster/jhipster-uml.git": {
         "test": "test",
         "install": "npm install",
         "commits": "980",
@@ -29,7 +29,7 @@
         "excluded_dirs": [],
         "fp_excluded_dirs": []
     },
-    "git@github.com:expressjs/session.git": {
+    "https://github.com/expressjs/session.git": {
         "test": "test",
         "install": "npm install",
         "commits": "686",
@@ -38,7 +38,7 @@
         "excluded_dirs": [],
         "fp_excluded_dirs": []
     },
-    "git@github.com:yeoman/environment.git": {
+    "https://github.com/yeoman/environment.git": {
         "test": "test",
         "install": "npm install",
         "commits": "1476",
@@ -49,7 +49,7 @@
         ],
         "fp_excluded_dirs": []
     },
-    "git@github.com:nock/nock.git": {
+    "https://github.com/nock/nock.git": {
         "test": "tests",
         "install": "npm install",
         "commits": "2066",
@@ -58,7 +58,7 @@
         "excluded_dirs": [],
         "fp_excluded_dirs": []
     },
-    "git@github.com:simov/grant.git": {
+    "https://github.com/simov/grant.git": {
         "test": "test",
         "install": "npm install",
         "commits": "1171",
@@ -67,7 +67,7 @@
         "excluded_dirs": [],
         "fp_excluded_dirs": []
     },
-    "git@github.com:cla-assistant/cla-assistant.git": {
+    "https://github.com/cla-assistant/cla-assistant.git": {
         "test": "src/tests",
         "install": "npm install",
         "commit": "1380",
@@ -79,7 +79,7 @@
         ],
         "fp_excluded_dirs": []
     },
-    "git@github.com:fastify/fastify.git": {
+    "https://github.com/fastify/fastify.git": {
         "test": "test",
         "install": "npm install",
         "commits": "3379",
@@ -88,7 +88,7 @@
         "excluded_dirs": ["bundler","types","esm"],
         "fp_excluded_dirs": []
     },
-    "git@github.com:MikeMcl/bignumber.js.git": {
+    "https://github.com/MikeMcl/bignumber.js.git": {
         "test": "test/test.js",
         "install": "npm install",
         "commit": "246",
