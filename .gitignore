@@ -1,10 +1,8 @@
 node_modules
 package-lock.json
-data/*
-refdiff/*/mappings.json
+data/ProjectsData Backup feb 24
+data/ProjectsData/commitsLengthDistribution.json
 .vscode 
 *.DS_Store
 hs_err*
-matching.json
-offIDs.txt
 **/actualImpactSets.json*

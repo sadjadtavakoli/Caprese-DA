@@ -1,0 +1,1467 @@
+{
+    "arrowAnonymousFunction-test/client.js-9-88": {
+        "impacted": [
+            "test/client.js"
+        ]
+    },
+    "arrowAnonymousFunction-test/client.js-10-30": {
+        "impacted": [
+            "arrowAnonymousFunction-test/client.js-9-88"
+        ]
+    },
+    "arrowAnonymousFunction-test/client.js-31-87": {
+        "impacted": [
+            "arrowAnonymousFunction-test/client.js-9-88"
+        ]
+    },
+    "compose-lib/config.js-9-11": {
+        "impacted": [
+            "test/config.js"
+        ]
+    },
+    "test/config.js": {
+        "impacted": [
+            "compose-lib/config.js-9-11",
+            "arrowAnonymousFunction-lib/config.js-158-164"
+        ]
+    },
+    "arrowAnonymousFunction-lib/config.js-158-164": {
+        "impacted": [
+            "test/config.js",
+            "arrowAnonymousFunction-test/config.js-320-339",
+            "compat-lib/config.js-146-151",
+            "arrowAnonymousFunction-test/config.js-340-361",
+            "arrowAnonymousFunction-test/config.js-390-399",
+            "arrowAnonymousFunction-test/config.js-400-407",
+            "arrowAnonymousFunction-test/config.js-408-423",
+            "arrowAnonymousFunction-test/config.js-424-434",
+            "arrowAnonymousFunction-test/config.js-435-445",
+            "arrowAnonymousFunction-test/config.js-446-466",
+            "arrowAnonymousFunction-test/config.js-467-487",
+            "arrowAnonymousFunction-test/config.js-488-506",
+            "arrowAnonymousFunction-test/config.js-507-530",
+            "arrowAnonymousFunction-test/config.js-531-546",
+            "arrowAnonymousFunction-test/config.js-547-562",
+            "arrowAnonymousFunction-test/config.js-563-581",
+            "arrowAnonymousFunction-lib/grant.js-8-31"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-6-584": {
+        "impacted": [
+            "test/config.js"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-8-22": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-6-584"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-24-33": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-6-584"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-35-48": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-6-584"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-50-175": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-6-584"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-177-196": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-6-584"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-198-206": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-6-584"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-208-246": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-6-584"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-248-317": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-6-584"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-319-362": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-6-584"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-364-387": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-6-584"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-389-582": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-6-584"
+        ]
+    },
+    "anonymous-eval at function.prototype.apply (<builtin>-1-1": {
+        "impacted": [
+            "test/flow/oauth1.js"
+        ]
+    },
+    "test/flow/oauth1.js": {
+        "impacted": [
+            "anonymous-eval at function.prototype.apply (<builtin>-1-1",
+            "arrowAnonymousFunction-test/flow/oauth1.js-37-40"
+        ]
+    },
+    "arrowAnonymousFunction-test/util/client.js-43-51": {
+        "impacted": [
+            "test/flow/oauth1.js"
+        ]
+    },
+    "arrowAnonymousFunction-test/flow/oauth1.js-16-416": {
+        "impacted": [
+            "test/flow/oauth1.js"
+        ]
+    },
+    "arrowAnonymousFunction-test/flow/oauth1.js-48-84": {
+        "impacted": [
+            "arrowAnonymousFunction-test/flow/oauth1.js-16-416"
+        ]
+    },
+    "arrowAnonymousFunction-test/flow/oauth1.js-86-113": {
+        "impacted": [
+            "arrowAnonymousFunction-test/flow/oauth1.js-16-416"
+        ]
+    },
+    "arrowAnonymousFunction-test/flow/oauth1.js-115-138": {
+        "impacted": [
+            "arrowAnonymousFunction-test/flow/oauth1.js-16-416"
+        ]
+    },
+    "arrowAnonymousFunction-test/flow/oauth1.js-140-359": {
+        "impacted": [
+            "arrowAnonymousFunction-test/flow/oauth1.js-16-416"
+        ]
+    },
+    "arrowAnonymousFunction-test/flow/oauth1.js-361-415": {
+        "impacted": [
+            "arrowAnonymousFunction-test/flow/oauth1.js-16-416"
+        ]
+    },
+    "arrowAnonymousFunction-test/flow/oauth2.js-16-751": {
+        "impacted": [
+            "test/flow/oauth2.js"
+        ]
+    },
+    "arrowAnonymousFunction-test/flow/oauth2.js-46-75": {
+        "impacted": [
+            "arrowAnonymousFunction-test/flow/oauth2.js-16-751"
+        ]
+    },
+    "arrowAnonymousFunction-test/flow/oauth2.js-77-100": {
+        "impacted": [
+            "arrowAnonymousFunction-test/flow/oauth2.js-16-751"
+        ]
+    },
+    "arrowAnonymousFunction-test/flow/oauth2.js-102-648": {
+        "impacted": [
+            "arrowAnonymousFunction-test/flow/oauth2.js-16-751"
+        ]
+    },
+    "arrowAnonymousFunction-test/flow/oauth2.js-650-750": {
+        "impacted": [
+            "arrowAnonymousFunction-test/flow/oauth2.js-16-751"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-15-746": {
+        "impacted": [
+            "test/handler/handler.js"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-48-74": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-15-746"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-51-71": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-50-72"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-49-73": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-50-72"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-76-101": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-15-746"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-78-99": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-77-100"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-103-124": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-15-746"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-105-122": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-104-123"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-126-164": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-15-746"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-128-162": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-127-163"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-166-230": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-15-746"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-168-228": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-167-229"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-232-270": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-15-746"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-240-267": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-239-268"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-233-269": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-239-268"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-272-318": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-15-746"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-274-316": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-273-317"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-320-357": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-15-746"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-323-354": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-322-355"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-321-356": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-322-355"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-359-394": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-15-746"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-361-392": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-360-393"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-396-489": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-15-746"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-400-486": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-399-487"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-397-488": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-399-487"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-491-529": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-15-746"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-493-527": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-492-528"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-531-555": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-15-746"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-533-553": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-532-554"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-557-579": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-15-746"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-559-577": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-558-578"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-581-605": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-15-746"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-583-603": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-582-604"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-607-645": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-15-746"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-609-643": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-608-644"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-647-717": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-15-746"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-649-715": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-648-716"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-719-745": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-15-746"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-721-743": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-720-744"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/oidc.js-18-199": {
+        "impacted": [
+            "test/handler/oidc.js"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/profile.js-16-205": {
+        "impacted": [
+            "test/handler/profile.js"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/session.js-14-215": {
+        "impacted": [
+            "test/handler/session.js"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/session.js-45-212": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/session.js-44-213"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler.js-5-194": {
+        "impacted": [
+            "test/handler.js"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler.js-7-36": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler.js-5-194"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler.js-38-49": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler.js-5-194"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler.js-51-102": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler.js-5-194"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler.js-104-193": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler.js-5-194"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler.js-105-116": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler.js-104-193",
+            "load-test/handler.js-106-109"
+        ]
+    },
+    "load-test/handler.js-106-109": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler.js-105-116"
+        ]
+    },
+    "arrowAnonymousFunction-grant.js-86-101": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler.js-104-193",
+            "arrowAnonymousFunction-test/handler.js-28-35",
+            "arrowAnonymousFunction-lib/handler/hapi-17.js-6-47"
+        ]
+    },
+    "arrowAnonymousFunction-test/response.js-11-157": {
+        "impacted": [
+            "test/response.js"
+        ]
+    },
+    "arrowAnonymousFunction-test/response.js-77-155": {
+        "impacted": [
+            "arrowAnonymousFunction-test/response.js-11-157"
+        ]
+    },
+    "arrowAnonymousFunction-test/session.js-6-132": {
+        "impacted": [
+            "test/session.js"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-9-15": {
+        "impacted": [
+            "test/config.js",
+            "dcopy-lib/config.js-12-14"
+        ]
+    },
+    "dcopy-lib/config.js-12-14": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-9-15",
+            "arrowAnonymousFunction-test/config.js-16-21",
+            "transform-lib/config.js-135-142",
+            "provider-lib/config.js-168-216"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-16-21": {
+        "impacted": [
+            "test/config.js",
+            "dcopy-lib/config.js-12-14"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-25-28": {
+        "impacted": [
+            "test/config.js",
+            "merge-lib/config.js-15-17"
+        ]
+    },
+    "merge-lib/config.js-15-17": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-25-28",
+            "arrowAnonymousFunction-test/config.js-29-32",
+            "arrowAnonymousFunction-lib/config.js-10-10"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-29-32": {
+        "impacted": [
+            "test/config.js",
+            "merge-lib/config.js-15-17"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-36-39": {
+        "impacted": [
+            "test/config.js",
+            "filter-lib/config.js-18-28"
+        ]
+    },
+    "filter-lib/config.js-18-28": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-36-39",
+            "arrowAnonymousFunction-test/config.js-40-43",
+            "arrowAnonymousFunction-test/config.js-44-47",
+            "arrowAnonymousFunction-lib/config.js-10-10"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-40-43": {
+        "impacted": [
+            "test/config.js",
+            "filter-lib/config.js-18-28"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-44-47": {
+        "impacted": [
+            "test/config.js",
+            "filter-lib/config.js-18-28"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-51-56": {
+        "impacted": [
+            "test/config.js",
+            "oauth-lib/config.js-31-32"
+        ]
+    },
+    "oauth-lib/config.js-31-32": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-51-56",
+            "arrowAnonymousFunction-lib/config.js-138-138"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-57-66": {
+        "impacted": [
+            "test/config.js",
+            "key-lib/config.js-35-42"
+        ]
+    },
+    "key-lib/config.js-35-42": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-57-66",
+            "arrowAnonymousFunction-lib/config.js-138-138"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-67-76": {
+        "impacted": [
+            "test/config.js",
+            "secret-lib/config.js-45-52"
+        ]
+    },
+    "secret-lib/config.js-45-52": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-67-76",
+            "arrowAnonymousFunction-lib/config.js-138-138"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-77-87": {
+        "impacted": [
+            "test/config.js",
+            "scope-lib/config.js-55-62"
+        ]
+    },
+    "scope-lib/config.js-55-62": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-77-87",
+            "arrowAnonymousFunction-lib/config.js-138-138"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-88-94": {
+        "impacted": [
+            "test/config.js",
+            "state-lib/config.js-65-66"
+        ]
+    },
+    "state-lib/config.js-65-66": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-88-94",
+            "arrowAnonymousFunction-lib/config.js-138-138"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-95-101": {
+        "impacted": [
+            "test/config.js",
+            "nonce-lib/config.js-69-70"
+        ]
+    },
+    "nonce-lib/config.js-69-70": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-95-101",
+            "arrowAnonymousFunction-lib/config.js-138-138"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-102-127": {
+        "impacted": [
+            "test/config.js",
+            "arrowAnonymousFunction-test/config.js-124-126"
+        ]
+    },
+    "redirect_uri-lib/config.js-73-83": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-124-126",
+            "arrowAnonymousFunction-lib/config.js-138-138"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-124-126": {
+        "impacted": [
+            "redirect_uri-lib/config.js-73-83"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-128-148": {
+        "impacted": [
+            "test/config.js",
+            "arrowAnonymousFunction-test/config.js-145-147"
+        ]
+    },
+    "custom_params-lib/config.js-86-95": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-145-147",
+            "arrowAnonymousFunction-lib/config.js-138-138"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-145-147": {
+        "impacted": [
+            "custom_params-lib/config.js-86-95"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-149-174": {
+        "impacted": [
+            "test/config.js",
+            "arrowAnonymousFunction-test/config.js-171-173"
+        ]
+    },
+    "overrides-lib/config.js-97-112": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-171-173",
+            "arrowAnonymousFunction-lib/config.js-138-138"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-171-173": {
+        "impacted": [
+            "overrides-lib/config.js-97-112"
+        ]
+    },
+    "arrowAnonymousFunction-lib/config.js-102-106": {
+        "impacted": [
+            "arrowAnonymousFunction-lib/config.js-105-105"
+        ]
+    },
+    "arrowAnonymousFunction-lib/config.js-10-10": {
+        "impacted": [
+            "arrowAnonymousFunction-lib/config.js-109-109",
+            "arrowAnonymousFunction-lib/config.js-10-10",
+            "merge-lib/config.js-15-17",
+            "filter-lib/config.js-18-28",
+            "transform-lib/config.js-135-142",
+            "arrowAnonymousFunction-lib/config.js-161-164",
+            "provider-lib/config.js-168-216"
+        ]
+    },
+    "arrowAnonymousFunction-lib/config.js-109-109": {
+        "impacted": [
+            "arrowAnonymousFunction-lib/config.js-10-10"
+        ]
+    },
+    "transform-lib/config.js-135-142": {
+        "impacted": [
+            "arrowAnonymousFunction-lib/config.js-10-10",
+            "dcopy-lib/config.js-12-14",
+            "arrowAnonymousFunction-test/config.js-209-245"
+        ]
+    },
+    "arrowAnonymousFunction-lib/config.js-138-138": {
+        "impacted": [
+            "oauth-lib/config.js-31-32",
+            "arrowAnonymousFunction-lib/config.js-138-138",
+            "key-lib/config.js-35-42",
+            "secret-lib/config.js-45-52",
+            "scope-lib/config.js-55-62",
+            "state-lib/config.js-65-66",
+            "nonce-lib/config.js-69-70",
+            "redirect_uri-lib/config.js-73-83",
+            "custom_params-lib/config.js-86-95",
+            "overrides-lib/config.js-97-112"
+        ]
+    },
+    "arrowAnonymousFunction-lib/config.js-27-27": {
+        "impacted": [
+            "arrowAnonymousFunction-lib/config.js-138-138"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-178-186": {
+        "impacted": [
+            "test/config.js",
+            "state-lib/config.js-116-127"
+        ]
+    },
+    "state-lib/config.js-116-127": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-178-186",
+            "arrowAnonymousFunction-test/config.js-187-195",
+            "provider-lib/config.js-168-216"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-187-195": {
+        "impacted": [
+            "test/config.js",
+            "state-lib/config.js-116-127"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-199-205": {
+        "impacted": [
+            "test/config.js",
+            "pkce-lib/config.js-128-134"
+        ]
+    },
+    "pkce-lib/config.js-128-134": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-199-205",
+            "provider-lib/config.js-168-216"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-209-245": {
+        "impacted": [
+            "test/config.js",
+            "transform-lib/config.js-135-142"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-249-271": {
+        "impacted": [
+            "test/config.js",
+            "compat-lib/config.js-146-151"
+        ]
+    },
+    "compat-lib/config.js-146-151": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-249-271",
+            "arrowAnonymousFunction-test/config.js-272-294",
+            "arrowAnonymousFunction-test/config.js-295-316",
+            "arrowAnonymousFunction-lib/config.js-158-164"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-272-294": {
+        "impacted": [
+            "test/config.js",
+            "compat-lib/config.js-146-151"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-295-316": {
+        "impacted": [
+            "test/config.js",
+            "compat-lib/config.js-146-151"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-320-339": {
+        "impacted": [
+            "test/config.js",
+            "defaults-lib/config.js-152-155",
+            "arrowAnonymousFunction-lib/config.js-158-164"
+        ]
+    },
+    "defaults-lib/config.js-152-155": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-320-339",
+            "arrowAnonymousFunction-test/config.js-340-361",
+            "arrowAnonymousFunction-test/config.js-383-385",
+            "arrowAnonymousFunction-test/config.js-390-399",
+            "arrowAnonymousFunction-test/config.js-400-407",
+            "arrowAnonymousFunction-test/config.js-408-423",
+            "arrowAnonymousFunction-test/config.js-424-434",
+            "arrowAnonymousFunction-test/config.js-435-445",
+            "arrowAnonymousFunction-test/config.js-446-466",
+            "arrowAnonymousFunction-test/config.js-467-487",
+            "arrowAnonymousFunction-test/config.js-488-506",
+            "arrowAnonymousFunction-test/config.js-507-530",
+            "arrowAnonymousFunction-test/config.js-531-546",
+            "arrowAnonymousFunction-test/config.js-547-562",
+            "arrowAnonymousFunction-test/config.js-563-581",
+            "arrowAnonymousFunction-lib/grant.js-8-31"
+        ]
+    },
+    "arrowAnonymousFunction-lib/config.js-161-164": {
+        "impacted": [
+            "arrowAnonymousFunction-lib/config.js-10-10"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-340-361": {
+        "impacted": [
+            "test/config.js",
+            "defaults-lib/config.js-152-155",
+            "arrowAnonymousFunction-lib/config.js-158-164"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-365-386": {
+        "impacted": [
+            "test/config.js",
+            "arrowAnonymousFunction-test/config.js-383-385"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-383-385": {
+        "impacted": [
+            "defaults-lib/config.js-152-155"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-390-399": {
+        "impacted": [
+            "test/config.js",
+            "defaults-lib/config.js-152-155",
+            "arrowAnonymousFunction-lib/config.js-158-164",
+            "provider-lib/config.js-168-216"
+        ]
+    },
+    "provider-lib/config.js-168-216": {
+        "impacted": [
+            "arrowAnonymousFunction-test/config.js-390-399",
+            "arrowAnonymousFunction-test/config.js-400-407",
+            "arrowAnonymousFunction-test/config.js-408-423",
+            "arrowAnonymousFunction-lib/config.js-10-10",
+            "arrowAnonymousFunction-test/config.js-424-434",
+            "arrowAnonymousFunction-test/config.js-435-445",
+            "dcopy-lib/config.js-12-14",
+            "state-lib/config.js-116-127",
+            "arrowAnonymousFunction-test/config.js-446-466",
+            "provider-lib/config.js-168-216",
+            "arrowAnonymousFunction-test/config.js-467-487",
+            "arrowAnonymousFunction-test/config.js-488-506",
+            "arrowAnonymousFunction-test/config.js-507-530",
+            "arrowAnonymousFunction-test/config.js-531-546",
+            "arrowAnonymousFunction-test/config.js-547-562",
+            "arrowAnonymousFunction-test/config.js-563-581"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-400-407": {
+        "impacted": [
+            "test/config.js",
+            "defaults-lib/config.js-152-155",
+            "arrowAnonymousFunction-lib/config.js-158-164",
+            "provider-lib/config.js-168-216"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-408-423": {
+        "impacted": [
+            "test/config.js",
+            "defaults-lib/config.js-152-155",
+            "arrowAnonymousFunction-lib/config.js-158-164",
+            "provider-lib/config.js-168-216"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-424-434": {
+        "impacted": [
+            "test/config.js",
+            "defaults-lib/config.js-152-155",
+            "arrowAnonymousFunction-lib/config.js-158-164",
+            "provider-lib/config.js-168-216"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-435-445": {
+        "impacted": [
+            "test/config.js",
+            "defaults-lib/config.js-152-155",
+            "arrowAnonymousFunction-lib/config.js-158-164",
+            "provider-lib/config.js-168-216"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-446-466": {
+        "impacted": [
+            "test/config.js",
+            "defaults-lib/config.js-152-155",
+            "arrowAnonymousFunction-lib/config.js-158-164",
+            "provider-lib/config.js-168-216"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-467-487": {
+        "impacted": [
+            "test/config.js",
+            "defaults-lib/config.js-152-155",
+            "arrowAnonymousFunction-lib/config.js-158-164",
+            "provider-lib/config.js-168-216"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-488-506": {
+        "impacted": [
+            "test/config.js",
+            "defaults-lib/config.js-152-155",
+            "arrowAnonymousFunction-lib/config.js-158-164",
+            "provider-lib/config.js-168-216"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-507-530": {
+        "impacted": [
+            "test/config.js",
+            "defaults-lib/config.js-152-155",
+            "arrowAnonymousFunction-lib/config.js-158-164",
+            "provider-lib/config.js-168-216"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-531-546": {
+        "impacted": [
+            "test/config.js",
+            "defaults-lib/config.js-152-155",
+            "arrowAnonymousFunction-lib/config.js-158-164",
+            "provider-lib/config.js-168-216"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-547-562": {
+        "impacted": [
+            "test/config.js",
+            "defaults-lib/config.js-152-155",
+            "arrowAnonymousFunction-lib/config.js-158-164",
+            "provider-lib/config.js-168-216"
+        ]
+    },
+    "arrowAnonymousFunction-test/config.js-563-581": {
+        "impacted": [
+            "test/config.js",
+            "defaults-lib/config.js-152-155",
+            "arrowAnonymousFunction-lib/config.js-158-164",
+            "provider-lib/config.js-168-216"
+        ]
+    },
+    "provider-test/util/provider.js-26-36": {
+        "impacted": [
+            "arrowAnonymousFunction-test/flow/oauth1.js-17-35",
+            "oauth1-test/util/provider.js-38-139",
+            "arrowAnonymousFunction-test/flow/oauth2.js-17-34",
+            "oauth2-test/util/provider.js-140-267",
+            "arrowAnonymousFunction-test/handler/handler.js-18-41",
+            "arrowAnonymousFunction-test/handler/oidc.js-19-34",
+            "arrowAnonymousFunction-test/handler/profile.js-17-44",
+            "arrowAnonymousFunction-test/handler/session.js-17-37"
+        ]
+    },
+    "arrowAnonymousFunction-test/flow/oauth1.js-17-35": {
+        "impacted": [
+            "provider-test/util/provider.js-26-36"
+        ]
+    },
+    "oauth1-test/util/provider.js-38-139": {
+        "impacted": [
+            "provider-test/util/provider.js-26-36",
+            "arrowAnonymousFunction-test/util/provider.js-38-138"
+        ]
+    },
+    "arrowAnonymousFunction-test/flow/oauth2.js-17-34": {
+        "impacted": [
+            "provider-test/util/provider.js-26-36"
+        ]
+    },
+    "oauth2-test/util/provider.js-140-267": {
+        "impacted": [
+            "provider-test/util/provider.js-26-36",
+            "arrowAnonymousFunction-test/util/provider.js-140-266"
+        ]
+    },
+    "test/flow/oauth2.js": {
+        "impacted": [
+            "arrowAnonymousFunction-test/flow/oauth2.js-36-39"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/handler.js-18-41": {
+        "impacted": [
+            "provider-test/util/provider.js-26-36"
+        ]
+    },
+    "test/handler/handler.js": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/handler.js-43-46"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/oidc.js-19-34": {
+        "impacted": [
+            "provider-test/util/provider.js-26-36"
+        ]
+    },
+    "test/handler/oidc.js": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/oidc.js-36-41"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/profile.js-17-44": {
+        "impacted": [
+            "provider-test/util/provider.js-26-36"
+        ]
+    },
+    "test/handler/profile.js": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/profile.js-46-52"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler/session.js-17-37": {
+        "impacted": [
+            "provider-test/util/provider.js-26-36"
+        ]
+    },
+    "test/handler/session.js": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler/session.js-39-42"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler.js-12-19": {
+        "impacted": [
+            "test/handler.js",
+            "arrowAnonymousFunction-lib/handler/express-4.js-5-47",
+            "arrowAnonymousFunction-grant.js-69-72",
+            "grant-grant.js-2-67"
+        ]
+    },
+    "arrowAnonymousFunction-grant.js-69-72": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler.js-12-19",
+            "arrowAnonymousFunction-lib/handler/express-4.js-5-47",
+            "arrowAnonymousFunction-test/handler.js-39-43",
+            "arrowAnonymousFunction-test/handler.js-52-76",
+            "arrowAnonymousFunction-test/handler.js-77-101"
+        ]
+    },
+    "arrowAnonymousFunction-lib/handler/express-4.js-5-47": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler.js-12-19",
+            "arrowAnonymousFunction-lib/grant.js-8-31",
+            "arrowAnonymousFunction-grant.js-69-72",
+            "grant-grant.js-2-67",
+            "arrowAnonymousFunction-test/handler.js-39-43",
+            "arrowAnonymousFunction-test/handler.js-52-76",
+            "arrowAnonymousFunction-test/handler.js-77-101"
+        ]
+    },
+    "arrowAnonymousFunction-lib/grant.js-8-31": {
+        "impacted": [
+            "arrowAnonymousFunction-lib/handler/express-4.js-5-47",
+            "defaults-lib/config.js-152-155",
+            "arrowAnonymousFunction-lib/config.js-158-164",
+            "defaults-lib/request.js-8-32",
+            "compose-lib/util.js-2-4",
+            "arrowAnonymousFunction-lib/handler/koa-2.js-6-46",
+            "register-lib/handler/hapi-17.js-9-41"
+        ]
+    },
+    "defaults-lib/request.js-8-32": {
+        "impacted": [
+            "arrowAnonymousFunction-lib/grant.js-8-31"
+        ]
+    },
+    "compose-lib/util.js-2-4": {
+        "impacted": [
+            "arrowAnonymousFunction-lib/grant.js-8-31"
+        ]
+    },
+    "grant-grant.js-2-67": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler.js-12-19",
+            "arrowAnonymousFunction-lib/handler/express-4.js-5-47",
+            "arrowAnonymousFunction-test/handler.js-20-27",
+            "arrowAnonymousFunction-lib/handler/koa-2.js-6-46",
+            "arrowAnonymousFunction-test/handler.js-28-35",
+            "arrowAnonymousFunction-lib/handler/hapi-17.js-6-47"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler.js-20-27": {
+        "impacted": [
+            "test/handler.js",
+            "arrowAnonymousFunction-lib/handler/koa-2.js-6-46",
+            "arrowAnonymousFunction-grant.js-74-84",
+            "grant-grant.js-2-67"
+        ]
+    },
+    "arrowAnonymousFunction-grant.js-74-84": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler.js-20-27",
+            "arrowAnonymousFunction-lib/handler/koa-2.js-6-46",
+            "arrowAnonymousFunction-test/handler.js-44-48",
+            "arrowAnonymousFunction-test/handler.js-52-76",
+            "arrowAnonymousFunction-test/handler.js-77-101"
+        ]
+    },
+    "arrowAnonymousFunction-lib/handler/koa-2.js-6-46": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler.js-20-27",
+            "arrowAnonymousFunction-lib/grant.js-8-31",
+            "arrowAnonymousFunction-grant.js-74-84",
+            "grant-grant.js-2-67",
+            "arrowAnonymousFunction-test/handler.js-44-48",
+            "arrowAnonymousFunction-test/handler.js-52-76",
+            "arrowAnonymousFunction-test/handler.js-77-101"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler.js-28-35": {
+        "impacted": [
+            "test/handler.js",
+            "arrowAnonymousFunction-lib/handler/hapi-17.js-6-47",
+            "arrowAnonymousFunction-grant.js-86-101",
+            "grant-grant.js-2-67"
+        ]
+    },
+    "arrowAnonymousFunction-lib/handler/hapi-17.js-6-47": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler.js-28-35",
+            "arrowAnonymousFunction-grant.js-86-101",
+            "grant-grant.js-2-67",
+            "arrowAnonymousFunction-test/handler.js-158-174",
+            "arrowAnonymousFunction-test/handler.js-175-191"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler.js-39-43": {
+        "impacted": [
+            "test/handler.js"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler.js-44-48": {
+        "impacted": [
+            "test/handler.js"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler.js-52-76": {
+        "impacted": [
+            "test/handler.js",
+            "arrowAnonymousFunction-lib/handler/express-4.js-5-47",
+            "arrowAnonymousFunction-lib/handler/koa-2.js-6-46"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler.js-77-101": {
+        "impacted": [
+            "test/handler.js",
+            "arrowAnonymousFunction-lib/handler/express-4.js-5-47",
+            "arrowAnonymousFunction-lib/handler/koa-2.js-6-46"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler.js-158-174": {
+        "impacted": [
+            "test/handler.js",
+            "register-lib/handler/hapi-17.js-9-41"
+        ]
+    },
+    "test/handler.js": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler.js-158-174",
+            "arrowAnonymousFunction-test/handler.js-175-191"
+        ]
+    },
+    "register-lib/handler/hapi-17.js-9-41": {
+        "impacted": [
+            "arrowAnonymousFunction-test/handler.js-158-174",
+            "arrowAnonymousFunction-lib/grant.js-8-31",
+            "arrowAnonymousFunction-test/handler.js-175-191"
+        ]
+    },
+    "arrowAnonymousFunction-test/handler.js-175-191": {
+        "impacted": [
+            "test/handler.js",
+            "arrowAnonymousFunction-lib/handler/hapi-17.js-6-47",
+            "register-lib/handler/hapi-17.js-9-41"
+        ]
+    },
+    "arrowAnonymousFunction-test/response.js-13-28": {
+        "impacted": [
+            "test/response.js",
+            "data-lib/response.js-69-100"
+        ]
+    },
+    "data-lib/response.js-69-100": {
+        "impacted": [
+            "arrowAnonymousFunction-test/response.js-13-28",
+            "tokens-lib/response.js-5-42",
+            "arrowAnonymousFunction-test/response.js-30-37",
+            "arrowAnonymousFunction-test/response.js-39-46",
+            "arrowAnonymousFunction-test/response.js-48-56",
+            "arrowAnonymousFunction-test/response.js-58-75",
+            "oidc-lib/response.js-44-67",
+            "arrowAnonymousFunction-test/response.js-79-86",
+            "arrowAnonymousFunction-test/response.js-88-95",
+            "arrowAnonymousFunction-test/response.js-97-104",
+            "arrowAnonymousFunction-test/response.js-106-113",
+            "arrowAnonymousFunction-test/response.js-115-122",
+            "arrowAnonymousFunction-test/response.js-124-138",
+            "arrowAnonymousFunction-test/response.js-140-154"
+        ]
+    },
+    "tokens-lib/response.js-5-42": {
+        "impacted": [
+            "data-lib/response.js-69-100"
+        ]
+    },
+    "arrowAnonymousFunction-test/response.js-30-37": {
+        "impacted": [
+            "test/response.js",
+            "data-lib/response.js-69-100"
+        ]
+    },
+    "arrowAnonymousFunction-test/response.js-39-46": {
+        "impacted": [
+            "test/response.js",
+            "data-lib/response.js-69-100"
+        ]
+    },
+    "arrowAnonymousFunction-test/response.js-48-56": {
+        "impacted": [
+            "test/response.js",
+            "data-lib/response.js-69-100"
+        ]
+    },
+    "arrowAnonymousFunction-test/response.js-58-75": {
+        "impacted": [
+            "test/response.js",
+            "sign-test/response.js-5-10",
+            "data-lib/response.js-69-100"
+        ]
+    },
+    "sign-test/response.js-5-10": {
+        "impacted": [
+            "arrowAnonymousFunction-test/response.js-58-75",
+            "arrowAnonymousFunction-test/response.js-79-86",
+            "arrowAnonymousFunction-test/response.js-97-104",
+            "arrowAnonymousFunction-test/response.js-106-113",
+            "arrowAnonymousFunction-test/response.js-115-122",
+            "arrowAnonymousFunction-test/response.js-124-138",
+            "arrowAnonymousFunction-test/response.js-140-154"
+        ]
+    },
+    "oidc-lib/response.js-44-67": {
+        "impacted": [
+            "data-lib/response.js-69-100"
+        ]
+    },
+    "arrowAnonymousFunction-test/response.js-79-86": {
+        "impacted": [
+            "test/response.js",
+            "sign-test/response.js-5-10",
+            "data-lib/response.js-69-100"
+        ]
+    },
+    "arrowAnonymousFunction-test/response.js-88-95": {
+        "impacted": [
+            "test/response.js",
+            "data-lib/response.js-69-100"
+        ]
+    },
+    "arrowAnonymousFunction-test/response.js-97-104": {
+        "impacted": [
+            "test/response.js",
+            "sign-test/response.js-5-10",
+            "data-lib/response.js-69-100"
+        ]
+    },
+    "arrowAnonymousFunction-test/response.js-106-113": {
+        "impacted": [
+            "test/response.js",
+            "sign-test/response.js-5-10",
+            "data-lib/response.js-69-100"
+        ]
+    },
+    "arrowAnonymousFunction-test/response.js-115-122": {
+        "impacted": [
+            "test/response.js",
+            "sign-test/response.js-5-10",
+            "data-lib/response.js-69-100"
+        ]
+    },
+    "arrowAnonymousFunction-test/response.js-124-138": {
+        "impacted": [
+            "test/response.js",
+            "sign-test/response.js-5-10",
+            "data-lib/response.js-69-100"
+        ]
+    },
+    "arrowAnonymousFunction-test/response.js-140-154": {
+        "impacted": [
+            "test/response.js",
+            "sign-test/response.js-5-10",
+            "data-lib/response.js-69-100"
+        ]
+    },
+    "arrowAnonymousFunction-test/session.js-8-15": {
+        "impacted": [
+            "test/session.js",
+            "arrowAnonymousFunction-lib/session.js-7-106",
+            "arrowAnonymousFunction-lib/session.js-53-61",
+            "encode-lib/session.js-41-50",
+            "sessionStore-lib/session.js-84-102"
+        ]
+    },
+    "arrowAnonymousFunction-lib/session.js-7-106": {
+        "impacted": [
+            "arrowAnonymousFunction-test/session.js-8-15",
+            "arrowAnonymousFunction-lib/session.js-7-106",
+            "arrowAnonymousFunction-test/session.js-17-41",
+            "arrowAnonymousFunction-lib/session.js-53-61",
+            "arrowAnonymousFunction-lib/session.js-17-105",
+            "encode-lib/session.js-41-50",
+            "arrowAnonymousFunction-test/session.js-43-68",
+            "sessionStore-lib/session.js-84-102",
+            "arrowAnonymousFunction-test/session.js-70-87",
+            "arrowAnonymousFunction-test/session.js-89-107",
+            "arrowAnonymousFunction-test/session.js-109-130"
+        ]
+    },
+    "arrowAnonymousFunction-test/session.js-17-41": {
+        "impacted": [
+            "test/session.js",
+            "arrowAnonymousFunction-lib/session.js-7-106",
+            "arrowAnonymousFunction-lib/session.js-17-105",
+            "set-lib/session.js-71-74"
+        ]
+    },
+    "arrowAnonymousFunction-lib/session.js-17-105": {
+        "impacted": [
+            "arrowAnonymousFunction-test/session.js-17-41",
+            "arrowAnonymousFunction-test/session.js-43-68",
+            "arrowAnonymousFunction-test/session.js-70-87",
+            "arrowAnonymousFunction-test/session.js-89-107",
+            "arrowAnonymousFunction-test/session.js-109-130"
+        ]
+    },
+    "cookieStore-lib/session.js-52-82": {
+        "impacted": [
+            "arrowAnonymousFunction-lib/session.js-17-105"
+        ]
+    },
+    "arrowAnonymousFunction-lib/session.js-53-61": {
+        "impacted": [
+            "cookieStore-lib/session.js-52-82"
+        ]
+    },
+    "set-lib/session.js-71-74": {
+        "impacted": [
+            "arrowAnonymousFunction-test/session.js-17-41",
+            "encode-lib/session.js-41-50",
+            "set-lib/session.js-64-64",
+            "arrowAnonymousFunction-test/session.js-70-87"
+        ]
+    },
+    "encode-lib/session.js-41-50": {
+        "impacted": [
+            "set-lib/session.js-71-74",
+            "arrowAnonymousFunction-lib/session.js-49-49",
+            "remove-lib/session.js-75-78",
+            "set-lib/session.js-91-94",
+            "remove-lib/session.js-95-98"
+        ]
+    },
+    "set-lib/session.js-64-64": {
+        "impacted": [
+            "set-lib/session.js-71-74"
+        ]
+    },
+    "get-lib/session.js-68-70": {
+        "impacted": [
+            "arrowAnonymousFunction-test/session.js-17-41",
+            "arrowAnonymousFunction-test/session.js-70-87",
+            "arrowAnonymousFunction-test/session.js-89-107"
+        ]
+    },
+    "get-lib/session.js-63-63": {
+        "impacted": [
+            "get-lib/session.js-68-70"
+        ]
+    },
+    "remove-lib/session.js-75-78": {
+        "impacted": [
+            "arrowAnonymousFunction-test/session.js-17-41",
+            "encode-lib/session.js-41-50",
+            "lib/session.js"
+        ]
+    },
+    "remove-lib/session.js-65-65": {
+        "impacted": [
+            "remove-lib/session.js-75-78"
+        ]
+    },
+    "arrowAnonymousFunction-test/session.js-43-68": {
+        "impacted": [
+            "test/session.js",
+            "arrowAnonymousFunction-lib/session.js-7-106",
+            "arrowAnonymousFunction-lib/session.js-17-105",
+            "set-lib/session.js-91-94"
+        ]
+    },
+    "arrowAnonymousFunction-test/session.js-44-48": {
+        "impacted": [
+            "arrowAnonymousFunction-test/session.js-43-68"
+        ]
+    },
+    "sessionStore-lib/session.js-84-102": {
+        "impacted": [
+            "arrowAnonymousFunction-lib/session.js-17-105",
+            "set-lib/session.js-91-94",
+            "get-lib/session.js-88-90",
+            "remove-lib/session.js-95-98"
+        ]
+    },
+    "set-lib/session.js-91-94": {
+        "impacted": [
+            "arrowAnonymousFunction-test/session.js-43-68",
+            "encode-lib/session.js-41-50",
+            "set-test/session.js-46-46"
+        ]
+    },
+    "set-test/session.js-46-46": {
+        "impacted": [
+            "set-lib/session.js-91-94"
+        ]
+    },
+    "get-lib/session.js-88-90": {
+        "impacted": [
+            "arrowAnonymousFunction-test/session.js-43-68",
+            "get-test/session.js-111-111",
+            "lib/session.js",
+            "arrowAnonymousFunction-test/session.js-109-130"
+        ]
+    },
+    "get-test/session.js-45-45": {
+        "impacted": [
+            "get-lib/session.js-88-90"
+        ]
+    },
+    "remove-lib/session.js-95-98": {
+        "impacted": [
+            "arrowAnonymousFunction-test/session.js-43-68",
+            "encode-lib/session.js-41-50",
+            "remove-test/session.js-47-47",
+            "lib/session.js"
+        ]
+    },
+    "remove-test/session.js-47-47": {
+        "impacted": [
+            "remove-lib/session.js-95-98"
+        ]
+    },
+    "arrowAnonymousFunction-test/session.js-70-87": {
+        "impacted": [
+            "test/session.js",
+            "arrowAnonymousFunction-lib/session.js-7-106",
+            "arrowAnonymousFunction-lib/session.js-17-105",
+            "set-lib/session.js-71-74"
+        ]
+    },
+    "arrowAnonymousFunction-lib/session.js-37-38": {
+        "impacted": [
+            "arrowAnonymousFunction-lib/session.js-49-49"
+        ]
+    },
+    "arrowAnonymousFunction-test/session.js-89-107": {
+        "impacted": [
+            "test/session.js",
+            "arrowAnonymousFunction-lib/session.js-7-106",
+            "arrowAnonymousFunction-lib/session.js-17-105"
+        ]
+    },
+    "arrowAnonymousFunction-lib/session.js-20-20": {
+        "impacted": [
+            "arrowAnonymousFunction-lib/session.js-17-105"
+        ]
+    },
+    "arrowAnonymousFunction-test/session.js-109-130": {
+        "impacted": [
+            "test/session.js",
+            "arrowAnonymousFunction-lib/session.js-7-106",
+            "arrowAnonymousFunction-lib/session.js-17-105"
+        ]
+    },
+    "arrowAnonymousFunction-test/session.js-110-114": {
+        "impacted": [
+            "arrowAnonymousFunction-test/session.js-109-130",
+            "get-test/session.js-111-111"
+        ]
+    },
+    "get-test/session.js-111-111": {
+        "impacted": [
+            "get-lib/session.js-88-90"
+        ]
+    }
+}
