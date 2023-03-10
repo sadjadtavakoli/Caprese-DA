@@ -25,11 +25,11 @@ function getActualImpactSetPath(benchmark) {
 }
 
 function getDetectedImpactSetPath(benchmark) {
-    return `${getProjectDir(benchmark)}${path.sep}detectedImpactSets.json`
+    return `${getProjectDir(benchmark)}${path.sep}detectedImpactSetsResults.json`
 }
 
 function getOriginalImpactSetPath(benchmark) {
-    return `${getProjectDir(benchmark)}${path.sep}originalDetectedImpactSets.json`
+    return `${getProjectDir(benchmark)}${path.sep}detectedImpactSets.json`
 }
 
 function getImpactSetCSVs(benchmark) {
