@@ -30,7 +30,6 @@ function readCSVs(benchmark) {
         addImpacted(impact2, changedEntity)
     }
 
-    fs.writeFileSync(getActualImpactSetPath(benchmark) + "pure list.json", JSON.stringify(impactSetList))
     insertImpactedEntities()
     fs.writeFileSync(getActualImpactSetPath(benchmark), JSON.stringify(changeSets))
 
