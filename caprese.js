@@ -13,16 +13,25 @@ if (!fs.existsSync(constants.DATA_PATH)) {
 }
 
 if (process.argv[1].endsWith(path.basename(__filename))) {
-    runCaprese(constants.SEED_COMMIT)
+    if (process.argv[2] == "mine") {
+        runRefDiff(constants.SEED_COMMIT)
+    } else if (process.argv[2] == "da") {
+        daCommand(constants.SEED_COMMIT)
+    } else if (process.argv[2] == "detect") {
+        changeSet = process.argv[3].split(" ")
+        detectCommand(changeSet)
+    }
 }
 
-async function runCaprese(commit) {
-    if (!commit) commit = await getCurrentCommit()
+async function daCommand(commit) {
     await checkoutProject(commit)
-    await runRefDiff(commit)
     await runDynamicAnalysis()
+}
+
+async function detectCommand(changeSet) {
+    console.log(" = = = Run Caprese = = = ")
     await runFP()
-    computeBerkeResult(getChangeSet())
+    computeBerkeResult(changeSet, "capreseResult.json")
 }
 
 async function evaluationAnalyzer(changes) {
@@ -31,7 +40,7 @@ async function evaluationAnalyzer(changes) {
     computeBerkeResult(changes)
 }
 
-async function tempFP(changes){
+async function tempFP(changes) {
     changeSet = changes
     await runFP()
     computeBerkeResultNoDA()

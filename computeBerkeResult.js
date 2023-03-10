@@ -2,7 +2,9 @@ const fs = require('fs');
 const constants = require('./constants.js');
 
 
-function computeBerkeResult(changes) {
+function computeBerkeResult(changes, outputFile) {
+    console.log(" = = = Compute Imapct Set = = = ")
+
     let impactSet = new Map()
 
     intrepretFPData(impactSet);
@@ -11,7 +13,9 @@ function computeBerkeResult(changes) {
 
     let impactSetOrderedList = getRankedResult(impactSet);
 
-    fs.writeFileSync(constants.Caprese_RESULT_PATH, JSON.stringify(impactSetOrderedList));
+    outputFile = outputFile != undefined ? outputFile : constants.Caprese_RESULT_PATH
+    fs.writeFileSync(outputFile, JSON.stringify(impactSetOrderedList));
+
 }
 
 function computeBerkeResultNoDA() {
