@@ -20,12 +20,13 @@
         "excluded_dirs": [],
         "fp_excluded_dirs": []
     },
-    "https://github.com/jhipster/jhipster-uml.git": {
+    "https://github.com/anonymousCaprese/jhipster-uml.git": {
         "test": "test",
         "install": "npm install",
         "commits": "980",
         "main_branch": "master",
-        "seed_commit": "51de04f3a9d944c1ee3c6ca08b827c154cc759df",
+        "seed_commit": "c11a15a",
+        "original repo": "https://github.com/jhipster/jhipster-uml.git",
         "excluded_dirs": [],
         "fp_excluded_dirs": []
     },
@@ -67,33 +68,40 @@
         "excluded_dirs": [],
         "fp_excluded_dirs": []
     },
-    "https://github.com/cla-assistant/cla-assistant.git": {
+    "https://github.com/anonymousCaprese/cla-assistant.git": {
         "test": "src/tests",
         "install": "npm install",
         "commit": "1380",
         "main_branch": "main",
-        "seed_commit": "ebd28b21a3c9f80a545fb46be20ef29f1ab6280d",
+        "seed_commit": "d52dc10e3a6e5c3d436a34358e0369690e65aed1",
+        "original repo": "https://github.com/cla-assistant/cla-assistant.git",
         "excluded_dirs": [
             "acceptance_tests",
             "client"
         ],
         "fp_excluded_dirs": []
     },
-    "https://github.com/fastify/fastify.git": {
+    "https://github.com/anonymousCaprese/fastify.git": {
         "test": "test",
         "install": "npm install",
         "commits": "3379",
         "main_branch": "v3.x",
-        "seed_commit": "68a290d",
-        "excluded_dirs": ["bundler","types","esm"],
+        "seed_commit": "8d6ce388f368e666b329bca89a6ccd8cbf778dc5",
+        "original repo": "https://github.com/fastify/fastify.git",
+        "excluded_dirs": [
+            "bundler",
+            "types",
+            "esm"
+        ],
         "fp_excluded_dirs": []
     },
-    "https://github.com/MikeMcl/bignumber.js.git": {
+    "https://github.com/anonymousCaprese/bignumber.js.git": {
         "test": "test/test.js",
         "install": "npm install",
         "commit": "246",
         "main_branch": "master",
-        "seed_commit": "2603bfd93e0e51a090b138561a79249f8480156e",
+        "seed_commit": "c89673e",
+        "original repo": "https://github.com/MikeMcl/bignumber.js.git",
         "excluded_dirs": [],
         "fp_excluded_dirs": []
     }

@@ -84,8 +84,14 @@ function runCommand(command, logReport = false) {
 }
 
 function getChangeSet() {
-    if (!changeSet.length)
-        changeSet = fs.readFileSync(constants.CURRENT_CHANGES_PATH).toString().trim().split(" ")
+    if (!changeSet.length) {
+        if (fs.existsSync(constants.CURRENT_CHANGES_PATH)) {
+            changeSet = fs.readFileSync(constants.CURRENT_CHANGES_PATH).toString().trim().split(" ")
+        }
+        else {
+            changeSet = []
+        }
+    }
     return changeSet
 }
 

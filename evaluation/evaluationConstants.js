@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const constants = require('../constants.js');
 
+// ["bignumber.js", "jhipster-uml", "cla-assistant", "fastify"] => modifiedBenchmarks
 const benchmarkList = ["bignumber.js", "session", "jhipster-uml", "grant", "environment", "cla-assistant", "assemble", "nock", "fastify", "express"] // in order 
 
 const NUMBER_OF_COMMITS_PER_PROJECT = 10;
