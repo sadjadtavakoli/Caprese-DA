@@ -1,5 +1,5 @@
 const fs = require("fs")
-const { getFullTable, meanAveragePrecisionAndRecallLatexRow } = require("./utils/jsonToLatexRow")
+const { getFullTable, meanAveragePrecisionAndRecallLatexRow } = require("./utils")
 const { benchmarkList, getActualImpactSetPath, getDetectedImpactSetPath, STATUS } = require('./evaluationConstants')
 const { rankFPResult, rankDAResult } = require("../computeBerkeResult")
 
@@ -7,12 +7,11 @@ let result = {}
 let thresholds = [5, 10, 20, 30, 60, "all"]
 let latexRows = {}
 benchmarkList.forEach(filename => {
-    let benchResult = { "da": {}, "fp": {}, "caprese": {}, "tarmaq": {}, "tarmaq-filtered": {} }
+    let benchResult = { "fp": {}, "caprese": {}, "tarmaq": {}, "tarmaq-filtered": {} }
     for (let threshold of thresholds) {
         benchResult["tarmaq-filtered"][threshold] = getMeanPrecision(filename, "tarmaq-filtered", threshold, getApproachResult)
         benchResult["tarmaq"][threshold] = getMeanPrecision(filename, "tarmaq", threshold, getApproachResult)
         benchResult["caprese"][threshold] = getMeanPrecision(filename, "caprese", threshold, getApproachResult)
-        benchResult["da"][threshold] = getMeanPrecision(filename, "da", threshold, getUnitsResult)
         benchResult["fp"][threshold] = getMeanPrecision(filename, "fp", threshold, getUnitsResult)
     }
     result[filename] = benchResult
@@ -76,12 +75,12 @@ function getApproachResult(commitResult, approach) {
 }
 
 function getUnitsResult(commitResult, approach) {
-    let berke = commitResult["caprese"]
+    let caprese = commitResult["caprese"]
     if (approach == "fp") {
-        let filtered = berke.filter(item => item["FP-antecedents"] != undefined)
+        let filtered = caprese.filter(item => item["FP-antecedents"] != undefined)
         return filtered.sort(rankFPResult())
     } else {
-        let filtered = berke.filter(item => item["DA-distance"] != undefined)
+        let filtered = caprese.filter(item => item["DA-distance"] != undefined)
         return filtered.sort(rankDAResult())
     }
 }

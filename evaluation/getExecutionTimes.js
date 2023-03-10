@@ -1,6 +1,6 @@
 const fs = require("fs")
 const path = require("path")
-const { getFullTable, executionTimeToLatex } = require("./utils/jsonToLatexRow")
+const { getFullTable, executionTimeToLatex } = require("./utils")
 const { benchmarkList, EXECUTION_TIMES_PATH } = require('./evaluationConstants')
 
 if (process.argv[1].endsWith(path.basename(__filename))) {

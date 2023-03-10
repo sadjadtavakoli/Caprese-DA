@@ -1,6 +1,6 @@
 let obj1 = {
-    name:"sadjad",
-    job: "researcher",
+    name:"david",
+    job: "plumber",
     talk: function(){
         let variable = this.name
     }

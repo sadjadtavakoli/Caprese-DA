@@ -11,7 +11,7 @@ function computeBerkeResult(changes) {
 
     let impactSetOrderedList = getRankedResult(impactSet);
 
-    fs.writeFileSync(constants.Berke_RESULT_PATH, JSON.stringify(impactSetOrderedList));
+    fs.writeFileSync(constants.Caprese_RESULT_PATH, JSON.stringify(impactSetOrderedList));
 }
 
 function computeBerkeResultNoDA() {
@@ -21,7 +21,7 @@ function computeBerkeResultNoDA() {
 
     let impactSetOrderedList = getRankedResultNoDA(impactSet);
 
-    fs.writeFileSync(constants.Berke_RESULT_PATH + "NoDA.json", JSON.stringify(impactSetOrderedList));
+    fs.writeFileSync(constants.Caprese_RESULT_PATH + "NoDA.json", JSON.stringify(impactSetOrderedList));
 }
 
 function getRankedResult(impactSet) {

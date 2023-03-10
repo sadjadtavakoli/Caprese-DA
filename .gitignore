@@ -6,6 +6,6 @@ data/ProjectsData/commitsLengthDistribution.json
 *.DS_Store
 hs_err*
 **/actualImpactSets.json*
-**/berke.json
+**/caprese.json
 **/fp_result.json
 **/tarmaq.json

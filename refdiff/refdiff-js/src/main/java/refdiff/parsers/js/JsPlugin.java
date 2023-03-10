@@ -235,7 +235,7 @@ public class JsPlugin implements LanguagePlugin, Closeable {
 
     @Override
     public FilePathFilter getAllowedFilesFilter() {
-        // TODO sadjad JsPlugin reads all of these files and tries to tokenize them. To
+        // TODO JsPlugin reads all of these files and tries to tokenize them. To
         // prevent redundant reading of non js files, we could have another
         // filter working in parallel just for suppoerted formats for
         // changes.

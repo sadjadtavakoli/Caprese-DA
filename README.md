@@ -1,7 +1,7 @@
 # Berke
 Berke is a function-level change impact analysis tool using Dynamic Analysis and Frequent Pattern Mining. Follow the instruction below to run Berke.
 
-1- Install NodeProf ([check here](#NodeProf)) \
+1- Install NodeProf ([check here](#NodeProf))\
 2- Install RefDiff ([check here](#RefDiff))\
 3- Initialize the required constants ([check here](#Run))\
 4- It's ready to go! ([check here](#Run)) 
@@ -21,7 +21,7 @@ NodeProf is available under the following license:
 
 ------------------------------------------------------------
 # RefDiff 
-Berke uses a changed version of Refdiff to detect the changed entities (available [here](https://github.com/sadjad-tavakoli/RefDiff.git)).
+Berke uses a changed version of Refdiff to detect the changed entities.
 
 RefDiff originally is a tool to mine refactorings in the commit history of git repositories. In Berke we changed it to detect changed entities between two different revisions.
 
@@ -29,7 +29,7 @@ RefDiff originally is a tool to mine refactorings in the commit history of git r
 
 Before building the project, make sure you have git and a Java Development Kit (JDK) version 8 installed in your system. Also, set the JAVA_HOME environment variable to point to the installation directory of the desired JDK.
 
-Go to berke/refdiff directory, then use gradlew to install Refdiff. 
+Go to refdiff/ directory, then use gradlew to install Refdiff. 
 
 * You can find the original instruction [here](https://github.com/aserg-ufmg/RefDiff).
 
@@ -42,9 +42,9 @@ After installing NodeProf and RefDiff, you should initialize the required consta
 
 ## Ready to go
 
-Run the following command to run berke:
+Run the following command to run Caprese:
 ```
-node berke.js
+node Caprese.js
 ```
 
 The output of this execution will be accessible in the data directory specified in Berke/constants.js file. 

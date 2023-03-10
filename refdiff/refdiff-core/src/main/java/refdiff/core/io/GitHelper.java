@@ -169,9 +169,9 @@ public class GitHelper {
 	public static PairBeforeAfter<SourceFileSet> getSourcesBeforeAndAfterCommit(Repository repository, String commitId, FilePathFilter fileExtensions) {
 		try (RevWalk rw = new RevWalk(repository)) {
 			RevCommit commitAfter = rw.parseCommit(repository.resolve(commitId));
-			if (commitAfter.getParentCount() != 1) {
-				// throw new RuntimeException("Commit should have one parent"); sadjad
-			}
+			// if (commitAfter.getParentCount() != 1) {
+				// throw new RuntimeException("Commit should have one parent");
+			// }
 			RevCommit commitBefore = rw.parseCommit(commitAfter.getParent(0));
 			return getSourcesBeforeAndAfterCommit(repository, commitBefore, commitAfter, fileExtensions);
 		} catch (Exception e) {

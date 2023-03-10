@@ -1,5 +1,5 @@
 const fs = require("fs")
-const { getFullTable, meanAveragePrecisionLatexRow } = require("./utils/jsonToLatexRow")
+const { getFullTable, meanAveragePrecisionLatexRow } = require("./utils")
 const { benchmarkList, getActualImpactSetPath, getDetectedImpactSetPath, STATUS } = require('./evaluationConstants')
 
 let result = {}
@@ -63,12 +63,12 @@ function getApproachResult(commitResult, approach) {
 }
 
 function getUnitsResult(commitResult, approach) {
-    let berke = commitResult["caprese"]
+    let caprese = commitResult["caprese"]
     if (approach == "fp") {
-        let filtered = berke.filter(item => item["FP-antecedents"] != undefined)
+        let filtered = caprese.filter(item => item["FP-antecedents"] != undefined)
         return filtered.sort(rankFPResult())
     } else {
-        let filtered = berke.filter(item => item["DA-distance"] != undefined)
+        let filtered = caprese.filter(item => item["DA-distance"] != undefined)
         return filtered.sort(rankDAResult())
     }
 }

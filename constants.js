@@ -55,7 +55,7 @@ const REPO_DIGGING_DEPTH = -1;
 
 /**
  * Where you want to keep the analysis data, including sequences, dependencies, and the final report. 
- * By default it's addressed to "berke/data/"
+ * By default it's addressed to "data/"
  */
 let DATA_PATH = __dirname + path.sep + 'data'
 
@@ -78,7 +78,7 @@ DATA_PATH = __dirname + path.sep + 'data' + path.sep + "ProjectsData" + path.sep
  */
 
 /**
- * refdiff, FPD, and DA directories path which by defualt are subdirectories of berke.
+ * refdiff, FPD, and DA directories path which by defualt are in the main directory.
  */
 const REFDIFF_PATH = __dirname + path.sep + "refdiff";
 const FP_PATH = __dirname + path.sep + "FPD";
@@ -100,7 +100,7 @@ const CURRENT_CHANGES_PATH = DATA_PATH + path.sep + "currentVersionChanges.txt";
 const FP_RESULT_PATH = DATA_PATH + path.sep + "fp_result.json"; // detected impact-set based on commits' changes
 const DA_DEPENDENCIES_PATH = DATA_PATH + path.sep + "dependencies.json"; // recorded dependencies by dynamic analysis
 const MAPPINGS_PATH = DATA_PATH + path.sep + "mappings.json" // unigue key mappings for functions in different revisions
-const Berke_RESULT_PATH = DATA_PATH + path.sep + "berke.json"; // berke result 
+const Caprese_RESULT_PATH = DATA_PATH + path.sep + "caprese.json"; // caprese result 
 
 if (!fs.existsSync(DATA_PATH)) {
     fs.mkdirSync(DATA_PATH);
@@ -112,7 +112,7 @@ if (!fs.existsSync(DATA_PATH)) {
     addFile(MAPPINGS_PATH, "{}")
     addFile(DA_DEPENDENCIES_PATH, "{}")
     addFile(CURRENT_CHANGES_PATH, "")
-    addFile(Berke_RESULT_PATH, "")
+    addFile(Caprese_RESULT_PATH, "")
 }
 
 function addFile(filePath, data){
@@ -124,5 +124,5 @@ function addFile(filePath, data){
 module.exports = {
     REPO_URL, PROJECT_NAME, REPO_TEST_RELATIVE_DIR, SEED_COMMIT, REPO_PATH, REFDIFF_PATH, REPO_MAIN_BRANCH, REPO_TEST_EXCLUDED_DIRS,
     FP_PATH, DA_PATH, SEQUENCES_PATH, FP_RESULT_PATH, DATA_PATH, REPO_DIGGING_DEPTH, REFDIFF_COMMAND, REMOVED_PATH,
-    FP_COMMAND, DA_COMMAND, DA_DEPENDENCIES_PATH, CURRENT_CHANGES_PATH, MAPPINGS_PATH, Berke_RESULT_PATH, FP_EXCLUDED_DIRS
+    FP_COMMAND, DA_COMMAND, DA_DEPENDENCIES_PATH, CURRENT_CHANGES_PATH, MAPPINGS_PATH, Caprese_RESULT_PATH, FP_EXCLUDED_DIRS
 }

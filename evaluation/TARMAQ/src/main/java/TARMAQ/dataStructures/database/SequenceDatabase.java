@@ -113,7 +113,7 @@ public class SequenceDatabase {
                 TrieNode nodo = frequentItems.get(frequentItem);
                 frequentItem.setQuantity(nodo.getChild().getIdList().getSupport());
 
-                // @SADJADRE
+                // @TODO
                 nodo.getChild().getIdList().setAppearingIn(nodo.getChild());
             }
             /*
@@ -136,8 +136,7 @@ public class SequenceDatabase {
      *
      * @param functions
      */
-    public int addSequence(String[] functions, int maxLength) { // TODO SADJAD must be two or three different functions.
-                                                               // #refactor
+    public int addSequence(String[] functions, int maxLength) { // TODO must be two or three different functions. #refactor
 
         // sequence filtering
         List<String> itemConstraintCopy = new ArrayList<>(itemConstraintStrings);

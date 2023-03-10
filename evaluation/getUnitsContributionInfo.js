@@ -1,5 +1,5 @@
 const fs = require("fs")
-const { unitContributionTruPositivesToLatex, getFullTable } = require("./utils/jsonToLatexRow")
+const { unitContributionTruPositivesToLatex, getFullTable } = require("./utils")
 const { benchmarkList, getDetectedImpactSetPath, STATUS } = require('./evaluationConstants')
 
 let result = {}

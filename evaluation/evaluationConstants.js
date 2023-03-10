@@ -46,9 +46,6 @@ function getProjectDir(benchmark) {
 }
 
 const STATUS = {
-    berke_unique: "Berke Unique",
-    tarmaq_unique: "TARMAQ Unique",
-    common: "common",
     removed: "Removed"
 }
 

@@ -23,7 +23,6 @@ const menaAveragePrecisionAndRecallOrdering = {
     "tarmaq": { 5: ["P", "R"], 10: ["P", "R"], 20: ["P", "R"], 30: ["P", "R"], 60: ["P", "R"], "all": ["P", "R"] },
     "caprese": { 5: ["P", "R"], 10: ["P", "R"], 20: ["P", "R"], 30: ["P", "R"], 60: ["P", "R"], "all": ["P", "R"] },
     "fp": { 5: ["P", "R"], 10: ["P", "R"], 20: ["P", "R"], 30: ["P", "R"], 60: ["P", "R"], "all": ["P", "R"] },
-    "da": { 5: ["P", "R"], 10: ["P", "R"], 20: ["P", "R"], 30: ["P", "R"], 60: ["P", "R"], "all": ["P", "R"] }
 }
 
 const menaAveragePrecisionOrdering = {

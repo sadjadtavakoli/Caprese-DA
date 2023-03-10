@@ -105,12 +105,9 @@ public class SequenceDatabase {
                 TrieNode nodo = frequentItems.get(frequentItem);
                 frequentItem.setQuantity(nodo.getChild().getIdList().getSupport());
 
-                // @SADJADRE
+                // @TODO
                 nodo.getChild().getIdList().setAppearingIn(nodo.getChild());
             }
-            // And from the original database
-            // reduceDatabase(frequentItems.keySet()); //@SADJAD we removed this step as
-            // well
 
             /*
              * We initialize all the maps
@@ -133,9 +130,9 @@ public class SequenceDatabase {
      */
     public void addSequence(String[] integers) {
         /**
-         * @TODO @sadjad should ignore sequences not containing our item-set for the
-         *       item constraint. Also, for the remainig sequences, should keep
-         *       locations of our item-set items.
+         *  @TODO ignore sequences not containing our item-set for the
+         *  item constraint. Also, for the remainig sequences, should keep
+         *  locations of our item-set items.
          */
         ItemAbstractionPairCreator pairCreator = ItemAbstractionPairCreator.getInstance();
         Sequence sequence = new Sequence(sequences.size());
@@ -158,7 +155,7 @@ public class SequenceDatabase {
                 int indexParentheseGauche = integers[i].indexOf("(");
                 if (indexParentheseGauche == -1) {
                     // extract the value for an item
-                    Item item = itemFactory.getItem(integers[i]); // @SADJADRE from this line to line 220, we can keep
+                    Item item = itemFactory.getItem(integers[i]); // @TODO from this line to line 220, we can keep
                                                                   // node and Item of our item containts list items in a
                                                                   // separete list.
                     TrieNode node = frequentItems.get(item);

@@ -2,7 +2,7 @@ const constants = require('../constants.js');
 const fs = require('fs');
 const path = require('path')
 const { exec } = require('child_process');
-const { evaluationAnalyzer } = require('../berke');
+const { evaluationAnalyzer } = require('../caprese');
 const { getChangeSetPath, STATUS, TARMAQ_RESULT_PATH, TARMAQ_COMMAND, getOriginalImpactSetPath } = require('./evaluationConstants')
 
 const DETECTED_IMPACT_SETS_PATH = getOriginalImpactSetPath()
@@ -85,7 +85,6 @@ function collectResult(commit) {
             let consequent = item['rule'].split(" => ")[1];
             item['consequent'] = consequent;
             item['FP-antecedents'] = [item['rule'].split(" => ")[0].slice(1, -1).split(", ")]
-            item['status'] = STATUS.tarmaq_unique;
 
             if (removed.includes(consequent)) {
                 item['status'] = STATUS.removed;
@@ -96,7 +95,7 @@ function collectResult(commit) {
     }
 
     function getBerkeResult() {
-        return JSON.parse(fs.readFileSync(constants.Berke_RESULT_PATH));
+        return JSON.parse(fs.readFileSync(constants.Caprese_RESULT_PATH));
     }
 }
 

@@ -13,10 +13,10 @@ if (!fs.existsSync(constants.DATA_PATH)) {
 }
 
 if (process.argv[1].endsWith(path.basename(__filename))) {
-    runBerke(constants.SEED_COMMIT)
+    runCaprese(constants.SEED_COMMIT)
 }
 
-async function runBerke(commit) {
+async function runCaprese(commit) {
     if (!commit) commit = await getCurrentCommit()
     await checkoutProject(commit)
     await runRefDiff(commit)

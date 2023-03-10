@@ -13,7 +13,7 @@ import refdiff.core.diff.RelationshipType;
 import refdiff.core.io.SourceFolder;
 import refdiff.test.util.JsParserSingleton;
 
-// TODO @sadjad add some tests for diff detection isntead of these tests
+// TODO add some tests for diff detection isntead of these tests
 public class TestCstComparatorJsParser {
 
 	private JsPlugin parser = JsParserSingleton.get();
