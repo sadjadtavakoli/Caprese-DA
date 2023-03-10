@@ -3,7 +3,7 @@ const { unitContributionTruPositivesToLatex, getFullTable } = require("./utils")
 const { benchmarkList, getDetectedImpactSetPath, STATUS } = require('./evaluationConstants')
 
 let result = {}
-let thresholds = [5, 10, 20, 30, 60, "all"]
+let thresholds = [5, 10, 20, 30, 60]
 let latexRows = {}
 benchmarkList.forEach(filename => {
     let contribution = getContribution(filename)
@@ -20,7 +20,7 @@ function getContribution(filename) {
         let result = { 'da': [], 'fp': [], 'common': [] }
         for (let commit in detectedImpactSets) {
             let detectedImpactSet = detectedImpactSets[commit]["caprese"]
-            let _threshold = threshold == "all" ? detectedImpactSet.length : Math.min(threshold, detectedImpactSet.length)
+            let _threshold = Math.min(threshold, detectedImpactSet.length)
             if (_threshold != 0) {
                 let topDetectedImpactSet = detectedImpactSet.splice(0, _threshold)
                 let truePositives = topDetectedImpactSet.filter(item => item["evaluation"].toUpperCase().includes("TP"))

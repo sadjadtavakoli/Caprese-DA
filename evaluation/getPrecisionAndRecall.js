@@ -4,12 +4,12 @@ const { benchmarkList, getActualImpactSetPath, getDetectedImpactSetPath, STATUS 
 const { rankFPResult, rankDAResult } = require("../computeBerkeResult")
 
 let result = {}
-let thresholds = [5, 10, 20, 30, 60, "all"]
+let thresholds = [5, 10, 20, 30, 60]
 let latexRows = {}
 benchmarkList.forEach(filename => {
-    let benchResult = { "fp": {}, "caprese": {}, "tarmaq": {}, "tarmaq-filtered": {} }
+    let benchResult = { "fp": {}, "caprese": {}, "tarmaq": {}, "tarmaq_t": {} }
     for (let threshold of thresholds) {
-        benchResult["tarmaq-filtered"][threshold] = getMeanPrecision(filename, "tarmaq-filtered", threshold, getApproachResult)
+        benchResult["tarmaq_t"][threshold] = getMeanPrecision(filename, "tarmaq_t", threshold, getApproachResult)
         benchResult["tarmaq"][threshold] = getMeanPrecision(filename, "tarmaq", threshold, getApproachResult)
         benchResult["caprese"][threshold] = getMeanPrecision(filename, "caprese", threshold, getApproachResult)
         benchResult["fp"][threshold] = getMeanPrecision(filename, "fp", threshold, getUnitsResult)
@@ -32,7 +32,7 @@ function getMeanPrecision(filename, approach, threshold, getResult) {
         let detectedImpactSet = getResult(detectedImpactSets[commit], approach)
 
         if (detectedImpactSet != undefined && allPositives != 0) {
-            let _threshold = threshold == "all" ? detectedImpactSet.length : Math.min(threshold, detectedImpactSet.length)
+            let _threshold = Math.min(threshold, detectedImpactSet.length)
             if (_threshold != 0) {
                 let topDetectedImpactSet = detectedImpactSet.splice(0, _threshold)
                 let truePositives = topDetectedImpactSet.filter(item => item['status'] != STATUS.removed && item['evaluation'].toUpperCase().includes("TP"))
@@ -68,7 +68,7 @@ function getMeanPrecision(filename, approach, threshold, getResult) {
 }
 
 function getApproachResult(commitResult, approach) {
-    if (approach == "tarmaq-filtered") {
+    if (approach == "tarmaq_t") {
         return commitResult["tarmaq"].filter(item => item['confidence'] >= 0.4)
     }
     return commitResult[approach]

@@ -3,7 +3,7 @@ const { getFullTable, meanAveragePrecisionLatexRow } = require("./utils")
 const { benchmarkList, getActualImpactSetPath, getDetectedImpactSetPath, STATUS } = require('./evaluationConstants')
 
 let result = {}
-let thresholds = [5, 10, 20, 30, 60, "all"]
+let thresholds = [5, 10, 20, 30, 60]
 let latexRows = {}
 benchmarkList.forEach(filename => {
     let benchResult = {
@@ -35,13 +35,7 @@ function getMeanPrecision(filename, approach, threshold, getResult) {
 
 
         if (detectedImpactSet != undefined && allPositives != 0) {
-            let _threshold = 0
-            if (threshold == "all") {
-                _threshold = detectedImpactSet.length
-            } else {
-                _threshold = Math.min(threshold, detectedImpactSet.length)
-            }
-
+            let _threshold = Math.min(threshold, detectedImpactSet.length)
             if (_threshold != 0) {
                 let topDetectedImpactSet = detectedImpactSet.splice(0, _threshold)
                 let truePositives = topDetectedImpactSet.filter(item => item['status'] != STATUS.removed && item['evaluation'].toUpperCase().includes("TP"))
