@@ -24,22 +24,17 @@ function getActualImpactSetPath(benchmark) {
     return `${getProjectDir(benchmark)}${path.sep}actualImpactSets.json`
 }
 
-function getDetectedImpactSetPath(benchmark) {
+function getDetectedImpactSetResultsPath(benchmark) {
     return `${getProjectDir(benchmark)}${path.sep}detectedImpactSetsResults.json`
 }
 
-function getOriginalImpactSetPath(benchmark) {
+function getDetectedImpactSetPath(benchmark) {
     return `${getProjectDir(benchmark)}${path.sep}detectedImpactSets.json`
-}
-
-function getImpactSetCSVs(benchmark) {
-    return `${getProjectDir(benchmark)}${path.sep}allImpactedEntities.csv`
 }
 
 function getChangeSetPath(benchmark) {
     return `${getProjectDir(benchmark)}${path.sep}changeSets.json`
 }
-
 
 function getProjectDir(benchmark) {
     return benchmark != undefined ? `${BENCHMARK_DIR}${path.sep}${benchmark}` : PROJECT_DIR
@@ -51,7 +46,7 @@ const STATUS = {
 
 
 module.exports = {
-    benchmarkList, NUMBER_OF_COMMITS_PER_PROJECT, STATUS, TARMAQ_PATH, getOriginalImpactSetPath,
-    EXECUTION_TIMES_PATH, getActualImpactSetPath, getDetectedImpactSetPath,
-    TARMAQ_RESULT_PATH, TARMAQ_COMMAND, getImpactSetCSVs, getChangeSetPath
+    benchmarkList, NUMBER_OF_COMMITS_PER_PROJECT, STATUS, TARMAQ_PATH, getDetectedImpactSetPath,
+    EXECUTION_TIMES_PATH, getActualImpactSetPath, getDetectedImpactSetResultsPath,
+    TARMAQ_RESULT_PATH, TARMAQ_COMMAND, getChangeSetPath
 }

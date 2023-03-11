@@ -353,9 +353,9 @@
             "arrowAnonymousFunction-test/diagnostics-channel.test.js-56-60",
             "arrowAnonymousFunction-test/emit-warning.test.js-10-33",
             "arrowAnonymousFunction-test/emit-warning.test.js-35-58",
-            "arrowAnonymousFunction-test/emit-warning.test.js-60-96",
-            "arrowAnonymousFunction-test/emit-warning.test.js-98-132",
-            "arrowAnonymousFunction-test/emit-warning.test.js-134-166",
+            "arrowAnonymousFunction-test/emit-warning.test.js-60-97",
+            "arrowAnonymousFunction-test/emit-warning.test.js-99-134",
+            "arrowAnonymousFunction-test/emit-warning.test.js-136-168",
             "arrowAnonymousFunction-test/fastify-instance.test.js-11-14",
             "arrowAnonymousFunction-test/fastify-instance.test.js-16-31",
             "arrowAnonymousFunction-test/fastify-instance.test.js-33-49",
@@ -931,8 +931,8 @@
             "arrowAnonymousFunction-test/default-route.test.js-22-43",
             "arrowAnonymousFunction-test/emit-warning.test.js-10-33",
             "arrowAnonymousFunction-test/emit-warning.test.js-35-58",
-            "arrowAnonymousFunction-test/emit-warning.test.js-98-132",
-            "arrowAnonymousFunction-test/emit-warning.test.js-134-166",
+            "arrowAnonymousFunction-test/emit-warning.test.js-99-134",
+            "arrowAnonymousFunction-test/emit-warning.test.js-136-168",
             "arrowAnonymousFunction-test/genreqid.test.js-6-32",
             "arrowAnonymousFunction-test/get.test.js-93-103",
             "arrowAnonymousFunction-test/get.test.js-105-115",
@@ -1176,8 +1176,8 @@
             "arrowAnonymousFunction-test/decorator.test.js-941-968",
             "arrowAnonymousFunction-test/decorator.test.js-970-997",
             "arrowAnonymousFunction-test/decorator.test.js-999-1026",
-            "arrowAnonymousFunction-test/emit-warning.test.js-60-96",
-            "arrowAnonymousFunction-test/emit-warning.test.js-98-132",
+            "arrowAnonymousFunction-test/emit-warning.test.js-60-97",
+            "arrowAnonymousFunction-test/emit-warning.test.js-99-134",
             "arrowAnonymousFunction-test/genreqid.test.js-6-32",
             "arrowAnonymousFunction-test/handler-context.test.js-16-43",
             "arrowAnonymousFunction-test/handler-context.test.js-45-63",
@@ -1317,7 +1317,7 @@
             "arrowAnonymousFunction-test/close.test.js-142-170",
             "arrowAnonymousFunction-test/close.test.js-172-202",
             "arrowAnonymousFunction-test/decorator.test.js-908-914",
-            "arrowAnonymousFunction-test/emit-warning.test.js-98-132",
+            "arrowAnonymousFunction-test/emit-warning.test.js-99-134",
             "arrowAnonymousFunction-test/hooks-async.test.js-13-89",
             "arrowAnonymousFunction-test/hooks-async.test.js-91-128",
             "arrowAnonymousFunction-test/hooks-async.test.js-130-166",
@@ -1515,7 +1515,7 @@
             "arrowAnonymousFunction-test/custom-parser.test.js-1719-1754",
             "arrowAnonymousFunction-test/custom-parser.test.js-1756-1791",
             "arrowAnonymousFunction-test/custom-parser.test.js-1793-1828",
-            "arrowAnonymousFunction-test/emit-warning.test.js-60-96",
+            "arrowAnonymousFunction-test/emit-warning.test.js-60-97",
             "arrowAnonymousFunction-test/fluent-schema.test.js-8-91",
             "arrowAnonymousFunction-test/fluent-schema.test.js-93-117",
             "arrowAnonymousFunction-test/fluent-schema.test.js-119-158",
@@ -1885,8 +1885,8 @@
             "arrowAnonymousFunction-test/decorator.test.js-954-967",
             "arrowAnonymousFunction-test/decorator.test.js-983-996",
             "arrowAnonymousFunction-test/decorator.test.js-1012-1025",
-            "arrowAnonymousFunction-test/emit-warning.test.js-80-95",
-            "arrowAnonymousFunction-test/emit-warning.test.js-118-131",
+            "arrowAnonymousFunction-test/emit-warning.test.js-82-96",
+            "arrowAnonymousFunction-test/emit-warning.test.js-121-133",
             "arrowAnonymousFunction-test/genreqid.test.js-20-31",
             "arrowAnonymousFunction-test/handler-context.test.js-35-42",
             "arrowAnonymousFunction-test/handler-context.test.js-58-62",
@@ -2097,7 +2097,7 @@
             "arrowAnonymousFunction-test/custom-parser.test.js-1730-1735",
             "arrowAnonymousFunction-test/custom-parser.test.js-1767-1772",
             "arrowAnonymousFunction-test/custom-parser.test.js-1804-1809",
-            "arrowAnonymousFunction-test/emit-warning.test.js-72-74"
+            "arrowAnonymousFunction-test/emit-warning.test.js-74-76"
         ]
     },
     "arrowAnonymousFunction-lib/contenttypeparser.js-94-116": {
@@ -2179,7 +2179,7 @@
             "arrowAnonymousFunction-test/custom-parser.test.js-1732-1734",
             "arrowAnonymousFunction-test/custom-parser.test.js-1769-1771",
             "arrowAnonymousFunction-test/custom-parser.test.js-1806-1808",
-            "arrowAnonymousFunction-test/emit-warning.test.js-72-74"
+            "arrowAnonymousFunction-test/emit-warning.test.js-74-76"
         ]
     },
     "handler-lib/handlerequest.js-61-77": {
@@ -2209,7 +2209,7 @@
             "arrowAnonymousFunction-test/custom-parser.test.js-1537-1539",
             "arrowAnonymousFunction-test/custom-parser.test.js-1596-1598",
             "arrowAnonymousFunction-test/custom-parser.test.js-1761-1763",
-            "arrowAnonymousFunction-test/emit-warning.test.js-76-78"
+            "arrowAnonymousFunction-test/emit-warning.test.js-78-80"
         ]
     },
     "preValidationCallback-lib/handlerequest.js-79-111": {
@@ -2376,8 +2376,8 @@
             "arrowAnonymousFunction-test/decorator.test.js-947-951",
             "arrowAnonymousFunction-test/decorator.test.js-976-980",
             "arrowAnonymousFunction-test/decorator.test.js-1005-1009",
-            "arrowAnonymousFunction-test/emit-warning.test.js-76-78",
-            "arrowAnonymousFunction-test/emit-warning.test.js-114-116",
+            "arrowAnonymousFunction-test/emit-warning.test.js-78-80",
+            "arrowAnonymousFunction-test/emit-warning.test.js-117-119",
             "arrowAnonymousFunction-test/handler-context.test.js-29-33",
             "arrowAnonymousFunction-test/handler-context.test.js-49-56",
             "arrowAnonymousFunction-test/hooks-async.test.js-45-49",
@@ -3148,7 +3148,7 @@
             "arrowAnonymousFunction-test/delete.test.js-301-318",
             "arrowAnonymousFunction-test/emit-warning.test.js-10-33",
             "arrowAnonymousFunction-test/emit-warning.test.js-35-58",
-            "arrowAnonymousFunction-test/emit-warning.test.js-134-166",
+            "arrowAnonymousFunction-test/emit-warning.test.js-136-168",
             "arrowAnonymousFunction-test/fluent-schema.test.js-8-91",
             "arrowAnonymousFunction-test/genreqid.test.js-20-31",
             "arrowAnonymousFunction-test/hooks-async.test.js-91-128",
@@ -4680,7 +4680,7 @@
             "arrowAnonymousFunction-test/custom-parser.test.js-1719-1754",
             "arrowAnonymousFunction-test/custom-parser.test.js-1756-1791",
             "arrowAnonymousFunction-test/custom-parser.test.js-1793-1828",
-            "arrowAnonymousFunction-test/emit-warning.test.js-60-96",
+            "arrowAnonymousFunction-test/emit-warning.test.js-60-97",
             "arrowAnonymousFunction-test/hooks.test.js-1306-1335",
             "arrowAnonymousFunction-test/content-parser.test.js-26-41",
             "arrowAnonymousFunction-test/content-parser.test.js-47-59",
@@ -7031,30 +7031,30 @@
             "inject-fastify.js-437-474"
         ]
     },
-    "arrowAnonymousFunction-test/emit-warning.test.js-60-96": {
+    "arrowAnonymousFunction-test/emit-warning.test.js-60-97": {
         "impacted": [
             "addContentTypeParser-lib/contenttypeparser.js-298-318",
             "_post-fastify.js-250-252",
             "listen-lib/server.js-48-160"
         ]
     },
-    "arrowAnonymousFunction-test/emit-warning.test.js-80-95": {
+    "arrowAnonymousFunction-test/emit-warning.test.js-82-96": {
         "impacted": [
             "wrap-lib/server.js-84-93"
         ]
     },
-    "arrowAnonymousFunction-test/emit-warning.test.js-72-74": {
+    "arrowAnonymousFunction-test/emit-warning.test.js-74-76": {
         "impacted": [
             "arrowAnonymousFunction-lib/contenttypeparser.js-139-178",
             "done-lib/contenttypeparser.js-167-177"
         ]
     },
-    "arrowAnonymousFunction-test/emit-warning.test.js-76-78": {
+    "arrowAnonymousFunction-test/emit-warning.test.js-78-80": {
         "impacted": [
             "arrowAnonymousFunction-lib/reply.js-122-202"
         ]
     },
-    "arrowAnonymousFunction-test/emit-warning.test.js-98-132": {
+    "arrowAnonymousFunction-test/emit-warning.test.js-99-134": {
         "impacted": [
             "addHook-fastify.js-523-556",
             "_get-fastify.js-241-243",
@@ -7071,7 +7071,7 @@
             "onWarning-test/emit-warning.test.js-14-18",
             "onWarning-test/emit-warning.test.js-39-43",
             "onWarning-test/emit-warning.test.js-64-70",
-            "onWarning-test/emit-warning.test.js-102-106"
+            "onWarning-test/emit-warning.test.js-103-109"
         ]
     },
     "onWarning-test/emit-warning.test.js-39-43": {
@@ -7084,12 +7084,12 @@
             "test/emit-warning.test.js"
         ]
     },
-    "onWarning-test/emit-warning.test.js-102-106": {
+    "onWarning-test/emit-warning.test.js-103-109": {
         "impacted": [
             "test/emit-warning.test.js"
         ]
     },
-    "arrowAnonymousFunction-test/emit-warning.test.js-134-166": {
+    "arrowAnonymousFunction-test/emit-warning.test.js-136-168": {
         "impacted": [
             "_get-fastify.js-241-243",
             "inject-fastify.js-437-474"
@@ -7191,7 +7191,7 @@
             "listen-lib/server.js-48-160"
         ]
     },
-    "arrowAnonymousFunction-test/emit-warning.test.js-118-131": {
+    "arrowAnonymousFunction-test/emit-warning.test.js-121-133": {
         "impacted": [
             "wrap-lib/server.js-84-93"
         ]
@@ -7280,7 +7280,7 @@
     "next-lib/route.js-458-492": {
         "impacted": [
             "preParsingHookRunner-lib/route.js-455-503",
-            "arrowAnonymousFunction-test/emit-warning.test.js-110-112",
+            "arrowAnonymousFunction-test/emit-warning.test.js-113-115",
             "handleRequest-lib/handlerequest.js-9-59",
             "next-lib/route.js-458-492",
             "arrowAnonymousFunction-test/hooks.test.js-37-42",
@@ -7299,7 +7299,7 @@
             "next-lib/route.js-458-492"
         ]
     },
-    "arrowAnonymousFunction-test/emit-warning.test.js-114-116": {
+    "arrowAnonymousFunction-test/emit-warning.test.js-117-119": {
         "impacted": [
             "arrowAnonymousFunction-lib/reply.js-122-202"
         ]

@@ -37,7 +37,7 @@ if (process.argv[1].endsWith(path.basename(__filename))) {
                     "caprese": {
                         "all": capreseExectionTime, "average": average(capreseExectionTime),
                     },
-                    "FP": {
+                    "FPD": {
                         "all": FPExectionTime, "average": average(FPExectionTime),
                     },
                     "DA": {
@@ -58,7 +58,7 @@ function readChangeSets() {
     return new Promise(resolve => {
         let commitsInfo = JSON.parse(fs.readFileSync(getChangeSetPath()));
 
-        let detailedSequences = fs.readFileSync(constants.SEQUENCES_PATH + "details.txt").toString().trim().split("\n");
+        let detailedSequences = fs.readFileSync(constants.SEQUENCES_PATH + "-details.txt").toString().trim().split("\n");
 
         for (let i = 0; i < detailedSequences.length; i += 1) {
 
@@ -76,7 +76,7 @@ function readChangeSets() {
             reversedList.set(commitsInfo[commit]['changes'], commit)
         }
         detailedSequences = detailedSequences.map(item => item.split(" : ")[1])
-        fs.writeFileSync(constants.SEQUENCES_PATH, detailedSequences.join("\n"));
+        fs.writeFileSync(constants.SEQUENCES_PATH + ".txt", detailedSequences.join("\n"));
 
         resolve(reversedList)
     })

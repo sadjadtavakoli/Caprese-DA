@@ -66,7 +66,7 @@ public class ImpactInformation {
         r.append(this.confidence);
         r.append(", \"support\":");
         r.append(this.support);
-        r.append(", \"FP-antecedents\":");
+        r.append(", \"FPD-antecedents\":");
         r.append(this.antecedents);
         r.append("}");
         return r.toString();

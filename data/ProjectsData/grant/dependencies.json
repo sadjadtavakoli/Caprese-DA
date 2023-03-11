@@ -751,11 +751,11 @@
     "arrowAnonymousFunction-test/config.js-320-339": {
         "impacted": [
             "test/config.js",
-            "defaults-lib/config.js-152-155",
+            "defaults-lib/config.js-152-157",
             "arrowAnonymousFunction-lib/config.js-158-164"
         ]
     },
-    "defaults-lib/config.js-152-155": {
+    "defaults-lib/config.js-152-157": {
         "impacted": [
             "arrowAnonymousFunction-test/config.js-320-339",
             "arrowAnonymousFunction-test/config.js-340-361",
@@ -783,7 +783,7 @@
     "arrowAnonymousFunction-test/config.js-340-361": {
         "impacted": [
             "test/config.js",
-            "defaults-lib/config.js-152-155",
+            "defaults-lib/config.js-152-157",
             "arrowAnonymousFunction-lib/config.js-158-164"
         ]
     },
@@ -795,13 +795,13 @@
     },
     "arrowAnonymousFunction-test/config.js-383-385": {
         "impacted": [
-            "defaults-lib/config.js-152-155"
+            "defaults-lib/config.js-152-157"
         ]
     },
     "arrowAnonymousFunction-test/config.js-390-399": {
         "impacted": [
             "test/config.js",
-            "defaults-lib/config.js-152-155",
+            "defaults-lib/config.js-152-157",
             "arrowAnonymousFunction-lib/config.js-158-164",
             "provider-lib/config.js-168-216"
         ]
@@ -829,7 +829,7 @@
     "arrowAnonymousFunction-test/config.js-400-407": {
         "impacted": [
             "test/config.js",
-            "defaults-lib/config.js-152-155",
+            "defaults-lib/config.js-152-157",
             "arrowAnonymousFunction-lib/config.js-158-164",
             "provider-lib/config.js-168-216"
         ]
@@ -837,7 +837,7 @@
     "arrowAnonymousFunction-test/config.js-408-423": {
         "impacted": [
             "test/config.js",
-            "defaults-lib/config.js-152-155",
+            "defaults-lib/config.js-152-157",
             "arrowAnonymousFunction-lib/config.js-158-164",
             "provider-lib/config.js-168-216"
         ]
@@ -845,7 +845,7 @@
     "arrowAnonymousFunction-test/config.js-424-434": {
         "impacted": [
             "test/config.js",
-            "defaults-lib/config.js-152-155",
+            "defaults-lib/config.js-152-157",
             "arrowAnonymousFunction-lib/config.js-158-164",
             "provider-lib/config.js-168-216"
         ]
@@ -853,7 +853,7 @@
     "arrowAnonymousFunction-test/config.js-435-445": {
         "impacted": [
             "test/config.js",
-            "defaults-lib/config.js-152-155",
+            "defaults-lib/config.js-152-157",
             "arrowAnonymousFunction-lib/config.js-158-164",
             "provider-lib/config.js-168-216"
         ]
@@ -861,7 +861,7 @@
     "arrowAnonymousFunction-test/config.js-446-466": {
         "impacted": [
             "test/config.js",
-            "defaults-lib/config.js-152-155",
+            "defaults-lib/config.js-152-157",
             "arrowAnonymousFunction-lib/config.js-158-164",
             "provider-lib/config.js-168-216"
         ]
@@ -869,7 +869,7 @@
     "arrowAnonymousFunction-test/config.js-467-487": {
         "impacted": [
             "test/config.js",
-            "defaults-lib/config.js-152-155",
+            "defaults-lib/config.js-152-157",
             "arrowAnonymousFunction-lib/config.js-158-164",
             "provider-lib/config.js-168-216"
         ]
@@ -877,7 +877,7 @@
     "arrowAnonymousFunction-test/config.js-488-506": {
         "impacted": [
             "test/config.js",
-            "defaults-lib/config.js-152-155",
+            "defaults-lib/config.js-152-157",
             "arrowAnonymousFunction-lib/config.js-158-164",
             "provider-lib/config.js-168-216"
         ]
@@ -885,7 +885,7 @@
     "arrowAnonymousFunction-test/config.js-507-530": {
         "impacted": [
             "test/config.js",
-            "defaults-lib/config.js-152-155",
+            "defaults-lib/config.js-152-157",
             "arrowAnonymousFunction-lib/config.js-158-164",
             "provider-lib/config.js-168-216"
         ]
@@ -893,7 +893,7 @@
     "arrowAnonymousFunction-test/config.js-531-546": {
         "impacted": [
             "test/config.js",
-            "defaults-lib/config.js-152-155",
+            "defaults-lib/config.js-152-157",
             "arrowAnonymousFunction-lib/config.js-158-164",
             "provider-lib/config.js-168-216"
         ]
@@ -901,7 +901,7 @@
     "arrowAnonymousFunction-test/config.js-547-562": {
         "impacted": [
             "test/config.js",
-            "defaults-lib/config.js-152-155",
+            "defaults-lib/config.js-152-157",
             "arrowAnonymousFunction-lib/config.js-158-164",
             "provider-lib/config.js-168-216"
         ]
@@ -909,7 +909,7 @@
     "arrowAnonymousFunction-test/config.js-563-581": {
         "impacted": [
             "test/config.js",
-            "defaults-lib/config.js-152-155",
+            "defaults-lib/config.js-152-157",
             "arrowAnonymousFunction-lib/config.js-158-164",
             "provider-lib/config.js-168-216"
         ]
@@ -1024,15 +1024,15 @@
     "arrowAnonymousFunction-lib/grant.js-8-31": {
         "impacted": [
             "arrowAnonymousFunction-lib/handler/express-4.js-5-47",
-            "defaults-lib/config.js-152-155",
+            "defaults-lib/config.js-152-157",
             "arrowAnonymousFunction-lib/config.js-158-164",
-            "defaults-lib/request.js-8-32",
+            "defaults-lib/request.js-8-33",
             "compose-lib/util.js-2-4",
             "arrowAnonymousFunction-lib/handler/koa-2.js-6-46",
             "register-lib/handler/hapi-17.js-9-41"
         ]
     },
-    "defaults-lib/request.js-8-32": {
+    "defaults-lib/request.js-8-33": {
         "impacted": [
             "arrowAnonymousFunction-lib/grant.js-8-31"
         ]

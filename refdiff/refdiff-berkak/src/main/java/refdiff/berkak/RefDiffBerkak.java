@@ -72,7 +72,8 @@ public class RefDiffBerkak {
 						commitsWithTwoParents.add(commit);
 					}
 					counter--;
-					System.out.println(counter);
+					System.out.print(counter);
+					System.out.print(" . ");
 				}
 			}
 
@@ -87,12 +88,15 @@ public class RefDiffBerkak {
 				iterationPointer = mineMainBranch(iterationPointer, branchMappingPath, 1);
 				while (iterationPointer.getParentCount() !=0 && !alreadyMet.contains(iterationPointer.getName()) && !iterationPointer.getName().equals(end)) {
 					counter--;
-					System.out.println(counter);
+					System.out.print(counter);
+					System.out.print(" . ");
 					alreadyMet.add(iterationPointer.getName());
 					iterationPointer = mineSideBranches(iterationPointer, branchMappingPath);
 				}
 				Files.deleteIfExists(Path.of(branchMappingPath));
 			}
+            System.out.println("\nDone!");
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -136,10 +140,10 @@ public class RefDiffBerkak {
 			Collections.sort(changes);
 			String changesString = cleanStrings(changes);
 
-			write(resultPath, changesString + " -1 \n",true);
+			write(resultPath+ ".txt", changesString + " -1 \n",true);
 			
             // for evaluation
-			write(resultPath + "details.txt", commitName + " : " + changesString + " -1 \n",true);
+			write(resultPath + "-details.txt", commitName + " : " + changesString + " -1 \n",true);
 
 		} else {
 			if (isALargeCommit) {

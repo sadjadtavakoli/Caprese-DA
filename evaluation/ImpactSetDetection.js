@@ -3,9 +3,9 @@ const fs = require('fs');
 const path = require('path')
 const { exec } = require('child_process');
 const { evaluationAnalyzer } = require('../caprese');
-const { getChangeSetPath, STATUS, TARMAQ_RESULT_PATH, TARMAQ_COMMAND, getOriginalImpactSetPath } = require('./evaluationConstants')
+const { getChangeSetPath, STATUS, TARMAQ_RESULT_PATH, TARMAQ_COMMAND, getDetectedImpactSetPath } = require('./evaluationConstants')
 
-const DETECTED_IMPACT_SETS_PATH = getOriginalImpactSetPath()
+const DETECTED_IMPACT_SETS_PATH = getDetectedImpactSetPath()
 
 if (process.argv[1].endsWith(path.basename(__filename))) {
 
@@ -32,7 +32,7 @@ function readChangeSets() {
     return new Promise(resolve => {
         let commitsInfo = JSON.parse(fs.readFileSync(getChangeSetPath()));
 
-        let detailedSequences = fs.readFileSync(constants.SEQUENCES_PATH + "details.txt").toString().trim().split("\n");
+        let detailedSequences = fs.readFileSync(constants.SEQUENCES_PATH + "-details.txt").toString().trim().split("\n");
 
         for (let i = 0; i < detailedSequences.length; i += 1) {
             let sequence = detailedSequences[i]
@@ -58,7 +58,7 @@ function readChangeSets() {
         }
 
         detailedSequences = detailedSequences.map(item => item.split(" : ")[1])
-        fs.writeFileSync(constants.SEQUENCES_PATH, detailedSequences.join("\n"));
+        fs.writeFileSync(constants.SEQUENCES_PATH + ".txt", detailedSequences.join("\n"));
         fs.writeFileSync(DETECTED_IMPACT_SETS_PATH, JSON.stringify(Object.fromEntries(impactSetEmpty)));
 
         resolve(reversedList)
@@ -84,7 +84,7 @@ function collectResult(commit) {
         tarmaqResult = tarmaqResult.map(item => {
             let consequent = item['rule'].split(" => ")[1];
             item['consequent'] = consequent;
-            item['FP-antecedents'] = [item['rule'].split(" => ")[0].slice(1, -1).split(", ")]
+            item['FPD-antecedents'] = [item['rule'].split(" => ")[0].slice(1, -1).split(", ")]
 
             if (removed.includes(consequent)) {
                 item['status'] = STATUS.removed;
@@ -103,7 +103,7 @@ function collectResult(commit) {
 function runTARMAQ(changeSet) {
     console.log(" = = = Run TARMAQ = = = ")
     return new Promise(function (resolve, reject) {
-        exec(`${TARMAQ_COMMAND}"${constants.SEQUENCES_PATH} ${TARMAQ_RESULT_PATH} ${changeSet}"`, (err, stdout, stderr) => {
+        exec(`${TARMAQ_COMMAND}"${constants.SEQUENCES_PATH + ".txt"} ${TARMAQ_RESULT_PATH} ${changeSet}"`, (err, stdout, stderr) => {
             if (!err) {
                 resolve()
             }

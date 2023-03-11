@@ -4661,12 +4661,12 @@
             "arrowAnonymousFunction-test/route.js-143-146",
             "arrowAnonymousFunction-test/route.js-148-151",
             "arrowAnonymousFunction-test/route.js-153-157",
-            "arrowAnonymousFunction-test/route.js-26-29",
-            "arrowAnonymousFunction-test/route.js-31-35",
             "arrowAnonymousFunction-test/route.js-166-168",
             "handle_error-lib/router/layer.js-62-75",
             "arrowAnonymousFunction-test/route.js-175-178",
             "arrowAnonymousFunction-test/route.js-180-185",
+            "arrowAnonymousFunction-test/route.js-26-29",
+            "arrowAnonymousFunction-test/route.js-31-35",
             "arrowAnonymousFunction-test/route.js-201-204",
             "arrowAnonymousFunction-test/route.js-206-211",
             "arrowAnonymousFunction-test/route.js-226-229",
@@ -4733,8 +4733,8 @@
             "arrowAnonymousFunction-test/route.js-138-141",
             "arrowAnonymousFunction-test/route.js-143-146",
             "arrowAnonymousFunction-test/route.js-148-151",
-            "arrowAnonymousFunction-test/route.js-26-29",
             "arrowAnonymousFunction-test/route.js-166-168",
+            "arrowAnonymousFunction-test/route.js-26-29",
             "arrowAnonymousFunction-test/route.js-192-194",
             "arrowAnonymousFunction-test/route.js-218-220",
             "arrowAnonymousFunction-test/route.js-242-244",
@@ -5628,17 +5628,6 @@
             "next-lib/router/route.js-116-148"
         ]
     },
-    "arrowAnonymousFunction-test/route.js-26-29": {
-        "impacted": [
-            "handle-lib/router/layer.js-86-99",
-            "arrowAnonymousFunction-test/route.js-31-35"
-        ]
-    },
-    "arrowAnonymousFunction-test/route.js-31-35": {
-        "impacted": [
-            "next-lib/router/route.js-116-148"
-        ]
-    },
     "arrowAnonymousFunction-test/route.js-162-186": {
         "impacted": [
             "test/route.js",
@@ -5708,6 +5697,17 @@
         ]
     },
     "arrowAnonymousFunction-test/route.js-180-185": {
+        "impacted": [
+            "next-lib/router/route.js-116-148"
+        ]
+    },
+    "arrowAnonymousFunction-test/route.js-26-29": {
+        "impacted": [
+            "handle-lib/router/layer.js-86-99",
+            "arrowAnonymousFunction-test/route.js-31-35"
+        ]
+    },
+    "arrowAnonymousFunction-test/route.js-31-35": {
         "impacted": [
             "next-lib/router/route.js-116-148"
         ]
@@ -6300,16 +6300,16 @@
             "all-lib/router/route.js-179-199"
         ]
     },
-    "arrowAnonymousFunction-test/router.js-90-92": {
-        "impacted": [
-            "handle-lib/router/layer.js-86-99"
-        ]
-    },
     "arrowAnonymousFunction-test/router.js-153-156": {
         "impacted": [
             "test/router.js",
             "route-lib/router/index.js-502-515",
             "all-lib/router/route.js-179-199"
+        ]
+    },
+    "arrowAnonymousFunction-test/router.js-90-92": {
+        "impacted": [
+            "handle-lib/router/layer.js-86-99"
         ]
     },
     "arrowAnonymousFunction-test/router.js-160-181": {

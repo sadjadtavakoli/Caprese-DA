@@ -28,7 +28,7 @@ RUN cp nodeprof.js/src/ch.usi.inf.nodeprof/js/jalangi.js graalvm-ce-java11-20.2.
 WORKDIR /app/caprese/DA/
 RUN npm install
 
-# fp and tarmaq
+# fpd and tarmaq
 RUN apt-get install -y maven
 
 WORKDIR /app/caprese/

@@ -297,6 +297,47 @@
             "src/tests/server/services/cla.js"
         ]
     },
+    "arrowAnonymousFunction-src/server/src/services/github.js-1-275": {
+        "impacted": [
+            "src/tests/server/services/github.js"
+        ]
+    },
+    "src/tests/server/services/github.js": {
+        "impacted": [
+            "arrowAnonymousFunction-src/server/src/services/github.js-1-275"
+        ]
+    },
+    "arrowAnonymousFunction-src/server/src/services/github.js-1-274": {
+        "impacted": [
+            "arrowAnonymousFunction-src/server/src/services/github.js-1-275"
+        ]
+    },
+    "arrowAnonymousFunction-src/tests/server/services/github.js-25-238": {
+        "impacted": [
+            "src/tests/server/services/github.js",
+            "__set__-src/server/src/services/github.js-186-246",
+            "OctokitWithPluginsAndDefaultsMock-src/tests/server/services/github.js-37-56"
+        ]
+    },
+    "__set__-src/server/src/services/github.js-186-246": {
+        "impacted": [
+            "arrowAnonymousFunction-src/tests/server/services/github.js-25-238",
+            "__set__-src/server/src/services/github.js-186-246",
+            "arrowAnonymousFunction-src/tests/server/services/github.js-172-184",
+            "arrowAnonymousFunction-src/tests/server/services/github.js-186-198",
+            "arrowAnonymousFunction-src/tests/server/services/github.js-215-236"
+        ]
+    },
+    "arrowAnonymousFunction-eval at __set__ (src/server/src/services/github.js-241-1": {
+        "impacted": [
+            "__set__-src/server/src/services/github.js-186-246"
+        ]
+    },
+    "arrowAnonymousFunction-eval at __set__ (src/server/src/services/github.js-230-1": {
+        "impacted": [
+            "__set__-src/server/src/services/github.js-186-246"
+        ]
+    },
     "arrowAnonymousFunction-src/tests/server/services/org.js-20-42": {
         "impacted": [
             "src/tests/server/services/org.js"
@@ -494,6 +535,16 @@
         "impacted": [
             "src/tests/server/services/url.js",
             "githubOrgWebhook-src/server/src/services/url.js-49-49"
+        ]
+    },
+    "arrowAnonymousFunction-src/server/src/webhooks/pull_request.js-1-173": {
+        "impacted": [
+            "src/tests/server/webhooks/pull_request.js"
+        ]
+    },
+    "src/tests/server/webhooks/pull_request.js": {
+        "impacted": [
+            "arrowAnonymousFunction-src/server/src/webhooks/pull_request.js-1-173"
         ]
     },
     "arrowAnonymousFunction-src/tests/server/webhooks/pull_request.js-255-606": {

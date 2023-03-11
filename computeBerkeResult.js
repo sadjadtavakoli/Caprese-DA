@@ -36,11 +36,11 @@ function getRankedResult(impactSet) {
     for (let item of impactSet) {
         info = item[1]
         let data = { ...{ "consequent": item[0] }, ...item[1] }
-        if (info['DA-distance'] != undefined && info['FP-antecedents'] != undefined) {
+        if (info['DA-distance'] != undefined && info['FPD-antecedents'] != undefined) {
             commonImpactSet.push(data)
         } else if (info['DA-distance'] != undefined) {
             uniquelyByDA.push(data)
-        } else if (info['FP-antecedents'] != undefined) {
+        } else if (info['FPD-antecedents'] != undefined) {
             uniquelyByFP.push(data)
         }
     }
@@ -181,11 +181,11 @@ function intrepretFPData(impactSet) {
 
         if (!removed.includes(impacted)) {
             if (impactSet.has(impacted)) {
-                console.error("NOPE!")
+                // console.error("NOPE!")
                 impactSet.set(impacted, { ...impactSet.get(impacted), ...info });
             } else if (impactSet.has(anonymouseName(impacted))) {
-                console.error("NOPE! Anonymous")
-                console.log(impacted)
+                // console.error("NOPE! Anonymous")
+                // console.log(impacted)
                 impactSet.set(impacted, { ...impactSet.get(anonymouseName(impacted)), ...info });
                 impactSet.delete(anonymouseName(impacted))
             } else {

@@ -5,7 +5,6 @@ data/ProjectsData/commitsLengthDistribution.json
 .vscode 
 *.DS_Store
 hs_err*
-**/actualImpactSets.json*
 **/caprese.json
 **/fp_result.json
 **/tarmaq.json

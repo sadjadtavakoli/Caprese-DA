@@ -27,8 +27,8 @@ if (process.argv[2]) {
 }
 
 function getProjectsInfo(filename) {
-    let changeSequences = fs.readFileSync(`${DATA_PATH}${filename}${path.sep}sequences.txtdetails.txt`).toString().trim().split("\n")
-    let eliminated = fs.readFileSync(`${DATA_PATH}${filename}${path.sep}sequences.txt-eliminated.txt`).toString().trim().split("\n")
+    let changeSequences = fs.readFileSync(`${DATA_PATH}${filename}${path.sep}sequences-details.txt`).toString().trim().split("\n")
+    let eliminated = fs.readFileSync(`${DATA_PATH}${filename}${path.sep}sequences-eliminated.txt`).toString().trim().split("\n")
     let functionsInCommit = averageFunctionsInCommit(changeSequences)
     let numberOfUniqueFunctions = uniqueFunctionsCount(changeSequences)
     let { languagesInfo, totalLines } = readBenchmarkLanguagesData(filename);

@@ -1,10 +1,6 @@
-node evaluation/insert/CSV2ChangeSets.js // grount truth
+call node evaluation/impactSetDetection.js for the benchmarks one by one
 
-node evaluation/impactSetDetection.js  // impact set
-
-node evaluation/insert/nestedParentEntities.js // update ground truth based on the detected impact set
-
-node evaluation/insert/trueFalsePositives.js // insert true false positive
+node evaluation/insertTrueFalsePositives.js // insert true false positive
 
 node evaluation/getUnitsContributionInfo.js
 

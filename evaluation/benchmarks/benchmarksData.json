@@ -6,7 +6,7 @@
         "main_branch": "master",
         "seed_commit": "ec1d0e50c1d4f5a0b61ec0d9d91212ed8dc8949c",
         "excluded_dirs": [],
-        "fp_excluded_dirs": [
+        "fpd_excluded_dirs": [
             "/assets/js/highlight.js",
             "/assets/js/jquery.js"
         ]
@@ -18,7 +18,7 @@
         "main_branch": "master",
         "seed_commit": "d854c43ea177d1faeea56189249fff8c24a764bd",
         "excluded_dirs": [],
-        "fp_excluded_dirs": []
+        "fpd_excluded_dirs": []
     },
     "https://github.com/anonymousCaprese/jhipster-uml.git": {
         "test": "test",
@@ -28,7 +28,7 @@
         "seed_commit": "c11a15a",
         "original repo": "https://github.com/jhipster/jhipster-uml.git",
         "excluded_dirs": [],
-        "fp_excluded_dirs": []
+        "fpd_excluded_dirs": []
     },
     "https://github.com/expressjs/session.git": {
         "test": "test",
@@ -37,7 +37,7 @@
         "main_branch": "master",
         "seed_commit": "5df613c481bc7c5979aeaeac691b64ef0a5c4948",
         "excluded_dirs": [],
-        "fp_excluded_dirs": []
+        "fpd_excluded_dirs": []
     },
     "https://github.com/yeoman/environment.git": {
         "test": "test",
@@ -48,7 +48,7 @@
         "excluded_dirs": [
             "fixtures"
         ],
-        "fp_excluded_dirs": []
+        "fpd_excluded_dirs": []
     },
     "https://github.com/nock/nock.git": {
         "test": "tests",
@@ -57,7 +57,7 @@
         "main_branch": "main",
         "seed_commit": "824a414",
         "excluded_dirs": [],
-        "fp_excluded_dirs": []
+        "fpd_excluded_dirs": []
     },
     "https://github.com/simov/grant.git": {
         "test": "test",
@@ -66,12 +66,12 @@
         "main_branch": "master",
         "seed_commit": "4d6928346e97e9ed3bbc8d6d4106d254c57c5915",
         "excluded_dirs": [],
-        "fp_excluded_dirs": []
+        "fpd_excluded_dirs": []
     },
     "https://github.com/anonymousCaprese/cla-assistant.git": {
         "test": "src/tests",
         "install": "npm install",
-        "commit": "1380",
+        "commits": "1380",
         "main_branch": "main",
         "seed_commit": "d52dc10e3a6e5c3d436a34358e0369690e65aed1",
         "original repo": "https://github.com/cla-assistant/cla-assistant.git",
@@ -79,7 +79,7 @@
             "acceptance_tests",
             "client"
         ],
-        "fp_excluded_dirs": []
+        "fpd_excluded_dirs": []
     },
     "https://github.com/anonymousCaprese/fastify.git": {
         "test": "test",
@@ -93,16 +93,16 @@
             "types",
             "esm"
         ],
-        "fp_excluded_dirs": []
+        "fpd_excluded_dirs": []
     },
     "https://github.com/anonymousCaprese/bignumber.js.git": {
         "test": "test/test.js",
         "install": "npm install",
-        "commit": "246",
+        "commits": "246",
         "main_branch": "master",
         "seed_commit": "c89673e",
         "original repo": "https://github.com/MikeMcl/bignumber.js.git",
         "excluded_dirs": [],
-        "fp_excluded_dirs": []
+        "fpd_excluded_dirs": []
     }
 }

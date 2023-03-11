@@ -1,20 +1,23 @@
 const fs = require("fs")
 const { getFullTable, meanAveragePrecisionLatexRow } = require("./utils")
-const { benchmarkList, getActualImpactSetPath, getDetectedImpactSetPath, STATUS } = require('./evaluationConstants')
+const { benchmarkList, getActualImpactSetPath, getDetectedImpactSetResultsPath, STATUS } = require('./evaluationConstants')
 
 let result = {}
 let thresholds = [5, 10, 20, 30, 60]
 let latexRows = {}
 benchmarkList.forEach(filename => {
     let benchResult = {
-        "da": {},
-        "fp": {},
+        "DA": {},
+        "FPD": {},
         "caprese": {}
     }
+    
     for (let threshold of thresholds) {
+
         benchResult["caprese"][threshold] = getMeanPrecision(filename, "caprese", threshold, getApproachResult)
-        benchResult["da"][threshold] = getMeanPrecision(filename, "da", threshold, getUnitsResult)
-        benchResult["fp"][threshold] = getMeanPrecision(filename, "fp", threshold, getUnitsResult)
+        benchResult["DA"][threshold] = getMeanPrecision(filename, "DA", threshold, getUnitsResult)
+        benchResult["FPD"][threshold] = getMeanPrecision(filename, "FPD", threshold, getUnitsResult)
+    
     }
     result[filename] = benchResult
     latexRows[filename] = meanAveragePrecisionLatexRow(benchResult)
@@ -24,7 +27,7 @@ console.log(getFullTable(latexRows))
 
 function getMeanPrecision(filename, approach, threshold, getResult) {
     let precisions = []
-    let detectedImpactSets = JSON.parse(fs.readFileSync(getDetectedImpactSetPath(filename)));
+    let detectedImpactSets = JSON.parse(fs.readFileSync(getDetectedImpactSetResultsPath(filename)));
     let actualImpactSet = JSON.parse(fs.readFileSync(getActualImpactSetPath(filename)));
 
     for (let commit in detectedImpactSets) {
@@ -58,8 +61,8 @@ function getApproachResult(commitResult, approach) {
 
 function getUnitsResult(commitResult, approach) {
     let caprese = commitResult["caprese"]
-    if (approach == "fp") {
-        let filtered = caprese.filter(item => item["FP-antecedents"] != undefined)
+    if (approach == "FPD") {
+        let filtered = caprese.filter(item => item["FPD-antecedents"] != undefined)
         return filtered.sort(rankFPResult())
     } else {
         let filtered = caprese.filter(item => item["DA-distance"] != undefined)

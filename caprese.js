@@ -13,7 +13,7 @@ if (!fs.existsSync(constants.DATA_PATH)) {
 }
 
 if (process.argv[1].endsWith(path.basename(__filename))) {
-    if (process.argv[2] == "mine") {
+    if (process.argv[2] == "fpd") {
         runRefDiff(constants.SEED_COMMIT)
     } else if (process.argv[2] == "da") {
         daCommand(constants.SEED_COMMIT)
@@ -65,16 +65,16 @@ async function runDynamicAnalysis() {
     return runCommand(constants.DA_COMMAND, true)
 }
 
-async function runRefDiff(commit, diggingDepth = constants.REPO_DIGGING_DEPTH, resultPath = constants.SEQUENCES_PATH) {
-    console.log(` = = = Run RefDiff with depth ${diggingDepth} = = = `)
-    let refDiffCommand = `${constants.REFDIFF_COMMAND}"${constants.REPO_URL} ${commit} ${resultPath} ${constants.REMOVED_PATH} ${diggingDepth} ${constants.MAPPINGS_PATH} ${constants.FP_EXCLUDED_DIRS}"`;
+async function runRefDiff(commit) {
+    console.log(` = = = Run RefDiff with depth ${constants.REPO_DIGGING_DEPTH} = = = `)
+    let refDiffCommand = `${constants.REFDIFF_COMMAND}"${constants.REPO_URL} ${commit} ${constants.SEQUENCES_PATH} ${constants.REMOVED_PATH} ${constants.REPO_DIGGING_DEPTH} ${constants.MAPPINGS_PATH} ${constants.FPD_EXCLUDED_DIRS}"`;
     console.log(refDiffCommand)
     return runCommand(refDiffCommand, true)
 }
 
 async function runFP() {
-    console.log(" = = = Run FP = = = ")
-    let FPCommand = `${constants.FP_COMMAND}"${constants.SEQUENCES_PATH} ${constants.FP_RESULT_PATH} ${getChangeSet()}"`
+    console.log(" = = = Run FPD = = = ")
+    let FPCommand = `${constants.FP_COMMAND}"${constants.SEQUENCES_PATH + ".txt"} ${constants.FP_RESULT_PATH} ${getChangeSet()}"`
     return runCommand(FPCommand)
 }
 

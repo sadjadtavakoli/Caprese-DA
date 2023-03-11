@@ -12,7 +12,16 @@ let benchmakrsConfig = JSON.parse(fs.readFileSync(`${__dirname}/evaluation/bench
 /**
  * your repository HTTP address
  */
-const REPO_URL = "https://github.com/anonymousCaprese/fastify.git" 
+// const REPO_URL = "https://github.com/nock/nock.git" done done
+// const REPO_URL = "https://github.com/simov/grant.git" done done
+// const REPO_URL = "https://github.com/anonymousCaprese/fastify.git" done done
+// const REPO_URL = "https://github.com/assemble/assemble.git" 
+// const REPO_URL = "https://github.com/anonymousCaprese/bignumber.js.git" 
+const REPO_URL = "https://github.com/expressjs/express.git" 
+// const REPO_URL = "https://github.com/anonymousCaprese/jhipster-uml.git" 
+// const REPO_URL = "https://github.com/expressjs/session.git" 
+// const REPO_URL = "https://github.com/yeoman/environment.git" 
+// const REPO_URL = "https://github.com/anonymousCaprese/cla-assistant.git" 
 
 /**
  * the main branch of your repository; it is usually master or main.
@@ -38,9 +47,9 @@ const REPO_TEST_RELATIVE_DIR = benchmakrsConfig[REPO_URL]['test'];
 const REPO_TEST_EXCLUDED_DIRS = benchmakrsConfig[REPO_URL]['excluded_dirs'];
 
 /**
- * The relative path of files that you want to be excluded from FP analysis
+ * The relative path of files that you want to be excluded from FPD analysis
  */
-const FP_EXCLUDED_DIRS = benchmakrsConfig[REPO_URL]['fp_excluded_dirs']
+const FPD_EXCLUDED_DIRS = benchmakrsConfig[REPO_URL]['fpd_excluded_dirs']
 /**
  * The first commits with which you want to begin the whole analysis. 
  * You can leave it empty if you want to begin with the latest one. 
@@ -94,7 +103,7 @@ const DA_COMMAND = `cd ${DA_PATH}\n$GRAAL_HOME${path.sep}bin${path.sep}node --no
 /**
  * reported data paths
  */
-const SEQUENCES_PATH = DATA_PATH + path.sep + "sequences.txt"; // changes extracted from commits 
+const SEQUENCES_PATH = DATA_PATH + path.sep + "sequences"; // changes extracted from commits 
 const REMOVED_PATH = DATA_PATH + path.sep + "removed.txt"; // removed functions/files extracted from commnits 
 const CURRENT_CHANGES_PATH = DATA_PATH + path.sep + "currentVersionChanges.txt"; // latest version's changes 
 const FP_RESULT_PATH = DATA_PATH + path.sep + "fp_result.json"; // detected impact-set based on commits' changes
@@ -104,9 +113,9 @@ const Caprese_RESULT_PATH = DATA_PATH + path.sep + "caprese.json"; // caprese re
 
 if (!fs.existsSync(DATA_PATH)) {
     fs.mkdirSync(DATA_PATH);
-    addFile(SEQUENCES_PATH, "")
-    addFile(SEQUENCES_PATH+"details.txt", "")
-    addFile(SEQUENCES_PATH+"-eliminated.txt", "")
+    addFile(SEQUENCES_PATH + ".txt", "")
+    addFile(SEQUENCES_PATH + "-details.txt", "")
+    addFile(SEQUENCES_PATH + "-eliminated.txt", "")
     addFile(REMOVED_PATH, "")
     addFile(FP_RESULT_PATH, "")
     addFile(MAPPINGS_PATH, "{}")
@@ -115,8 +124,8 @@ if (!fs.existsSync(DATA_PATH)) {
     addFile(Caprese_RESULT_PATH, "")
 }
 
-function addFile(filePath, data){
-    if(fs.existsSync(filePath)){
+function addFile(filePath, data) {
+    if (fs.existsSync(filePath)) {
         fs.writeFileSync(filePath, data)
     }
 }
@@ -124,5 +133,5 @@ function addFile(filePath, data){
 module.exports = {
     REPO_URL, PROJECT_NAME, REPO_TEST_RELATIVE_DIR, SEED_COMMIT, REPO_PATH, REFDIFF_PATH, REPO_MAIN_BRANCH, REPO_TEST_EXCLUDED_DIRS,
     FP_PATH, DA_PATH, SEQUENCES_PATH, FP_RESULT_PATH, DATA_PATH, REPO_DIGGING_DEPTH, REFDIFF_COMMAND, REMOVED_PATH,
-    FP_COMMAND, DA_COMMAND, DA_DEPENDENCIES_PATH, CURRENT_CHANGES_PATH, MAPPINGS_PATH, Caprese_RESULT_PATH, FP_EXCLUDED_DIRS
+    FP_COMMAND, DA_COMMAND, DA_DEPENDENCIES_PATH, CURRENT_CHANGES_PATH, MAPPINGS_PATH, Caprese_RESULT_PATH, FPD_EXCLUDED_DIRS
 }

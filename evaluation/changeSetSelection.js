@@ -9,20 +9,20 @@ if (process.argv[1].endsWith(path.basename(__filename))) {
 
 function testSetGenerator() {
     console.log(" * * * testset Generator * * * ")
-    let detailedSequences = fs.readFileSync(constants.SEQUENCES_PATH + "details.txt").toString().trim().split("\n");
+    let detailedSequences = fs.readFileSync(constants.SEQUENCES_PATH + "-details.txt").toString().trim().split("\n");
     let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(" ");
     let candidatedCommits = new Map()
     let maxIndex = detailedSequences.length - 1
 
     while (candidatedCommits.size < NUMBER_OF_COMMITS_PER_PROJECT) {
         let i = getRandomNumbers(maxIndex)
-        console.log(`random i = ${i}`)
         let sequence = detailedSequences[i]
         let commit = sequence.split(" : ")[0]
         let commitChanges = sequence.split(" : ")[1].slice(0, -4).split(" ").filter(item => filter(item, removed))
         if (commitChanges.length <= 1 || includes(candidatedCommits, commitChanges)) {
             continue
         }
+        console.log(`random i = ${i}`)
         maxIndex -= 1
         candidatedCommits.set(commit, { "changes": commitChanges })
         detailedSequences.splice(i, 1)
@@ -30,8 +30,8 @@ function testSetGenerator() {
 
     detailedSequences = detailedSequences.map(item => item.split(" : ")[1])
     fs.writeFileSync(getChangeSetPath(), JSON.stringify(Object.fromEntries(candidatedCommits)))
-    fs.writeFileSync(constants.SEQUENCES_PATH, detailedSequences.join("\n"));
-    
+    fs.writeFileSync(constants.SEQUENCES_PATH + ".txt", detailedSequences.join("\n"));
+
     function filter(item, removed) {
         return !removed.includes(item) & !item.includes("test") & !item.includes(".md") & !item.includes(".yml") & !item.includes(".html") & !item.includes(".json")
     }

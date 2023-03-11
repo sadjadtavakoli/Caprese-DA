@@ -22,21 +22,21 @@ const menaAveragePrecisionAndRecallOrdering = {
     "tarmaq_t": { 5: ["P", "R"], 10: ["P", "R"], 20: ["P", "R"], 30: ["P", "R"], 60: ["P", "R"] },
     "tarmaq": { 5: ["P", "R"], 10: ["P", "R"], 20: ["P", "R"], 30: ["P", "R"], 60: ["P", "R"] },
     "caprese": { 5: ["P", "R"], 10: ["P", "R"], 20: ["P", "R"], 30: ["P", "R"], 60: ["P", "R"] },
-    "fp": { 5: ["P", "R"], 10: ["P", "R"], 20: ["P", "R"], 30: ["P", "R"], 60: ["P", "R"] },
+    "FPD": { 5: ["P", "R"], 10: ["P", "R"], 20: ["P", "R"], 30: ["P", "R"], 60: ["P", "R"] },
 }
 
 const menaAveragePrecisionOrdering = {
     "caprese": [5, 10, 20, 30, 60],
-    "fp": [5, 10, 20, 30, 60],
-    "da": [5, 10, 20, 30, 60]
+    "FPD": [5, 10, 20, 30, 60],
+    "DA": [5, 10, 20, 30, 60]
 }
 
 const unitContributionTrupositivesOrdering = {
-    5: ["da", "fp", "common"],
-    10: ["da", "fp", "common"],
-    20: ["da", "fp", "common"],
-    30: ["da", "fp", "common"],
-    60: ["da", "fp", "common"]
+    5: ["DA", "FPD", "common"],
+    10: ["DA", "FPD", "common"],
+    20: ["DA", "FPD", "common"],
+    30: ["DA", "FPD", "common"],
+    60: ["DA", "FPD", "common"]
 }
 
 const benchmarksInfoOrdering = ["# Commits", "# Change-sequences", "Unique #functions", "Avg # functions in commit", "LOC", "JavaScript Percentage", "languages"]

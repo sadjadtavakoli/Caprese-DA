@@ -169,7 +169,9 @@ let fields = new Map();
                 let impactedKeys = new Set()
                 let impactedIDs = functionsDependency[item]['impacted']
                 for (let id of impactedIDs) {
-                    impactedKeys.add(tempIDsMap[id])
+                    if (tempIDsMap[id] != undefined) {
+                        impactedKeys.add(tempIDsMap[id])
+                    }
                 }
                 functionsDependency[item]['impacted'] = [...impactedKeys]
             }

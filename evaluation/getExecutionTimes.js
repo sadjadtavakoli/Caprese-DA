@@ -10,7 +10,7 @@ if (process.argv[1].endsWith(path.basename(__filename))) {
     benchmarkList.forEach(filename => {
         executionTimes[filename]["caprese"]['average'] = toFixed2(executionTimes[filename]["caprese"]['average'])
         executionTimes[filename]["tarmaq"]['average'] = toFixed2(executionTimes[filename]["tarmaq"]['average'])
-        executionTimes[filename]["FP"]['average'] = toFixed2(executionTimes[filename]["FP"]['average'])
+        executionTimes[filename]["FPD"]['average'] = toFixed2(executionTimes[filename]["FPD"]['average'])
         executionTimes[filename]["DA"]['average'] = toFixed2(executionTimes[filename]["DA"]['all'])
         executionTimes[filename]["DA"]['original'] = toFixed2(executionTimes[filename]["DA"]['original'])
         executionTimes[filename]["DA"]['overHead'] = executionTimes[filename]["DA"]['average'] - executionTimes[filename]["DA"]['original']
