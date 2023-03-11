@@ -1,7 +1,7 @@
 const fs = require("fs")
 const { getFullTable, meanAveragePrecisionAndRecallLatexRow } = require("./utils")
 const { benchmarkList, getActualImpactSetPath, getDetectedImpactSetResultsPath, STATUS } = require('./evaluationConstants')
-const { rankFPResult, rankDAResult } = require("../computeBerkeResult")
+const { rankFPResult, rankDAResult } = require("../computeCapreseResult")
 
 let result = {}
 let thresholds = [5, 10, 20, 30, 60]
@@ -9,15 +9,17 @@ let latexRows = {}
 benchmarkList.forEach(filename => {
     let benchResult = { "FPD": {}, "caprese": {}, "tarmaq": {}, "tarmaq_t": {} }
     for (let threshold of thresholds) {
-        benchResult["tarmaq_t"][threshold] = getMeanPrecision(filename, "tarmaq_t", threshold, getApproachResult)
-        benchResult["tarmaq"][threshold] = getMeanPrecision(filename, "tarmaq", threshold, getApproachResult)
         benchResult["caprese"][threshold] = getMeanPrecision(filename, "caprese", threshold, getApproachResult)
         benchResult["FPD"][threshold] = getMeanPrecision(filename, "FPD", threshold, getUnitsResult)
+        benchResult["tarmaq"][threshold] = getMeanPrecision(filename, "tarmaq", threshold, getApproachResult)
+        benchResult["tarmaq_t"][threshold] = getMeanPrecision(filename, "tarmaq_t", threshold, getApproachResult)
     }
     result[filename] = benchResult
     latexRows[filename] = meanAveragePrecisionAndRecallLatexRow(benchResult)
 })
-
+console.log("\n ==== results as json === \n")
+console.log(result)
+console.log("\n ==== latex table === \n")
 console.log(getFullTable(latexRows))
 
 function getMeanPrecision(filename, approach, threshold, getResult) {
@@ -58,11 +60,6 @@ function getMeanPrecision(filename, approach, threshold, getResult) {
         result['R'] = "-"
     }
 
-    if (truePositivesList.length) {
-        result['TP'] = average(truePositivesList)
-    } else {
-        result['TP'] = "-"
-    }
     return JSON.stringify(result)
 
 }

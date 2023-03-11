@@ -2,7 +2,7 @@ const fs = require('fs');
 const constants = require('./constants.js');
 
 
-function computeBerkeResult(changes, outputFile) {
+function computeCapreseResult(changes, outputFile) {
     console.log(" = = = Compute Imapct Set = = = ")
 
     let impactSet = new Map()
@@ -15,10 +15,11 @@ function computeBerkeResult(changes, outputFile) {
 
     outputFile = outputFile != undefined ? outputFile : constants.Caprese_RESULT_PATH
     fs.writeFileSync(outputFile, JSON.stringify(impactSetOrderedList));
+    console.log("impact set is stored in", outputFile)
 
 }
 
-function computeBerkeResultNoDA() {
+function computeCapreseResultNoDA() {
     let impactSet = new Map()
 
     intrepretFPDataNoDA(impactSet);
@@ -210,4 +211,4 @@ function anonymouseName(name) {
     return name.replace(/((?![.])([^-])*)/, "arrowAnonymousFunction");
 }
 
-module.exports = { computeBerkeResult, anonymouseName, computeBerkeResultNoDA, rankDAResult, rankFPResult }
+module.exports = { computeCapreseResult, anonymouseName, computeCapreseResultNoDA, rankDAResult, rankFPResult }

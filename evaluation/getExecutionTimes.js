@@ -1,27 +1,44 @@
 const fs = require("fs")
 const path = require("path")
-const { getFullTable, executionTimeToLatex } = require("./utils")
 const { benchmarkList, EXECUTION_TIMES_PATH } = require('./evaluationConstants')
 
 if (process.argv[1].endsWith(path.basename(__filename))) {
 
     let executionTimes = JSON.parse(fs.readFileSync(EXECUTION_TIMES_PATH));
-    let executionTimeResult = {}
+    let caprese = []
+    let tarmaq = []
+    let FPD = []
+    let DAAverage = []
+    let DATest = []
+    let DAOverHead = []
     benchmarkList.forEach(filename => {
-        executionTimes[filename]["caprese"]['average'] = toFixed2(executionTimes[filename]["caprese"]['average'])
-        executionTimes[filename]["tarmaq"]['average'] = toFixed2(executionTimes[filename]["tarmaq"]['average'])
-        executionTimes[filename]["FPD"]['average'] = toFixed2(executionTimes[filename]["FPD"]['average'])
-        executionTimes[filename]["DA"]['average'] = toFixed2(executionTimes[filename]["DA"]['all'])
-        executionTimes[filename]["DA"]['original'] = toFixed2(executionTimes[filename]["DA"]['original'])
-        executionTimes[filename]["DA"]['overHead'] = executionTimes[filename]["DA"]['average'] - executionTimes[filename]["DA"]['original']
-        executionTimeResult[filename] = executionTimeToLatex(executionTimes[filename])
+        caprese.push(toFixed2(executionTimes[filename]["caprese"]['average']))
+        tarmaq.push(toFixed2(executionTimes[filename]["tarmaq"]['average']))
+        FPD.push(toFixed2(executionTimes[filename]["FPD"]['average']))
+        DAAverage.push(toFixed2(executionTimes[filename]["DA"]['all']))
+        DATest.push(toFixed2(executionTimes[filename]["DA"]['test']))
+        DAOverHead.push(toFixed2(executionTimes[filename]["DA"]['all'] - executionTimes[filename]["DA"]['test']))
     });
 
     function toFixed2(number) {
         if (parseInt(number)) {
             return (number / 1000).toFixed(2)
         }
-        return number
+        return "-"
     }
-    console.log(getFullTable(executionTimeResult))
+    let result = {
+        "caprese": average(caprese),
+        "tarmaq": average(tarmaq),
+        "FPD": average(FPD),
+        "DA": average(DAAverage),
+        "DA test": average(DATest),
+        "DA overhead": average(DAOverHead)
+    }
+
+    function average(array) {
+        array = array.filter(item => item != "-")
+        array = array.map(item => parseFloat(item))
+        return parseFloat((array.reduce((a, b) => a + b) / array.length).toFixed(2))
+    }
+    console.log(result)
 }

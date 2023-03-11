@@ -22,7 +22,9 @@ benchmarkList.forEach(filename => {
     result[filename] = benchResult
     latexRows[filename] = meanAveragePrecisionLatexRow(benchResult)
 })
-
+console.log("\n ==== results as json === \n")
+console.log(result)
+console.log("\n ==== latex table === \n")
 console.log(getFullTable(latexRows))
 
 function getMeanPrecision(filename, approach, threshold, getResult) {

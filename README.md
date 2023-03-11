@@ -1,5 +1,5 @@
-# Berke
-Berke is a function-level change impact analysis tool using Dynamic Analysis and Frequent Pattern Mining. Follow the instruction below to run Berke.
+# Caprese
+Caprese is a function-level change impact analysis tool using Dynamic Analysis and Frequent Pattern Mining. Follow the instruction below to run Caprese.
 
 1- Install NodeProf ([check here](#NodeProf))\
 2- Install RefDiff ([check here](#RefDiff))\
@@ -9,7 +9,7 @@ Berke is a function-level change impact analysis tool using Dynamic Analysis and
 ------------------------------------------------------------
 
 # NodeProf 
-Berke uses NodeProf for its dynamic analysis phase. NodeProf is an efficient instrumentation and profiling framework for [Graal.js](https://github.com/graalvm/graaljs).
+Caprese uses NodeProf for its dynamic analysis phase. NodeProf is an efficient instrumentation and profiling framework for [Graal.js](https://github.com/graalvm/graaljs).
 
 ## Getting started
 
@@ -21,9 +21,9 @@ NodeProf is available under the following license:
 
 ------------------------------------------------------------
 # RefDiff 
-Berke uses a changed version of Refdiff to detect the changed entities.
+Caprese uses a changed version of Refdiff to detect the changed entities.
 
-RefDiff originally is a tool to mine refactorings in the commit history of git repositories. In Berke we changed it to detect changed entities between two different revisions.
+RefDiff originally is a tool to mine refactorings in the commit history of git repositories. In Caprese we changed it to detect changed entities between two different revisions.
 
 ## Getting started
 
@@ -38,7 +38,7 @@ Go to refdiff/ directory, then use gradlew to install Refdiff.
 
 ## Needs a bit of coding action
 
-After installing NodeProf and RefDiff, you should initialize the required constants in Berke/constants.js.
+After installing NodeProf and RefDiff, you should initialize the required constants in Caprese/constants.js.
 
 ## Ready to go
 
@@ -47,6 +47,6 @@ Run the following command to run Caprese:
 node Caprese.js
 ```
 
-The output of this execution will be accessible in the data directory specified in Berke/constants.js file. 
+The output of this execution will be accessible in the data directory specified in Caprese/constants.js file. 
 
 

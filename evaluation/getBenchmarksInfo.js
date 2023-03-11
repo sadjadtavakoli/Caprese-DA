@@ -17,45 +17,36 @@ if (process.argv[2]) {
     });
 
     finalResult.sort(benchmakrSorter())
-
+    let jsonResult = {}
     for (let result of finalResult) {
-        console.log(result)
-        latexRows[result['name']] = result['latexRow']
+        let benchmark = result['name']
+        delete result['name']
+        latexRows[benchmark] = result['latexRow']
+        delete result['latexRow']
+        jsonResult[benchmark] = result
     }
 
+    console.log(jsonResult)
     console.log(getFullTable(latexRows))
 }
 
 function getProjectsInfo(filename) {
     let changeSequences = fs.readFileSync(`${DATA_PATH}${filename}${path.sep}sequences-details.txt`).toString().trim().split("\n")
     let eliminated = fs.readFileSync(`${DATA_PATH}${filename}${path.sep}sequences-eliminated.txt`).toString().trim().split("\n")
-    let functionsInCommit = averageFunctionsInCommit(changeSequences)
     let numberOfUniqueFunctions = uniqueFunctionsCount(changeSequences)
     let { languagesInfo, totalLines } = readBenchmarkLanguagesData(filename);
-    let { allLanguagesInfo, JsPercentage } = writtenLanguages(languagesInfo, totalLines)
+    let { JsPercentage } = writtenLanguages(languagesInfo, totalLines)
     let benchmarksInfo = {
         "name": filename,
         "# Commits": changeSequences.length + eliminated.length,
-        "# Change-sequences": changeSequences.length,
-        "Unique #functions": numberOfUniqueFunctions,
-        "Avg # functions in commit": functionsInCommit,
-        "History (in yrs)": undefined,
-        "LOC": Math.round(totalLines / 1000),
-        "languages": allLanguagesInfo,
-        "JavaScript Percentage": JsPercentage
+        "# Transactions": changeSequences.length,
+        "# Unique functions": numberOfUniqueFunctions,
+        "KLOC": Math.round(totalLines / 1000),
+        "JS (%)": JsPercentage
     }
     let latexRow = benchmarksInfoLatexRow(benchmarksInfo)
     benchmarksInfo['latexRow'] = latexRow
     return benchmarksInfo
-}
-
-function averageFunctionsInCommit(changeSequences) {
-    let totalFunctions = 0;
-
-    for (let commit of changeSequences) {
-        totalFunctions += commit.split(" : ")[1].slice(0, -4).split(" ").length
-    }
-    return (totalFunctions / changeSequences.length).toFixed(2)
 }
 
 function uniqueFunctionsCount(changeSequences) {

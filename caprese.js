@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const { exec } = require('child_process');
 const constants = require('./constants.js');
-const { computeBerkeResult, computeBerkeResultNoDA } = require("./computeBerkeResult");
+const { computeCapreseResult, computeCapreseResultNoDA } = require("./computeCapreseResult");
 
 let changeSet = []
 
@@ -13,13 +13,16 @@ if (!fs.existsSync(constants.DATA_PATH)) {
 }
 
 if (process.argv[1].endsWith(path.basename(__filename))) {
-    if (process.argv[2] == "fpd") {
+    if (process.argv[2] == "mine") {
         runRefDiff(constants.SEED_COMMIT)
     } else if (process.argv[2] == "da") {
         daCommand(constants.SEED_COMMIT)
     } else if (process.argv[2] == "detect") {
         changeSet = process.argv[3].split(" ")
         detectCommand(changeSet)
+    }else{
+        console.error("Invalid command.")
+        console.error("please specify either 'mine', 'da' or 'detect'")
     }
 }
 
@@ -31,19 +34,19 @@ async function daCommand(commit) {
 async function detectCommand(changeSet) {
     console.log(" = = = Run Caprese = = = ")
     await runFP()
-    computeBerkeResult(changeSet, "capreseResult.json")
+    computeCapreseResult(changeSet, "capreseResult.json")
 }
 
 async function evaluationAnalyzer(changes) {
     changeSet = changes
     await runFP()
-    computeBerkeResult(changes)
+    computeCapreseResult(changes)
 }
 
 async function tempFP(changes) {
     changeSet = changes
     await runFP()
-    computeBerkeResultNoDA()
+    computeCapreseResultNoDA()
 
 }
 

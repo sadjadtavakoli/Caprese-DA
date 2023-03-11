@@ -1,6 +1,6 @@
 const fs = require("fs")
 const { unitContributionTruPositivesToLatex, getFullTable } = require("./utils")
-const { benchmarkList, getDetectedImpactSetResultsPath, STATUS } = require('./evaluationConstants')
+const { benchmarkList, getDetectedImpactSetResultsPath } = require('./evaluationConstants')
 
 let result = {}
 let thresholds = [5, 10, 20, 30, 60]
@@ -11,12 +11,15 @@ benchmarkList.forEach(filename => {
     latexRows[filename] = unitContributionTruPositivesToLatex(contribution)
 })
 
+console.log("\n ==== results as json === \n")
+console.log(result)
+console.log("\n ==== latex table === \n")
 console.log(getFullTable(latexRows))
 
 function getContribution(filename) {
     let lapsesOnThresholds = {}
-    let detectedImpactSets = JSON.parse(fs.readFileSync(getDetectedImpactSetResultsPath(filename)));
     for (let threshold of thresholds) {
+        let detectedImpactSets = JSON.parse(fs.readFileSync(getDetectedImpactSetResultsPath(filename)));
         let result = { 'DA': [], 'FPD': [], 'common': [] }
         for (let commit in detectedImpactSets) {
             let detectedImpactSet = detectedImpactSets[commit]["caprese"]
@@ -34,7 +37,6 @@ function getContribution(filename) {
                 }
             }
         }
-        console.log(result)
         lapsesOnThresholds[threshold] = { 'DA': average(result['DA']), 'FPD': average(result['FPD']), 'common': average(result['common']) }
     }
     return lapsesOnThresholds

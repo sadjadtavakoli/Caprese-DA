@@ -71,7 +71,7 @@ function collectResult(commit) {
 
         let impactSet = JSON.parse(fs.readFileSync(DETECTED_IMPACT_SETS_PATH));
 
-        impactSet[commit]["caprese"] = getBerkeResult()
+        impactSet[commit]["caprese"] = getCapreseResult()
         impactSet[commit]["tarmaq"] = getTarmaqResult()
 
         fs.writeFileSync(DETECTED_IMPACT_SETS_PATH, JSON.stringify(impactSet));
@@ -94,7 +94,7 @@ function collectResult(commit) {
         return tarmaqResult;
     }
 
-    function getBerkeResult() {
+    function getCapreseResult() {
         return JSON.parse(fs.readFileSync(constants.Caprese_RESULT_PATH));
     }
 }
