@@ -26,7 +26,9 @@ if (process.argv[2]) {
         jsonResult[benchmark] = result
     }
 
+    console.log("\n ==== results as json === \n")
     console.log(jsonResult)
+    console.log("\n ==== latex table === \n")
     console.log(getFullTable(latexRows))
 }
 

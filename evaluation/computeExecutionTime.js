@@ -2,7 +2,7 @@ const constants = require('../constants.js');
 const fs = require('fs');
 const path = require('path')
 const { evaluationAnalyzer, tempFP, runDynamicAnalysis } = require('../caprese');
-const { runTARMAQ } = require('./ImpactSetDetection')
+const { runTARMAQ } = require('./impactSetDetection')
 const { performance } = require('perf_hooks');
 
 const { getChangeSetPath, EXECUTION_TIMES_PATH } = require('./evaluationConstants')
