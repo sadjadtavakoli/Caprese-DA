@@ -412,4 +412,10 @@ public class Trie implements Comparable<Trie> {
         return acum;
     }
 
+    @Override
+    public int compareTo(Trie o) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'compareTo'");
+    }
+
 }
