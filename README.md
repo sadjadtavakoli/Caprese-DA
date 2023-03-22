@@ -42,11 +42,23 @@ After installing NodeProf and RefDiff, you should initialize the required consta
 
 ## Ready to go
 
-Run the following command to run Caprese:
+Run the following command to extract dynamic dependencies:
 ```
-node Caprese.js
+node Caprese.js da
 ```
 
-The output of this execution will be accessible in the data directory specified in Caprese/constants.js file. 
+Run the following command to extract sequences:
+```
+node Caprese.js mine
+```
+
+After these commands, the following command can be used to get the impacted functions by a change set. In this command, the functions provided as input must be between double quotation marks, separated by space, and follow the naming format of *functionName-filePath-firstLine-LastLine*. If the function is anonymous, immediate, or arrow function, you should set the name as *arrowAnonymousFunction*. Also, if the change is in the main body of a file, not in any function, you should only mention the *filePath*. 
+* An example of a list of functions: "getAssist-main/assist/getAssists.js-12-18 arrowAnonymousFunction-main/index.js-10-13 index.js"
+
+```
+node Caprese.js detect "change set"
+```
+
+The output of this execution will be accessible in Caprese/capreseResult.json file. 
 
 

@@ -372,7 +372,7 @@ let fields = new Map();
          * of its writers' impact set. 
          **/
         this.getField = function (iid, base, offset, val, isComputed, isOpAssign, isMethodCall) {
-            if (typeof val != "function" && typeof val != "object") {
+            if (typeof val != "function" && typeof val != "object" && offset != undefined) {
                 if (getCurrentFunction() != undefined) {
                     let baseID = getCurrentFunction().baseID
                     let key = offset.toString() + getSetBaseID(base, "b" + iid);
