@@ -9,19 +9,17 @@ Caprese is a function-level change impact analysis tool using Dynamic Analysis a
 
 ------------------------------------------------------------
 
-# NodeProf 
+# Install NodeProf 
 Caprese uses NodeProf for its dynamic analysis phase. NodeProf is an efficient instrumentation and profiling framework for [Graal.js](https://github.com/graalvm/graaljs).
 
 ## Getting started
 
 To install nodeProf, You can follow [this instruction](https://github.com/Haiyang-Sun/nodeprof.js/tree/master/docs/panathon18). 
 
-NodeProf is available under the following license:
-
-* [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+NodeProf is available under [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
 ------------------------------------------------------------
-# RefDiff 
+# Install RefDiff 
 Caprese uses a changed version of Refdiff to detect the changed entities.
 
 RefDiff originally is a tool to mine refactorings in the commit history of git repositories. In Caprese we changed it to detect changed entities between two different revisions.
@@ -32,14 +30,11 @@ Before building the project, make sure you have git and a Java Development Kit (
 
 Go to refdiff/ directory, then use gradlew to install Refdiff. 
 
-* You can find the original instruction [here](https://github.com/aserg-ufmg/RefDiff).
 
 ------------------------------------------------------------
-# Projects Dependencies
+# Install Other Dependencies
 ## dynamic analaysis
-Change your directory to DA/, then run the following command in order to install dynamic anlaysis dependencies.
-```
-npm install
+Change your directory to "DA/", then run ```npm install``` in order to install dynamic anlaysis dependencies.
 ```
 ## frequent pattern detection
 Install the latest version of [Maven](https://maven.apache.org/index.html), if you do not have it installed already. 
@@ -51,6 +46,16 @@ Install the latest version of [Maven](https://maven.apache.org/index.html), if y
 ## Needs a bit of coding action
 
 After installing all of the requirements, you should initialize the required constants in Caprese/constants.js.
+Those constants include the following: 
+- repo_url: Repository url, 
+- repo_main_branch: The main branch’s name, 
+- repo_test_relative_dir: The relative path of the test directory, 
+- repo_test_excluded_dirs: the test paths to be excluded from dynamic analysis, 
+- fpd_excluded_dirs: the paths to be excluded from frequent pattern detection unit, 
+- seed_commit: the commit to start the analysis with it.
+
+You can also modify any other constants based on your unique needs, like digging depth of the repository, the storage path, etc.
+
 
 ## Ready to go
 
