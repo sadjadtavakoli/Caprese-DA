@@ -2,10 +2,12 @@ const path = require('path');
 const fs = require('fs');
 const constants = require('../constants.js');
 
-// ["bignumber.js", "jhipster-uml", "cla-assistant", "fastify"] => modifiedBenchmarks
-const benchmarkList = ["bignumber.js", "session", "jhipster-uml", "grant", "environment", "cla-assistant", "assemble", "nock", "fastify", "express"] // in order 
+// The list of benchmarks for the evaluation 
+const benchmarkList = ["bignumber.js", "session", "jhipster-uml", "grant", "environment", "cla-assistant", "assemble", "nock", "fastify", "express"]
 
+// The number of random change sets
 const NUMBER_OF_COMMITS_PER_PROJECT = 10;
+
 const BENCHMARK_DIR = `${__dirname}${path.sep}benchmarks`
 const PROJECT_DIR = `${BENCHMARK_DIR}${path.sep}${constants.PROJECT_NAME}`;
 

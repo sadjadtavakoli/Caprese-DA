@@ -7,8 +7,10 @@ function computeCapreseResult(changes, outputFile) {
 
     let impactSet = new Map()
 
+    // Comment this line to deactive frequent pattern detection unit
     intrepretFPData(impactSet);
 
+    // Comment this line to deactive dynamic analysis unit
     intrepretDAResult(changes, impactSet);
 
     let impactSetOrderedList = getRankedResult(impactSet);
@@ -17,16 +19,6 @@ function computeCapreseResult(changes, outputFile) {
     fs.writeFileSync(outputFile, JSON.stringify(impactSetOrderedList));
     console.log("impact set is stored in", outputFile)
 
-}
-
-function computeCapreseResultNoDA() {
-    let impactSet = new Map()
-
-    intrepretFPDataNoDA(impactSet);
-
-    let impactSetOrderedList = getRankedResultNoDA(impactSet);
-
-    fs.writeFileSync(constants.Caprese_RESULT_PATH + "NoDA.json", JSON.stringify(impactSetOrderedList));
 }
 
 function getRankedResult(impactSet) {
@@ -108,18 +100,6 @@ function rankDAResult() {
     };
 }
 
-function getRankedResultNoDA(impactSet) {
-    let uniquelyByFP = [];
-    for (let item of impactSet) {
-        info = item[1]
-        let data = { ...{ "consequent": item[0] }, ...item[1] }
-        uniquelyByFP.push(data)
-    }
-
-    uniquelyByFP.sort(rankFPResult())
-    return uniquelyByFP
-}
-
 function intrepretDAResult(changeSet, impactSet) {
     let dependenciesData = JSON.parse(fs.readFileSync(constants.DA_DEPENDENCIES_PATH));
 
@@ -182,11 +162,8 @@ function intrepretFPData(impactSet) {
 
         if (!removed.includes(impacted)) {
             if (impactSet.has(impacted)) {
-                // console.error("NOPE!")
                 impactSet.set(impacted, { ...impactSet.get(impacted), ...info });
             } else if (impactSet.has(anonymouseName(impacted))) {
-                // console.error("NOPE! Anonymous")
-                // console.log(impacted)
                 impactSet.set(impacted, { ...impactSet.get(anonymouseName(impacted)), ...info });
                 impactSet.delete(anonymouseName(impacted))
             } else {
@@ -196,7 +173,17 @@ function intrepretFPData(impactSet) {
     }
 }
 
-function intrepretFPDataNoDA(impactSet) {
+function computeCapreseResultNoDA() { // for evaluation - execution time
+    let impactSet = new Map()
+
+    intrepretFPDataNoDA(impactSet);
+
+    let impactSetOrderedList = getRankedResultNoDA(impactSet);
+
+    fs.writeFileSync(constants.Caprese_RESULT_PATH + "NoDA.json", JSON.stringify(impactSetOrderedList));
+}
+
+function intrepretFPDataNoDA(impactSet) { // for evaluation - execution time
     let FPimapctSet = JSON.parse(fs.readFileSync(constants.FP_RESULT_PATH));
     let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(" ");
     for (let impacted in FPimapctSet) {
@@ -205,6 +192,18 @@ function intrepretFPDataNoDA(impactSet) {
             impactSet.set(impacted, info);
         }
     }
+}
+
+function getRankedResultNoDA(impactSet) { // for evaluation - execution time
+    let uniquelyByFP = [];
+    for (let item of impactSet) {
+        info = item[1]
+        let data = { ...{ "consequent": item[0] }, ...item[1] }
+        uniquelyByFP.push(data)
+    }
+
+    uniquelyByFP.sort(rankFPResult())
+    return uniquelyByFP
 }
 
 function anonymouseName(name) {

@@ -3,8 +3,9 @@ Caprese is a function-level change impact analysis tool using Dynamic Analysis a
 
 1- Install NodeProf ([check here](#NodeProf))\
 2- Install RefDiff ([check here](#RefDiff))\
-3- Initialize the required constants ([check here](#Run))\
-4- It's ready to go! ([check here](#Run)) 
+3- Install dependencies ([check here](#Projects_Dependencies))\
+4- Initialize the required constants ([check here](#Run))\
+5- It's ready to go! ([check here](#Run)) 
 
 ------------------------------------------------------------
 
@@ -13,7 +14,7 @@ Caprese uses NodeProf for its dynamic analysis phase. NodeProf is an efficient i
 
 ## Getting started
 
-To install nodeProf, You can follow [this instruction](https://github.com/Haiyang-Sun/nodeprof.js.git). 
+To install nodeProf, You can follow [this instruction](https://github.com/Haiyang-Sun/nodeprof.js/tree/master/docs/panathon18). 
 
 NodeProf is available under the following license:
 
@@ -34,11 +35,22 @@ Go to refdiff/ directory, then use gradlew to install Refdiff.
 * You can find the original instruction [here](https://github.com/aserg-ufmg/RefDiff).
 
 ------------------------------------------------------------
+# Projects Dependencies
+## dynamic analaysis
+Change your directory to DA/, then run the following command in order to install dynamic anlaysis dependencies.
+```
+npm install
+```
+## frequent pattern detection
+Install the latest version of [Maven](https://maven.apache.org/index.html), if you do not have it installed already. 
+
+
+------------------------------------------------------------
 # Run
 
 ## Needs a bit of coding action
 
-After installing NodeProf and RefDiff, you should initialize the required constants in Caprese/constants.js.
+After installing all of the requirements, you should initialize the required constants in Caprese/constants.js.
 
 ## Ready to go
 
