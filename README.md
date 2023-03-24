@@ -7,7 +7,7 @@ Caprese is a function-level change impact analysis tool for Node.js application 
 
 ------------------------------------------------------------
 # Install Dependencies
-## dynamic analysis
+## Dynamic Analysis
 ### Install NodeProf 
 Caprese uses NodeProf for its dynamic analysis phase. NodeProf is an efficient instrumentation and profiling framework for [Graal.js](https://github.com/graalvm/graaljs).
 
@@ -18,7 +18,7 @@ NodeProf is available under [Apache License, Version 2.0](http://www.apache.org/
 Change your directory to "DA/", then run ```npm install``` in order to install other dependencies.
 
 
-## frequent pattern detection
+## Frequent Pattern Detection
 
 ### Install RefDiff 
 Caprese uses a changed version of Refdiff to detect the changed entities.
