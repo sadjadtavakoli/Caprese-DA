@@ -45,14 +45,16 @@ Install the latest version of [Maven](https://maven.apache.org/index.html), if y
 
 ## Needs a bit of coding action
 
-After installing all of the requirements, you should initialize the required constants in Caprese/constants.js.
-Those constants include the following: 
-- repo_url: Repository url, 
-- repo_main_branch: The main branch’s name, 
-- repo_test_relative_dir: The relative path of the test directory, 
-- repo_test_excluded_dirs: the test paths to be excluded from dynamic analysis, 
-- fpd_excluded_dirs: the paths to be excluded from frequent pattern detection unit, 
-- seed_commit: the commit to start the analysis with it.
+After installing all of the dependencies, you should initialize the required constants in Caprese/constants.js.
+The customizable variables include the followings: 
+- REPO_URL: Repository url
+- REPO_MAIN_BRANCH: The main branch’s name
+- REPO_TEST_RELATIVE_DIR: The relative path of the test directory
+- REPO_TEST_EXCLUDED_DIRS: the test paths to be excluded from dynamic analysis
+- FPD_EXCLUDED_DIRS: the paths to be excluded from frequent pattern detection 
+- SEED_COMMIT: the commit to start the analysis with
+- DATA_PATH: the storage path
+
 
 You can also modify any other constants based on your unique needs, like digging depth of the repository, the storage path, etc.
 
@@ -73,7 +75,7 @@ After these commands, the following command can be used to get the impacted func
 * An example of a list of functions: "getAssist-main/assist/getAssists.js-12-18 arrowAnonymousFunction-main/index.js-10-13 index.js"
 
 ```
-node Caprese.js detect "change set"
+node Caprese.js detect "list of functions"
 ```
 
 The output of this execution will be accessible in Caprese/capreseResult.json file. 
