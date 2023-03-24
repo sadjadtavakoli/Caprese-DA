@@ -1,11 +1,11 @@
 # Caprese
 Caprese is a function-level change impact analysis tool using Dynamic Analysis and Frequent Pattern Mining. Follow the instruction below to run Caprese.
 
-1- Install NodeProf ([check here](#NodeProf))\
-2- Install RefDiff ([check here](#RefDiff))\
-3- Install dependencies ([check here](#Projects_Dependencies))\
-4- Initialize the required constants ([check here](#Run))\
-5- It's ready to go! ([check here](#Run)) 
+1- Install NodeProf ([check here](#install-nodeprof))\
+2- Install RefDiff ([check here](#install-refdiff))\
+3- Install dependencies ([check here](#install-other-dependencies))\
+4- Initialize the required constants ([check here](#needs-a-bit-of-coding-action))\
+5- It's ready to go! ([check here](#ready-to-go))
 
 ------------------------------------------------------------
 
@@ -26,16 +26,16 @@ RefDiff originally is a tool to mine refactorings in the commit history of git r
 
 ## Getting started
 
-Before building the project, make sure you have git and a Java Development Kit (JDK) version 8 installed in your system. Also, set the JAVA_HOME environment variable to point to the installation directory of the desired JDK.
+Before building the project, make sure you have [git](https://github.com/git-guides/install-git) and [java > 8](https://www.java.com/en/download/) installed in your system. Also, set the JAVA_HOME environment variable to point to the installation directory of the desired JDK.
 
-Go to refdiff/ directory, then use gradlew to install Refdiff. 
+Go to "refdiff/" directory, then use gradlew to install Refdiff. 
 
 
 ------------------------------------------------------------
 # Install Other Dependencies
 ## dynamic analaysis
 Change your directory to "DA/", then run ```npm install``` in order to install dynamic anlaysis dependencies.
-```
+
 ## frequent pattern detection
 Install the latest version of [Maven](https://maven.apache.org/index.html), if you do not have it installed already. 
 
@@ -45,7 +45,7 @@ Install the latest version of [Maven](https://maven.apache.org/index.html), if y
 
 ## Needs a bit of coding action
 
-After installing all of the dependencies, you should initialize the required constants in Caprese/constants.js.
+After installing all of the dependencies, you should initialize the required constants in "Caprese/constants.js".
 The customizable variables include the followings: 
 - REPO_URL: Repository url
 - REPO_MAIN_BRANCH: The main branch’s name
@@ -78,6 +78,6 @@ After these commands, the following command can be used to get the impacted func
 node Caprese.js detect "list of functions"
 ```
 
-The output of this execution will be accessible in Caprese/capreseResult.json file. 
+The output of this execution will be accessible in "Caprese/capreseResult.json" file. 
 
 
