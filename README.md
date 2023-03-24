@@ -33,8 +33,8 @@ Go to "refdiff/" directory, then use gradlew to install Refdiff.
 
 ------------------------------------------------------------
 # Install Other Dependencies
-## dynamic analaysis
-Change your directory to "DA/", then run ```npm install``` in order to install dynamic anlaysis dependencies.
+## dynamic analysis
+Change your directory to "DA/", then run ```npm install``` in order to install dynamic analysis dependencies.
 
 ## frequent pattern detection
 Install the latest version of [Maven](https://maven.apache.org/index.html), if you do not have it installed already. 
