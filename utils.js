@@ -2,7 +2,7 @@
 // JALANGI DO NOT INSTRUMENT
 const path = require('path');
 const events = require('events');
-const { REPO_PATH } = require('../constants');
+const { REPO_PATH } = require('./constants');
 
 const CALLBACK_REQUIRED_FUNCTIONS =
     [Array.prototype.every,

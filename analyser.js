@@ -1,7 +1,7 @@
 // do not remove the following comment
 // JALANGI DO NOT INSTRUMENT
 const fs = require('fs');
-const { DA_DEPENDENCIES_PATH } = require('../constants')
+const { DA_DEPENDENCIES_PATH } = require('./constants')
 
 let mainFilePath = "";
 let functionEnterStack = [];

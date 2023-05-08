@@ -4,7 +4,8 @@
   "description": "dynamic dependency graph extractor for Node.js/JavaScript applications",
   "main": "caprese.js",
   "scripts": {
-    "start": "node caprese.js",
+    "start": "node caprese.js da",
+    "cia": "node caprese.js detect",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -30,6 +31,7 @@
   },
   "homepage": "https://github.com/sadjadtavakoli/Caprese-DA#readme",
   "dependencies": {
+    "argparse": "^2.0.1",
     "mocha": "^10.2.0"
   }
 }

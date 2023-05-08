@@ -1,7 +1,7 @@
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url)
 const Mocha = require('mocha');
-const constants = require("../constants");
+const constants = require("./constants");
 const fs = require("fs"),
     path = require("path");
 

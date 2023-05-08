@@ -45,7 +45,7 @@ const REPO_TEST_EXCLUDED_DIRS = [];
 const SEED_COMMIT = "" // 
 
 /**
- * Where you want to keep the analysis data, including sequences, dependencies, and the final report. 
+ * Where you want to keep the dependencies and the final report. 
  * By default it's addressed to "data/"
  */
 let DATA_PATH = __dirname + path.sep + 'data'
@@ -65,15 +65,11 @@ const REPO_PATH = DATA_PATH + path.sep + PROJECT_NAME;
  **************************************************************************** 
  */
 
-/**
- * refdiff, FPD, and DA directories path which by defualt are in the main directory.
- */
-const DA_PATH = __dirname + path.sep + "DA";
 
 /**
- * refdiff, FPD, and DA execution commands
+ * DA execution commands
 */
-const DA_COMMAND = `cd ${DA_PATH}\n$GRAAL_HOME${path.sep}bin${path.sep}node --nodeprof.Scope=app --jvm --experimental-options --vm.Dtruffle.class.path.append=$NODEPROF_HOME${path.sep}nodeprof.jar --nodeprof $NODEPROF_HOME${path.sep}jalangi.js --analysis utils.js --analysis analyser.js runner.mjs`;
+const DA_COMMAND = `$GRAAL_HOME${path.sep}bin${path.sep}node --nodeprof.Scope=app --jvm --experimental-options --vm.Dtruffle.class.path.append=$NODEPROF_HOME${path.sep}nodeprof.jar --nodeprof $NODEPROF_HOME${path.sep}jalangi.js --analysis utils.js --analysis analyser.js runner.mjs`;
 
 /**
  * reported data paths
@@ -95,5 +91,5 @@ function addFile(filePath, data) {
 
 module.exports = {
     REPO_URL, PROJECT_NAME, REPO_TEST_RELATIVE_DIR, SEED_COMMIT, REPO_PATH, REPO_MAIN_BRANCH,
-    REPO_TEST_EXCLUDED_DIRS, DA_PATH, DATA_PATH, DA_COMMAND, DA_DEPENDENCIES_PATH, Caprese_RESULT_PATH,
+    REPO_TEST_EXCLUDED_DIRS, DATA_PATH, DA_COMMAND, DA_DEPENDENCIES_PATH, Caprese_RESULT_PATH,
 }

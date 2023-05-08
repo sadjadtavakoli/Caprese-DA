@@ -1,8 +1,18 @@
 const path = require('path');
 const fs = require('fs');
+const { ArgumentParser } = require('argparse');
+const { version } = require('./package.json');
 const { exec } = require('child_process');
 const constants = require('./constants.js');
 const { computeCapreseResult } = require("./computeCapreseResult");
+
+const parser = new ArgumentParser({
+    add_help: true,
+    description: `Node.js dynamic dependency graph extractor version ${version}`,
+});
+
+
+parser.add_argument('-v', '--vaersion',  { action: 'version', version: version})
 
 let changeSet = []
 
@@ -17,10 +27,11 @@ if (process.argv[1].endsWith(path.basename(__filename))) {
         daCommand(constants.SEED_COMMIT)
     } else if (process.argv[2] == "detect") {
         changeSet = process.argv[3].split(" ")
+        console.log(changeSet)
         detectCommand(changeSet)
-    }else{
+    } else {
         console.error("Invalid command.")
-        console.error("please specify either 'da' or 'detect'")
+        console.error("Please specify either 'da' or 'detect'")
     }
 }
 
