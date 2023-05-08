@@ -1,10 +1,9 @@
+.vscode
+.idea
+
+test/analyzerOutputs
 node_modules
 package-lock.json
-data/ProjectsData Backup feb 24
-data/ProjectsData/commitsLengthDistribution.json
-.vscode 
+data
 *.DS_Store
 hs_err*
-**/caprese.json
-**/fp_result.json
-**/tarmaq.json

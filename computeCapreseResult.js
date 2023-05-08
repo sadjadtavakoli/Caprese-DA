@@ -7,10 +7,6 @@ function computeCapreseResult(changes, outputFile) {
 
     let impactSet = new Map()
 
-    // Comment this line to deactive frequent pattern detection unit
-    intrepretFPData(impactSet);
-
-    // Comment this line to deactive dynamic analysis unit
     intrepretDAResult(changes, impactSet);
 
     let impactSetOrderedList = getRankedResult(impactSet);
@@ -23,75 +19,14 @@ function computeCapreseResult(changes, outputFile) {
 
 function getRankedResult(impactSet) {
 
-    let commonImpactSet = [];
     let uniquelyByDA = [];
-    let uniquelyByFP = [];
     for (let item of impactSet) {
-        info = item[1]
-        let data = { ...{ "consequent": item[0] }, ...item[1] }
-        if (info['DA-distance'] != undefined && info['FPD-antecedents'] != undefined) {
-            commonImpactSet.push(data)
-        } else if (info['DA-distance'] != undefined) {
-            uniquelyByDA.push(data)
-        } else if (info['FPD-antecedents'] != undefined) {
-            uniquelyByFP.push(data)
-        }
+        uniquelyByDA.push({ ...{ "consequent": item[0] }, ...item[1] })
     }
-    commonImpactSet.sort(commonImpactSetSorter())
     uniquelyByDA.sort(rankDAResult())
-    uniquelyByFP.sort(rankFPResult())
 
-    let mergedDAandFP = mergeLists(uniquelyByDA, uniquelyByFP)
-    return commonImpactSet.concat(mergedDAandFP)
+    return uniquelyByDA
 
-    function mergeLists(da, fp) {
-
-        let newList = []
-        let max = Math.max(da.length, fp.length)
-        let min = Math.min(da.length, fp.length)
-
-        for (let i = 0; i < min; i += 1) {
-            newList.push(da[i])
-            newList.push(fp[i])
-        }
-
-        if (da.length > min) {
-            newList = newList.concat(da.splice(min, max - min))
-        }
-
-        if (fp.length > min) {
-            newList = newList.concat(fp.splice(min, max - min))
-        }
-        return newList
-    }
-}
-
-function commonImpactSetSorter() {
-    return function (a, b) {
-        if (a['DA-distance'] != b['DA-distance']) {
-            return a['DA-distance'] - b['DA-distance'];
-        }
-
-        let aSupport = a['support'];
-        let bSupport = b['support'];
-        if (aSupport != bSupport) {
-            return bSupport - aSupport;
-        }
-
-        let aFP = a['confidence'];
-        let bFP = b['confidence'];
-        return bFP - aFP;
-    };
-}
-
-function rankFPResult() {
-    return function (a, b) {
-        if (b['support'] == a['support']) {
-            return b['confidence'] - a['confidence'];
-        } else {
-            return b['support'] - a['support'];
-        }
-    };
 }
 
 function rankDAResult() {
@@ -153,61 +88,8 @@ function intrepretDAResult(changeSet, impactSet) {
     }
 }
 
-function intrepretFPData(impactSet) {
-    let FPimapctSet = JSON.parse(fs.readFileSync(constants.FP_RESULT_PATH));
-    let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(" ");
-
-    for (let impacted in FPimapctSet) {
-        let info = FPimapctSet[impacted];
-
-        if (!removed.includes(impacted)) {
-            if (impactSet.has(impacted)) {
-                impactSet.set(impacted, { ...impactSet.get(impacted), ...info });
-            } else if (impactSet.has(anonymouseName(impacted))) {
-                impactSet.set(impacted, { ...impactSet.get(anonymouseName(impacted)), ...info });
-                impactSet.delete(anonymouseName(impacted))
-            } else {
-                impactSet.set(impacted, info);
-            }
-        }
-    }
-}
-
-function computeCapreseResultNoDA() { // for evaluation - execution time
-    let impactSet = new Map()
-
-    intrepretFPDataNoDA(impactSet);
-
-    let impactSetOrderedList = getRankedResultNoDA(impactSet);
-
-    fs.writeFileSync(constants.Caprese_RESULT_PATH + "NoDA.json", JSON.stringify(impactSetOrderedList));
-}
-
-function intrepretFPDataNoDA(impactSet) { // for evaluation - execution time
-    let FPimapctSet = JSON.parse(fs.readFileSync(constants.FP_RESULT_PATH));
-    let removed = fs.readFileSync(constants.REMOVED_PATH).toString().split(" ");
-    for (let impacted in FPimapctSet) {
-        let info = FPimapctSet[impacted];
-        if (!removed.includes(impacted)) {
-            impactSet.set(impacted, info);
-        }
-    }
-}
-
-function getRankedResultNoDA(impactSet) { // for evaluation - execution time
-    let uniquelyByFP = [];
-    for (let item of impactSet) {
-        info = item[1]
-        let data = { ...{ "consequent": item[0] }, ...item[1] }
-        uniquelyByFP.push(data)
-    }
-
-    uniquelyByFP.sort(rankFPResult())
-    return uniquelyByFP
-}
-
 function anonymouseName(name) {
     return name.replace(/((?![.])([^-])*)/, "arrowAnonymousFunction");
 }
 
-module.exports = { computeCapreseResult, anonymouseName, computeCapreseResultNoDA, rankDAResult, rankFPResult }
+module.exports = { computeCapreseResult }

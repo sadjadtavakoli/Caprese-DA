@@ -25,11 +25,9 @@ RUN wget https://github.com/Haiyang-Sun/nodeprof.js/releases/download/v20.2.0-de
 RUN mkdir graalvm-ce-java11-20.2.0/tools/nodeprof
 RUN mv nodeprof.jar graalvm-ce-java11-20.2.0/tools/nodeprof/
 RUN cp nodeprof.js/src/ch.usi.inf.nodeprof/js/jalangi.js graalvm-ce-java11-20.2.0/tools/nodeprof
+
 WORKDIR /app/caprese/DA/
 RUN npm install
-
-# fpd and tarmaq
-RUN apt-get install -y maven
 
 WORKDIR /app/caprese/
 

@@ -1,9 +1,0 @@
-call node evaluation/impactSetDetection.js for the benchmarks one by one
-
-node evaluation/insertTrueFalsePositives.js // insert true false positive
-
-node evaluation/getUnitsContributionInfo.js
-
-node evaluation/getPrecision.js
-
-node evaluation/getPrecisionAndRecall.js
