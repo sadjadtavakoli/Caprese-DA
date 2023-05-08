@@ -4,7 +4,7 @@
   "description": "dynamic dependency graph extractor for Node.js/JavaScript applications",
   "main": "caprese.js",
   "scripts": {
-    "start": "node caprese.js da",
+    "start": "node caprese.js extract",
     "cia": "node caprese.js detect",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

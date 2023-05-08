@@ -23,7 +23,7 @@ if (!fs.existsSync(constants.DATA_PATH)) {
 }
 
 if (process.argv[1].endsWith(path.basename(__filename))) {
-    if (process.argv[2] == "da") {
+    if (process.argv[2] == "extract") {
         daCommand(constants.SEED_COMMIT)
     } else if (process.argv[2] == "detect") {
         changeSet = process.argv[3].split(" ")
